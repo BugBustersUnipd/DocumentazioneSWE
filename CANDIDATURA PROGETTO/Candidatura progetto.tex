@@ -3,8 +3,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[italian]{babel}
-\usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{grffile}
@@ -44,8 +42,8 @@
 \begin{document}
 
 \begin{center}
-  \IfFileExists{Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{Logo.jpg} \\[0.8cm]
+  \IfFileExists{../Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../Logo.jpg} \\[0.8cm]
   }{%
     \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
   }
@@ -81,13 +79,13 @@ si propone di portare a termine il progetto presentato dall'azienda \textbf{Vima
 \toprule
 \textbf{Nome} & \textbf{Matricola} \\
 \midrule
-Linor Sadè & {[Matricola]} \\
 Alberto Autiero & {[Matricola]} \\
 Marco Favero & {[Matricola]} \\
-Luca Slongo & {[Matricola]} \\
 Alberto Pignat & {[Matricola]} \\
 Marco Piro & {[Matricola]} \\
+Linor Sadè & {[Matricola]} \\
 Leonardo Salviato & {[Matricola]} \\
+Luca Slongo & {[Matricola]} \\
 \bottomrule
 \end{tabular}
 \end{center}

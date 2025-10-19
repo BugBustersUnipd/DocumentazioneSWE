@@ -3,8 +3,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[italian]{babel}
-\usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{grffile}
@@ -42,12 +40,11 @@
 \begin{document}
 
 \begin{center}
-  \IfFileExists{Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{Logo.jpg} \\[0.8cm]
+  \IfFileExists{../Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../Logo.jpg} \\[0.8cm]
   }{%
     \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
   }
-  
   {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
   {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
   {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
