@@ -1,6 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 
-\newcommand{\CurrentVersion}{0.0.1} % ultima versione
+\newcommand{\CurrentVersion}{0.1.0} % ultima versione
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -62,9 +62,9 @@
 \renewcommand{\footrulewidth}{0pt}  % se vuoi anche togliere eventuale linea del footer
 
 
-\begin{center}  \IfFileExists{../Logo.jpg}{
+\begin{center}  \IfFileExists{../assets/Logo.jpg}{
     \thispagestyle{empty} % rimuove header e footer solo su questa pagina
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../Logo.jpg} \\[0.8cm]
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../assets/Logo.jpg} \\[0.8cm]
   }{%
     \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
   }
@@ -79,7 +79,7 @@
   {\small Anno Accademico: 2025/2026}\\[0.8cm]
 
   {\Huge\bfseries\color{primaryblue} Norme di progetto}\\[0.3cm]
-    {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
+  {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
 \end{center}
 
 
@@ -92,7 +92,7 @@
 \rowcolor{gray!40} % colore intestazione
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificato} & \textbf{Approvato} \\
 \hline
-\CurrentVersion & 20/10/2025 & Prima stesura della struttura del documento & Linor Sadè & - & - \\
+\CurrentVersion & 20/10/2025 & Prima stesura della struttura del documento & Marco Favero & - & - \\
 \hline
 \end{tabularx}
 }

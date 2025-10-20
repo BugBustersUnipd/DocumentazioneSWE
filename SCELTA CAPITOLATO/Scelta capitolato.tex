@@ -1,5 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 
+\newcommand{\CurrentVersion}{0.1.0} % ultima versione
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[italian]{babel}
@@ -11,7 +13,8 @@
 \usepackage{titlesec}
 \usepackage{float}
 \usepackage{ifthen}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
 \usepackage[titles]{tocloft}
@@ -36,13 +39,13 @@
 \setlist[itemize]{leftmargin=*,itemsep=3pt}
 \setlist[enumerate]{leftmargin=*,itemsep=3pt}
 
-\graphicspath{{./}{../assets/images/}{./images/}}
+\graphicspath{{./}{../assets/images/}{./images/}} 
 
 \begin{document}
 
 \begin{center}
-  \IfFileExists{../Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../Logo.jpg} \\[0.8cm]
+  \IfFileExists{../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../assets/Logo.jpg} \\[0.8cm]
   }{%
     \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
   }
@@ -56,6 +59,7 @@
   {\small Anno Accademico: 2025/2026}\\[0.8cm]
 
   {\Huge\bfseries\color{primaryblue} Resoconto Capitolati}\\[0.8cm]
+  {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
 \end{center}
 
 \begin{center}
@@ -77,6 +81,20 @@
 Documento di analisi e valutazione dei capitolati proposti per l'anno accademico 2025/2026. Il documento include una valutazione dettagliata del capitolato scelto e un'analisi comparativa degli altri capitolati disponibili.
 \end{tcolorbox}
 \end{center}
+
+\newpage
+\section{Versioni del documento}
+
+{\footnotesize % riduce il font solp per questa tabella
+\begin{tabularx}{\textwidth}{|p{1.5cm}|p{2cm}|X|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+\rowcolor{gray!40} % colore intestazione
+\textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificato} & \textbf{Approvato} \\
+\hline
+\CurrentVersion & 20/10/2025 & Prima stesura della struttura del documento & Alberto Autiero & Marco Favero & - \\
+\hline
+\end{tabularx}
+}
 
 \newpage
 
