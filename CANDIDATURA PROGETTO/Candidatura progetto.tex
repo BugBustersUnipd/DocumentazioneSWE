@@ -1,5 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 
+\newcommand{\CurrentVersion}{0.0.1} % ultima versione
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[italian]{babel}
@@ -14,6 +16,7 @@
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=primaryblue,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
 \usepackage[titles]{tocloft}
 \usepackage{tabularx}
 \usepackage{eurosym}
@@ -59,6 +62,7 @@
 
   {\Huge\bfseries\color{primaryblue} Candidatura Progetto}\\[0.3cm]
   {\Large\color{secondaryblue} Ingegneria del Software}\\[0.8cm]
+  {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
 \end{center}
 
 \begin{center}
@@ -93,6 +97,19 @@ Luca Slongo & {[Matricola]} \\
 \end{center}
 
 \vspace{1cm}
+
+\section{Versioni del documento}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|p{1.5cm}|p{2cm}|X|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+\textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificato} & \textbf{Approvato} \\
+\hline
+\CurrentVersion & 20/10/2025 & Prima stesura della struttura del documento & Linor Sadè & - & - \\
+\hline
+\end{tabularx}
+}
+
+\newpage
 
 \renewcommand{\cftsecpagefont}{\normalfont}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
