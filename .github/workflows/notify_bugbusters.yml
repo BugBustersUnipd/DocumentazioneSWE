@@ -1,0 +1,23 @@
+name: Notify BugBusterSite on push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send repository_dispatch to BugBusterSite
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          # Repository target in formato owner/repo
+          repository: BugbustersUnipd/BugBusterSite
+          event-type: documentazione_swe_push
+          # opcional: un payload JSON con informazioni utili
+          client-payload: '{"ref":"${{ github.ref }}","pusher":"${{ github.actor }}"}'
+        env:
+          # Richiede un PAT con repo:repo (public repos may allow less) salvato come secret nel repo DocumentazioneSWE
+          # Nome suggerito: BUGBUSTER_POKE_TOKEN
+          GITHUB_TOKEN: ${{ secrets.BUGBUSTER_POKE_TOKEN }}
