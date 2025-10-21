@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
 
-\newcommand{\CurrentVersion}{0.2.0} % ultima versione
+\newcommand{\CurrentVersion}{0.3.0} % ultima versione
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -84,7 +84,9 @@ Documento di analisi e valutazione dei capitolati proposti per l'anno accademico
 \rowcolor{gray!40} % colore intestazione
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificato} & \textbf{Approvato} \\
 \hline
-\CurrentVersion & 21/10/2025 & Modificata struttura e aggiunti punti di forza e debolezza & Linor Sadè & - & - \\
+\CurrentVersion & 21/10/2025 & Terminato C5, iniziato C8, C9 & Linor Sadè & - & - \\
+\hline
+0.2.0 & 21/10/2025 & Aggiunta introduzione al documento, aggiunti punti di forza e debolezza per ogni capitolato & Linor Sadè & - & - \\
 \hline
 0.1.0 & 20/10/2025 & Prima stesura della struttura del documento & Alberto Autiero & Marco Favero & - \\
 \hline
@@ -252,12 +254,63 @@ o	La sicurezza dei dati è critica e richiede implementazioni robuste
 \hline
 \end{tabularx}
 
+
+\newpage
 \subsection{C5 - Nexum}
 \subsubsection{Breve descrizione}
+\parbox[t]{\linewidth}{%
+NEXUM nasce come piattaforma HR evoluta, in grado di connettere aziende, collaboratori e gli studi dei CdL. Il progetto prevede lo sviluppo di nuovi moduli per la piattaforma esistente, con l'obiettivo di migliorare l'efficienza dei processi HR e offrire funzionalità innovative ai suoi utenti.
+Il team si occuperà di sviluppare due moduli principali:
+}
+
+\begin{itemize}
+\item \textbf{Ai Assistant Generativo per HR:} \\
+\begin{minipage}[t]{\dimexpr\linewidth-2em}
+Che dovrà permettere agli utenti di creare in autonomia contenuti accattivanti con titolo, descrizione e immagine di copertina attraverso l'uso di AI generativa, adeguando tono e stile della comunicazione a quello aziendale (formale, informale ...ecc).
+\end{minipage}
+
+\item \textbf{Ai Co-Pilot per i CdL:} \\
+\begin{minipage}[t]{\dimexpr\linewidth-2em}
+Deve essere in grado di riconoscere la tipologia di documenti caricati (cedolini, comunicazioni, documenti da firmare, ecc.) e i destinatari, direttamente dal documento e consegnarli ai destinatari anche in modo massivo.
+\end{minipage}
+\end{itemize}
+
 \subsubsection{Requisiti funzionali e non funzionali}
+Tra i requisiti funzioni del progetto vi sono:
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Integrazione con la piattaforma esistente NEXUM
+  \item Utilizzo di tecnologie cloud (AWS)
+  \item Implementazione delle funzionalità di AI generativa e AI Co-Pilot
+  \item Le funzionalità devono essere disponibili sulla dashboard o sulla PWA
+\end{itemize}
+Tra i requisiti non funzionali vi sono:
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item fluidaità d'uso e interfaccia user-friendly
+  \item le operazioni time-consuming dovranno essere delegate a sistemi batch
+\end{itemize}
+Altri requisiti di prestazione saranno concorati con il team in base alle tecnologie utilizzate e soluzioni proposte
 \subsubsection{Tecnologie proposte}
+Le tecnologie proposte per lo sviluppo del progetto includono:
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item \textbf{Frontend:} Angular (dashboard amministrativa), Next.js (PWA utenti finali, hosting su AWS Amplify o S3+CloudFront)
+  \item \textbf{Backend e API:} Ruby on Rails (stateless su ECS Fargate dietro ALB)
+  \item \textbf{Background Jobs:} Sidekiq (su Fargate + SQS)
+  \item \textbf{Database e cache:} PostgreSQL (RDS Multi-AZ con snapshot automatici), ElastiCache for Redis (cache e gestione sessioni)
+  \item \textbf{Storage:} Amazon S3 (bucket separati per “uploads” e “processed”, Lifecycle e legal hold opzionale)
+  \item \textbf{Sicurezza:} KMS (gestione chiavi per S3, RDS, Secrets), Secrets Manager (credenziali, API keys, JWT secrets), Amazon Cognito (gestione identità e accessi)
+  \item \textbf{Comunicazioni:} SES (email), SNS (notifiche push/eventi)
+  \item \textbf{Networking:} VPC (reti private e pubbliche per ECS/RDS/Redis, con ALB e NAT Gateway), Security Groups (accesso minimo privilegio)
+  \item \textbf{Sicurezza web:} WAF + AWS Shield (protezione ALB/CloudFront), IAM policy granulari (permessi per ECS task roles, S3, SQS, Secrets, CloudWatch)
+  \item \textbf{Osservabilità:} CloudWatch Logs/Metrics/Alarms/X-Ray (monitoring e tracing)
+  \item \textbf{Compliance e threat detection:} AWS Config + GuardDuty
+\end{itemize}
+
 \subsubsection{Chiarimenti e colloqui con l'azienda}
-Qui di seguito sono riportate alcune delle domande poste ad Eggon con le relative risposte fornite dall'azienda. In particolare abbiamo posto domande che riguardavano il supporto di Eggon durante lo sviluppo del progetto, l'importanza della conoscenza pregressa delle tecnologie richieste e il coinvolgimento del team nel processo SCRUM dell'azienda perchè sapevamo fosse il primo anno in cui Eggon proponeva un capitolato universitario.\\
+
+\parbox[t]{\linewidth}{%
+Qui di seguito sono riportate alcune delle domande poste ad Eggon con le relative risposte fornite dall'azienda. In particolare abbiamo posto domande che riguardavano il supporto di Eggon durante lo sviluppo del progetto, l'importanza della conoscenza pregressa delle tecnologie richieste e il coinvolgimento del team nel processo SCRUM dell'azienda perché sapevamo fosse il primo anno in cui Eggon partecipava a questo tipo di progetto.
+}
+
 {\footnotesize
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
 \hline
@@ -299,10 +352,22 @@ Avete parlato di includere il team di lavoro nel vostro processo SCRUM e nelle r
   \end{itemize}
 \end{itemize} \\
 \hline
+\parbox[t]{\linewidth}{%
+    Quali modelli LLM specifici prevedete di utilizzare? Oppure possiamo testare con diversi provider?
+}
+&
+\begin{itemize}
+  \item \textbf{Preferenza:} AWS Bedrock (integrazione e governance). Tramite Bedrock possiamo usare più modelli (Claude, Llama, Mistral).
+  \item \textbf{Apertura ad alternative:} via libera a provider/idee creative, purché valutate su qualità output, aderenza al prompt, performance, costi e manutenibilità.
+  \item \textbf{Requisito:} adapter per evitare lock-in
+\end{itemize} \\
+\hline
 \end{tabularx}
 }
 \subsubsection{Interesse del team}
-
+\parbox[t]{\linewidth}{%
+Il team ha mostrato un interesse significativo verso la proposta di Eggon. Inanzitutto, i rappresentanti dell'azienda hanno subito mostrato uno stile giovanile e informale, pur mantenendo professionalità e struttura. Ciò ha avuto un impatto positivo come prima impressione. \\Inoltre, il progetto proposto si allinea bene con le aspirazioni del team di acquisire esperienza pratica nello sviluppo di applicazioni reali, specialmente in un contesto aziendale. L'opportunità di lavorare su una piattaforma HR esistente come NEXUM, che ha una base di utenti reale, ha particolare attrattiva.\\ Infine, come già specificato all'inizio di questo documento, il team pone molta importanza al supporto che l'azienda può offrire durante lo sviluppo del progetto. Le risposte fornite da Eggon alle nostre domande hanno confermato che l'azienda è disposta a fornire un supporto strutturato e continuo, il che aumenta ulteriormente l'interesse del team verso questo capitolato.
+}
 \subsubsection{Punti di forza e di debolezza}
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -316,7 +381,7 @@ Avete parlato di includere il team di lavoro nel vostro processo SCRUM e nelle r
 \item Supporto dell’azienda: l’azienda ha un piano ben strutturato quali le cerimonie a cui il team deve necessariamente partecipare (con relativa durata) e il tipo di dialogo che vuole con il team (giornalmente). Questo fa capire al team che il supporto sarà concreto.
 \item Tecnologie definite esaustivamente e  requisiti del progetto chiari, con due requisiti opzionali definiti.
 \item L’azienda ha fornito un documento per il capitolato completo di casi d’uso e obiettivi misurabili in milestone, rendendo la pianificazione più semplice
-
+\item Integrazione di AI. Lavorare su queste tecnologie fornisce un'esperienza preziosa vista la loro crescente importanza nel settore.
 \end{itemize}
  & \begin{itemize}
 \item NEXUM è una piattaforma già esistente e operativa, lo sviluppo di nuovi moduli (che verranno realmente utilizzati) comporta un livello di rischio elevato. L’integrazione in un prodotto reale, destinato a un mercato effettivo e a clienti concreti, implica vincoli progettuali e tecnologici particolarmente rigidi, dettati dalle esigenze e dagli standard aziendali. Questo può limitare la flessibilità del team e aumentare la complessità delle attività di sviluppo e validazione
@@ -385,11 +450,30 @@ L'intera applicazione dipende dalla stabilità, disponibilità e costi del servi
 }
 \section{C8 - Smart Order}
 \subsection{Breve descrizione}
+\parbox[h]{\linewidth}{%
+\textit{Analisi multimodale per la creazione automatica di
+ordini}, proposto da Ergon Informatica Srl, prevede la realizzazione di una
+piattaforma intelligente in grado di ricevere, interpretare e strutturare
+automaticamente ordini provenienti da input testuali, vocali e visivi, trasformando
+dati non strutturati in ordini cliente completi pronti per l'inserimento nei sistemi
+gestionali aziendali. L'obiettivo del progetto è quello di migliorare l'efficienza dei
+processi aziendali, riducendo al minimo l'intervento umano nelle fasi più ripetitive
+e soggette a errore.
+}
 \subsection{Requisiti funzionali e non funzionali}
 \subsection{Tecnologie proposte}
 \subsection{Chiarimenti e colloqui con l'azienda}
 \subsection{Interesse del team}
-
+\parbox[t]{\linewidth}{%
+l gruppo ha valutato positivamente la modernità e la rilevanza del tema, che
+combina più ambiti dell'intelligenza artificiale offrendo l'opportunità di
+approfondire tecniche avanzate di Machine Learning e integrazione multimodale.
+L'architettura proposta è risultata flessibile e ben strutturata, permettendo l'uso di
+tecnologie moderne come LLM, OCR e sistemi speech-to-text, oltre a framework
+web come React o Blazor. È stato inoltre ritenuto molto positivo il supporto
+previsto da parte dell'azienda proponente e la possibilità di lavorare su un caso di
+studio reale fornito da Ergon.
+}
 \subsection{Punti di forza e di debolezza}
 
 {\footnotesize
@@ -411,12 +495,37 @@ L'intera applicazione dipende dalla stabilità, disponibilità e costi del servi
 \hline
 \end{tabularx}
 }
+
+
+\newpage
 \section{C9 - View4Life}
 \subsection{Breve descrizione}
+\parbox[t]{\linewidth}{%
+Il capitolato proposto da Vimar S.p.A. ha come obiettivo la realizzazione di una piattaforma per la gestione intelligente di impianti domotici. all'interno di residenze protette per anziani, con l'intento di migliorare la sicurezza, il comfort e l'efficienza energetica degli ambienti. Il progetto prevede lo sviluppo di un'infrastruttura cloud e di un'applicazione web responsive dedicata al personale sanitario per il monitoraggio e il controllo dei dispositivi
+}
 \subsection{Requisiti funzionali e non funzionali}
 \subsection{Tecnologie proposte}
 \subsection{Chiarimenti e colloqui con l'azienda}
 \subsection{Interesse del team}
+\parbox[t]{\linewidth}{%
+Il gruppo ha valutato molto positivamente questo capitolato per la concretezza e
+l'impatto sociale: lavorare su un sistema capace di migliorare la qualità della vita e
+la sicurezza degli anziani rappresenta una forte motivazione, dando al progetto un
+valore tangibile e significativo. Sono stati inoltre apprezzati l'utilizzo di tecnologie
+moderne e versatili, come Docker, AWS e framework web come Angular o React,
+che offrono ampie opportunità di apprendimento e applicazione pratica. Un
+ulteriore punto di forza è rappresentato dal supporto fornito da Vimar, che
+garantisce incontri di avanzamento regolari e fornisce un kit hardware fisico per
+testare l'integrazione con dispositivi reali, riducendo il divario tra teoria e pratica e
+permettendo di affrontare concretamente le sfide dell'IoT.
+\\
+La principale complessità del progetto risiede nella sua ampiezza e completezza,
+che richiede una pianificazione accurata e una buona capacità di priorizzazione.
+Tuttavia, il gruppo ha interpretato questa caratteristica non come una difficoltà, ma
+come un'opportunità di crescita: gestire un progetto così articolato permetterà
+infatti di sviluppare competenze di organizzazione, coordinamento e gestione
+tecnica avanzata
+}
 
 \subsection{Punti di forza e di debolezza}
 {\footnotesize
