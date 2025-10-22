@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
      
-\newcommand{\CurrentVersion}{0.4.0} % ultima versione
+\newcommand{\CurrentVersion}{0.4.1} % ultima versione
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -18,7 +18,11 @@
 \usepackage{tcolorbox}
 \usepackage{enumitem}
 \usepackage[titles]{tocloft}
-% \usepackage[colorlinks=true,linkcolor=primaryblue,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
 
 % per il footer con il numero di pagina
 \usepackage{fancyhdr}
@@ -30,9 +34,6 @@
 
 \renewcommand{\sectionmark}[1]{\markright{#1}}
 
-
-\definecolor{lightgray}{RGB}{245,245,245}
-\definecolor{darkgray}{RGB}{100,100,100}
 
 
 
@@ -111,7 +112,9 @@ Documento di analisi e valutazione dei capitolati proposti per l'anno accademico
 \rowcolor{gray!40} % colore intestazione
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificato} & \textbf{Approvato} \\
 \hline
-\CurrentVersion & 22/10/2025 & Iniziato e terminato C7& Linor Sadè & - & - \\
+\CurrentVersion & 22/10/2025 & Correzione indice& Linor Sadè & - & - \\
+\hline
+0.4.0 & 22/10/2025 & Iniziato e terminato C7& Linor Sadè & - & - \\
 \hline
 \hline
 0.3.1 & 22/10/2025 & Correzioni minori stile & Linor Sadè & - & - \\
@@ -410,10 +413,11 @@ Il team ha mostrato un interesse significativo verso la proposta di Eggon. Inanz
 \begin{itemize}
 \item Prodotto Reale e Integrazione con Piattaforma Esistente: NEXUM è una piattaforma HR già operativa. Sviluppare moduli che si integreranno in un prodotto commerciale fornisce un'esperienza di lavoro su codice legacy e integrazione con sistemi esistenti.
 \item Processo SCRUM realistico (rispettare le scadenze dell’azienda)
-\item Supporto dell’azienda: l’azienda ha un piano ben strutturato quali le cerimonie a cui il team deve necessariamente partecipare (con relativa durata) e il tipo di dialogo che vuole con il team (giornalmente). Questo fa capire al team che il supporto sarà concreto.
+\item Ottimo supporto dell’azienda: l’azienda ha un piano ben strutturato quali le cerimonie a cui il team deve necessariamente partecipare (con relativa durata) e il tipo di dialogo che vuole con il team (giornalmente). Inoltre siamo stati informati che il supporto al progetto è continuo (anche formazione e mentoring).
 \item Tecnologie definite esaustivamente e  requisiti del progetto chiari, con due requisiti opzionali definiti.
 \item L’azienda ha fornito un documento per il capitolato completo di casi d’uso e obiettivi misurabili in milestone, rendendo la pianificazione più semplice
 \item Integrazione di AI. Lavorare su queste tecnologie fornisce un'esperienza preziosa vista la loro crescente importanza nel settore.
+\item Valori dell'azienda??
 \end{itemize}
 & 
 \begin{itemize}
@@ -632,7 +636,16 @@ Le tecnologie richieste per lo sviluppo del progetto sono diverse e molte sono c
   \item Questi dettagli, tuttavia, li definiremo progressivamente, dopo che avrete avuto modo di condurre un adeguato studio preliminare del progetto, come è naturale che sia.
 \end{itemize} \\
 \hline
-
+\parbox[t]{\linewidth}{%
+  Verrà fornito supporto o affiancamento nell'utilizzo di queste tecnologie?
+  Potreste indicarci una lista di conoscenze o competenze di base da acquisire per affrontare al meglio il capitolato?
+}
+&
+\parbox[t]{\linewidth}{%
+Non è previsto un supporto attivo, come corsi o lezioni dirette, e riteniamo che non sia necessario, poiché parte integrante del progetto consiste proprio nello studio e nella comprensione di queste tecnologie da parte vostra. Per questo motivo non riteniamo indispensabili competenze pregresse. Possiamo tuttavia suggerirvi di esplorare e analizzare soluzioni esistenti già presenti sul mercato, ad esempio nel mondo open source.
+Naturalmente resteremo a disposizione per domande e supporto mirato e, se necessario, potremo organizzare incontri dedicati per aiutarvi a chiarire dubbi o risolvere eventuali blocchi.
+} \\
+\hline
 \end{tabularx}
 }
 
