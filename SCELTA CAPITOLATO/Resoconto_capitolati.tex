@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
 
-\newcommand{\CurrentVersion}{0.3.0} % ultima versione
+\newcommand{\CurrentVersion}{0.4.0} % ultima versione
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -18,7 +18,17 @@
 \usepackage{tcolorbox}
 \usepackage{enumitem}
 \usepackage[titles]{tocloft}
-\usepackage[colorlinks=true,linkcolor=primaryblue,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+% \usepackage[colorlinks=true,linkcolor=primaryblue,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+
+% per il footer con il numero di pagina
+\usepackage{fancyhdr}
+\usepackage{lastpage} % per ottenere il numero dell'ultima pagina da mettere nel footer
+
+
+\usepackage{ltablex} %per far andare a capo le tabelle
+\keepXColumns
+
+\renewcommand{\sectionmark}[1]{\markright{#1}}
 
 
 \definecolor{lightgray}{RGB}{245,245,245}
@@ -36,7 +46,24 @@
 
 \begin{document}
 
+%configurazione per il footer
+\pagestyle{fancy}
+\fancyhf{} % pulisce tutti i campi del header e footer
+
+% Header: sinistra e destra
+\fancyhead[L]{Gruppo 4 - BugBusters} % sinistra
+\fancyhead[R]{Resoconto capitolati}      % destra
+
+\fancyfoot[L]{ \thepage\ di \pageref{LastPage}} %definisce il formato del footer
+\fancyfoot[R]{ \nouppercase{\rightmark}} % nome della sezione
+
+
+\renewcommand{\headrulewidth}{0pt}  % rimuove la linea dell'header
+\renewcommand{\footrulewidth}{0pt}  % se vuoi anche togliere eventuale linea del footer
+
+
 \begin{center}
+  \thispagestyle{empty}
   \IfFileExists{../assets/Logo.jpg}{%
     \includegraphics[width=6cm,height=3cm,keepaspectratio]{../assets/Logo.jpg} \\[0.8cm]
   }{%
@@ -58,11 +85,11 @@
 \begin{center}
 \begin{tcolorbox}[colback=lightgray,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
 \begin{tabular}{@{}ll@{}}
-\textbf{Redattori}    & Alberto Autiero \\
+\textbf{Redattori}    & Alberto Autiero, Linor Sadè\\
 \textbf{Verificatori} & [Nome Cognome] \\
 \textbf{Uso}          & Interno \\
 \textbf{Destinatari}  & Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
-\textbf{Data}         & 18/10/2025 \\
+\textbf{Data}         & 20/10/2025 \\
 \end{tabular}
 \end{tcolorbox}
 \end{center}
@@ -84,7 +111,12 @@ Documento di analisi e valutazione dei capitolati proposti per l'anno accademico
 \rowcolor{gray!40} % colore intestazione
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificato} & \textbf{Approvato} \\
 \hline
-\CurrentVersion & 21/10/2025 & Terminato C5, iniziato C8, C9 & Linor Sadè & - & - \\
+\CurrentVersion & 22/10/2025 & Iniziato e terminato C7& Linor Sadè & - & - \\
+\hline
+\hline
+0.3.1 & 22/10/2025 & Correzioni minori stile & Linor Sadè & - & - \\
+\hline
+0.3.0 & 21/10/2025 & Terminato C5, iniziato C8, C9 & Linor Sadè & - & - \\
 \hline
 0.2.0 & 21/10/2025 & Aggiunta introduzione al documento, aggiunti punti di forza e debolezza per ogni capitolato & Linor Sadè & - & - \\
 \hline
@@ -186,14 +218,14 @@ Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni c
 \hline
 \end{tabularx}
 }
-\section{C3 - DIPReader}
-\subsection{Breve descrizione}
-\subsection{Requisiti funzionali e non funzionali}
-\subsection{Tecnologie proposte}
-\subsection{Chiarimenti e colloqui con l'azienda}
-\subsection{Interesse del team}
+\subsection{C3 - DIPReader}
+\subsubsection{Breve descrizione}
+\subsubsection{Requisiti funzionali e non funzionali}
+\subsubsection{Tecnologie proposte}
+\subsubsection{Chiarimenti e colloqui con l'azienda}
+\subsubsection{Interesse del team}
 
-\subsection{Punti di forza e di debolezza}
+\subsubsection{Punti di forza e di debolezza}
 \begin{tabularx}{\textwidth}{|X|X|}
 \hline
 \rowcolor{lightgray!40} % colore intestazione
@@ -216,14 +248,14 @@ Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni c
 \end{tabularx}
 
 
-\section{C4 - L'app che Protegge e Trasforma}
-\subsection{Breve descrizione}
-\subsection{Requisiti funzionali e non funzionali}
-\subsection{Tecnologie proposte}
-\subsection{Chiarimenti e colloqui con l'azienda}
-\subsection{Interesse del team}
+\subsection{C4 - L'app che Protegge e Trasforma}
+\subsubsection{Breve descrizione}
+\subsubsection{Requisiti funzionali e non funzionali}
+\subsubsection{Tecnologie proposte}
+\subsubsection{Chiarimenti e colloqui con l'azienda}
+\subsubsection{Interesse del team}
 
-\subsection{Punti di forza e di debolezza}
+\subsubsection{Punti di forza e di debolezza}
 \begin{tabularx}{\textwidth}{|X|X|}
 \hline
 \rowcolor{lightgray!40} % colore intestazione
@@ -308,7 +340,7 @@ Le tecnologie proposte per lo sviluppo del progetto includono:
 \subsubsection{Chiarimenti e colloqui con l'azienda}
 
 \parbox[t]{\linewidth}{%
-Qui di seguito sono riportate alcune delle domande poste ad Eggon con le relative risposte fornite dall'azienda. In particolare abbiamo posto domande che riguardavano il supporto di Eggon durante lo sviluppo del progetto, l'importanza della conoscenza pregressa delle tecnologie richieste e il coinvolgimento del team nel processo SCRUM dell'azienda perché sapevamo fosse il primo anno in cui Eggon partecipava a questo tipo di progetto.
+Qui di seguito sono riportate alcune delle domande poste ad Eggon con le relative risposte fornite dall'azienda. In particolare abbiamo posto domande che riguardavano il supporto di Eggon durante lo sviluppo del progetto, l'importanza della conoscenza pregressa delle tecnologie richieste e il coinvolgimento del team nel processo SCRUM dell'azienda, in quanto volevamo comprendere come l’azienda avrebbe affrontato la gestione di un progetto di questo tipo, trattandosi del primo anno in cui Eggon vi partecipava.
 }
 
 {\footnotesize
@@ -383,7 +415,8 @@ Il team ha mostrato un interesse significativo verso la proposta di Eggon. Inanz
 \item L’azienda ha fornito un documento per il capitolato completo di casi d’uso e obiettivi misurabili in milestone, rendendo la pianificazione più semplice
 \item Integrazione di AI. Lavorare su queste tecnologie fornisce un'esperienza preziosa vista la loro crescente importanza nel settore.
 \end{itemize}
- & \begin{itemize}
+& 
+\begin{itemize}
 \item NEXUM è una piattaforma già esistente e operativa, lo sviluppo di nuovi moduli (che verranno realmente utilizzati) comporta un livello di rischio elevato. L’integrazione in un prodotto reale, destinato a un mercato effettivo e a clienti concreti, implica vincoli progettuali e tecnologici particolarmente rigidi, dettati dalle esigenze e dagli standard aziendali. Questo può limitare la flessibilità del team e aumentare la complessità delle attività di sviluppo e validazione
 \item Alta complessità riguardante le tecnologie da utilizzare con AWS, OCR (Optical Character Recognition), e integrazione dell’AI.
 \end{itemize} \\
@@ -422,11 +455,192 @@ L'intera applicazione dipende dalla stabilità, disponibilità e costi del servi
 }
 \section{C7 - Sistema di acquisizione dati da sensori}
 \subsection{Breve descrizione}
-\subsection{Requisiti funzionali e non funzionali}
-\subsection{Tecnologie proposte}
-\subsection{Chiarimenti e colloqui con l'azienda}
-\subsection{Interesse del team}
+\paragraph{} 
+Il progetto mira a sviluppare un sistema distribuito di acquisizione e smistamento dati dai sensori BLE. 
+La piattaforma deve essere in grado di ricevere, aggregare, normalizzare e smistare tali informazioni in modo affidabile, sicuro e scalabile.
 
+\paragraph{} 
+La piattaforma deve essere articolata in tre livelli principali:
+
+\begin{itemize}
+  \item \textbf{Sensori BLE:} dispositivi periferici che raccolgono dati dal campo (es. temperatura, umidità, movimento, segnali biometrici);
+  \item \textbf{Gateway BLE--WiFi:} nodi intermedi che si connettono ai sensori, raccolgono i dati tramite profili standard o personalizzati, 
+  li formattano secondo un modello interno e li inviano al cloud;
+  \item \textbf{Cloud:} piattaforma centrale che gestisce la connessione sicura dei gateway, riceve e bufferizza i dati, 
+  li rende disponibili tramite API e interfacce di visualizzazione, garantendo segregazione tra diversi tenant.
+\end{itemize}
+
+\paragraph{} 
+I primi due livelli (sensori BLE e gateway) non sono oggetto di questo capitolato e devono essere considerati come strumenti esterni. 
+Nel contesto del progetto, il team non deve realizzare un gateway fisico, ma sviluppare un \textbf{simulatore di gateway} 
+in grado di riprodurre in modo verosimile il comportamento di un nodo BLE--WiFi. 
+Tale simulatore sarà utilizzato per validare l'infrastruttura cloud e testare i flussi di comunicazione previsti.
+
+
+\subsection{Requisiti funzionali e non funzionali}
+Tra i requisiti funzionali del progetto vi sono:
+\begin{enumerate}[noitemsep, topsep=0pt]
+  \item \textbf{Acquisizione e generazione dati da sensori:} il sistema deve gestire dati provenienti da sensori Bluetooth Low Energy (BLE). 
+  Poiché i sensori reali non rientrano nell'ambito del progetto, i dati saranno generati dal simulatore di gateway, 
+  che produrrà valori realistici per 4--5 tipologie di sensori da concordare.
+
+  \item \textbf{Simulatore di gateway:} in sostituzione di un gateway fisico, deve essere sviluppato un simulatore 
+  in grado di riprodurne il comportamento principale.
+  \begin{enumerate}
+    \item generazione diretta dei dati simulati pronti alla trasmissione;
+    \item invio al cloud tramite protocolli sicuri (SSL/TLS);
+    \item gestione di più sensori simulati in parallelo;
+    \item persistenza delle informazioni di commissioning (sensori/gateway) per garantire consistenza;
+    \item capacità di rispondere ai messaggi dal cloud, anche in forma semplificata 
+    (con supporto opzionale a flag di debug che contengano la risposta attesa).
+  \end{enumerate}
+
+  \item \textbf{Gestione multi-tenant:} il livello cloud deve garantire isolamento logico tra diversi tenant, 
+  permettendo a ciascun cliente/utente di accedere solo ai propri dati.
+
+  \item \textbf{Esposizione API centralizzate:} i dati raccolti dal simulatore e gestiti dal cloud devono essere accessibili 
+  tramite API sicure, documentate e versionate (test).
+  \begin{enumerate}
+    \item ogni client deve essere identificato univocamente e certamente, per garantire il controllo 
+    dell’accesso ai dati e la loro segregazione;
+    \item le API devono fornire accesso ai dati nelle seguenti modalità:
+    \begin{enumerate}
+      \item \textit{on demand:} accesso su richiesta a uno o più dati di un gateway, 
+      con possibilità di filtrare i dati per sensore e data/ora di ricezione;
+      \item \textit{stream:} accesso ai dati in tempo reale attraverso uno stream continuo.
+    \end{enumerate}
+  \end{enumerate}
+
+  \item \textbf{Interfaccia utente:} deve essere fornita una UI web che consenta la consultazione e l’esplorazione dei dati acquisiti, 
+  con procedure semplificate per registrare e configurare nuovi sensori o gateway simulati.
+\end{enumerate}
+Tra i requisiti non funzionali vi sono: 
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item \textbf{Scalabilità;}
+  \item \textbf{Test automatizzati} e \textbf{code coverage;}
+  \item \textbf{Monitoraggio:} devono essere predisposti strumenti di monitoraggio in tempo reale per le performance del sistema. 
+  In aggiunta, devono essere presenti almeno funzionalità di alert di base che consentano di capire rapidamente 
+  se un gateway sta funzionando correttamente o risulta non raggiungibile;
+  \item \textbf{Versionamento} e \textbf{DevOps:} il codice deve essere gestito tramite Git con pipeline CI/CD 
+  per il deploy su ambienti di test e produzione.
+\end{itemize}
+
+\subsection{Tecnologie proposte}
+Le tecnologie proposte per lo sviluppo del progetto includono:
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item \textbf{Sviluppo:} 
+  interfaccia utente in \textbf{Angular} per la creazione di una \textbf{SPA} (Single Page Application); 
+  microservizi sviluppati con \textbf{Node.js} e \textbf{Nest.js} in \textbf{TypeScript} per la parte di API.
+  
+  \item \textbf{Orchestrazione:} 
+  il sistema sarà ospitato su \textit{Google Cloud Platform} e orchestrato tramite \textbf{Kubernetes}.
+  
+  \item \textbf{Archiviazione dati:} 
+  \textit{MongoDB} per la memorizzazione di dati non strutturati (quelli grezzi raccolti dai sensori); 
+  \textit{PostgreSQL} per la persistenza dei dati strutturati (quelli raccolti e manipolati per renderli \textit{valuable}).
+  
+  \item \textbf{Opzionale:} 
+  \textit{Redis} come sistema di caching per ridurre la latenza e migliorare le prestazioni.
+\end{itemize}
+Tuttavia le tecnologie sopra elencate non sono vincolanti: il team può proporre alternative ma devono in ultimo essere approvate da M31.
+\subsection{Chiarimenti e colloqui con l'azienda}
+\parbox[t]{\linewidth}{%
+Qui di seguito sono riportate alcune delle domande poste a M31 con le relative risposte fornite dall'azienda. Le domande vertono principalmente su aspetti tecnici del progetto, poichè il team voleva chiarire alcuni dubbi riguardanti l'architettura del sistema e le tecnologie da utilizzare. \\
+Il team ha deciso di fissare una runione per discutere di questi aspetti, in modo da poter porre domande specifiche e ricevere risposte dettagliate direttamente dai referenti dell'azienda. Questo approccio ha permesso di ottenere chiarimenti più approfonditi e di comprendere meglio le aspettative dell'azienda riguardo al progetto.
+
+Le risposte dell'azienda non sono citazioni dirette, ma sono state riassunte e riformulate dal team in modo da essere più concise e chiare.
+}
+
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Domande} & \textbf{Risposte} \\
+\hline
+
+\parbox[t]{\linewidth}{%
+\textbf{Modello di identità e provisioning dei gateway simulati} \\[4pt]
+\begin{itemize}
+  \item Quale modello di identità volete per i gateway simulati?
+  \item Come è previsto che avvenga il provisioning dei gateway nel cloud (flusso tipico)?
+  \item Immaginiamo debba simulare il provisioning reale di un gateway fisico; tuttavia, da quanto abbiamo visto, non esiste un’unica modalità. Quale approccio ritenete più in linea con i vostri gateway reali?
+  \item Alcuni possibili tipi di provisioning che abbiamo considerato:
+  \begin{itemize}
+    \item Provisioning manuale (statico)
+    \item Provisioning basato su certificati X.509 (autogenerati)
+    \item Provisioning Just-In-Time (JIT)
+    \item Provisioning Just-Enough-Time (JET)
+  \end{itemize}
+\end{itemize}
+}
+& \\ % <-- qui andrà la risposta
+\hline
+
+\parbox[t]{\linewidth}{%
+\textbf{Simulazione sensori e profili BLE} \\[4pt]
+\begin{itemize}
+  \item Potete indicarci quali sensori dobbiamo simulare e, di conseguenza, quali profili BLE standard è opportuno utilizzare?
+  \item Avete già definito eventuali profili custom?
+\end{itemize}
+}
+& \\ % risposta
+\hline
+
+\parbox[t]{\linewidth}{%
+\textbf{Persistenza delle informazioni di commissioning} \\[4pt]
+Avete qualche consiglio sulla modalità di persistenza delle informazioni di commissioning dei sensori (nel gateway) e del gateway (nel cloud)?
+}
+& \\ % risposta
+\hline
+
+\parbox[t]{\linewidth}{%
+\textbf{Gestione dei tenant} \\[4pt]
+I tenant sono assegnati a un amministratore (con pieno accesso ai gateway), a un cliente generico (con permessi limitati), oppure ad entrambi?
+}
+& \\ % risposta
+\hline
+
+\parbox[t]{\linewidth}{%
+\textbf{Sicurezza} \\[4pt]
+\begin{itemize}
+  \item Sono citate tre tecnologie di sicurezza: JWT, OAuth2 e mTLS. Nel contesto di sensori e gateway simulati, quali di queste devono essere utilizzate in modo “diverso” rispetto al consueto?
+  \item Per il lato dispositivi simulati (sensori + gateway), quali tecnologie delle proposte consigliate?
+  \item Per il lato client (cloud + API), quali tecnologie delle proposte consigliate?
+\end{itemize}
+}
+& \\ % risposta
+\hline
+
+\parbox[t]{\linewidth}{%
+\textbf{Supporto e modalità di collaborazione} \\[4pt]
+\begin{itemize}
+  \item Che tipo di supporto intendete fornirci durante il progetto?
+  \item La gestione sarà lasciata interamente a noi oppure è prevista una forma di supporto strutturata 
+  (ad esempio con riunioni periodiche, review o retrospective in stile Scrum)?
+\end{itemize}
+}
+& \\ % risposta
+\hline
+\parbox[t]{\linewidth}{%
+Le tecnologie richieste per lo sviluppo del progetto sono diverse e molte sono completamente nuove per noi: quanto è rilevante per voi la conoscenza pregressa e quali sono le vostre aspettative rispetto al nostro apprendimento progressivo durante il progetto?
+}
+&
+\begin{itemize}
+  \item Le tecnologie indicate sono quelle da noi suggerite e utilizzate anche internamente. Questo ci permetterebbe di offrirvi un supporto più puntuale ed efficace. Le stesse tecnologie sono state consigliate anche ai gruppi che hanno lavorato al progetto proposto l’anno scorso, di complessità analoga.
+  \item Siamo consapevoli del numero limitato di ore a vostra disposizione e della complessità — sicuramente stimolante — del progetto, ma grazie all’esperienza pregressa sappiamo cosa aspettarci in termini di output e possiamo venirvi incontro.
+  \item Ad esempio, non è necessario approfondire GCP o Kubernetes: potete limitarvi a utilizzare Docker in locale o, se lo ritenete opportuno, Minikube.
+  \item Un’altra possibilità è quella di utilizzare un’unica tecnologia per lo sviluppo dei vari componenti, sfruttando ad esempio TypeScript — con Node.js per la parte cloud e per il simulatore gateway, e Angular per la dashboard.
+  \item Questi dettagli, tuttavia, li definiremo progressivamente, dopo che avrete avuto modo di condurre un adeguato studio preliminare del progetto, come è naturale che sia.
+\end{itemize} \\
+\hline
+
+\end{tabularx}
+}
+
+\subsection{Interesse del team}
+\parbox[t]{\linewidth}{%
+L'interesse del team verso questo capitolato è stato inizialmente moderato, ma è cresciuto significativamente dopo aver approfondito i dettagli del progetto e aver interagito con l'azienda proponente, M31. \\
+Inizialmente il team era attratto dall'idea di lavorare su un sistema distribuito e scalabile, ma aveva delle riserve riguardo alla complessità tecnica e alla mancanza di esperienza con molte delle tecnologie proposte. Tuttavia, dopo aver avuto l'opportunità di porre domande specifiche a M31 e ricevere chiarimenti, il team ha acquisito una maggiore comprensione delle sfide e delle opportunità offerte dal progetto. \\
+}
 \subsection{Punti di forza e di debolezza}
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -448,8 +662,8 @@ L'intera applicazione dipende dalla stabilità, disponibilità e costi del servi
 \hline
 \end{tabularx}
 }
-\section{C8 - Smart Order}
-\subsection{Breve descrizione}
+\subsection{C8 - Smart Order}
+\subsubsection{Breve descrizione}
 \parbox[h]{\linewidth}{%
 \textit{Analisi multimodale per la creazione automatica di
 ordini}, proposto da Ergon Informatica Srl, prevede la realizzazione di una
@@ -460,10 +674,10 @@ gestionali aziendali. L'obiettivo del progetto è quello di migliorare l'efficie
 processi aziendali, riducendo al minimo l'intervento umano nelle fasi più ripetitive
 e soggette a errore.
 }
-\subsection{Requisiti funzionali e non funzionali}
-\subsection{Tecnologie proposte}
-\subsection{Chiarimenti e colloqui con l'azienda}
-\subsection{Interesse del team}
+\subsubsection{Requisiti funzionali e non funzionali}
+\subsubsection{Tecnologie proposte}
+\subsubsection{Chiarimenti e colloqui con l'azienda}
+\subsubsection{Interesse del team}
 \parbox[t]{\linewidth}{%
 l gruppo ha valutato positivamente la modernità e la rilevanza del tema, che
 combina più ambiti dell'intelligenza artificiale offrendo l'opportunità di
@@ -474,7 +688,7 @@ web come React o Blazor. È stato inoltre ritenuto molto positivo il supporto
 previsto da parte dell'azienda proponente e la possibilità di lavorare su un caso di
 studio reale fornito da Ergon.
 }
-\subsection{Punti di forza e di debolezza}
+\subsubsection{Punti di forza e di debolezza}
 
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -498,15 +712,15 @@ studio reale fornito da Ergon.
 
 
 \newpage
-\section{C9 - View4Life}
-\subsection{Breve descrizione}
+\subsection{C9 - View4Life}
+\subsubsection{Breve descrizione}
 \parbox[t]{\linewidth}{%
 Il capitolato proposto da Vimar S.p.A. ha come obiettivo la realizzazione di una piattaforma per la gestione intelligente di impianti domotici. all'interno di residenze protette per anziani, con l'intento di migliorare la sicurezza, il comfort e l'efficienza energetica degli ambienti. Il progetto prevede lo sviluppo di un'infrastruttura cloud e di un'applicazione web responsive dedicata al personale sanitario per il monitoraggio e il controllo dei dispositivi
 }
-\subsection{Requisiti funzionali e non funzionali}
-\subsection{Tecnologie proposte}
-\subsection{Chiarimenti e colloqui con l'azienda}
-\subsection{Interesse del team}
+\subsubsection{Requisiti funzionali e non funzionali}
+\subsubsection{Tecnologie proposte}
+\subsubsection{Chiarimenti e colloqui con l'azienda}
+\subsubsection{Interesse del team}
 \parbox[t]{\linewidth}{%
 Il gruppo ha valutato molto positivamente questo capitolato per la concretezza e
 l'impatto sociale: lavorare su un sistema capace di migliorare la qualità della vita e
@@ -527,7 +741,7 @@ infatti di sviluppare competenze di organizzazione, coordinamento e gestione
 tecnica avanzata
 }
 
-\subsection{Punti di forza e di debolezza}
+\subsubsection{Punti di forza e di debolezza}
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
 \hline
