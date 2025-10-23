@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
      
-\newcommand{\CurrentVersion}{0.4.1} % ultima versione
+\newcommand{\CurrentVersion}{0.5.0} % ultima versione
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -111,7 +111,9 @@ Documento di analisi e valutazione dei capitolati proposti per l'anno accademico
 \rowcolor{gray!40} % colore intestazione
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificato} & \textbf{Approvato} \\
 \hline
-\CurrentVersion & 22/10/2025 & Correzione indice& Linor Sadè & - & - \\
+\CurrentVersion & 23/10/2025 & Stesura di C6& Linor Sadè & - & - \\
+\hline
+0.4.1 & 22/10/2025 & Correzione indice& Linor Sadè & - & - \\
 \hline
 0.4.0 & 22/10/2025 & Iniziato e terminato C7& Linor Sadè & - & - \\
 \hline
@@ -160,7 +162,6 @@ Per la valutazione dei capitolati proposti, il team ha adottato una metodologia 
 I punti 3 e 4 sono stati ripetuti più volte fino a quando il team non si è sentito sufficientemente preparato per prendere una decisione informata sul capitolato da scegliere.\\
 Il team ha deciso di dare particolare importanza all'interesse verso l'argomento e le tecnologie rispetto alla complessità del progetto, senza tuttavia trascurare la valutazione della sua fattibilità.\\
 Crediamo che lavorare su un progetto che suscita entusiasmo e curiosità porterà a un'esperienza di apprendimento più significativa e gratificante, anche se ciò comporta affrontare sfide tecniche più impegnative.
-
 
 \section{Elenco capitolati analizzati}
 Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni capitolato, sono riportati i punti di forza e di debolezza identificati durante la fase di valutazione.
@@ -266,7 +267,7 @@ Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni c
 \begin{itemize}
 \item Impatto Sociale Elevatissimo: Il progetto ha uno scopo nobile e concretamente utile - prevenire e supportare vittime di violenza di genere. Sviluppare un'app che può potenzialmente salvare vite fornisce una motivazione etica molto forte.
 
-\item upporto Aziendale Eccezionale e Strutturato: Miriade offre un supporto completo:
+\item Supporto Aziendale Eccezionale e Strutturato: Miriade offre un supporto completo:
 o  	Referenti specializzati per ogni area (tecnica, design, dominio sociale)
 o  	Formazione iniziale sulla tematica della violenza di genere
 o  	Strumenti professionali (Jira, Bitbucket)
@@ -427,12 +428,46 @@ Il team ha mostrato un interesse significativo verso la proposta di Eggon. Inanz
 \end{tabularx}
 }
 \section{C6 - Second Brain}
+
 \subsection{Breve descrizione}
+Sviluppare una \textbf{web app} (in \textbf{HTML} e altre tecnologie web) che rappresenti un \textbf{editor basato su Markdown} con l’integrazione di strumenti di \textbf{Intelligenza Artificiale (AI)} per assistere l’utente nella scrittura e revisione dei testi.
+In particolare l'applicazione dovrà essere in grado di interagire con l'AI per eseguire opreazioni come riassumere, riscrivere, tradurre e criticare il testo scritto dall'utente. Inoltre, l'applicazione dovrà supportare un prompt generativo associato all'editor per permettere la generazione automatica di testi.
 \subsection{Requisiti funzionali e non funzionali}
+Tra i requisiti funzionali principali del progetto, l'applicazione deve includere:
+\begin{enumerate}[noitemsep, topsep=0pt]
+  \item \textbf{Editing del testo:} area di scrittura che accetta testo e marcatori in formato \texttt{Markdown}.
+  \item \textbf{Rendering grafico:} visualizzazione del testo formattato, applicando lo stile corrispondente ai marcatori Markdown.
+  \item \textbf{Accesso a un LLM:} integrazione con un \textit{Large Language Model} in grado di operare sull’intero testo o su porzioni selezionate.
+  \item \textbf{Comandi di base basati su AI:}
+  \begin{itemize}
+    \item Riassunto del testo.
+    \item Riscrittura automatica del testo.
+    \item Traduzione del testo in una lingua differente.
+  \end{itemize}
+  
+  \item \textbf{Critica del testo:} implementazione di comandi di analisi secondo il modello dei “\textit{sei cappelli per pensare}” di \textit{Edward De Bono}.
+  \item \textbf{Prompt generativo:} gestione di un prompt associato che consente la generazione automatica di un intero testo all’interno della finestra di editing.
+  \item \textbf{Persistenza dei dati:} possibilità di salvare e leggere le note come file di testo.
+\end{enumerate}
+\paragraph{}
+Zucchetti è più interessata all'idea di esplorare le caratteristiche dell'AI (e in particolare del concetto dei `Sei cappelli per pensare') piuttosto che ad un concreto uso dell'applicazione. Per questo motivo,
+presentazione e salvataggio nel database, o un sistema di autenticazione utenti, sono opzionali e verrà come minimo richiesta la possibilità di salvare e leggere note dal file system.
+\paragraph{}
+Eventualmente l'Azienda potrebbe fornire un database volto all'integrazione dell'applicazione con un sistema di autenticazione utenti e salvataggio delle note. 
+Estendendo il progetto in questa direzione, sarebbe possibile anche costruitire un sistema di \textit{linking} tra le note.
 \subsection{Tecnologie proposte}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item \textbf{Frontend:} HTML5 per l'interfaccia web dell’editor; linguaggio di markup \textit{Markdown} per la scrittura; librerie di rendering come \textit{marked.js}, \textit{Showdown} o \textit{markdown-it}.
+  \item \textbf{Integrazione LLM:} API compatibili OpenAI per chiamate a modelli linguistici; supporto a modelli come \textit{Gemini} (Google), \textit{Mistral}, \textit{Gemma}; uso opzionale di \textit{llama.cpp} per esecuzione locale.
+  \item \textbf{Backend e API (opzionale):} server-side in \textit{Python} o \textit{Java}; gestione delle richieste HTTP e delle interazioni con il database; middleware per superare la same-origin policy.
+  \item \textbf{Database (opzionale):} archivio note e metadati su DB; supporto per collegamenti tra note (link nel markup).
+  \item \textbf{Modelli ispiratori:} \textit{Joplin}, \textit{Obsidian}, \textit{Logseq} — esempi di editor Markdown; \textit{ChatGPT} come riferimento per l’interfaccia conversazionale.
+\end{itemize}
+
 \subsection{Chiarimenti e colloqui con l'azienda}
 \subsection{Interesse del team}
-
+Troviamo che il capitolato proposto da Zucchetti sia realistico per un team di studenti universitari che si interfacciano per la prima volta ad un progetto di questo calibro, sia dal punto di vista delle tempistiche e delle competenze richieste.
+Inoltre, l'argomento dell'integrazione di modelli di linguaggio di grandi dimensioni (LLM) in applicazioni pratiche è estremamente attuale e rilevante nel contesto tecnologico odierno.
 \subsection{Punti di forza e di debolezza}
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -441,17 +476,14 @@ Il team ha mostrato un interesse significativo verso la proposta di Eggon. Inanz
 \textbf{Punti di forza} & \textbf{Punti di debolezza} \\
 \hline
 \begin{itemize}
-\item  L'integrazione degli LLM in un'applicazione di produttività personale (note-taking) è un campo molto interessante. Lavorare su questo progetto fornisce un'esperienza diretta con una tecnologia all'avanguardia.
-\item  Ampio Spazio per la Progettazione e la Ricerca: Il capitolato non specifica esattamente come implementare le funzionalità, ma si concentra sul cosa. Questo lascia al team un'enorme libertà nelle scelte architetturali, nella progettazione dell'interfaccia utente (UI/UX) e, soprattutto, nell'ingegnerizzazione dei prompt per l'LLM, che è il cuore della "ricerca" del progetto.
-\item Zucchetti si offre esplicitamente di supportare il team nelle parti più complesse (es. configurazione API LLM) e metterà a disposizione gli LLM stessi. Questo riduce un potenziale grande ostacolo.
+\item  L'integrazione degli LLM in un'applicazione fornisce un'esperienza preziosa vista la loro crescente importanza nel settore. Lavorare su questo progetto fornisce un'esperienza diretta con questo tipo di tecnologia.
+\item  Ampio spazio per la progettazione e la ricerca: Il capitolato non specifica esattamente come implementare le funzionalità, ma si concentra sul cosa. Questo lascia al team una grande libertà nelle scelte architetturali, nella progettazione dell'interfaccia utente (UI/UX) e, soprattutto, nell'ingegnerizzazione dei prompt per l'LLM, che è il cuore del progetto.
+\item Zucchetti si offre esplicitamente di supportare il team nelle parti più complesse (es. configurazione API LLM) e metterà a disposizione gli LLM stessi. 
+\item Tempi di realizzazione adeguati: Zucchetti ha esplicitamente confermato che aggiungere altre funzionalità (es. tema della sicurezza) potrebbe impegnare al punta da sforare i tempi previsti per il progetto. Questo indica una consapevolezza realistica delle tempistiche e delle capacità del team.
 \end{itemize}
  & \begin{itemize}
-\item Complessità e Ampiezza del Dominio:
-Integrare un LLM in un'applicazione è un compito non banale. La gestione degli stati, degli errori delle API, dei costi (se si usano modelli cloud) e della latenza può essere complessa e richiedere molto tempo per la sola fase di prototipazione.
-\item 	Dipendenza da Tecnologie Esterne (LLM):
-L'intera applicazione dipende dalla stabilità, disponibilità e costi del servizio LLM scelto. Un cambiamento nelle API o problemi di disponibilità del servizio potrebbero bloccare lo sviluppo o il funzionamento dell'app.
-\item Le tecnologie non risultano chiaramente definite e i requisiti di progetto sono troppo ampi. Inoltre, l’assenza di specifiche vincolanti e di requisiti opzionali chiaramente delineati comporta un’eccessiva libertà decisionale, che può generare incertezza nella pianificazione e aumentare il rischio di deviazioni dagli obiettivi progettuali.
-\item  L’azienda propone lo sviluppo di un’applicazione web basata su HTML per la parte front-end. Tuttavia, il team di progetto ritiene che una soluzione fondata esclusivamente su HTML non sia tecnicamente adeguata, soprattutto considerando la disponibilità di framework moderni e più performanti, quali Angular o React, che garantirebbero maggiore scalabilità, manutenibilità e qualità dell’esperienza utente. 
+\item Le tecnologie non risultano chiaramente definite e i requisiti di progetto sono ampi. Inoltre, l’assenza di specifiche vincolanti e di requisiti opzionali chiaramente delineati comporta un’eccessiva libertà decisionale, che può generare incertezza nella pianificazione e aumentare il rischio di deviazioni dagli obiettivi progettuali.
+\item  L’azienda propone lo sviluppo di un’applicazione web basata su HTML per la parte front-end. Tuttavia, il team di progetto, è interessato anche all'utilizzo di nuove tecnologie più moderne e avanzate per lo sviluppo web, come i framework \textit{React} e \textit{Angular}. 
 \end{itemize} \\
 \hline
 \end{tabularx}
@@ -483,9 +515,7 @@ Tale simulatore sarà utilizzato per validare l'infrastruttura cloud e testare i
 \subsection{Requisiti funzionali e non funzionali}
 Tra i requisiti funzionali del progetto vi sono:
 \begin{enumerate}[noitemsep, topsep=0pt]
-  \item \textbf{Acquisizione e generazione dati da sensori:} il sistema deve gestire dati provenienti da sensori Bluetooth Low Energy (BLE). 
-  Poiché i sensori reali non rientrano nell'ambito del progetto, i dati saranno generati dal simulatore di gateway, 
-  che produrrà valori realistici per 4--5 tipologie di sensori da concordare.
+  \item \textbf{Acquisizione e generazione dati da sensori:} il sistema deve gestire dati provenienti da sensori Bluetooth Low Energy (BLE). Poiché i sensori reali non rientrano nell'ambito del progetto, i dati saranno generati dal simulatore di gateway, che produrrà valori realistici per 4--5 tipologie di sensori da concordare.
 
   \item \textbf{Simulatore di gateway:} in sostituzione di un gateway fisico, deve essere sviluppato un simulatore 
   in grado di riprodurne il comportamento principale.
@@ -575,7 +605,7 @@ Le risposte dell'azienda non sono citazioni dirette, ma sono state riassunte e r
   \end{itemize}
 \end{itemize}
 }
-& \\ % <-- qui andrà la risposta
+& \\ % risposta
 \hline
 
 \parbox[t]{\linewidth}{%
@@ -686,8 +716,36 @@ gestionali aziendali. L'obiettivo del progetto è quello di migliorare l'efficie
 processi aziendali, riducendo al minimo l'intervento umano nelle fasi più ripetitive
 e soggette a errore.
 }
+
 \subsubsection{Requisiti funzionali e non funzionali}
+Tra i requisiti funzionali del progetto vi sono:
+\begin{itemize}
+  \item \textbf{Integrazione multimodale completa:} il sistema deve poter ricevere e gestire input di testo, immagini e audio, integrandoli in un unico flusso coerente.
+  \item \textbf{Pipeline di elaborazione dati:} implementazione di tutti i layer funzionali descritti nel capitolato.
+  \item \textbf{Output strutturato e integrazione gestionale:} gli ordini generati devono essere completi, coerenti e in formato strutturato (ad esempio JSON, XML o tabelle relazionali), pronti per l’inserimento in un sistema ERP.
+  \item \textbf{Accuratezza e validazione automatica:} devono essere previsti controlli di coerenza e integrità dei dati, per garantire che gli ordini generati siano affidabili e corretti.
+  \item \textbf{Interfaccia e API di comunicazione:} il sistema deve prevedere API REST per l’interazione tra il modello AI e i componenti esterni, in particolare con il database o l’applicativo gestionale.
+  \item \textbf{Caso di studio e testing:} il sistema deve essere testato su un caso di studio reale fornito dall’azienda, includendo verifiche di performance e accuratezza.
+\end{itemize}
+
+Tra i requisiti non funzionali vi sono:
+\begin{itemize}
+  \item \textbf{Modularità e scalabilità del sistema:} ogni componente della pipeline deve essere progettato come modulo indipendente, aggiornabile senza impattare l’intero sistema.
+  \item \textbf{Logging e feedback continuo:} implementazione di un sistema di monitoraggio e logging che consenta di raccogliere errori, aggiornare le regole aziendali e migliorare le prestazioni tramite retraining periodico.
+  \item \textbf{Documentazione tecnica completa:} il sistema deve essere accompagnato da una documentazione chiara, aggiornata e completa di istruzioni per l’uso e la manutenzione.
+  \item \textbf{Supporto e replicabilità:} il sistema deve essere facilmente replicabile in ambienti diversi e supportato da istruzioni di installazione e configurazione.
+\end{itemize}
 \subsubsection{Tecnologie proposte}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item \textbf{Database relazionale:} SQL Server Express, MySQL o MariaDB.
+  \item \textbf{Modelli di linguaggio e NLP:} BERT, RoBERTa, GPT.
+  \item \textbf{Visione computazionale e OCR:} Tesseract OCR, EasyOCR, Convolutional Neural Networks (CNN), Vision Transformer (ViT).
+  \item \textbf{Riconoscimento vocale e trascrizione:} Whisper (OpenAI), Google Speech-to-Text.
+  \item \textbf{API REST.}
+  \item \textbf{Comunicazione da/per il database:} connettori da una fonte dati ODBC o indipendenza del modello LLM dal database.
+  \item \textbf{Interfaccia utente:} .NET Blazor, React.js, Angular.
+\end{itemize}
+
 \subsubsection{Chiarimenti e colloqui con l'azienda}
 \subsubsection{Interesse del team}
 \parbox[t]{\linewidth}{%
@@ -730,7 +788,20 @@ studio reale fornito da Ergon.
 Il capitolato proposto da Vimar S.p.A. ha come obiettivo la realizzazione di una piattaforma per la gestione intelligente di impianti domotici. all'interno di residenze protette per anziani, con l'intento di migliorare la sicurezza, il comfort e l'efficienza energetica degli ambienti. Il progetto prevede lo sviluppo di un'infrastruttura cloud e di un'applicazione web responsive dedicata al personale sanitario per il monitoraggio e il controllo dei dispositivi
 }
 \subsubsection{Requisiti funzionali e non funzionali}
+
 \subsubsection{Tecnologie proposte}
+\begin{itemize}
+  \item \textbf{Infrastruttura Cloud:} deve utilizzare \textbf{Docker} con \textbf{docker-compose}, in modo da rispettare il principio di \textit{Infrastructure as Code}.
+  \item \textbf{Applicativo web:} deve prevedere l’utilizzo della tecnologia \textbf{KNX IoT 3rd Party API}.
+  \item \textbf{Autenticazione:} l’interfaccia KNX IoT richiede l’uso del protocollo \textbf{OAuth2} per la gestione sicura dell’autenticazione.
+  \item \textbf{Notifiche di impianto:} l’applicativo deve utilizzare il meccanismo di ricezione delle notifiche \textit{push} previsto dallo standard KNX IoT.  
+  Meccanismi di aggiornamento periodico tramite \textit{polling} non sono ammessi.
+  \item \textbf{Versionamento:} il repository di lavoro deve essere gestito con \textbf{Git} e reso \textbf{pubblicamente accessibile}.  
+  I sorgenti dovranno essere rilasciati con \textbf{licenza open source}.
+  
+  \item \textbf{Compatibilità delle licenze:} il gruppo di lavoro deve prestare attenzione alla compatibilità delle licenze open-source adottate rispetto alle librerie o ai framework utilizzati.
+\end{itemize}
+
 \subsubsection{Chiarimenti e colloqui con l'azienda}
 \subsubsection{Interesse del team}
 \parbox[t]{\linewidth}{%
