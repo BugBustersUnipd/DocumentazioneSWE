@@ -1,0 +1,259 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[titles]{tocloft}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tikz}
+\usepackage{pgf-pie}
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+% Configurazione header e footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{BugBusters}
+\fancyhead[R]{Dichiarazione impegni}
+\fancyfoot[L]{\thepage\ di \pageref{LastPage}}
+\fancyfoot[R]{\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Risolve il warning di fancyhdr
+\setlength{\headheight}{14pt}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+% Configurazione enumerazione per indice
+\setlist[enumerate,1]{label=\textbf{\arabic*}, leftmargin=*}
+\setlist[enumerate,2]{label=\arabic{enumi}.\arabic*}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+% Pagina 1 - Titolo
+\begin{center}
+  \thispagestyle{empty}
+  \IfFileExists{../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  {\Large\bfseries BugBusters}\\[0.8cm]
+
+  {\Huge\bfseries Dichiarazione impegni}\\[0.8cm]
+  {\Large Versione 1.0.0}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Stato} & [XXX] \\
+\textbf{Data ultima modifica} & 23/10/2025 \\
+\textbf{Distribuzione} & BugBusters \\
+ & Prof. Vardanega Tullio \\
+ & Prof. Cardin Riccardo \\
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+% Pagina 2 - Registro modifiche
+\section*{Registro delle Modifiche}
+
+{\footnotesize
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{Vers.} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
+\hline
+0.1.0 & 23/10/2025 & Prima stesura della struttura del documento & Alberto Autiero & - \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\newpage
+
+% Pagina 3 - Indice
+\section*{Indice}
+\begin{enumerate}
+\item \textbf{Introduzione} \hfill 3
+\item \textbf{Impegno} \hfill 4
+  \begin{enumerate}
+  \item Individuale \hfill 4
+  \item Riassunto costi \hfill 5
+  \end{enumerate}
+\item \textbf{Ruoli} \hfill 6
+  \begin{enumerate}
+  \item Responsabile \hfill 6
+  \item Amministratore \hfill 6
+  \item Analista \hfill 6
+  \item Progettista \hfill 6
+  \item Programmatore \hfill 6
+  \item Verificatore \hfill 7
+  \end{enumerate}
+\item \textbf{Costi} \hfill 7
+\item \textbf{Consegna} \hfill 7
+\end{enumerate}
+
+\newpage
+
+% Pagina 4 - Introduzione
+\section{Introduzione}
+Con il seguente documento, il gruppo quattro formatosi per svolgere il progetto di Ingegneria del Software, BugBusters, desidera esporre l'impegno orario che il gruppo ha ritenuto essere opportuno per svolgere il capitolato C9 = View4Life proposto da Vimar per cui il gruppo si è candidato. Verranno esposte di seguito le ore produttive che ciascun componente si impegna di dedicare al progetto, un riassunto dei costi e infine una descrizione dei ruoli che ogni membro del gruppo sarà tenuto a coprire.
+
+\newpage
+
+% Pagina 5 - Impegno
+\section{Impegno}
+Ogni membro del gruppo si impegna a dedicare al progetto un totale di 92 ore produttive, ripartite equamente tra i ruoli di Responsabile, Amministratore, Analista, Progettista, Programmatore e Verificatore. Seguiranno nei successivi paragrafi i dettagli.
+
+\subsection{Individuale}
+
+{\scriptsize
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} & \rotatebox{45}{Totale} \\
+\hline
+Alberto Autiero & 8 & 9 & 8 & 22 & 27 & 18 & 92 \\
+\hline
+Marco Favero & 8 & 9 & 8 & 22 & 27 & 18 & 92 \\
+\hline
+Alberto Pignat & 9 & 8 & 9 & 22 & 25 & 19 & 92 \\
+\hline
+Marco Piro & 8 & 8 & 9 & 21 & 27 & 19 & 92 \\
+\hline
+Linor Sadè & 8 & 8 & 9 & 21 & 26 & 20 & 92 \\
+\hline
+Leonardo Salviato & 9 & 9 & 9 & 21 & 24 & 20 & 92 \\
+\hline
+Luca Slongo & 8 & 9 & 8 & 21 & 24 & 22 & 92 \\
+\hline
+\textbf{Totale} & \textbf{58} & \textbf{60} & \textbf{60} & \textbf{150} & \textbf{180} & \textbf{136} & \textbf{644} \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\begin{center}
+\textit{Tabella 1: Ore di ogni componente per ciascun ruolo}
+\end{center}
+
+\newpage
+
+% Pagina 6 - Riassunto costi
+\subsection{Riassunto costi}
+
+{\footnotesize
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Ruolo} & \textbf{Costo Orario} & \textbf{Ore} & \textbf{Costo} \\
+\hline
+Responsabile & 30€/h & 58h & 1.740€ \\
+Amministratore & 20€/h & 60h & 1.200€ \\
+Analista & 25€/h & 60h & 1.500€ \\
+Progettista & 25€/h & 150h & 3.750€ \\
+Programmatore & 15€/h & 180h & 2.700€ \\
+Verificatore & 15€/h & 136h & 2.040€ \\
+\hline
+\textbf{Totale} & - & \textbf{644h} & \textbf{12.930€} \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\begin{center}
+\textit{Tabella 2: riassunto dei costi derivanti dalle ore assegnate a ciascun ruolo}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tikzpicture}
+\pie[
+    text=legend,
+    radius=2.8,
+    color={
+        primaryblue!80,
+        secondaryblue!70,
+        green!70,
+        orange!70,
+        purple!70,
+        cyan!70
+    },
+    explode=0.1,
+    before number=,
+    after number=,
+    sum=auto,
+    rotate=90
+]{
+    21/Verificatore,
+    28/Programmatore,
+    9/Responsabile,
+    9/Amministratore,
+    9/Analista,
+    23/Progettista
+}
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\textit{Grafico 1: Distribuzione percentuale delle ore per ruolo}
+\end{center}
+
+\newpage
+
+% Pagina 7 - Ruoli
+\section{Ruoli}
+
+\subsection{Responsabile}
+Il Responsabile assume la guida del gruppo, coordinando le attività e gestiendo le comunicazioni con i docenti e il proponente. Si occupa della pianificazione temporale, del monitoraggio dell'avanzamento e della gestione dei rischi. Il suo impegno è particolarmente significativo nelle fasi iniziali del progetto, per poi diminuire progressivamente man mano che il team acquisisce autonomia operativa.
+
+\subsection{Amministratore}
+L'Amministratore è responsabile della configurazione e del mantenimento degli strumenti di supporto allo sviluppo. Gestisce l'infrastruttura IT, i repository code, i sistemi di continuous integration e la documentazione di progetto. Garantisce che tutti gli ambienti di lavoro siano correttamente configurati e funzionanti, con un carico di lavoro distribuito omogeneamente durante tutto il ciclo di vita del progetto.
+
+\subsection{Analista}
+L'Analista si dedica allo studio e alla formalizzazione dei requisiti, analizzando il capitolato d'appalto e interfacciandosi con il proponente per chiarimenti. Elabora specifiche tecniche dettagliate e modelli dei casi d'uso. La sua attività è concentrata principalmente nelle fasi iniziali del progetto, con possibile supporto successivo per l'evoluzione dei requisiti.
+
+\subsection{Progettista}
+Il Progettista trasforma i requisiti in un'architettura software robusta e coerente. Definisce le scelte tecnologiche, i pattern architetturali e i diagrammi di sistema. Redige la specifica tecnica e supervisiona l'integrazione tra i vari componenti. Il suo contributo è essenziale in tutte le fasi progettuali, con particolare intensità durante la definizione dell'architettura.
+
+\subsection{Programmatore}
+Il Programmatore implementa les soluzioni progettate, sviluppando codice secondo le best practice dell'ingegneria del software. Si occupa dell'integrazione dei componenti, della scrittura dei test unitari e della documentazione del codice. Il suo lavoro è distribuito uniformemente durante le fasi di sviluppo e manutenzione del software.
+
+\subsection{Verificatore}
+Il Verificatore garantisce la qualità del prodotto attraverso attività di testing, code review e validazione. Verifica la conformità della documentazione agli standard, esegue test di integrazione e sistema, e assicura che tutto il materiale prodotto soddisfi i criteri qualitativi definiti. La sua presenza è costante durante l'intero ciclo di vita del progetto.
+
+\vspace{1cm}
+
+\section{Costi}
+Il costo previsto per la realizzazione del progetto è, come anche osservabile dalla Tabella 2 nella Sezione 2.2, di \textbf{Euro 12.930}.
+
+\section{Consegna}
+La data ultima per la consegna del progetto è fissata improrogabilmente al giorno \textbf{XXX}.
+
+\end{document}
