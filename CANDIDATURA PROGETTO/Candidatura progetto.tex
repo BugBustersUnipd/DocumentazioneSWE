@@ -1,0 +1,126 @@
+\documentclass[a4paper,11pt]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{ifthen}
+
+\geometry{
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+\graphicspath{{./}{../assets/}}
+
+\begin{document}
+
+\begin{letter}{
+    Alla cortese attenzione di \\
+    Prof. Vardanega Tullio, \\
+    Prof. Cardin Riccardo, \\
+    Università degli Studi di Padova, \\
+    Dipartimento di Matematica, \\
+    Via Trieste, 63 \\
+    35121, Padova
+}
+
+\noindent
+\begin{minipage}[t]{0.65\textwidth}
+    {\Huge\bfseries Candidatura} \\[0.3cm]
+    {\Huge\bfseries capitolato C9}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+    \raggedleft
+    {\small Bug Busters,} \\
+    {\small Gruppo 4} \\
+    {\small bugbusters.unipd@gmail.com} \\[0.3cm]
+    \IfFileExists{../assets/Logo.jpg}{%
+        \includegraphics[width=2.5cm,height=2.5cm,keepaspectratio]{../assets/Logo.jpg}
+    }{%
+        \fbox{\parbox[c][2cm][c]{2.5cm}{\centering\tiny Logo\\non trovato}}
+    }
+\end{minipage}
+
+\vspace{2em}
+
+\opening{Egregio Prof. Vardanega, \\ Egregio Prof. Cardin,}
+
+con la presente il gruppo Bug Busters desidera comunicarVi formalmente la propria candidatura per la realizzazione del capitolato con titolo:
+
+\begin{center}
+    \textbf{View4Life}
+\end{center}
+
+proposto dall'azienda \textbf{Vimar}, capitolato di progetto \textbf{C9}.
+
+\vspace{1em}
+
+Come specificato nel documento di dichiarazione degli impegni Bug Busters ha preventivato un costo totale per la realizzazione del progetto di Euro XXX ed ha fissato il termine ultimo di consegna al XXX.
+
+\vspace{1em}
+
+Si riassumono inoltre i punti di forza che hanno portato il gruppo alla scelta del capitolato:
+
+\begin{itemize}
+    \item Interesse immediato per il capitolato, favorito dalla sua differenza tematica rispetto agli altri progetti di Ingegneria del Software proposti nell'anno accademico.
+    
+    \item Valutazione positiva delle risposte fornite dall'azienda Vimar, che ha chiarito i dubbi emersi durante l'incontro.
+    
+    \item Forte disponibilità dell'azienda Vimar a fornire supporto e a collaborare con il gruppo.
+\end{itemize}
+
+\vspace{1em}
+
+Per ulteriori dettagli consigliamo di visionare il documento dedicato alla valutazione dei capitolati.
+
+\newpage
+
+Tutta la documentazione redatta e prodotta da Bug Busters viene pubblicata nel sito ufficiale e prodotta a partire dai documenti nel repository dedicato alla documentazione.
+
+\vspace{1em}
+
+L'intero gruppo è a disposizione per qualsiasi chiarimento; si riportano i nominativi di tutti i membri di Bug Busters:
+
+\vspace{1em}
+
+\begin{center}
+\begin{tabular}{|l|l|r|}
+\hline
+\textbf{Cognome} & \textbf{Nome} & \textbf{Matricola} \\
+\hline
+Autiero & Alberto & 2082862 \\
+\hline
+Favero & Marco & 2101071 \\
+\hline
+Pignat & Alberto & 2111044 \\
+\hline
+Piro & Marco & 2068075 \\
+\hline
+Sadè & Linor & 2111942 \\
+\hline
+Salviato & Leonardo & 2101086 \\
+\hline
+Slongo & Luca & 2111009 \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{2em}
+
+\closing{Cordiali Saluti,}
+
+\end{letter}
+
+\end{document}
