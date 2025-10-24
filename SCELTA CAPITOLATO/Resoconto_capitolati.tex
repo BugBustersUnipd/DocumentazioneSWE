@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
      
-\newcommand{\CurrentVersion}{0.5.0} % ultima versione
+\newcommand{\CurrentVersion}{0.6.0} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -111,8 +111,10 @@ Documento di analisi e valutazione dei capitolati proposti per l'anno accademico
 \hline
 \rowcolor{gray!40} % colore intestazione
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificato} & \textbf{Approvato} \\
+\hline 
+\CurrentVersion & 24/10/2025 & Stesura di C4 e altre piccole modifiche & Linor Sadè & - & - \\
 \hline
-\CurrentVersion & 23/10/2025 & Stesura di C6& Linor Sadè & - & - \\
+0.5.0 & 23/10/2025 & Stesura di C6& Linor Sadè & - & - \\
 \hline
 0.4.1 & 22/10/2025 & Correzione indice& Linor Sadè & - & - \\
 \hline
@@ -224,6 +226,7 @@ Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni c
 }
 \subsection{C3 - DIPReader}
 \subsubsection{Breve descrizione}
+DIPReader propone la realizzazione di un’applicazione per la consultazione locale di pacchetti di conservazione digitale (DIP): l’obiettivo è permettere a professionisti e operatori di accedere offline a documenti conservati, effettuare ricerche e visualizzare anteprime, con funzionalità opzionali avanzate quali ricerca semantica e verifica delle firme. Il progetto risponde a un’esigenza pratica e concreta.
 \subsubsection{Requisiti funzionali e non funzionali}
 \subsubsection{Tecnologie proposte}
 \subsubsection{Chiarimenti e colloqui con l'azienda}
@@ -245,7 +248,7 @@ Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni c
 \item Sfide Tecniche per l'Offline: Implementare ricerche efficienti e visualizzazioni di anteprima completamente offline, specialmente per grandi volumi di dati, presenta sfide non banali di performance e gestione della memoria.
 
 \item Ambiguità Architetturale: Non è completamente chiaro se l'applicazione debba essere una PWA, un'app desktop (Electron) o entrambe. Questa decisione avrà impatti significativi sull'architettura.
-\item Scope Potenzialmente Ampio: Le funzionalità opzionali come la ricerca semantica (con FAISS) e la verifica delle firme digitali sono progetti ambiziosi che potrebbero distrarre dallo sviluppo del MVP.
+\item Scope potenzialmente ampio: Le funzionalità opzionali come la ricerca semantica (con FAISS) e la verifica delle firme digitali sono progetti ambiziosi che potrebbero distrarre dallo sviluppo del MVP.
 \item Testing su Grandi Volumi: Garantire le performance con "grandi volumi" di dati potrebbe essere difficile da testare e validare in ambiente universitario.
 \end{itemize} \\
 \hline
@@ -257,39 +260,78 @@ Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni c
 \subsubsection{Requisiti funzionali e non funzionali}
 \subsubsection{Tecnologie proposte}
 \subsubsection{Chiarimenti e colloqui con l'azienda}
-\subsubsection{Interesse del team}
+Qui di seguito sono riportate alcune delle domande poste a Miriade con le relative risposte fornite dall'azienda. 
 
+\paragraph{}
+Le risposte dell'azienda non sono citazioni dirette, ma sono state riassunte e riformulate dal team
+in modo da essere più concise e chiare.
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Domande} & \textbf{Risposte} \\
+\hline
+C'è la possibilità di avere incontri online anche settimanalmente?
+&
+\begin{itemize}
+  \item L'azienda si organizza in sprint di 2 settimane
+  \item è disponibile supporto anche al di fuori degli incontri programmati, tramite email o se richiesti anche tramite riunioni in sede a Padova.
+\end{itemize}
+\\
+\hline
+L'azienda ha pensato ad un eventuale formazione iniziale rispetto alle tecnologie da utilizzare e alla tematica della violenza di genere?
+&
+\begin{itemize}
+  \item Sono disponibili corsi di formazione tecnica e il supporto di referenti specializzati per ogni area tecnica
+  \item In azienda lavora una referente che, purtroppo, ha vissuto in prima persona la violenza di genere e che può fornire un supporto prezioso per comprendere le esigenze delle vittime.
+  \item Miriade lavora con un'associazione che ha come fulcro sul tipo di tematiche che l'applicazione tratta. 
+\end{itemize}\\
+\hline
+Essendo un progetto alquanto completo quello presentato nel capitolato il team voleva sapere se era stata fatta una stima delle tempistiche per l'implementazione delle varie funzionalitá e se erano stati predisposti dei requisiti minimi ottenibili nel tempo che ci è stato assegnato.
+&
+\begin{itemize}
+  \item Il documento del capitolato fornisce una serie di aspettative per un'applicazione completa, ma i requisiti minimi non sono ancora stati definiti: in caso di conferma dell'assegnazione del capitolato, l'azienda lavorerà con il team per definire un MVP realistico.
+  \item Data la mancanza di requisiti minimi non possono ancoar essere determinate le tempistiche per l'implementazione delle varie funzionalità.
+\end{itemize}\\
+\hline
+\end{tabularx}
+}  
+\subsubsection{Interesse del team}
+\parbox[t]{\linewidth}{%
+Il team ha riconosciuto l'importanza sociale del progetto proposto da Miriade e si è dimostrato, anche per questo per questo, interessato.
+Inoltre, il team ha riconosciuto l'opportunità di implementare un'applicazione mobile completa, che copre l'intero ciclo di vita dello sviluppo software, dall'analisi dei requisiti allo sviluppo di un'applicazione non ancora esistente.
+\\ Tuttavia, il team ha espresso alcune preoccupazioni riguardo alla complessità del dominio delle richieste: benchè le funzionalità richieste siano preferenziali e non requisiti minimi, il team teme che la mole di lavoro richiesta per implementare tutte le funzionalità possa essere eccessiva per il tempo a disposizione.
+}
 \subsubsection{Punti di forza e di debolezza}
+{\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
 \hline
 \rowcolor{lightgray!40} % colore intestazione
 \textbf{Punti di forza} & \textbf{Punti di debolezza} \\
 \hline
 \begin{itemize}
-\item Impatto Sociale Elevatissimo: Il progetto ha uno scopo nobile e concretamente utile - prevenire e supportare vittime di violenza di genere. Sviluppare un'app che può potenzialmente salvare vite fornisce una motivazione etica molto forte.
-
-\item Supporto Aziendale Eccezionale e Strutturato: Miriade offre un supporto completo:
-o  	Referenti specializzati per ogni area (tecnica, design, dominio sociale)
-o  	Formazione iniziale sulla tematica della violenza di genere
-o  	Strumenti professionali (Jira, Bitbucket)
-o  	Supporto multidisciplinare continuo
-o  	Possibilità di incontri in sede
-\item Requisiti Chiari e Dettagliati: Sia i requisiti funzionali che non funzionali sono ben specificati, con una chiara distinzione tra obbligatori e opzionali.
+\item Impatto sociale elevatissimo: Il progetto ha uno scopo nobile e concretamente utile, prevenire e supportare vittime di violenza di genere.
+\item Buon supporto aziendale: Miriade offre un supporto completo:
+\begin{itemize}
+  \item Referenti specializzati per ogni area (tecnica, design, dominio sociale)
+  \item Formazione iniziale sulla tematica della violenza di genere
+  \item Supporto multidisciplinare continuo
+  \item Possibilità di incontri in sede
+\end{itemize}
 \item Ottima possibilità riguardo il ciclo di vita dell’applicazione: analisi, progettazione, sviluppo, test di sicurezza e controllo dei contenuti etici devono essere fatti in modo chiaro e preciso, apprendendo così competenze multidisciplinari.
+\item Integrazione di AI/LM. L'avorare su queste tecnologie fornisce un'esperienza preziosa vista la loro crescente importanza nel settore.
 \end{itemize}
  & \begin{itemize}
-\item Alta Complessità Tecnica e Progettuale:
-o	L'architettura proposta è ambiziosa e forse eccessiva essendo per alcuni il primo affronto verso certe conoscenze
-o	L'integrazione di AI/ML per l'analisi comportamentale richiede competenze specialistiche
-o	L'architettura serverless su AWS con microservizi è complessa da gestire
-o	La sicurezza dei dati è critica e richiede implementazioni robuste
-
-\item 	Responsabilità e Sensibilità del Dominio: L'errore in un'app di questo tipo può avere conseguenze gravi, soprattutto dal punto di vista etico. La progettazione deve essere impeccabile sotto il profilo della sicurezza e dell'affidabilità.
-\item Scope Molto Ampio: Le funzionalità previste sono numerose e ambiziose (rilevamento AI, allarmi silenziosi, diario criptato, moduli educativi, community). Il rischio di sovra-estendere il progetto è alto.
+\item Alta complessità tecnica e progettuale:
+\begin{itemize}
+  \item L'architettura proposta è ambiziosa e forse eccessiva essendo per alcuni il primo affronto verso certe conoscenze
+  \item La sicurezza dei dati è critica e richiede implementazioni robuste
+\end{itemize}
+\item 	Responsabilità e sensibilità del sominio: L'errore in un'app di questo tipo può avere conseguenze gravi, soprattutto dal punto di vista etico. La progettazione deve essere impeccabile sotto il profilo della sicurezza e dell'affidabilità.
+\item Scope molto ampio: Le funzionalità previste sono numerose e ambiziose (rilevamento AI, allarmi silenziosi, diario criptato, moduli educativi, community). Il rischio di sovra-estendere il progetto è alto.
 \end{itemize} \\
 \hline
 \end{tabularx}
-
+}
 
 \newpage
 \subsection{C5 - Nexum}
@@ -404,6 +446,8 @@ Avete parlato di includere il team di lavoro nel vostro processo SCRUM e nelle r
 \parbox[t]{\linewidth}{%
 Il team ha mostrato un interesse significativo verso la proposta di Eggon. Inanzitutto, i rappresentanti dell'azienda hanno subito mostrato uno stile giovanile e informale, pur mantenendo professionalità e struttura. Ciò ha avuto un impatto positivo come prima impressione. \\Inoltre, il progetto proposto si allinea bene con le aspirazioni del team di acquisire esperienza pratica nello sviluppo di applicazioni reali, specialmente in un contesto aziendale. L'opportunità di lavorare su una piattaforma HR esistente come NEXUM, che ha una base di utenti reale, ha particolare attrattiva.\\ Infine, come già specificato all'inizio di questo documento, il team pone molta importanza al supporto che l'azienda può offrire durante lo sviluppo del progetto. Le risposte fornite da Eggon alle nostre domande hanno confermato che l'azienda è disposta a fornire un supporto strutturato e continuo, il che aumenta ulteriormente l'interesse del team verso questo capitolato.
 }
+\paragraph{}
+Visto l'interesse del team, è stato organizzato anche un incontro di approfondimento con Eggon, durante il quale sono stati chiariti ulteriori dubbi e domande riguardo al progetto.
 \subsubsection{Punti di forza e di debolezza}
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -428,12 +472,12 @@ Il team ha mostrato un interesse significativo verso la proposta di Eggon. Inanz
 \hline
 \end{tabularx}
 }
-\section{C6 - Second Brain}
+\subsection{C6 - Second Brain}
 
-\subsection{Breve descrizione}
+\subsubsection{Breve descrizione}
 Sviluppare una \textbf{web app} (in \textbf{HTML} e altre tecnologie web) che rappresenti un \textbf{editor basato su Markdown} con l’integrazione di strumenti di \textbf{Intelligenza Artificiale (AI)} per assistere l’utente nella scrittura e revisione dei testi.
 In particolare l'applicazione dovrà essere in grado di interagire con l'AI per eseguire opreazioni come riassumere, riscrivere, tradurre e criticare il testo scritto dall'utente. Inoltre, l'applicazione dovrà supportare un prompt generativo associato all'editor per permettere la generazione automatica di testi.
-\subsection{Requisiti funzionali e non funzionali}
+\subsubsection{Requisiti funzionali e non funzionali}
 Tra i requisiti funzionali principali del progetto, l'applicazione deve includere:
 \begin{enumerate}[noitemsep, topsep=0pt]
   \item \textbf{Editing del testo:} area di scrittura che accetta testo e marcatori in formato \texttt{Markdown}.
@@ -456,7 +500,7 @@ presentazione e salvataggio nel database, o un sistema di autenticazione utenti,
 \paragraph{}
 Eventualmente l'Azienda potrebbe fornire un database volto all'integrazione dell'applicazione con un sistema di autenticazione utenti e salvataggio delle note. 
 Estendendo il progetto in questa direzione, sarebbe possibile anche costruitire un sistema di \textit{linking} tra le note.
-\subsection{Tecnologie proposte}
+\subsubsection{Tecnologie proposte}
 \begin{itemize}[noitemsep, topsep=0pt]
   \item \textbf{Frontend:} HTML5 per l'interfaccia web dell’editor; linguaggio di markup \textit{Markdown} per la scrittura; librerie di rendering come \textit{marked.js}, \textit{Showdown} o \textit{markdown-it}.
   \item \textbf{Integrazione LLM:} API compatibili OpenAI per chiamate a modelli linguistici; supporto a modelli come \textit{Gemini} (Google), \textit{Mistral}, \textit{Gemma}; uso opzionale di \textit{llama.cpp} per esecuzione locale.
@@ -465,11 +509,11 @@ Estendendo il progetto in questa direzione, sarebbe possibile anche costruitire 
   \item \textbf{Modelli ispiratori:} \textit{Joplin}, \textit{Obsidian}, \textit{Logseq} — esempi di editor Markdown; \textit{ChatGPT} come riferimento per l’interfaccia conversazionale.
 \end{itemize}
 
-\subsection{Chiarimenti e colloqui con l'azienda}
-\subsection{Interesse del team}
+\subsubsection{Chiarimenti e colloqui con l'azienda}
+\subsubsection{Interesse del team}
 Troviamo che il capitolato proposto da Zucchetti sia realistico per un team di studenti universitari che si interfacciano per la prima volta ad un progetto di questo calibro, sia dal punto di vista delle tempistiche e delle competenze richieste.
 Inoltre, l'argomento dell'integrazione di modelli di linguaggio di grandi dimensioni (LLM) in applicazioni pratiche è estremamente attuale e rilevante nel contesto tecnologico odierno.
-\subsection{Punti di forza e di debolezza}
+\subsubsection{Punti di forza e di debolezza}
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
 \hline
@@ -489,8 +533,8 @@ Inoltre, l'argomento dell'integrazione di modelli di linguaggio di grandi dimens
 \hline
 \end{tabularx}
 }
-\section{C7 - Sistema di acquisizione dati da sensori}
-\subsection{Breve descrizione}
+\subsection{C7 - Sistema di acquisizione dati da sensori}
+\subsubsection{Breve descrizione}
 \paragraph{} 
 Il progetto mira a sviluppare un sistema distribuito di acquisizione e smistamento dati dai sensori BLE. 
 La piattaforma deve essere in grado di ricevere, aggregare, normalizzare e smistare tali informazioni in modo affidabile, sicuro e scalabile.
@@ -513,7 +557,7 @@ in grado di riprodurre in modo verosimile il comportamento di un nodo BLE--WiFi.
 Tale simulatore sarà utilizzato per validare l'infrastruttura cloud e testare i flussi di comunicazione previsti.
 
 
-\subsection{Requisiti funzionali e non funzionali}
+\subsubsection{Requisiti funzionali e non funzionali}
 Tra i requisiti funzionali del progetto vi sono:
 \begin{enumerate}[noitemsep, topsep=0pt]
   \item \textbf{Acquisizione e generazione dati da sensori:} il sistema deve gestire dati provenienti da sensori Bluetooth Low Energy (BLE). Poiché i sensori reali non rientrano nell'ambito del progetto, i dati saranno generati dal simulatore di gateway, che produrrà valori realistici per 4--5 tipologie di sensori da concordare.
@@ -559,7 +603,7 @@ Tra i requisiti non funzionali vi sono:
   per il deploy su ambienti di test e produzione.
 \end{itemize}
 
-\subsection{Tecnologie proposte}
+\subsubsection{Tecnologie proposte}
 Le tecnologie proposte per lo sviluppo del progetto includono:
 \begin{itemize}[noitemsep, topsep=0pt]
   \item \textbf{Sviluppo:} 
@@ -577,7 +621,7 @@ Le tecnologie proposte per lo sviluppo del progetto includono:
   \textit{Redis} come sistema di caching per ridurre la latenza e migliorare le prestazioni.
 \end{itemize}
 Tuttavia le tecnologie sopra elencate non sono vincolanti: il team può proporre alternative ma devono in ultimo essere approvate da M31.
-\subsection{Chiarimenti e colloqui con l'azienda}
+\subsubsection{Chiarimenti e colloqui con l'azienda}
 \parbox[t]{\linewidth}{%
 Qui di seguito sono riportate alcune delle domande poste a M31 con le relative risposte fornite dall'azienda. Le domande vertono principalmente su aspetti tecnici del progetto, poichè il team voleva chiarire alcuni dubbi riguardanti l'architettura del sistema e le tecnologie da utilizzare. \\
 Il team ha deciso di fissare una runione per discutere di questi aspetti, in modo da poter porre domande specifiche e ricevere risposte dettagliate direttamente dai referenti dell'azienda. Questo approccio ha permesso di ottenere chiarimenti più approfonditi e di comprendere meglio le aspettative dell'azienda riguardo al progetto.
@@ -679,12 +723,12 @@ Naturalmente resteremo a disposizione per domande e supporto mirato e, se necess
 \end{tabularx}
 }
 
-\subsection{Interesse del team}
+\subsubsection{Interesse del team}
 \parbox[t]{\linewidth}{%
 L'interesse del team verso questo capitolato è stato inizialmente moderato, ma è cresciuto significativamente dopo aver approfondito i dettagli del progetto e aver interagito con l'azienda proponente, M31. \\
 Inizialmente il team era attratto dall'idea di lavorare su un sistema distribuito e scalabile, ma aveva delle riserve riguardo alla complessità tecnica e alla mancanza di esperienza con molte delle tecnologie proposte. Tuttavia, dopo aver avuto l'opportunità di porre domande specifiche a M31 e ricevere chiarimenti, il team ha acquisito una maggiore comprensione delle sfide e delle opportunità offerte dal progetto. \\
 }
-\subsection{Punti di forza e di debolezza}
+\subsubsection{Punti di forza e di debolezza}
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
 \hline
