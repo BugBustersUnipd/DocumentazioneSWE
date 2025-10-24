@@ -1,226 +1,126 @@
-\documentclass[a4paper,12pt]{article}
-
-\newcommand{\CurrentVersion}{0.1.0} % ultima versione
-
+\documentclass[a4paper,11pt]{letter}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage[italian]{babel}
-\usepackage[margin=2.5cm]{geometry}
+\usepackage{geometry}
+\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{grffile}
-\usepackage{booktabs}
-\usepackage{setspace}
-\usepackage{titlesec}
-\usepackage{float}
 \usepackage{ifthen}
-\usepackage{xcolor}
-\usepackage{tcolorbox}
-\usepackage{enumitem}
-\usepackage[colorlinks=true,linkcolor=primaryblue,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
-\usepackage[titles]{tocloft}
-\usepackage{tabularx}
-\usepackage{eurosym}
 
-\definecolor{primaryblue}{RGB}{0,102,204}
-\definecolor{secondaryblue}{RGB}{51,153,255}
-\definecolor{lightgray}{RGB}{245,245,245}
-\definecolor{darkgray}{RGB}{100,100,100}
+\geometry{
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
 
-\titleformat{\section}
-  {\Large\bfseries\color{primaryblue}}
-  {\thesection}{1em}{}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
 
-\titleformat{\subsection}
-  {\large\bfseries\color{secondaryblue}}
-  {\thesubsection}{1em}{}
-
-\setlength{\parskip}{4pt}
-\setlength{\parindent}{0pt}
-
-\setlist[itemize]{leftmargin=*,itemsep=3pt}
-\setlist[enumerate]{leftmargin=*,itemsep=3pt}
-
-\graphicspath{{./}{../assets/images/}{./images/}}
+\graphicspath{{./}{../assets/}}
 
 \begin{document}
 
-\begin{center}
-  \IfFileExists{../assets/Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../assets/Logo.jpg} \\[0.8cm]
-  }{%
-    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
-  }
-  
-  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
-  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
-  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
-
-  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
-  {\small Laurea in Informatica}\\[0.2cm]
-  {\small Corso: Ingegneria del Software}\\[0.2cm]
-  {\small Anno Accademico: 2025/2026}\\[0.8cm]
-
-  {\Huge\bfseries\color{primaryblue} Candidatura Progetto}\\[0.3cm]
-  {\Large\color{secondaryblue} Ingegneria del Software}\\[0.8cm]
-  {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
-\end{center}
-
-\begin{center}
-\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt]
-\centering
-Con la presente il gruppo \textbf{BugBusters} (\texttt{bugbusters.unipd@gmail.com}) \\
-si propone di portare a termine il progetto presentato dall'azienda \textbf{Vimar}: \\[0.3cm]
-{\Large\bfseries\color{primaryblue} View4Life}
-\end{tcolorbox}
-\end{center}
-
-\vspace{0.5cm}
-
-\begin{center}
-\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt,title={\bfseries Il team BugBusters}]
-\begin{center}
-\begin{tabular}{lc}
-\toprule
-\textbf{Nome} & \textbf{Matricola} \\
-\midrule
-Alberto Autiero & {[Matricola]} \\
-Marco Favero & {[Matricola]} \\
-Alberto Pignat & {[Matricola]} \\
-Marco Piro & {[Matricola]} \\
-Linor Sadè & {[Matricola]} \\
-Leonardo Salviato & {[Matricola]} \\
-Luca Slongo & {[Matricola]} \\
-\bottomrule
-\end{tabular}
-\end{center}
-\end{tcolorbox}
-\end{center}
-
-\vspace{1cm}
-
-\section{Versioni del documento}
-{\footnotesize
-\begin{tabularx}{\textwidth}{|p{1.5cm}|p{2cm}|X|p{2cm}|p{2cm}|p{2cm}|}
-\hline
-\textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificato} & \textbf{Approvato} \\
-\hline
-\CurrentVersion & 20/10/2025 & Prima stesura della struttura del documento & Linor Sadè & Marco Favero & - \\
-\hline
-\end{tabularx}
+\begin{letter}{
+    Alla cortese attenzione di \\
+    Prof. Vardanega Tullio, \\
+    Prof. Cardin Riccardo, \\
+    Università degli Studi di Padova, \\
+    Dipartimento di Matematica, \\
+    Via Trieste, 63 \\
+    35121, Padova
 }
 
-\newpage
+\noindent
+\begin{minipage}[t]{0.65\textwidth}
+    {\Huge\bfseries Candidatura} \\[0.3cm]
+    {\Huge\bfseries capitolato C9}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+    \raggedleft
+    {\small Bug Busters,} \\
+    {\small Gruppo 4} \\
+    {\small bugbusters.unipd@gmail.com} \\[0.3cm]
+    \IfFileExists{../assets/Logo.jpg}{%
+        \includegraphics[width=2.5cm,height=2.5cm,keepaspectratio]{../assets/Logo.jpg}
+    }{%
+        \fbox{\parbox[c][2cm][c]{2.5cm}{\centering\tiny Logo\\non trovato}}
+    }
+\end{minipage}
 
-\renewcommand{\cftsecpagefont}{\normalfont}
-\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
-\setlength{\cftbeforesecskip}{2pt}
-\begin{center}
-\begin{tcolorbox}[colback=lightgray,colframe=darkgray,width=0.9\textwidth,arc=2mm,boxrule=0.5pt]
-\tableofcontents
-\end{tcolorbox}
-\end{center}
+\vspace{2em}
 
-\newpage
+\opening{Egregio Prof. Vardanega, \\ Egregio Prof. Cardin,}
 
-\section{Impegno orario}
-
-Per lo svolgimento di tale progetto il team ha stimato un impegno orario totale di \textbf{[XXX] ore} di lavoro, suddiviso secondo i diversi ruoli.
-
-Inoltre, da un'attenta analisi, questi sono gli impegni orari stimati per ruolo, tenendo conto delle seguenti responsabilità:
-
-\vspace{0.5cm}
-
-\begin{center}
-\begin{tcolorbox}[colback=secondaryblue!5,colframe=secondaryblue,width=0.7\textwidth,arc=2mm,boxrule=0.5pt]
-\begin{center}
-\begin{tabular}{lc}
-\toprule
-\textbf{Ruolo} & \textbf{Impegno orario} \\
-\midrule
-Responsabile & {[XX]} \\
-Amministratore & {[XX]} \\
-Analista & {[XX]} \\
-Progettista & {[XX]} \\
-Programmatore & {[XX]} \\
-Verificatore & {[XX]} \\
-\midrule
-\textbf{Totale} & \textbf{[XXX]} \\
-\bottomrule
-\end{tabular}
-\end{center}
-\end{tcolorbox}
-\end{center}
-
-\vspace{0.5cm}
-
-[Inserire qui la motivazione della distribuzione oraria tra i vari ruoli, spiegando perché alcuni ruoli hanno più ore di altri in base alle caratteristiche specifiche del capitolato scelto]
-
-\subsection{Distribuzione oraria membri}
-
-Le ore previste per ruolo verranno divise equamente tra tutti i membri, portando ad un impegno orario per persona di circa \textbf{[XX] ore}.
-
-\newpage
-
-\section{Preventivo costi}
-
-Dati gli impegni orari e la divisione dei ruoli sopra indicati, è stato stimato un costo complessivo del progetto pari a \textbf{[XXXXX] \euro}.
-
-\vspace{0.5cm}
+con la presente il gruppo Bug Busters desidera comunicarVi formalmente la propria candidatura per la realizzazione del capitolato con titolo:
 
 \begin{center}
-\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.9\textwidth,arc=2mm,boxrule=0.5pt]
-\begin{center}
-\begin{tabular}{lccc}
-\toprule
-\textbf{Ruolo} & \textbf{Ore} & \textbf{Costo Orario} & \textbf{Costo Totale} \\
-\midrule
-Responsabile & [XX] & 30 \euro & [XXX] \euro \\
-Amministratore & [XX] & 20 \euro & [XXX] \euro \\
-Analista & [XX] & 25 \euro & [XXX] \euro \\
-Progettista & [XX] & 25 \euro & [XXX] \euro \\
-Programmatore & [XX] & 15 \euro & [XXX] \euro \\
-Verificatore & [XX] & 15 \euro & [XXX] \euro \\
-\midrule
-\textbf{Totale} & \textbf{[XXX]} & - & \textbf{[XXXXX] \euro} \\
-\bottomrule
-\end{tabular}
-\end{center}
-\end{tcolorbox}
+    \textbf{View4Life}
 \end{center}
 
-\newpage
+proposto dall'azienda \textbf{Vimar}, capitolato di progetto \textbf{C9}.
 
-\section{Motivazioni scelta}
+\vspace{1em}
 
-È stato scelto di candidarsi per il capitolato \textbf{[Nome Capitolato]} per i seguenti motivi:
+Come specificato nel documento di dichiarazione degli impegni Bug Busters ha preventivato un costo totale per la realizzazione del progetto di Euro XXX ed ha fissato il termine ultimo di consegna al XXX.
+
+\vspace{1em}
+
+Si riassumono inoltre i punti di forza che hanno portato il gruppo alla scelta del capitolato:
 
 \begin{itemize}
-    \item Motivazione 1
-    \item Motivazione 2
-    \item Motivazione 3
-    \item Motivazione 4
-    \item Motivazione 5
-    \item Motivazione 6
+    \item Interesse immediato per il capitolato, favorito dalla sua differenza tematica rispetto agli altri progetti di Ingegneria del Software proposti nell'anno accademico.
+    
+    \item Valutazione positiva delle risposte fornite dall'azienda Vimar, che ha chiarito i dubbi emersi durante l'incontro.
+    
+    \item Forte disponibilità dell'azienda Vimar a fornire supporto e a collaborare con il gruppo.
 \end{itemize}
 
-\section{Data prevista di consegna}
+\vspace{1em}
 
-Come punto finale, il gruppo \textbf{BugBusters} si impegna a consegnare il prodotto richiesto dal proponente entro il \textbf{[GG/MM/AAAA]}.
+Per ulteriori dettagli consigliamo di visionare il documento dedicato alla valutazione dei capitolati.
 
-\vspace{2cm}
+\newpage
 
-\begin{flushright}
-\begin{tabular}{c}
-\rule{6cm}{0.4pt} \\
-{[Nome Cognome]} \\
-Responsabile BugBusters \\[0.3cm]
-{[Data]} \\
-\end{tabular}
-\end{flushright}
+Tutta la documentazione redatta e prodotta da Bug Busters viene pubblicata nel sito ufficiale e prodotta a partire dai documenti nel repository dedicato alla documentazione.
 
-\vfill
+\vspace{1em}
+
+L'intero gruppo è a disposizione per qualsiasi chiarimento; si riportano i nominativi di tutti i membri di Bug Busters:
+
+\vspace{1em}
+
 \begin{center}
-    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\begin{tabular}{|l|l|r|}
+\hline
+\textbf{Cognome} & \textbf{Nome} & \textbf{Matricola} \\
+\hline
+Autiero & Alberto & 2082862 \\
+\hline
+Favero & Marco & 2101071 \\
+\hline
+Pignat & Alberto & 2111044 \\
+\hline
+Piro & Marco & 2068075 \\
+\hline
+Sadè & Linor & 2111942 \\
+\hline
+Salviato & Leonardo & 2101086 \\
+\hline
+Slongo & Luca & 2111009 \\
+\hline
+\end{tabular}
 \end{center}
+
+\vspace{2em}
+
+\closing{Cordiali Saluti,}
+
+\end{letter}
 
 \end{document}
