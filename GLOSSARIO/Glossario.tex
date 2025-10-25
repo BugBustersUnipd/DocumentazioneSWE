@@ -44,7 +44,6 @@
 \fancyhead[L]{Gruppo 4 - BugBusters}
 \fancyhead[R]{Glossario}
 \fancyfoot[L]{\thepage\ di \pageref{LastPage}}
-\fancyfoot[R]{\nouppercase{\rightmark}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -89,7 +88,11 @@
 {\footnotesize
 \begin{tabular}{|p{1.5cm}|p{1.8cm}|p{4cm}|p{2cm}|p{2cm}|p{2cm}|}
 \hline
-\textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificato} & \textbf{Approvato} \\
+\textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificatori} & \textbf{Approvato} \\
+\hline
+0.3.0 & 24/10/2025 & Aggiunti i seguenti termini: Attore principale, Attore secondario, Dominio d'uso, Piano di qualifica, Post-condizione, Pre-condizione, Requirements baseline, Scenario alternativo, Scenario principale, Use case (casi d'uso), Validazione, Verifica & Alberto Autiero & - & - \\
+\hline
+0.2.0 & 23/10/2025 & Aggiunti i seguenti termini: Committente, Diagrammi UML, Efficienza, Requisito, Requisito software, Requisito utente & Alberto Autiero & - & - \\
 \hline
 0.1.0 & 22/10/2025 & Prima stesura del documento & Alberto Autiero & - & - \\
 \hline
@@ -140,6 +143,12 @@ Processo formale attraverso il quale un documento o una funzionalità viene acce
 
 \subsection{Architettura}
 Struttura fondamentale di un sistema software, comprendente i suoi componenti, le relazioni tra di essi e i principi che ne guidano la progettazione e l'evoluzione.
+
+\subsection{Attore principale}
+Utente o sistema esterno che interagisce direttamente con il sistema software per raggiungere un obiettivo specifico nel caso d'uso. È il protagonista dell'interazione e trae beneficio diretto dall'esecuzione del caso d'uso.
+
+\subsection{Attore secondario}
+Utente o sistema esterno che fornisce servizi o supporto all'attore principale durante l'esecuzione di un caso d'uso. Partecipa all'interazione ma non è il beneficiario principale del risultato, spesso fornendo funzionalità accessorie o di supporto.
 
 \subsection{Audit Trail}
 Registro cronologico delle operazioni svolte nel sistema, utile per verifiche, tracciabilità e compliance, che documenta chi ha fatto cosa e quando.
@@ -396,8 +405,14 @@ Pratica di sviluppo in cui due programmatori lavorano insieme su un'unica workst
 \subsection{Piano di Qualifica}
 Documento che definisce le attività, le risorse, le metriche e le procedure per garantire la qualità del processo di sviluppo e del prodotto software. Descrive le strategie di verifica e validazione, gli standard qualitativi di riferimento e le modalità di controllo e misurazione della qualità.
 
+\subsection{Post-condizione}
+Condizione o stato del sistema che deve essere vero dopo il completamento di un caso d'uso. Definisce il risultato atteso e le garanzie che il sistema fornisce al termine dell'esecuzione del caso d'uso.
+
 \subsection{PostgreSQL}
 Sistema di gestione di database relazionale open source estensibile e conforme agli standard SQL, noto per la sua robustezza e funzionalità avanzate.
+
+\subsection{Pre-condizione}
+Condizione o stato del sistema che deve essere vero prima che un caso d'uso possa iniziare. Definisce i prerequisiti necessari per l'esecuzione corretta del caso d'uso.
 
 \subsection{Progettista}
 Figura responsabile della progettazione dell'architettura software e delle soluzioni tecniche, garantendo che soddisfino i requisiti e siano realizzabili efficientemente.
@@ -468,6 +483,12 @@ Variante ottimizzata del modello BERT per la comprensione del linguaggio natural
 \subsection{Sandbox di Sviluppo}
 Ambiente isolato per testare e validare funzionalità senza influenzare i sistemi di produzione, utilizzato per sviluppare e verificare nuove feature in sicurezza.
 
+\subsection{Scenario alternativo}
+Sequenza di interazioni nel caso d'uso che rappresenta un percorso diverso da quello principale, tipicamente gestendo condizioni eccezionali, errori o scelte alternative dell'utente. Descrive come il sistema reagisce in situazioni non standard.
+
+\subsection{Scenario principale}
+Sequenza di interazioni tra l'attore principale e il sistema che descrive il percorso di successo del caso d'uso, dove l'obiettivo viene raggiunto senza intoppi o condizioni eccezionali. Rappresenta il flusso ideale e più frequente di esecuzione.
+
 \subsection{SCRUM}
 Framework agile per la gestione dello sviluppo software che enfatizza lo sviluppo iterativo, l'adattamento ai cambiamenti e la consegna incrementale di valore.
 
@@ -515,6 +536,9 @@ Superset di JavaScript che aggiunge tipizzazione statica opzionale e altre funzi
 
 \subsection{UML (Unified Modeling Language)}
 Linguaggio di modellazione visuale standardizzato per la specifica, costruzione, visualizzazione e documentazione dei sistemi software, utilizzato per rappresentare diverse viste di un sistema attraverso diagrammi.
+
+\subsection{Use Case (Casi d'uso)}
+Tecnica di specifica dei requisiti che descrive le interazioni tra gli attori (utenti o sistemi esterni) e il sistema software per raggiungere un obiettivo specifico. I casi d'uso catturano i requisiti funzionali del sistema descrivendo scenari di utilizzo tipici, alternativi ed eccezionali.
 
 \subsection{UWB (Ultra Wide Band)}
 Tecnologia di comunicazione wireless a corto raggio che utilizza una larghezza di banda molto ampia per comunicazioni ad alta velocità e precisione nel posizionamento.
