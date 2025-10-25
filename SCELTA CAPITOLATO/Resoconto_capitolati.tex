@@ -1091,6 +1091,58 @@ Il capitolato proposto da Vimar S.p.A. ha come obiettivo la realizzazione di una
 \end{itemize}
 
 \subsubsection{Chiarimenti e colloqui con l'azienda}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Domande} & \textbf{Risposte} \\
+\hline
+Abbiamo compreso che View4Life nasce come un dimostratore per mostrare quanto sia semplice e veloce realizzare un’integrazione con le tecnologie pubblicizzate da Vimar. Il contesto presentato, però, suggerisce uno scenario molto realistico e vicino a un possibile bisogno di mercato. Questo progetto deriva da richieste concrete o rimane principalmente un proof-of-concept dimostrativo? E, nel caso, pensate che possa avere in futuro uno spazio effettivo all’interno di Vimar? 
+&
+\begin{itemize}
+\item Il contesto presentato ha in realtà una duplice valenza, arrivata specialmente negli ultimi mesi.
+\item Dimostratore per integrazioni 3rd party via Cloud: mostrare che si possono controllare i dispositivi Vimar View Wireless via Cloud con API REST.
+\item Dimostratore per esigenza di mercato: esplorare cosa potrebbe essere utile in base alle richieste commerciali.
+\item Se l’output del progetto farà l’effetto WOW, ci sarà uno spazio effettivo; altrimenti sarà comunque pubblico con il vostro nome sopra.
+\end{itemize} \\
+\hline
+Quanto è rilevante per voi la conoscenza pregressa delle tecnologie richieste, o è previsto che ci sia spazio per apprenderle progressivamente durante il progetto?
+&
+\begin{itemize}
+\item La conoscenza pregressa non è quasi mai prevista: ci sarà tempo per imparare insieme.
+\item La curva di apprendimento seguirà l’effetto Dunning-Kruger.
+\item Sessioni di approfondimento saranno organizzate durante il progetto, ad esempio su Docker e KNX IoT.
+\item Framework di sviluppo e altri strumenti saranno affrontati secondo le esigenze del team.
+\end{itemize} \\
+\hline
+È preferibile sviluppare parte di front-end, back-end (ed eventuali microservizi) singolarmente e in maniera seriale, oppure sviluppare tutto in parallelo?
+&
+\begin{itemize}
+\item Generalmente conviene il parallelismo per ridurre il tempo totale.
+\item La strategia seriale può essere una buona alternativa, considerando i ruoli da ruotare.
+\item Dal front-end si può lavorare sul mocking delle API prima che siano implementate.
+\item L’approccio finale sarà discusso in base allo skillset del gruppo.
+\end{itemize} \\
+\hline
+La documentazione per integratori di terze parti per interfaccia KNX IoT richiede più o meno quanta mole di lavoro per poterla capire e padroneggiare? O comunque il livello di difficoltà/ quantità di documentazione è molto consistente?
+&
+\begin{itemize}
+\item La documentazione è approfondita, ma i concetti base devono essere padroneggiati bene.
+\item Verrà organizzata una sessione di presentazione di KNX IoT e dei dispositivi via API.
+\item Saranno forniti mini Jupiter Notebook o Postman per capire i primi passi.
+\end{itemize} \\
+\hline
+Si sviluppa prima dall’idea o in maniera test-driven? Un requisito opzionale riguarda la possibilità di inserire una mappa degli appartamenti. L’azienda aveva pensato alla modalità di visualizzazione della mappa? Come viene aggiunta? È interattiva? (p.es cliccare i dispositivi, zoommare etc)
+&
+\begin{itemize}
+\item Non esiste un giusto o sbagliato: dipende dallo stile del team.
+\item Generalmente si parte dalla progettazione, poi implementazione test-driven o modulare.
+\item La mappa degli appartamenti è opzionale: può essere un rendering basico con framework tipo Floorspace.js o una foto con box cliccabili.
+\item La mappa non deve essere modificabile, ma mostrare la possibilità di utilizzo.
+\end{itemize} \\
+\hline
+\end{tabularx}
+}
+
 \subsubsection{Interesse del team}
 \parbox[t]{\linewidth}{%
 Il gruppo ha valutato molto positivamente questo capitolato per la concretezza e
@@ -1120,15 +1172,13 @@ tecnica avanzata
 \textbf{Punti di forza} & \textbf{Punti di debolezza} \\
 \hline
 \begin{itemize}
-\item Dominio applicativo Concreto e Socialmente Utile: Il contesto delle "residenze protette" fornisce uno scopo nobile e tangibile. Sviluppare un sistema che può migliorare la sicurezza e il benessere degli anziani è un forte motivatore e rende il progetto molto più significativo rispetto a un dominio astratto.
+\item Dominio applicativo concreto e socialmente utile: Il contesto delle "residenze protette" fornisce uno scopo nobile e tangibile. Sviluppare un sistema che può migliorare la sicurezza e il benessere delle persone è un forte motivatore e rende il progetto molto più significativo rispetto a un dominio astratto.
 \item Tecnologie moderne e ricercate
-\item Supporto Aziendale Eccezionale e Materiale Fornito: Vimar fornisce un supporto strutturato con incontri bisettimanali/settimanali (SAL) e, aspetto cruciale, fornisce un kit hardware fisico per testare con dispositivi reali. Questo riduce enormemente il gap tra teoria e pratica e permette di affrontare problematiche reali di integrazione IoT.
-
+\item Supporto aziendale eccezionale e materiale fornito: Vimar fornisce un supporto strutturato con incontri bisettimanali/settimanali (SAL) e, aspetto cruciale, fornisce un kit hardware fisico per testare con dispositivi reali. Questo riduce enormemente il gap tra teoria e pratica e permette di affrontare problematiche reali di integrazione IoT.
+\item Opportunità reale che l'MVP venga effettivamente adottato da Vimar, qualora raggiungesse la qualità necessaria
 \end{itemize}
  & \begin{itemize}
-\item Elevata Complessità e Ampio Scope: La completezza del progetto è anche la sua principale sfida. Il team deve essere bravo a gestire la complessità e a priorizzare le funzionalità obbligatorie, per non perdersi negli optional. Una buona pianificazione iniziale è fondamentale.
-\item Punto di debolezza 2
-\item Punto di debolezza 3
+\item Elevata complessità e ampio scope: La completezza del progetto è anche la sua principale sfida. Il team deve essere bravo a gestire la complessità e a priorizzare le funzionalità obbligatorie, per non perdersi negli optional.
 \end{itemize} \\
 \hline
 \end{tabularx}
