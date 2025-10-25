@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
      
-\newcommand{\CurrentVersion}{0.6.0} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.7.0} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -19,10 +19,23 @@
 \usepackage{enumitem}
 \usepackage[titles]{tocloft}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+
 \definecolor{primaryblue}{RGB}{0,102,204}
 \definecolor{secondaryblue}{RGB}{51,153,255}
 \definecolor{lightgray}{RGB}{245,245,245}
 \definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\large\bfseries\color{primaryblue}} % Sottosezione: colore secondaryblue
+  {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{secondaryblue}} % Sotto-sottosezione: colore secondaryblue
+  {\thesubsubsection}{1em}{}
 
 % per il footer con il numero di pagina
 \usepackage{fancyhdr}
@@ -79,12 +92,12 @@
   {\small Corso: Ingegneria del Software}\\[0.2cm]
   {\small Anno Accademico: 2025/2026}\\[0.8cm]
 
-  {\Huge\bfseries Resoconto Capitolati}\\[0.8cm]
-  {\Large Versione \CurrentVersion}\\[0.8cm]
+  {\Huge\bfseries\color{primaryblue} Resoconto Capitolati}\\[0.8cm]
+  {\Large\color{secondaryblue}Versione \CurrentVersion}\\[0.8cm]
 \end{center}
 
 \begin{center}
-\begin{tcolorbox}[colback=lightgray,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
 \begin{tabular}{@{}ll@{}}
 \textbf{Redattori}    & Alberto Autiero, Linor Sadè\\
 \textbf{Verificatori} & [Nome Cognome] \\
@@ -98,7 +111,7 @@
 \vspace{0.5cm}
 
 \begin{center}
-\begin{tcolorbox}[width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
 Documento di analisi e valutazione dei capitolati proposti per l'anno accademico 2025/2026. Il documento include una valutazione dettagliata del capitolato scelto e un'analisi comparativa degli altri capitolati disponibili.
 \end{tcolorbox}
 \end{center}
@@ -106,33 +119,39 @@ Documento di analisi e valutazione dei capitolati proposti per l'anno accademico
 \newpage
 \section{Versioni del documento}
 
-{\footnotesize % riduce il font solp per questa tabella
-\begin{tabularx}{\textwidth}{|p{1.5cm}|p{2cm}|X|p{2cm}|p{2cm}|p{2cm}|}
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+\arrayrulecolor{primaryblue}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2cm}|X|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
 \hline
-\rowcolor{gray!40} % colore intestazione
-\textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificato} & \textbf{Approvato} \\
-\hline 
-\CurrentVersion & 24/10/2025 & Stesura di C4 e altre piccole modifiche & Linor Sadè & - & - \\
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-0.5.0 & 23/10/2025 & Stesura di C6& Linor Sadè & - & - \\
+\rowcolor{secondaryblue!10} \CurrentVersion & 24/10/2025 & Continuo del documento con modifiche di C5 e C7 relative ai meeting svolti successivamente. Minori modifiche di stile. & Linor Sadè & - & - \\
 \hline
-0.4.1 & 22/10/2025 & Correzione indice& Linor Sadè & - & - \\
+\rowcolor{secondaryblue!10} 0.6.0 & 24/10/2025 & Stesura di C4 e altre piccole modifiche & Linor Sadè & - & - \\
 \hline
-0.4.0 & 22/10/2025 & Iniziato e terminato C7& Linor Sadè & - & - \\
+\rowcolor{secondaryblue!10} 0.5.0 & 23/10/2025 & Stesura di C6 & Linor Sadè & - & - \\
 \hline
+\rowcolor{secondaryblue!10} 0.4.1 & 22/10/2025 & Correzione indice & Linor Sadè & - & - \\
 \hline
-0.3.1 & 22/10/2025 & Correzioni minori stile & Linor Sadè & - & - \\
+\rowcolor{secondaryblue!10} 0.4.0 & 22/10/2025 & Iniziato e terminato C7 & Linor Sadè & - & - \\
 \hline
-0.3.0 & 21/10/2025 & Terminato C5, iniziato C8, C9 & Linor Sadè & - & - \\
+\rowcolor{secondaryblue!10} 0.3.1 & 22/10/2025 & Correzioni minori stile & Linor Sadè & - & - \\
 \hline
-0.2.0 & 21/10/2025 & Aggiunta introduzione al documento, aggiunti punti di forza e debolezza per ogni capitolato & Linor Sadè & - & - \\
+\rowcolor{secondaryblue!10} 0.3.0 & 21/10/2025 & Terminato C5, iniziato C8, C9 & Linor Sadè & - & - \\
 \hline
-0.1.0 & 20/10/2025 & Prima stesura della struttura del documento & Alberto Autiero & Marco Favero & - \\
+\rowcolor{secondaryblue!10} 0.2.0 & 21/10/2025 & Aggiunta introduzione, punti di forza/debolezza & Linor Sadè & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.1.0 & 20/10/2025 & Prima stesura della struttura del documento & Alberto Autiero & Marco Favero & - \\
 \hline
 \end{tabularx}
 }
 
-\newpage
+
+
 
 % ho commentato perche non mi piaceva
 % \renewcommand{\cftsecpagefont}{\normalfont}
@@ -169,13 +188,31 @@ Crediamo che lavorare su un progetto che suscita entusiasmo e curiosità porter�
 \section{Elenco capitolati analizzati}
 Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni capitolato, sono riportati i punti di forza e di debolezza identificati durante la fase di valutazione.
 
+\newpage
 \subsection{C1 - Automated EN18031 Compliance Verification}
 \subsubsection{Breve descrizione}
+Il progetto mira a automatizzare la verifica di conformità alla norma EN 18031, legata ai dispositivi radio (Wi-Fi, Bluetooth, IoT, ecc.). L’obiettivo è quello di garantire che le apparecchiature radio non danneggino o ne abusino le risorse, che salvaguardino la privacy e siano in grado di garantire sicurezza nelle transazioni.
 \subsubsection{Requisiti funzionali e non funzionali}
-\subsubsection{Tecnologie proposte}
-\subsubsection{Chiarimenti e colloqui con l'azienda}
-\subsubsection{Interesse del team}
+Il progetto prevede lo sviluppo di un’interfaccia grafica che guida nella compilazione delle domande presenti nei decision tree relative ai requisiti.  
+Il software deve essere in grado di:
 
+\begin{itemize}[leftmargin=*]
+    \item Importare documenti contenenti le informazioni preliminari necessarie, che descrivono le componenti di rete del caso da analizzare e i file che descrivono i decision tree.
+    \item Eseguire i decision tree associati ai requisiti, rispettando la loro struttura gerarchica e le dipendenze, in modo interattivo, chiedendo all’utente di inserire le informazioni richieste in input.
+    \item Restituire per ogni requisito un output che sia ``Non applicabile'', ``Pass'' o ``Fail''.
+    \item Fornire una dashboard interattiva per visualizzare lo stato di ciascun requisito del decision tree, con la possibilità di:
+    \begin{itemize}[leftmargin=*]
+        \item modificare i documenti associati;  
+        \item aggiornare i documenti e i decision tree tramite un editor;  
+        \item salvare i decision tree modificati in formati come XML o JSON.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Tecnologie proposte}
+Non sono stati presentati vincoli sulle tecnologie da utilizzare e sulla tipologia di applicazione da sviluppare, l'unica preferenza espressa è sull’uso di Python per la parte di Backend.
+\subsubsection{Chiarimenti e colloqui con l'azienda}
+Non abbiamo contattato l’azienda per ricevere ulteriori informazioni, tantomeno chiesto colloqui.
+\subsubsection{Interesse del team}
+Il team non ha mostrato particolare interesse verso questo capitolato, principalmente per il motivo che non è stato ritenuto un progetto particolarmente accattivante. È stato ritenuto anche complesso per la gestione dell’interfaccia e poco “libero” dal punto di vista della possibilità di mettere del proprio.
 \subsubsection{Punti di forza e di debolezza}
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -184,14 +221,14 @@ Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni c
 \textbf{Punti di forza} & \textbf{Punti di debolezza} \\
 \hline
 \begin{itemize}
-\item Requisiti Ben Definiti: I requisiti obbligatori e opzionali sono elencati in modo chiaro e strutturato. Questo riduce l'ambiguità e fornisce un'ottima checklist per la pianificazione e la verifica finale del progetto.
-\item Caso Studio Concreto: La presenza di un caso studio specifico (la macchina da caffè connessa via Wi-Fi) fornisce un dominio applicativo tangibile per testare le funzionalità, evitando di lavorare in modo troppo astratto.
+\item Requisiti ben definiti: I requisiti obbligatori e opzionali sono elencati in modo chiaro e strutturato. Questo riduce l'ambiguità e fornisce un'ottima checklist per la pianificazione e la verifica finale del progetto.
+\item Caso studio concreto: La presenza di un caso studio specifico (la macchina da caffè connessa via Wi-Fi) fornisce un dominio applicativo tangibile per testare le funzionalità, evitando di lavorare in modo troppo astratto.
 
 \item Bluewind si impegna esplicitamente per un supporto "ibrido" (online e in presenza), con incontri periodici. Questo è un enorme vantaggio, poiché fornisce un canale diretto per chiarire dubbi, ottenere feedback e allinearsi con le aspettative dell'azienda.
 
 \end{itemize}
  & \begin{itemize}
-\item Complessità del Dominio: Il dominio normativo (EN 18031, direttiva RED) è intrinsecamente complesso. Comprendere appieno la logica dei "Decision Tree" e le interdipendenze tra i requisiti richiederà uno sforzo iniziale significativo di analisi e studio.
+\item Complessità del dominio: Il dominio normativo (EN 18031, direttiva RED) è intrinsecamente complesso. Comprendere appieno la logica dei "Decision Tree" e le interdipendenze tra i requisiti richiederà uno sforzo iniziale di analisi e studio.
 \end{itemize} \\
 \hline
 \end{tabularx}
@@ -199,11 +236,46 @@ Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni c
 
 \subsection{C2 - Code Guardian}
 \subsubsection{Breve descrizione}
-\subsubsection{Requisiti funzionali e non funzionali}
-\subsubsection{Tecnologie proposte}
-\subsubsection{Chiarimenti e colloqui con l'azienda}
-\subsubsection{Interesse del team}
+Il progetto mira alla realizzazione di una piattaforma web modulare, basata su un sistema multi-agente, per:
 
+\begin{itemize}[leftmargin=*]
+    \item Analizzare repository GitHub in termini di qualità, sicurezza e manutenzione;
+    \item Fornire report automatici e suggerimenti di remediation;
+    \item Evidenziare vulnerabilità;
+    \item Offrire una dashboard che mostra lo stato dei progetti analizzati.
+\end{itemize}
+
+\subsubsection{Requisiti funzionali e non funzionali}
+Per il progetto è richiesto di rispettare i seguenti vincoli:
+
+\begin{itemize}[leftmargin=*]
+    \item Svolgere un design thinking iniziale con il committente per raccogliere i requisiti;
+    \item Redigere il documento dei requisiti di business e lo user story mapping;
+    \item Realizzare diagrammi UML relativi agli Use Cases di progetto;
+    \item Definire lo schema di design relativo alla base dati;
+    \item Presentare un MVP funzionante con demo live e documentazione tecnica.
+\end{itemize}
+
+Tramite questi passaggi si intende arrivare a un software in grado di svolgere le attività illustrate nella descrizione.
+
+\subsubsection{Tecnologie proposte}
+
+L’azienda proponente ha specificato chiaramente le tecnologie da utilizzare per lo sviluppo del progetto e ha fornito risorse informative per facilitare il ``Get started''.
+
+Lista delle tecnologie e dei framework richiesti:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Backend / orchestratore:} Node.js, Python
+    \item \textbf{Frontend:} React.js
+    \item \textbf{Database:} MongoDB o PostgreSQL
+    \item \textbf{CI/CD e integrazioni:} GitHub Actions
+    \item \textbf{Architettura cloud:} AWS
+\end{itemize}
+
+\subsubsection{Chiarimenti e colloqui con l'azienda}
+Non sono state richieste ulteriori informazioni o colloqui all’azienda proponente.
+\subsubsection{Interesse del team}
+Il team non ha preso in considerazione fin da subito il progetto perché ritenuto particolarmente complesso. L’utilizzo di uno strumento come quello che verrebbe realizzato da questo progetto sarebbe sicuramente molto utile, ma crearlo è tutt’altra cosa e non ha suscitato l’interesse del gruppo.
 \subsubsection{Punti di forza e di debolezza}
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -224,15 +296,53 @@ Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni c
 \hline
 \end{tabularx}
 }
+
+\newpage
 \subsection{C3 - DIPReader}
+
 \subsubsection{Breve descrizione}
 DIPReader propone la realizzazione di un’applicazione per la consultazione locale di pacchetti di conservazione digitale (DIP): l’obiettivo è permettere a professionisti e operatori di accedere offline a documenti conservati, effettuare ricerche e visualizzare anteprime, con funzionalità opzionali avanzate quali ricerca semantica e verifica delle firme. Il progetto risponde a un’esigenza pratica e concreta.
+
 \subsubsection{Requisiti funzionali e non funzionali}
+Il software dovrà consentire:
+\begin{itemize}[leftmargin=*]
+    \item Accesso offline a pacchetti DIP locali;
+    \item Ricerca tra i documenti e visualizzazione di anteprime;
+    \item Funzionalità opzionali avanzate quali ricerca semantica e verifica delle firme digitali;
+    \item Prestazioni efficienti anche con grandi volumi di documenti;
+    \item Interfaccia intuitiva per utenti professionisti e operatori.
+\end{itemize}
+I requisiti non funzionali includono la gestione efficiente della memoria, tempi di risposta rapidi e la conformità a standard di conservazione digitale.
+
 \subsubsection{Tecnologie proposte}
+\begin{itemize}[leftmargin=*]
+    \item Linguaggi di programmazione: Python o Node.js per il backend;
+    \item Librerie per ricerca e indicizzazione dei documenti (ad esempio Elasticsearch o simili);
+    \item Framework frontend: React.js o equivalente per interfaccia utente;
+    \item Database: MongoDB o PostgreSQL per memorizzazione metadati;
+    \item Gestione dei pacchetti DIP e formati standard (es. XML, PDF/A);
+    \item Strumenti per verifica firme digitali.
+\end{itemize}
+
 \subsubsection{Chiarimenti e colloqui con l'azienda}
+Abbiamo identificato aspetti chiave e criticità da discutere:
+\begin{itemize}[leftmargin=*]
+    \item Comprendere formati, metadati e requisiti di compliance per la conservazione digitale;
+    \item Definire le funzionalità obbligatorie per l’MVP e distinguere quelle opzionali come la ricerca semantica o la verifica firme digitali;
+    \item Validazione e testing con grandi volumi di documenti, considerando i limiti dell’ambiente universitario.
+\end{itemize}
+
 \subsubsection{Interesse del team}
+Il team valuta positivamente il progetto per i seguenti motivi:
+\begin{itemize}[leftmargin=*]
+    \item Il dominio è specializzato e di alto valore, con competenze spendibili professionalmente;
+    \item Il progetto affronta un problema concreto e ben definito, rendendo immediatamente applicabili i risultati sviluppati.
+\end{itemize}
+Tuttavia, il gruppo è consapevole delle criticità tecniche e normative che richiederanno un impegno iniziale significativo e un’attenta pianificazione delle risorse.
+
 
 \subsubsection{Punti di forza e di debolezza}
+{\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
 \hline
 \rowcolor{lightgray!40} % colore intestazione
@@ -253,18 +363,65 @@ DIPReader propone la realizzazione di un’applicazione per la consultazione loc
 \end{itemize} \\
 \hline
 \end{tabularx}
-
+}
 
 \subsection{C4 - L'app che Protegge e Trasforma}
 \subsubsection{Breve descrizione}
+Il progetto \textit{``L’app che Protegge e Trasforma''}, proposto da Miriade S.r.l., ha come obiettivo la realizzazione di un’applicazione mobile innovativa per i sistemi operativi iOS e Android, finalizzata alla prevenzione e al supporto delle vittime di violenza di genere.\\
+
+L’app è pensata come uno strumento intelligente, sicuro e facilmente accessibile, capace di:
+\begin{itemize}
+    \item riconoscere segnali di pericolo e situazioni di rischio tramite analisi del linguaggio e dei comportamenti;
+    \item offrire risorse immediate e personalizzate per il supporto psicologico, legale e d’emergenza;
+    \item promuovere la consapevolezza e l’autonomia dell’utente attraverso moduli educativi e interattivi;
+    \item garantire la sicurezza e la privacy dei dati sensibili mediante crittografia e modalità di utilizzo anonima.
+\end{itemize}
+L’obiettivo finale è creare un prodotto tecnologicamente avanzato ma anche eticamente responsabile, in grado di avere un impatto sociale positivo e concreto.
+
 \subsubsection{Requisiti funzionali e non funzionali}
+Le funzionalità principali richieste dall’azienda comprendono:
+\begin{itemize}
+    \item \textbf{Rilevamento e Alert}: algoritmi di intelligenza artificiale per individuare pattern di rischio e situazioni di pericolo, con invio di notifiche silenziose a contatti fidati o centri di aiuto.
+    \item \textbf{Risorse e Supporto}: accesso geolocalizzato a servizi di assistenza (centri antiviolenza, supporto legale, psicologico) e invio rapido di richieste di aiuto.
+    \item \textbf{Funzionalità di Sicurezza Personalizzate}: modalità stealth, diario criptato e pianificazione di percorsi sicuri con mappe interattive.
+    \item \textbf{Formazione e Prevenzione}: moduli multimediali, quiz e contenuti educativi per aumentare la consapevolezza e l’empowerment.
+    \item \textbf{Community di Supporto (opzionale)}: spazio anonimo e moderato per la condivisione di esperienze e il supporto reciproco.
+\end{itemize}
+
+Requisiti opzionali includono:
+\begin{itemize}
+    \item Integrazione con dispositivi indossabili per l’invio discreto di allarmi;
+    \item Funzionalità di ``check-in'' di sicurezza e modalità ``fuga rapida'';
+    \item Analisi sonora ambientale per rilevare rumori associati a situazioni di pericolo;
+    \item Gamification dei percorsi educativi e supporto multilingue esteso;
+    \item Accessibilità per utenti con disabilità e conformità alle leggi locali e internazionali.
+\end{itemize}
+Dal punto di vista tecnico, l’app dovrà rispettare rigorosi requisiti di sicurezza (\textit{security by design} e \textit{privacy by design}), con crittografia AES-256, autenticazione a due fattori, audit trail e conformità GDPR.
+
 \subsubsection{Tecnologie proposte}
+Le tecnologie suggerite da Miriade per la realizzazione del progetto comprendono:
+\begin{itemize}
+    \item \textbf{Mobile App}: sviluppo multipiattaforma con il framework \textit{Flutter} (fortemente consigliato).
+    \item \textbf{Architettura}: basata su microservizi o su modello \textit{serverless}, con deployment su cloud.
+    \item \textbf{Cloud Provider}: preferibilmente \textit{Amazon Web Services (AWS)}, con possibilità di alternative come Google Cloud.
+    \item \textbf{Backend}: \textit{AWS Lambda} per la logica applicativa, \textit{Amazon API Gateway} per la gestione delle richieste e \textit{AWS Step Functions} per i flussi complessi.
+    \item \textbf{Database}: \textit{Amazon DynamoDB} (NoSQL) per i dati ad alta scalabilità e \textit{Amazon RDS} (PostgreSQL/MySQL) per dati strutturati.
+    \item \textbf{Storage}: \textit{Amazon S3} per contenuti multimediali e dati configurativi.
+    \item \textbf{Autenticazione e Sicurezza}: \textit{Amazon Cognito} per la gestione delle identità e l’autenticazione sicura.
+    \item \textbf{AI e Machine Learning}: utilizzo di \textit{Amazon SageMaker} e \textit{Amazon Bedrock} per le funzionalità di analisi del linguaggio e del comportamento (``Detective delle Relazioni'' e ``Specchio Intelligente'').
+    \item \textbf{Comunicazione Asincrona}: \textit{Amazon Kinesis} o \textit{AWS SQS} per la gestione di code di messaggi.
+    \item \textbf{Monitoraggio e Logging}: \textit{AWS CloudWatch} per l’osservabilità e la gestione degli eventi di sistema.
+\end{itemize}
+Questa infrastruttura, basata su tecnologie cloud e AI, garantisce sicurezza, scalabilità e manutenzione semplificata nel tempo.
+
 \subsubsection{Chiarimenti e colloqui con l'azienda}
 Qui di seguito sono riportate alcune delle domande poste a Miriade con le relative risposte fornite dall'azienda. 
 
 \paragraph{}
-Le risposte dell'azienda non sono citazioni dirette, ma sono state riassunte e riformulate dal team
-in modo da essere più concise e chiare.
+\begin{center}
+\small\textit{Nota: Le risposte dell’azienda non sono citazioni dirette, ma sono state riassunte e riformulate dal team in modo da essere più concise.}
+\end{center}
+
 {\footnotesize
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
 \hline
@@ -313,7 +470,7 @@ Inoltre, il team ha riconosciuto l'opportunità di implementare un'applicazione 
 \item Buon supporto aziendale: Miriade offre un supporto completo:
 \begin{itemize}
   \item Referenti specializzati per ogni area (tecnica, design, dominio sociale)
-  \item Formazione iniziale sulla tematica della violenza di genere
+  \item Formazione sulla tematica della violenza di genere, se richiesta
   \item Supporto multidisciplinare continuo
   \item Possibilità di incontri in sede
 \end{itemize}
@@ -442,12 +599,59 @@ Avete parlato di includere il team di lavoro nel vostro processo SCRUM e nelle r
 \hline
 \end{tabularx}
 }
+\begin{center}
+\small\textit{Nota: Le successive domande sono state esposte durante un incontro di approfondimento e conoscitivo con EggOn. 
+Le risposte dell’azienda non sono citazioni dirette, ma sono state riassunte e riformulate dal team in modo da essere più concise.}
+\end{center}
+
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Domande} & \textbf{Risposte} \\
+\hline
+\parbox[t]{\linewidth}{
+Dovremo fare una parte di formazione iniziale per comprendere bene la piattaforma Nexum e l'integrazione tra i moduli?
+} &
+\parbox[t]{\linewidth}{
+\begin{itemize}[leftmargin=*]
+  \item Il dominio HR e CdL potrà essere appreso tramite interazioni con EggOn, in quanto conosce nel dettaglio come intende supportare i manager HR e i CdL nel loro lavoro;
+  \item Ci sarà una fase di onboarding iniziale in cui vi verrà spiegata la code base delle componenti Nexum che userete;
+  \item Ci aspettiamo una fase iniziale di studio e apprendimento delle tecnologie proposte.
+\end{itemize}
+} \\
+\hline
+\parbox[t]{\linewidth}{
+Quali sono le vostre aspettative su questo progetto?
+} &
+\parbox[t]{\linewidth}{
+  Il progetto non è orientato esclusivamente al risultato finale, ma punta sul processo e sul confronto tra idee. La presenza di più team universitari è considerata un valore aggiunto, poiché favorisce la diversità di approcci e soluzioni. Inoltre, i requisiti e gli use case riportati nel documento sono solo abbozzati e ci aspettiamo che vengano ridefiniti sulla base delle vostre analisi e proposte.
+} \\
+\hline
+\parbox[t]{\linewidth}{
+Potreste spiegarci come vi aspettate che vengano utilizzati gli LLM nel progetto? In particolare come debba l'AI rispecchiare i toni aziendali di ciascun cliente.
+} &
+\parbox[t]{\linewidth}{
+Si utilizzano modelli pre-addestrati come base, che vengono successivamente adattati al dominio specifico tramite gli strumenti messi a disposizione da alcune piattaforme, come ad esempio Amazon Bedrock, attraverso funzionalità quali Knowledge Base e Guardrails.
+A questo proposito, è fondamentale considerare gli aspetti di sicurezza, in particolare per prevenire possibili leak di informazioni tra diverse knowledge base aziendali, ad esempio causati da attacchi di prompt injection.
+} \\
+\hline
+\parbox[t]{\linewidth}{
+Quali tecnologie ritenete possano presentare le principali criticità o difficoltà di implementazione per il team? Avete dei consigli a riguardo?
+} &
+\parbox[t]{\linewidth}{
+La documentazione di AWS risulta in alcuni casi poco chiara. Il codice di backend attualmente disponibile deriva da un progetto sviluppato alcuni anni fa e successivamente aggiornato alle versioni più recenti di Ruby on Rails. Tale codice presenta alcune parti ridondanti o non più necessarie, che potrebbero generare confusione durante lo sviluppo.
+È prevedibile che l’integrazione con AWS rappresenti una delle principali difficoltà; si consiglia pertanto di esaminare le diverse librerie e SDK disponibili per Bedrock, preferibilmente in linguaggi già noti al team, per comprendere il funzionamento del servizio. Una volta acquisite le necessarie competenze, sarà possibile effettuare una migrazione del codice in Ruby on Rails.
+} \\
+\hline
+\end{tabularx}
+}
+
 \subsubsection{Interesse del team}
 \parbox[t]{\linewidth}{%
 Il team ha mostrato un interesse significativo verso la proposta di Eggon. Inanzitutto, i rappresentanti dell'azienda hanno subito mostrato uno stile giovanile e informale, pur mantenendo professionalità e struttura. Ciò ha avuto un impatto positivo come prima impressione. \\Inoltre, il progetto proposto si allinea bene con le aspirazioni del team di acquisire esperienza pratica nello sviluppo di applicazioni reali, specialmente in un contesto aziendale. L'opportunità di lavorare su una piattaforma HR esistente come NEXUM, che ha una base di utenti reale, ha particolare attrattiva.\\ Infine, come già specificato all'inizio di questo documento, il team pone molta importanza al supporto che l'azienda può offrire durante lo sviluppo del progetto. Le risposte fornite da Eggon alle nostre domande hanno confermato che l'azienda è disposta a fornire un supporto strutturato e continuo, il che aumenta ulteriormente l'interesse del team verso questo capitolato.
 }
 \paragraph{}
-Visto l'interesse del team, è stato organizzato anche un incontro di approfondimento con Eggon, durante il quale sono stati chiariti ulteriori dubbi e domande riguardo al progetto.
+Visto l'interesse del team, è stato organizzato anche un incontro di approfondimento con EggOn, durante il quale sono stati chiariti ulteriori dubbi e domande sul progetto.
 \subsubsection{Punti di forza e di debolezza}
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -456,13 +660,13 @@ Visto l'interesse del team, è stato organizzato anche un incontro di approfondi
 \textbf{Punti di forza} & \textbf{Punti di debolezza} \\
 \hline
 \begin{itemize}
-\item Prodotto Reale e Integrazione con Piattaforma Esistente: NEXUM è una piattaforma HR già operativa. Sviluppare moduli che si integreranno in un prodotto commerciale fornisce un'esperienza di lavoro su codice legacy e integrazione con sistemi esistenti.
+\item Prodotto Rrale e integrazione con piattaforma esistente: NEXUM è una piattaforma HR già operativa. Sviluppare moduli che si integreranno in un prodotto commerciale fornisce un'esperienza di lavoro su codice legacy e integrazione con sistemi esistenti.
 \item Processo SCRUM realistico (rispettare le scadenze dell’azienda)
 \item Ottimo supporto dell’azienda: l’azienda ha un piano ben strutturato quali le cerimonie a cui il team deve necessariamente partecipare (con relativa durata) e il tipo di dialogo che vuole con il team (giornalmente). Inoltre siamo stati informati che il supporto al progetto è continuo (anche formazione e mentoring).
 \item Tecnologie definite esaustivamente e  requisiti del progetto chiari, con due requisiti opzionali definiti.
 \item L’azienda ha fornito un documento per il capitolato completo di casi d’uso e obiettivi misurabili in milestone, rendendo la pianificazione più semplice
 \item Integrazione di AI. Lavorare su queste tecnologie fornisce un'esperienza preziosa vista la loro crescente importanza nel settore.
-\item Valori dell'azienda??
+\item Abbiamo particolarmente apprezzato l’obiettivo finale di EggOn, volto a coinvolgere giovani talenti per permettere loro di conoscere l’azienda e farsi conoscere, offrendo anche un punto di vista fresco e diverso
 \end{itemize}
 & 
 \begin{itemize}
@@ -510,6 +714,77 @@ Estendendo il progetto in questa direzione, sarebbe possibile anche costruitire 
 \end{itemize}
 
 \subsubsection{Chiarimenti e colloqui con l'azienda}
+\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Domande} & \textbf{Risposte} \\
+\hline
+\parbox[t]{\linewidth}{
+Quali modelli LLM saranno disponibili e con che modalità potremo accedervi? Possiamo utilizzare modelli diversi durante il progetto?
+}
+&
+\begin{itemize}
+  \item \textbf{Modelli forniti:} Claude e Gemini accessibili dall'esterno; Gemma, Deepseek e Qwen disponibili su infrastrutture interne Bugbuster (tra 7B e 32B, versioni quantizzate).
+  \item \textbf{Accesso:} verrà fornita una \texttt{API key} per connettersi a un endpoint dedicato gestito dall’azienda.
+  \item \textbf{Utilizzo:} i modelli potranno essere usati anche per attività di traduzione e analisi linguistica.
+\end{itemize} \\
+\hline
+
+\parbox[t]{\linewidth}{
+È previsto un database specifico per l’applicazione? Ci sono preferenze o vincoli tecnologici?
+}
+&
+\begin{itemize}
+  \item \textbf{Database consigliato:} PostgreSQL.
+  \item \textbf{Vincoli:} nessuno — il team può scegliere liberamente soluzioni alternative se più adatte.
+\end{itemize} \\
+\hline
+
+\parbox[t]{\linewidth}{
+È richiesta una gestione dell’autenticazione utenti? Se sì, quale approccio consigliate?
+}
+&
+\begin{itemize}
+  \item \textbf{Autenticazione:} non richiesta come requisito obbligatorio.
+  \item \textbf{Suggerimento:} se si desidera includerla, utilizzare un sistema basato su token \textit{OAuth}.
+\end{itemize} \\
+\hline
+
+\parbox[t]{\linewidth}{
+L’applicazione dovrà includere funzioni di traduzione automatica o comparazione tra modelli linguistici?
+}
+&
+\begin{itemize}
+  \item \textbf{Traduzione:} gli LLM forniti possono essere impiegati anche per traduzioni automatiche.
+  \item \textbf{Comparazione:} non richiesta, ma la possibilità di scegliere il modello di LLM da utilizzare è considerata una funzionalità opzionale interessante.
+  \item \textbf{Sistema di confronto:} non richiesto — era parte del progetto dell’anno precedente.
+\end{itemize} \\
+\hline
+
+\parbox[t]{\linewidth}{
+Avete preferenze sui framework di sviluppo o sull’architettura (container, PWA, app nativa)?
+}
+&
+\begin{itemize}
+  \item \textbf{Framework:} completa libertà di scelta.
+  \item \textbf{Applicazione:} non è richiesta un’app nativa. È sufficiente che l’interfaccia sia \textit{responsiva} e utilizzabile su PC e tablet.
+  \item \textbf{PWA:} facoltativa; può essere sviluppata a discrezione del team.
+  \item \textbf{Container:} scelta libera. L’app può essere eseguita in modo tradizionale oppure containerizzata. Bugbuster utilizza \textit{Docker} o \textit{Podman} senza orchestratore, oppure \textit{Kubernetes} in ambienti completi.
+\end{itemize} \\
+\hline
+
+\parbox[t]{\linewidth}{
+Il progetto prevede aspetti di sicurezza applicativa o gestione avanzata degli accessi?
+}
+&
+\begin{itemize}
+  \item \textbf{Sicurezza:} non richiesta come parte obbligatoria del progetto.
+  \item \textbf{Motivazione:} una trattazione completa del tema richiederebbe un impegno eccessivo rispetto ai tempi previsti.
+\end{itemize} \\
+\hline
+\end{tabularx}
+
+
 \subsubsection{Interesse del team}
 Troviamo che il capitolato proposto da Zucchetti sia realistico per un team di studenti universitari che si interfacciano per la prima volta ad un progetto di questo calibro, sia dal punto di vista delle tempistiche e delle competenze richieste.
 Inoltre, l'argomento dell'integrazione di modelli di linguaggio di grandi dimensioni (LLM) in applicazioni pratiche è estremamente attuale e rilevante nel contesto tecnologico odierno.
@@ -625,8 +900,9 @@ Tuttavia le tecnologie sopra elencate non sono vincolanti: il team può proporre
 \parbox[t]{\linewidth}{%
 Qui di seguito sono riportate alcune delle domande poste a M31 con le relative risposte fornite dall'azienda. Le domande vertono principalmente su aspetti tecnici del progetto, poichè il team voleva chiarire alcuni dubbi riguardanti l'architettura del sistema e le tecnologie da utilizzare. \\
 Il team ha deciso di fissare una runione per discutere di questi aspetti, in modo da poter porre domande specifiche e ricevere risposte dettagliate direttamente dai referenti dell'azienda. Questo approccio ha permesso di ottenere chiarimenti più approfonditi e di comprendere meglio le aspettative dell'azienda riguardo al progetto.
-
-Le risposte dell'azienda non sono citazioni dirette, ma sono state riassunte e riformulate dal team in modo da essere più concise e chiare.
+\begin{center}
+\small\textit{Nota: Le risposte dell’azienda non sono citazioni dirette, ma sono state riassunte e riformulate dal team in modo da essere più concise.}
+\end{center}
 }
 
 {\footnotesize
@@ -650,7 +926,7 @@ Le risposte dell'azienda non sono citazioni dirette, ma sono state riassunte e r
   \end{itemize}
 \end{itemize}
 }
-& \\ % risposta
+& Ci aspettiamo che lo decidiate voi, dopo un attento studio. L'idea è far si che per il PoC questo avventa manualmente attraverso l'interfaccia.\\
 \hline
 
 \parbox[t]{\linewidth}{%
@@ -660,44 +936,10 @@ Le risposte dell'azienda non sono citazioni dirette, ma sono state riassunte e r
   \item Avete già definito eventuali profili custom?
 \end{itemize}
 }
-& \\ % risposta
+& 
+Alcuni esempi di sensori sono di: heartrate, temperatura, pressione sanguigna, saturazione ossigeno, ECG, glicemia\\ 
 \hline
 
-\parbox[t]{\linewidth}{%
-\textbf{Persistenza delle informazioni di commissioning} \\[4pt]
-Avete qualche consiglio sulla modalità di persistenza delle informazioni di commissioning dei sensori (nel gateway) e del gateway (nel cloud)?
-}
-& \\ % risposta
-\hline
-
-\parbox[t]{\linewidth}{%
-\textbf{Gestione dei tenant} \\[4pt]
-I tenant sono assegnati a un amministratore (con pieno accesso ai gateway), a un cliente generico (con permessi limitati), oppure ad entrambi?
-}
-& \\ % risposta
-\hline
-
-\parbox[t]{\linewidth}{%
-\textbf{Sicurezza} \\[4pt]
-\begin{itemize}
-  \item Sono citate tre tecnologie di sicurezza: JWT, OAuth2 e mTLS. Nel contesto di sensori e gateway simulati, quali di queste devono essere utilizzate in modo “diverso” rispetto al consueto?
-  \item Per il lato dispositivi simulati (sensori + gateway), quali tecnologie delle proposte consigliate?
-  \item Per il lato client (cloud + API), quali tecnologie delle proposte consigliate?
-\end{itemize}
-}
-& \\ % risposta
-\hline
-
-\parbox[t]{\linewidth}{%
-\textbf{Supporto e modalità di collaborazione} \\[4pt]
-\begin{itemize}
-  \item Che tipo di supporto intendete fornirci durante il progetto?
-  \item La gestione sarà lasciata interamente a noi oppure è prevista una forma di supporto strutturata 
-  (ad esempio con riunioni periodiche, review o retrospective in stile Scrum)?
-\end{itemize}
-}
-& \\ % risposta
-\hline
 \parbox[t]{\linewidth}{%
 Le tecnologie richieste per lo sviluppo del progetto sono diverse e molte sono completamente nuove per noi: quanto è rilevante per voi la conoscenza pregressa e quali sono le vostre aspettative rispetto al nostro apprendimento progressivo durante il progetto?
 }
@@ -722,11 +964,12 @@ Naturalmente resteremo a disposizione per domande e supporto mirato e, se necess
 \hline
 \end{tabularx}
 }
-
+Oltre alle domande già discusse, la proponente ha ridefinito gli obiettivi del progetto in seguito a una richiesta esplicita del team. L’azienda ha inoltre sottolineato che lo studio architetturale e documentale riveste per loro un ruolo centrale, mentre l’applicazione rappresenta principalmente il risultato di tale studio; l’interfaccia utente è considerata tecnicamente di minor rilevanza.
 \subsubsection{Interesse del team}
 \parbox[t]{\linewidth}{%
 L'interesse del team verso questo capitolato è stato inizialmente moderato, ma è cresciuto significativamente dopo aver approfondito i dettagli del progetto e aver interagito con l'azienda proponente, M31. \\
 Inizialmente il team era attratto dall'idea di lavorare su un sistema distribuito e scalabile, ma aveva delle riserve riguardo alla complessità tecnica e alla mancanza di esperienza con molte delle tecnologie proposte. Tuttavia, dopo aver avuto l'opportunità di porre domande specifiche a M31 e ricevere chiarimenti, il team ha acquisito una maggiore comprensione delle sfide e delle opportunità offerte dal progetto. \\
+
 }
 \subsubsection{Punti di forza e di debolezza}
 {\footnotesize
@@ -737,7 +980,7 @@ Inizialmente il team era attratto dall'idea di lavorare su un sistema distribuit
 \hline
 \begin{itemize}
 \item  Il progetto affronta una sfida attuale e molto concreta nel campo IoT: acquisire, gestire e rendere fruibili dati da sensori in modo sicuro, scalabile e multi-tenant. Questo fornisce un'esperienza su problematiche industriali reali, non solo accademiche
-\item supporto??
+\item Buon supporto da parte dell'azienda; eventualmente anche incontri in sede molto vicini alle nostre sedi di studio.
 \item Forte opportunità di apprendimento: il progetto introduce tecnologie e pratiche non ancora esplorate dal team, accelerando la crescita tecnica. Nello specifico, il sistema di acquisizione dati da sensori si basa su un'architettura a microservizi e introduce tecnologie come Node.js e Nest.js con TypeScript (backend) , Go (componenti ad alte prestazioni) , Angular (frontend SPA) , MongoDB (database NoSQL) , PostgreSQL (database SQL) , Redis (caching) , Google Cloud Platform (infrastruttura cloud) , Kubernetes (orchestrazione container) , NATS o Kafka (comunicazione asincrona) , e Prometheus con Grafana (monitoring)
 \end{itemize}
  & \begin{itemize}
@@ -877,8 +1120,8 @@ tecnica avanzata
 \textbf{Punti di forza} & \textbf{Punti di debolezza} \\
 \hline
 \begin{itemize}
-\item Dominio Applicativo Concreto e Socialmente Utile: Il contesto delle "residenze protette" fornisce uno scopo nobile e tangibile. Sviluppare un sistema che può migliorare la sicurezza e il benessere degli anziani è un forte motivatore e rende il progetto molto più significativo rispetto a un dominio astratto.
-\item Tecnologie Moderne e Ricercate
+\item Dominio applicativo Concreto e Socialmente Utile: Il contesto delle "residenze protette" fornisce uno scopo nobile e tangibile. Sviluppare un sistema che può migliorare la sicurezza e il benessere degli anziani è un forte motivatore e rende il progetto molto più significativo rispetto a un dominio astratto.
+\item Tecnologie moderne e ricercate
 \item Supporto Aziendale Eccezionale e Materiale Fornito: Vimar fornisce un supporto strutturato con incontri bisettimanali/settimanali (SAL) e, aspetto cruciale, fornisce un kit hardware fisico per testare con dispositivi reali. Questo riduce enormemente il gap tra teoria e pratica e permette di affrontare problematiche reali di integrazione IoT.
 
 \end{itemize}
