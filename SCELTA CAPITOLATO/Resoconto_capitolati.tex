@@ -706,7 +706,7 @@ Eventualmente l'Azienda potrebbe fornire un database volto all'integrazione dell
 Estendendo il progetto in questa direzione, sarebbe possibile anche costruitire un sistema di \textit{linking} tra le note.
 \subsubsection{Tecnologie proposte}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item \textbf{Frontend:} HTML5 per l'interfaccia web dell’editor; linguaggio di markup \textit{Markdown} per la scrittura; librerie di rendering come \textit{marked.js}, \textit{Showdown} o \textit{markdown-it}.
+  \item \textbf{Frontend:} HTML5 per l'interfaccia web dell’editor; linguaggio di markup \textit{Markdown} per la scrittura;
   \item \textbf{Integrazione LLM:} API compatibili OpenAI per chiamate a modelli linguistici; supporto a modelli come \textit{Gemini} (Google), \textit{Mistral}, \textit{Gemma}; uso opzionale di \textit{llama.cpp} per esecuzione locale.
   \item \textbf{Backend e API (opzionale):} server-side in \textit{Python} o \textit{Java}; gestione delle richieste HTTP e delle interazioni con il database; middleware per superare la same-origin policy.
   \item \textbf{Database (opzionale):} archivio note e metadati su DB; supporto per collegamenti tra note (link nel markup).
@@ -869,8 +869,10 @@ Tra i requisiti funzionali del progetto vi sono:
 \end{enumerate}
 Tra i requisiti non funzionali vi sono: 
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item \textbf{Scalabilità;}
-  \item \textbf{Test automatizzati} e \textbf{code coverage;}
+  \item \textbf{Scalabilità:}il sistema cloud deve progettato per essere scalabile orizzontalmente per gestire
+un numero crescente di sensori, gateway e tenant senza degrado delle prestazioni;
+  \item \textbf{Test automatizzati} e \textbf{code coverage:}lo sviluppo deve includere test unitari e di integrazione
+con un livello minimo di copertura da concordare ad inizio progetto;
   \item \textbf{Monitoraggio:} devono essere predisposti strumenti di monitoraggio in tempo reale per le performance del sistema. 
   In aggiunta, devono essere presenti almeno funzionalità di alert di base che consentano di capire rapidamente 
   se un gateway sta funzionando correttamente o risulta non raggiungibile;
