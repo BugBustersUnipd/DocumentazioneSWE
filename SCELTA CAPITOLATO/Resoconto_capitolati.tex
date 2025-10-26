@@ -187,6 +187,25 @@ I punti 3 e 4 sono stati ripetuti più volte fino a quando il team non si è sen
 Il team ha deciso di dare particolare importanza all'interesse verso l'argomento e le tecnologie rispetto alla complessità del progetto, senza tuttavia trascurare la valutazione della sua fattibilità.\\
 Crediamo che lavorare su un progetto che suscita entusiasmo e curiosità porterà a un'esperienza di apprendimento più significativa e gratificante, anche se ciò comporta affrontare sfide tecniche più impegnative.
 
+\paragraph{}
+Qui di seguito i nomi degli analisti e i corrispondenti capitolati analizzati:
+
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline
+\rowcolor{lightgray!40}
+\textbf{Analista} & \textbf{Capitolato} & \textbf{Verificatore} \\
+\hline
+Luca Slongo & C1, C2 & Alberto Autiero\\ 
+\hline
+Marco Piro & C3, C4 & Alberto Autiero \\ 
+\hline
+Linor Sadè & C5, C6, C7 & Alberto Pignat\\ 
+\hline
+Leonardo Salviato & C8, C9 & Alberto Pignat\\ 
+\hline
+\end{tabularx}
+
+\newpage
 \section{Elenco capitolati analizzati}
 Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni capitolato, sono riportati i punti di forza e di debolezza identificati durante la fase di valutazione.
 
@@ -1039,6 +1058,7 @@ Tra i requisiti non funzionali vi sono:
 \end{itemize}
 
 \subsubsection{Chiarimenti e colloqui con l'azienda}
+Il gruppo non ha mostrato particolare interesse e ha preferito concentrarsi su altri capitolati, per questo motivo non sono stati richiesti chiarimenti alla proponente.
 \subsubsection{Interesse del team}
 \parbox[t]{\linewidth}{%
 l gruppo ha valutato positivamente la modernità e la rilevanza del tema, che
@@ -1080,6 +1100,36 @@ studio reale fornito da Ergon.
 Il capitolato proposto da Vimar S.p.A. ha come obiettivo la realizzazione di una piattaforma per la gestione intelligente di impianti domotici. all'interno di residenze protette per anziani, con l'intento di migliorare la sicurezza, il comfort e l'efficienza energetica degli ambienti. Il progetto prevede lo sviluppo di un'infrastruttura cloud e di un'applicazione web responsive dedicata al personale sanitario per il monitoraggio e il controllo dei dispositivi
 }
 \subsubsection{Requisiti funzionali e non funzionali}
+Tra i requisiti funzionali vi sono:
+\begin{itemize}
+    \item L’applicativo web deve essere \textbf{responsive}, adattandosi a tutti i dispositivi.
+    \item Deve possedere un \textbf{design semplice ed efficace}.
+    \item L’applicativo deve \textbf{interfacciarsi con uno o più impianti Vimar View Wireless}.
+    \item Deve \textbf{utilizzare l’interfaccia API KNX IoT} fornita da Vimar per comunicare con gli impianti.
+    \item Deve includere un \textbf{sistema di accesso utente} dedicato al personale sanitario.
+    \item Deve prevedere un \textbf{sistema di gestione degli allarmi} per gli operatori sanitari, ad esempio:
+    \begin{itemize}
+        \item Allarme per \textbf{rilevamento cadute}.
+        \item Allarme per \textbf{accesso indesiderato a un’area in una certa fascia oraria}.
+        \item Allarme \textbf{azionato manualmente dall’utente}.
+    \end{itemize}
+    \item Deve avere una \textbf{sezione dedicata ai dispositivi dell’impianto}, mostrando le informazioni relative a ciascuno.
+    \item Deve includere una \textbf{sezione ``Analytics''} che presenti:
+    \begin{itemize}
+        \item \textbf{Statistiche della piattaforma e dell’impianto} sotto forma di grafici.
+        \item \textbf{Suggerimenti per la riduzione dei consumi energetici}, basati sui dati raccolti dai sensori.
+    \end{itemize}
+    \item Deve fornire un \textbf{cruscotto informativo (dashboard)} per l’utente.
+\end{itemize}
+
+Tra i requisiti non funzionali vi sono:
+\begin{itemize}
+    \item L’applicativo deve essere \textbf{semplice, efficace e accessibile da qualsiasi dispositivo}.
+    \item L’infrastruttura cloud deve essere \textbf{basata su container}.
+    \item L’infrastruttura deve essere progettata secondo il principio di \textbf{Infrastructure as Code (IaC)}, evitando configurazioni manuali e favorendo l’uso di file di configurazione versionati.
+    \item L’infrastruttura deve essere \textbf{replicabile, tracciabile e facilmente manutenibile}.
+    \item L’intera infrastruttura deve essere \textbf{realizzata su Amazon Web Services (AWS)}.
+\end{itemize}
 
 \subsubsection{Tecnologie proposte}
 \begin{itemize}
@@ -1151,7 +1201,7 @@ Si sviluppa prima dall’idea o in maniera test-driven? Un requisito opzionale r
 \parbox[t]{\linewidth}{%
 Il gruppo ha valutato molto positivamente questo capitolato per la concretezza e
 l'impatto sociale: lavorare su un sistema capace di migliorare la qualità della vita e
-la sicurezza degli anziani rappresenta una forte motivazione, dando al progetto un
+la sicurezza delle persone rappresenta una forte motivazione, dando al progetto un
 valore tangibile e significativo. Sono stati inoltre apprezzati l'utilizzo di tecnologie
 moderne e versatili, come Docker, AWS e framework web come Angular o React,
 che offrono ampie opportunità di apprendimento e applicazione pratica. Un
