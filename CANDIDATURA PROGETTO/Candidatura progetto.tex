@@ -1,104 +1,179 @@
-\documentclass[a4paper,11pt]{letter}
+\documentclass[a4paper,11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
-\usepackage{geometry}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{hyperref}
 \usepackage{graphicx}
-\usepackage{grffile}
-\usepackage{ifthen}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{amssymb}
 
-\geometry{
-    left=2.5cm,
-    right=2.5cm,
-    top=2.5cm,
-    bottom=2.5cm
-}
+% Definizione colori
+\definecolor{primarycolor}{RGB}{0,102,204}
+\definecolor{secondarycolor}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{240,240,240}
 
+% Configurazione hyperref
 \hypersetup{
     colorlinks=true,
-    linkcolor=blue,
-    urlcolor=blue,
-    citecolor=blue
+    linkcolor=primarycolor,
+    urlcolor=secondarycolor,
+    citecolor=primarycolor
 }
 
+% Configurazione header e footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{primarycolor}{Bug Busters - Gruppo 4}}
+\fancyhead[R]{\small\textcolor{primarycolor}{Candidatura Capitolato C5}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Configurazione sezioni
+\titleformat{\section}
+{\color{primarycolor}\Large\bfseries}
+{\thesection}{1em}{}[\titlerule]
+
+\titleformat{\subsection}
+{\color{secondarycolor}\large\bfseries}
+{\thesubsection}{1em}{}
+
+% Path per le immagini
 \graphicspath{{./}{../assets/}}
 
 \begin{document}
 
-\begin{letter}{
-    Alla cortese attenzione di \\
-    Prof. Vardanega Tullio, \\
-    Prof. Cardin Riccardo, \\
-    Università degli Studi di Padova, \\
-    Dipartimento di Matematica, \\
-    Via Trieste, 63 \\
-    35121, Padova
-}
+% Header personalizzato per prima pagina
+\thispagestyle{empty}
 
-\noindent
-\begin{minipage}[t]{0.65\textwidth}
-    {\Huge\bfseries Candidatura} \\[0.3cm]
-    {\Huge\bfseries capitolato C9}
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{0.3\textwidth}
-    \raggedleft
-    {\small Bug Busters,} \\
-    {\small Gruppo 4} \\
-    {\small bugbusters.unipd@gmail.com} \\[0.3cm]
-    \IfFileExists{../assets/Logo.jpg}{%
-        \includegraphics[width=2.5cm,height=2.5cm,keepaspectratio]{../assets/Logo.jpg}
-    }{%
-        \fbox{\parbox[c][2cm][c]{2.5cm}{\centering\tiny Logo\\non trovato}}
-    }
-\end{minipage}
+% Box intestazione (sfondo più chiaro e trasparente)
+\begin{tcolorbox}[
+    colback=primarycolor!40,
+    colframe=primarycolor!80,
+    coltext=white,
+    arc=3mm,
+    boxrule=0pt,
+    left=12pt,
+    right=12pt,
+    top=16pt,
+    bottom=16pt
+]
+    \color{white}
+    \begin{minipage}[c]{0.7\textwidth}
+        {\Huge\bfseries Candidatura}\\[0.2cm]
+        {\huge Capitolato C5}\\[0.3cm]
+        {\Large Nexum - Eggon}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.25\textwidth}
+        \raggedleft
+        \IfFileExists{../assets/Logo.jpg}{%
+            \includegraphics[width=3cm,height=3cm,keepaspectratio]{../assets/Logo.jpg}
+        }{%
+            \colorbox{white}{\parbox[c][3cm][c]{3cm}{\centering\tiny\color{black} Logo\\non trovato}}
+        }
+    \end{minipage}
+\end{tcolorbox}
+
+\vspace{1em}
+
+% Informazioni gruppo
+\begin{tcolorbox}[
+    colback=lightgray,
+    colframe=lightgray,
+    arc=3mm,
+    boxrule=0pt,
+    left=10pt,
+    right=10pt,
+    top=10pt,
+    bottom=10pt
+]
+    \textbf{Gruppo:} Bug Busters (Gruppo 4)\\
+    \textbf{Email:} \href{mailto:bugbusters.unipd@gmail.com}{bugbusters.unipd@gmail.com}\\
+    \textbf{Data:} \today
+\end{tcolorbox}
 
 \vspace{2em}
 
-\opening{Egregio Prof. Vardanega, \\ Egregio Prof. Cardin,}
+% Destinatari
+\noindent
+\textbf{Destinatari:}\\
+Prof. Vardanega Tullio\\
+Prof. Cardin Riccardo\\
+Università degli Studi di Padova\\
+Dipartimento di Matematica\\
+Via Trieste, 63\\
+35121, Padova
 
-con la presente il gruppo Bug Busters desidera comunicarVi formalmente la propria candidatura per la realizzazione del capitolato con titolo:
+\vspace{2em}
+
+\section*{Oggetto: Candidatura Capitolato C5 - Nexum}
+
+Con la presente, il gruppo \textbf{Bug Busters} comunica formalmente la propria candidatura per la realizzazione del capitolato:
 
 \begin{center}
-    \textbf{View4Life}
+    {\Large\textbf{Nexum}}\\[0.3cm]
+    Proposto da: \textbf{Eggon}\\
+    Codice capitolato: \textbf{C5}
 \end{center}
 
-proposto dall'azienda \textbf{Vimar}, capitolato di progetto \textbf{C9}.
+\vspace{1.5em}
 
-\vspace{1em}
+\section*{Informazioni sul Progetto}
 
-Come specificato nel documento di dichiarazione degli impegni Bug Busters ha preventivato un costo totale per la realizzazione del progetto di Euro XXX ed ha fissato il termine ultimo di consegna al XXX.
+Come specificato nel documento di dichiarazione degli impegni, Bug Busters ha preventivato:
 
-\vspace{1em}
-
-Si riassumono inoltre i punti di forza che hanno portato il gruppo alla scelta del capitolato:
-
-\begin{itemize}
-    \item Interesse immediato per il capitolato, favorito dalla sua differenza tematica rispetto agli altri progetti di Ingegneria del Software proposti nell'anno accademico.
-    
-    \item Valutazione positiva delle risposte fornite dall'azienda Vimar, che ha chiarito i dubbi emersi durante l'incontro.
-    
-    \item Forte disponibilità dell'azienda Vimar a fornire supporto e a collaborare con il gruppo.
+\begin{itemize}[leftmargin=2cm, itemsep=0.5em]
+    \item[\textcolor{primarycolor}{$\blacktriangleright$}] \textbf{Costo totale:} 12790€
+    \item[\textcolor{primarycolor}{$\blacktriangleright$}] \textbf{Data di consegna:} 26/03/2026
 \end{itemize}
 
+\vspace{1.5em}
+
+\section*{Motivazioni della Scelta}
+
+Il gruppo ha identificato i seguenti punti di forza che hanno orientato la scelta verso questo capitolato:
+
+\begin{enumerate}[leftmargin=2cm, itemsep=0.8em]
+    \item \textbf{Interesse tematico:} Il capitolato si distingue per la sua unicità rispetto agli altri progetti proposti nell'ambito del corso di Ingegneria del Software, suscitando immediato interesse nel gruppo.
+    
+    \item \textbf{Qualità del confronto:} Le risposte fornite dall'azienda Eggon durante l'incontro sono state esaustive e hanno chiarito efficacemente tutti i dubbi emersi.
+    
+    \item \textbf{Supporto aziendale:} Eggon ha dimostrato una forte disponibilità a collaborare attivamente con il gruppo, offrendo supporto continuo durante lo sviluppo del progetto.
+\end{enumerate}
+
 \vspace{1em}
 
-Per ulteriori dettagli consigliamo di visionare il documento dedicato alla valutazione dei capitolati.
+\begin{tcolorbox}[
+    colback=lightgray,
+    colframe=secondarycolor,
+    arc=2mm,
+    boxrule=0pt,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt
+]
+    \small\textit{Per ulteriori dettagli si rimanda al documento dedicato alla valutazione dei capitolati.}
+\end{tcolorbox}
 
-\newpage
 
-Tutta la documentazione redatta e prodotta da Bug Busters viene pubblicata nel sito ufficiale e prodotta a partire dai documenti nel repository dedicato alla documentazione.
+\section*{Risorse e Contatti}
 
-\vspace{1em}
-
-L'intero gruppo è a disposizione per qualsiasi chiarimento; si riportano i nominativi di tutti i membri di Bug Busters:
-
-\vspace{1em}
-
+Tutta la documentazione prodotta da Bug Busters è pubblicata nel \href{https://bugbustersunipd.github.io/BugBusterSite/}{sito ufficiale} del gruppo e mantenuta nel repository dedicato.
+L'intero gruppo è a disposizione per qualsiasi chiarimento. Di seguito i membri di Bug Busters: \\ \\ 
 \begin{center}
+\setlength{\arrayrulewidth}{0.8pt}
+\arrayrulecolor{black} % bordi della tabella neri
 \begin{tabular}{|l|l|r|}
 \hline
-\textbf{Cognome} & \textbf{Nome} & \textbf{Matricola} \\
+\rowcolor{primarycolor!20}
+\textcolor{black}{\textbf{Cognome}} & \textcolor{black}{\textbf{Nome}} & \textcolor{black}{\textbf{Matricola}} \\
 \hline
 Autiero & Alberto & 2082862 \\
 \hline
@@ -115,12 +190,7 @@ Salviato & Leonardo & 2101086 \\
 Slongo & Luca & 2111009 \\
 \hline
 \end{tabular}
+\arrayrulecolor{black}
 \end{center}
-
-\vspace{2em}
-
-\closing{Cordiali Saluti,}
-
-\end{letter}
 
 \end{document}
