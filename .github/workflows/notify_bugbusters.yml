@@ -13,6 +13,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.BUGBUSTER_POKE_TOKEN }}
-          repository: BugbustersUnipd/BugBusterSite
+          repository: BugBustersUnipd/BugBusterSite
           event-type: documentazione_swe_push
           client-payload: '{"ref":"${{ github.ref }}","pusher":"${{ github.actor }}"}'
