@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
      
-\newcommand{\CurrentVersion}{0.0.10} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.0.11} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -129,7 +129,9 @@ Documento di analisi e valutazione dei capitolati proposti per l'anno accademico
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\rowcolor{secondaryblue!10} \CurrentVersion & 26/10/2025 & Correzioni minime a C4, C5, C6, C7 & Linor Sadè & - & - \\
+\rowcolor{secondaryblue!10} 0.0.11 & 29/10/2025 & Correzioni minime a C9 & Alberto Pignat & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.10 & 26/10/2025 & Correzioni minime a C4, C5, C6, C7 & Linor Sadè & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.0.9 & 24/10/2025 & Continuo del documento con modifiche di C5 e C7 relative ai meeting svolti successivamente. Minori modifiche di stile. & Linor Sadè & - & - \\
 \hline
@@ -1096,13 +1098,13 @@ studio reale fornito da Ergon.
 \subsection{C9 - View4Life}
 \subsubsection{Breve descrizione}
 \parbox[t]{\linewidth}{%
-Il capitolato proposto da Vimar S.p.A. ha come obiettivo la realizzazione di una piattaforma per la gestione intelligente di impianti domotici. all'interno di residenze protette per anziani, con l'intento di migliorare la sicurezza, il comfort e l'efficienza energetica degli ambienti. Il progetto prevede lo sviluppo di un'infrastruttura cloud e di un'applicazione web responsive dedicata al personale sanitario per il monitoraggio e il controllo dei dispositivi
+Il capitolato proposto da Vimar S.p.A. ha come obiettivo la realizzazione di una piattaforma per la gestione intelligente di impianti domotici, all'interno di residenze protette per anziani, con l'intento di migliorare la sicurezza, il comfort e l'efficienza energetica degli ambienti. Il progetto prevede lo sviluppo di un'infrastruttura cloud e di un'applicazione web responsive dedicata al personale sanitario per il monitoraggio e il controllo dei dispositivi.
 }
 \subsubsection{Caratteristiche funzionali}
 Tra i requisiti funzionali vi sono:
 \begin{itemize}
     \item L’applicativo web deve essere \textbf{responsive}, adattandosi a tutti i dispositivi.
-    \item Deve possedere un \textbf{design semplice ed efficace}.
+    \item Deve possedere un \textbf{design intuitivo e semplice}.
     \item L’applicativo deve \textbf{interfacciarsi con uno o più impianti Vimar View Wireless}.
     \item Deve \textbf{utilizzare l’interfaccia API KNX IoT} fornita da Vimar per comunicare con gli impianti.
     \item Deve includere un \textbf{sistema di accesso utente} dedicato al personale sanitario.
@@ -1123,7 +1125,7 @@ Tra i requisiti funzionali vi sono:
 
 Tra i requisiti non funzionali vi sono:
 \begin{itemize}
-    \item L’applicativo deve essere \textbf{semplice, efficace e accessibile da qualsiasi dispositivo}.
+    \item L’applicativo deve essere di \textbf{facile e efficace utilizzo ed essere accessibile da qualsiasi dispositivo}.
     \item L’infrastruttura cloud deve essere \textbf{basata su container}.
     \item L’infrastruttura deve essere progettata secondo il principio di \textbf{Infrastructure as Code (IaC)}, evitando configurazioni manuali e favorendo l’uso di file di configurazione versionati.
     \item L’infrastruttura deve essere \textbf{replicabile, tracciabile e facilmente manutenibile}.
@@ -1139,8 +1141,6 @@ Tra i requisiti non funzionali vi sono:
   Meccanismi di aggiornamento periodico tramite \textit{polling} non sono ammessi.
   \item \textbf{Versionamento:} il repository di lavoro deve essere gestito con \textbf{Git} e reso \textbf{pubblicamente accessibile}.  
   I sorgenti dovranno essere rilasciati con \textbf{licenza open source}.
-  
-  \item \textbf{Compatibilità delle licenze:} il gruppo di lavoro deve prestare attenzione alla compatibilità delle licenze open-source adottate rispetto alle librerie o ai framework utilizzati.
 \end{itemize}
 
 \subsubsection{Chiarimenti e colloqui con l'azienda}
@@ -1176,7 +1176,7 @@ Quanto è rilevante per voi la conoscenza pregressa delle tecnologie richieste, 
 \item L’approccio finale sarà discusso in base allo skillset del gruppo.
 \end{itemize} \\
 \hline
-La documentazione per integratori di terze parti per interfaccia KNX IoT richiede più o meno quanta mole di lavoro per poterla capire e padroneggiare? O comunque il livello di difficoltà/ quantità di documentazione è molto consistente?
+La documentazione per integratori di terze parti per interfaccia KNX IoT richiede più o meno quanta mole di lavoro per poterla capire e padroneggiare? O comunque il livello di difficoltà/quantità di documentazione è molto consistente?
 &
 \begin{itemize}
 \item La documentazione è approfondita, ma i concetti base devono essere padroneggiati bene.
@@ -1210,7 +1210,7 @@ testare l'integrazione con dispositivi reali, riducendo il divario tra teoria e 
 permettendo di affrontare concretamente le sfide dell'IoT.
 \\
 La principale complessità del progetto risiede nella sua ampiezza e completezza,
-che richiede una pianificazione accurata e una buona capacità di priorizzazione.
+che richiede una pianificazione accurata e una buona capacità di prioritizzazione.
 Tuttavia, il gruppo ha interpretato questa caratteristica non come una difficoltà, ma
 come un'opportunità di crescita: gestire un progetto così articolato permetterà
 infatti di sviluppare competenze di organizzazione, coordinamento e gestione
@@ -1226,9 +1226,9 @@ tecnica avanzata
 \hline
 \begin{itemize}
 \item Dominio applicativo concreto e socialmente utile: Il contesto delle "residenze protette" fornisce uno scopo nobile e tangibile. Sviluppare un sistema che può migliorare la sicurezza e il benessere delle persone è un forte motivatore e rende il progetto molto più significativo rispetto a un dominio astratto.
-\item Tecnologie moderne e ricercate
+\item Tecnologie moderne e ricercate.
 \item Supporto aziendale eccezionale e materiale fornito: Vimar fornisce un supporto strutturato con incontri bisettimanali/settimanali (SAL) e, aspetto cruciale, fornisce un kit hardware fisico per testare con dispositivi reali. Questo riduce enormemente il gap tra teoria e pratica e permette di affrontare problematiche reali di integrazione IoT.
-\item Opportunità reale che l'MVP venga effettivamente adottato da Vimar, qualora raggiungesse la qualità necessaria
+\item Opportunità reale che l'MVP venga effettivamente adottato da Vimar, qualora raggiungesse la qualità necessaria.
 \end{itemize}
  & \begin{itemize}
 \item Elevata complessità e ampio scope: La completezza del progetto è anche la sua principale sfida. Il team deve essere bravo a gestire la complessità e a priorizzare le funzionalità obbligatorie, per non perdersi negli optional.
