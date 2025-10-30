@@ -1,5 +1,5 @@
 \documentclass[a4paper,11pt]{article}
-\newcommand{\CurrentVersion}{0.0.2}
+\newcommand{\CurrentVersion}{1.0.0}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -74,13 +74,12 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
-\begin{tabular}{@{}ll@{}}
-\textbf{Stato} & [Redatto] \textbf{DA METTERE APPROVATO} \\
-\textbf{Data ultima modifica} & 26/10/2025 \\
-\textbf{Distribuzione} & BugBusters \\
- & Prof. Vardanega Tullio \\
- & Prof. Cardin Riccardo \\
-\end{tabular}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Redattori}  & Alberto Autiero, Marco Favero\\
+\textbf{Verificatore} & Marco Piro \\
+\textbf{Destinatari} & Prof. Tullio Vardanega, Prof. Riccardo Cardin, BugBusters \\
+\textbf{Data ultima modifica}     & 30/10/2025 \\
+\end{tabularx}
 \end{tcolorbox}
 \end{center}
 
@@ -99,7 +98,11 @@
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\rowcolor{secondaryblue!10} \CurrentVersion & 26/10/2025 & Rielaborazioni e aggiunta testo & Marco Favero & - & - \\
+\rowcolor{secondaryblue!10} \CurrentVersion & 30/10/2025 & Approvazione & - & - & Alberto Autiero \\
+\hline
+\rowcolor{secondaryblue!10} 0.1.0 & 30/10/2025 & Verifica documento & - & Marco Piro & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.2 & 26/10/2025 & Rielaborazioni e aggiunta testo & Marco Favero & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.0.1 & 23/10/2025 & Prima stesura della struttura del documento & Alberto Autiero & - & - \\
 \hline
@@ -137,7 +140,7 @@ L'Analista si dedica allo studio e alla formalizzazione dei requisiti, analizzan
 Il Progettista trasforma i requisiti in un'architettura software robusta e coerente. Definisce le scelte tecnologiche, i pattern architetturali e i diagrammi di sistema. Redige la specifica tecnica e supervisiona l'integrazione tra i vari componenti. Il suo contributo è essenziale in tutte le fasi progettuali, con particolare intensità durante la definizione dell'architettura.
 
 \subsection{Programmatore}
-Il Programmatore implementa les soluzioni progettate, sviluppando codice secondo le best practice dell'ingegneria del software. Si occupa dell'integrazione dei componenti, della scrittura dei test unitari e della documentazione del codice. Il suo lavoro è distribuito uniformemente durante le fasi di sviluppo e manutenzione del software.
+Il Programmatore implementa le soluzioni progettate, sviluppando codice secondo le best practice dell'ingegneria del software. Si occupa dell'integrazione dei componenti, della scrittura dei test unitari e della documentazione del codice. Il suo lavoro è distribuito uniformemente durante le fasi di sviluppo e manutenzione del software.
 
 \subsection{Verificatore}
 Il Verificatore garantisce la qualità del prodotto attraverso attività di testing, code review e validazione. Verifica la conformità della documentazione agli standard, esegue test di integrazione e sistema, e assicura che tutto il materiale prodotto soddisfi i criteri qualitativi definiti. La sua presenza è costante durante l'intero ciclo di vita del progetto.
