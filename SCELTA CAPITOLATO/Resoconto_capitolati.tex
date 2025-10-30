@@ -129,6 +129,8 @@ Documento di analisi e valutazione dei capitolati proposti per l'anno accademico
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
+\rowcolor{secondaryblue!10} \CurrentVersion & 29/10/2025 & Aggiunta tabella conclusioni & Linor Sadè & - & - \\
+\hline
 \rowcolor{secondaryblue!10} 0.0.11 & 29/10/2025 & Correzioni minime a C9 & Alberto Pignat & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.0.10 & 26/10/2025 & Correzioni minime a C4, C5, C6, C7 & Linor Sadè & - & - \\
@@ -182,11 +184,11 @@ Per la valutazione dei capitolati proposti, il team ha adottato una metodologia 
     \item Il livello di supporto che l'azienda fornirà durante lo sviluppo del progetto.
     \item L'importanza nella conoscenza pregressa delle tecnologie richieste.
   \end{itemize}
-\item \textbf{Compilazione tabelle:} Il team si è diviso il compito di compilare le tabelle dei punti di forza e di debolezza per ogni capitolato, assicurando che ogni membro contribuisse in modo equo.
+\item \textbf{Compilazione tabelle:} Il team ha redatto congiuntamente le tabelle dei punti di forza e di debolezza, sintetizzando le osservazioni emerse nelle fasi precedenti.
 \end{enumerate}
 I punti 3 e 4 sono stati ripetuti più volte fino a quando il team non si è sentito sufficientemente preparato per prendere una decisione informata sul capitolato da scegliere.\\
 Il team ha deciso di dare particolare importanza all'interesse verso l'argomento e le tecnologie rispetto alla complessità del progetto, senza tuttavia trascurare la valutazione della sua fattibilità.\\
-Crediamo che lavorare su un progetto che suscita entusiasmo e curiosità porterà a un'esperienza di apprendimento più significativa e gratificante, anche se ciò comporta affrontare sfide tecniche più impegnative.
+Crediamo che lavorare ad un progetto che suscita entusiasmo e curiosità porterà a un'esperienza di apprendimento più significativa e gratificante, anche se ciò comporta affrontare sfide tecniche più impegnative.
 
 \paragraph{}
 Qui di seguito i nomi degli analisti e i corrispondenti capitolati analizzati:
@@ -208,6 +210,7 @@ Leonardo Salviato & C8, C9 & Alberto Pignat\\
 
 \newpage
 \section{Elenco capitolati analizzati}
+\label{sec:elenco_capitolati}
 Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni capitolato, sono riportati i punti di forza e di debolezza identificati durante la fase di valutazione.
 
 \newpage
@@ -235,7 +238,9 @@ Non sono stati presentati vincoli sulle tecnologie da utilizzare e sulla tipolog
 Non abbiamo contattato l'azienda per ricevere ulteriori informazioni, tantomeno chiesto colloqui.
 \subsubsection{Interesse del team}
 Il team non ha mostrato particolare interesse verso questo capitolato, principalmente per il motivo che non è stato ritenuto un progetto particolarmente accattivante. È stato ritenuto anche complesso per la gestione dell'interfaccia e poco “libero” dal punto di vista della possibilità di mettere del proprio.
+\newpage
 \subsubsection{Punti di forza e di debolezza}
+
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
 \hline
@@ -1235,6 +1240,75 @@ tecnica avanzata
  & \begin{itemize}
 \item Elevata complessità e ampio scope: La completezza del progetto è anche la sua principale sfida. Il team deve essere bravo a gestire la complessità e a priorizzare le funzionalità obbligatorie, per non perdersi negli optional.
 \end{itemize} \\
+\hline
+\end{tabularx}
+}
+\newpage
+\section{Conclusioni}
+La seguente tabella fornisce una sintesi immediata dei capitolati analizzati; per una descrizione più approfondita si rimanda alla \hyperref[sec:elenco_capitolati]{Sezione~3}.
+
+\setlength{\extrarowheight}{2pt}
+\renewcommand{\arraystretch}{1.5}
+
+\arrayrulecolor{primaryblue}
+{\footnotesize
+\begin{tabularx}{\textwidth}{
+|>{\raggedright\arraybackslash}p{1.6cm}|
+>{\raggedright\arraybackslash}p{2.3cm}|
+>{\raggedright\arraybackslash}p{2cm}|
+X|
+>{\raggedright\arraybackslash}p{2.3cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Capitolato} &
+\textbf{\color{white} Interesse iniziale} &
+\textbf{\color{white} Analisi approfondita} &
+\textbf{\color{white} Motivo di scarto / proseguimento} \\
+\hline
+
+\rowcolor{secondaryblue!10}
+C1 – Automated EN18031 & \textcolor{red}{Basso} &  No &
+Poco stimolante e con margini ridotti di personalizzazione \\
+\hline
+
+\rowcolor{secondaryblue!10}
+C2 – Code Guardian & \textcolor{red}{Basso} &  No &
+Architettura troppo complessa e vincolata  \\
+\hline
+
+\rowcolor{secondaryblue!10}
+C3 – DIPReader & \textcolor{red}{Basso} & No &
+Dominio interessante ma eccessivamente normativo \\
+\hline
+
+\rowcolor{secondaryblue!10}
+C4 – L’app che Protegge e Trasforma & \textcolor{orange}{Medio} & Sì &
+Grande impatto sociale ma complessità tecnica elevata  \\
+\hline
+
+\rowcolor{secondaryblue!10}
+C5 – Nexum & \textcolor{green!60!black}{Alto} & Si &
+Buon equilibrio tra sfida tecnica e supporto aziendale \\
+\hline
+
+\rowcolor{secondaryblue!10}
+C6 – Second Brain & \textcolor{orange}{Medio} & Sì &
+Interessante ma troppo libero e poco vincolato \\
+\hline
+
+\rowcolor{secondaryblue!10}
+C7 – Sistema di acquisizione dati da sensori & \textcolor{green!60!black}{Alto} & Sì &
+Molto tecnico e infrastrutturale, buon supporto aziendale \\
+\hline
+
+\rowcolor{secondaryblue!10}
+C8 – Smart Order & \textcolor{red}{Basso} & No &
+Poca originalità e scarso margine di innovazione \\
+\hline
+
+\rowcolor{secondaryblue!10}
+C9 – View4Life & \textcolor{green!60!black}{Alto} & Sì &
+Innovativo e utile, buon supporto aziendale \\
 \hline
 \end{tabularx}
 }
