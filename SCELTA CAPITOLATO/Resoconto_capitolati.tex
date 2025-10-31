@@ -180,9 +180,8 @@ Per la valutazione dei capitolati proposti, il team ha adottato una metodologia 
 \item \textbf{Compilazione tabelle:} Il team ha redatto congiuntamente le tabelle dei punti di forza e di debolezza, sintetizzando le osservazioni emerse nelle fasi precedenti.
 \end{enumerate}
 I punti 3 e 4 sono stati ripetuti più volte fino a quando il team non si è sentito sufficientemente preparato per prendere una decisione informata sul capitolato da scegliere.\\
-Il team ha deciso di dare particolare importanza all'interesse verso l'argomento e le tecnologie rispetto alla complessità del progetto, senza tuttavia trascurare la valutazione della sua fattibilità.\\
-Crediamo che lavorare ad un progetto che suscita entusiasmo e curiosità porterà a un'esperienza di apprendimento più significativa e gratificante, anche se ciò comporta affrontare sfide tecniche più impegnative.
-
+È stata data particolare importanza all'interesse verso l'argomento e le tecnologie rispetto alla complessità del progetto, senza tuttavia trascurare la valutazione della sua fattibilità.\\
+Si ritiene che lavorare a un progetto capace di suscitare entusiasmo e curiosità possa offrire un'esperienza di apprendimento più significativa e gratificante, anche qualora comporti l'affrontare sfide tecniche più impegnative.
 \paragraph{}
 Qui di seguito i nomi degli analisti e i corrispondenti capitolati analizzati:
 
@@ -204,7 +203,7 @@ Leonardo Salviato & C8, C9 & Alberto Pignat\\
 \newpage
 \section{Elenco capitolati analizzati}
 \label{sec:elenco_capitolati}
-Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni capitolato, sono riportati i punti di forza e di debolezza identificati durante la fase di valutazione.
+Di seguito sono elencati i capitolati analizzati dal team BugBusters. Per ogni capitolato è riportata una breve descrizione e le caratteristiche principali. Infine, vengono presentati l'interesse del team e i punti di forza e di debolezza emersi dall'analisi.
 
 \newpage
 \subsection{C1 - Automated EN18031 Compliance Verification}
@@ -230,7 +229,7 @@ Il software deve essere in grado di:
 \subsubsection{Tecnologie proposte}
 Non sono stati presentati vincoli sulle tecnologie da utilizzare e sulla tipologia di applicazione da sviluppare, l'unica preferenza espressa è sull'uso di Python per la parte di back-end.
 \subsubsection{Chiarimenti e colloqui con l'azienda}
-Non abbiamo contattato l'azienda né per ricevere ulteriori informazioni né per richiedere colloqui.
+Il team non ha contattato l'azienda né per ricevere ulteriori informazioni né per richiedere colloqui.
 \subsubsection{Interesse del team}
 Il team non ha mostrato particolare interesse verso questo capitolato, principalmente per il motivo che non è stato ritenuto un progetto particolarmente accattivante. È stato ritenuto anche complesso per la gestione dell'interfaccia e poco "libero" dal punto di vista della possibilità di mettere del proprio.
 \newpage
@@ -351,12 +350,7 @@ I requisiti non funzionali includono la gestione efficiente della memoria, tempi
 \end{itemize}
 
 \subsubsection{Chiarimenti e colloqui con l'azienda}
-Abbiamo identificato aspetti chiave e criticità da discutere:
-\begin{itemize}[leftmargin=*]
-  \item Comprendere formati, metadati e requisiti di compliance per la conservazione digitale;
-  \item Definire le funzionalità obbligatorie per l'MVP e distinguere quelle opzionali come la ricerca semantica o la verifica firme digitali;
-  \item Validazione e testing con grandi volumi di documenti, considerando i limiti dell'ambiente universitario.
-\end{itemize}
+Il team non ha contattato l'azienda né per ricevere ulteriori informazioni né per richiedere colloqui.
 
 \subsubsection{Interesse del team}
 Il team valuta positivamente il progetto per i seguenti motivi:
@@ -364,8 +358,9 @@ Il team valuta positivamente il progetto per i seguenti motivi:
   \item Il dominio è specializzato e di alto valore, con competenze spendibili professionalmente;
   \item Il progetto affronta un problema concreto e ben definito, rendendo immediatamente applicabili i risultati sviluppati.
 \end{itemize}
-Tuttavia, il gruppo è consapevole delle criticità tecniche e normative che richiederanno un impegno iniziale significativo e un'attenta pianificazione delle risorse.
-
+Tuttavia, il team non ha ritenuto opportuno proseguire con un'analisi più approfondita, che avrebbe previsto anche 
+un confronto diretto con l'azienda per eventuali chiarimenti, poiché il progetto non è stato considerato sufficientemente
+ stimolante dal punto di vista tecnico.
 
 \subsubsection{Punti di forza e di debolezza}
 {\footnotesize
@@ -375,17 +370,13 @@ Tuttavia, il gruppo è consapevole delle criticità tecniche e normative che ric
 \textbf{Punti di forza} & \textbf{Punti di debolezza} \\
 \hline
 \begin{enumerate}
-\item Dominio Specializzato e di Alto Valore: La conservazione digitale è un campo di nicchia ma cruciale, specialmente in ambito legale e amministrativo.
-\item Problema Concreto e Ben Definito: L'esigenza di accedere a documenti conservati digitalmente in modalità offline è un requisito reale per molti professionisti. Il progetto risolve un problema tangibile.
+\item Dominio specializzato e di alto valore: La conservazione digitale è un campo di nicchia ma cruciale, specialmente in ambito legale e amministrativo.
+\item Problema concreto e ben definito: L'esigenza di accedere a documenti conservati digitalmente in modalità offline è un requisito reale per molti professionisti. Il progetto risolve un problema tangibile.
 \item Interazione con l'azienda: offre esempi di pacchetti estratti dal sistema di conservazione e la relativa documentazione
 \end{enumerate}
  & \begin{enumerate}
-\item Complessità del Dominio Normativo: La conservazione digitale è regolata da standard e normative complesse. Comprendere appieno il formato dei DIP e i requisiti di compliance richiederà uno sforzo iniziale significativo.
-\item Sfide Tecniche per l'Offline: Implementare ricerche efficienti e visualizzazioni di anteprima completamente offline, specialmente per grandi volumi di dati, presenta sfide non banali di performance e gestione della memoria.
-
-\item Ambiguità Architetturale: Non è completamente chiaro se l'applicazione debba essere una PWA, un'app desktop (Electron) o entrambe. Questa decisione avrà impatti significativi sull'architettura.
-\item Scope potenzialmente ampio: Le funzionalità opzionali come la ricerca semantica (con FAISS) e la verifica delle firme digitali sono progetti ambiziosi che potrebbero distrarre dallo sviluppo del MVP.
-\item Testing su Grandi Volumi: Garantire le performance con "grandi volumi" di dati potrebbe essere difficile da testare e validare in ambiente universitario.
+\item Complessità del Dominio Normativo: La conservazione digitale è regolata da standard e normative complesse. Comprendere appieno il formato dei DIP e i requisiti di compliance richiederà uno sforzo iniziale.
+\item Implementare ricerche efficienti e visualizzazioni di anteprima completamente offline, specialmente per grandi volumi di dati, presenta sfide non banali di performance e gestione della memoria.
 \end{enumerate} \\
 \hline
 \end{tabularx}
@@ -443,11 +434,12 @@ Le tecnologie suggerite da Miriade per la realizzazione del progetto comprendono
 Questa infrastruttura, basata su tecnologie cloud e AI, garantisce sicurezza, scalabilità e manutenzione semplificata nel tempo.
 
 \subsubsection{Chiarimenti e colloqui con l'azienda}
-Qui di seguito sono riportate alcune delle domande poste a Miriade con le relative risposte fornite dall'azienda. 
+Qui di seguito sono riportate alcune delle domande poste a Miriade in via telematica, con le relative risposte fornite dall'azienda. 
 
-\paragraph{}
+Per ulteriori dettagli è possibile consultare il verbale esterno dell'incontro disponibile al seguente link: \href{https://bugbustersunipd.github.io/BugBusterSite/assets/docs/VERBALI_Esterni/VE_22_10_2025_Miriade/VE_22_10_2025_Miriade_.pdf}{Verbale Esterno - Miriade (22/10/2025)}.
+
 \begin{center}
-\small\textit{Nota: Le risposte dell'azienda non sono citazioni dirette, ma sono state riassunte e riformulate dal team in modo da essere più concise.}
+\small\textit{Nota: Le risposte dell'azienda sono state fornite in  un colloquio in via telematica. Qui sono riportate riassunte e riformulate dal team in modo da essere più concise.}
 \end{center}
 
 {\footnotesize
@@ -572,8 +564,13 @@ Le tecnologie proposte per lo sviluppo del progetto includono:
 \subsubsection{Chiarimenti e colloqui con l'azienda}
 
 \parbox[t]{\linewidth}{%
-Qui di seguito sono riportate alcune delle domande poste ad Eggon con le relative risposte fornite dall'azienda. In particolare abbiamo posto domande che riguardavano il supporto di Eggon durante lo sviluppo del progetto, l'importanza della conoscenza pregressa delle tecnologie richieste e il coinvolgimento del team nel processo SCRUM dell'azienda, in quanto volevamo comprendere come l'azienda avrebbe affrontato la gestione di un progetto di questo tipo, trattandosi del primo anno in cui Eggon vi partecipava.
+Qui di seguito sono riportate alcune delle domande poste ad Eggon con le relative risposte fornite dall'azienda. In particolare, sono state formulate domande riguardanti il supporto di Eggon durante lo sviluppo del progetto, l'importanza della conoscenza pregressa delle tecnologie richieste e il coinvolgimento del team nel processo SCRUM dell'azienda, al fine di comprendere come l'azienda avrebbe affrontato la gestione di un progetto di questo tipo, trattandosi del primo anno in cui Eggon vi partecipava.\\
+
+Il team ha ritenuto opportuno fissare un incontro conoscitivo in modalità telematica, per discutere alcuni dettagli poco chiari e ottenere una visione più concreta e completa del progetto. Solo una parte delle domande riportate è stata trattata durante tale colloquio, mentre le restanti sono state effettuate per via telematica.\\
+
+Per ulteriori dettagli è possibile consultare il verbale esterno dell'incontro disponibile al seguente link: \href{https://bugbustersunipd.github.io/BugBusterSite/assets/docs/VERBALI_Esterni/VE_24_10_25_EggOn/VE_24_10_25_Eggon_.pdf}{Verbale Esterno - Eggon (24/10/2025)}.
 }
+
 
 {\footnotesize
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
@@ -629,7 +626,7 @@ Avete parlato di includere il team di lavoro nel vostro processo SCRUM e nelle r
 \end{tabularx}
 }
 \begin{center}
-\small\textit{Nota: Le successive domande sono state esposte durante un incontro di approfondimento e conoscitivo con Eggon. 
+\small\textit{Nota: Le successive domande sono state esposte durante un incontro di approfondimento e conoscitivo con Eggon sulla piattaforma Google Meet. 
 Le risposte dell'azienda non sono citazioni dirette, ma sono state riassunte e riformulate dal team in modo da essere più concise.}
 \end{center}
 
@@ -679,8 +676,6 @@ La documentazione di AWS risulta in alcuni casi poco chiara. Il codice di back-e
 \parbox[t]{\linewidth}{%
 Il team ha mostrato un interesse significativo verso la proposta di Eggon. Inanzitutto, i rappresentanti dell'azienda hanno subito mostrato uno stile giovanile e informale, pur mantenendo professionalità e struttura. Ciò ha avuto un impatto positivo come prima impressione. \\Inoltre, il progetto proposto si allinea bene con le aspirazioni del team di acquisire esperienza pratica nello sviluppo di applicazioni reali, specialmente in un contesto aziendale. L'opportunità di lavorare su una piattaforma HR esistente come Nexum, che ha una base di utenti reale, ha particolare attrattiva.\\ Infine, come già specificato all'inizio di questo documento, il team pone molta importanza al supporto che l'azienda può offrire durante lo sviluppo del progetto. Le risposte fornite da Eggon alle nostre domande hanno confermato che l'azienda è disposta a fornire un supporto strutturato e continuo, il che aumenta ulteriormente l'interesse del team verso questo capitolato.
 }
-\paragraph{}
-Visto l'interesse del team, è stato organizzato anche un incontro di approfondimento con Eggon, durante il quale sono stati chiariti ulteriori dubbi e domande sul progetto.
 \newpage
 \subsubsection{Punti di forza e di debolezza}
 
@@ -820,10 +815,10 @@ Il progetto prevede aspetti di sicurezza applicativa o gestione avanzata degli a
 
 
 \subsubsection{Interesse del team}
-Troviamo che il capitolato proposto da Zucchetti sia realistico per un team di studenti universitari che si interfacciano per la prima volta ad un progetto di questo calibro, sia dal punto di vista delle tempistiche e delle competenze richieste.
-Inoltre, l'argomento dell'integrazione di modelli di linguaggio di grandi dimensioni (LLM) in applicazioni pratiche è estremamente attuale e rilevante nel contesto tecnologico odierno.
+Il team ritiene che il capitolato proposto da Zucchetti sia realistico per un gruppo di studenti universitari che si confrontano per la prima volta con un progetto di questo calibro, sia dal punto di vista delle tempistiche sia delle competenze richieste. Inizialmente, l'interesse del team era elevato, in quanto l'argomento dell'integrazione di modelli di linguaggio di grandi dimensioni (LLM) in applicazioni pratiche risulta estremamente attuale e rilevante nel contesto tecnologico odierno. Tuttavia, il team non lo ha ritenuto sufficientemente stimolante.
+
 \subsubsection{Punti di forza e di debolezza}
-\newpage
+
 {\footnotesize
 \begin{tabularx}{\textwidth}{|X|X|}
 \hline
@@ -935,14 +930,16 @@ Le tecnologie proposte per lo sviluppo del progetto includono:
 \end{itemize}
 Tuttavia le tecnologie sopra elencate non sono vincolanti: il team può proporre alternative ma devono in ultimo essere approvate da M31.
 \subsubsection{Chiarimenti e colloqui con l'azienda}
-\parbox[t]{\linewidth}{%
-Qui di seguito sono riportate alcune delle domande poste a M31 con le relative risposte fornite dall'azienda. Le domande vertono principalmente su aspetti tecnici del progetto, poichè il team voleva chiarire alcuni dubbi riguardanti l'architettura del sistema e le tecnologie da utilizzare. \\
-Il team ha deciso di fissare una runione per discutere di questi aspetti, in modo da poter porre domande specifiche e ricevere risposte dettagliate direttamente dai referenti dell'azienda. Questo approccio ha permesso di ottenere chiarimenti più approfonditi e di comprendere meglio le aspettative dell'azienda riguardo al progetto.
+\paragraph{}
+Qui di seguito sono riportate alcune delle domande poste a M31 con le relative risposte fornite dall'azienda. Le domande vertono principalmente su aspetti tecnici del progetto, poiché il team voleva chiarire alcuni dubbi riguardanti l'architettura del sistema e le tecnologie da utilizzare. \\
+Il team ha deciso di fissare una riunione per discutere di questi aspetti, in modo da poter porre domande specifiche e ricevere risposte dettagliate direttamente dai referenti dell'azienda. Questo approccio ha permesso di ottenere chiarimenti più approfonditi e di comprendere meglio le aspettative dell'azienda riguardo al progetto.\\\\
+Per ulteriori dettagli è possibile consultare il verbale esterno dell'incontro disponibile al seguente link: \href{https://bugbustersunipd.github.io/BugBusterSite/assets/docs/VERBALI_Esterni/VE_24_10_2025_M31/VE_24_10_2025_M31_.pdf}{Verbale Esterno - M31 (24/10/2025)}.
+
 \begin{center}
-\small\textit{Nota: Le risposte dell'azienda non sono citazioni dirette, ma sono state riassunte e riformulate dal team in modo da essere più concise.}
+\small\textit{Nota: Le risposte dell'azienda sono state fornite in un colloquio in via telematica. Qui sono riportate riassunte e riformulate dal team in modo da essere più concise.}
 \end{center}
-}
-\newpage
+
+
 {\footnotesize
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
 \hline
@@ -1300,7 +1297,7 @@ Dominio interessante ma eccessivamente normativo \\
 \hline
 
 \rowcolor{secondaryblue!10}
-C4 – L’app che Protegge e Trasforma & \textcolor{orange}{Medio} & Sì &
+C4 – L'app che Protegge e Trasforma & \textcolor{orange}{Medio} & Sì &
 Grande impatto sociale ma complessità tecnica elevata \\
 \hline
 
