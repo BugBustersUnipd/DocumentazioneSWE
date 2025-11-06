@@ -59,11 +59,16 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # give the artifact an explicit, unique name to avoid duplicate-name errors
+          name: site-build
           path: './site-build'
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # tell the deploy action which artifact to consume (must match the upload 'name')
+          artifact_name: site-build
 
       - name: Show deployed URL
         run: |
