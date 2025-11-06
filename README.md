@@ -1,4 +1,4 @@
-﻿# DocumentazioneSWE
+﻿# Documentazione Gruppo BugBusters
 Questa repository contiene la documentazione del gruppo quattro del primo lotto dell'A.A. 2025/2026, per il corso di Ingegneria del Software dell'Università di Padova.
 
 ## Membri del gruppo
