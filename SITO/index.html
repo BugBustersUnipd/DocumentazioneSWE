@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugBusters - Documentazione Progetto</title>
+    <meta name="description" content="Documentazione ufficiale del progetto BugBusters - Ingegneria del Software">
+    <!-- Favicon: use existing assets file (case-sensitive on GitHub Pages) -->
+    <link rel="icon" href="assets/Logo.jpg" type="image/jpeg">
+    <meta name="theme-color" content="#0066cc">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Salta al contenuto principale</a>
+    
+    <header role="banner">
+        <div class="header-inner">
+            <div class="brand">
+                <!-- Use correct capitalization to match repository file name on case-sensitive hosts -->
+                <img src="assets/Logo.jpg" alt="Logo BugBusters" class="logo">
+                <div class="brand-text">
+                    <h1>BugBusters</h1>
+                    <p>Ingegneria del Software — Anno 2025/2026</p>
+                </div>
+            </div>
+
+            <nav class="main-nav" role="navigation" aria-label="Navigazione principale">
+                <a href="GLOSSARIO/Glossario.pdf" 
+                   class="nav-link glossario-link" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Apri il Glossario">
+                    📖 Glossario
+                </a>
+
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" 
+                            href="#documentazione"
+                            id="documentazione-menu">
+                        📁 Documentazione
+                        <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                    </a>
+                    <div class="dropdown-menu" role="menu" aria-labelledby="documentazione-menu">
+                        <a class="dropdown-item active" 
+                                href="#documentazione"
+                                data-doc="candidatura">
+                            Candidatura
+                        </a>
+                        <a class="dropdown-item" 
+                                href="#documentazione"
+                                data-doc="diapositive">
+                            Diapositive
+                        </a>
+                    </div>
+                </div>
+
+                <a class="nav-link" href="#chi-siamo" aria-label="Informazioni sul gruppo">👥 Chi siamo?</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <!-- DOCUMENTAZIONE section: contains internal switch between Documentazione and Diapositive -->
+        <section id="documentazione" class="section documentation" role="region" aria-label="Documentazione" tabindex="0">
+            <div class="content-box">
+                <h2 class="page-title">Documentazione</h2>
+
+                <div class="doc-controls" role="tablist" aria-label="Seleziona tipo documento">
+                    <button class="tab-btn doc-toggle active" data-show="candidatura" role="tab" aria-selected="true">Documentazione</button>
+                    <button class="tab-btn doc-toggle" data-show="diapositive" role="tab" aria-selected="false">Diapositive</button>
+                </div>
+
+                <div class="doc-panels">
+                    <div id="panel-candidatura" class="doc-panel active" role="tabpanel">
+                        <h3 class="section-title">Candidatura</h3>
+                        <div class="cards">
+                            <div class="card">
+                                <h4>Aggiudicazione appalto</h4>
+                                <p>Documento ufficiale di aggiudicazione.</p>
+                                <p><a href="CANDIDATURA/AGGIUDICAZIONE/Aggiudicazione appalto.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a></p>
+                            </div>
+                            <div class="card">
+                                <h4>Candidatura progetto</h4>
+                                <p>Versione finale della candidatura.</p>
+                                <p><a href="CANDIDATURA/CANDIDATURA PROGETTO/Candidatura progetto.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a></p>
+                            </div>
+                            <div class="card">
+                                <h4>Dichiarazione impegni</h4>
+                                <p>Dichiarazione di impegno del team.</p>
+                                <p><a href="CANDIDATURA/DICHIARAZIONE IMPEGNI/Dichiarazione impegni.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a></p>
+                            </div>
+                            <div class="card">
+                                <h4>Valutazione capitolati</h4>
+                                <p>Report sulla scelta dei capitolati.</p>
+                                <p><a href="CANDIDATURA/SCELTA CAPITOLATO/Resoconto_capitolati.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a></p>
+                            </div>
+                        </div>
+
+                        <details class="verbali-folder">
+                            <summary class="subsection-title">Verbali Esterni</summary>
+                            <ul class="doc-list verbali" aria-label="Verbali esterni">
+                                <li><a href="CANDIDATURA/VERBALI/Esterni/VE_24-10-2025 [M31]/VE_24-10-2025[M31].pdf" target="_blank" rel="noopener noreferrer">VE 24 ottobre 2025 - M31</a></li>
+                                <li><a href="CANDIDATURA/VERBALI/Esterni/VE_24-10-25 [Eggon]/VE_24-10-25[Eggon].pdf" target="_blank" rel="noopener noreferrer">VE 24 ottobre 2025 - Eggon</a></li>
+                                <li><a href="CANDIDATURA/VERBALI/Esterni/VE_22_10_2025 [Miriade]/VE_22-10-2025[Miriade].pdf" target="_blank" rel="noopener noreferrer">VE 22 ottobre 2025 - Miriade</a></li>
+                            </ul>
+                        </details>
+
+                        <details class="verbali-folder">
+                            <summary class="subsection-title">Verbali Interni</summary>
+                            <ul class="doc-list verbali" aria-label="Verbali interni">
+                                <li><a href="CANDIDATURA/VERBALI/Interni/VI_29-10-25/VI_29-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 29 ottobre 2025</a></li>
+                                <li><a href="CANDIDATURA/VERBALI/Interni/VI_26-10-25/VI_26-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 26 ottobre 2025</a></li>
+                                <li><a href="CANDIDATURA/VERBALI/Interni/VI_24-10-25/VI_24-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 24 ottobre 2025</a></li>
+                                <li><a href="CANDIDATURA/VERBALI/Interni/VI_22-10-25/VI_22-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 22 ottobre 2025</a></li>
+                                <li><a href="CANDIDATURA/VERBALI/Interni/VI_20-10-25/VI_20-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 20 ottobre 2025</a></li>
+                                <li><a href="CANDIDATURA/VERBALI/Interni/VI_18-10-25/VI_18-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 18 ottobre 2025</a></li>
+                                <li><a href="CANDIDATURA/VERBALI/Interni/VI_16-10-25/VI_16-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 16 ottobre 2025</a></li>
+                            </ul>
+                        </details>
+                    </div>
+
+                    <div id="panel-diapositive" class="doc-panel" role="tabpanel" aria-hidden="true">
+                        <h3 class="section-title">Diapositive</h3>
+                        <div class="cards">
+                            <div class="card">
+                                <h4>Diario di Bordo - 27 agosto 2025</h4>
+                                <p>Diapositiva di report.</p>
+                                <p><a href="DIARIO DI BORDO/DB-27-08-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHI SIAMO: rimane visibile sotto la documentazione -->
+        <section id="chi-siamo" class="section" role="region" aria-label="Chi siamo" tabindex="0">
+            <div class="content-box">
+                <h2 class="page-title">Chi siamo?</h2>
+                
+                <div class="team-info">
+                    <p class="team-intro">
+                        Siamo <strong>BugBusters</strong>, un gruppo di studenti del corso di Ingegneria del Software 
+                        dell'Università degli Studi di Padova.
+                    </p>
+					<p class="team-intro">
+                        Anno accademico 2025/2026.
+                    </p>
+
+                    <h3 class="section-title">Il nostro team</h3>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="member-icon">👨</div>
+                            <h4 class="member-name">Alberto Autiero</h4>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-icon">👨</div>
+                            <h4 class="member-name">Marco Favero</h4>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-icon">👨</div>
+                            <h4 class="member-name">Alberto Pignat</h4>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-icon">👨</div>
+                            <h4 class="member-name">Marco Piro</h4>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-icon">👩</div>
+                            <h4 class="member-name">Linor Sadè</h4>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-icon">👨</div>
+                            <h4 class="member-name">Leonardo Salviato</h4>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-icon">👨</div>
+                            <h4 class="member-name">Luca Slongo</h4>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">Il progetto</h3>
+                    <p class="project-description">
+                        Il nostro progetto si focalizza sullo sviluppo di <strong>Nexum</strong>, una piattaforma innovativa 
+                        proposta dall'azienda <strong>Eggon</strong>. 
+                        Attraverso questo sito mettiamo a disposizione tutta la documentazione prodotta 
+                        durante le varie fasi del progetto universitario di Ingegneria del Software.
+                    </p>
+
+                    <div class="contact-info">
+                        <h3 class="section-title">Contatti</h3>
+                        <p>📧 Email: <a href="mailto:bugbusters@studenti.unipd.it">bugbusters@studenti.unipd.it</a></p>
+                        <p>🔗 GitHub: <a href="https://github.com/BugBustersUnipd" target="_blank" rel="noopener noreferrer">BugBustersUnipd</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

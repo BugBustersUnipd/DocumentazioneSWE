@@ -1,0 +1,70 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare site-build artifact
+        env:
+          # list top-level folders to include (one per line). These are copied into site-build/
+          EXTRA_FOLDERS: |
+            CANDIDATURA
+            DIARIO DI BORDO
+            GLOSSARIO
+            assets
+        run: |
+          set -euo pipefail
+          rm -rf site-build || true
+          mkdir -p site-build
+          echo "Copying SITO/ into site-build/"
+          cp -a SITO/. site-build/
+
+          echo "Including extra folders (from EXTRA_FOLDERS)..."
+          # read EXTRA_FOLDERS line-by-line so folder names can contain spaces
+          while IFS= read -r folder || [ -n "$folder" ]; do
+            folder_trimmed="$(echo "$folder" | sed 's/\r$//')"
+            if [ -z "$folder_trimmed" ]; then
+              continue
+            fi
+            if [ -d "$folder_trimmed" ]; then
+              echo " - including: $folder_trimmed"
+              cp -a "$folder_trimmed" site-build/
+            else
+              echo " - not found (skipping): $folder_trimmed"
+            fi
+          done <<< "$EXTRA_FOLDERS"
+
+          echo "Site-build contents:"
+          # prevent GitHub Pages from processing the site with Jekyll
+          # this ensures files/folders starting with '_' or with special names are served as-is
+          touch site-build/.nojekyll
+
+          ls -la site-build | sed -n '1,200p' || true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './site-build'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Show deployed URL
+        run: |
+          echo "Deployed to: ${{ steps.deployment.outputs.page_url }}"
