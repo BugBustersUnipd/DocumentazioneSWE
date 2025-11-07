@@ -1,5 +1,5 @@
 \documentclass[a4paper,11pt]{article}
-\newcommand{\CurrentVersion}{1.0.0}
+\newcommand{\CurrentVersion}{1.0.1}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -75,7 +75,7 @@
 \begin{center}
 \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
 \begin{tabularx}{\linewidth}{@{}lX@{}}
-\textbf{Redattori}  & Alberto Autiero, Marco Favero\\
+\textbf{Redattori}  & Alberto Autiero, Marco Favero, Luca Slongo\\
 \textbf{Verificatore} & Marco Piro \\
 \textbf{Destinatari} & Prof. Tullio Vardanega, Prof. Riccardo Cardin, BugBusters \\
 \textbf{Data ultima modifica}     & 30/10/2025 \\
@@ -98,7 +98,9 @@
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\rowcolor{secondaryblue!10} \CurrentVersion & 30/10/2025 & Approvazione & - & - & Alberto Autiero \\
+\rowcolor{secondaryblue!10} \CurrentVersion & 30/10/2025 & Aggiunta ripartizione delle ore & Luca Slongo & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 1.0.0 & 30/10/2025 & Approvazione & - & - & Alberto Autiero \\
 \hline
 \rowcolor{secondaryblue!10} 0.1.0 & 30/10/2025 & Verifica documento & - & Marco Piro & - \\
 \hline
@@ -182,6 +184,24 @@ Luca Slongo & 8 & 7 & 8 & 21 & 24 & 24 & 92 \\
 \begin{center}
 \textit{Tabella 1: Ore di ogni componente per ciascun ruolo}
 \end{center}
+
+Il gruppo ha preso la decisione di dare a ogni membro la possibilità di svolgere ogni ruolo all'interno del progetto in egual misura, per dare la possibilità di imparare come agisce ogni ruolo e non creare differenze tra di noi.
+
+La stima delle ore è stata fatta dando un peso al verificatore molto simile a quello del programmatore, questo è stato fatto per garantire un'alta qualità del codice e limitare al più possibile i bug.
+
+Anche al ruolo di progettista sono state assegnate molte ore, perchè creare una base solida su cui scrivere codice permette, con l'avanzamento del progetto e di conseguenza della sua complessità, di renderlo comunque mantenibile.
+
+Ai ruoli di Responsabile, Amministratore e Analista sono state riservate meno ore (che in caso sia necessario verranno leggermente aumentate riducendo altri ruoli ///////non so se si possa dire come cosa verificatore please controlla///////) non perchè siano visto come ruoli meno importanti, ma perchè questi tipi di attività richiedono meno tempo con più attenzione qualitativa.
+
+
+Per stimare la quantità di ore abbiamo anche abbozzato in che fasi i vari ruoli avranno la maggiore importanza:
+\begin{enumerate}
+    \item Avvio e organizzazione (Amministratore e Responsabile)
+    \item Analisi dei requisiti (Analista e Responsabile)
+    \item Progettazione (Progettista e Analista)
+    \item Sviluppo (Programmatore, Progettista e Verificatore)
+    \item Collaudo e consegna (Verificatore, Responsabile e Amministratore)
+\end{enumerate}
 
 \newpage
 
