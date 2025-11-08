@@ -1,0 +1,253 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Interno}\\[0.3cm]
+  {\Large\color{secondaryblue} 6 novembre 2025}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattori}    & Linor Sadè \\
+\textbf{Verificatore}    & Alberto Pignat \\
+\textbf{Uso}          & Interno \\
+\textbf{Destinatari}  & BugBusters \\
+\textbf{Versione} & 0.0.1\\
+
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale interno del gruppo di progetto dedicato all'allineamento sulla lezione di documentazione, all'integrazione dei feedback del docente, alla definizione della tracciabilità di decisioni e azioni, alla riprogettazione del sito e della repository, e alla pianificazione delle prossime attività operative.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} interna
+    \item \textbf{Piattaforma:} Discord
+    \item \textbf{Data:} 6/11/2025
+    \item \textbf{Orario di inizio:} 14:30
+    \item \textbf{Orario di fine:} 16:00
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Linor Sadè
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Luca Slongo
+        \item Alberto Pignat
+        \item Leonardo Salviato
+    \end{itemize}
+    \item \textbf{Assenti:} Marco Piro
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+    \item \label{itm:lezione} Allineamento sulla lezione di Ingegneria del Software del giorno corrente;
+    \item \label{itm:feedback} Integrazione dei feedback del docente sulla documentazione di candidatura;
+    \begin{enumerate}
+        \item \label{itm:tracciabilita} Definizione della tracciabilità di decisioni e azioni nei verbali;
+        \item \label{itm:rotazione_ruoli} Integrazione delle regole di rotazione dei ruoli nel documento di Dichiarazione degli impegni;
+        \item \label{itm:sito} Riprogettazione del sito web e della repository GitHub;
+    \end{enumerate}
+    \item \label{itm:scelta_ruoli} Scelta dei ruoli da coprire e frequenza di rotazione.
+    \item \label{itm:prossimeattivita} Pianificazione delle prossime attività.
+    \begin{itemize}
+        \item prosecuzione della redazione di Glossario e Norme di Progetto;
+        \item creazione di un foglio di rendicontazione ore (preventivate vs. effettive) per ogni membro e ruolo;
+        \item discussione sulla tempistica del prossimo colloquio con l'azienda e sulle attività preparatorie da svolgere in vista dell'incontro.
+        \item avvio dello studio delle tecnologie richieste
+    \end{itemize}
+\end{enumerate}
+
+\newpage
+\section{Svolgimento}
+Qui di seguito i punti discussi con più dettaglio:
+
+\subsection*{\ref{itm:lezione}. Allineamento sulla lezione di Ingegneria del Software del giorno corrente}
+I membri presenti alla lezione di Ingegneria del Software di data odierna, in sostituzione di chi era assente per il Career Day o altri impegni personali, hanno discusso i contenuti della lezione rovesciata dedicata alla documentazione. In particolare, ci siamo confrontati su glossario e norme di progetto, chiarendo obiettivi e modalità di redazione.
+
+\subsection*{\ref{itm:feedback}. Integrazione dei feedback del docente sulla documentazione di candidatura}
+Abbiamo analizzato i commenti del docente relativi alla documentazione per la candidatura del progetto, valutando le modifiche da apportare per migliorare la coerenza e la completezza dei documenti.
+
+\begin{adjustwidth}{1cm}{1cm} % per un rientro a sinistra e destra
+    \subsubsection*{\ref{itm:tracciabilita}. Definizione della tracciabilità di decisioni e azioni nei verbali}
+    È stato discusso come inserire nei verbali una sezione dedicata alle decisioni e alle azioni, assicurando che queste risultino tracciabili nel sistema di gestione (definizione di un ID collegato a github issue, persona/e incaricate, descrizione della decisione con relative azioni).\\
+    Abbiamo deciso di iniziare la tracciabilità dal verbale corrente in quanto la modifica dei precedenti verabli sarebbe un'attività di poco valore.\\
+    Quando nei dettagli del verbale è riportata una discussione su un tema specifico e questa discussione porta a una decisione con conseguente azione, deve essere creato un collegamento tra la discussione e la decisione. In particolare, il collegamento deve essere \textbf{bidirezionale}:
+
+    \begin{itemize}[leftmargin=1cm, rightmargin=1cm]
+        \item nella tabella delle decisioni (dove ogni decisione ha un ID) deve esserci un riferimento al paragrafo del verbale che ha portato alla decisione;
+        \item nel paragrafo del verbale deve esserci un collegamento alla decisione corrispondente nella tabella.
+    \end{itemize}
+
+    \subsubsection*{\ref{itm:rotazione_ruoli}. Integrazione delle regole di rotazione dei ruoli nel documento di Dichiarazione degli impegni}
+    Si è valutato come integrare le regole di rotazione dei ruoli all'interno del documento di dichiarazione degli impegni.
+
+    \subsubsection*{\ref{itm:sito}. Riprogettazione del sito web e della repository GitHub}
+    È stato deciso di avviare una riprogettazione del sito web per migliorarne l'accessibilità, la navigazione e la completezza dei contenuti, in linea con i riscontri ricevuti dal professore. In parallelo, si prevede una ristrutturazione della repository GitHub per garantire maggiore chiarezza e uniformità.\\
+    In particolare:
+    \begin{itemize}
+    \item È stata \textbf{rimossa l'automatizzazione della pubblicazione} di tutti i file presenti nel branch \texttt{main}.
+    
+    \item Per la \textbf{creazione di un nuovo documento} si decide di:
+    \begin{itemize}
+        \item creare un \textbf{branch di tipo \texttt{feature}} dedicato allo sviluppo del documento;
+        \item al termine della stesura, aprire una \textbf{pull request} verso il branch \texttt{dev};
+        \item i \textbf{verificatori} hanno il compito di controllare la correttezza e la conformità del documento;
+        \item una volta approvato, il documento viene \textbf{fuso nel branch \texttt{main}}, segnando la versione \textbf{1.0.0}.
+    \end{itemize}
+    
+    \item La \textbf{pubblicazione sul sito web} avviene \textbf{solo con i file presenti nel branch \texttt{main}}.
+    \item Il file README.md viene modificato aggiungendo le istruzioni per la creazione di un documento Latex, la pubblicazione su Github e sul sito.
+\end{itemize}
+
+
+
+\end{adjustwidth}
+
+\subsection*{\ref{itm:scelta_ruoli} Scelta dei ruoli da coprire e frequenza di rotazione}
+Il gruppo ha deciso che ...
+Inoltre si è deciso che ogni file (esclusi i verbali) verrà redatto da uno specifico ruolo, a seconda dello scopo del documento. 
+
+\subsection*{\ref{itm:prossimeattivita} Pianificazione delle prossime attività}
+
+\paragraph{Glossario}
+Da iniziare uno studio più approfondito sulla redazione e sull'usabilità del glossario, le domande su cui ci si deve focalizzare sono:
+\begin{itemize}[leftmargin=1cm, rightmargin=1cm]
+    \item Quali termini deve contenere il glossario? Dove sono contenuti i termini?
+    \item A chi è rivolto il glossario? Se a più destinatari, bisogna redigere più glossari? Lo stesso termine può essere ripetuto più volte in glossari diversi con definizioni coerenti al registro e forma più appropriata al destinatario?
+    \item Come avviene il collegamento tra termine e glossario? è sufficientemente efficiente ed efficace?
+    \item È opportuno inserire a piè di pagina una definizione più riassuntiva del termine ed eventualmente rimandare al glossario?
+    \item Se un termine è ripetuto più volte in un documento, come deve avvenire il riferimento al glossario? 
+\end{itemize}
+Applicazione delle risposte alla versione corrente del glossario.
+\paragraph{Foglio di calcolo per la rendicontazione ore}
+\label{itm:esempio}
+Idea iniziale su come si può suddividere il foglio di calcolo, in particolare:
+\begin{itemize}[leftmargin=1cm, rightmargin=1cm]
+    \item Una scheda dedicata per ciascuno sprint;
+    \item In ogni scheda, una tabella che riporti i membri del gruppo sull'asse delle y e i ruoli sull'asse delle x;
+    \item Una colonna finale che indichi le ore rimanenti per ciascun membro rispetto al totale previsto;
+    \item Una riga di riepilogo che mostri le ore rimanenti per ciascun ruolo rispetto al monte ore complessivo assegnato;
+    \item Una riga aggiuntiva che indichi le ore consigliate per ogni ruolo in ciascuno sprint, accompagnata da un'analisi sul rispetto di tali valori o sugli eventuali sforamenti.
+\end{itemize}
+
+\paragraph{Studio tecnologie}
+È stato inoltre concordato di iniziare una fase preliminare di studio e approfondimento delle tecnologie indicate dall'azienda proponente, con l'obiettivo di acquisire familiarità con gli strumenti e i linguaggi che saranno impiegati nello sviluppo del progetto.\\
+A questo proposito abbiamo discusso della necessità di dialogare con l'azienda proponente per assicurarci della corretta decisione di prosecuzione.
+
+\paragraph{Prossimo colloquio con la proponente}
+Durante la riunione è stato deciso che il prossimo incontro in via telematica con Eggon sarà possibilmente a metà della prossima settimana (10.11 -16.11)
+e che in vista di tale incontro il gruppo si impegnerà ad analizzare con molta più attenzione il documento di capitolato per la creazione
+di un file \textit{Google docs} con quanto analizzato. Nella riunione si discuterà dei requisiti funzionali e non funzionali dei moduli da integrare nella piattaforma Nexum.
+
+
+
+\section{Tabella delle decisioni e azioni}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+\hline
+\rowcolor{secondaryblue!10} RTB1 & Integrazione delle regole di rotazione nel documento di dichiarazione degli impegni. (vedi) & Luca Slongo \\
+\hline
+\rowcolor{secondaryblue!10} RTB2 & Redigere il verbale della corrente riunione e definire la sezione decisione~-~azioni tracciabili nel sistema (inizio a partire dal verbale corrente). & Linor Sadè \\
+\hline
+\rowcolor{secondaryblue!10} RTB3 & Riprogettazione sito web e repository GitHub in linea con il resocontro del professore e regole di accessibilità. (vedi)  & Marco Favero \\
+\hline
+\rowcolor{secondaryblue!10} RTB4 & Studio e continuo della redazione del glossario. (vedi )& Alberto Autiero \\
+\hline
+\rowcolor{secondaryblue!10} RTB5 & Scrittura del foglio di calcolo per la rendicontazione ore, seguendo l'esempio definito (vedi \hyperref[itm:esempio]{qui}).  & Leonardo Salviato \\
+\hline
+\rowcolor{secondaryblue!10} RTB6 & Approvazione del seguente verbale, scrittura all'azienda, migliorie grafiche alla firma e-mail. & Alberto Pignat \\
+\hline
+\rowcolor{secondaryblue!10} RTB7 & Inizio studio tecnologie (vedi ) & Alberto Pignat \\
+\hline
+\end{tabularx}
+\fussy
+
+
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
