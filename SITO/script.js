@@ -29,19 +29,39 @@ document.addEventListener('DOMContentLoaded', function () {
     const docPanels = document.querySelectorAll('.doc-panel');
 
     function showDocPanel(name) {
+        // generic panel switcher: panel id is 'panel-' + name
         docPanels.forEach(p => {
             p.classList.remove('active');
             p.setAttribute('aria-hidden', 'true');
         });
-        const active = document.getElementById(name === 'diapositive' ? 'panel-diapositive' : 'panel-candidatura');
+        const panelId = 'panel-' + name;
+        const active = document.getElementById(panelId);
         if (active) {
             active.classList.add('active');
             active.setAttribute('aria-hidden', 'false');
+        } else {
+            // fallback to candidatura if panel not found
+            const fallback = document.getElementById('panel-candidatura');
+            if (fallback) {
+                fallback.classList.add('active');
+                fallback.setAttribute('aria-hidden', 'false');
+            }
         }
 
+        // update doc toggle buttons (the top tabs)
         docToggles.forEach(btn => {
-            btn.classList.toggle('active', btn.getAttribute('data-show') === (name === 'diapositive' ? 'diapositive' : 'candidatura'));
+            btn.classList.toggle('active', btn.getAttribute('data-show') === name);
             btn.setAttribute('aria-selected', btn.classList.contains('active') ? 'true' : 'false');
+        });
+
+        // update dropdown items active state if present
+        dropdownItems?.forEach(it => {
+            const itDoc = it.getAttribute('data-doc');
+            if (itDoc === name) {
+                it.classList.add('active');
+            } else {
+                it.classList.remove('active');
+            }
         });
     }
 
