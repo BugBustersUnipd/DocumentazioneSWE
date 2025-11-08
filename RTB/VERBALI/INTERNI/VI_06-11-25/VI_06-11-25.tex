@@ -20,6 +20,9 @@
 \usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
 \usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
 
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
 
 \definecolor{primaryblue}{RGB}{0,102,204}
 \definecolor{secondaryblue}{RGB}{51,153,255}
@@ -133,10 +136,12 @@ Qui di seguito i punti discussi con più dettaglio:
 I membri presenti alla lezione di Ingegneria del Software di data odierna, in sostituzione di chi era assente per il Career Day o altri impegni personali, hanno discusso i contenuti della lezione rovesciata dedicata alla documentazione. In particolare, ci siamo confrontati su glossario e norme di progetto, chiarendo obiettivi e modalità di redazione.
 
 \subsection*{\ref{itm:feedback}. Integrazione dei feedback del docente sulla documentazione di candidatura}
+\label{par:ruoli}
 Abbiamo analizzato i commenti del docente relativi alla documentazione per la candidatura del progetto, valutando le modifiche da apportare per migliorare la coerenza e la completezza dei documenti.
 
 \begin{adjustwidth}{1cm}{1cm} % per un rientro a sinistra e destra
     \subsubsection*{\ref{itm:tracciabilita}. Definizione della tracciabilità di decisioni e azioni nei verbali}
+    \label{par:tracciabilita}
     È stato discusso come inserire nei verbali una sezione dedicata alle decisioni e alle azioni, assicurando che queste risultino tracciabili nel sistema di gestione (definizione di un ID collegato a github issue, persona/e incaricate, descrizione della decisione con relative azioni).\\
     Abbiamo deciso di iniziare la tracciabilità dal verbale corrente in quanto la modifica dei precedenti verabli sarebbe un'attività di poco valore.\\
     Quando nei dettagli del verbale è riportata una discussione su un tema specifico e questa discussione porta a una decisione con conseguente azione, deve essere creato un collegamento tra la discussione e la decisione. In particolare, il collegamento deve essere \textbf{bidirezionale}:
@@ -145,11 +150,12 @@ Abbiamo analizzato i commenti del docente relativi alla documentazione per la ca
         \item nella tabella delle decisioni (dove ogni decisione ha un ID) deve esserci un riferimento al paragrafo del verbale che ha portato alla decisione;
         \item nel paragrafo del verbale deve esserci un collegamento alla decisione corrispondente nella tabella.
     \end{itemize}
-
+    \refDecisione{RTB2}{RTB2} %macro definita dentro assets/macro/macro-verbali.tex
     \subsubsection*{\ref{itm:rotazione_ruoli}. Integrazione delle regole di rotazione dei ruoli nel documento di Dichiarazione degli impegni}
     Si è valutato come integrare le regole di rotazione dei ruoli all'interno del documento di dichiarazione degli impegni.
 
     \subsubsection*{\ref{itm:sito}. Riprogettazione del sito web e della repository GitHub}
+    \label{par:sito}
     È stato deciso di avviare una riprogettazione del sito web per migliorarne l'accessibilità, la navigazione e la completezza dei contenuti, in linea con i riscontri ricevuti dal professore. In parallelo, si prevede una ristrutturazione della repository GitHub per garantire maggiore chiarezza e uniformità.\\
     In particolare:
     \begin{itemize}
@@ -157,16 +163,17 @@ Abbiamo analizzato i commenti del docente relativi alla documentazione per la ca
     
     \item Per la \textbf{creazione di un nuovo documento} si decide di:
     \begin{itemize}
-        \item creare un \textbf{branch di tipo \texttt{feature}} dedicato allo sviluppo del documento;
-        \item al termine della stesura, aprire una \textbf{pull request} verso il branch \texttt{dev};
-        \item i \textbf{verificatori} hanno il compito di controllare la correttezza e la conformità del documento;
-        \item una volta approvato, il documento viene \textbf{fuso nel branch \texttt{main}}, segnando la versione \textbf{1.0.0}.
+        \item creare un branch di tipo \texttt{feature} dedicato allo sviluppo del documento;
+        \item al termine della stesura, aprire una pull request verso il branch \texttt{dev};
+        \item i verificatori hanno il compito di controllare la correttezza e la conformità del documento;
+        \item una volta approvato, il documento viene fuso nel branch \texttt{main}, segnando la versione \textbf1.0.0.
     \end{itemize}
     
-    \item La \textbf{pubblicazione sul sito web} avviene \textbf{solo con i file presenti nel branch \texttt{main}}.
+    \item La pubblicazione sul sito web avviene solo con i file presenti nel branch \texttt{main}.
     \item Il file README.md viene modificato aggiungendo le istruzioni per la creazione di un documento Latex, la pubblicazione su Github e sul sito.
 \end{itemize}
 
+\refDecisione{RTB3}{RTB3} %macro definita dentro assets/macro/macro-verbali.tex
 
 
 \end{adjustwidth}
@@ -178,6 +185,7 @@ Inoltre si è deciso che ogni file (esclusi i verbali) verrà redatto da uno spe
 \subsection*{\ref{itm:prossimeattivita} Pianificazione delle prossime attività}
 
 \paragraph{Glossario}
+\label{par:glossario}
 Da iniziare uno studio più approfondito sulla redazione e sull'usabilità del glossario, le domande su cui ci si deve focalizzare sono:
 \begin{itemize}[leftmargin=1cm, rightmargin=1cm]
     \item Quali termini deve contenere il glossario? Dove sono contenuti i termini?
@@ -186,9 +194,12 @@ Da iniziare uno studio più approfondito sulla redazione e sull'usabilità del g
     \item È opportuno inserire a piè di pagina una definizione più riassuntiva del termine ed eventualmente rimandare al glossario?
     \item Se un termine è ripetuto più volte in un documento, come deve avvenire il riferimento al glossario? 
 \end{itemize}
-Applicazione delle risposte alla versione corrente del glossario.
+Applicazione delle risposte alla versione corrente del glossario.\\
+
+\refDecisione{RTB4}{RTB4} %macro definita dentro assets/macro/macro-verbali.tex
+
 \paragraph{Foglio di calcolo per la rendicontazione ore}
-\label{itm:esempio}
+\label{par:esempio}
 Idea iniziale su come si può suddividere il foglio di calcolo, in particolare:
 \begin{itemize}[leftmargin=1cm, rightmargin=1cm]
     \item Una scheda dedicata per ciascuno sprint;
@@ -199,8 +210,11 @@ Idea iniziale su come si può suddividere il foglio di calcolo, in particolare:
 \end{itemize}
 
 \paragraph{Studio tecnologie}
+\label{par:studiotec}
 È stato inoltre concordato di iniziare una fase preliminare di studio e approfondimento delle tecnologie indicate dall'azienda proponente, con l'obiettivo di acquisire familiarità con gli strumenti e i linguaggi che saranno impiegati nello sviluppo del progetto.\\
-A questo proposito abbiamo discusso della necessità di dialogare con l'azienda proponente per assicurarci della corretta decisione di prosecuzione.
+A questo proposito abbiamo discusso della necessità di dialogare con l'azienda proponente per assicurarci della corretta decisione di prosecuzione.\\
+\refDecisione{RTB7}{RTB7} %macro definita dentro assets/macro/macro-verbali.tex
+
 
 \paragraph{Prossimo colloquio con la proponente}
 Durante la riunione è stato deciso che il prossimo incontro in via telematica con Eggon sarà possibilmente a metà della prossima settimana (10.11 -16.11)
@@ -226,23 +240,22 @@ di un file \textit{Google docs} con quanto analizzato. Nella riunione si discute
 \rowcolor{primaryblue!40}
 \textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
 \hline
-\rowcolor{secondaryblue!10} RTB1 & Integrazione delle regole di rotazione nel documento di dichiarazione degli impegni. (vedi) & Luca Slongo \\
+\rowcolor{secondaryblue!10} RTB1 \label{RTB1} & Integrazione delle regole di rotazione nel documento di dichiarazione degli impegni (vedi \hyperref[par:ruoli]{dettagli}). & Luca Slongo \\
 \hline
-\rowcolor{secondaryblue!10} RTB2 & Redigere il verbale della corrente riunione e definire la sezione decisione~-~azioni tracciabili nel sistema (inizio a partire dal verbale corrente). & Linor Sadè \\
+\rowcolor{secondaryblue!10} RTB2 \label{RTB2} & Redigere il verbale della corrente riunione e definire la sezione decisione~-~azioni tracciabili nel sistema (vedi \hyperref[par:tracciabilita]{dettagli}). & Linor Sadè \\
 \hline
-\rowcolor{secondaryblue!10} RTB3 & Riprogettazione sito web e repository GitHub in linea con il resocontro del professore e regole di accessibilità. (vedi)  & Marco Favero \\
+\rowcolor{secondaryblue!10} RTB3 \label{RTB3} & Riprogettazione sito web e repository GitHub in linea con il resocontro del professore e regole di accessibilità (vedi \hyperref[par:sito]{dettagli}). & Marco Favero \\
 \hline
-\rowcolor{secondaryblue!10} RTB4 & Studio e continuo della redazione del glossario. (vedi )& Alberto Autiero \\
+\rowcolor{secondaryblue!10} RTB4 \label{RTB4} & Studio e continuo della redazione del glossario. (vedi \hyperref[par:glossario]{dettagli}) & Alberto Autiero \\
 \hline
-\rowcolor{secondaryblue!10} RTB5 & Scrittura del foglio di calcolo per la rendicontazione ore, seguendo l'esempio definito (vedi \hyperref[itm:esempio]{qui}).  & Leonardo Salviato \\
+\rowcolor{secondaryblue!10} RTB5 \label{RTB5} & Scrittura del foglio di calcolo per la rendicontazione ore, seguendo l'esempio definito (vedi \hyperref[par:esempio]{dettagli}).  & Leonardo Salviato \\
 \hline
-\rowcolor{secondaryblue!10} RTB6 & Approvazione del seguente verbale, scrittura all'azienda, migliorie grafiche alla firma e-mail. & Alberto Pignat \\
+\rowcolor{secondaryblue!10} RTB6 \label{RTB6} & Approvazione del seguente verbale, scrittura all'azienda, migliorie grafiche alla firma e-mail. & Alberto Pignat \\
 \hline
-\rowcolor{secondaryblue!10} RTB7 & Inizio studio tecnologie (vedi ) & Alberto Pignat \\
+\rowcolor{secondaryblue!10} RTB7 \label{RTB7} & Inizio studio tecnologie (vedi \hyperref[par:studiotec]{dettagli}). & Tutti \\
 \hline
 \end{tabularx}
 \fussy
-
 
 
 \vfill

@@ -1,0 +1,5 @@
+% genera la stringa "\noindent (Riferimento alla tabella decisioni:
+% \hyperref[RTB4]{RTB4})", si usa facendo \refDecisione{NomeLabel}{Testo}
+\newcommand{\refDecisione}[2]{%
+    \noindent (\textbf{Riferimento alla tabella decisioni: \hyperref[#1]{#2}})%
+}
