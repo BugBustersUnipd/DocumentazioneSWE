@@ -80,12 +80,13 @@
         }
         .text-layer {
             position: absolute;
-            left: 20px;
-            top: 20px;
-            right: 20px;
-            bottom: 20px;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
             overflow: hidden;
             line-height: 1;
+            pointer-events: auto; /* allow clicks */
         }
         .text-layer div {
             color: transparent;
@@ -93,6 +94,7 @@
             white-space: pre;
             cursor: text;
             transform-origin: 0% 0%;
+            pointer-events: auto;
         }
         .highlighted-term {
             background-color: rgba(255, 243, 205, 0.8);
@@ -102,6 +104,8 @@
             color: #000 !important;
             border-radius: 2px;
             padding: 0 1px;
+            display: inline-block; /* ensure clickable area */
+            pointer-events: auto;
         }
         .highlighted-term:hover {
             background-color: rgba(255, 234, 167, 0.9);
@@ -282,36 +286,63 @@
 
                     // Dividi il testo in parole e controlla se sono nel glossario
                     const words = item.str.split(/(\s+)/);
-                    words.forEach(word => {
-                        if (word.trim()) {
-                            const cleanWord = word.replace(/[.,!?;:()[\]{}"']/g, '').toLowerCase();
-                            // Cerca corrispondenze esatte o parziali nei termini del glossario
-                            const glossaryTerm = glossaryData.find(term => {
-                                const termWords = term.term.toLowerCase().split(/\s+/);
-                                return termWords.some(termWord =>
-                                    cleanWord === termWord ||
-                                    cleanWord.includes(termWord) && termWord.length > 3 ||
-                                    termWord.includes(cleanWord) && cleanWord.length > 3
-                                );
-                            });
+                        words.forEach(word => {
+                            if (!word) return;
 
-                            if (glossaryTerm) {
+                            // Keep whitespace as-is
+                            if (!word.trim()) {
+                                textDiv.appendChild(document.createTextNode(word));
+                                return;
+                            }
+
+                            const cleanWord = word.replace(/[.,!?;:()\[\]{}"'«»“”]/g, '').toLowerCase().trim();
+
+                            // Cerca prima termini multi-parola presenti nell'intera item.str normalizzata
+                            const normalizedItemStr = item.str.replace(/[.,!?;:()\[\]{}"'«»“”]/g, '').toLowerCase();
+
+                            let matchedTerm = null;
+
+                            // Helper: escape regex
+                            function escapeRegExp(string) {
+                                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                            }
+
+                            for (let t of glossaryData) {
+                                const normTerm = t.term.replace(/[.,!?;:()\[\]{}"'«»“”]/g, '').toLowerCase().trim();
+                                if (!normTerm) continue;
+
+                                // Match multi-word terms in the whole item string using word boundaries
+                                if (normTerm.includes(' ')) {
+                                    const re = new RegExp('\\b' + escapeRegExp(normTerm) + '\\b', 'i');
+                                    if (re.test(normalizedItemStr)) {
+                                        matchedTerm = t;
+                                        break;
+                                    }
+                                }
+                            }
+
+                            // If no multi-word matched, try single-word exact match
+                            if (!matchedTerm) {
+                                matchedTerm = glossaryData.find(t => {
+                                    const normTerm = t.term.replace(/[.,!?;:()\[\]{}"'«»“”]/g, '').toLowerCase().trim();
+                                    return normTerm === cleanWord;
+                                });
+                            }
+
+                            if (matchedTerm) {
                                 const span = document.createElement('span');
                                 span.textContent = word;
                                 span.className = 'highlighted-term';
-                                span.title = `Clicca per vedere la definizione di "${glossaryTerm.term}"`;
+                                span.title = `Clicca per vedere la definizione di "${matchedTerm.term}"`;
                                 span.addEventListener('click', (e) => {
                                     e.stopPropagation();
-                                    showDefinition(glossaryTerm);
+                                    showDefinition(matchedTerm);
                                 });
                                 textDiv.appendChild(span);
                             } else {
                                 textDiv.appendChild(document.createTextNode(word));
                             }
-                        } else {
-                            textDiv.appendChild(document.createTextNode(word));
-                        }
-                    });
+                        });
 
                     textLayer.appendChild(textDiv);
                 });
