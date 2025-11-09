@@ -8,7 +8,6 @@
     <link rel="icon" href="assets/Logo.jpg" type="image/jpeg">
     <meta name="theme-color" content="#0066cc">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <style>
         .viewer-container {
             display: flex;
@@ -19,8 +18,11 @@
             flex: 1;
             border: 1px solid #ddd;
             background: #f9f9f9;
-            overflow: auto;
-            position: relative;
+        }
+        .pdf-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         .glossary-panel {
             width: 350px;
@@ -74,42 +76,6 @@
         .control-btn:hover {
             background: #0056b3;
         }
-        .pdf-page-container {
-            position: relative;
-            margin-bottom: 20px;
-        }
-        .text-layer {
-            position: absolute;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
-            line-height: 1;
-            pointer-events: auto; /* allow clicks */
-        }
-        .text-layer div {
-            color: transparent;
-            position: absolute;
-            white-space: pre;
-            cursor: text;
-            transform-origin: 0% 0%;
-            pointer-events: auto;
-        }
-        .highlighted-term {
-            background-color: rgba(255, 243, 205, 0.8);
-            border-bottom: 2px solid #ffc107;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            color: #000 !important;
-            border-radius: 2px;
-            padding: 0 1px;
-            display: inline-block; /* ensure clickable area */
-            pointer-events: auto;
-        }
-        .highlighted-term:hover {
-            background-color: rgba(255, 234, 167, 0.9);
-        }
         .viewer-header {
             display: flex;
             justify-content: space-between;
@@ -156,25 +122,22 @@
 
             <div class="viewer-container">
                 <div class="pdf-viewer">
-                    <div id="pdf-container"></div>
+                    <iframe id="pdf-iframe" class="pdf-iframe" title="PDF Document"></iframe>
                 </div>
 
                 <div class="glossary-panel" id="glossary-panel" style="display: none;">
                     <div class="glossary-header">
-                        <h3>📚 Definizione</h3>
+                        <h3>📚 Glossario</h3>
                         <button id="close-glossary" class="close-btn">×</button>
                     </div>
                     <div id="term-definition">
-                        <p style="color: #666; font-style: italic;">Clicca su una parola evidenziata nel PDF per vedere la definizione</p>
+                        <p style="color: #666; font-style: italic;">Caricamento glossario...</p>
                     </div>
                 </div>
             </div>
     </main>
 
     <script>
-        // Configura PDF.js
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const pdfPath = urlParams.get('pdf');
@@ -187,16 +150,13 @@
 
             document.getElementById('pdf-title').textContent = pdfTitle;
 
-            // Mostra messaggio di caricamento
-            const pdfContainer = document.getElementById('pdf-container');
-            pdfContainer.innerHTML = '<p style="text-align: center; padding: 40px; color: #666;">Caricamento PDF...</p>';
+            // Carica il PDF nell'iframe
+            const pdfIframe = document.getElementById('pdf-iframe');
+            pdfIframe.src = pdfPath;
 
             // Carica il glossario
             let glossaryData = [];
-            loadGlossary().then(() => {
-                // Dopo aver caricato il glossario, carica il PDF
-                loadPDF(pdfPath);
-            });
+            loadGlossary();
 
             // Gestisci chiusura del pannello glossario
             document.getElementById('close-glossary').addEventListener('click', function() {
@@ -218,138 +178,6 @@
                 }
             }
 
-            async function loadPDF(pdfPath) {
-                try {
-                    const loadingTask = pdfjsLib.getDocument(pdfPath);
-                    const pdf = await loadingTask.promise;
-
-                    const pdfContainer = document.getElementById('pdf-container');
-
-                    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-                        const page = await pdf.getPage(pageNum);
-                        const scale = 1.5;
-                        const viewport = page.getViewport({ scale });
-
-                        const canvas = document.createElement('canvas');
-                        const context = canvas.getContext('2d');
-                        canvas.height = viewport.height;
-                        canvas.width = viewport.width;
-                        canvas.className = 'pdf-page';
-
-                        const renderContext = {
-                            canvasContext: context,
-                            viewport: viewport
-                        };
-
-                        await page.render(renderContext).promise;
-
-                        // Crea un container per la pagina con text layer
-                        const pageContainer = document.createElement('div');
-                        pageContainer.className = 'pdf-page-container';
-                        pageContainer.appendChild(canvas);
-
-                        // Aggiungi text layer per l'interattività
-                        const textContent = await page.getTextContent();
-                        const textLayer = createTextLayer(textContent, viewport, glossaryData);
-                        pageContainer.appendChild(textLayer);
-
-                        pdfContainer.appendChild(pageContainer);
-                    }
-                } catch (error) {
-                    console.error('Errore nel caricamento del PDF:', error);
-                    document.getElementById('pdf-container').innerHTML = '<p style="color: #dc3545; text-align: center; padding: 20px;">Errore nel caricamento del PDF</p>';
-                }
-            }
-
-            function createTextLayer(textContent, viewport, glossaryData) {
-                const textLayer = document.createElement('div');
-                textLayer.className = 'text-layer';
-                textLayer.style.position = 'absolute';
-                textLayer.style.left = '0';
-                textLayer.style.top = '0';
-                textLayer.style.right = '0';
-                textLayer.style.bottom = '0';
-                textLayer.style.overflow = 'hidden';
-                textLayer.style.opacity = '0.2'; // Trasparente, solo per l'interattività
-
-                textContent.items.forEach(item => {
-                    const textDiv = document.createElement('div');
-                    textDiv.style.position = 'absolute';
-                    textDiv.style.whiteSpace = 'pre';
-                    textDiv.style.transformOrigin = '0% 0%';
-
-                    // Calcola la posizione
-                    const transform = `translate(${item.transform[4]}px, ${item.transform[5]}px)`;
-                    textDiv.style.transform = transform;
-                    textDiv.style.fontSize = `${item.height}px`;
-                    textDiv.style.fontFamily = 'sans-serif';
-
-                    // Dividi il testo in parole e controlla se sono nel glossario
-                    const words = item.str.split(/(\s+)/);
-                        words.forEach(word => {
-                            if (!word) return;
-
-                            // Keep whitespace as-is
-                            if (!word.trim()) {
-                                textDiv.appendChild(document.createTextNode(word));
-                                return;
-                            }
-
-                            const cleanWord = word.replace(/[.,!?;:()\[\]{}"'«»“”]/g, '').toLowerCase().trim();
-
-                            // Cerca prima termini multi-parola presenti nell'intera item.str normalizzata
-                            const normalizedItemStr = item.str.replace(/[.,!?;:()\[\]{}"'«»“”]/g, '').toLowerCase();
-
-                            let matchedTerm = null;
-
-                            // Helper: escape regex
-                            function escapeRegExp(string) {
-                                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                            }
-
-                            for (let t of glossaryData) {
-                                const normTerm = t.term.replace(/[.,!?;:()\[\]{}"'«»“”]/g, '').toLowerCase().trim();
-                                if (!normTerm) continue;
-
-                                // Match multi-word terms in the whole item string using word boundaries
-                                if (normTerm.includes(' ')) {
-                                    const re = new RegExp('\\b' + escapeRegExp(normTerm) + '\\b', 'i');
-                                    if (re.test(normalizedItemStr)) {
-                                        matchedTerm = t;
-                                        break;
-                                    }
-                                }
-                            }
-
-                            // If no multi-word matched, try single-word exact match
-                            if (!matchedTerm) {
-                                matchedTerm = glossaryData.find(t => {
-                                    const normTerm = t.term.replace(/[.,!?;:()\[\]{}"'«»“”]/g, '').toLowerCase().trim();
-                                    return normTerm === cleanWord;
-                                });
-                            }
-
-                            if (matchedTerm) {
-                                const span = document.createElement('span');
-                                span.textContent = word;
-                                span.className = 'highlighted-term';
-                                span.title = `Clicca per vedere la definizione di "${matchedTerm.term}"`;
-                                span.addEventListener('click', (e) => {
-                                    e.stopPropagation();
-                                    showDefinition(matchedTerm);
-                                });
-                                textDiv.appendChild(span);
-                            } else {
-                                textDiv.appendChild(document.createTextNode(word));
-                            }
-                        });
-
-                    textLayer.appendChild(textDiv);
-                });
-
-                return textLayer;
-            }
-
             function showFullGlossary() {
                 const panel = document.getElementById('glossary-panel');
                 const definitionDiv = document.getElementById('term-definition');
@@ -360,6 +188,7 @@
                     glossaryHTML += `
                         <div class="glossary-item" style="padding: 10px; border-bottom: 1px solid #eee; cursor: pointer;" onclick="showDefinitionFromList('${termObj.term.replace(/'/g, "\\'")}')">
                             <strong style="color: #0066cc;">${termObj.term}</strong>
+                            <div style="margin-top: 5px; font-size: 0.9em; color: #666;">${termObj.definition.substring(0, 100)}${termObj.definition.length > 100 ? '...' : ''}</div>
                         </div>
                     `;
                 });
@@ -380,8 +209,21 @@
                 }, 100);
             }
 
-            // Rendi la funzione globale per l'onclick
-            window.showDefinitionFromList = showDefinitionFromList;
+            function showDefinitionFromList(termName) {
+                const termObj = glossaryData.find(t => t.term === termName);
+                if (termObj) {
+                    const panel = document.getElementById('glossary-panel');
+                    const definitionDiv = document.getElementById('term-definition');
+
+                    definitionDiv.innerHTML = `
+                        <div style="margin-bottom: 15px;">
+                            <button onclick="showFullGlossary()" style="background: #6c757d; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">← Torna al glossario</button>
+                        </div>
+                        <h4 style="color: #0066cc; margin-bottom: 10px;">${termObj.term}</h4>
+                        <p style="line-height: 1.5;">${termObj.definition}</p>
+                    `;
+                }
+            }
 
             function filterGlossaryList(searchTerm) {
                 const items = document.querySelectorAll('#glossary-list .glossary-item');
@@ -390,6 +232,10 @@
                     item.style.display = text.includes(searchTerm) ? 'block' : 'none';
                 });
             }
+
+            // Rendi la funzione globale per l'onclick
+            window.showDefinitionFromList = showDefinitionFromList;
+            window.showFullGlossary = showFullGlossary;
         });
     </script>
 </body>
