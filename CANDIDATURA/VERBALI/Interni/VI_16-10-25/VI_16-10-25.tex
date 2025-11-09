@@ -14,6 +14,7 @@
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
+\usepackage[titles]{tocloft}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
 
 \definecolor{primaryblue}{RGB}{0,102,204}
@@ -24,6 +25,13 @@
 \titleformat{\section}
   {\Large\bfseries\color{primaryblue}}
   {\thesection}{1em}{}
+
+% Configurazione per l'indice
+\setcounter{tocdepth}{2} % Mostra sezioni e sottosezioni nell'indice
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\setlength{\cftbeforesecskip}{6pt}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsecpagefont}{}
 
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
@@ -47,7 +55,7 @@
 
   {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
   {\small Laurea in Informatica}\\[0.2cm]
-  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Corso: Ingegneria del Software\textsubscript{\textbf{G}}}\\[0.2cm]
   {\small Anno Accademico: 2025/2026}\\[0.8cm]
 
   {\Huge\bfseries\color{primaryblue} Verbale Interno}\\[0.3cm]
