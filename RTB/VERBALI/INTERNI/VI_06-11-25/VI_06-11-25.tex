@@ -66,7 +66,7 @@
 \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
 \begin{tabular}{@{}ll@{}}
 \textbf{Redattori}    & Linor Sadè \\
-\textbf{Verificatore}    & Alberto Pignat \\
+\textbf{Verificatore}    & Marco Piro \\
 \textbf{Uso}          & Interno \\
 \textbf{Destinatari}  & BugBusters \\
 \textbf{Versione} & 1.0.0\\
@@ -150,7 +150,7 @@ Abbiamo analizzato i commenti del docente relativi alla documentazione\textsubsc
         \item nella tabella delle decisioni (dove ogni decisione ha un ID) deve esserci un riferimento al paragrafo del verbale che ha portato alla decisione;
         \item nel paragrafo del verbale deve esserci un collegamento alla decisione corrispondente nella tabella.
     \end{itemize}
-    \refDecisione{RTB2}{RTB2} %macro definita dentro assets/macro/macro-verbali.tex
+    \refDecisione{RTB1}{RTB1} %macro definita dentro assets/macro/macro-verbali.tex
     \subsubsection*{\ref{itm:rotazione_ruoli}. Integrazione delle regole di rotazione dei ruoli\textsubscript{\textbf{G}} nel documento\textsubscript{\textbf{G}} di Dichiarazione degli impegni}
     Si è valutato come integrare le regole di rotazione dei ruoli\textsubscript{\textbf{G}} all'interno del documento\textsubscript{\textbf{G}} di dichiarazione degli impegni.
 
@@ -161,26 +161,40 @@ Abbiamo analizzato i commenti del docente relativi alla documentazione\textsubsc
     \begin{itemize}
     \item È stata \textbf{rimossa l'automatizzazione della pubblicazione} di tutti i file presenti nel branch\textsubscript{\textbf{G}} \texttt{main}.
     
-    \item Per la \textbf{creazione di un nuovo documento\textsubscript{\textbf{G}}} si decide di:
+    \item Per la \textbf{creazione di un nuovo documento\textsubscript{\textbf{G}}} per tutti i documenti che non sono verbali si decide di:
     \begin{itemize}
-        \item creare un branch\textsubscript{\textbf{G}} di tipo \texttt{feature} dedicato allo sviluppo del documento\textsubscript{\textbf{G}};
-        \item al termine della stesura, aprire una pull request\textsubscript{\textbf{G}} verso il branch\textsubscript{\textbf{G}} \texttt{dev};
+        \item creare un branch\textsubscript{\textbf{G}} dedicato allo sviluppo del documento\textsubscript{\textbf{G}};
+        \item al termine della stesura, aprire una pull request verso il branch \texttt{verifica};
         \item i verificatori\textsubscript{\textbf{G}} hanno il compito di controllare la correttezza e la conformità del documento\textsubscript{\textbf{G}};
-        \item una volta approvato, il documento\textsubscript{\textbf{G}} viene fuso nel branch\textsubscript{\textbf{G}} \texttt{main}, segnando la versione \textbf{1.0.0}.
+        \item una volta approvato, il documento\textsubscript{\textbf{G}} viene fuso nel branch\textsubscript{\textbf{G}} \texttt{main}, segnando la versione \textbf1.0.0.
     \end{itemize}
     
-    \item La pubblicazione sul sito web avviene solo con i file presenti nel branch\textsubscript{\textbf{G}} \texttt{main}.
-    \item Il file README.md viene modificato aggiungendo le istruzioni per la creazione di un documento\textsubscript{\textbf{G}} Latex\textsubscript{\textbf{G}}, la pubblicazione su GitHub\textsubscript{\textbf{G}} e sul sito.
+    \item La pubblicazione sul sito web avviene solo con i file presenti nel branch\textsubscript{\textbf{G}} \texttt{main} e viene fatto manualmente modificando l'html.
+    \item Il file README.md viene modificato aggiungendo le istruzioni per la creazione di un documento\textsubscript{\textbf{G}} LaTeX\textsubscript{\textbf{G}}, la pubblicazione su GitHub\textsubscript{\textbf{G}} e sul sito.
 \end{itemize}
 
-\refDecisione{RTB3}{RTB3} %macro definita dentro assets/macro/macro-verbali.tex
+\refDecisione{RTB2}{RTB2} %macro definita dentro assets/macro/macro-verbali.tex
 
 
 \end{adjustwidth}
 
 \subsection*{\ref{itm:scelta_ruoli} Scelta dei ruoli\textsubscript{\textbf{G}} da coprire e frequenza di rotazione}
-Il gruppo ha deciso che ...
-Inoltre si è deciso che ogni file (esclusi i verbali) verrà redatto da uno specifico ruolo\textsubscript{\textbf{G}}, a seconda dello scopo del documento\textsubscript{\textbf{G}}. 
+Il gruppo ha stabilito che i ruoli saranno ruotati ogni due settimane, in corrispondenza degli sprint previsti dall’azienda proponente Eggon. Al momento della redazione del presente verbale, la data di inizio dello sprint corrente non era nota.
+Nel frattempo, sono stati assegnati i seguenti ruoli per il prossimo sprint, che, salvo diversa indicazione da parte dell’azienda, è previsto iniziare il 10/11/2025:
+\begin{center}
+
+
+Alberto Autiero \(\rightarrow\) Responsabile \\
+Marco Favero \(\rightarrow\) Amministratore \\
+Alberto Pignat \(\rightarrow\) Analista \\
+Marco Piro \(\rightarrow\) Verificatore \\
+Linor Sadè \(\rightarrow\) Analista \\
+Leonardo Saviato \(\rightarrow\) Analista \\
+Luca Slongo \(\rightarrow\) Analista
+\end{center}
+
+
+Inoltre si è deciso che ogni file (esclusi i verbali) verrà redatto da uno specifico ruolo, a seconda dello scopo del documento.
 
 \subsection*{\ref{itm:prossimeattivita} Pianificazione delle prossime attività\textsubscript{\textbf{G}}}
 
@@ -196,13 +210,13 @@ Da iniziare uno studio più approfondito sulla redazione e sull'usabilità del g
 \end{itemize}
 Applicazione delle risposte alla versione corrente del glossario\textsubscript{\textbf{G}}.\\
 
-\refDecisione{RTB4}{RTB4} %macro definita dentro assets/macro/macro-verbali.tex
+\refDecisione{RTB3}{RTB3} %macro definita dentro assets/macro/macro-verbali.tex
 
 \paragraph{Foglio di calcolo per la rendicontazione ore}
 \label{par:esempio}
 Proposta iniziale di struttura del foglio di calcolo, in particolare:
 \begin{itemize}[leftmargin=1cm, rightmargin=1cm]
-    \item Una scheda dedicata per ciascuno sprint\textsubscript{\textbf{G}};
+    \item Una scheda o sezione dedicata per ciascuno sprint;
     \item In ogni scheda, una tabella che riporti i membri del gruppo sull'asse delle y e i ruoli\textsubscript{\textbf{G}} sull'asse delle x;
     \item Una colonna finale che indichi le ore rimanenti per ciascun membro rispetto al totale previsto;
     \item Una riga di riepilogo che mostri le ore rimanenti per ciascun ruolo\textsubscript{\textbf{G}} rispetto al monte ore complessivo assegnato;
@@ -213,11 +227,11 @@ Proposta iniziale di struttura del foglio di calcolo, in particolare:
 \label{par:studiotec}
 È stato inoltre concordato di iniziare una fase preliminare di studio e approfondimento delle tecnologie\textsubscript{\textbf{G}} indicate dall'azienda proponente\textsubscript{\textbf{G}}, con l'obiettivo di acquisire familiarità con gli strumenti e i linguaggi che saranno impiegati nello sviluppo del progetto\textsubscript{\textbf{G}}.\\
 A questo proposito abbiamo discusso della necessità di dialogare con l'azienda proponente\textsubscript{\textbf{G}} per valutare la corretta prosecuzione del progetto.\\
-\refDecisione{RTB7}{RTB7} %macro definita dentro assets/macro/macro-verbali.tex
+\refDecisione{RTB7}{RTB5} %macro definita dentro assets/macro/macro-verbali.tex
 
 
 \paragraph{Prossimo colloquio con la proponente\textsubscript{\textbf{G}}}
-Durante la riunione è stato deciso che il prossimo incontro in via telematica con Eggon sarà possibilmente a metà della prossima settimana (10.11 -16.11)
+Durante la riunione è stato deciso che il prossimo incontro in via telematica con Eggon sarà possibilmente martedì della prossima settimana (10.11 - 16.11)
 e che in vista di tale incontro il gruppo si impegnerà ad analizzare con molta più attenzione il documento\textsubscript{\textbf{G}} di capitolato\textsubscript{\textbf{G}} per la creazione
 di un file \textit{Google docs} con quanto analizzato. Nella riunione si discuterà dei requisiti\textsubscript{\textbf{G}} funzionali\textsubscript{\textbf{G}} e non funzionali\textsubscript{\textbf{G}} dei moduli da integrare nella piattaforma Nexum.
 
@@ -240,23 +254,24 @@ di un file \textit{Google docs} con quanto analizzato. Nella riunione si discute
 \rowcolor{primaryblue!40}
 \textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
 \hline
-\rowcolor{secondaryblue!10} RTB1 \label{RTB1} & Integrazione delle regole di rotazione nel documento\textsubscript{\textbf{G}} di dichiarazione degli impegni (vedi \hyperref[par:ruoli]{dettagli}). & Luca Slongo \\
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/1}{C1} \label{C1} & Integrazione delle regole di rotazione nel documento di dichiarazione degli impegni (vedi \hyperref[par:ruoli]{dettagli}). & Luca Slongo \\
 \hline
-\rowcolor{secondaryblue!10} RTB2 \label{RTB2} & Redigere il verbale della corrente riunione e definire la sezione decisione~-~azioni tracciabili nel sistema\textsubscript{\textbf{G}} (vedi \hyperref[par:tracciabilita]{dettagli}). & Linor Sadè \\
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/1}{RTB1} \label{RTB1} & Redigere il verbale della corrente riunione e definire la sezione decisione~-~azioni tracciabili nel sistema (vedi \hyperref[par:tracciabilita]{dettagli}). & Linor Sadè \\
 \hline
-\rowcolor{secondaryblue!10} RTB3 \label{RTB3} & Riprogettazione sito web e repository\textsubscript{\textbf{G}} GitHub\textsubscript{\textbf{G}} in linea con i feedback del professore e regole di accessibilità (vedi \hyperref[par:sito]{dettagli}). & Marco Favero \\
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/3}{RTB2} \label{RTB2} & Riprogettazione sito web e repository GitHub in linea con il resocontro del professore e regole di accessibilità (vedi \hyperref[par:sito]{dettagli}). & Marco Favero \\
 \hline
-\rowcolor{secondaryblue!10} RTB4 \label{RTB4} & Studio e prosecuzione della redazione del glossario\textsubscript{\textbf{G}}. (vedi \hyperref[par:glossario]{dettagli}) & Alberto Autiero \\
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/4}{RTB3} \label{RTB3} & Studio e continuo della redazione del glossario. (vedi \hyperref[par:glossario]{dettagli}) & Alberto Autiero \\
 \hline
-\rowcolor{secondaryblue!10} RTB5 \label{RTB5} & Scrittura del foglio di calcolo per la rendicontazione ore, seguendo l'esempio definito (vedi \hyperref[par:esempio]{dettagli}).  & Leonardo Salviato \\
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/5}{RTB4} \label{RTB4} & Scrittura del foglio di calcolo per la rendicontazione ore, seguendo l'idea riportata \hyperref[par:esempio]{qui}.  & Leonardo Salviato \\
 \hline
-\rowcolor{secondaryblue!10} RTB6 \label{RTB6} & Approvazione del seguente verbale, scrittura all'azienda, migliorie grafiche alla firma e-mail. & Alberto Pignat \\
+\rowcolor{secondaryblue!10} RTB5 \label{RTB5} & Scrivere ed inviare l'email ad Eggon. & Alberto Autiero \\
 \hline
-\rowcolor{secondaryblue!10} RTB7 \label{RTB7} & Inizio studio tecnologie\textsubscript{\textbf{G}} (vedi \hyperref[par:studiotec]{dettagli}). & Tutti \\
+\rowcolor{secondaryblue!10} RTB6 & creare la KanBan e le issue su GitHub a seconda di quanto scritto su questo verbale. & Marco Piro \\
+\hline
+\rowcolor{secondaryblue!10} RTB7 & Migliorie grafiche alla firma e-mail. & Alberto Pignat \\
 \hline
 \end{tabularx}
 \fussy
-
 
 \vfill
 \begin{center}
