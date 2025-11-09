@@ -1,5 +1,5 @@
 \documentclass[a4paper,12pt]{article}
-\newcommand{\CurrentVersion}{1.0.0}
+\newcommand{\CurrentVersion}{1.0.1}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -16,11 +16,16 @@
 \usepackage{tcolorbox}
 \usepackage{enumitem}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{tocloft}
 
 \definecolor{primaryblue}{RGB}{0,102,204}
 \definecolor{secondaryblue}{RGB}{51,153,255}
 \definecolor{lightgray}{RGB}{245,245,245}
 \definecolor{darkgray}{RGB}{100,100,100}
+
+% Configurazione semplice e funzionale per l'indice
+\setcounter{tocdepth}{2}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \titleformat{\section}
   {\Large\bfseries\color{primaryblue}}
@@ -36,8 +41,8 @@
 
 \begin{document}
 
-\begin{center}  \IfFileExists{../../../assets/Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../assets/Logo.jpg} \\[0.8cm]
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
   }{%
     \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
   }
@@ -72,13 +77,15 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
-Verbale della prima riunione avvenuta con l'azienda Eggon in via telematica per chiedere delucidazioni riguardanti il progetto "Nexum" e sui sistemi di collaborazione tra il gruppo e l'azienda.
+Verbale della prima riunione avvenuta con l'azienda Eggon in via telematica per chiedere delucidazioni riguardanti il progetto\textbf{\textsubscript{G}} "Nexum" e sui sistemi di collaborazione tra il gruppo e l'azienda.
 \end{tcolorbox}
 \end{center}
 
 \newpage
 
+% INDICE
 \tableofcontents
+
 \newpage
 
 
@@ -100,7 +107,7 @@ Verbale della prima riunione avvenuta con l'azienda Eggon in via telematica per 
         \item Leonardo Salviato
         \item Luca Slongo
     \end{itemize}
-    \item \textbf{Assenti:}
+    \item \textbf{Assenti:} Nessuno
     \item \textbf{Presenti Esterni:}
     \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
         \item Gianpaolo Ferrarin
@@ -112,47 +119,47 @@ Verbale della prima riunione avvenuta con l'azienda Eggon in via telematica per 
 \section{Ordine del giorno}
 
 \begin{enumerate}
-    \item Chiarimenti generali sul capitolato
-    \item Chiarimenti sui requisiti minimi per una soddisfacente realizzazione del progetto
+    \item Chiarimenti generali sul capitolato\textbf{\textsubscript{G}}
+    \item Chiarimenti sui requisiti\textbf{\textsubscript{G}} minimi per una soddisfacente realizzazione del progetto\textbf{\textsubscript{G}}
     \item Domande tecniche sulle tecnologie che sarà necessario utilizzare ed eventuali difficoltà
     \item Chiarimenti su come verrà disposta la formazione tecnica
 
 \end{enumerate}
 
 \section{Svolgimento}
-    La riunione è iniziata come previsto alle ore 10:00. I componenti del gruppo hanno espresso le loro perplessità riguardanti il progetto. I punti trattati sono i seguenti
+    La riunione è iniziata come previsto alle ore 10:00. I componenti del gruppo hanno espresso le loro perplessità riguardanti il progetto\textbf{\textsubscript{G}}. I punti trattati sono i seguenti
     \begin{itemize}
-    \item \textbf{Chiarimenti generali sul capitolato e sull'organizzazione}\\
+    \item \textbf{Chiarimenti generali sul capitolato\textbf{\textsubscript{G}} e sull'organizzazione}\\
     \noindent
     \textit{Risposta:} \\
     \begin{itemize}
-        \item L'azienda per progetti si organizza in sprint bisettimanali tenendo in considerazione gli impegni universitari
+        \item L'azienda per progetti\textbf{\textsubscript{G}} si organizza in sprint\textbf{\textsubscript{G}} bisettimanali tenendo in considerazione gli impegni universitari
     \end{itemize}
     
     \vspace{1em}
 
-    \item \textbf{Chiarimenti sui requisiti minimi per una soddisfacente realizzazione del progetto}\\
+    \item \textbf{Chiarimenti sui requisiti\textbf{\textsubscript{G}} minimi per una soddisfacente realizzazione del progetto\textbf{\textsubscript{G}}}\\
     \noindent
-    Data la poca esperienza con progetti proposti da aziende al team interessavano sapere le aspettative dell'azienda riguardanti questo progetto. 
+    Data la poca esperienza con progetti\textbf{\textsubscript{G}} proposti da aziende al team\textbf{\textsubscript{G}} interessavano sapere le aspettative dell'azienda riguardanti questo progetto\textbf{\textsubscript{G}}. 
     \\ \\
     \textit{Risposta:} 
     
-    I requisiti minimi non sono stati determinati. Ovviamente l'intenzione è quella di portare a termine gli obiettivi spiegati nel capitolato. Oltre agli obiettivi riportati i rappresentanti di Eggon hanno espresso il loro piacere nella collaborazione con team di studenti UniPd e hanno spiegato come per loro questo progetto sia anche un'occasione di confrontarsi con elementi esterni e poter migliorare tramite questo confronto.
+    I requisiti\textbf{\textsubscript{G}} minimi non sono stati determinati. Ovviamente l'intenzione è quella di portare a termine gli obiettivi spiegati nel capitolato\textbf{\textsubscript{G}}. Oltre agli obiettivi riportati i rappresentanti di Eggon hanno espresso il loro piacere nella collaborazione con team\textbf{\textsubscript{G}} di studenti UniPd e hanno spiegato come per loro questo progetto\textbf{\textsubscript{G}} sia anche un'occasione di confrontarsi con elementi esterni e poter migliorare tramite questo confronto.
     
     \vspace{1em}
 
     \item \textbf{Domande tecniche sulle tecnologie che sarà necessario utilizzare ed eventuali difficoltà}\\
     \noindent
-    Approfondimento delle tecnologie sulle quali è importante specializzarsi per la riuscita del progetto.\\ \\
+    Approfondimento delle tecnologie sulle quali è importante specializzarsi per la riuscita del progetto\textbf{\textsubscript{G}}.\\ \\
     \textit{Risposta:} 
-    Le tecnologie necessarie sono molteplici, è stato consigliato di informarsi principalmente sulle tecnologie proposte nel capitolato, con particolare attenzione ad AWS (Bedrock) e al suo ruolo per lo sviluppo delle AI del progetto. Tra le difficoltà che potremmo incontrare è stata segnalata la comprensione della documentazione AWS e della struttura backend.
+    Le tecnologie necessarie sono molteplici, è stato consigliato di informarsi principalmente sulle tecnologie proposte nel capitolato\textbf{\textsubscript{G}}, con particolare attenzione ad AWS\textbf{\textsubscript{G}} (Bedrock) e al suo ruolo per lo sviluppo delle AI\textbf{\textsubscript{G}} del progetto\textbf{\textsubscript{G}}. Tra le difficoltà che potremmo incontrare è stata segnalata la comprensione della documentazione AWS\textbf{\textsubscript{G}} e della struttura backend\textbf{\textsubscript{G}}.
     \vspace{1em}
 
     \item \textbf{Chiarimenti su come verrà disposta la formazione tecnica}\\
     \noindent
-    Dato l'utilizzo necessario di tecnologie nuove per i membri del team si voleva ottenere un chiarimento sul tipo di supporto che avremmo avuto a livello tecnico. \\ \\
+    Dato l'utilizzo necessario di tecnologie nuove per i membri del team\textbf{\textsubscript{G}} si voleva ottenere un chiarimento sul tipo di supporto che avremmo avuto a livello tecnico. \\ \\
     \textit{Risposta:} 
-    La formazione a livello tecnico verrà svolta autonomamente per le prime fasi del progetto per fare in modo che il team acquisisca dimestichezza con le tecnologie proposte (Ruby on rails, AWS, etc), poi verrà fornito il supporto necessario per la comprensione degli strumenti utilizzati all'interno di Nexum. 
+    La formazione a livello tecnico verrà svolta autonomamente per le prime fasi del progetto\textbf{\textsubscript{G}} per fare in modo che il team\textbf{\textsubscript{G}} acquisisca dimestichezza con le tecnologie proposte (Ruby on rails, AWS\textbf{\textsubscript{G}}, etc), poi verrà fornito il supporto necessario per la comprensione degli strumenti utilizzati all'interno di Nexum. 
     \vspace{1em}
 
 \end{itemize}
@@ -161,7 +168,7 @@ La riunione si è conclusa alle 10:35.
 
 
 \section{Esito riunione}
-    L'esito della riunione è stato molto positivo, le domande riguardanti il capitolato sono state risposte in maniera esaustiva. È stata molto apprezzata la disponibilità con cui l'azienda si è posta nei confronti del progetto e alla volontà di future collaborazioni anche in seguito alla sua conclusione. Si ringraziano l'azienda Eggon e i rappresentanti Gianpaolo Ferrarin e Luca Luzzolino per la disponibilità dimostrata.
+    L'esito della riunione è stato molto positivo, le domande riguardanti il capitolato\textbf{\textsubscript{G}} sono state risposte in maniera esaustiva. È stata molto apprezzata la disponibilità con cui l'azienda si è posta nei confronti del progetto\textbf{\textsubscript{G}} e alla volontà di future collaborazioni anche in seguito alla sua conclusione. Si ringraziano l'azienda Eggon e i rappresentanti Gianpaolo Ferrarin e Luca Luzzolino per la disponibilità dimostrata.
     
 % SEZIONE FIRMA E DATA SOSTITUITA CON L'IMMAGINE
 \vspace{1.0cm}
