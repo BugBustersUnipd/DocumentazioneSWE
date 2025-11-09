@@ -14,6 +14,7 @@
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
+\usepackage[titles]{tocloft}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
 
 \definecolor{primaryblue}{RGB}{0,102,204}
@@ -25,6 +26,13 @@
   {\Large\bfseries\color{primaryblue}}
   {\thesection}{1em}{}
 
+% Configurazione per l'indice
+\setcounter{tocdepth}{2} % Mostra sezioni e sottosezioni nell'indice
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\setlength{\cftbeforesecskip}{6pt}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsecpagefont}{}
+
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
 
@@ -35,10 +43,10 @@
 
 \begin{document}
 
-\begin{center}  \IfFileExists{../../../assets/Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../assets/Logo.jpg} \\[0.8cm]
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
   }{%
-    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(../../../../assets/Logo.jpg)}}\\[0.5cm]
   }
   
   {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
@@ -61,7 +69,7 @@
 \textbf{Verificatore}    & Marco Favero \\
 \textbf{Uso}          & Interno \\
 \textbf{Destinatari}  & BugBusters \\
-\textbf{Versione} & 1.0.0\\
+\textbf{Versione} & 1.0.1\\
 
 \end{tabular}
 \end{tcolorbox}
@@ -71,7 +79,7 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
-Verbale della prima riunione avvenuta in via telematica per concordare sulle tecnologie che verranno utilizzate, il nome del gruppo, il logo e l'email ufficiale. Inoltre sono stati discussi i vari capitolati e le modalità di scelta.
+Verbale della prima riunione avvenuta in via telematica per concordare sulle tecnologie che verranno utilizzate, il nome del gruppo\textsubscript{\textbf{G}}, il logo e l'email ufficiale. Inoltre sono stati discussi i vari capitolati\textsubscript{\textbf{G}} e le modalità di scelta.
 \end{tcolorbox}
 \end{center}
 
@@ -84,7 +92,7 @@ Verbale della prima riunione avvenuta in via telematica per concordare sulle tec
 
 \begin{itemize}
     \item \textbf{Tipo riunione:} interna
-    \item \textbf{Piattaforma:} Discord
+    \item \textbf{Piattaforma:} Discord\textsubscript{\textbf{G}}
     \item \textbf{Data:} 16/10/2025
     \item \textbf{Orario di inizio:} 14:30
     \item \textbf{Orario di fine:} 16:00
@@ -107,8 +115,8 @@ Verbale della prima riunione avvenuta in via telematica per concordare sulle tec
     \item Selezione del nome
     \item Proposta e creazione dei loghi
     \item Selezione del logo definitivo
-    \item Creazione della mail del progetto
-    \item Scelta del capitolato principale e capitolati di riserva
+    \item Creazione della mail del progetto\textsubscript{\textbf{G}}
+    \item Scelta del capitolato\textsubscript{\textbf{G}} principale e capitolati\textsubscript{\textbf{G}} di riserva
     \item Scelta delle tecnologie che verranno utilizzate
 \end{enumerate}
 
@@ -116,10 +124,10 @@ Verbale della prima riunione avvenuta in via telematica per concordare sulle tec
 
 \begin{itemize}
     \item La riunione è iniziata alle ore 14:30.
-    \item Il team ha deciso le tecnologie per le comunicazioni e l'organizzazione.
+    \item Il team\textsubscript{\textbf{G}} ha deciso le tecnologie per le comunicazioni e l'organizzazione.
     \item Sono stati realizzati diversi bozzetti di loghi ed è stata effettuata una votazione per selezionare il logo definitivo.
-    \item È stata creata l'email ufficiale del progetto.
-    \item È stato scelto il capitolato principale e individuati i due di riserva.
+    \item È stata creata l'email ufficiale del progetto\textsubscript{\textbf{G}}.
+    \item È stato scelto il capitolato\textsubscript{\textbf{G}} principale e individuati i due di riserva.
     \item Sono state formulate alcune domande da inviare alle aziende.
     \item La riunione è terminata alle ore 16:00.
 \end{itemize}
@@ -128,18 +136,18 @@ Verbale della prima riunione avvenuta in via telematica per concordare sulle tec
 
 \textbf{Tecnologie scelte:}
 \begin{itemize}
-    \item Discord e WhatsApp (comunicazione)
+    \item Discord\textsubscript{\textbf{G}} e WhatsApp (comunicazione)
     \item Google Calendar (gestione attività)
-    \item GitHub (versionamento)
-    \item LaTeX (documentazione)
+    \item GitHub\textsubscript{\textbf{G}} (versionamento\textsubscript{\textbf{G}})
+    \item LaTeX\textsubscript{\textbf{G}} (documentazione)
 \end{itemize}
 
 \begin{itemize}
     \item \textbf{Nome ufficiale:} a seguito di votazione, è stato scelto il nome \emph{BugBusters}.
     \item \textbf{Logo ufficiale:} approvato mediante votazione a maggioranza.
-    \item \textbf{Email di progetto:} {\small\textsf{bugbusters.unipd@gmail.com}}
-    \item \textbf{Preferenza espressa per il capitolato View4Life}
-    \item \textbf{Capitolati di riserva:} SecondBrain e Nexum
+    \item \textbf{Email di progetto\textsubscript{\textbf{G}}:} {\small\textsf{bugbusters.unipd@gmail.com}}
+    \item \textbf{Preferenza espressa per il capitolato\textsubscript{\textbf{G}} View4Life}
+    \item \textbf{Capitolati\textsubscript{\textbf{G}} di riserva:} SecondBrain e Nexum
     \item \textbf{Prossima riunione:} 18/10/2025 alle ore 15:00
 \end{itemize}
 
@@ -147,7 +155,7 @@ Verbale della prima riunione avvenuta in via telematica per concordare sulle tec
 
 \begin{tcolorbox}[colback=secondaryblue!8,colframe=secondaryblue!60,arc=2mm,boxrule=0.5pt,left=10pt,right=10pt]
 \begin{itemize}[topsep=5pt]
-    \item Studiare i capitolati scelti e preparare ulteriori domande da rivolgere alle aziende
+    \item Studiare i capitolati\textsubscript{\textbf{G}} scelti e preparare ulteriori domande da rivolgere alle aziende
     \item Redigere l'email da inviare alle aziende
     \item Prossima riunione: 18/10/2025 alle ore 15:00
 \end{itemize}
@@ -155,7 +163,7 @@ Verbale della prima riunione avvenuta in via telematica per concordare sulle tec
 
 \vfill
 \begin{center}
-    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo\textsubscript{\textbf{G}} BugBusters.}
 \end{center}
 
 \end{document}
