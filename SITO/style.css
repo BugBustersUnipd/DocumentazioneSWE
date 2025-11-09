@@ -716,3 +716,21 @@ section[role="region"] {
         font-size: 2.5rem;
     }
 }
+
+/* PDF Viewer Link Styles */
+.viewer-link {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.viewer-link:hover {
+    color: #218838;
+    text-decoration: underline;
+}
+
+.viewer-link:focus {
+    outline: 2px solid #28a745;
+    outline-offset: 2px;
+}
