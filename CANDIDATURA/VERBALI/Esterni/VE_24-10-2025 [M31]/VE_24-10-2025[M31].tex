@@ -1,5 +1,5 @@
 \documentclass[a4paper,12pt]{article}
-\newcommand{\CurrentVersion}{1.0.0}
+\newcommand{\CurrentVersion}{1.0.1}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -16,7 +16,7 @@
 \usepackage{tcolorbox}
 \usepackage{enumitem}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
-\usepackage[titles]{tocloft}
+\usepackage{tocloft}
 \usepackage{tabularx}
 \usepackage{eurosym}
 
@@ -24,6 +24,10 @@
 \definecolor{secondaryblue}{RGB}{51,153,255}
 \definecolor{lightgray}{RGB}{245,245,245}
 \definecolor{darkgray}{RGB}{100,100,100}
+
+% Configurazione semplice per l'indice
+\setcounter{tocdepth}{2}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \titleformat{\section}
   {\Large\bfseries\color{primaryblue}}
@@ -39,10 +43,10 @@
 
 \begin{document}
 
-\begin{center}  \IfFileExists{../../../assets/Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../assets/Logo.jpg} \\[0.8cm]
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
   }{%
-    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(../../../../assets/Logo.jpg)}}\\[0.5cm]
   }
   
   {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
@@ -51,7 +55,7 @@
 
   {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
   {\small Laurea in Informatica}\\[0.2cm]
-  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Corso: Ingegneria del Software\textsubscript{\textbf{G}}}\\[0.2cm]
   {\small Anno Accademico: 2025/2026}\\[0.8cm]
 
   {\Huge\bfseries\color{primaryblue} Verbale Esterno}\\[0.3cm]
@@ -117,22 +121,22 @@ Verbale della prima riunione avvenuta con l'azienda M31 in via telematica per ch
 \section{Ordine del giorno}
 
 \begin{enumerate}
-    \item Chiarimenti generali sul capitolato
-    \item Chiarimenti sui requisiti minimi per una soddisfacente realizzazione del projeto
+    \item Chiarimenti generali sul capitolato\textsubscript{\textbf{G}}
+    \item Chiarimenti sui requisiti\textsubscript{\textbf{G}} minimi per una soddisfacente realizzazione del progetto\textsubscript{\textbf{G}}
     \item Domande tecniche sulle tecnologie che sarà necessario utilizzare
     \item Chiarimenti su come verrà disposta la formazione tecnica
     \item Chiarimenti sul supporto a livello contenutistico che avremo durante lo sviluppo
 \end{enumerate}
 
 \section{Svolgimento}
-    La riunione è iniziata come previsto alle ore 11:00. In primo luogo è stata fatta un introduzione di chiarimento riguardante il progetto, e poi successivamente sono state riviste le domande inviate via mail ed è stato possibile farne delle altre.
+    La riunione è iniziata come previsto alle ore 11:00. In primo luogo è stata fatta un introduzione di chiarimento riguardante il progetto\textsubscript{\textbf{G}}, e poi successivamente sono state riviste le domande inviate via mail ed è stato possibile farne delle altre.
     \begin{itemize}
-    \item \textbf{Chiarimenti generali sul capitolato e sull'organizzazione}\\
+    \item \textbf{Chiarimenti generali sul capitolato\textsubscript{\textbf{G}} e sull'organizzazione}\\
     \noindent
     \textit{Risposta:} \\
     \begin{itemize}
-        \item Il progetto idealmente è concentrato principalmente sull'area medicale, e dunque sulla gestione dei segnali ricevuti da diverse tipologie di sensori.
-        \item Molta attenzione è stata posta sui test e validazione del codice e sullo sviluppo esaustivo e corretto del relativo testbook.
+        \item Il progetto\textsubscript{\textbf{G}} idealmente è concentrato principalmente sull'area medicale, e dunque sulla gestione dei segnali ricevuti da diverse tipologie di sensori.
+        \item Molta attenzione è stata posta sui test\textsubscript{\textbf{G}} e validazione\textsubscript{\textbf{G}} del codice e sullo sviluppo esaustivo e corretto del relativo testbook.
         \item Ogni due settimane un incontro sullo stato di avanzamento delle attività, e la settimana dopo il SAL, incontro per fornire supporto tecnico.
     \end{itemize}
     
@@ -150,7 +154,7 @@ Verbale della prima riunione avvenuta con l'azienda M31 in via telematica per ch
     \noindent
     Come è previsto che avvenga il provisioning del gateway nel cloud?\\ \\
     \textit{Risposta:} 
-    L'importante è che il provisioning sia sicuro, ma è un argomento che verrà trattato più accuratamente durante lo sviluppo del progetto, attraverso degli incontri appositi.
+    L'importante è che il provisioning sia sicuro, ma è un argomento che verrà trattato più accuratamente durante lo sviluppo del progetto\textsubscript{\textbf{G}}, attraverso degli incontri appositi.
     \vspace{1cm}
 
     \item \textbf{Chiarimenti su quali sensori verranno usati/simulati} \\
@@ -169,30 +173,30 @@ Verbale della prima riunione avvenuta con l'azienda M31 in via telematica per ch
     
      \item \textbf{Chiarimenti sulle tecnologie consigliate}\\
     \noindent
-    La domanda riguarda le tecnologie consigliate da usare per i dispositivi simulati ( sensori + gateway) e le tecnologie consigliate per il lato client (cloud + API).\\ \\
+    La domanda riguarda le tecnologie consigliate da usare per i dispositivi simulati ( sensori + gateway) e le tecnologie consigliate per il lato client (cloud + API\textsubscript{\textbf{G}}).\\ \\
     \textit{Risposta:} 
-    Le tecnologie proposte sono molte, ma per sviluppare il progetto bene non serve utilizzarle tutte. Ad esempio il simulatore e i microservizi sono sviluppabili in Node e la dashboard in Angular, in modo tale da utilizzare TypeScript. Per la parte cloud e API volendo viene consigliato anche Go, già utilizzato anche dall'azienda. Nats invece è consigliato per la trasmissione dati.
+    Le tecnologie proposte sono molte, ma per sviluppare il progetto\textsubscript{\textbf{G}} bene non serve utilizzarle tutte. Ad esempio il simulatore e i microservizi sono sviluppabili in Node e la dashboard\textsubscript{\textbf{G}} in Angular, in modo tale da utilizzare TypeScript. Per la parte cloud e API\textsubscript{\textbf{G}} volendo viene consigliato anche Go, già utilizzato anche dall'azienda. Nats invece è consigliato per la trasmissione dati.
     \vspace{1cm}
 
     \item \textbf{Chiaramenti sulle conoscenze pregresse}\\
     \noindent
-    Il team domanda se verrà fornito un supporto o qualche forma di affiancamento nell'utilizzare le tecnologie proposte.\\ \\
+    Il team\textsubscript{\textbf{G}} domanda se verrà fornito un supporto o qualche forma di affiancamento nell'utilizzare le tecnologie proposte.\\ \\
     \textit{Risposta:} 
-    Non è previsto un supporto attivo, come corsi o lezioni dirette, e non è ritenuto necessario poiché parte integrante del progetto consiste proprio nello studio e nella comprensione di queste tecnologie. Tuttavia viene fornito del supporto mirato anche tramite incontri dedicati nel caso sorgano dubbi o delle domande. 
+    Non è previsto un supporto attivo, come corsi o lezioni dirette, e non è ritenuto necessario poiché parte integrante del progetto\textsubscript{\textbf{G}} consiste proprio nello studio e nella comprensione di queste tecnologie. Tuttavia viene fornito del supporto mirato anche tramite incontri dedicati nel caso sorgano dubbi o delle domande. 
     \vspace{1cm}
     
     \item \textbf{Chiarimenti sulla UI}\\
     \noindent
-    È possibile indicare alcuni scenari d'uso rappresentativi delle UI, con ruoli coinvolti, passi utente e risultati attesi?\\ \\
+    È possibile indicare alcuni scenari\textsubscript{\textbf{G}} d'uso rappresentativi delle UI, con ruoli coinvolti, passi utente e risultati attesi?\\ \\
     \textit{Risposta:} 
-    Questi dettagli verranno definiti più avanti nel progetto, poiché nei primi incontri sarà necessario discutere e concordare i requisiti elencati nel capitolato. In ogni caso ci si aspetta una dashboard dove si possano visualizzare i dati trasmessi dai sensori attivi in real time, possibilmente con qualche filtro per il tenant corrente.
+    Questi dettagli verranno definiti più avanti nel progetto\textsubscript{\textbf{G}}, poiché nei primi incontri sarà necessario discutere e concordare i requisiti\textsubscript{\textbf{G}} elencati nel capitolato\textsubscript{\textbf{G}}. In ogni caso ci si aspetta una dashboard\textsubscript{\textbf{G}} dove si possano visualizzare i dati trasmessi dai sensori attivi in real time, possibilmente con qualche filtro per il tenant corrente.
     \vspace{1cm}
 
     \item \textbf{Chiarimenti sui rischi e mitigazioni}\\
     \noindent
     Quali rischi principali (tecnici, tempi, compliance) e quali mitigazioni sono accettabili nell'MVP? \\ \\
     \textit{Risposta:} 
-    L'analisi dei rischi verrà svolta dal team durante il progetto, riguardo alle tempistiche l'azienda è pienamente consapevole delle possibili difficoltà tecniche a cui il team può andare incontro ed è disposta a discutere con el team per contrattare i requisiti.
+    L'analisi\textsubscript{\textbf{G}} dei rischi\textsubscript{\textbf{G}} verrà svolta dal team\textsubscript{\textbf{G}} durante il progetto\textsubscript{\textbf{G}}, riguardo alle tempistiche l'azienda è pienamente consapevole delle possibili difficoltà tecniche a cui il team\textsubscript{\textbf{G}} può andare incontro ed è disposta a discutere con el team\textsubscript{\textbf{G}} per contrattare i requisiti\textsubscript{\textbf{G}}.
     \vspace{1cm}
     
     \item \textbf{Chiarimenti sul cloud}\\
@@ -204,9 +208,9 @@ Verbale della prima riunione avvenuta con l'azienda M31 in via telematica per ch
     
     \item \textbf{Chiarimenti sulla sicurezza}\\
     \noindent
-    Chiarimenti sui permessi assegnati agli amministratori e agli utenti generici. Successivamente su tre tecnologie di sicurezza citate: JWT, OAuth2, mTLS, e se vadano sviluppate in modo "diverso" rispetto al consueto.\\ \\
+    Chiarimenti sui permessi assegnati agli amministratori\textsubscript{\textbf{G}} e agli utenti generici. Successivamente su tre tecnologie di sicurezza citate: JWT, OAuth2, mTLS, e se vadano sviluppate in modo "diverso" rispetto al consueto.\\ \\
     \textit{Risposta:} 
-    L'amministratore ha accesso a tutto, mentre un cliente generico ha accesso solamente ai suoi gateway.
+    L'amministratore\textsubscript{\textbf{G}} ha accesso a tutto, mentre un cliente generico ha accesso solamente ai suoi gateway.
     Le tecnologie di sicurezza citate verranno utilizzate come di consueto, nel caso più avanti verranno ridiscusse.
     \vspace{1cm}
     
@@ -216,7 +220,7 @@ La riunione si è conclusa alle 11:50.
 
 
 \section{Esito riunione}
-    L'esito della riunione è stato complessivamente positivo, le domande riguardanti il capitolato sono state risposte in maniera esaustiva. Si ringraziano l'azienda M31 e i rappresentanti Moones Mobaraki e Cristian Pirlog per la disponibilità dimostrata.
+    L'esito della riunione è stato complessivamente positivo, le domande riguardanti il capitolato\textsubscript{\textbf{G}} sono state risposte in maniera esaustiva. Si ringraziano l'azienda M31 e i rappresentanti Moones Mobaraki e Cristian Pirlog per la disponibilità dimostrata.
     
 
 % SEZIONE FIRMA E DATA SOSTITUITA CON L'IMMAGINE
