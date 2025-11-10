@@ -794,3 +794,18 @@ section[role="region"] {
     outline: 2px solid #28a745;
     outline-offset: 2px;
 }
+
+/* Ensure viewer buttons (which also have .viewer-link) remain readable on blue background */
+.btn-viewer.viewer-link {
+    color: var(--white);
+    text-decoration: none;
+    border-color: var(--primary-blue);
+}
+
+.btn-viewer.viewer-link:hover,
+.btn-viewer.viewer-link:focus {
+    background: var(--primary-blue-dark);
+    color: var(--white);
+    outline: 3px solid var(--focus-outline);
+    outline-offset: 2px;
+}
