@@ -449,7 +449,8 @@ section[role="region"] {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    display: flex;
+    /* make anchors inline-level flex containers so viewer links can sit on the same line */
+    display: inline-flex;
     align-items: center;
     padding: 14px 16px;
     transition: all 0.2s ease;
@@ -469,21 +470,59 @@ section[role="region"] {
     background: var(--secondary-blue);
 }
 
-.doc-list a::before {
-    content: "📄";
-    margin-right: 12px;
-    font-size: 1.2rem;
-    flex-shrink: 0;
-}
-
 .doc-list.verbali {
     margin-left: 0;
     padding-left: 25px;
     border-left: 2px solid var(--secondary-blue);
 }
 
-.doc-list.verbali a::before {
-    content: "📋";
+/* Layout for verbali list items: put file title and action buttons on one line */
+.doc-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 6px;
+}
+
+.file-title {
+    color: var(--primary-blue);
+    font-weight: 600;
+    flex: 1 1 auto; /* allow title to take remaining space */
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1;
+    transition: background 0.12s ease, color 0.12s ease, transform 0.08s ease;
+}
+
+.btn-open {
+    background: transparent;
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+}
+
+.btn-open:hover,
+.btn-open:focus {
+    background: var(--hover-bg);
+}
+
+.btn-viewer {
+    background: var(--primary-blue);
+    color: var(--white);
+    border: 1px solid var(--primary-blue);
+}
+
+.btn-viewer:hover,
+.btn-viewer:focus {
+    background: var(--primary-blue-dark);
 }
 
 /* Chi Siamo Section Styles */
@@ -754,4 +793,20 @@ section[role="region"] {
 .viewer-link:focus {
     outline: 2px solid #28a745;
     outline-offset: 2px;
+}
+
+/* Ensure viewer buttons (which also have .viewer-link) keep the btn-viewer styles */
+.btn-viewer.viewer-link,
+.btn-viewer.viewer-link:link,
+.btn-viewer.viewer-link:visited {
+    color: var(--white);
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.btn-viewer.viewer-link:hover,
+.btn-viewer.viewer-link:focus {
+    background: var(--primary-blue-dark);
+    color: var(--white);
 }
