@@ -289,6 +289,8 @@ main {
     display: flex;
     gap: 12px;
     margin-bottom: 18px;
+    /* Allow tab buttons to wrap on small screens */
+    flex-wrap: wrap;
 }
 
 .doc-panels {
@@ -671,6 +673,13 @@ section[role="region"] {
         font-size: 0.95rem;
         padding: 12px;
     }
+
+    /* Make tab buttons responsive: allow shrinking and wrapping */
+    .documentation .doc-controls .tab-btn {
+        flex: 1 1 40%; /* try two per row when possible */
+        min-width: 140px;
+        padding: 10px 14px;
+    }
     
     .team-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -714,6 +723,18 @@ section[role="region"] {
     
     .member-icon {
         font-size: 2.5rem;
+    }
+
+    /* On very small screens stack tab buttons vertically for best usability */
+    .documentation .doc-controls {
+        gap: 8px;
+    }
+
+    .documentation .doc-controls .tab-btn {
+        flex: 1 1 100%;
+        min-width: 0;
+        padding: 10px 12px;
+        font-size: 0.95rem;
     }
 }
 
