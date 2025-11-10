@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer - BugBusters</title>
+    <meta name="description" content="Visualizzatore PDF con glossario personalizzato">
+    <link rel="icon" href="assets/Logo.jpg" type="image/jpeg">
+    <meta name="theme-color" content="#0066cc">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .viewer-container {
+            display: flex;
+            height: calc(100vh - 120px);
+            margin-top: 20px;
+        }
+        .pdf-viewer {
+            flex: 1;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+        .pdf-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .glossary-panel {
+            width: 350px;
+            border: 1px solid #ddd;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            position: fixed;
+            right: 20px;
+            top: 120px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+        .glossary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .viewer-controls {
+            display: flex;
+            gap: 10px;
+        }
+        .control-btn {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .control-btn:hover {
+            background: #0056b3;
+        }
+        .viewer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .back-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-btn:hover {
+            background: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <div class="header-inner">
+            <div class="brand">
+                <img src="assets/Logo.jpg" alt="Logo BugBusters" class="logo">
+                <div class="brand-text">
+                    <h1>BugBusters</h1>
+                    <p>PDF Viewer con Glossario</p>
+                </div>
+            </div>
+            <a href="index.html" class="back-btn">← Torna alla Home</a>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <div class="content-box">
+            <div class="viewer-header">
+                <h2 id="pdf-title">Caricamento PDF...</h2>
+                <div class="viewer-controls">
+                    <button id="show-glossary-btn" class="control-btn">📚 Mostra Glossario</button>
+                </div>
+            </div>
+
+            <div class="viewer-container">
+                <div class="pdf-viewer">
+                    <iframe id="pdf-iframe" class="pdf-iframe" title="PDF Document"></iframe>
+                </div>
+
+                <div class="glossary-panel" id="glossary-panel" style="display: none;">
+                    <div class="glossary-header">
+                        <h3>📚 Glossario</h3>
+                        <button id="close-glossary" class="close-btn">×</button>
+                    </div>
+                    <div id="term-definition">
+                        <p style="color: #666; font-style: italic;">Caricamento glossario...</p>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pdfPath = urlParams.get('pdf');
+            const pdfTitle = urlParams.get('title') || 'Documento PDF';
+
+            if (!pdfPath) {
+                document.getElementById('pdf-title').textContent = 'Errore: PDF non specificato';
+                return;
+            }
+
+            document.getElementById('pdf-title').textContent = pdfTitle;
+
+            // Carica il PDF nell'iframe
+            const pdfIframe = document.getElementById('pdf-iframe');
+            pdfIframe.src = pdfPath;
+
+            // Carica il glossario
+            let glossaryData = [];
+            loadGlossary();
+
+            // Gestisci chiusura del pannello glossario
+            document.getElementById('close-glossary').addEventListener('click', function() {
+                document.getElementById('glossary-panel').style.display = 'none';
+            });
+
+            // Gestisci pulsante mostra glossario
+            document.getElementById('show-glossary-btn').addEventListener('click', function() {
+                showFullGlossary();
+            });
+
+            async function loadGlossary() {
+                try {
+                    const response = await fetch('glossario.json');
+                    const data = await response.json();
+                    glossaryData = data.terms;
+                } catch (error) {
+                    console.error('Errore nel caricamento del glossario:', error);
+                }
+            }
+
+            function showFullGlossary() {
+                const panel = document.getElementById('glossary-panel');
+                const definitionDiv = document.getElementById('term-definition');
+
+                let glossaryHTML = '<input type="text" id="glossary-search" class="term-input" placeholder="Cerca nel glossario..." style="margin-bottom: 15px; width: 100%;"><div id="glossary-list" style="max-height: 400px; overflow-y: auto;">';
+
+                glossaryData.forEach(termObj => {
+                    glossaryHTML += `
+                        <div class="glossary-item" style="padding: 10px; border-bottom: 1px solid #eee; cursor: pointer;" onclick="showDefinitionFromList('${termObj.term.replace(/'/g, "\\'")}')">
+                            <strong style="color: #0066cc;">${termObj.term}</strong>
+                            <div style="margin-top: 5px; font-size: 0.9em; color: #666;">${termObj.definition.substring(0, 100)}${termObj.definition.length > 100 ? '...' : ''}</div>
+                        </div>
+                    `;
+                });
+
+                glossaryHTML += '</div>';
+
+                definitionDiv.innerHTML = glossaryHTML;
+                panel.style.display = 'block';
+
+                // Aggiungi event listener per la ricerca
+                setTimeout(() => {
+                    const searchInput = document.getElementById('glossary-search');
+                    if (searchInput) {
+                        searchInput.addEventListener('input', function() {
+                            filterGlossaryList(this.value.toLowerCase().trim());
+                        });
+                    }
+                }, 100);
+            }
+
+            function showDefinitionFromList(termName) {
+                const termObj = glossaryData.find(t => t.term === termName);
+                if (termObj) {
+                    const panel = document.getElementById('glossary-panel');
+                    const definitionDiv = document.getElementById('term-definition');
+
+                    definitionDiv.innerHTML = `
+                        <div style="margin-bottom: 15px;">
+                            <button onclick="showFullGlossary()" style="background: #6c757d; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">← Torna al glossario</button>
+                        </div>
+                        <h4 style="color: #0066cc; margin-bottom: 10px;">${termObj.term}</h4>
+                        <p style="line-height: 1.5;">${termObj.definition}</p>
+                    `;
+                }
+            }
+
+            function filterGlossaryList(searchTerm) {
+                const items = document.querySelectorAll('#glossary-list .glossary-item');
+                items.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    item.style.display = text.includes(searchTerm) ? 'block' : 'none';
+                });
+            }
+
+            // Rendi la funzione globale per l'onclick
+            window.showDefinitionFromList = showDefinitionFromList;
+            window.showFullGlossary = showFullGlossary;
+        });
+    </script>
+</body>
+</html>
