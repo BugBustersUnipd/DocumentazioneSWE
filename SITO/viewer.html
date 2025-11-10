@@ -24,11 +24,6 @@
             height: 100%;
             border: none;
         }
-        .pdf-embed {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
         .glossary-panel {
             width: 350px;
             border: 1px solid #ddd;
@@ -101,28 +96,33 @@
             background: #5a6268;
         }
     </style>
-    <!-- PDF.js from CDN for consistent cross-browser rendering -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 </head>
 <body>
     <header role="banner">
+        <div class="header-inner">
+            <div class="brand">
+                <img src="assets/Logo.jpg" alt="Logo BugBusters" class="logo">
+                <div class="brand-text">
+                    <h1>BugBusters</h1>
+                    <p>PDF Viewer con Glossario</p>
+                </div>
+            </div>
+            <a href="index.html" class="back-btn">← Torna alla Home</a>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <div class="content-box">
             <div class="viewer-header">
                 <h2 id="pdf-title">Caricamento PDF...</h2>
                 <div class="viewer-controls">
-                    <button id="prev-page" class="control-btn">◀</button>
-                    <span id="page-info" style="align-self:center; font-weight:600;">-- / --</span>
-                    <button id="next-page" class="control-btn">▶</button>
-                    <button id="zoom-out" class="control-btn">−</button>
-                    <span id="zoom-info" style="align-self:center;">100%</span>
-                    <button id="zoom-in" class="control-btn">+</button>
                     <button id="show-glossary-btn" class="control-btn">📚 Mostra Glossario</button>
                 </div>
             </div>
 
             <div class="viewer-container">
-                <div class="pdf-viewer" style="position:relative;">
-                    <!-- canvas for PDF.js rendering -->
-                    <canvas id="pdf-canvas" style="width:100%; height:100%; display:block;"></canvas>
+                <div class="pdf-viewer">
+                    <iframe id="pdf-iframe" class="pdf-iframe" title="PDF Document"></iframe>
                 </div>
 
                 <div class="glossary-panel" id="glossary-panel" style="display: none;">
@@ -135,9 +135,9 @@
                     </div>
                 </div>
             </div>
-                <div class="pdf-viewer">
+    </main>
+
     <script>
-        // PDF.js viewer + glossary panel
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const pdfPath = urlParams.get('pdf');
@@ -150,109 +150,20 @@
 
             document.getElementById('pdf-title').textContent = pdfTitle;
 
-            // PDF.js setup
-            const pdfjsLib = window['pdfjs-dist/build/pdf'];
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+            // Carica il PDF nell'iframe
+            const pdfIframe = document.getElementById('pdf-iframe');
+            pdfIframe.src = pdfPath;
 
-            let pdfDoc = null;
-            let pageNum = 1;
-            let pageRendering = false;
-            let pageNumPending = null;
-            let scale = 1.0;
-            const canvas = document.getElementById('pdf-canvas');
-            const ctx = canvas.getContext('2d');
-
-            function renderPage(num) {
-                pageRendering = true;
-                // Using promise to fetch the page
-                pdfDoc.getPage(num).then(function(page) {
-                    const viewport = page.getViewport({ scale: scale });
-                    canvas.height = viewport.height;
-                    canvas.width = viewport.width;
-
-                    // Render PDF page into canvas context
-                    const renderContext = {
-                        canvasContext: ctx,
-                        viewport: viewport
-                    };
-                    const renderTask = page.render(renderContext);
-
-                    // Wait for rendering to finish
-                    renderTask.promise.then(function () {
-                        pageRendering = false;
-                        if (pageNumPending !== null) {
-                            renderPage(pageNumPending);
-                            pageNumPending = null;
-                        }
-                    });
-                });
-
-                // Update page counters
-                document.getElementById('page-info').textContent = num + ' / ' + pdfDoc.numPages;
-            }
-
-            function queueRenderPage(num) {
-                if (pageRendering) {
-                    pageNumPending = num;
-                } else {
-                    renderPage(num);
-                }
-            }
-
-            function onPrevPage() {
-                if (pageNum <= 1) return;
-                pageNum--;
-                queueRenderPage(pageNum);
-            }
-
-            function onNextPage() {
-                if (pageNum >= pdfDoc.numPages) return;
-                pageNum++;
-                queueRenderPage(pageNum);
-            }
-
-            function updateZoomInfo() {
-                document.getElementById('zoom-info').textContent = Math.round(scale * 100) + '%';
-            }
-
-            function zoomIn() {
-                scale = Math.min(scale + 0.25, 3);
-                queueRenderPage(pageNum);
-                updateZoomInfo();
-            }
-
-            function zoomOut() {
-                scale = Math.max(scale - 0.25, 0.5);
-                queueRenderPage(pageNum);
-                updateZoomInfo();
-            }
-
-            // Attach control events
-            document.getElementById('prev-page').addEventListener('click', onPrevPage);
-            document.getElementById('next-page').addEventListener('click', onNextPage);
-            document.getElementById('zoom-in').addEventListener('click', zoomIn);
-            document.getElementById('zoom-out').addEventListener('click', zoomOut);
-
-            // Load the PDF
-            const loadingTask = pdfjsLib.getDocument(pdfPath);
-            loadingTask.promise.then(function(pdf) {
-                pdfDoc = pdf;
-                document.getElementById('page-info').textContent = '1 / ' + pdfDoc.numPages;
-                // Initial/first page rendering
-                renderPage(pageNum);
-            }, function (reason) {
-                console.error('Error loading PDF: ' + reason);
-                document.getElementById('pdf-title').textContent = 'Errore nel caricamento del PDF';
-            });
-
-            // Glossary code (unchanged behavior)
+            // Carica il glossario
             let glossaryData = [];
             loadGlossary();
 
+            // Gestisci chiusura del pannello glossario
             document.getElementById('close-glossary').addEventListener('click', function() {
                 document.getElementById('glossary-panel').style.display = 'none';
             });
 
+            // Gestisci pulsante mostra glossario
             document.getElementById('show-glossary-btn').addEventListener('click', function() {
                 showFullGlossary();
             });
@@ -287,44 +198,13 @@
                 definitionDiv.innerHTML = glossaryHTML;
                 panel.style.display = 'block';
 
+                // Aggiungi event listener per la ricerca
                 setTimeout(() => {
                     const searchInput = document.getElementById('glossary-search');
                     if (searchInput) {
                         searchInput.addEventListener('input', function() {
                             filterGlossaryList(this.value.toLowerCase().trim());
                         });
-                    }
-                }, 100);
-            }
-
-            function showDefinitionFromList(termName) {
-                const termObj = glossaryData.find(t => t.term === termName);
-                if (termObj) {
-                    const panel = document.getElementById('glossary-panel');
-                    const definitionDiv = document.getElementById('term-definition');
-
-                    definitionDiv.innerHTML = `
-                        <div style="margin-bottom: 15px;">
-                            <button onclick="showFullGlossary()" style="background: #6c757d; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">← Torna al glossario</button>
-                        </div>
-                        <h4 style="color: #0066cc; margin-bottom: 10px;">${termObj.term}</h4>
-                        <p style="line-height: 1.5;">${termObj.definition}</p>
-                    `;
-                }
-            }
-
-            function filterGlossaryList(searchTerm) {
-                const items = document.querySelectorAll('#glossary-list .glossary-item');
-                items.forEach(item => {
-                    const text = item.textContent.toLowerCase();
-                    item.style.display = text.includes(searchTerm) ? 'block' : 'none';
-                });
-            }
-
-            window.showDefinitionFromList = showDefinitionFromList;
-            window.showFullGlossary = showFullGlossary;
-        });
-    </script>
                     }
                 }, 100);
             }
