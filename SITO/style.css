@@ -818,8 +818,10 @@ section[role="region"] {
 }
 
 /* Hide viewer links on mobile devices since iframe viewer doesn't work on mobile */
-@media screen and (max-width: 767px) and (max-device-width: 1024px) {
+@media screen and (max-width: 767px) {
     .viewer-link {
-        display: none;
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
     }
 }
