@@ -1,5 +1,56 @@
+% Macro per i verbali del gruppo BugBusters
+% Macro utili consigliate per la stesura dei verbali
+% Queste macro sono pensate per essere piccole e riutilizzabili all'interno dei
+% template dei verbali (es. per la tabella meta, per le righe della tabella decisioni,
+% per la lista dei presenti e per il logo con fallback).
+
+
 % genera la stringa "\noindent (Riferimento alla tabella decisioni:
 % \hyperref[RTB4]{RTB4})", si usa facendo \refDecisione{NomeLabel}{Testo}
 \newcommand{\refDecisione}[2]{%
     \noindent (\textbf{Riferimento alla tabella decisioni: \hyperref[#1]{#2}})%
+}
+
+
+% 1) Campi della tabella meta (usare dentro un tabular con due colonne)
+% Esempio d'uso:
+% \begin{tabular}{@{}ll@{}}
+%   \VBField{Redattori}{Linor Sadè} \\
+%   \VBField{Verificatore}{Marco Piro} \\
+% \end{tabular}
+\newcommand{\VBField}[2]{\textbf{#1} & #2 \\\relax}
+\newcommand{\VBRedattori}[1]{\VBField{Redattori}{#1}}
+\newcommand{\VBVerificatore}[1]{\VBField{Verificatore}{#1}}
+\newcommand{\VBUso}[1]{\VBField{Uso}{#1}}
+\newcommand{\VBDestinatari}[1]{\VBField{Destinatari}{#1}}
+\newcommand{\VBVersione}[1]{\VBField{Versione}{#1}}
+
+% 2) Ambiente per la lista dei presenti coerente con lo stile dei verbali
+% Esempio d'uso: \begin{VBPresenti} \item Nome 1 \item Nome 2 \end{VBPresenti}
+\newenvironment{VBPresenti}{%
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+}{%
+    \end{itemize}
+}
+
+% 3) Righe della tabella decisioni/azioni (3 colonne: ID, Descrizione, Incaricato)
+% Lasciare il formato della prima cella libero per permettere l'uso di \href
+% o label personalizzate. Esempio:
+%   \DecisionRow{\href{...}{RTB1} \label{RTB1}}{Descrizione}{Linor Sadè}
+% Nota: imposto anche il colore della regola orizzontale per garantire che
+% le linee della tabella siano nel colore 'primaryblue' e che la riga colori
+% correttamente anche quando usata all'interno di 'tabularx'.
+\newcommand{\DecisionRow}[3]{%
+    \rowcolor{secondaryblue!10} #1 & #2 & #3 \\
+    \arrayrulecolor{primaryblue}\hline
+}
+
+% 4) Logo con fallback (accetta percorso e larghezza/altezza come stringhe, es.: 6cm,3cm)
+% Esempio: \VBLogo{../../../../assets/Logo.jpg}{6cm}{3cm}
+\newcommand{\VBLogo}[3]{%
+    \IfFileExists{#1}{%
+        \includegraphics[width=#2,height=#3,keepaspectratio]{#1}%
+    }{%
+        \fbox{\parbox[c][#3][c]{#2}{\centering Logo non trovato\\(#1)}}%
+    }%
 }
