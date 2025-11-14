@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script per aggiornare automaticamente il file Glossario.tex
+Script per aggiornare automaticamente il file Glossario.tex partendo dal file Json.
 leggendo i termini dal file glossario.json nella cartella SITO.
 Mantiene la struttura LaTeX esistente e ordina i termini alfabeticamente.
 """
