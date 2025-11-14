@@ -1,5 +1,6 @@
 # Aggiunge \G (senza parentesi) subito dopo i termini del glossario.
-# - legge glossario come lista di {"term": "...", "definition": "..."}
+# - legge glossario come lista di {"term": "...", "definition": "..."} partendo dal Json
+# - chiede all'utente il file .tex da modificare
 # - case-insensitive
 # - tenta di coprire singolare/plurale e piccole variazioni di finale
 # - non duplica se \G è già presente vicino al termine
