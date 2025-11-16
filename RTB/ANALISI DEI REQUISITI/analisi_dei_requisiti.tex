@@ -1,0 +1,340 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[titles]{tocloft}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{amsmath}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{BugBusters}
+\fancyhead[R]{Analisi dei Requisiti}
+\fancyfoot[L]{\thepage\ di \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\headheight}{14pt}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+\begin{document}
+
+\begin{center}
+  \thispagestyle{empty}
+  \IfFileExists{../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  {\LARGE\bfseries BugBusters}\\[0.8cm]
+  
+  \rule{\textwidth}{0.5pt}\\[0.5cm]
+  {\Large\bfseries Analisi dei Requisiti}\\[0.3cm]
+  {\large Versione 0.0.1}\\[0.5cm]
+  \rule{\textwidth}{0.5pt}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=gray!10,width=0.8\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{ll}
+\textbf{Stato} & In redazione \\
+\textbf{Redattori} & ----- \\
+\textbf{Destinatari} & BugBusters \\
+ & Prof. Vardanega Tullio \\
+ & Prof. Cardin Riccardo \\
+ & Eggon \\
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\textbf{Descrizione}
+\end{center}
+
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\small
+Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBusters} per il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} C5 proposto dall'azienda Eggon
+\end{minipage}
+\end{center}
+
+\newpage
+
+\section*{Registro delle Modifiche}
+
+{\footnotesize
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|l|X|l|l|}
+\hline
+\textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
+\hline
+0.0.1 & ------- & 
+\begin{minipage}[t]{\linewidth}
+Prima stesura della struttura del documento.
+\end{minipage} 
+& ------ & - \\
+\hline
+\end{tabularx}
+\end{center}
+}
+
+\vfill
+\begin{center}
+2 di \pageref{LastPage}
+\end{center}
+
+\newpage
+
+\section*{Indice}
+
+\noindent
+\begin{minipage}[t]{0.8\textwidth}
+\subsection*{1 Introduzione}
+1.1 Scopo del documento \\
+1.2 Prospettiva del prodotto \\
+1.3 Funzioni del prodotto \\
+1.4 Caratterisitiche dell'utente \\
+1.5 Definizioni, acronimi e abbreviazioni \\
+1.6 Riferimenti \\
+\quad 1.6.1 Riferimenti normativi \\
+\quad 1.6.2 Riferimenti informativi \\
+\subsection*{2 Casi d'uso}
+2.1 Introduzione \\
+2.2 Attori \\
+2.3 Lista casi d'uso \\
+\quad 2.3.1 UC1: Creazione di un nuovo contenuto tramite prompt \\
+
+\end{minipage}
+\begin{minipage}[t]{0.2\textwidth}
+\vspace{1.65\baselineskip}
+9 \\
+9 \\
+9 \\
+10 \\
+10 \\
+10 \\
+\end{minipage}
+
+\newpage
+
+\section{Introduzione}
+
+\subsection{Scopo del documento}
+Questo documento di Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ adottato da parte di BugBusters durante lo svolgimento del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ didattico, ha lo scopo di definire in maniera precisa e
+ dettagliata i requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}} e non funzionali del Sistema software da sviluppare.
+
+ Per tale scopo, il documento include una descrizione approfondita dei Casi d’Uso, che sono
+fonte dei requisiti infine elencati. Verranno utilizzati, per agevolare la comprensione, i
+\textbf{Diagrammi dei Casi d’Uso } per visualizzare le interazioni tra attori e Sistema.
+
+Il presente documento rappresenterà il riferimento di base per la progettazione,
+l’implementazione e il collaudo del prodotto finale, garantendo che il Sistema realizzato
+soddisfi pienamente le esigenze e le aspettative del committente.
+
+I requisiti identificati sono classificati in:
+\begin{itemize}
+    \item Obbligatori: irrinunciabili e imprescindibili per il corretto funzionamento del Sistema;
+    \item Desiderabili: non strettamente necessari ma in grado di apportare un valore aggiunto riconoscibile;
+    \item Opzionali: relativamente utili oppure contrattabili per essere implementati in futuro.
+\end{itemize}
+
+Il documento di Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} viene redatto dagli Analisti del team di progetto ed è
+rivolto ai seguenti principali destinatari:
+\begin{itemize}
+    \item Il Committente, che potrà verificare che i requisiti siano stati correttamente interpretati
+    e documentati secondo le sue specifiche;
+    \item Il Team di Progettisti e di Programmatori, che utilizzerà questo documento come guida
+    fondamentale per la realizzazione del Sistema software;
+    \item Il Team di Verificatori, che baserà sull’Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} la definizione dei casi di Test
+    e la verifica del corretto funzionamento del prodotto.
+\end{itemize}
+Inoltre, il documento potrà essere consultato da altri soggetti coinvolti nel processo di
+sviluppo, come Amministratori e Responsabili di Progetto, al fine di acquisire una
+comprensione esauriente delle specifiche del Sistema.
+
+
+\subsection{Prospettiva del prodotto}
+
+Il prodotto che BugBusters si promette di sviluppare è una significativa evoluzione della piattaforma NEXUM: 
+un ecosistema HR intelligente, interoperabile e scalabile per la gestione della comunicazione interna, delle presenze e dei processi amministrativi legati alle risorse umane.
+Nello specifico, si intende realizzare una piattaforma che non solo supporti le funzionalità già presenti 
+(messaggistica top-down, timbratura digitale base, gestione anagrafiche/ruoli/permessi), 
+ma che fornisca una visione unificata e in tempo reale delle attività HR, delle scadenze e dei documenti rilevanti per le organizzazioni e per gli studi dei Consulenti del Lavoro (CdL) connessi al sistema.
+
+Per ottenere ciò, il prodotto dovrà essere reattivo alle molteplici operazioni che avvengono quotidianamente nell’ambito HR 
+(timbrature, invio di documenti, elaborazione di cedolini, gestione ferie/permessi, segnalazioni di anomalie). 
+L’architettura dovrà quindi supportare scalabilità orizzontale e verticale dei componenti (microservizi) per mantenere bassa latenza e 
+alta disponibilità anche in condizioni di carico elevato. 
+Fondamentale è inoltre garantire la sicurezza e l’isolamento dei flussi dati tra organizzazioni e studi esterni.
+
+Elemento distintivo del prodotto sarà l’integrazione di moduli AI e di Data Analytics: 
+un AI Assistant generativo per la creazione e l’adattamento di contenuti aziendali (titoli, testi e immagini coerenti con il tono aziendale), 
+moduli di anomaly detection per individuare comportamenti anomali nelle presenze e negli straordinari, 
+e capacità di riconoscimento e smistamento automatico dei documenti provenienti dagli studi dei Consulenti del Lavoro. 
+Queste funzionalità abiliteranno automazioni proattive (es. notifica scadenze, suggerimenti per la gestione ferie, dispaccio automatico di documenti) e analizzeranno i dati per supportare decisioni HR data-driven.
+
+Infine, il progetto assumerà un approccio modulare e sperimentale: 
+i componenti sviluppati dovranno essere integrabili nella piattaforma NEXUM 
+(backend, frontend, database, architettura) come moduli riutilizzabili e documentati, favorendo sia l’adozione industriale sia l’attività di ricerca e 
+formazione tramite prototipi realizzati dagli studenti UNIPD.
+
+
+
+
+\subsection{Funzioni del prodotto}
+Dal punto di vista dell’utilizzatore finale, il prodotto dovrà fornire le seguenti funzionalità:
+\begin{itemize}
+    \item Disponibilità delle nuove funzionalità sulla Dashboard amministrativa e, ove opportuno, tramite PWA per gli utenti finali.
+    \item AI Assistant Generativo per la creazione rapida di comunicazioni interne: generazione di titolo, contenuto testuale e immagine di copertina a partire da un prompt; selezione del tono/stile (formale, informale, neutro); salvataggio dei prompt e dei risultati; sistema di rating per valutare la qualità dei contenuti generati.
+    \item Estensione del modulo di timbratura per la raccolta e gestione di ferie, permessi, malattia e straordinari, con storicizzazione e reportistica.
+    \item Modulo di anomaly detection per individuare automaticamente incongruenze nelle presenze e negli straordinari e invio di alert ai responsabili.
+    \item Repository documentale per gli studi dei Consulenti del Lavoro: upload sicuro dei documenti, riconoscimento automatico della tipologia di documento (cedolini, comunicazioni, documenti da firmare, ecc.) e individuazione dei destinatari direttamente dal contenuto.
+    \item Split e dispaccio automatico dei documenti: capacità di suddividere upload massivi in base ai destinatari e creare liste di distribuzione per invii massivi.
+    \item Sistema di interoperabilità e API per lo scambio sicuro di documenti, scadenze e metadati con gli studi dei CdL, potenziato da moduli AI per il riconoscimento, l’estrazione metadati e il dispaccio intelligente.
+    \item Funzionalità di configurazione amministrativa: possibilità di definire ruoli, permessi, template di messaggi, soglie e policy per le rilevazioni di anomalie.
+    \item Strumenti di esportazione: esportare report di presenza, inventari di scadenze e archive documentali in formati standard (CSV, PDF).
+    \item Monitoraggio in tempo reale: visualizzazione del numero di richieste e dello stato operativo dei servizi della piattaforma (metriche di utilizzo, code, latenza).
+    \item Tracciamento e audit: log delle azioni amministrative e dei dispacci documentali per esigenze di compliance.
+\end{itemize}
+
+Queste funzionalità mirano a rendere NEXUM una piattaforma modulare, scalabile e orientata all’automazione intelligente, capace di migliorare l’efficienza dei processi HR e la collaborazione con gli studi dei Consulenti del Lavoro.
+
+
+\subsection{Caratterisitiche dell'utente}
+Gli utilizzatori finali del prodotto non appartengono a un’unica categoria specifica: l’obiettivo del progetto è infatti quello di progettare moduli intelligenti e interoperabili che possano essere integrati all’interno dell’ecosistema NEXUM, rendendolo utilizzabile in modo efficace da una vasta gamma di figure professionali.
+In generale, è possibile affermare che gli utenti finali sono tutti coloro che necessitano di uno strumento scalabile, intelligente e semplice da utilizzare per la gestione delle attività HR, della comunicazione interna e dello scambio documentale con gli studi dei Consulenti del Lavoro. Rientrano in questa categoria:
+\begin{itemize}
+    \item Responsabili e amministratori HR, che richiedono strumenti avanzati per la gestione di presenze, ferie, permessi, anomalie e comunicazioni aziendali.
+    \item Consulenti del Lavoro (CdL) e personale amministrativo degli studi professionali, che necessitano di un sistema interoperabile per caricare, riconoscere e distribuire documenti in modo rapido e automatico.
+    \item Dipendenti e collaboratori, che interagiscono con la piattaforma per consultare comunicazioni, gestire le proprie richieste e ricevere documenti in formato digitale.
+    \item Manager aziendali, interessati a disporre di una panoramica affidabile e in tempo reale dei flussi HR e delle scadenze operative.
+\end{itemize}
+In sintesi, il prodotto è rivolto a organizzazioni di varie dimensioni — in particolare aziende medio-grandi e studi professionali — che necessitano di una piattaforma HR completa, modulare, automatizzata e potenziata dall’AI, capace di semplificare e migliorare la gestione dei processi legati alle risorse umane e alla collaborazione con i Consulenti del Lavoro.
+
+\subsection{Definizioni, acronimi e abbreviazioni}
+Per tutte le definizioni, acronimi e abbreviazioni utilizzati in questo documento, si faccia
+riferimento al \textbf{Glossario}, fornito come documento separato, che contiene tutte le spiegazioni
+necessarie per garantire una comprensione uniforme dei termini tecnici e dei concetti
+rilevanti per il progetto.
+
+\newpage
+
+\subsection{Riferimenti}
+
+\subsubsection{Riferimenti normativi}
+\begin{itemize}
+\item \textbf{Capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ d'appalto C5: Nexum - Piattaforma di consulenza e documentazione previdenziale}\\
+\url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf}
+\end{itemize}
+
+\subsubsection{Riferimenti informativi}
+\begin{itemize}
+\item \textbf{Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}}
+:}\\
+\url{https://github.com/BugBustersUnipd/DocumentazioneSWE/blob/main//RTB/GLOSSARIO/Glossario.pdf}
+\end{itemize}
+
+
+
+\section{Casi d'uso}
+\subsection{Introduzione}
+I casi d’uso si compongono di un grafico UML e una descrizione testuale che permetta di
+comprendere al meglio cosa il prodotto deve fornire. La descrizione testuale, in particolar
+modo, dovrà contenere le informazioni sotto presenti, salvo i casi in cui lo
+specifico campo non risulti rilevante (ad esempio, un Caso d’Uso\textsubscript{\scalebox{0.6}{\textbf{G}}} che non prevede la
+possibilità di errori non avrà Scenari secondari):
+
+\begin{itemize}
+    \item Attori: Sono coloro che interagiscono attivamente con il Sistema e
+    svolgono l’azione indicata dal Caso d’Uso
+    \item Precondizioni: Lista di elementi che sono necessari affinché l’Attore possa
+    compiere l’azione indicata dal caso d’uso
+    \item Postcondizioni: Lista di elementi che descrivono come il Sistema risulta
+    essere internamente cambiato dopo che l’Attore ha effettuato
+    l’azione prevista dal Caso d’Uso
+    \item Scenario principale: Descrizione ragionevole delle operazioni che l’attore deve
+    fare per compiere l’azione descritta dal Caso d’Uso
+    \item Scenario secondario: Descrizione ragionevole degli eventi che possono accadere
+    qualora una delle operazioni descritte nello Scenario
+    principale non vada a buon fine
+    \item Inclusioni: Casi d’Uso ulteriori che l’Attore deve compiere per realizzare
+    il Caso d’Uso attualmente descritto
+    \item Estensioni: Casi d’Uso ulteriori che possono realizzarsi durante
+    l’esecuzione delle operazioni del Caso d’Uso principale
+    \item Motivazioni che portano l’Attore a svolgere l’azione descritta
+    dal Caso d’Uso. Non sempre disponibile in quanto il Caso
+    d’Uso potrebbe essere incluso da un altro caso d’uso
+    «principale»
+\end{itemize}
+
+\subsection{Attori}
+Di seguito sono esposti gli attori utilizzati:
+\begin{itemize}
+    \item DA SPIEGARE OGNUNO DI QUESTI ATTORI
+    \item DA AGGIUNGERE DIAGRAMMA DEGLI ATTORI
+    \item HR Manager
+    \item Redattore
+    \item Data Analyst (Eggon)
+    \item Amministratore
+    \item Operatore Studio CdL (Admin/Editor), Sistema NEXUM
+    \item Sistema NEXUM (AI Doc Classifier), Operatore CdL
+    \item Sistema NEXUM (Entity Resolver), Operatore CdL
+    \item Sistema NEXUM (Splitter), Operatore CdL
+    \item Operatore CdL, Sistema
+    \item Sistema NEXUM (Dispatcher), Operatore CdL
+    \item Sistema NEXUM (Dispatcher \& Tracking), Operatore CdL, Destinatario finale
+    \item Operatore CdL, Auditor interno, Sistema
+    \item Admin Cliente, Admin Eggon, Sistema
+    \item Data Analyst, Admin Eggon, Sistema
+\end{itemize}
+
+
+\subsection{Lista casi d'uso}
+
+\subsubsection{UC1: Creazione di un nuovo contenuto tramite prompt}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Diagrammi casi d'uso/diagramma_caso_1.jpeg}
+    \caption{Figura n: UC1: Creazione di un nuovo contenuto tramite prompt}
+    \label{fig:your_image_label}
+\end{figure}
+
+\textbf{Attore}: Amministratore / HR Manager \\
+\textbf{Pre-condizioni}: L’utente è autenticato nella dashboard NEXUM e ha i permessi di redazione.
+\textbf{Post-condizioni}: Il contenuto è salvato nel database come bozza o pubblicato. \\
+\textbf{Scenario principale}:
+\begin{itemize}
+    \item L’utente apre il modulo “AI Assistant Generativo”.
+    \item Inserisce un prompt (es. “Comunicato di benvenuto ai nuovi dipendenti”).
+    \item Seleziona il tono (formale/informale/neutro) e lo stile (istituzionale, empatico, tecnico).
+    \item Il sistema invia la richiesta al motore AI.
+    \item L’AI genera titolo, testo e immagine di copertina coerenti con il tono e il prompt.
+    \item Il risultato viene visualizzato in anteprima.
+    \item L’utente può accettare, rigenerare o modificare manualmente.
+\end{itemize}
+
+\end{document}
