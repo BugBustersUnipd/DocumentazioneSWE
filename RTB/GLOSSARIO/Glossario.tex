@@ -70,7 +70,7 @@
 \end{center}
 
 \begin{center}
-{\large\textbf{Versione 0.0.1}}
+{\large\textbf{Versione 0.0.2}}
 
 \vspace{0.5cm}
 
@@ -102,7 +102,9 @@
 \hline
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificatori} & \textbf{Approvato} \\
 \hline
-0.0.1 & 06/11/2025 & Prima stesura del documento con i termini del capitolato aggiudicato (5) e diapositive dei docenti& Alberto Autiero & - & - \\
+0.0.2 & 17/11/2025 & Aggiunti nuovi termini. & Alberto Autiero & - & - \\
+\hline
+0.0.1 & 06/11/2025 & Prima stesura del documento con i termini del capitolato aggiudicato (5) e diapositive dei docenti.& Alberto Autiero & - & - \\
 \hline
 \end{tabular}
 }
@@ -130,6 +132,12 @@ Tipo di intelligenza artificiale in grado di creare autonomamente nuovi contenut
 \subsection{Accoppiamento}
 Grado di interdipendenza tra componenti software. Un accoppiamento stretto indica forte dipendenza, mentre un accoppiamento debole minimizza le dipendenze, favorendo manutenibilità e riutilizzo del codice.
 
+\subsection{Accoppiamento (Coupling)}
+Grado di interdipendenza tra componenti software. Un accoppiamento stretto indica forte dipendenza, mentre un accoppiamento debole minimizza le dipendenze, favorendo manutenibilità e riutilizzo del codice.
+
+\subsection{Affidabilità (Reliability)}
+Capacità di un sistema software di mantenere il proprio livello di prestazioni in condizioni specificate per un determinato periodo di tempo.
+
 \subsection{Agile}
 Metodologia di sviluppo del software iterativa e incrementale che si basa su principi come la collaborazione continua con il cliente, la consegna frequente di software funzionante e la capacità di rispondere ai cambiamenti dei requisiti.
 
@@ -151,6 +159,21 @@ Insieme di definizioni, protocolli e strumenti per la costruzione e l'integrazio
 \subsection{Approvazione}
 Processo formale attraverso il quale un documento o una funzionalità viene accettata e considerata completa dopo aver superato le verifiche e validazioni necessarie.
 
+\subsection{Architettura a livelli}
+Pattern architetturale che organizza il sistema in livelli gerarchici, dove ogni livello fornisce servizi al livello superiore e utilizza servizi del livello inferiore.
+
+\subsection{Architettura dei microservizi}
+Approccio architetturale che struttura un'applicazione come una collezione di servizi piccoli, autonomi e indipendenti, ciascuno responsabile di una specifica funzionalità di business.
+
+\subsection{Architettura multilivello}
+Pattern architetturale che separa le responsabilità dell'applicazione in livelli logici distinti, tipicamente presentazione, logica di business e persistenza dati.
+
+\subsection{Architettura Pipe-and-Filter}
+Pattern architetturale in cui i componenti (filtri) elaborano i dati in sequenza, passandoli attraverso connessioni (pipe).
+
+\subsection{Architettura Three-Tier}
+Architettura software che divide l'applicazione in tre livelli: presentazione, logica di business e dati.
+
 \subsection{Associazione}
 Relazione strutturale in OOP che rappresenta una connessione duratura tra oggetti di classi diverse, dove gli oggetti interagiscono per un periodo di tempo prolungato condividendo riferimenti.
 
@@ -163,6 +186,9 @@ Utente o sistema esterno che interagisce direttamente con il sistema software pe
 \subsection{Attore secondario}
 Utente o sistema esterno che fornisce servizi o supporto all'attore principale durante l'esecuzione di um caso d'uso. Partecipa all'interazione ma non è il beneficiario principale del risultato, spesso fornendo funzionalità accessorie o di supporto.
 
+\subsection{Availability (Disponibilità)}
+Misura della percentuale di tempo in cui un sistema è operativo e accessibile agli utenti.
+
 \subsection{AWS (Amazon Web Services)}
 Piattaforma di cloud computing che offre servizi di calcolo, storage, database e altre funzionalità per supportare lo sviluppo e il deployment di applicazioni.
 
@@ -174,10 +200,10 @@ Piattaforma di cloud computing che offre servizi di calcolo, storage, database e
 Parte di un'applicazione software che gestisce la logica di business, l'elaborazione dei dati e la comunicazione con il database. Opera sul server ed è inaccessibile direttamente all'utente finale.
 
 \subsection{Baseline}
-Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedure formali di controllo.
+Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedures formali di controllo.
 
 \subsection{Best Practice}
-Insieme di tecniche, metodi e procedure che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto.
+Insieme di tecniche, metodi e procedures che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto.
 
 \newpage
 
@@ -204,6 +230,12 @@ Soggetto che commissiona il progetto, definendone gli obiettivi, i vincoli e i r
 \subsection{Composizione}
 Relazione strutturale in OOP che rappresenta un legame "parte-tutto" forte dove gli componenti non possono esistere indipendentemente dall'oggetto che li contiene. Implica ownership esclusiva e distruzione concomitante.
 
+\subsection{Comprensibilità}
+Capacità di un sistema software di essere facilmente compreso dai suoi utilizzatori, riducendo lo sforzo cognitivo necessario per il suo utilizzo.
+
+\subsection{Constructor Injection}
+Tecnica di Dependency Injection in cui le dipendenze vengono fornite a un componente attraverso il suo costruttore.
+
 \subsection{Cruscotto/Dashboard}
 Interfaccia utente che presenta in forma grafica e sintetica le metriche, gli indicatori di performance e lo stato corrente del progetto o dell'applicazione.
 
@@ -211,26 +243,47 @@ Interfaccia utente che presenta in forma grafica e sintetica le metriche, gli in
 
 \section{D}
 
+\subsection{Decomposizione funzionale}
+Processo di scomposizione di un sistema complesso in funzioni o componenti più piccoli e gestibili.
+
 \subsection{Decisione esterna}
 Scelta presa da entità esterne al team di progetto (come il committente o il proponente) che vincola le attività del progetto e che il team deve rispettare.
 
 \subsection{Decisione interna}
 Scelta presa dal team di progetto riguardante aspetti tecnici, organizzativi o metodologici, documentata per garantire tracciabilità e coerenza nelle attività successive.
 
-\subsection{Diagrammi delle classi}
-Diagrammi UML che mostrano le classi del sistema, i loro attributi, metodi e le relazioni tra di esse (associazioni, ereditarietà, dipendenze, ecc.).
+\subsection{Dependency Injection}
+Pattern architetturale in cui le dipendenze di un componente vengono fornite dall'esterno, anziché essere create internamente al componente stesso.
 
-\subsection{Diagrammi dei casi d'uso}
-Diagrammi UML che descrivono le interazioni tra gli attori e il sistema, mostrando i diversi scenari possibili per raggiungere un obiettivo specifico.
+\subsection{Design pattern architetturali}
+Soluzioni progettuali ricorrenti e collaudate per problemi architetturali comuni nei sistemi software.
 
-\subsection{Diagrammi di attività}
-Diagrammi UML che modellano il flusso di controllo o il flusso di dati tra attività, utilizzati per descrivere la logica di procedura, di business o di caso d'uso.
+\subsection{Diagramma dei componenti}
+Diagramma UML che mostra l'organizzazione e le dipendenze tra i componenti software di un sistema.
 
-\subsection{Diagrammi di Gantt}
+\subsection{Diagramma dei casi d'uso}
+Diagramma UML che descrive le interazioni tra gli attori e il sistema, mostrando i diversi scenari possibili per raggiungere un obiettivo specifico.
+
+\subsection{Diagramma delle classi}
+Diagramma UML che mostrano le classi del sistema, i loro attributi, metodi e le relazioni tra di esse (associazioni, ereditarietà, dipendenze, ecc.).
+
+\subsection{Diagramma degli stati}
+Diagramma UML che descrive il comportamento di un oggetto in risposta a eventi, mostrando i diversi stati in cui può trovarsi e le transizioni tra essi.
+
+\subsection{Diagramma di attività}
+Diagramma UML che modellano il flusso di controllo o il flusso di dati tra attività, utilizzati per descrivere la logica di procedura, di business o di caso d'uso.
+
+\subsection{Diagramma di deployment}
+Diagramma UML che mostra la configurazione fisica dei nodi di elaborazione e dei componenti software eseguiti su di essi.
+
+\subsection{Diagramma di Gantt}
 Strumento di pianificazione progettuale che visualizza le attività su un asse temporale, mostrando durate, sequenzialità, parallelismo e progressi rispetto alle pianificazioni.
 
-\subsection{Diagrammi di PERT}
+\subsection{Diagramma di PERT}
 (Program Evaluation and Review Technique) Strumento di analisi delle dipendenze temporali entre attività di progetto, utilizzato per identificare cammini critici e margini temporali (slack time).
+
+\subsection{Diagramma di sequenza}
+Diagramma UML che mostra le interazioni tra oggetti in sequenza temporale, evidenziando l'ordine dei messaggi scambiati.
 
 \subsection{Dipendenza}
 Relazione tra componenti software per cui un componente (dipendente) richiede un altro componente (dipenduto) per funzionare correttamente. Le modifiche al componente dipenduto possono influenzare il componente dipendente.
@@ -243,8 +296,6 @@ Processo di distribuzione automatizzata dei documenti verso i destinatari finali
 
 \subsection{Dominio d'uso}
 Contesto specifico o ambiente operativo in cui il sistema software sarà impiegato, comprendente le caratteristiche degli utenti finali, le condizioni operative, i vincoli tecnologici e le regole di business che definiscono l'ambito di applicazione del prodotto.
-
-\newpage
 
 \newpage
 
@@ -274,6 +325,9 @@ Meccanismo di ereditarietà in cui una interfaccia eredita da un'altra interfacc
 \newpage
 
 \section{F}
+
+\subsection{Flessibilità}
+Capacità di un sistema software di adattarsi a cambiamenti nei requisiti o nell'ambiente operativo con modifiche minime.
 
 \subsection{Front-end}
 Parte di un'applicazione software con cui l'utente interagisce direttamente, responsabile della presentazione dei dati e dell'acquisizione dell'input dell'utente.
@@ -334,8 +388,27 @@ Indicatore chiave di performance che misura l'efficacia di un processo, un'attiv
 \subsection{Latex}
 Sistema di composizione tipografica utilizzato per la produzione di documentazione tecnica e scientifica di alta qualità, particolarmente adatto per documenti complessi con formule matematiche.
 
+\subsection{Livelli aperti}
+Architettura a livelli in cui un livello può utilizzare servizi di qualsiasi livello sottostante, non solo di quello immediatamente inferiore.
+
+\subsection{Livelli chiusi}
+Architettura a livelli in cui un livello può utilizzare solo i servizi del livello immediatamente inferiore.
+
 \subsection{LLM (Large Language Model)}
 Modello di linguaggio di grandi dimensioni addestrato su vasti corpus di testo, in grado di generare, comprendere e elaborare linguaggio naturale in modo sofisticato.
+
+\subsection{Load balancer}
+Componente che distribuisce il carico di lavoro tra più server per migliorare le prestazioni e l'affidabilità del sistema.
+
+\newpage
+
+\section{M}
+
+\subsection{Microservizio}
+Approccio architetturale in cui un'applicazione è composta da piccoli servizi indipendenti, ciascuno eseguibile autonomamente e comunicante tramite API.
+
+\subsection{Modularità}
+Grado in cui un sistema è composto da componenti separati che possono essere sviluppati, testati e mantenuti indipendentemente.
 
 \newpage
 
@@ -359,6 +432,21 @@ Condizione o stato del sistema che debe essere vero prima che un caso d'uso poss
 
 \subsection{Preventivo}
 Documento di pianificazione che stima i costi e le risorse necessarie per lo svolgimento del progetto, basato sulle attività pianificate e sulle risorse disponibili.
+
+\subsection{Procedimento agile}
+Approccio iterativo e incrementale allo sviluppo software che enfatizza la flessibilità e la collaborazione con il cliente.
+
+\subsection{Procedimento bottom-up}
+Approccio allo sviluppo software che parte dai componenti di basso livello per costruire gradualmente sistemi più complessi.
+
+\subsection{Procedimento top-down}
+Approccio allo sviluppo software che parte da una visione d'insieme per scomporre gradualmente il sistema in componenti più piccoli.
+
+\subsection{Progettazione di dettaglio}
+Fase della progettazione software in cui si specificano nel dettaglio i componenti, le interfacce e le relazioni tra di essi.
+
+\subsection{Progettazione logica}
+Fase della progettazione software in cui si definisce l'architettura del sistema senza considerare i dettagli implementativi specifici.
 
 \subsection{Progettista}
 Figura responsabile della progettazione dell'architettura software e delle soluzioni tecniche, garantendo che soddisfino i requisiti e siano realizzabili efficientemente.
@@ -389,6 +477,13 @@ Applicazione web che utilizza tecnologie web moderne per offrire un'esperienza s
 
 \newpage
 
+\section{Q}
+
+\subsection{Qualità architetturale}
+Insieme delle caratteristiche che definiscono la bontà di un'architettura software in termini di modularità, riusabilità, manutenibilità e altre proprietà desiderabili.
+
+\newpage
+
 \section{R}
 
 \subsection{Rating System}
@@ -398,7 +493,7 @@ Sistema di valutazione che assegna un punteggio o un giudizio a un'entità (es. 
 Modello di controllo degli accessi in cui i permessi sono assegnati a ruoli specifici, e gli utenti ottengono i permessi attraverso l'assegnazione a questi ruoli.
 
 \subsection{Redattore}
-Membro del team responsabile della stesura e della produzione dei documenti di progetto, garantendo chiarezza, completezza e conformità alle norme stabilite.
+Membro del team responsabile della stesura e della produzione dei documenti di projeto, garantendo chiarezza, completezza e conformità alle norme stabilite.
 
 \subsection{Repository}
 Archivio centrale in cui vengono memorizzati e versionati i file sorgente, la documentazione e le risorse del progetto utilizzando un sistema di controllo versione.
@@ -433,12 +528,21 @@ Requisito espresso dal punto di vista dell'utente finale, descritto in linguaggi
 \subsection{Responsabile}
 Figura di riferimento del progetto con compiti di coordinamento, pianificazione, gestione delle risorse e comunicazione con docenti e proponenti.
 
+\subsection{Riusabilità}
+Capacità di un componente software di essere utilizzato in diversi contesti o applicazioni senza modifiche sostanziali.
+
+\subsection{Robustezza}
+Capacità di un sistema software di funzionare correttamente in condizioni anomale o in presenza di input non validi.
+
 \newpage
 
 \section{S}
 
 \subsection{Sandbox di Sviluppo}
 Ambiente isolato per testare e validare funzionalità senza influenzare i sistemi di produzione, utilizzato per sviluppare e verificare nuove feature in sicurezza.
+
+\subsection{Scalabilità}
+Capacità di un sistema di gestire un aumento del carico di lavoro aggiungendo risorse, senza modifiche all'architettura.
 
 \subsection{Scenario}
 Sequenza di interazioni tra attori e sistema che descrive un percorso specifico attraverso un caso d'uso. Può essere principale (percorso di successo) o alternativo (variazioni ed eccezioni).
@@ -482,6 +586,16 @@ Insieme delle tecnologie, framework, librerie e strumenti di sviluppo selezionat
 
 \subsection{Test}
 Processo sistematico di verifica che il software soddisfi i requisiti specificati e identifichi difetti, attraverso l'esecuzione controllata di casi di test.
+
+\subsection{Transazioni distribuite}
+Transazioni che coinvolgono multiple risorse distribuite in diversi nodi di un sistema, richiedendo meccanismi di coordinamento per garantire atomicità e consistenza.
+
+\newpage
+
+\section{U}
+
+\subsection{Unità architetturali}
+Componenti fondamentali che costituiscono l'architettura di un sistema software, come moduli, componenti, connettori e dati.
 
 \newpage
 
