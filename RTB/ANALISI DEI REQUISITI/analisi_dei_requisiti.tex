@@ -314,12 +314,12 @@ Di seguito sono esposti gli attori utilizzati:
 
 \subsection{Lista casi d'uso}
 
-\subsubsection{UC1: Creazione di un nuovo contenuto tramite prompt}
+\subsubsection{UC-1A: Creazione di un nuovo contenuto tramite prompt}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Diagrammi casi d'uso/diagramma_caso_1.jpeg}
-    \caption{Figura n: UC1: Creazione di un nuovo contenuto tramite prompt}
+    \includegraphics[width=\textwidth]{Diagrammi casi d'uso/UC1A.jpeg}
+    \caption{Figura n: UC-1A: Creazione di un nuovo contenuto tramite prompt}
     \label{fig:your_image_label}
 \end{figure}
 
@@ -335,6 +335,51 @@ Di seguito sono esposti gli attori utilizzati:
     \item L’AI genera titolo, testo e immagine di copertina coerenti con il tono e il prompt.
     \item Il risultato viene visualizzato in anteprima.
     \item L’utente può accettare, rigenerare o modificare manualmente.
+\end{itemize}
+
+\subsubsection{UC-1B: Modifica di un contenuto generato}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Diagrammi casi d'uso/UC1B.jpeg}
+    \caption{Figura n: UC-1B: Modifica di un contenuto generato}
+    \label{fig:your_image_label}
+\end{figure}
+
+\textbf{Attore}: Amministratore / HR Manager \\
+\textbf{Pre-condizioni}: Un contenuto generato è disponibile in anteprima (UC1A). \\
+\textbf{Post-condizioni}: Il contenuto è salvato nel database come bozza o pubblicato. \\
+\textbf{Scenario principale}:
+\begin{itemize}
+    \item L’utente apre l’anteprima del contenuto generato.
+    \item Modifica titolo, testo o immagine.
+    \item Il sistema aggiorna l’anteprima.
+    \item L’utente conferma le modifiche.
+\end{itemize}
+
+\subsubsection{UC-1C: Salvataggio e pubblicazione del contenuto}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Diagrammi casi d'uso/UC1C.jpeg}
+    \caption{Figura n: UC-1C: Salvataggio e pubblicazione del contenuto}
+    \label{fig:your_image_label}
+\end{figure}
+
+\textbf{Attore}: Amministratore / HR Manager \\
+\textbf{Pre-condizioni}: È disponibile un contenuto generato (UC-1A) \\
+\textbf{Post-condizioni}:
+\begin{itemize}
+    \item Il contenuto è salvato come bozza o pubblicato.
+    \item Lo storico dei prompt viene aggiornato.
+    \item L’operazione risulta tracciata a sistema.
+\end{itemize}
+\textbf{Scenario principale}:
+\begin{itemize}
+    \item L’utente seleziona “Salva come bozza” oppure “Pubblica su NEXUM”.
+    \item Il sistema salva prompt, tono e contenuto nel database.
+    \item In caso di pubblicazione, il contenuto viene inviato al modulo messaggistica.
+    \item Il sistema registra che il contenuto è stato creato tramite AI Assistant.
 \end{itemize}
 
 \end{document}
