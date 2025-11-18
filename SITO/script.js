@@ -9,16 +9,21 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
+            const doc = this.getAttribute('data-doc');
             if (href && href.startsWith('#')) {
                 const target = document.querySelector(href);
                 if (target) {
+                    // if the link is meant to switch an internal doc panel, let showDocPanel
+                    // handle activation and scrolling to the specific panel
+                    if (doc) {
+                        e.preventDefault();
+                        showDocPanel(doc);
+                        return;
+                    }
+
+                    // otherwise perform a normal smooth scroll to the target section
                     e.preventDefault();
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // if link carries data-doc attribute, also switch panel
-                    const doc = this.getAttribute('data-doc');
-                    if (doc) {
-                        showDocPanel(doc);
-                    }
                 }
             }
         });
@@ -28,21 +33,59 @@ document.addEventListener('DOMContentLoaded', function () {
     const docToggles = document.querySelectorAll('.doc-toggle');
     const docPanels = document.querySelectorAll('.doc-panel');
 
+    function scrollToElement(el) {
+        if (!el) return;
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.getBoundingClientRect().height : 110; // fallback
+        const rect = el.getBoundingClientRect();
+        const y = rect.top + window.pageYOffset - (headerHeight + 12);
+        window.scrollTo({ top: y, behavior: 'auto' });
+    }
+
     function showDocPanel(name) {
+        // generic panel switcher: panel id is 'panel-' + name
         docPanels.forEach(p => {
             p.classList.remove('active');
             p.setAttribute('aria-hidden', 'true');
         });
-        const active = document.getElementById(name === 'diapositive' ? 'panel-diapositive' : 'panel-candidatura');
+        const panelId = 'panel-' + name;
+        const active = document.getElementById(panelId);
         if (active) {
             active.classList.add('active');
             active.setAttribute('aria-hidden', 'false');
+        } else {
+            // fallback to candidatura if panel not found
+            const fallback = document.getElementById('panel-candidatura');
+            if (fallback) {
+                fallback.classList.add('active');
+                fallback.setAttribute('aria-hidden', 'false');
+            }
         }
 
+        // update doc toggle buttons (the top tabs)
         docToggles.forEach(btn => {
-            btn.classList.toggle('active', btn.getAttribute('data-show') === (name === 'diapositive' ? 'diapositive' : 'candidatura'));
+            btn.classList.toggle('active', btn.getAttribute('data-show') === name);
             btn.setAttribute('aria-selected', btn.classList.contains('active') ? 'true' : 'false');
         });
+
+        // update dropdown items active state if present
+        dropdownItems?.forEach(it => {
+            const itDoc = it.getAttribute('data-doc');
+            if (itDoc === name) {
+                it.classList.add('active');
+            } else {
+                it.classList.remove('active');
+            }
+        });
+
+        // scroll to the "Documentazione" title (not the whole section)
+        const docTitle = document.querySelector('#candidatura .page-title');
+        scrollToElement(docTitle);
+        // focus the title for a11y
+        if (docTitle) {
+            docTitle.setAttribute('tabindex', '-1');
+            try { docTitle.focus({ preventScroll: true }); } catch (_) { docTitle.focus(); }
+        }
     }
 
     docToggles.forEach(btn => {
@@ -55,12 +98,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Wire dropdown items to scroll and switch panel
     dropdownItems?.forEach(item => {
         item.addEventListener('click', function(e) {
-            // default anchor behaviour will scroll; also switch doc panel
+            e.preventDefault();
             const doc = this.getAttribute('data-doc');
             if (doc) {
                 showDocPanel(doc);
             }
-            // close dropdown visually
             dropdown.classList.remove('active');
         });
     });

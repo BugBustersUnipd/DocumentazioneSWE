@@ -14,12 +14,17 @@
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
+\usepackage{tocloft}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
 
 \definecolor{primaryblue}{RGB}{0,102,204}
 \definecolor{secondaryblue}{RGB}{51,153,255}
 \definecolor{lightgray}{RGB}{245,245,245}
 \definecolor{darkgray}{RGB}{100,100,100}
+
+% Configurazione semplice e funzionale per l'indice
+\setcounter{tocdepth}{2}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \titleformat{\section}
   {\Large\bfseries\color{primaryblue}}
@@ -35,8 +40,8 @@
 
 \begin{document}
 
-\begin{center}  \IfFileExists{../../../assets/Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../assets/Logo.jpg} \\[0.8cm]
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
   }{%
     \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
   }
@@ -61,7 +66,7 @@
 \textbf{Verificatore}    & Marco Favero \\
 \textbf{Uso}          & Interno \\
 \textbf{Destinatari}  & BugBusters \\
-\textbf{Versione} & 1.0.0\\
+\textbf{Versione} & 1.0.1\\
 
 \end{tabular}
 \end{tcolorbox}
@@ -71,13 +76,15 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
-Verbale della riunione interna del gruppo BugBusters tenutasi il 29 ottobre 2025 tramite Discord. È stata terminata la stesura del documento di candidatura al capitolato C5 (Nexum).
+Verbale della riunione interna del gruppo BugBusters tenutasi il 29 ottobre 2025 tramite Discord\textbf{\textsubscript{G}}. È stata terminata la stesura del documento di candidatura al capitolato\textbf{\textsubscript{G}} C5 (Nexum).
 \end{tcolorbox}
 \end{center}
 
 \newpage
 
+% INDICE
 \tableofcontents
+
 \newpage
 
 
@@ -85,7 +92,7 @@ Verbale della riunione interna del gruppo BugBusters tenutasi il 29 ottobre 2025
 
 \begin{itemize}
     \item \textbf{Tipo riunione:} interna
-    \item \textbf{Piattaforma:} Discord
+    \item \textbf{Piattaforma:} Discord\textbf{\textsubscript{G}}
     \item \textbf{Data:} 29/10/2025
     \item \textbf{Orario di inizio:} 14:00
     \item \textbf{Orario di fine:} 16:00
@@ -99,7 +106,7 @@ Verbale della riunione interna del gruppo BugBusters tenutasi il 29 ottobre 2025
         \item Leonardo Salviato
         \item Luca Slongo
     \end{itemize}
-    \item \textbf{Assenti:}
+    \item \textbf{Assenti:} Nessuno
 
 \end{itemize}
 
@@ -107,7 +114,7 @@ Verbale della riunione interna del gruppo BugBusters tenutasi il 29 ottobre 2025
 
 \begin{enumerate}
     \item Discussione sull'accessibilità del sito
-    \item Stesura del documento di candidatura al capitolato
+    \item Stesura del documento di candidatura al capitolato\textbf{\textsubscript{G}}
     \item Allineamento del nome BugBusters
 \end{enumerate}
 
@@ -116,8 +123,8 @@ Verbale della riunione interna del gruppo BugBusters tenutasi il 29 ottobre 2025
 \begin{itemize}
     \item La riunione è iniziata alle 14:00.
     \item Discussione sull'accessibilità del sito.
-    \item Terminata la stesura del documento di candidatura al capitolato.
-    \item Allineamento nome BugBusters sui documenti, su github e sul sito.
+    \item Terminata la stesura del documento di candidatura al capitolato\textbf{\textsubscript{G}}.
+    \item Allineamento nome BugBusters sui documenti, su GitHub\textbf{\textsubscript{G}} e sul sito.
     \item La riunione è terminata alle 16:00.
 \end{itemize}
 

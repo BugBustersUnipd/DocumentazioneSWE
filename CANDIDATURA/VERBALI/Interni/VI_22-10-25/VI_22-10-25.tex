@@ -14,6 +14,7 @@
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
+\usepackage[titles]{tocloft}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
 
 \definecolor{primaryblue}{RGB}{0,102,204}
@@ -21,9 +22,20 @@
 \definecolor{lightgray}{RGB}{245,245,245}
 \definecolor{darkgray}{RGB}{100,100,100}
 
+% Configurazione per l'indice
+\setcounter{tocdepth}{2} % Mostra sezioni nell'indice
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\setlength{\cftbeforesecskip}{6pt}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsecpagefont}{}
+
 \titleformat{\section}
   {\Large\bfseries\color{primaryblue}}
   {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\large\bfseries\color{secondaryblue}}
+  {\thesubsection}{1em}{}
 
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
@@ -35,10 +47,10 @@
 
 \begin{document}
 
-\begin{center}  \IfFileExists{../../../assets/Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../assets/Logo.jpg} \\[0.8cm]
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
   }{%
-    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(../../../../assets/Logo.jpg)}}\\[0.5cm]
   }
   
   {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
@@ -61,7 +73,7 @@
 \textbf{Verificatore}    & Alberto Pignat \\
 \textbf{Uso}          & Interno \\
 \textbf{Destinatari}  & BugBusters \\
-\textbf{Versione} & 1.0.0 \\
+\textbf{Versione} & 1.0.1 \\
 
 \end{tabular}
 \end{tcolorbox}
@@ -71,7 +83,7 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
-Verbale della riunione interna del gruppo BugBusters tenutasi il 22 ottobre 2025 tramite Discord. Durante la riunione sono stati discussi vari punti all'ordine del giorno, 
+Verbale della riunione interna del gruppo\textsubscript{\textbf{G}} BugBusters tenutasi il 22 ottobre 2025 tramite Discord\textsubscript{\textbf{G}}. Durante la riunione sono stati discussi vari punti all'ordine del giorno, 
 tra cui la revisione di documenti stesi in precedenza singolarmente, la revisione del sito, un briefing pre meeting con Miriade.
 \end{tcolorbox}
 \end{center}
@@ -79,14 +91,14 @@ tra cui la revisione di documenti stesi in precedenza singolarmente, la revision
 \newpage
 
 \tableofcontents
-\newpage
 
+\newpage
 
 \section{Informazioni generali}
 
 \begin{itemize}
     \item \textbf{Tipo riunione:} interna
-    \item \textbf{Piattaforma:} Discord
+    \item \textbf{Piattaforma:} Discord\textsubscript{\textbf{G}}
     \item \textbf{Data:} 22/10/2025
     \item \textbf{Orario di inizio:} 14:00
     \item \textbf{Orario di fine:} 15:30
@@ -100,7 +112,7 @@ tra cui la revisione di documenti stesi in precedenza singolarmente, la revision
         \item Leonardo Salviato
         \item Luca Slongo
     \end{itemize}
-    \item \textbf{Assenti:}
+    \item \textbf{Assenti:} Nessuno
 
 \end{itemize}
 
@@ -108,10 +120,10 @@ tra cui la revisione di documenti stesi in precedenza singolarmente, la revision
 
 \begin{enumerate}
     \item Discussione alla risposta via email da parte di Eggon e M31
-    \item Sito e automazioni Github actions
+    \item Sito e automazioni GitHub\textsubscript{\textbf{G}} Actions
     \item Briefing pre meeting Miriade
     \item Revisione mansioni e compiti assegnati dall'ultima riunione
-    \item Versionamento documenti
+    \item Versionamento\textsubscript{\textbf{G}} documenti
     \item Suddivisione compiti futuri
 \end{enumerate}
 
@@ -119,16 +131,16 @@ tra cui la revisione di documenti stesi in precedenza singolarmente, la revision
 
 \begin{itemize}
     \item La riunione è iniziata alle ore 14:00.
-    \item Corretti alcuni errori presenti nei documenti redatti singolarmente dai membri del gruppo.
-    \item Si è discusso riguardo al sito web e alle automazioni tramite Github Actions, correzione piccoli bug.
+    \item Corretti alcuni errori presenti nei documenti redatti singolarmente dai membri del gruppo\textsubscript{\textbf{G}}.
+    \item Si è discusso riguardo al sito web e alle automazioni tramite GitHub\textsubscript{\textbf{G}} Actions, correzione piccoli bug.
     \item Briefing pre meeting con Miriade, allineamento sugli obiettivi e le aspettative.
-    \item Si è discusso riguardo al versionamento da adottare per i documenti.
+    \item Si è discusso riguardo al versionamento\textsubscript{\textbf{G}} da adottare per i documenti.
 \end{itemize}
 
 \section{Decisioni prese}
 
 \begin{itemize}
-    \item \textbf{Versionamento:} Si adotta il numero di versione X.Y.Z, dove X indica la versione approvata, Y la verifica e Z la stilatura senza verifica.
+    \item \textbf{Versionamento\textsubscript{\textbf{G}}:} Si adotta il numero di versione X.Y.Z, dove X indica la versione approvata, Y la verifica e Z la stilatura senza verifica.
     \item Scelto redattore per il meeting con Miriade: Leonardo Salviato.
 \end{itemize}
 
@@ -142,7 +154,7 @@ tra cui la revisione di documenti stesi in precedenza singolarmente, la revision
 
 \vfill
 \begin{center}
-    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo\textsubscript{\textbf{G}} BugBusters.}
 \end{center}
 
 \end{document}

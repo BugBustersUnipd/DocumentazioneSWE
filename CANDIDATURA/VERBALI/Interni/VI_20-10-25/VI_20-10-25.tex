@@ -14,12 +14,25 @@
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
+\usepackage[titles]{tocloft}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
 
 \definecolor{primaryblue}{RGB}{0,102,204}
 \definecolor{secondaryblue}{RGB}{51,153,255}
 \definecolor{lightgray}{RGB}{245,245,245}
 \definecolor{darkgray}{RGB}{100,100,100}
+
+% Configurazione per l'indice dettagliato
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{2} % Mostra sezioni e sottosezioni nell'indice
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\setlength{\cftbeforesecskip}{6pt}
+\setlength{\cftbeforesubsecskip}{4pt}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsecpagefont}{}
+\renewcommand{\cftsubsecfont}{}
+\renewcommand{\cftsubsecpagefont}{}
+\renewcommand{\numberline}[1]{}
 
 \titleformat{\section}
   {\Large\bfseries\color{primaryblue}}
@@ -35,8 +48,8 @@
 
 \begin{document}
 
-\begin{center}  \IfFileExists{../../../assets/Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../assets/Logo.jpg} \\[0.8cm]
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
   }{%
     \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
   }
@@ -61,7 +74,7 @@
 \textbf{Verificatore}    & Alberto Autiero \\
 \textbf{Uso}          & Interno \\
 \textbf{Destinatari}  & BugBusters \\
-\textbf{Versione} & 1.0.0\\
+\textbf{Versione} & 1.0.1\\
 
 \end{tabular}
 \end{tcolorbox}
@@ -71,12 +84,13 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
-Verbale della Terza riunione avvenuta in via telematica per confronto su domande per le aziende M31 e Miriade, creazione organizzazione su github, proposta di colloquio con l'azienda Eggon, suddivisione compiti futuri, creazione prototipo sito web.
+Verbale della Terza riunione avvenuta in via telematica per confronto su domande per le aziende M31 e Miriade, creazione organizzazione su GitHub\textbf{\textsubscript{G}}, proposta di colloquio con l'azienda Eggon, suddivisione compiti futuri, creazione prototipo sito web.
 \end{tcolorbox}
 \end{center}
 
 \newpage
 
+% INDICE
 \tableofcontents
 \newpage
 
@@ -85,7 +99,7 @@ Verbale della Terza riunione avvenuta in via telematica per confronto su domande
 
 \begin{itemize}
     \item \textbf{Tipo riunione:} interna
-    \item \textbf{Piattaforma:} Discord
+    \item \textbf{Piattaforma:} Discord\textbf{\textsubscript{G}}
     \item \textbf{Data:} 20/10/2025
     \item \textbf{Orario di inizio:} 14:00
     \item \textbf{Orario di fine:} 16:00
@@ -99,7 +113,7 @@ Verbale della Terza riunione avvenuta in via telematica per confronto su domande
         \item Luca Slongo
         \item Leonardo Salviato
     \end{itemize}
-    \item \textbf{Assenti:}
+    \item \textbf{Assenti:} Nessuno
 
 \end{itemize}
 
@@ -108,7 +122,7 @@ Verbale della Terza riunione avvenuta in via telematica per confronto su domande
 \begin{enumerate}
     \item Confronto su domande per le aziende M31 e Miriade
     \item Proposta di colloquio con l'azienda Eggon
-    \item Creazione organizzazione su github
+    \item Creazione organizzazione su GitHub\textbf{\textsubscript{G}}
     \item Suddivisione compiti futuri
     \item Creazione prototipo sito web
 \end{enumerate}
@@ -117,17 +131,17 @@ Verbale della Terza riunione avvenuta in via telematica per confronto su domande
 
 \begin{itemize}
     \item La riunione è iniziata alle ore 14:00.
-    \item Il team ha analizzato in dettaglio la risposta pervenuta da Eggon e deciso di proporre un colloquio delucidativo con l'azienda.
-    \item Poi son state discusse le domande da porre alle aziende M31 e Miriade relative ai loro capitolati
-    \item L'account github creato in precedenza é stato convertito in un'organizzazione.
-    \item É stato creato un prototipo di sito web per esporre ordinatamente i documenti relativi al progetto.
+    \item Il team\textbf{\textsubscript{G}} ha analizzato in dettaglio la risposta pervenuta da Eggon e deciso di proporre un colloquio delucidativo con l'azienda.
+    \item Poi son state discusse le domande da porre alle aziende M31 e Miriade relative ai loro capitolati\textbf{\textsubscript{G}}
+    \item L'account GitHub\textbf{\textsubscript{G}} creato in precedenza é stato convertito in un'organizzazione.
+    \item É stato creato un prototipo di sito web per esporre ordinatamente i documenti relativi al progetto\textbf{\textsubscript{G}}.
     \item Sono stati assegnati a ciascuno dei compiti da adempiere in vista della prossima riunione.
 \end{itemize}
 
 \section{Decisioni prese}
 
 \begin{itemize}
-    \item \textbf{Conversione in organizzazione:} É stato deciso di convertire l'account github in un'organizzazione per questioni logiche e formali.
+    \item \textbf{Conversione in organizzazione:} É stato deciso di convertire l'account GitHub\textbf{\textsubscript{G}} in un'organizzazione per questioni logiche e formali.
     \item \textbf{Conferma incontro Eggon:} Son stati decisi gli orari da proporre ad Eggon per un colloquio
 \end{itemize}
 
@@ -135,10 +149,10 @@ Verbale della Terza riunione avvenuta in via telematica per confronto su domande
 
 \begin{tcolorbox}[colback=secondaryblue!8,colframe=secondaryblue!60,arc=2mm,boxrule=0.5pt,left=10pt,right=10pt]
 \begin{itemize}[topsep=5pt]
-    \item Studiare un versionamento comune da usare all'interno dei documenti
-    \item Redigere i paragrafi da inserire nella "Analisi dei capitolati" 
-    \item Creare il documento "Analisi dei capitolati"
-    \item Trovare un modo di hostare il sito web tramite github
+    \item Studiare un versionamento\textbf{\textsubscript{G}} comune da usare all'interno dei documenti
+    \item Redigere i paragrafi da inserire nella "Analisi dei capitolati\textbf{\textsubscript{G}}"
+    \item Creare il documento "Analisi dei capitolati\textbf{\textsubscript{G}}"
+    \item Trovare un modo di hostare il sito web tramite GitHub\textbf{\textsubscript{G}}
     \item Preparare domande per un eventuale colloquio Eggon
     \item Prossima riunione: 22/10/2025 alle ore 14:00
 \end{itemize}
