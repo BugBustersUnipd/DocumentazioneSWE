@@ -102,9 +102,9 @@
 \hline
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Redatto} & \textbf{Verificatori} & \textbf{Approvato} \\
 \hline
-0.0.2 & 17/11/2025 & Aggiunti nuovi termini. & Alberto Autiero & - & - \\
+0.0.2 & 17/11/2025 & Sono stati aggiunti i seguenti termini: Architettura a livelli, Architettura dei microservizi, Constructor Injection, Decomposizione funzionale, Dependency Injection, Diagramma dei componenti, Diagramma di deployment, Diagramma di sequenza, Diagramma degli stati, Load balancer, Livelli chiusi, Livelli aperti, Microservizio, Scalabilità, Transazioni distribuite, Accoppiamento (Coupling), Affidabilità (Reliability), Architettura multilivello, Architettura Pipe-and-Filter, Architettura Three-Tier, Availability (Disponibilità), Comprensibilità, Design pattern architetturali, Flessibilità, Modularità, Progettazione di dettaglio, Progettazione logica, Procedimento agile, Procedimento bottom-up, Procedimento top-down, Qualità architetturale, Riusabilità, Robustezza, Unità architetturali & Alberto Autiero & - & - \\
 \hline
-0.0.1 & 06/11/2025 & Prima stesura del documento con i termini del capitolato aggiudicato (5) e diapositive dei docenti.& Alberto Autiero & - & - \\
+0.0.1 & 06/11/2025 & Prima stesura del documento con i termini del capitolato aggiudicato (5) e diapositive dei docenti& Alberto Autiero & - & - \\
 \hline
 \end{tabular}
 }
@@ -286,7 +286,7 @@ Strumento di pianificazione progettuale che visualizza le attività su un asse t
 Diagramma UML che mostra le interazioni tra oggetti in sequenza temporale, evidenziando l'ordine dei messaggi scambiati.
 
 \subsection{Dipendenza}
-Relazione tra componenti software per cui un componente (dipendente) richiede un altro componente (dipenduto) per funzionare correttamente. Le modifiche al componente dipenduto possono influenzare il componente dipendente.
+Relazione tra componenti software per cui un componente (dipendente) requiste un altro componente (dipenduto) per funzionare correttamente. Le modifiche al componente dipenduto possono influenzare il componente dipendente.
 
 \subsection{Discord}
 Piattaforma di comunicazione tramite chat vocale, testuale e video, utilizzata dal gruppo per la comunicazione interna e la collaborazione quotidiana.
@@ -407,6 +407,18 @@ Componente che distribuisce il carico di lavoro tra più server per migliorare l
 \subsection{Microservizio}
 Approccio architetturale in cui un'applicazione è composta da piccoli servizi indipendenti, ciascuno eseguibile autonomamente e comunicante tramite API.
 
+\subsection{Model}
+Componente in un pattern architetturale che rappresenta i dati e la logica di business dell'applicazione, indipendentemente dall'interfaccia utente.
+
+\subsection{Model-View-Controller (MVC)}
+Pattern architetturale che separa l'applicazione in tre componenti interconnessi: Model (dati e logica di business), View (interfaccia utente) e Controller (gestisce l'input dell'utente e media tra Model e View).
+
+\subsection{Model-View-Presenter (MVP)}
+Pattern architetturale derivato da MVC che separa l'applicazione in Model, View e Presenter, dove il Presenter contiene la logica di presentazione e agisce da intermediario tra View e Model.
+
+\subsection{Model-View-ViewModel (MVVM)}
+Pattern architetturale che separa l'applicazione in Model, View e ViewModel, utilizzando il data binding per sincronizzare automaticamente View e ViewModel.
+
 \subsection{Modularità}
 Grado in cui un sistema è composto da componenti separati che possono essere sviluppati, testati e mantenuti indipendentemente.
 
@@ -471,6 +483,12 @@ Processi fondamentali che agiscono direttamente sul ciclo di vita del prodotto s
 
 \subsection{Processi di supporto}
 Processi che supportano i processi primari, includendo documentazione, gestione della configurazione, accertamento della qualità, verifica, validazione e risoluzione dei problemi.
+
+\subsection{Pull Model}
+Pattern architetturale in cui il client richiede attivamente i dati al server quando necessario.
+
+\subsection{Push Model}
+Pattern architetturale in cui il server invia automaticamente i dati al client senza che quest'ultimo li abbia esplicitamente richiesti.
 
 \subsection{PWA (Progressive Web App)}
 Applicazione web che utilizza tecnologie web moderne per offrire un'esperienza simile a quella di un'app nativa, funzionando offline e potendo essere installata sul dispositivo.
@@ -584,6 +602,9 @@ Processo di previsione dei costi associati alle attività di progetto, considera
 \subsection{Technology Baseline}
 Insieme delle tecnologie, framework, librerie e strumenti di sviluppo selezionati e approvati per il progetto. Definisce lo stack tecnologico di riferimento e costituisce la base per le scelte implementative, garantendo coerenza e standardizzazione nell'architettura software.
 
+\subsection{Template}
+Struttura o modello predefinito che definisce il layout e l'aspetto di un'interfaccia utente, separando la presentazione dalla logica di business.
+
 \subsection{Test}
 Processo sistematico di verifica che il software soddisfi i requisiti specificati e identifichi difetti, attraverso l'esecuzione controllata di casi di test.
 
@@ -615,6 +636,9 @@ Membro del team responsabile di controllare che documenti, codice e altri prodot
 
 \subsection{Versionamento/versioning}
 Sistema per gestire le diverse versioni di file, codice sorgente o documenti, permettendo di tracciare le modifiche, collaborare in team e revertire a versioni precedenti.
+
+\subsection{ViewModel}
+Componente nel pattern MVVM che espone i dati e i comandi del Model in modo da essere facilmente legati alla View, spesso implementando notifiche di cambiamento per aggiornare automaticamente la View.
 
 \newpage
 
