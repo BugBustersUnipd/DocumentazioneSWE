@@ -75,6 +75,13 @@
 \renewcommand{\headrulewidth}{0pt} % rimuove la linea dell'header
 \renewcommand{\footrulewidth}{0pt} % se vuoi anche togliere eventuale linea del footer
 
+% abilitare numerazione e TOC fino al livello "paragraph" (subsubsubsection)
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+% formattazione del nuovo livello per avere aspetto coerente
+\titleformat{\paragraph}[block]{\normalsize\bfseries\color{secondaryblue}}{\theparagraph}{1em}{}
+% alias comodo per usare "subsubsubsection"
+\newcommand{\subsubsubsection}{\paragraph}
 
 \begin{center}
  \thispagestyle{empty}
@@ -280,6 +287,61 @@ nella documentazione ufficiale. Per ogni ambito di lavoro è nominato un referen
 che assicura il monitoraggio delle attività e la responsabilità decisionale; eventuali problemi 
 critici vengono segnalati immediatamente sul canale concordato e aperti come issue su 
 GitHub, in modo da garantirne la tracciabilità e la tempestività nelle azioni correttive.
+
+\subsubsection{Documentazione Prodotta}
+Durante la fase di fornitura, il team BugBusters produce e mantiene aggiornata la seguente documentazione:
+
+
+\subsubsubsection{Glossario}
+Per facilitare la lettura e la comprensione dei documenti di progetto, viene redatto un glossario che raccoglie
+e definisce i termini tecnici, gli acronimi e le abbreviazioni utilizzati. Questo strumento è fondamentale per
+garantire una comunicazione chiara e univoca tra tutti i membri del team, con il proponente, docenti e con i lettori esterni.
+Per una consultazione rapida durante la visualizzazione dei documenti, il glossario è accessibile anche tramite il 
+viewer PDF sviluppato dal team.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{3.2cm}|>{\centering\arraybackslash}X|}
+\hline
+\rowcolor{primaryblue!40}
+\multicolumn{1}{|>{\centering\arraybackslash}p{3.2cm}|}{\color{white}\textbf{Campo}} & \multicolumn{1}{>{\centering\arraybackslash}X|}{\color{white}\textbf{Dettaglio}} \\
+\hline
+\textbf{Redattore} & Amministratore \\
+\hline
+\textbf{Destinatari} & BugBusters, Eggon, Prof. Vardanega, Prof. Cardin  \\
+\hline
+\textbf{Uso} & Interno ed Esterno \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsubsubsection{Analisi dei Requisiti}
+Il documento di Analisi dei Requisiti descrive in dettaglio le funzionalità, i vincoli e le proprietà di qualità che il sistema Nexum dovrà soddisfare. Questo capitolo fornisce:
+\begin{itemize}
+    \item la definizione del contesto, degli stakeholder e degli attori coinvolti;
+    \item l'elenco dei requisiti funzionali e non funzionali, classificati e dotati di codifica univoca e criteri di accettazione;
+    \item casi d'uso e scenari principali con flussi e attori associati;
+    \item vincoli tecnici, normativi e di integrazione con sistemi esterni;
+    \item la prioritizzazione dei requisiti e l'identificazione del Minimum Viable Product (MVP);
+    \item la strategia di tracciabilità e gestione delle modifiche (issue tracker, versionamento e mappatura requisiti–test);
+    \item i criteri e i metodi per la verifica e la validazione dei requisiti.
+\end{itemize}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{3.2cm}|>{\centering\arraybackslash}X|}
+\hline
+\rowcolor{primaryblue!40}
+\multicolumn{1}{|>{\centering\arraybackslash}p{3.2cm}|}{\color{white}\textbf{Campo}} & \multicolumn{1}{>{\centering\arraybackslash}X|}{\color{white}\textbf{Dettaglio}} \\
+\hline
+\textbf{Redattore} & Analista \\
+\hline
+\textbf{Destinatari} & Eggon, Prof. Vardanega, Prof. Cardin  \\
+\hline
+\textbf{Uso} & Esterno \\
+\hline
+\end{tabularx}
+\end{center}
+
+
 
 \subsection{Processi di sviluppo}
 
