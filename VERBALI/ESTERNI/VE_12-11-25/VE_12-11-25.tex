@@ -1,0 +1,160 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Esterno}\\[0.3cm]
+  {\Large\color{secondaryblue} 12 novembre 2025}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Redattori}    & Alberto Pignat \\
+\textbf{Verificatore}    & Marco Piro \\
+\textbf{Uso}          & Esterno \\
+\textbf{Destinatari}  & Prof. Tullio Vardanega, Prof. Riccardo Cardin, Eggon, BugBusters\\
+\textbf{Versione} & 1.0.0\\
+
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale riguardante il colloquio via google meet con Eggon. Sono stati discussi i vincoli tecnici del capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}, sono stati definiti i prossimi meeting con Eggon ed è stato presentato Nexum nella sua versione attuale. 
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Esterna
+    \item \textbf{Piattaforma:} Google Meet
+    \item \textbf{Data:} 12/11/2025
+    \item \textbf{Orario di inizio:} 15:00
+    \item \textbf{Orario di fine:} 16:00
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Linor Sadè
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Luca Slongo
+        \item Alberto Pignat
+        \item Leonardo Salviato
+        \item Marco Piro
+    \end{itemize}
+    \item \textbf{Assenti:} Nessuno
+    \item \textbf{Presenti Esterni:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+    \item Gianpaolo Ferrarin
+    \item Luca Iuzzolino
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+    \item \label{itm:comunicazione} Definizione delle modalità di collaborazione, mezzi di comunicazione e organizzazione del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}};
+    \item \label{itm:Nexum} Visione del funzionamento dell'applicativo Nexum;
+    \item \label{itm:tecniche} Chiarimenti riguardanti i vincoli tecnici progettuali;
+\end{enumerate}
+
+\newpage
+\section{Svolgimento}
+
+\subsection*{\ref{itm:comunicazione}. Definizione delle modalità di collaborazione, mezzi di comunicazione e organizzazione del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+Luca Iuzzolino fornirà supporto al team dal punto di vista della parte tecnica del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}.\\
+Viene presentata l'applicazione web GitLab dove sono già state predisposte le repository\textsubscript{\scalebox{0.6}{\textbf{G}}} contenenti il codice preesistente di Nexum.\\
+Per poter usufruire di GitLab è richiesto ad ogni membro del team di fornire la propria email in modo tale da poter visionare le repository\textsubscript{\scalebox{0.6}{\textbf{G}}} relative a Nexum.\\
+Oltre al poter contattare Eggon tramite email o al poter recarsi in presenza alla sede, verrà predisposto un gruppo Telegram per comunicazioni più rapide.\\
+Dentro l'applicativo Nexum verrà predisposta una nuova azienda di prova, con al suo interno i membri del team, per poter testare l'applicativo al meglio.\\
+
+
+
+\subsection*{\ref{itm:Nexum}. Visione del funzionamento dell'applicativo Nexum}
+È stato presentato l'applicativo Nexum con tutte le sue funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}}, sia dal punto di vista dell'utente che dal punto di vista dell'amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+
+
+\subsection*{\ref{itm:tecniche}. Chiarimenti riguardanti i vincoli tecnici progettuali}
+Riguardo alle tecnologie da utilizzare, quando si presenterà il POC, l'unica tecnologia richiesta è AWS\textsubscript{\scalebox{0.6}{\textbf{G}}} Bedrock, per il resto non è obbligatorio che le tecnologie utilizzate siano le stesse in uso già da Eggon.
+
+
+\section{Esito Riunione}
+Sono stati meglio definiti i vincoli tecnici del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}. Si è deciso di avere, per un primo periodo, meeting settimanali (Mercoledì alle ore 15) con Eggon, per poi procedere con un meeting ogni due settimane. Il team si impegna ad inviare i propri recapiti email in modo da poter prendere visione delle repository\textsubscript{\scalebox{0.6}{\textbf{G}}} su GitLab.\\
+Si ringraziano l'azienda Eggon e i rappresentanti Gianpaolo Ferrarin e Luca Iuzzolino per la disponibilità dimostrata.
+\newpage
+
+% SEZIONE FIRMA E DATA SOSTITUITA CON L'IMMAGINE
+\vspace{1.0cm}
+\noindent
+\includegraphics[width=0.5\textwidth]{Data e firma.png}
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
