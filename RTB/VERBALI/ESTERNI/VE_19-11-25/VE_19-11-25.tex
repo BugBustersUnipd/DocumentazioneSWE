@@ -1,0 +1,184 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Esterno}\\[0.3cm]
+  {\Large\color{secondaryblue} 19 novembre 2025}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Redattori}    & Leonardo Salviato \\
+\textbf{Verificatore}    & Marco Piro \\
+\textbf{Uso}          & Esterno \\
+\textbf{Destinatari}  & Prof. Tullio Vardanega, Prof. Riccardo Cardin, Eggon, BugBusters\\
+\textbf{Versione} & 1.0.0\\
+
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale riguardante il colloquio via google meet con Eggon. Sono stati discussi dei punti riguardanti il progetto su cui il team aveva dei dubbi ed é stato definito il prossimo meeting con i rappresentanti EggOn. 
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Esterna
+    \item \textbf{Piattaforma:} Google Meet
+    \item \textbf{Data:} 19/11/2025
+    \item \textbf{Orario di inizio:} 15:00
+    \item \textbf{Orario di fine:} 15:25
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Linor Sadè
+        \item Alberto Autiero
+        \item Luca Slongo
+        \item Alberto Pignat
+        \item Leonardo Salviato
+        \item Marco Piro
+    \end{itemize}
+    \item \textbf{Assenti:} 
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+    \item Marco Favero
+    \end{itemize}
+    \item \textbf{Presenti Esterni:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+    \item Gianpaolo Ferrarin
+    \item Luca Iuzzolino
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+    \item \label{itm:documentazione} Richiesta documentazione per il progetto NEXUM;
+    \item \label{itm:visibilitaRepo} Discussione riguardo la visibilitá del codice e della documentazione creata dal gruppo durante il progetto;
+    \item \label{itm:applicazioneStandalone} Discussione riguardo come il gruppo procederá per sviluppare i moduli richiesti nel capitolato;
+\end{enumerate}
+
+\newpage
+\section{Svolgimento}
+
+\subsection*{\ref{itm:documentazione}. Richiesta documentazione per il progetto NEXUM}
+Sotto consiglio del professore Vardanega, il gruppo ha richiesto ad Eggon la documentazione riguardante il progetto NEXUM.\\
+L'azienda ha risposto che la documentazione verrá fornita appena possibile.\\
+
+\subsection*{\ref{itm:visibilitaRepo}. Discussione riguardo la visibilitá del codice e della documentazione creata dal gruppo durante il progetto}
+Il team ha spiegato la necessitá di poter rendere visibili le repository, in modo che i professori possa monitorare lo sviluppo del progetto.\\
+L'azienda ha risposto che non ci sono problemi a riguardo, ovviamente ogni codice e documentazione appartenente ad Eggon rimarrá privata e il gruppo lavorerá su una repository separata dove ogni codice e documento sviluppato potranno essere pubblici.\\
+
+\subsection*{\ref{itm:applicazioneStandalone}. Discussione riguardo come il gruppo procederá per sviluppare i moduli richiesti nel capitolato}
+Il gruppo, a seguito del consiglio fornito dall'azienda durante la riunione precedente, ha deciso di sviluppare i moduli esposti nel capitolato non direttamente come integrazione dell'applicazione Nexum. Invece \\
+verranno sviluppati come applicazioni standalone che mirano a svolegere le funzionalitá richieste (simulando comportamenti Nexum dove necessario), in modo da poter essere integrate successivamente nell'applicazione principale.\\
+
+
+\section{Tabella delle decisioni e azioni}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+\hline
+\rowcolor{secondaryblue!10} RTB17 \label{RTB13} & Il lavoro verrá svolto in una repository pubblica & Tutti \\
+\hline
+
+\end{tabularx}
+\fussy
+
+
+\section{Esito Riunione}
+Son stati discussi i punti riportati nell'ordine del giorno, trovando soluzioni dove necessario e arrivando a un punto comune. Il prossimo meeting è stato fissato al 3 dicembre (a due settimane dalla data udierna).\\
+Si ringraziano l'azienda Eggon e i rappresentanti Gianpaolo Ferrarin e Luca Iuzzolino per la disponibilità dimostrata.
+\newpage
+
+\vspace{1.5cm}
+\noindent\textbf{\Large Data}\\[0.4cm]
+\underline{\hspace{4cm}}
+
+\vspace{1.5cm}
+\noindent\textbf{\Large Firma}\\[0.8cm]
+\underline{\hspace{6cm}} \\[0.2cm]
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
