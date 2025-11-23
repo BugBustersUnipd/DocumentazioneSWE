@@ -54,7 +54,7 @@
     },
     {
       "term": "Architettura a livelli",
-      "definition": "Pattern architetturale che organizza il sistema in livelli gerarchici, onde ogni livello fornisce servizi al livello superiore e utilizza servizi del livello inferiore."
+      "definition": "Pattern architetturale che organizza il sistema in livelli gerarchici, dove ogni livello fornisce servizi al livello superiore e utilizza servizi del livello inferiore."
     },
     {
       "term": "Architettura dei microservizi",
@@ -86,7 +86,7 @@
     },
     {
       "term": "Attore secondario",
-      "definition": "Utente o sistema esterno che fornisce servizi o supporto all'attore principale durante l'esecuzione di um caso d'uso. Partecipa all'interazione ma non è il beneficiario principale del risultato, spesso fornendo funzionalità accessorie o di supporto."
+      "definition": "Utente o sistema esterno che fornisce servizi o supporto all'attore principale durante l'esecuzione di un caso d'uso. Partecipa all'interazione ma non è il beneficiario principale del risultato, spesso fornendo funzionalità accessorie o di supporto."
     },
     {
       "term": "Availability (Disponibilità)",
@@ -102,11 +102,11 @@
     },
     {
       "term": "Baseline",
-      "definition": "Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedures formali di controllo."
+      "definition": "Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedure formali di controllo."
     },
     {
       "term": "Best Practice",
-      "definition": "Insieme di tecniche, metodi e procedures che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contetto."
+      "definition": "Insieme di tecniche, metodi e procedure che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto."
     },
     {
       "term": "Builder",
@@ -126,11 +126,11 @@
     },
     {
       "term": "Cedolini Massivi",
-      "definition": "File contenenti più documentos retributivi aggregati, da suddividere e assegnare ai singoli destinatari tramite riconoscimento automatico."
+      "definition": "File contenenti più documenti retributivi aggregati, da suddividere e assegnare ai singoli destinatari tramite riconoscimento automatico."
     },
     {
       "term": "Cerimonia",
-      "definition": "Evento formale o informale nel framework Scrum che segue un agenda prestabilita e ha uno scopo specifico, come la Pianificazione dello Sprint, il Daily Stand-up, la Revisione dello Sprint o la Retrospettiva."
+      "definition": "Evento formale o informale nel framework Scrum che segue un'agenda prestabilita e ha uno scopo specifico, come la Pianificazione dello Sprint, il Daily Stand-up, la Revisione dello Sprint o la Retrospettiva."
     },
     {
       "term": "Committente",
@@ -190,11 +190,11 @@
     },
     {
       "term": "Diagramma dei casi d'uso",
-      "definition": "Diagramma UML che descrive le interazioni tra gli attori e il sistema, mostrando i diversi scenari possibili per raggiungere um obiettivo specifico."
+      "definition": "Diagramma UML che descrive le interazioni tra gli attori e il sistema, mostrando i diversi scenari possibili per raggiungere un obiettivo specifico."
     },
     {
       "term": "Diagramma delle classi",
-      "definition": "Diagramma UML che mostrano le classi del sistema, i loro attributi, metodi e le relazioni tra di esse (associazioni, ereditarietà, dipendenze, ecc.)."
+      "definition": "Diagramma UML che mostra le classi del sistema, i loro attributi, metodi e le relazioni tra di esse (associazioni, ereditarietà, dipendenze, ecc.)."
     },
     {
       "term": "Diagramma degli stati",
@@ -202,7 +202,7 @@
     },
     {
       "term": "Diagramma di attività",
-      "definition": "Diagramma UML che modellano il flusso di controllo o il flusso di dati tra attività, utilizzati per descrivere la logica di procedura, di business o di caso d'uso."
+      "definition": "Diagramma UML che modella il flusso di controllo o il flusso di dati tra attività, utilizzato per descrivere la logica di procedura, di business o di caso d'uso."
     },
     {
       "term": "Diagramma di deployment",
@@ -214,7 +214,7 @@
     },
     {
       "term": "Diagramma di PERT",
-      "definition": "(Program Evaluation and Review Technique) Strumento di analisi delle dipendenze temporali entre attività di progetto, utilizzato per identificare cammini critici e margini temporali (slack time)."
+      "definition": "(Program Evaluation and Review Technique) Strumento di analisi delle dipendenze temporali tra attività di progetto, utilizzato per identificare cammini critici e margini temporali (slack time)."
     },
     {
       "term": "Diagramma di sequenza",
@@ -222,7 +222,7 @@
     },
     {
       "term": "Dipendenza",
-      "definition": "Relazione tra componenti software per cui un componente (dipendente) requiste un altro componente (dipenduto) per funzionare correttamente. Le modifiche al componente dipenduto possono influenzare il componente dipendente."
+      "definition": "Relazione tra componenti software per cui un componente (dipendente) richiede un altro componente (dipenduto) per funzionare correttamente. Le modifiche al componente dipenduto possono influenzare il componente dipendente."
     },
     {
       "term": "Discord",
@@ -230,7 +230,7 @@
     },
     {
       "term": "Dispatch",
-      "definition": "Processo di distribuzione automatizzata dei documentos verso i destinatarios finali attraverso diversi canali (es. app, portale, email, PEC)."
+      "definition": "Processo di distribuzione automatizzata dei documenti verso i destinatari finali attraverso diversi canali (es. app, portale, email, PEC)."
     },
     {
       "term": "Dominio d'uso",
@@ -246,7 +246,7 @@
     },
     {
       "term": "Efficienza",
-      "definition": "Rapporto entre i risultati ottenuti e le risorse impiegate per conseguirli. Un processo è efficiente quando raggiunge i suoi obiettivi utilizzando il minimo di risorse necessarie."
+      "definition": "Rapporto tra i risultati ottenuti e le risorse impiegate per conseguirli. Un processo è efficiente quando raggiunge i suoi obiettivi utilizzando il minimo di risorse necessarie."
     },
     {
       "term": "Entity Resolution",
@@ -258,15 +258,15 @@
     },
     {
       "term": "Ereditarietà",
-      "definition": "Meccanismo della programmazione orientata agli oggetti che permette a uma classe (sottoclasse) di acquisire attributi e metodi di un'altra classe (superclasse), favorendo il riutilizzo del codice e le relazioni di generalizzazione."
+      "definition": "Meccanismo della programmazione orientata agli oggetti che permette a una classe (sottoclasse) di acquisire attributi e metodi di un'altra classe (superclasse), favorendo il riutilizzo del codice e le relazioni di generalizzazione."
     },
     {
       "term": "Ereditarietà di classe",
-      "definition": "Meccanismo di ereditarietà in cui uma classe eredita da un'altra classe (sia classe concreta che astratta)."
+      "definition": "Meccanismo di ereditarietà in cui una classe eredita da un'altra classe (sia classe concreta che astratta)."
     },
     {
       "term": "Ereditarietà dell'interfaccia",
-      "definition": "Meccanismo di ereditarietà in cui uma interfaccia eredita da un'altra interfaccia, oppure uma classe implementa un'interfaccia."
+      "definition": "Meccanismo di ereditarietà in cui un'interfaccia eredita da un'altra interfaccia, oppure una classe implementa un'interfaccia."
     },
     {
       "term": "Flessibilità",
@@ -290,7 +290,7 @@
     },
     {
       "term": "GitHub",
-      "definition": "Piattaforma di hosting per repository Git che offre strumenti per o version control, la collaborazione e la gestione del ciclo di vita del software."
+      "definition": "Piattaforma di hosting per repository Git che offre strumenti per il version control, la collaborazione e la gestione del ciclo di vita del software."
     },
     {
       "term": "Google Meet",
@@ -298,7 +298,7 @@
     },
     {
       "term": "Glossario",
-      "definition": "Documento che raccoglie e definisce i termini specifici, gli acronimi e le parole ambigue utilizzati nella documentazione di progetto, con lo scopo di garantire uma comprensione univoca della terminologia da parte di tutti i membri del team e dei destinatari."
+      "definition": "Documento che raccoglie e definisce i termini specifici, gli acronimi e le parole ambigue utilizzati nella documentazione di progetto, con lo scopo di garantire una comprensione univoca della terminologia da parte di tutti i membri del team e dei destinatari."
     },
     {
       "term": "Human in the loop",
@@ -322,11 +322,11 @@
     },
     {
       "term": "Interfaccia",
-      "definition": "In programmazione orientata agli oggetti, un'interfaccia è un tipo astratto che contiene uma serie di metodi dichiarati senza implementazione. Le classi che implementano un'interfaccia devono fornire un'implementazione per tutti i suoi metodi. Le interfacce definiscono un contratto che le classi devono seguire."
+      "definition": "In programmazione orientata agli oggetti, un'interfaccia è un tipo astratto che contiene una serie di metodi dichiarati senza implementazione. Le classi che implementano un'interfaccia devono fornire un'implementazione per tutti i suoi metodi. Le interfacce definiscono un contratto che le classi devono seguire."
     },
     {
       "term": "Issue",
-      "definition": "Segnalazione di um problema, un bug o uma richiesta di miglioramento nel sistema di tracking del progetto. Ogni issue viene tracciata, assegnata e gestita fino alla risoluzione."
+      "definition": "Segnalazione di un problema, un bug o una richiesta di miglioramento nel sistema di tracking del progetto. Ogni issue viene tracciata, assegnata e gestita fino alla risoluzione."
     },
     {
       "term": "KPI (Key Performance Indicator)",
@@ -346,7 +346,7 @@
     },
     {
       "term": "LLM (Large Language Model)",
-      "definition": "Modello di linguaggio di grandi dimensioni addestrato su vastos corpus di testo, in grado di generare, comprendere e elaborare linguaggio naturale in modo sofisticato."
+      "definition": "Modello di linguaggio di grandi dimensioni addestrato su vasti corpus di testo, in grado di generare, comprendere e elaborare linguaggio naturale in modo sofisticato."
     },
     {
       "term": "Load balancer",
@@ -370,7 +370,7 @@
     },
     {
       "term": "Model-View-Presenter (MVP)",
-      "definition": "Pattern architetturale derivato da MVC che separa l'applicazione in Model, View e Presenter, dove il Presenter contiene la logica di presentazione e agisce da intermediario entre View e Model."
+      "definition": "Pattern architetturale derivato da MVC che separa l'applicazione in Model, View e Presenter, dove il Presenter contiene la logica di presentazione e agisce da intermediario tra View e Model."
     },
     {
       "term": "Model-View-ViewModel (MVVM)",
@@ -402,7 +402,7 @@
     },
     {
       "term": "Pre-condizione",
-      "definition": "Condizione o stato del sistema che debe essere vero prima che un caso d'uso possa iniziare. Definisce i prerequisiti necessari per l'esecuzione corretta del caso d'uso."
+      "definition": "Condizione o stato del sistema che deve essere vero prima che un caso d'uso possa iniziare. Definisce i prerequisiti necessari per l'esecuzione corretta del caso d'uso."
     },
     {
       "term": "Preventivo",
@@ -442,11 +442,11 @@
     },
     {
       "term": "Progetto",
-      "definition": "Insieme di attività che devono raggiungere obiettivi specifici a partire da date specificae, con un inizio e una fine fissate in calendario, disponendo di risorse limitate (persone, tempo, denaro, strumenti) e consumando risorse nel loro svolgersi."
+      "definition": "Insieme di attività che devono raggiungere obiettivi specifici a partire da date specifiche, con un inizio e una fine fissate in calendario, disponendo di risorse limitate (persone, tempo, denaro, strumenti) e consumando risorse nel loro svolgersi."
     },
     {
       "term": "Prompt",
-      "definition": "Input (testo e/o altri dati) fornito a un modello di intelligenza artificiale per ottenere uma risposta o un output specifico."
+      "definition": "Input (testo e/o altri dati) fornito a un modello di intelligenza artificiale per ottenere una risposta o un output specifico."
     },
     {
       "term": "Proponente",
@@ -454,15 +454,15 @@
     },
     {
       "term": "Processi organizzativi",
-      "definition": "Processos trasversali rispetto ai singoli progetti che riguardano la gestione dei processes, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione."
+      "definition": "Processi trasversali rispetto ai singoli progetti che riguardano la gestione dei processi, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione."
     },
     {
       "term": "Processi primari",
-      "definition": "Processos fondamentali che agiscono direttamente sul ciclo di vita del prodotto software, includendo acquisizione, fornitura, sviluppo, operazione e manutenzione."
+      "definition": "Processi fondamentali che agiscono direttamente sul ciclo di vita del prodotto software, includendo acquisizione, fornitura, sviluppo, operazione e manutenzione."
     },
     {
       "term": "Processi di supporto",
-      "definition": "Processos che supportano i processos primari, includendo documentazione, gestione della configurazione, accertamento della qualità, verifica, validazione e risoluzione dei problemi."
+      "definition": "Processi che supportano i processi primari, includendo documentazione, gestione della configurazione, accertamento della qualità, verifica, validazione e risoluzione dei problemi."
     },
     {
       "term": "Pull Model",
@@ -494,7 +494,7 @@
     },
     {
       "term": "Redattore",
-      "definition": "Membro del team responsabile della stesura e della produzione dei documenti di projeto, garantendo chiarezza, completezza e conformità alle norme stabilite."
+      "definition": "Membro del team responsabile della stesura e della produzione dei documenti di progetto, garantendo chiarezza, completezza e conformità alle norme stabilite."
     },
     {
       "term": "Repository",
@@ -502,11 +502,11 @@
     },
     {
       "term": "Requisito",
-      "definition": "Condizione o capacità che deve essere posseduta da um sistema o componente software per soddisfare un contratto, standard, specifica o altro documento formalmente imposto."
+      "definition": "Condizione o capacità che deve essere posseduta da un sistema o componente software per soddisfare un contratto, standard, specifica o altro documento formalmente imposto."
     },
     {
       "term": "Requisiti desiderabili",
-      "definition": "Requisiti che sono importanti ma non essenziali per o funzionamento base del sistema. La loro implementazione apporta valore aggiunto ma la loro assenza non compromette il progetto."
+      "definition": "Requisiti che sono importanti ma non essenziali per il funzionamento base del sistema. La loro implementazione apporta valore aggiunto ma la loro assenza non compromette il progetto."
     },
     {
       "term": "Requisiti funzionali",
@@ -522,7 +522,7 @@
     },
     {
       "term": "Requisiti opzionali",
-      "definition": "Requisiti che sono utili ma non necessari, e la cui implementazione dipende dalla disponibilità di risorse e tempo. Possono be considerati per versioni future del prodotto."
+      "definition": "Requisiti che sono utili ma non necessari, e la cui implementazione dipende dalla disponibilità di risorse e tempo. Possono essere considerati per versioni future del prodotto."
     },
     {
       "term": "Requirements Baseline",
@@ -530,7 +530,7 @@
     },
     {
       "term": "Requisito software",
-      "definition": "Requisito specificato in termini tecnici, destinato agli sviluppatori, che descrive in modo dettagliato e misurabile uma funzionalità o un vincolo del sistema software."
+      "definition": "Requisito specificato in termini tecnici, destinato agli sviluppatori, che descrive in modo dettagliato e misurabile una funzionalità o un vincolo del sistema software."
     },
     {
       "term": "Requisito utente",
@@ -541,7 +541,7 @@
       "definition": "Figura di riferimento del progetto con compiti di coordinamento, pianificazione, gestione delle risorse e comunicazione con docenti e proponenti."
     },
     {
-      "term": "RiusabilitÃ ",
+      "term": "Riusabilità",
       "definition": "Capacità di un componente software di essere utilizzato in diversi contesti o applicazioni senza modifiche sostanziali."
     },
     {
@@ -562,11 +562,11 @@
     },
     {
       "term": "Scenario alternativo",
-      "definition": "Sequenza di interazioni nel caso d'uso che rappresenta un percorso diverso da quello principale, tipicamente gestendo condizioni eccezionali, errori o scelte alternativa dell'utente. Descrive come il sistema reagisce in situazioni non standard."
+      "definition": "Sequenza di interazioni nel caso d'uso che rappresenta un percorso diverso da quello principale, tipicamente gestendo condizioni eccezionali, errori o scelte alternative dell'utente. Descrive come il sistema reagisce in situazioni non standard."
     },
     {
       "term": "Scenario principale",
-      "definition": "Sequenza di interazioni entre l'attore principale e il sistema che descrive il percorso di successo del caso d'uso, dove l'obiettivo viene raggiunto senza intoppi o condizioni eccezionali. Rappresenta il flusso ideale e più frequente di esecuzione."
+      "definition": "Sequenza di interazioni tra l'attore principale e il sistema che descrive il percorso di successo del caso d'uso, dove l'obiettivo viene raggiunto senza intoppi o condizioni eccezionali. Rappresenta il flusso ideale e più frequente di esecuzione."
     },
     {
       "term": "Scope",
@@ -582,11 +582,11 @@
     },
     {
       "term": "Sottotipizzazione",
-      "definition": "Relazione entre tipi per cui un tipo (sottotipo) può essere utilizzato in ogni contesto in cui è atteso un altro tipo (supertipo), in accordo con il principio di sostituzione di Liskov."
+      "definition": "Relazione tra tipi per cui un tipo (sottotipo) può essere utilizzato in ogni contesto in cui è atteso un altro tipo (supertipo), in accordo con il principio di sostituzione di Liskov."
     },
     {
-      "term": "Specification Tecnica",
-      "definition": "Documento che descrive in dettaglio l'architettura, o design e le scelte implementative del sistema software, guidando le attività di sviluppo."
+      "term": "Specificazione Tecnica",
+      "definition": "Documento che descrive in dettaglio l'architettura, il design e le scelte implementative del sistema software, guidando le attività di sviluppo."
     },
     {
       "term": "Sprint",
@@ -617,12 +617,12 @@
       "definition": "Transazioni che coinvolgono multiple risorse distribuite in diversi nodi di un sistema, richiedendo meccanismi di coordinamento per garantire atomicità e consistenza."
     },
     {
-      "term": "UnitÃ  architetturali",
+      "term": "Unità architetturali",
       "definition": "Componenti fondamentali che costituiscono l'architettura di un sistema software, come moduli, componenti, connettori e dati."
     },
     {
       "term": "Validatore",
-      "definition": "Membro del team responsabile di eseguire attività de validazione, accertando che il prodotto software soddisfi le effettive esigenze del cliente e gli obiettivi de business."
+      "definition": "Membro del team responsabile di eseguire attività di validazione, accertando che il prodotto software soddisfi le effettive esigenze del cliente e gli obiettivi di business."
     },
     {
       "term": "Validazione",
@@ -638,7 +638,7 @@
     },
     {
       "term": "Verificatore",
-      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettino gli standard de qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
+      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettino gli standard di qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
     },
     {
       "term": "Versionamento/versioning",
