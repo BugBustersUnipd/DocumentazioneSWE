@@ -102,11 +102,11 @@
     },
     {
       "term": "Baseline",
-      "definition": "Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedure formali di controllo."
+      "definition": "Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedures formali di controllo."
     },
     {
       "term": "Best Practice",
-      "definition": "Insieme di tecniche, metodi e procedure che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto."
+      "definition": "Insieme di tecniche, metodi e procedures che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contetto."
     },
     {
       "term": "Builder",
@@ -126,7 +126,7 @@
     },
     {
       "term": "Cedolini Massivi",
-      "definition": "File contenenti più documenti retributivi aggregati, da suddividere e assegnare ai singoli destinatari tramite riconoscimento automatico."
+      "definition": "File contenenti più documentos retributivi aggregati, da suddividere e assegnare ai singoli destinatari tramite riconoscimento automatico."
     },
     {
       "term": "Cerimonia",
@@ -222,7 +222,7 @@
     },
     {
       "term": "Dipendenza",
-      "definition": "Relazione tra componenti software per cui un componente (dipendente) richiede un altro componente (dipenduto) per funzionare correttamente. Le modifiche al componente dipenduto possono influenzare il componente dipendente."
+      "definition": "Relazione tra componenti software per cui un componente (dipendente) requiste un altro componente (dipenduto) per funzionare correttamente. Le modifiche al componente dipenduto possono influenzare il componente dipendente."
     },
     {
       "term": "Discord",
@@ -230,7 +230,7 @@
     },
     {
       "term": "Dispatch",
-      "definition": "Processo di distribuzione automatizzata dei documenti verso i destinatari finali attraverso diversi canali (es. app, portale, email, PEC)."
+      "definition": "Processo di distribuzione automatizzata dei documentos verso i destinatarios finali attraverso diversi canali (es. app, portale, email, PEC)."
     },
     {
       "term": "Dominio d'uso",
@@ -346,7 +346,7 @@
     },
     {
       "term": "LLM (Large Language Model)",
-      "definition": "Modello di linguaggio di grandi dimensioni addestrato su vasti corpus di testo, in grado di generare, comprendere e elaborare linguaggio naturale in modo sofisticato."
+      "definition": "Modello di linguaggio di grandi dimensioni addestrato su vastos corpus di testo, in grado di generare, comprendere e elaborare linguaggio naturale in modo sofisticato."
     },
     {
       "term": "Load balancer",
@@ -442,7 +442,7 @@
     },
     {
       "term": "Progetto",
-      "definition": "Insieme di attività che devono raggiungere obiettivi specifici a partire da date specifiche, con un inizio e una fine fissate in calendario, disponendo di risorse limitate (persone, tempo, denaro, strumenti) e consumando risorse nel loro svolgersi."
+      "definition": "Insieme di attività che devono raggiungere obiettivi specifici a partire da date specificae, con un inizio e una fine fissate in calendario, disponendo di risorse limitate (persone, tempo, denaro, strumenti) e consumando risorse nel loro svolgersi."
     },
     {
       "term": "Prompt",
@@ -454,15 +454,15 @@
     },
     {
       "term": "Processi organizzativi",
-      "definition": "Processi trasversali rispetto ai singoli progetti che riguardano la gestione dei processi, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione."
+      "definition": "Processos trasversali rispetto ai singoli progetti che riguardano la gestione dei processes, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione."
     },
     {
       "term": "Processi primari",
-      "definition": "Processi fondamentali che agiscono direttamente sul ciclo di vita del prodotto software, includendo acquisizione, fornitura, sviluppo, operazione e manutenzione."
+      "definition": "Processos fondamentali che agiscono direttamente sul ciclo di vita del prodotto software, includendo acquisizione, fornitura, sviluppo, operazione e manutenzione."
     },
     {
       "term": "Processi di supporto",
-      "definition": "Processi che supportano i processi primari, includendo documentazione, gestione della configurazione, accertamento della qualità, verifica, validazione e risoluzione dei problemi."
+      "definition": "Processos che supportano i processos primari, includendo documentazione, gestione della configurazione, accertamento della qualità, verifica, validazione e risoluzione dei problemi."
     },
     {
       "term": "Pull Model",
@@ -494,7 +494,7 @@
     },
     {
       "term": "Redattore",
-      "definition": "Membro del team responsabile della stesura e della produzione dei documenti di progetto, garantendo chiarezza, completezza e conformità alle norme stabilite."
+      "definition": "Membro del team responsabile della stesura e della produzione dei documenti di projeto, garantendo chiarezza, completezza e conformità alle norme stabilite."
     },
     {
       "term": "Repository",
@@ -541,7 +541,7 @@
       "definition": "Figura di riferimento del progetto con compiti di coordinamento, pianificazione, gestione delle risorse e comunicazione con docenti e proponenti."
     },
     {
-      "term": "Riusabilità",
+      "term": "RiusabilitÃ ",
       "definition": "Capacità di un componente software di essere utilizzato in diversi contesti o applicazioni senza modifiche sostanziali."
     },
     {
@@ -562,7 +562,7 @@
     },
     {
       "term": "Scenario alternativo",
-      "definition": "Sequenza di interazioni nel caso d'uso che rappresenta un percorso diverso da quello principale, tipicamente gestendo condizioni eccezionali, errori o scelte alternative dell'utente. Descrive come il sistema reagisce in situazioni non standard."
+      "definition": "Sequenza di interazioni nel caso d'uso che rappresenta un percorso diverso da quello principale, tipicamente gestendo condizioni eccezionali, errori o scelte alternativa dell'utente. Descrive come il sistema reagisce in situazioni non standard."
     },
     {
       "term": "Scenario principale",
@@ -585,7 +585,7 @@
       "definition": "Relazione entre tipi per cui un tipo (sottotipo) può essere utilizzato in ogni contesto in cui è atteso un altro tipo (supertipo), in accordo con il principio di sostituzione di Liskov."
     },
     {
-      "term": "Specificazione Tecnica",
+      "term": "Specification Tecnica",
       "definition": "Documento che descrive in dettaglio l'architettura, o design e le scelte implementative del sistema software, guidando le attività di sviluppo."
     },
     {
@@ -617,12 +617,12 @@
       "definition": "Transazioni che coinvolgono multiple risorse distribuite in diversi nodi di un sistema, richiedendo meccanismi di coordinamento per garantire atomicità e consistenza."
     },
     {
-      "term": "Unità architetturali",
+      "term": "UnitÃ  architetturali",
       "definition": "Componenti fondamentali che costituiscono l'architettura di un sistema software, come moduli, componenti, connettori e dati."
     },
     {
       "term": "Validatore",
-      "definition": "Membro del team responsabile di eseguire attività de validazione, accertando che il prodotto software soddisfi le effettive esigenze del cliente e gli obiettivi di business."
+      "definition": "Membro del team responsabile di eseguire attività de validazione, accertando che il prodotto software soddisfi le effettive esigenze del cliente e gli obiettivi de business."
     },
     {
       "term": "Validazione",
@@ -638,7 +638,7 @@
     },
     {
       "term": "Verificatore",
-      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettano gli standard de qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
+      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettino gli standard de qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
     },
     {
       "term": "Versionamento/versioning",
@@ -656,3 +656,5 @@
       "term": "Workflow",
       "definition": "Sequenza di attività che definiscono un processo di business, dove compiti, informazioni o documenti passano da un partecipante all'altro secondo regole prestabilite."
     }
+  ]
+}
