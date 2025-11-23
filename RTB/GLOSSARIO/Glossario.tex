@@ -162,7 +162,7 @@ Insieme di definizioni, protocolli e strumenti per la costruzione e l'integrazio
 Processo formale attraverso il quale un documento o una funzionalità viene accettata e considerata completa dopo aver superato le verifiche e validazioni necessarie.
 
 \subsection{Architettura a livelli}
-Pattern architetturale che organizza il sistema in livelli gerarchici, dove ogni livello fornisce servizi al livello superiore e utilizza servizi del livello inferiore.
+Pattern architetturale che organizza il sistema in livelli gerarchici, onde ogni livello fornisce servizi al livello superiore e utilizza servizi del livello inferiore.
 
 \subsection{Architettura dei microservizi}
 Approccio architetturale che struttura un'applicazione come una collezione di servizi piccoli, autonomi e indipendenti, ciascuno responsabile di una specifica funzionalità di business.
@@ -207,6 +207,9 @@ Versione approvata e formalmente controllata di un documento o di un componente 
 \subsection{Best Practice}
 Insieme di tecniche, metodi e procedures che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contetto.
 
+\subsection{Builder}
+Pattern creazionale che separa la costruzione di un oggetto complesso dalla sua rappresentazione, in modo che lo stesso processo di costruzione possa creare diverse rappresentazioni. Il pattern Builder è composto da Director, Builder e Product.
+
 \newpage
 
 \section{C}
@@ -221,7 +224,7 @@ Tecnica di specifica dei requisiti che descrive le interazioni tra gli attori (u
 Documenti retributivi che attestano la retribuzione corrisposta al dipendente per un determinato periodo di paga.
 
 \subsection{Cedolini Massivi}
-File contenenti più documenti retributivi aggregati, da suddividere e assegnare ai singoli destinatari tramite riconoscimento automatico.
+File contenenti più documentos retributivi aggregati, da suddividere e assegnare ai singoli destinatari tramite riconoscimento automatico.
 
 \subsection{Cerimonia}
 Evento formale o informale nel framework Scrum che segue un agenda prestabilita e ha uno scopo specifico, come la Pianificazione dello Sprint, il Daily Stand-up, la Revisione dello Sprint o la Retrospettiva.
@@ -263,6 +266,9 @@ Scelta presa dal team di progetto riguardante aspetti tecnici, organizzativi o m
 \subsection{Dependency Injection}
 Pattern architetturale in cui le dipendenze di un componente vengono fornite dall'esterno, anziché essere create internamente al componente stesso.
 
+\subsection{Design Pattern}
+Soluzione progettuale generale e riutilizzabile a un problema ricorrente all'interno di un dato contesto nella progettazione di software. I design pattern non sono progetti finiti che possono essere trasformati direttamente in codice, ma modelli astratti che devono essere adattati al caso specifico.
+
 \subsection{Design pattern architetturali}
 Soluzioni progettuali ricorrenti e collaudate per problemi architetturali comuni nei sistemi software.
 
@@ -270,7 +276,7 @@ Soluzioni progettuali ricorrenti e collaudate per problemi architetturali comuni
 Diagramma UML che mostra l'organizzazione e le dipendenze tra i componenti software di un sistema.
 
 \subsection{Diagramma dei casi d'uso}
-Diagramma UML che descrive le interazioni tra gli attori e il sistema, mostrando i diversi scenari possibili per raggiungere un obiettivo specifico.
+Diagramma UML che descrive le interazioni tra gli attori e il sistema, mostrando i diversi scenari possibili per raggiungere um obiettivo specifico.
 
 \subsection{Diagramma delle classi}
 Diagramma UML che mostrano le classi del sistema, i loro attributi, metodi e le relazioni tra di esse (associazioni, ereditarietà, dipendenze, ecc.).
@@ -300,7 +306,7 @@ Relazione tra componenti software per cui un componente (dipendente) requiste un
 Piattaforma di comunicazione tramite chat vocale, testuale e video, utilizzata dal gruppo per la comunicazione interna e la collaborazione quotidiana.
 
 \subsection{Dispatch}
-Processo di distribuzione automatizzata dei documenti verso i destinatari finali attraverso diversi canali (es. app, portale, email, PEC).
+Processo di distribuzione automatizzata dei documentos verso i destinatarios finali attraverso diversi canali (es. app, portale, email, PEC).
 
 \subsection{Dominio d'uso}
 Contesto specifico o ambiente operativo in cui il sistema software sarà impiegato, comprendente le caratteristiche degli utenti finali, le condizioni operative, i vincoli tecnologici e le regole di business che definiscono l'ambito di applicazione del prodotto.
@@ -325,13 +331,13 @@ Processo di identificazione e associazione di entità (es. persone o aziende) a 
 Insieme di tecniche e meccanismi di programmazione per gestire le condizioni di errore che possono verificarsi durante l'esecuzione di un software. L'error handling prevede l'identificazione, la segnalazione e il recupero dagli errori, al fine di mantenere la stabilità e l'affidabilità del sistema.
 
 \subsection{Ereditarietà}
-Meccanismo della programmazione orientata agli oggetti che permette a una classe (sottoclasse) di acquisire attributi e metodi di un'altra classe (superclasse), favorendo il riutilizzo del codice e le relazioni di generalizzazione.
+Meccanismo della programmazione orientata agli oggetti che permette a uma classe (sottoclasse) di acquisire attributi e metodi di un'altra classe (superclasse), favorendo il riutilizzo del codice e le relazioni di generalizzazione.
 
 \subsection{Ereditarietà di classe}
-Meccanismo di ereditarietà in cui una classe eredita da un'altra classe (sia classe concreta che astratta).
+Meccanismo di ereditarietà in cui uma classe eredita da un'altra classe (sia classe concreta che astratta).
 
 \subsection{Ereditarietà dell'interfaccia}
-Meccanismo di ereditarietà in cui una interfaccia eredita da un'altra interfaccia, oppure una classe implementa un'interfaccia.
+Meccanismo di ereditarietà in cui uma interfaccia eredita da un'altra interfaccia, oppure uma classe implementa un'interfaccia.
 
 \newpage
 
@@ -382,8 +388,14 @@ Processo di traduzione di un design in codice eseguibile, realizzando le specifi
 \subsection{Incapsulamento}
 Principio della programmazione orientata agli oggetti che consiste nel racchiudere in un'unica entità (classe) dati e metodi che operano su di essi, nascondendo i dettagli implementativi all'esterno.
 
+\subsection{Incapsulamento (Encapsulation)}
+Principio della programmazione orientata agli oggetti che consiste nel racchiudere in un'unica entità (classe) dati e metodi che operano su di essi, nascondendo i dettagli implementativi all'esterno e esponendo solo un'interfaccia pubblica.
+
 \subsection{Information Hiding}
 Principio di progettazione software che consiste nel nascondere i dettagli implementativi di un modulo, esponendo solo le interfacce necessarie, per ridurre l'accoppiamento e aumentare la manutenibilità.
+
+\subsection{Interfaccia}
+In programmazione orientata agli oggetti, un'interfaccia è un tipo astratto che contiene uma serie di metodi dichiarati senza implementazione. Le classi che implementano un'interfaccia devono fornire un'implementazione per tutti i suoi metodi. Le interfacce definiscono un contratto che le classi devono seguire.
 
 \subsection{Issue}
 Segnalazione di um problema, un bug o uma richiesta di miglioramento nel sistema di tracking del progetto. Ogni issue viene tracciata, assegnata e gestita fino alla risoluzione.
@@ -409,7 +421,7 @@ Architettura a livelli in cui un livello può utilizzare servizi di qualsiasi li
 Architettura a livelli in cui un livello può utilizzare solo i servizi del livello immediatamente inferiore.
 
 \subsection{LLM (Large Language Model)}
-Modello di linguaggio di grandi dimensioni addestrato su vasti corpus di testo, in grado di generare, comprendere e elaborare linguaggio naturale in modo sofisticato.
+Modello di linguaggio di grandi dimensioni addestrato su vastos corpus di testo, in grado di generare, comprendere e elaborare linguaggio naturale in modo sofisticato.
 
 \subsection{Load balancer}
 Componente che distribuisce il carico di lavoro tra più server per migliorare le prestazioni e l'affidabilità del sistema.
@@ -450,6 +462,9 @@ Tecnologia che converte immagini di testo scritto o stampato in testo digitale m
 
 \section{P}
 
+\subsection{Pattern Creazionali}
+Categoria di design pattern che si occupano dei meccanismi di creazione degli oggetti, cercando di creare oggetti in modo adatto alla situazione. Esempi includono Factory Method, Abstract Factory, Builder, Singleton, etc.
+
 \subsection{Piano di Qualifica}
 Documento che definisce le modalità, le risorse e le tempistiche per le attività di verifica e validazione del software. Descrive gli standard di qualità da adottare, le metriche per la misurazione della qualità, i processi di controllo e le responsabilità del team per garantire la qualità del prodotto.
 
@@ -474,6 +489,9 @@ Approccio allo sviluppo software che parte dai componenti di basso livello per c
 \subsection{Procedimento top-down}
 Approccio allo sviluppo software che parte da una visione d'insieme per scomporre gradualmente il sistema in componenti più piccoli.
 
+\subsection{Prodotto (Product)}
+Nel contesto dei design pattern creazionali, il Product è l'oggetto complesso che viene costruito. In particolare, nel pattern Builder, il Product è l'oggetto finale che viene assemblato dal Director utilizzando il Builder.
+
 \subsection{Progettazione di dettaglio}
 Fase della progettazione software in cui si specificano nel dettaglio i componenti, le interfacce e le relazioni tra di essi.
 
@@ -496,13 +514,13 @@ Input (testo e/o altri dati) fornito a un modello di intelligenza artificiale pe
 Azienda o organizzazione che propone un capitolato d'appalto per il progetto del corso di Ingegneria del Software, definendone requisiti e obiettivi.
 
 \subsection{Processi organizzativi}
-Processi trasversali rispetto ai singoli progetti che riguardano la gestione dei processes, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione.
+Processos trasversali rispetto ai singoli progetti che riguardano la gestione dei processes, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione.
 
 \subsection{Processi primari}
-Processi fondamentali che agiscono direttamente sul ciclo di vita del prodotto software, includendo acquisizione, fornitura, sviluppo, operazione e manutenzione.
+Processos fondamentali che agiscono direttamente sul ciclo di vita del prodotto software, includendo acquisizione, fornitura, sviluppo, operazione e manutenzione.
 
 \subsection{Processi di supporto}
-Processi che supportano i processi primari, includendo documentazione, gestione della configurazione, accertamento della qualità, verifica, validazione e risoluzione dei problemi.
+Processos che supportano i processi primari, includendo documentazione, gestione della configurazione, accertamento della qualità, verifica, validazione e risoluzione dei problemi.
 
 \subsection{Pull Model}
 Pattern architetturale in cui il client richiede attivamente i dati al server quando necessario.
@@ -540,7 +558,7 @@ Membro del team responsabile della stesura e della produzione dei documenti di p
 Archivio centrale in cui vengono memorizzati e versionati i file sorgente, la documentazione e le risorse del progetto utilizzando un sistema di controllo versione.
 
 \subsection{Requisito}
-Condizione o capacità che deve essere posseduta da un sistema o componente software per soddisfare un contratto, standard, specifica o altro documento formalmente imposto.
+Condizione o capacità che deve essere posseduta da um sistema o componente software per soddisfare un contratto, standard, specifica o altro documento formalmente imposto.
 
 \subsection{Requisiti desiderabili}
 Requisiti che sono importanti ma non essenziali per o funzionamento base del sistema. La loro implementazione apporta valore aggiunto ma la loro assenza non compromette il progetto.
@@ -561,7 +579,7 @@ Requisiti che sono utili ma non necessari, e la cui implementazione dipende dall
 Insieme dei requisiti concordati e formalmente approvati che costituisce il riferimento per lo sviluppo del progetto. Una volta stabilita, qualsiasi modifica alla baseline dei requisiti deve seguire un processo formale di controllo delle modifiche.
 
 \subsection{Requisito software}
-Requisito specificato in termini tecnici, destinato agli sviluppatori, che descrive in modo dettagliato e misurabile una funzionalità o un vincolo del sistema software.
+Requisito specificato in termini tecnici, destinato agli sviluppatori, che descrive in modo dettagliato e misurabile uma funzionalità o un vincolo del sistema software.
 
 \subsection{Requisito utente}
 Requisito espresso dal punto di vista dell'utente finale, descritto in linguaggio naturale e senza dettagli tecnici, focalizzato su ciò che l'utente si aspetta che il sistema faccia.
@@ -646,7 +664,7 @@ Componenti fondamentali che costituiscono l'architettura di un sistema software,
 \section{V}
 
 \subsection{Validatore}
-Membro del team responsabile di eseguire attività de validazione, accertando che il prodotto software soddisfi le effettive esigenze del cliente e gli obiettivi di business.
+Membro del team responsabile di eseguire attività de validazione, accertando che il prodotto software soddisfi le effettive esigenze del cliente e gli obiettivi de business.
 
 \subsection{Validazione}
 Processo che accerta che il prodotto software sviluppato soddisfi le effettive esigenze del cliente e gli obiettivi di business per i quali è stato realizzato. Risponde alla domanda "Stiamo costruendo il prodotto giusto?" e viene tipicamente effettuata attraverso test di accettazione con il cliente.
