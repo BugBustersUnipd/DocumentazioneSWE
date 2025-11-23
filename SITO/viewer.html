@@ -170,7 +170,7 @@
 
             async function loadGlossary() {
                 try {
-                    const response = await fetch('glossario.json');
+                    const response = await fetch('glossario.json?v=' + new Date().getTime());
                     const data = await response.json();
                     glossaryData = data.terms;
                 } catch (error) {
