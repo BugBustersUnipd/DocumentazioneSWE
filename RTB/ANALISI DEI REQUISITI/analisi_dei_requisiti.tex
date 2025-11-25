@@ -88,11 +88,17 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \hline
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
 \hline
-0.0.1 & ------- & 
+0.0.2 & 25/11/2025 & 
+\begin{minipage}[t]{\linewidth}
+Riscrittura della prima stesura e modifica casi d'uso.
+\end{minipage} 
+& Leonardo Salviato& - \\
+\hline
+0.0.1 & 16/11/2025 & 
 \begin{minipage}[t]{\linewidth}
 Prima stesura della struttura del documento.
 \end{minipage} 
-& ------ & - \\
+& Leonardo Salviato e Marco Piro & - \\
 \hline
 \end{tabularx}
 \end{center}
@@ -122,7 +128,34 @@ Prima stesura della struttura del documento.
 2.1 Introduzione \\
 2.2 Attori \\
 2.3 Lista casi d'uso \\
-\quad 2.3.1 UC1: Creazione di un nuovo contenuto tramite prompt \\
+2.4 Sezione 0 – Applicazione standalone\\
+\quad 2.4.1 UC-0A: \\
+\quad 2.4.2 UC-0B: \\
+\quad 2.4.3 UC-0C: \\
+\quad 2.4.4 UC-0D: \\
+\quad 2.4.5 UC-0E: \\
+2.5 Sezione 1 – Modulo “AI Assistant Generativo\\
+\quad 2.5.1 UC-1A: \\
+\quad 2.5.2 UC-1B: \\
+\quad 2.5.3 UC-1C: \\
+\quad 2.5.4 UC-1D: \\
+\quad 2.5.5 UC-1E: \\
+\quad 2.5.6 UC-1F: \\
+\quad 2.5.7 UC-1G: \\
+\quad 2.5.8 UC-1H: \\
+
+
+2.6 Sezione 2 – Modulo "AI Co-Pilot per i CdL"\\
+\quad 2.6.1 UC-2A: \\
+\quad 2.6.2 UC-2B: \\
+\quad 2.6.3 UC-2C: \\
+\quad 2.6.4 UC-2D: \\
+\quad 2.6.5 UC-2E: \\
+\quad 2.6.5 UC-2F: \\
+\quad 2.6.5 UC-2G: \\
+
+
+
 
 \end{minipage}
 \begin{minipage}[t]{0.2\textwidth}
@@ -140,98 +173,130 @@ Prima stesura della struttura del documento.
 \section{Introduzione}
 
 \subsection{Scopo del documento}
-Questo documento di Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}
- adottato da parte di BugBusters durante lo svolgimento del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
- didattico, ha lo scopo di definire in maniera precisa e
- dettagliata i requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}} e non funzionali del Sistema software da sviluppare.
+Questo documento di Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}, adottato da parte di BugBusters durante lo svolgimento del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} didattico, ha lo scopo di definire in maniera precisa e dettagliata i requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}} e non funzionali del Sistema software da sviluppare.
 
- Per tale scopo, il documento include una descrizione approfondita dei Casi d’Uso, che sono
-fonte dei requisiti infine elencati. Verranno utilizzati, per agevolare la comprensione, i
-\textbf{Diagrammi dei Casi d’Uso } per visualizzare le interazioni tra attori e Sistema.
+A seguito delle nuove decisioni progettuali rispetto alle proposte del capitolato, il Sistema non sarà inizialmente integrato nella piattaforma NEXUM, ma verrà realizzato come \textbf{applicazione standalone}, autonoma e indipendente. Tale applicazione implementerà i moduli “AI Assistant Generativo” e "AI Co-Pilot per i CdL" in un ambiente isolato, così da consentire una fase di sviluppo, test e validazione più controllata. Solo in una fase successiva si valuterà l’\textbf{integrazione con la piattaforma NEXUM}, garantendo continuità architetturale e coerenza con i moduli già presenti.
 
-Il presente documento rappresenterà il riferimento di base per la progettazione,
-l’implementazione e il collaudo del prodotto finale, garantendo che il Sistema realizzato
-soddisfi pienamente le esigenze e le aspettative del committente.
+Il documento include una descrizione approfondita dei Casi d’Uso, che costituiscono la principale fonte dei requisiti finali. Per agevolare la comprensione, verranno utilizzati anche i \textbf{Diagrammi dei Casi d’Uso}, che visualizzano le interazioni tra utenti e Sistema.
 
-I requisiti identificati sono classificati in:
+Questo documento rappresenta il riferimento fondamentale per la progettazione, l’implementazione e il collaudo dell’applicazione standalone, assicurando che essa soddisfi pienamente le esigenze del Committente e gli obiettivi formativi del progetto.
+
+I requisiti identificati sono classificati nelle seguenti categorie:
 \begin{itemize}
-    \item Obbligatori: irrinunciabili e imprescindibili per il corretto funzionamento del Sistema;
-    \item Desiderabili: non strettamente necessari ma in grado di apportare un valore aggiunto riconoscibile;
-    \item Opzionali: relativamente utili oppure contrattabili per essere implementati in futuro.
+    \item \textbf{Obbligatori}: necessari e imprescindibili per garantire il corretto funzionamento dell’applicazione standalone;
+    \item \textbf{Desiderabili}: non strettamente necessari, ma capaci di migliorare l’esperienza utente o l’efficienza del Sistema;
+    \item \textbf{Opzionali}: funzionalità aggiuntive utili per estensioni future, in particolare in vista della possibile integrazione con NEXUM.
 \end{itemize}
 
-Il documento di Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} viene redatto dagli Analisti del team di progetto ed è
-rivolto ai seguenti principali destinatari:
+Il documento è rivolto ai seguenti destinatari:
 \begin{itemize}
-    \item Il Committente, che potrà verificare che i requisiti siano stati correttamente interpretati
-    e documentati secondo le sue specifiche;
-    \item Il Team di Progettisti e di Programmatori, che utilizzerà questo documento come guida
-    fondamentale per la realizzazione del Sistema software;
-    \item Il Team di Verificatori, che baserà sull’Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} la definizione dei casi di Test
-    e la verifica del corretto funzionamento del prodotto.
+    \item Il \textbf{Committente}, che potrà verificare che i requisiti siano stati compresi e documentati correttamente;
+    \item Il \textbf{Team di Progettisti e Programmatori}, che utilizzerà questa analisi come base per la realizzazione del Sistema;
+    \item Il \textbf{Team di Verificatori}, che impiegherà il presente documento per definire i casi di Test e validare il comportamento del prodotto.
 \end{itemize}
-Inoltre, il documento potrà essere consultato da altri soggetti coinvolti nel processo di
-sviluppo, come Amministratori e Responsabili di Progetto, al fine di acquisire una
-comprensione esauriente delle specifiche del Sistema.
-
 
 \subsection{Prospettiva del prodotto}
 
-Il prodotto che BugBusters si promette di sviluppare è una significativa evoluzione della piattaforma NEXUM: 
-un ecosistema HR intelligente, interoperabile e scalabile per la gestione della comunicazione interna, delle presenze e dei processi amministrativi legati alle risorse umane.
-Nello specifico, si intende realizzare una piattaforma che non solo supporti le funzionalità già presenti 
-(messaggistica top-down, timbratura digitale base, gestione anagrafiche/ruoli/permessi), 
-ma che fornisca una visione unificata e in tempo reale delle attività HR, delle scadenze e dei documenti rilevanti per le organizzazioni e per gli studi dei Consulenti del Lavoro (CdL) connessi al sistema.
+Il prodotto che BugBusters si propone di sviluppare è una versione standalone dei moduli “AI Assistant Generativo” e "AI Co-Pilot per i CdL", inizialmente svincolata dalla piattaforma NEXUM. Tale applicazione costituirà un prototipo funzionale in grado di operare autonomamente e di implementare le principali funzionalità richieste dal Committente, senza dipendere dagli altri moduli della piattaforma.
 
-Per ottenere ciò, il prodotto dovrà essere reattivo alle molteplici operazioni che avvengono quotidianamente nell’ambito HR 
-(timbrature, invio di documenti, elaborazione di cedolini, gestione ferie/permessi, segnalazioni di anomalie). 
-L’architettura dovrà quindi supportare scalabilità orizzontale e verticale dei componenti (microservizi) per mantenere bassa latenza e 
-alta disponibilità anche in condizioni di carico elevato. 
-Fondamentale è inoltre garantire la sicurezza e l’isolamento dei flussi dati tra organizzazioni e studi esterni.
+L’app standalone permetterà di testare e consolidare le funzionalità richieste, offrendo un ambiente controllato che faciliti la sperimentazione e lo sviluppo incrementale. Questa fase costituirà la base per un’eventuale integrazione futura con la piattaforma NEXUM, la quale fornirà un ecosistema HR completo e dotato di servizi quali la messaggistica top-down, la timbratura digitale, la gestione delle anagrafiche e dei ruoli, e la collaborazione con gli studi dei Consulenti del Lavoro (CdL).
 
-Elemento distintivo del prodotto sarà l’integrazione di moduli AI e di Data Analytics: 
-un AI Assistant generativo per la creazione e l’adattamento di contenuti aziendali (titoli, testi e immagini coerenti con il tono aziendale), 
-moduli di anomaly detection per individuare comportamenti anomali nelle presenze e negli straordinari, 
-e capacità di riconoscimento e smistamento automatico dei documenti provenienti dagli studi dei Consulenti del Lavoro. 
-Queste funzionalità abiliteranno automazioni proattive (es. notifica scadenze, suggerimenti per la gestione ferie, dispaccio automatico di documenti) e analizzeranno i dati per supportare decisioni HR data-driven.
-
-Infine, il progetto assumerà un approccio modulare e sperimentale: 
-i componenti sviluppati dovranno essere integrabili nella piattaforma NEXUM 
-(backend, frontend, database, architettura) come moduli riutilizzabili e documentati, favorendo sia l’adozione industriale sia l’attività di ricerca e 
-formazione tramite prototipi realizzati dagli studenti UNIPD.
-
-
-
+L’integrazione futura con NEXUM sarà concepita in modo modulare, consentendo alla nuova applicazione di inserirsi nell’architettura esistente come componente riutilizzabile e scalabile. L’integrazione includerà l’adattamento delle API, l’allineamento della gestione utenti e la centralizzazione dei dati all’interno dell’infrastruttura NEXUM.
 
 \subsection{Funzioni del prodotto}
-Dal punto di vista dell’utilizzatore finale, il prodotto dovrà fornire le seguenti funzionalità:
+
+Dal punto di vista dell’utilizzatore finale, l’applicazione standalone dovrà fornire le seguenti funzionalità:
+
 \begin{itemize}
-    \item Disponibilità delle nuove funzionalità sulla Dashboard amministrativa e, ove opportuno, tramite PWA per gli utenti finali.
-    \item AI Assistant Generativo per la creazione rapida di comunicazioni interne: generazione di titolo, contenuto testuale e immagine di copertina a partire da un prompt; selezione del tono/stile (formale, informale, neutro); salvataggio dei prompt e dei risultati; sistema di rating per valutare la qualità dei contenuti generati.
-    \item Estensione del modulo di timbratura per la raccolta e gestione di ferie, permessi, malattia e straordinari, con storicizzazione e reportistica.
-    \item Modulo di anomaly detection per individuare automaticamente incongruenze nelle presenze e negli straordinari e invio di alert ai responsabili.
-    \item Repository documentale per gli studi dei Consulenti del Lavoro: upload sicuro dei documenti, riconoscimento automatico della tipologia di documento (cedolini, comunicazioni, documenti da firmare, ecc.) e individuazione dei destinatari direttamente dal contenuto.
-    \item Split e dispaccio automatico dei documenti: capacità di suddividere upload massivi in base ai destinatari e creare liste di distribuzione per invii massivi.
-    \item Sistema di interoperabilità e API per lo scambio sicuro di documenti, scadenze e metadati con gli studi dei CdL, potenziato da moduli AI per il riconoscimento, l’estrazione metadati e il dispaccio intelligente.
-    \item Funzionalità di configurazione amministrativa: possibilità di definire ruoli, permessi, template di messaggi, soglie e policy per le rilevazioni di anomalie.
-    \item Strumenti di esportazione: esportare report di presenza, inventari di scadenze e archive documentali in formati standard (CSV, PDF).
-    \item Monitoraggio in tempo reale: visualizzazione del numero di richieste e dello stato operativo dei servizi della piattaforma (metriche di utilizzo, code, latenza).
-    \item Tracciamento e audit: log delle azioni amministrative e dei dispacci documentali per esigenze di compliance.
+    \item \textbf{Generazione di contenuti tramite AI (Modulo AI Assistant Generativo)}: 
+    generazione di titolo, testo e immagine di copertina a partire da un prompt, 
+    con possibilità di selezionare tono, stile e configurazioni avanzate del modello AI.
+
+    \item \textbf{Salvataggio locale}: 
+    gestione interna di prompt, contenuti generati, immagini e valutazioni, 
+    tramite archivio locale dedicato all’app standalone, indipendente dalla piattaforma NEXUM.
+
+    \item \textbf{Sistema di rating}: 
+    valutazione della qualità dei contenuti generati dall’AI, utile per analisi interne e miglioramento continuo.
+
+    \item \textbf{Gestione dei prompt}: 
+    storico dei prompt utilizzati, con possibilità di riutilizzo, duplicazione e ricerca interna.
+
+    \item \textbf{Esportazione dei contenuti}: 
+    esportazione in formati standard (PDF, testo, immagine) per permettere anche un’integrazione manuale con sistemi esterni.
+
+    \item \textbf{Dashboard standalone}: 
+    visualizzazione e gestione di storico, filtri, ricerca e analisi delle interazioni con l’AI generativa.
+
+    \item \textbf{Gestione delle immagini}: 
+    possibilità di caricare immagini dall’utente o di generarle tramite AI, con salvataggio locale.
+
+    \item \textbf{Gestione utenti}: 
+    registrazione, autenticazione, gestione del profilo e configurazione dei parametri AI 
+    (per utenti privilegiati come amministratori o editor avanzati).
+
+    \item \textbf{Upload e gestione documentale (Modulo AI Co-Pilot per i CdL)}: 
+    possibilità di caricare documenti (PDF, ZIP, immagini), salvarli localmente e gestirne lo stato di elaborazione.
+
+    \item \textbf{Riconoscimento automatico della tipologia di documento}: 
+    classificazione tramite AI (cedolini, CU, comunicazioni, lettere, moduli da firmare, ecc.) 
+    sfruttando modelli OCR e classificatori addestrati.
+
+    \item \textbf{Estrazione dei destinatari}: 
+    riconoscimento automatico di informazioni contenute nei documenti 
+    (nome, cognome, codice fiscale, matricola, reparto) tramite tecniche AI di entity extraction.
+
+    \item \textbf{Split dei documenti massivi}: 
+    suddivisione automatica dei documenti multi-destinatario (es. cedolini massivi) 
+    in documenti singoli, ognuno associato al proprio destinatario riconosciuto.
+
+    \item \textbf{Revisione manuale (Human-in-the-Loop)}: 
+    interfaccia dedicata per verificare, correggere o confermare i risultati ottenuti dall’AI 
+    in ogni fase (classificazione, destinatari, split).
+
+    \item \textbf{Creazione di messaggi e liste di distribuzione}: 
+    generazione automatica di bozze di messaggi e liste di destinatari derivanti dai documenti processati.
+
+    \item \textbf{Tracciamento locale}: 
+    storico delle operazioni effettuate (upload, riconoscimento, revisioni, esportazioni), 
+    utile per audit interni e analisi del flusso documentale.
+
+    \item \textbf{Esportazione documentale}: 
+    generazione di pacchetti ZIP contenenti documenti processati, metadati, liste di destinatari e log di lavorazione.
 \end{itemize}
 
-Queste funzionalità mirano a rendere NEXUM una piattaforma modulare, scalabile e orientata all’automazione intelligente, capace di migliorare l’efficienza dei processi HR e la collaborazione con gli studi dei Consulenti del Lavoro.
-
+Queste funzionalità permetteranno all’app standalone di essere completamente operativa e autonoma nei due moduli (AI Assistant Generativo e AI Co-Pilot per i CdL). 
+In una fase successiva, tali componenti saranno progettati per essere integrati nella piattaforma NEXUM, 
+consentendo così un’evoluzione verso un ecosistema HR completo, scalabile e basato su automazioni intelligenti.
 
 \subsection{Caratterisitiche dell'utente}
-Gli utilizzatori finali del prodotto non appartengono a un’unica categoria specifica: l’obiettivo del progetto è infatti quello di progettare moduli intelligenti e interoperabili che possano essere integrati all’interno dell’ecosistema NEXUM, rendendolo utilizzabile in modo efficace da una vasta gamma di figure professionali.
-In generale, è possibile affermare che gli utenti finali sono tutti coloro che necessitano di uno strumento scalabile, intelligente e semplice da utilizzare per la gestione delle attività HR, della comunicazione interna e dello scambio documentale con gli studi dei Consulenti del Lavoro. Rientrano in questa categoria:
+
+Gli utilizzatori finali dell'applicazione standalone non appartengono a un’unica categoria specifica: 
+l’obiettivo del progetto è quello di progettare moduli intelligenti e interoperabili 
+che possano essere integrati all’interno dell’ecosistema NEXUM o utilizzati autonomamente durante la fase standalone.
+
+In generale, è possibile affermare che gli utenti finali sono coloro che necessitano di uno strumento scalabile, 
+intelligente e semplice da utilizzare per generare contenuti tramite AI e per gestire flussi documentali complessi con il supporto del modulo Co-Pilot.
+Rientrano in questa categoria:
+
 \begin{itemize}
-    \item Responsabili e amministratori HR, che richiedono strumenti avanzati per la gestione di presenze, ferie, permessi, anomalie e comunicazioni aziendali.
-    \item Consulenti del Lavoro (CdL) e personale amministrativo degli studi professionali, che necessitano di un sistema interoperabile per caricare, riconoscere e distribuire documenti in modo rapido e automatico.
-    \item Dipendenti e collaboratori, che interagiscono con la piattaforma per consultare comunicazioni, gestire le proprie richieste e ricevere documenti in formato digitale.
-    \item Manager aziendali, interessati a disporre di una panoramica affidabile e in tempo reale dei flussi HR e delle scadenze operative.
+    \item \textbf{Responsabili e amministratori HR}, che necessitano di strumenti avanzati per la creazione di comunicazioni interne, 
+    la gestione dei contenuti generativi e l’analisi delle produzioni.
+
+    \item \textbf{Consulenti del Lavoro (CdL) e personale amministrativo}, che richiedono un sistema in grado di caricare, riconoscere, suddividere e preparare documenti per la distribuzione ai destinatari.
+
+    \item \textbf{Dipendenti e collaboratori} (in fase integrata), che potranno interagire con la piattaforma NEXUM per consultare documenti e comunicazioni, 
+    pur non essendo utenti della versione standalone.
+
+    \item \textbf{Manager aziendali}, interessati a monitorare la consistenza delle comunicazioni e l’efficienza dei processi documentali, 
+    sia nella versione standalone che nella futura integrazione.
 \end{itemize}
-In sintesi, il prodotto è rivolto a organizzazioni di varie dimensioni — in particolare aziende medio-grandi e studi professionali — che necessitano di una piattaforma HR completa, modulare, automatizzata e potenziata dall’AI, capace di semplificare e migliorare la gestione dei processi legati alle risorse umane e alla collaborazione con i Consulenti del Lavoro.
+
+In sintesi, il prodotto è rivolto a organizzazioni di varie dimensioni — in particolare aziende medio-grandi e studi professionali — 
+che necessitano di strumenti intelligenti per la creazione di contenuti, 
+la gestione automatizzata dei documenti e la collaborazione con gli studi dei Consulenti del Lavoro.
+L’app standalone funge da primo passo verso una piattaforma HR completa, modulare e potenziata dall’AI.
+
 
 \subsection{Definizioni, acronimi e abbreviazioni}
 Per tutte le definizioni, acronimi e abbreviazioni utilizzati in questo documento, si faccia
@@ -314,72 +379,620 @@ Di seguito sono esposti gli attori utilizzati:
 
 \subsection{Lista casi d'uso}
 
-\subsubsection{UC-1A: Creazione di un nuovo contenuto tramite prompt}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Diagrammi casi d'uso/UC1A.jpeg}
-    \caption{Figura n: UC-1A: Creazione di un nuovo contenuto tramite prompt}
-    \label{fig:your_image_label}
-\end{figure}
-
-\textbf{Attore}: Amministratore / HR Manager \\
-\textbf{Pre-condizioni}: L’utente è autenticato nella dashboard NEXUM e ha i permessi di redazione.
-\textbf{Post-condizioni}: Il contenuto è salvato nel database come bozza o pubblicato. \\
-\textbf{Scenario principale}:
+\text{L'elenco dei casi d'uso sará diviso in tre parti:}
 \begin{itemize}
-    \item L’utente apre il modulo “AI Assistant Generativo”.
-    \item Inserisce un prompt (es. “Comunicato di benvenuto ai nuovi dipendenti”).
-    \item Seleziona il tono (formale/informale/neutro) e lo stile (istituzionale, empatico, tecnico).
-    \item Il sistema invia la richiesta al motore AI.
-    \item L’AI genera titolo, testo e immagine di copertina coerenti con il tono e il prompt.
-    \item Il risultato viene visualizzato in anteprima.
-    \item L’utente può accettare, rigenerare o modificare manualmente.
+    \item 0 - Casi d'uso per la gestione utenti e autenticazione
+    \item 1 - Casi d'uso per il modulo "AI Assistant Generativo"
+    \item 2 - Casi d'uso per il modulo "AI Doc Classifier"
 \end{itemize}
 
-\subsubsection{UC-1B: Modifica di un contenuto generato}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Diagrammi casi d'uso/UC1B.jpeg}
-    \caption{Figura n: UC-1B: Modifica di un contenuto generato}
-    \label{fig:your_image_label}
-\end{figure}
+\subsection{Sezione 0 – Applicazione standalone}
 
-\textbf{Attore}: Amministratore / HR Manager \\
-\textbf{Pre-condizioni}: Un contenuto generato è disponibile in anteprima (UC1A). \\
-\textbf{Post-condizioni}: Il contenuto è salvato nel database come bozza o pubblicato. \\
-\textbf{Scenario principale}:
+\subsubsection{UC-0A – Registrazione nuovo utente}
+
+\textbf{Attori}
 \begin{itemize}
-    \item L’utente apre l’anteprima del contenuto generato.
-    \item Modifica titolo, testo o immagine.
-    \item Il sistema aggiorna l’anteprima.
+    \item Utente non autenticato (nuovo utente).
+    \item Sistema di autenticazione dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente non ha una sessione attiva.
+    \item L’utente non è ancora registrato nel Sistema (l’e-mail inserita non risulta già presente).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla schermata di registrazione dell’applicazione standalone.
+    \item L’utente inserisce i dati richiesti (ad esempio: nome, cognome, e-mail, password).
+    \item L’utente accetta le condizioni d’uso e l’informativa sulla privacy.
+    \item Il Sistema verifica la correttezza formale dei dati inseriti (es. formato e-mail, forza della password).
+    \item Il Sistema controlla che l’indirizzo e-mail non sia già associato a un account esistente.
+    \item In caso di esito positivo, il Sistema crea un nuovo account utente e lo memorizza nel proprio archivio.
+    \item Il Sistema conferma l’avvenuta registrazione e può opzionalmente eseguire il login automatico del nuovo utente.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Esiste un nuovo account utente registrato nel Sistema.
+    \item L’utente può effettuare il login utilizzando le credenziali appena create.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0B – Login / Autenticazione utente}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente registrato.
+    \item Sistema di autenticazione dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente è già registrato nel Sistema.
+    \item Non esiste una sessione attiva associata all’utente sul dispositivo corrente.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla schermata di login.
+    \item L’utente inserisce le proprie credenziali (e-mail e password).
+    \item Il Sistema verifica la correttezza delle credenziali.
+    \item In caso di credenziali valide, il Sistema crea una nuova sessione autenticata per l’utente.
+    \item Il Sistema reindirizza l’utente alla dashboard principale dell’applicazione standalone.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L’utente risulta autenticato nel Sistema.
+    \item È attiva una sessione associata all’utente, che consente l’accesso alle funzionalità riservate (es. generazione contenuti, upload documenti).
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0C – Gestione profilo utente}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato.
+    \item Sistema di gestione profilo dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente ha effettuato il login ed è autenticato.
+    \item Esiste un profilo associato all’utente nel Sistema (dati anagrafici e preferenze).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla sezione “Profilo” dalla dashboard dell’applicazione.
+    \item Il Sistema mostra i dati correnti del profilo (es. nome, cognome, e-mail, ruolo, preferenze AI come tono/stile predefinito).
+    \item L’utente modifica uno o più campi del profilo (es. nome visualizzato, preferenze di tono, lingua).
     \item L’utente conferma le modifiche.
-\end{itemize}
+    \item Il Sistema valida i dati inseriti (ad esempio formato dell’e-mail, campi obbligatori).
+    \item Il Sistema salva le modifiche nel proprio archivio.
+    \item Il Sistema conferma l’avvenuto aggiornamento del profilo.
+\end{enumerate}
 
-\subsubsection{UC-1C: Salvataggio e pubblicazione del contenuto}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Diagrammi casi d'uso/UC1C.jpeg}
-    \caption{Figura n: UC-1C: Salvataggio e pubblicazione del contenuto}
-    \label{fig:your_image_label}
-\end{figure}
-
-\textbf{Attore}: Amministratore / HR Manager \\
-\textbf{Pre-condizioni}: È disponibile un contenuto generato (UC-1A) \\
-\textbf{Post-condizioni}:
+\textbf{Post-condizioni}
 \begin{itemize}
-    \item Il contenuto è salvato come bozza o pubblicato.
-    \item Lo storico dei prompt viene aggiornato.
-    \item L’operazione risulta tracciata a sistema.
+    \item Le informazioni del profilo utente risultano aggiornate nel Sistema.
+    \item Le nuove preferenze (ad esempio tono/stile predefinito) verranno utilizzate nelle interazioni successive con i moduli AI.
 \end{itemize}
-\textbf{Scenario principale}:
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0D – Gestione ruoli (Admin / Editor)}
+
+\textbf{Attori}
 \begin{itemize}
-    \item L’utente seleziona “Salva come bozza” oppure “Pubblica su NEXUM”.
-    \item Il sistema salva prompt, tono e contenuto nel database.
-    \item In caso di pubblicazione, il contenuto viene inviato al modulo messaggistica.
-    \item Il sistema registra che il contenuto è stato creato tramite AI Assistant.
+    \item Amministratore dell’applicazione standalone (Admin).
+    \item Utenti registrati (Editor o altri ruoli definiti).
+    \item Sistema di gestione ruoli e permessi.
 \end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente amministratore ha effettuato il login ed è autenticato come Admin.
+    \item Esistono uno o più account utente registrati nel Sistema.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’Amministratore accede alla sezione di amministrazione utenti.
+    \item Il Sistema mostra l’elenco degli utenti registrati, con i rispettivi ruoli correnti.
+    \item L’Amministratore seleziona un utente da modificare.
+    \item L’Amministratore assegna o modifica il ruolo dell’utente (es. da Editor a Admin, oppure rimozione privilegi).
+    \item L’Amministratore conferma le modifiche.
+    \item Il Sistema aggiorna i ruoli e i permessi associati all’utente.
+    \item Il Sistema registra l’operazione per finalità di audit interno.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item I ruoli e i permessi degli utenti risultano aggiornati nel Sistema.
+    \item Le funzionalità accessibili a ciascun utente dipendono dal nuovo ruolo assegnato (es. solo Admin può modificare i parametri AI globali).
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0E – Logout / Gestione della sessione}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato.
+    \item Sistema di gestione sessione dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente ha una sessione attiva nel Sistema.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente seleziona l’opzione di logout (ad esempio dal menu della dashboard).
+    \item Il Sistema invalida la sessione corrente associata all’utente (es. rimozione token di sessione).
+    \item Il Sistema reindirizza l’utente alla schermata di login o alla schermata iniziale pubblica.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Non esiste più una sessione attiva associata all’utente sul dispositivo corrente.
+    \item Per accedere nuovamente alle funzionalità riservate è necessario eseguire un nuovo login.
+\end{itemize}
+
+\subsection{Sezione 1 – Modulo AI Assistant Generativo}
+
+\subsubsection{UC-1A – Creazione di un nuovo contenuto tramite prompt}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato (Editor o Admin).
+    \item Sistema AI di generazione contenuti.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente ha effettuato il login.
+    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Assistant.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla sezione “AI Assistant Generativo”.
+    \item Il Sistema mostra il campo per l’inserimento del prompt.
+    \item L’utente inserisce il prompt desiderato (ad esempio: “Comunicato di benvenuto ai nuovi dipendenti”).
+    \item Il Sistema richiede la selezione di tono e stile (formale, informale, tecnico, neutro).
+    \item Il Sistema invia la richiesta al motore AI.
+    \item Il motore AI genera titolo, contenuto testuale e immagine di copertina coerenti.
+    \item Il Sistema mostra l’anteprima del contenuto generato.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Una bozza temporanea del contenuto risulta generata e visibile in anteprima.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B – Modifica del contenuto generato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato.
+    \item Sistema AI (in caso di nuove generazioni parziali).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Un contenuto è stato generato tramite UC-1A.
+    \item L’utente ha i permessi per modificarlo.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente apre l’anteprima del contenuto generato.
+    \item Il Sistema mostra gli elementi modificabili (titolo, corpo del messaggio, immagine).
+    \item L’utente modifica uno o più elementi.
+    \item Il Sistema aggiorna l’anteprima in tempo reale.
+    \item L’utente conferma le modifiche effettuate.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item La versione aggiornata del contenuto è pronta per essere salvata o scartata.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1C – Salvataggio, pubblicazione o scarto del contenuto}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato (Editor o Admin).
+    \item Sistema di persistenza locale.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Un contenuto è disponibile, generato tramite UC-1A e/o modificato tramite UC-1B.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente decide se salvare la bozza, pubblicare il contenuto o scartarlo.
+    \item Il Sistema esegue la validazione dei campi obbligatori.
+    \item Se l’utente sceglie “Salva”, il Sistema memorizza localmente il contenuto.
+    \item Se l’utente sceglie “Pubblica”, il Sistema memorizza il contenuto e lo marca come “pubblicato”.
+    \item Se l’utente sceglie “Scarta”, il Sistema elimina la bozza e ritorna alla schermata iniziale.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il contenuto risulta salvato, pubblicato o eliminato, a seconda dell’azione scelta dall’utente.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1D – Salvataggio e gestione dei prompt}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato.
+    \item Sistema di archivio locale.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente ha generato almeno un contenuto tramite UC-1A.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il Sistema salva automaticamente il prompt utilizzato, il tono, lo stile e la data di utilizzo.
+    \item L’utente accede alla sezione “Storico Prompt”.
+    \item Il Sistema mostra l’elenco dei prompt salvati.
+    \item L’utente può filtrare, ricercare, duplicare o riutilizzare un prompt.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Lo storico dei prompt risulta aggiornato e consultabile.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1E – Valutazione della qualità del contenuto (Rating)}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente ha generato un contenuto ed è in grado di visualizzarlo.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il Sistema mostra un widget di valutazione (es. stelle 1–5).
+    \item L’utente seleziona il voto desiderato.
+    \item Il Sistema salva la valutazione e la associa al contenuto e/o al prompt originario.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il contenuto ha associata una valutazione salvata localmente.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1F – Personalizzazione del tono e dello stile}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato.
+    \item Sistema di preferenze utente.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente ha effettuato il login.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla sezione “Preferenze AI”.
+    \item Il Sistema mostra l’elenco dei toni e degli stili disponibili.
+    \item L’utente seleziona un tono/stile predefinito.
+    \item Il Sistema salva le preferenze aggiornate.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Le preferenze AI dell’utente vengono applicate automaticamente nelle generazioni successive.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1G – Revisione finale del contenuto}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato (Editor o Admin).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Un contenuto è stato generato e/o modificato.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla schermata di revisione.
+    \item Il Sistema mostra il contenuto completo (titolo, testo, immagine).
+    \item L’utente verifica la correttezza del contenuto.
+    \item L’utente decide se procedere al salvataggio/pubblicazione (UC-1C) o tornare alla modifica (UC-1B).
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il contenuto è pronto per essere gestito tramite UC-1C.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1H – Analisi e reportistica sull’utilizzo}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato (Admin o analista interno).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Esistono dati salvati relativi a generazioni, rating e utilizzo del Sistema.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla dashboard di analytics.
+    \item Il Sistema mostra statistiche aggregate (numero generazioni, rating medi, prompt più usati, frequenza d’uso).
+    \item L’utente applica filtri o intervalli temporali.
+    \item Il Sistema aggiorna la visualizzazione dei dati in base ai criteri selezionati.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Le informazioni statistiche sono consultabili per valutare l'efficacia del modulo generativo.
+\end{itemize}
+
+\subsection{Sezione 2 – Modulo AI Co-Pilot per i Consulenti del Lavoro (CdL)}
+
+\subsubsection{UC-2A – Upload documento nel repository locale CdL}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore di studio CdL (utente autenticato).
+    \item Sistema di gestione documentale locale dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente ha effettuato il login nell’applicazione standalone.
+    \item Il repository documentale locale è disponibile e correttamente inizializzato.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla sezione ``Repository documentale CdL''.
+    \item Il Sistema mostra l’elenco dei documenti già presenti e le azioni disponibili.
+    \item L’utente seleziona l’azione di upload di uno o più file (es. PDF, ZIP, immagini).
+    \item L’utente seleziona i file dal proprio dispositivo.
+    \item L’utente, se necessario, inserisce alcuni metadati di base (es. mese/anno di competenza, azienda, categoria documento).
+    \item Il Sistema verifica il formato dei file caricati.
+    \item In caso di esito positivo, il Sistema memorizza i file nel repository locale e li marca come ``In attesa di elaborazione''.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item I documenti risultano archiviati nel repository locale con stato ``In attesa di elaborazione''.
+    \item I documenti sono disponibili per le successive fasi di riconoscimento ed elaborazione AI.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B – Riconoscimento automatico del documento (OCR + classificazione)}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Sistema AI di riconoscimento documentale (OCR + classificatore).
+    \item Operatore di studio CdL (in qualità di supervisore).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Uno o più documenti sono presenti nel repository con stato ``In attesa di elaborazione'' (UC-2A completato).
+    \item Il motore OCR e il classificatore AI sono configurati e disponibili nell’applicazione standalone.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente avvia l’elaborazione automatica dei documenti oppure il Sistema la esegue in modo asincrono.
+    \item Il Sistema esegue l’OCR sul documento per estrarne il testo.
+    \item Il Sistema applica il modello di classificazione per identificare la tipologia di documento (es. cedolino, CU, comunicazione, lettera).
+    \item Il Sistema associa al documento la tipologia rilevata e un punteggio di confidenza.
+    \item Il Sistema aggiorna lo stato del documento a ``Riconosciuto'' o ``Da verificare'' in base alla soglia di confidenza.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Ogni documento elaborato possiede una tipologia identificata e un punteggio di confidenza.
+    \item I documenti sono pronti per l’estrazione dei destinatari o per una eventuale revisione manuale.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2C – Estrazione e riconoscimento dei destinatari}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Sistema AI di estrazione entità (entity extraction).
+    \item Operatore di studio CdL.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Il documento è stato elaborato tramite OCR e classificazione (UC-2B completato).
+    \item Il testo del documento è disponibile in forma strutturata o semi-strutturata.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente seleziona un documento in stato ``Riconosciuto''.
+    \item Il Sistema analizza il testo alla ricerca di entità rilevanti (es. nome e cognome, codice fiscale, matricola, reparto).
+    \item Il Sistema propone uno o più possibili destinatari in base ai dati estratti.
+    \item Il Sistema associa al documento il destinatario selezionato o quello con confidenza più alta.
+    \item Il Sistema aggiorna lo stato del documento a ``Destinatario riconosciuto'' o ``Ambiguità da risolvere''.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Per ciascun documento è stato individuato almeno un destinatario, con relativo punteggio di confidenza.
+    \item I documenti sono pronti per l’eventuale fase di split (se multi-destinatario) o per la revisione manuale.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2D – Split dei documenti massivi per destinatario}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Sistema di splitting documentale.
+    \item Operatore di studio CdL.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item È presente un documento multi-destinatario (es. file unico con più cedolini) nel repository.
+    \item Il documento è stato elaborato tramite OCR (UC-2B) ed eventualmente sono stati identificati pattern utili alla separazione.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente seleziona un documento identificato come ``massivo''.
+    \item Il Sistema analizza la struttura del documento (pagine, sezioni, marcatori) per individuare i confini fra i diversi destinatari.
+    \item Il Sistema propone una suddivisione del documento in più documenti singoli.
+    \item Il Sistema associa a ciascun documento derivato uno o più possibili destinatari (se disponibili da UC-2C).
+    \item L’utente conferma o corregge la suddivisione proposta.
+    \item Il Sistema crea i documenti singoli nel repository, mantenendo un riferimento all’originale.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il documento massivo è stato suddiviso in documenti singoli, ciascuno associato al proprio destinatario.
+    \item I documenti singoli risultano pronti per la revisione e per la successiva esportazione.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2E – Revisione manuale dei risultati (Human-in-the-Loop)}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore di studio CdL.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Esistono documenti in stato ``Da verificare'', ``Ambiguità da risolvere'' oppure documenti derivati dallo split (UC-2B, UC-2C o UC-2D completati).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla sezione di revisione documenti.
+    \item Il Sistema mostra l’elenco dei documenti che richiedono intervento umano (bassa confidenza, ambiguità, split da confermare).
+    \item L’utente seleziona un documento da revisionare.
+    \item Il Sistema mostra il documento, i metadati rilevati (tipologia, destinatari, competenza) e i relativi punteggi di confidenza.
+    \item L’utente corregge, conferma o integra le informazioni (tipologia documento, destinatario, metadati).
+    \item L’utente conferma le modifiche.
+    \item Il Sistema aggiorna i dati del documento e imposta lo stato come ``Validato manualmente''.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item I documenti selezionati risultano revisionati e validati dall’operatore.
+    \item Le informazioni corrette sono pronte per la creazione di liste di distribuzione o per l’esportazione.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2F – Creazione di liste di distribuzione ed esportazione dei documenti}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore di studio CdL.
+    \item Sistema di esportazione documentale dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item I documenti sono stati riconosciuti e validati (UC-2B, UC-2C, UC-2D e UC-2E, secondo necessità).
+    \item Ogni documento è associato a uno o più destinatari.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla sezione di generazione delle liste di distribuzione.
+    \item Il Sistema propone una lista di documenti raggruppati per destinatario.
+    \item L’utente seleziona un insieme di documenti da esportare (ad esempio tutti i cedolini di un mese).
+    \item Il Sistema genera una lista di distribuzione contenente destinatari e documenti associati.
+    \item L’utente sceglie la modalità di esportazione (es. cartella locale, archivio ZIP, esportazione metadati in CSV).
+    \item Il Sistema produce il pacchetto di esportazione contenente documenti e metadati (lista di distribuzione).
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item È stato generato un output (es. archivio ZIP o struttura di cartelle) che contiene i documenti pronti per l’invio tramite canali esterni all’applicazione standalone.
+    \item La lista di distribuzione è salvata localmente per eventuale tracciamento e riuso.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2G – Consultazione storico documentale e audit locale}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore di studio CdL.
+    \item Amministratore dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Sono presenti nel Sistema documenti caricati, elaborati, revisionati o esportati.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla sezione ``Storico e audit'' dell’applicazione.
+    \item Il Sistema mostra l’elenco dei documenti con i relativi stati (caricato, riconosciuto, validato, esportato).
+    \item L’utente applica filtri di ricerca (per azienda, destinatario, tipologia documento, intervallo temporale).
+    \item Il Sistema aggiorna i risultati in base ai filtri selezionati.
+    \item L’utente seleziona un documento per visualizzare i dettagli (metadati, log delle operazioni, eventuali revisioni manuali).
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L’utente dispone di una visione completa e tracciata delle operazioni svolte sui documenti.
+    \item Le informazioni storiche possono essere utilizzate per verifiche interne e per migliorare il flusso di lavoro.
+\end{itemize}
+
+
 
 \end{document}
