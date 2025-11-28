@@ -288,7 +288,7 @@ che assicura il monitoraggio delle attività e la responsabilità decisionale; e
 critici vengono segnalati immediatamente sul canale concordato e aperti come issue su 
 GitHub, in modo da garantirne la tracciabilità e la tempestività nelle azioni correttive.
 
-\subsubsection{Documentazione Prodotta}
+\subsubsection{Documentazione Prodotta}\label{Documentazione Prodotta}
 Durante la fase di fornitura, il team BugBusters produce e mantiene aggiornata la seguente documentazione:
 
 
@@ -514,6 +514,7 @@ Un documento generalemente, esclusi verbali e diario di bordo, ha questa struttu
     \item \textbf{Appendici}: Materiale supplementare, come diagrammi, tabelle o esempi.
 \end{itemize}
 
+\subsubsubsection{Struttura dei verbali}
 I verbali seguono una struttura semplificata:
 \begin{itemize}
     \item \textbf{Copertina}: Logo e informazioni del team, titolo del documento, redattore, verificatore, 
@@ -529,5 +530,67 @@ I verbali seguono una struttura semplificata:
 Da questo schema é possibile notare che i verbali non hanno il registro delle modifiche. Questo perché sono considerati documenti di lavoro
 e non documenti formali che richiedono una tracciabilità delle versioni.
 
-    
+\subsubsubsection{Struttura dei Diari di Bordo}
+I diari di bordo sono diapositive presentate durante la lezione settimanale di Ingegneria del Software dedicata alla
+discussione e condivisione delle difficoltá e dubbi incontrati durante lo sviluppo del progetto. 
+Per questo motivo i diari di bordo hanno pochi punti:
+\begin{itemize}
+    \item \textbf{Copertina}: Logo e informazioni del team, titolo del documento.
+    \item \textbf{Difficoltà incontrate}: Lista delle difficoltá incontrate durante la settimana.
+    \item \textbf{Dubbi}: Elenco di domande e dubbi da porre ai docenti.
+\end{itemize}
+Visto che i diari di bordo sono da presentare in pochi minuti non hanno bisogno di una struttura complessa, bensí di essere 
+sintetici e diretti per permettere a docenti e colleghi di capire velocemente quali sono i problemi riscontrati.
+
+
+\subsubsection{Denominazione dei documenti}
+I documenti prodotti dal team BugBusters seguono una convenzione di denominazione standardizzata per garantire coerenza, 
+facilità di identificazione e tracciabilità. \\
+
+La struttura del nome dei \textbf{verbali} è la seguente:
+\begin{center}
+\texttt{<TIPO>\_<DATA>.pdf}
+\end{center}
+Dove <TIPO> può essere:
+\begin{itemize}
+    \item \textbf{VI}: Verbale Interno
+    \item \textbf{VE}: Verbale Esterno
+\end{itemize}
+E <DATA> è la data della riunione nel formato \texttt{GG-MM-AAAA}. \\
+Esempio: \texttt{VE\_15-01-2026.pdf} rappresenta il verbale esterno della riunione del 15 gennaio 2026. \\
+
+La struttura del nome dei \textbf{diari di bordo} è la seguente:
+\begin{center}
+\texttt{DB-<DATA>.pdf}
+\end{center}
+Dove <DATA> è la data di presentazione del diario nel formato \texttt{GG-MM-AAAA}. \\
+Esempio: \texttt{DB-22-01-2026.pdf} rappresenta il diario di bordo presentato il 22 gennaio 2026. \\
+
+Per gli altri \textbf{documenti formali} vengono utilizzati nomi descrittivi chiari e concisi del documento stesso,
+ad esempio Norme di Progetto.pdf, Piano di Progetto.pdf, Analisi dei Requisiti.pdf ecc. 
+
+
+\subsubsection{Produzione}
+La produzione della documentazione segue un processo strutturato per garantire qualità, coerenza e tracciabilità.
+\begin{itemize}
+    \item \textbf{Pianificazione}: A seconda del documento, viene pianificata la sua creazione in base alle milestone 
+    del progetto e alle esigenze del team. Secondo il tipo di documento, viene assegnato un redattore e un verificatore 
+    secondo i ruoli definiti nel way of working (vedi sezione \ref{Documentazione Prodotta}).
+    \item \textbf{Creazione del branch di lavoro}: Per ogni documento viene creato un branch dedicato nel repository GitHub per permettere
+     la collaborazione e il versionamento. Per verbali e diari di bordo non vengono creati branch per ogni singolo documenti bensì 
+     sono stati creati dei branch "verbali" e "diari-di-bordo" che raccolgono rispettivamente tutti i verbali e tutti i diari di bordo.
+    \item \textbf{Redazione}: Il redattore incaricato crea la bozza del documento seguendo le linee guida stabilite
+     nelle norme di progetto, utilizzando gli strumenti appropriati (ad esempio LaTeX per documenti formali).
+    \item \textbf{Revisione}: Una volta completata la bozza, il documento viene sottoposto al verificatore designato che controlla
+     la correttezza, la coerenza e la conformità agli standard di qualità. Il processo é asincrono e 
+     avviene tramite pull request su GitHub. Se ci sono modifiche vengono tracciate e discusse all'interno della pull request. 
+     La verifica verrá tracciata all'interno del registro delle modifiche del documento.
+    \item \textbf{Approvazione e integrazione}: Dopo la revisione, il documento viene approvato dal responsabile e integrato 
+    nel branch principale del repository attraverso una pull request.
+    Viene aggiornato il registro delle modifiche per riflettere la versione finale.
+    \item \textbf{Modifiche}: Qualsiasi modifica successiva al documento segue lo stesso processo di redazione, revisione e approvazione,
+     garantendo che tutte le versioni siano tracciate e documentate.
+\end{itemize}
+
+
 \end{document}
