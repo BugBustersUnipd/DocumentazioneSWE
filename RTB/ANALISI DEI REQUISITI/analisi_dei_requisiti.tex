@@ -88,6 +88,12 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \hline
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
 \hline
+0.0.3 & 29/11/2025 & 
+\begin{minipage}[t]{\linewidth}
+Correzione casi d'uso e aggiunta schemi.
+\end{minipage} 
+& Leonardo Salviato& - \\
+\hline
 0.0.2 & 25/11/2025 & 
 \begin{minipage}[t]{\linewidth}
 Riscrittura della prima stesura e modifica casi d'uso.
@@ -391,10 +397,23 @@ Di seguito sono esposti gli attori utilizzati:
 
 \subsubsection{UC-0A – Registrazione nuovo utente}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0A.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
+
 \textbf{Attori}
 \begin{itemize}
     \item Utente non autenticato (nuovo utente).
     \item Sistema di autenticazione dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: nessuno (la registrazione è un punto di ingresso al Sistema).
+    \item \textit{extend}: UC-0B – Login / Autenticazione utente (in caso di login automatico al termine della registrazione).
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -424,10 +443,22 @@ Di seguito sono esposti gli attori utilizzati:
 
 \subsubsection{UC-0B – Login / Autenticazione utente}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
 \textbf{Attori}
 \begin{itemize}
     \item Utente registrato.
     \item Sistema di autenticazione dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: nessuno (caso d’uso base di autenticazione).
+    \item \textit{extend}: nessuno (questo caso d’uso è base e viene richiamato da altri, ma non estende ulteriori flussi).
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -455,10 +486,22 @@ Di seguito sono esposti gli attori utilizzati:
 
 \subsubsection{UC-0C – Gestione profilo utente}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0C.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
 \textbf{Attori}
 \begin{itemize}
     \item Utente autenticato.
     \item Sistema di gestione profilo dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: UC-0B – Login / Autenticazione utente (è necessario che l’utente sia autenticato).
+    \item \textit{extend}: nessuno.
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -495,6 +538,12 @@ Di seguito sono esposti gli attori utilizzati:
     \item Sistema di gestione ruoli e permessi.
 \end{itemize}
 
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: UC-0B – Login / Autenticazione utente (l’Amministratore deve essere autenticato come Admin).
+    \item \textit{extend}: nessuno.
+\end{itemize}
+
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item L’utente amministratore ha effettuato il login ed è autenticato come Admin.
@@ -520,12 +569,24 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E – Logout / Gestione della sessione}
+\subsubsection{UC-0E – Logout}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0E.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
     \item Utente autenticato.
     \item Sistema di gestione sessione dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: UC-0B – Login / Autenticazione utente (per poter effettuare il logout è necessaria una sessione attiva).
+    \item \textit{extend}: Nessuno.
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -545,6 +606,7 @@ Di seguito sono esposti gli attori utilizzati:
     \item Non esiste più una sessione attiva associata all’utente sul dispositivo corrente.
     \item Per accedere nuovamente alle funzionalità riservate è necessario eseguire un nuovo login.
 \end{itemize}
+
 
 \subsection{Sezione 1 – Modulo AI Assistant Generativo}
 
@@ -610,7 +672,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1C – Salvataggio, pubblicazione o scarto del contenuto}
+\subsubsection{UC-1C – Pubblicazione o scarto del contenuto}
 
 \textbf{Attori}
 \begin{itemize}
@@ -627,14 +689,13 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item L’utente decide se salvare la bozza, pubblicare il contenuto o scartarlo.
     \item Il Sistema esegue la validazione dei campi obbligatori.
-    \item Se l’utente sceglie “Salva”, il Sistema memorizza localmente il contenuto.
     \item Se l’utente sceglie “Pubblica”, il Sistema memorizza il contenuto e lo marca come “pubblicato”.
     \item Se l’utente sceglie “Scarta”, il Sistema elimina la bozza e ritorna alla schermata iniziale.
 \end{enumerate}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Il contenuto risulta salvato, pubblicato o eliminato, a seconda dell’azione scelta dall’utente.
+    \item Il contenuto risulta pubblicato o eliminato, a seconda dell’azione scelta dall’utente.
 \end{itemize}
 
 \vspace{0.5cm}
@@ -693,25 +754,26 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1F – Personalizzazione del tono e dello stile}
+\subsubsection{UC-1F – Rigenerazione del contenuto}
 
 \textbf{Attori}
 \begin{itemize}
     \item Utente autenticato.
-    \item Sistema di preferenze utente.
+    \item Sistema AI di generazione contenuti.
 \end{itemize}
 
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item L’utente ha effettuato il login.
+    \item Un contenuto è stato generato tramite UC-1A.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente accede alla sezione “Preferenze AI”.
-    \item Il Sistema mostra l’elenco dei toni e degli stili disponibili.
-    \item L’utente seleziona un tono/stile predefinito.
-    \item Il Sistema salva le preferenze aggiornate.
+    \item L’utente ha generato un contenuto.
+    \item Nell'anteprima del contenuto decide di volere un'alternativa.
+    \item Il contenuto viene rigenerato e ci si ritrova nuovamente nell'anteprima.
+    \item Si ha la possibilitá di rigenerare il contenuto.
 \end{enumerate}
 
 \textbf{Post-condizioni}
