@@ -339,47 +339,45 @@ specifico campo non risulti rilevante (ad esempio, un Caso d’Uso\textsubscript
 possibilità di errori non avrà Scenari secondari):
 
 \begin{itemize}
-    \item Attori: Sono coloro che interagiscono attivamente con il Sistema e
+    \item \textbf{Attori}: Sono coloro che interagiscono attivamente con il Sistema e
     svolgono l’azione indicata dal Caso d’Uso
-    \item Precondizioni: Lista di elementi che sono necessari affinché l’Attore possa
+    \item \textbf{Precondizioni}: Lista di elementi che sono necessari affinché l’Attore possa
     compiere l’azione indicata dal caso d’uso
-    \item Postcondizioni: Lista di elementi che descrivono come il Sistema risulta
+    \item \textbf{Postcondizioni}: Lista di elementi che descrivono come il Sistema risulta
     essere internamente cambiato dopo che l’Attore ha effettuato
     l’azione prevista dal Caso d’Uso
-    \item Scenario principale: Descrizione ragionevole delle operazioni che l’attore deve
+    \item \textbf{Scenario principale}: Descrizione ragionevole delle operazioni che l’attore deve
     fare per compiere l’azione descritta dal Caso d’Uso
-    \item Scenario secondario: Descrizione ragionevole degli eventi che possono accadere
+    \item \textbf{Scenario secondario}: Descrizione ragionevole degli eventi che possono accadere
     qualora una delle operazioni descritte nello Scenario
     principale non vada a buon fine
-    \item Inclusioni: Casi d’Uso ulteriori che l’Attore deve compiere per realizzare
+    \item \textbf{Inclusioni}: Casi d’Uso ulteriori che l’Attore deve compiere per realizzare
     il Caso d’Uso attualmente descritto
-    \item Estensioni: Casi d’Uso ulteriori che possono realizzarsi durante
+    \item \textbf{Estensioni}: Casi d’Uso ulteriori che possono realizzarsi durante
     l’esecuzione delle operazioni del Caso d’Uso principale
-    \item Motivazioni che portano l’Attore a svolgere l’azione descritta
-    dal Caso d’Uso. Non sempre disponibile in quanto il Caso
-    d’Uso potrebbe essere incluso da un altro caso d’uso
-    «principale»
+    
 \end{itemize}
+Motivazioni che portano l’Attore a svolgere l’azione descritta
+dal Caso d’Uso. Non sempre disponibile in quanto il Caso
+d’Uso potrebbe essere incluso da un altro caso d’uso «principale».
 
 \subsection{Attori}
 Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
-    \item DA SPIEGARE OGNUNO DI QUESTI ATTORI
     \item DA AGGIUNGERE DIAGRAMMA DEGLI ATTORI
-    \item HR Manager
-    \item Redattore
-    \item Data Analyst (Eggon)
-    \item Amministratore
-    \item Operatore Studio CdL (Admin/Editor), Sistema NEXUM
-    \item Sistema NEXUM (AI Doc Classifier), Operatore CdL
-    \item Sistema NEXUM (Entity Resolver), Operatore CdL
-    \item Sistema NEXUM (Splitter), Operatore CdL
-    \item Operatore CdL, Sistema
-    \item Sistema NEXUM (Dispatcher), Operatore CdL
-    \item Sistema NEXUM (Dispatcher \& Tracking), Operatore CdL, Destinatario finale
-    \item Operatore CdL, Auditor interno, Sistema
-    \item Admin Cliente, Admin Eggon, Sistema
-    \item Data Analyst, Admin Eggon, Sistema
+    \item \textbf{HR Manager}: È la figura responsabile della comunicazione interna. Utilizza il modulo AI Assistant per generare, revisionare e pubblicare messaggi o avvisi rivolti ai dipendenti, definendone tono e stile.
+    \item Redattore: 
+    \item \textbf{Data Analyst}: Figura incaricata di monitorare le prestazioni. Accede alle dashboard di analisi per consultare le statistiche di utilizzo, i rating di qualità dei contenuti generati e i KPI del riconoscimento documentale.
+    \item \textbf{Amministratore}: Gestisce la configurazione tecnica dell'applicazione standalone. Si occupa della creazione degli utenti, della gestione dei ruoli e della configurazione dei parametri globali dell'AI (es. prompt di sistema o soglie di confidenza).
+    \item \textbf{Operatore Studio CdL}: È l'utente principale del modulo AI Co-Pilot. Si occupa di caricare i flussi documentali (es. cedolini massivi), supervisionare il riconoscimento automatico (validazione Human-in-the-Loop) e gestire le liste di distribuzione.
+    \item \textbf{Sistema NEXUM (AI Doc Classifier)}: Il modulo intelligente incaricato di analizzare visivamente il documento, applicare l'OCR e classificarne la tipologia (es. "Cedolino", "CUD").
+    \item \textbf{Sistema NEXUM (Entity Resolver)}: Il componente che analizza il testo estratto per identificare univocamente i destinatari (es. Nome, Cognome, CF) confrontandoli con l'anagrafica.
+    \item \textbf{Sistema NEXUM (Splitter)}: L'agente automatico che scansiona i documenti massivi (es. PDF multipagina) e li suddivide in singoli file, uno per ciascun destinatario individuato.
+    \item \textbf{Sistema NEXUM (Dispatcher \& Tracking)}: Il modulo responsabile della creazione dei pacchetti di invio e della generazione delle ricevute di consegna (simulata in ambiente standalone).
+    \item \textbf{Destinatario finale}: Rappresenta il dipendente a cui sono indirizzati i documenti o i messaggi. Nell'applicazione standalone, la sua interazione (ricezione e lettura) è simulata per verificare il corretto funzionamento del dispaccio.
+    \item \textbf{Auditor interno}: Utente con permessi di sola lettura focalizzato sul controllo. Verifica lo storico delle operazioni (audit trail) per garantire la tracciabilità e la sicurezza dei flussi documentali.
+    \item \textbf{Sistema}: L'applicazione standalone nel suo complesso, che gestisce autenticazione, database e interfaccia.
+    \item \textbf{Admin Cliente, Admin Eggon}: Figure di alto livello responsabili, rispettivamente, della gestione dell'organizzazione cliente e della supervisione tecnica del progetto per conto di Eggon.
 \end{itemize}
 
 
