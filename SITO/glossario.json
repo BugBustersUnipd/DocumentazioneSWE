@@ -61,6 +61,14 @@
       "definition": "Approccio architetturale che struttura un'applicazione come una collezione di servizi piccoli, autonomi e indipendenti, ciascuno responsabile di una specifica funzionalità di business."
     },
     {
+      "term": "Architettura di dettaglio",
+      "definition": "Fase della progettazione software in cui si specificano nel dettaglio i componenti, le interfacce e le relazioni tra di essi, partendo dall'architettura logica."
+    },
+    {
+      "term": "Architettura logica",
+      "definition": "Fase della progettazione software in cui si definisce la struttura del sistema a livello di componenti e delle loro interazioni, senza scendere nel dettaglio implementativo."
+    },
+    {
       "term": "Architettura multilivello",
       "definition": "Pattern architetturale che separa le responsabilità dell'applicazione in livelli logici distinti, tipicamente presentazione, logica di business e persistenza dati."
     },
@@ -233,6 +241,10 @@
       "definition": "Processo di distribuzione automatizzata dei documenti verso i destinatari finali attraverso diversi canali (es. app, portale, email, PEC)."
     },
     {
+      "term": "Disponibilità",
+      "definition": "Capacità di un sistema di essere accessibile e utilizzabile quando richiesto dagli utenti. Misura la percentuale di tempo in cui il sistema è operativo."
+    },
+    {
       "term": "Dominio d'uso",
       "definition": "Contesto specifico o ambiente operativo in cui il sistema software sarà impiegato, comprendente le caratteristiche degli utenti finali, le condizioni operative, i vincoli tecnologici e le regole di business che definiscono l'ambito di applicazione del prodotto."
     },
@@ -379,6 +391,10 @@
     {
       "term": "Modularità",
       "definition": "Grado in cui un sistema è composto da componenti separati che possono essere sviluppati, testati e mantenuti indipendentemente."
+    },
+    {
+      "term": "Modulo",
+      "definition": "Componente software autonomo e sostituibile che incapsula una specifica funzionalità e fornisce un'interfaccia ben definita. I moduli favoriscono la modularità, il riuso e la manutenibilità del sistema."
     },
     {
       "term": "OCR (Optical Character Recognition)",
@@ -581,6 +597,10 @@
       "definition": "(Software Engineering Method and Theory) Iniziativa internazionale per rifondare l'ingegneria del software come disciplina rigorosa, basata su un kernel di elementi essenziali comuni a tutti i metodi di sviluppo software."
     },
     {
+      "term": "Sicurezza",
+      "definition": "Insieme di caratteristiche e meccanismi che proteggono il sistema da accessi non autorizzati, garantiscono la riservatezza, l'integrità e la disponibilità dei dati, e prevengono attacchi e vulnerabilità."
+    },
+    {
       "term": "Sottotipizzazione",
       "definition": "Relazione tra tipi per cui un tipo (sottotipo) può essere utilizzato in ogni contesto in cui è atteso un altro tipo (supertipo), in accordo con il principio di sostituzione di Liskov."
     },
@@ -611,6 +631,26 @@
     {
       "term": "Test",
       "definition": "Processo sistematico di verifica che il software soddisfi i requisiti specificati e identifichi difetti, attraverso l'esecuzione controllata di casi di test."
+    },
+    {
+      "term": "Test di Accettazione (TA) / Collaudo",
+      "definition": "Test condotti per determinare se un sistema soddisfa i criteri di accettazione stabiliti dal cliente e per permettere al cliente di decidere se accettare o meno il sistema. Viene eseguito in un ambiente il più possibile simile a quello di produzione."
+    },
+    {
+      "term": "Test di Integrazione (TI)",
+      "definition": "Test che verificano l'interazione e la corretta comunicazione tra i moduli o i componenti integrati del sistema. L'obiettivo è individuare difetti nelle interfacce e nelle interazioni tra i componenti."
+    },
+    {
+      "term": "Test di Sistema (TS)",
+      "definition": "Test che verificano il sistema nel suo complesso, in un ambiente il più possibile simile a quello di produzione, per accertare che soddisfi i requisiti specificati. Comprende test funzionali e non funzionali."
+    },
+    {
+      "term": "Test di Unità (TU)",
+      "definition": "Test che verificano il corretto funzionamento delle singole unità (moduli, classi, funzioni) del software in isolamento. Sono tipicamente scritti e eseguiti dagli sviluppatori durante la fase di implementazione."
+    },
+    {
+      "term": "Tracciamento (dei requisiti)",
+      "definition": "Processo di documentazione e gestione delle relazioni tra i requisiti e gli elementi del sistema (come componenti, test, casi d'uso) che li soddisfano. Garantisce che tutti i requisiti siano presi in carico e permette di valutarne l'impatto in caso di modifiche."
     },
     {
       "term": "Transazioni distribuite",
