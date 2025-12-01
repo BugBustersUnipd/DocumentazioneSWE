@@ -39,8 +39,8 @@
 
 \begin{center}
   \thispagestyle{empty}
-  \IfFileExists{../assets/Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../assets/Logo.jpg} \\[0.8cm]
+  \IfFileExists{../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../assets/Logo.jpg} \\[0.8cm]
   }{%
     \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
   }
@@ -48,18 +48,18 @@
   
   \rule{\textwidth}{0.5pt}\\[0.5cm]
   {\Large\bfseries Norme di Progetto}\\[0.3cm]
-  {\large Versione 0.1.0}\\[0.5cm]
+  {\large Versione 0.0.1}\\[0.5cm]
   \rule{\textwidth}{0.5pt}\\[0.8cm]
 \end{center}
 
 \begin{center}
 \begin{tcolorbox}[colback=gray!10,width=0.8\textwidth,arc=3mm,boxrule=0.5pt]
 \begin{tabular}{ll}
-\textbf{Stato} & XXX \\
-\textbf{Responsabile} & XXX \\
+\textbf{Stato} & In redazione \\
+\textbf{Responsabile} & Alberto Autiero \\
 \textbf{Verificatore} & XXX \\
 \textbf{Redattori} & Alberto Autiero \\
-\textbf{Distribuzione} & BugBusters \\
+\textbf{Destinatari} & BugBusters \\
  & Prof. Vardanega Tullio \\
  & Prof. Cardin Riccardo \\
 \end{tabular}
@@ -75,7 +75,7 @@
 \begin{center}
 \begin{minipage}{0.9\textwidth}
 \small
-Questo documento contiene le Norme di Progetto seguite da il gruppo \textbf{BugBusters} per il progetto C9 proposto dall'azienda Vimar
+Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBusters} per il progetto\textsubscript{\textbf{G}} C5 proposto dall'azienda Eggon
 \end{minipage}
 \end{center}
 
@@ -85,13 +85,17 @@ Questo documento contiene le Norme di Progetto seguite da il gruppo \textbf{BugB
 
 {\footnotesize
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|}
+\begin{tabularx}{\textwidth}{|l|l|X|l|l|}
 \hline
-\textbf{Vers.} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
+\textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
 \hline
-0.1.0 & 23/10/2025 & Prima stesura della struttura del documento & Alberto Autiero & - \\
+0.0.1 & 04/11/2025 & 
+\begin{minipage}[t]{\linewidth}
+Prima stesura della struttura del documento dopo l'aggiudicazione dell'appalto per il capitolato\textsubscript{\textbf{G}} C5 Nexum dell'azienda Eggon
+\end{minipage} 
+& Alberto Autiero & - \\
 \hline
-\end{tabular}
+\end{tabularx}
 \end{center}
 }
 
@@ -129,19 +133,19 @@ Questo documento contiene le Norme di Progetto seguite da il gruppo \textbf{BugB
 \section{Introduzione}
 
 \subsection{Scopo del documento}
-Questo documento nasce per descrivere il Way of Working adottato da parte di BugBusters durante lo svolgimento del progetto didattico.
+Questo documento nasce per descrivere il Way of Working\textsubscript{\textbf{G}} adottato da parte di BugBusters durante lo svolgimento del progetto\textsubscript{\textbf{G}} didattico.
 
 \subsection{Scopo del prodotto}
 XXXXXXXXXXXXXXXXXXXXXX
 
-L'obiettivo che si è posto questo gruppo è realizzare questo progetto entro il 31 Marzo 2025 con un budget a disposizione di 12930€
+L'obiettivo che si è posto questo gruppo è realizzare questo progetto\textsubscript{\textbf{G}} entro il 21 Marzo 2025 con un budget a disposizione de 12790€
 
 \subsection{Glossario}
 Prima di iniziare a scrivere codice, è importante analizzare e progettare il software. Per lavorare meglio insieme e in modo organizzato, tutte le informazioni utili vengono documentate.
 
-Per evitare confusioni o incomprensioni sui termini tecnici usati nei documenti, il gruppo utilizza un Glossario. In questo documento vengono raccolte e spiegate in modo chiaro tutte le parole importanti del progetto.
+Per evitare confusioni o incomprensioni sui termini tecnici usati nei documenti, il team utilizza un Glossario\textsubscript{\textbf{G}}. In questo documento vengono raccolte e spiegate in modo chiaro tutte le parole importanti del progetto\textsubscript{\textbf{G}}.
 
-Il gruppo BugBusters si impegna a tenere sempre aggiornato il Glossario e a consultarlo regolarmente, per assicurarsi che tutti i documenti siano facili da capire.
+Il gruppo BugBusters si impegna a tenere sempre aggiornato il Glossario\textsubscript{\textbf{G}} e a consultarlo regolarmente, per assicurarsi che tutti i documenti siano facili da capire.
 
 \newpage
 
@@ -149,14 +153,14 @@ Il gruppo BugBusters si impegna a tenere sempre aggiornato il Glossario e a cons
 
 \subsubsection{Riferimenti normativi}
 \begin{itemize}
-\item \textbf{Capitolato d'appalto C9: Sistema di gestione di un magazzino distribuito}\\
-\url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C9.pdf}
+\item \textbf{Capitolato\textsubscript{\textbf{G}} d'appalto C5: Nexum - Piattaforma di consulenza e documentazione previdenziale}\\
+\url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf}
 \end{itemize}
 
 \subsubsection{Riferimenti informativi}
 \begin{itemize}
-\item \textbf{Glossario:}\\
-\url{https://github.com/BugBustersUnipd/DocumentazioneSWE/blob/main/GLOSSARIO/Glossario.pdf}
+\item \textbf{Glossario\textsubscript{\textbf{G}}:}\\
+\url{https://github.com/BugBustersUnipd/DocumentazioneSWE/blob/main//RTB/GLOSSARIO/Glossario.pdf}
 \end{itemize}
 
 \end{document}
