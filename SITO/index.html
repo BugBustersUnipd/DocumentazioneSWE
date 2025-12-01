@@ -35,21 +35,26 @@
 
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle" 
-                            href="#documentazione"
+                            href="#candidatura"
                             id="documentazione-menu">
                         📁 Documentazione
                         <span class="dropdown-arrow" aria-hidden="true">▼</span>
                     </a>
                     <div class="dropdown-menu" role="menu" aria-labelledby="documentazione-menu">
                         <a class="dropdown-item active" 
-                                href="#documentazione"
+                                href="#candidatura"
                                 data-doc="candidatura">
                             Candidatura
                         </a>
                         <a class="dropdown-item" 
-                                href="#documentazione"
+                                href="#candidatura"
                                 data-doc="diapositive">
                             Diapositive
+                        </a>
+                        <a class="dropdown-item" 
+                                href="#candidatura"
+                                data-doc="rtb">
+                            RTB
                         </a>
                     </div>
                 </div>
@@ -61,13 +66,14 @@
 
     <main id="main-content" role="main">
         <!-- DOCUMENTAZIONE section: contains internal switch between Documentazione and Diapositive -->
-        <section id="documentazione" class="section documentation" role="region" aria-label="Documentazione" tabindex="0">
+        <section id="candidatura" class="section documentation" role="region" aria-label="Documentazione" tabindex="0">
             <div class="content-box">
                 <h2 class="page-title">Documentazione</h2>
 
                 <div class="doc-controls" role="tablist" aria-label="Seleziona tipo documento">
-                    <button class="tab-btn doc-toggle active" data-show="candidatura" role="tab" aria-selected="true">Documentazione</button>
+                    <button class="tab-btn doc-toggle active" data-show="candidatura" role="tab" aria-selected="true">Candidatura</button>
                     <button class="tab-btn doc-toggle" data-show="diapositive" role="tab" aria-selected="false">Diapositive</button>
+                    <button class="tab-btn doc-toggle" data-show="rtb" role="tab" aria-selected="false">RTB</button>
                 </div>
 
                 <div class="doc-panels">
@@ -123,11 +129,29 @@
                         <h3 class="section-title">Diapositive</h3>
                         <div class="cards">
                             <div class="card">
-                                <h4>Diario di Bordo - 27 agosto 2025</h4>
+                                <h4>Diario di Bordo - 10 novembre 2025</h4>
                                 <p>Diapositiva di report.</p>
-                                <p><a href="DIARIO DI BORDO/DB-27-08-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a></p>
+                                <p><a href="DIARIO DI BORDO/DB-10-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a></p>
                             </div>
                         </div>
+                        <div class="cards">
+                            <div class="card">
+                                <h4>Diario di Bordo - 27 ottobre 2025</h4>
+                                <p>Diapositiva di report.</p>
+                                <p><a href="DIARIO DI BORDO/DB-27-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="panel-rtb" class="doc-panel" role="tabpanel" aria-hidden="true">
+                        <h3 class="section-title">RTB</h3>
+                        
+                        <details class="verbali-folder">
+                            <summary class="subsection-title">Verbali RTB - Interni</summary>
+                            <ul class="doc-list verbali" aria-label="Verbali RTB interni">
+                                <li><a href="RTB/VERBALI/INTERNI/VI_06-11-25/VI_06-11-25.pdf" target="_blank" rel="noopener noreferrer">VI 06-11-2025</a></li>
+                            </ul>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -189,7 +213,7 @@
 
                     <div class="contact-info">
                         <h3 class="section-title">Contatti</h3>
-                        <p>📧 Email: <a href="mailto:bugbusters@studenti.unipd.it">bugbusters@studenti.unipd.it</a></p>
+                        <p>📧 Email: <a href="mailto:bugbusters.unipd@gmail.com">bugbusters.unipd@gmail.com</a></p>
                         <p>🔗 GitHub: <a href="https://github.com/BugBustersUnipd" target="_blank" rel="noopener noreferrer">BugBustersUnipd</a></p>
                     </div>
                 </div>
