@@ -18,13 +18,36 @@
 \usepackage{tabularx}
 \usepackage{caption}
 
+% Configurazione delle didascalie per tabelle
+\captionsetup[table]{
+  position=below,       % Didascalia sotto la tabella
+  labelfont=it,         % "Tabella X:" in italico
+  textfont=it,          % Testo della didascalia in italico
+  justification=centering, % Testo centrato
+  singlelinecheck=false % Forza la centratura anche per didascalie lunghe
+}
+\captionsetup[longtable]{
+  position=below,
+  labelfont=it,
+  textfont=it,
+  justification=centering,
+  singlelinecheck=false
+}
+
 % hyperref dovrebbe essere caricato quasi per ultimo
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\hypersetup{
+    pdfborder={0 0 0}, % Rimuove il bordo sottolineato
+    allbordercolors={1 1 1}, % Bordi bianchi (invisibili)
+}
 
 \definecolor{primaryblue}{RGB}{0,102,204}
 \definecolor{secondaryblue}{RGB}{51,153,255}
 \definecolor{lightgray}{RGB}{245,245,245}
 \definecolor{darkgray}{RGB}{100,100,100}
+
+% Comando per il glossario che funziona anche nei segnalibri PDF
+\newcommand{\gloss}{\texorpdfstring{\textsubscript{\scalebox{0.6}{\textbf{G}}}}{G}}
 
 \titleformat{\section}
   {\Large\bfseries\color{primaryblue}}
@@ -147,7 +170,7 @@ I termini che dispongono di una definizione nel Glossario\textsubscript{\scalebo
 \subsection{Introduzione}
 Un'analisi e una classificazione efficaci dei possibili rischi legati alle attività da svolgere rappresentano una parte fondamentale nella redazione di un piano di progetto. Una buona analisi consente infatti di prevedere quali attività potrebbero richiedere più tempo del previsto e, di conseguenza, di valutare se il carico di lavoro inserito nel backlog settimanale è appropriato o eccessivo.
 
-Un'adeguata analisi e gestione dei rischi\textsubscript{\scalebox{0.6}{\textbf{G}}} si articola in quattro fasi:
+Un'adeguata analisi e gestione dei rischi\textsubscript{\scalebox{0.6}{\textbf{G}}} se articola in quattro fasi:
 \begin{itemize}
 \item \textbf{Identificazione}: individuazione dei possibili rischi associati a un'attività, considerando non solo l'ambito progettuale ma anche quello personale;
 \item \textbf{Analisi}: valutazione della probabilità che ciascun rischio si verifichi e dei potenziali impatti sul successo dello sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} e del progetto complessivo;
@@ -391,8 +414,6 @@ Seguiranno ora le attività previste per la Requirements and Technology Baseline
 \hline
 \endfirsthead
 \endfoot
-\caption{Attività previste per la Requirements and Technology Baseline\textsubscript{\scalebox{0.6}{\textbf{G}}} (RTB)}
-\label{tab:attivita-rtb}\\
 \hline
 Redazione Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} & Redazione delle seguenti parti: XXX & XXX & IN REDAZIONE \\
 \hline
@@ -406,6 +427,8 @@ Redazione Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}} & Redazione termin
 \hline
 Realizzazione PoC & XXX & XXX & DA FARE \\
 \hline
+\caption{Attività previste per la Requirements and Technology Baseline\gloss\ (RTB)}%
+\label{tab:attivita-rtb}
 \end{longtable}
 
 \subsection{Attività previste per la Product Baseline (PB)}
@@ -486,8 +509,8 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] & [X] \\
 \textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
 \hline
 \end{tabular}
-\caption{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}} per componenti nello Sprint 1}
-\label{tab:preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}-sprint1}
+\caption{Preventivo\gloss\ per componenti nello Sprint 1}
+\label{tab:preventivo-sprint1}
 \end{table}
 
 \noindent\textbf{Consuntivo}
@@ -608,8 +631,8 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] & [X] \\
 \textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
 \hline
 \end{tabular}
-\caption{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}} per componenti nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 2}
-\label{tab:preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}2}
+\caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 2}
+\label{tab:preventivo-sprint2}
 \end{table}
 
 \noindent\textbf{Consuntivo}
@@ -638,8 +661,8 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] & [X] \\
 \textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
 \hline
 \end{tabular}
-\caption{Consuntivo per componenti nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 2}
-\label{tab:consuntivo-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}2}
+\caption{Consuntivo per componenti nello Sprint\gloss\ 2}
+\label{tab:consuntivo-sprint2}
 \end{table}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
@@ -666,8 +689,8 @@ Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 Totale & - & [X] & [X]€ & [X] & [X]€ \\
 \hline
 \end{tabular}
-\caption{Variazione nelle risorse disponibili nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 2}
-\label{tab:risorse-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}2}
+\caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 2}
+\label{tab:risorse-sprint2}
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
@@ -726,8 +749,8 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] & [X] \\
 \textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
 \hline
 \end{tabular}
-\caption{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}} per componenti nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 3}
-\label{tab:preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}3}
+\caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 3}
+\label{tab:preventivo-sprint3}
 \end{table}
 
 \noindent\textbf{Consuntivo}
@@ -756,8 +779,8 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] & [X] \\
 \textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
 \hline
 \end{tabular}
-\caption{Consuntivo per componenti nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 3}
-\label{tab:consuntivo-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}3}
+\caption{Consuntivo per componenti nello Sprint\gloss\ 3}
+\label{tab:consuntivo-sprint3}
 \end{table}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
@@ -784,8 +807,8 @@ Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 Totale & - & [X] & [X]€ & [X] & [X]€ \\
 \hline
 \end{tabular}
-\caption{Variazione nelle risorse disponibili nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 3}
-\label{tab:risorse-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}3}
+\caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 3}
+\label{tab:risorse-sprint3}
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
@@ -844,8 +867,8 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] & [X] \\
 \textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
 \hline
 \end{tabular}
-\caption{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}} per componenti nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 4}
-\label{tab:preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}4}
+\caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 4}
+\label{tab:preventivo-sprint4}
 \end{table}
 
 \noindent\textbf{Consuntivo}
@@ -874,8 +897,8 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] & [X] \\
 \textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
 \hline
 \end{tabular}
-\caption{Consuntivo per componenti nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 4}
-\label{tab:consuntivo-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}4}
+\caption{Consuntivo per componenti nello Sprint\gloss\ 4}
+\label{tab:consuntivo-sprint4}
 \end{table}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
@@ -902,8 +925,8 @@ Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 Totale & - & [X] & [X]€ & [X] & [X]€ \\
 \hline
 \end{tabular}
-\caption{Variazione nelle risorse disponibili nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 4}
-\label{tab:risorse-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}4}
+\caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 4}
+\label{tab:risorse-sprint4}
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
@@ -962,8 +985,8 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] & [X] \\
 \textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
 \hline
 \end{tabular}
-\caption{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}} per componenti nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 5}
-\label{tab:preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}5}
+\caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 5}
+\label{tab:preventivo-sprint5}
 \end{table}
 
 \noindent\textbf{Consuntivo}
@@ -992,8 +1015,8 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] & [X] \\
 \textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
 \hline
 \end{tabular}
-\caption{Consuntivo per componenti nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 5}
-\label{tab:consuntivo-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}5}
+\caption{Consuntivo per componenti nello Sprint\gloss\ 5}
+\label{tab:consuntivo-sprint5}
 \end{table}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
@@ -1020,8 +1043,8 @@ Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 Totale & - & [X] & [X]€ & [X] & [X]€ \\
 \hline
 \end{tabular}
-\caption{Variazione nelle risorse disponibili nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 5}
-\label{tab:risorse-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}5}
+\caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 5}
+\label{tab:risorse-sprint5}
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
@@ -1080,8 +1103,8 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] & [X] \\
 \textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
 \hline
 \end{tabular}
-\caption{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}} per componenti nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 6}
-\label{tab:preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}6}
+\caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 6}
+\label{tab:preventivo-sprint6}
 \end{table}
 
 \noindent\textbf{Consuntivo}
@@ -1110,8 +1133,8 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] & [X] \\
 \textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
 \hline
 \end{tabular}
-\caption{Consuntivo per componenti nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 6}
-\label{tab:consuntivo-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}6}
+\caption{Consuntivo per componenti nello Sprint\gloss\ 6}
+\label{tab:consuntivo-sprint6}
 \end{table}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
@@ -1138,8 +1161,8 @@ Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 Totale & - & [X] & [X]€ & [X] & [X]€ \\
 \hline
 \end{tabular}
-\caption{Variazione nelle risorse disponibili nello Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 6}
-\label{tab:risorse-sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}6}
+\caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 6}
+\label{tab:risorse-sprint6}
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
