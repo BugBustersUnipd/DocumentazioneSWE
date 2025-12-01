@@ -1,0 +1,159 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+
+% hyperref dovrebbe essere caricato quasi per ultimo
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\large\bfseries\color{primaryblue}}
+  {\thesubsection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}
+  \IfFileExists{../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(../../assets/Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.5cm]
+
+  {\Huge\bfseries\color{primaryblue} Piano di Progetto}\\[0.3cm]
+  {\Large\color{secondaryblue} Versione 0.0.1}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+% Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
+	{Stato} & In redazione \\
+	{Responsabile} &  \\
+	{Verificatore} &  \\
+	{Redattori} & Alberto Autiero \\
+	{Distribuzione} & BugBusters, Eggon, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Descrizione}]
+Il Piano di Progetto riporta il riepilogo delle attività effettuate e quelle ancora da svolgere dal team BugBusters.\end{tcolorbox}
+\end{center}
+
+\newpage
+
+% Registro delle Modifiche (pagina 2)
+\section*{Registro delle Modifiche}
+
+{
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|l|X|l|l|}
+\hline
+	{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Verificatore} \\
+\hline
+0.0.1 & 01/12/2025 & Prima stesura del documento & Alberto Autiero & - \\
+\hline
+\end{tabularx}
+\end{center}
+}
+
+\newpage
+\section{Introduzione}
+
+\subsection{Informazioni generali}
+Il Piano di Progetto è un documento che descrive le attività svolte e quelle da svolgere durante la realizzazione del progetto di Ingegneria del Software. Riveste un ruolo fondamentale per una corretta pianificazione, poiché confronta i tempi previsti con i tempi effettivamente impiegati per ogni attività e individua i rischi potenziali legati alle attività programmate. Dal momento che una pianificazione dettagliata a lungo termine risulterebbe poco efficace, le attività vengono pianificate di volta in volta: per questo motivo il Piano di Progetto è un documento dinamico, che verrà aggiornato con un approccio incrementale integrando nuove informazioni man mano che il progetto procede.
+
+\subsection{Glossario}
+La realizzazione di un sistema software richiede, ancor prima della scrittura del codice, un’attenta fase di confronto, analisi e progettazione. Per supportare il lavoro asincrono del team, tutte le informazioni prodotte durante queste attività vengono opportunamente documentate.
+
+È tuttavia del tutto prevedibile che tali documenti possano contenere termini tecnici o espressioni non immediatamente comprensibili. Per questo motivo è stato redatto un Glossario, che raccoglie e spiega in modo puntuale i termini utilizzati. Il Glossario è soggetto ad aggiornamenti continui ed è consultabile nella sua versione corrente al seguente indirizzo: DA INSERIRE QUANDO VERRà CARICATO SUL SITO.
+
+I termini che dispongono di una definizione nel Glossario saranno contrassegnati nel modo seguente: parola\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+
+\subsection{Fonti}
+
+\subsubsection{Riferimenti normativi}
+\begin{itemize}
+    \item Capitolato d'appalto C5: NEXUM - Eggon \\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf} \\
+    Ultimo Accesso XXX
+    \item Norme di Progetto versione 1.0.0 \\
+    \url{DA AGGIUNGERE APPENA CARICATO SUL SITO} \\
+    Ultimo Accesso XXX
+\end{itemize}
+
+\subsubsection{Riferimenti informativi}
+\begin{itemize}
+    \item I processi di ciclo di vita del software \\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T02.pdf} \\
+    Ultimo Accesso XXX
+    \item Gestione di progetto \\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T04.pdf} \\
+    Ultimo Accesso XXX
+      \item Glossario ver. 1.0.0 \\
+    \url{DA AGGIUNGERE APPENA SI CARICA SUL SITO} \\
+    Ultimo Accesso XXX
+\end{itemize}
+
+\newpage
+
+\section{Analisi e gestione dei rischi}
+
+\subsection{Introduzione}
+Un'analisi e una classificazione efficaci dei possibili rischi legati alle attività da svolgere rappresentano una parte fondamentale nella redazione di un piano di progetto. Una buona analisi consente infatti di prevedere quali attività potrebbero richiedere più tempo del previsto e, di conseguenza, di valutare se il carico di lavoro inserito nel backlog settimanale è appropriato o eccessivo.
+
+Un'adeguata analisi e gestione dei rischi si articola in quattro fasi:
+\begin{itemize}
+\item \textbf{Identificazione}: individuazione dei possibili rischi associati a un'attività, considerando non solo l'ambito progettuale ma anche quello personale;
+\item \textbf{Analisi}: valutazione della probabilità che ciascun rischio si verifichi e dei potenziali impatti sul successo dello sprint e del progetto complessivo;
+\item \textbf{Pianificazione}: definizione delle strategie per ridurre la probabilità di occorrenza dei rischi o, qualora non sia possibile prevenirli, per mitigarne gli effetti negativi;
+\item \textbf{Controllo}: monitoraggio continuo delle attività, volto a rilevare tempestivamente l'insorgere di un rischio e ad applicare le procedure di mitigazione prestabilite.
+\end{itemize}
+
+È ragionevole supporre che, a causa di un'esperienza limitata, le misure di mitigazione adottate possano rivelarsi inizialmente inefficaci. Per questo motivo è fondamentale registrare e analizzare gli errori emersi durante la fase di controllo, al fine di perfezionare progressivamente le strategie utilizzate.
+
+Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tre categorie:
+\begin{itemize}
+\item RT: Rischio Tecnologico;
+\item RI: Rischio Individuale;
+\item RG: Rischio Globale.
+\end{itemize}
+
+\subsection{Rischio Tecnologico}
+\end{document}
