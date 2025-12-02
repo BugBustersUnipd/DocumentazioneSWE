@@ -17,6 +17,10 @@
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{caption}
+\usepackage{colortbl}  % <-- Add this line
+
+% hyperref dovrebbe essere caricato quasi per ultimo
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
 
 % Configurazione delle didascalie per tabelle
 \captionsetup[table]{
@@ -105,16 +109,22 @@ Il Piano di Progetto riporta il riepilogo delle attività effettuate e quelle an
 % Registro delle Modifiche (pagina 2)
 \section*{Registro delle Modifiche}
 
-{
-\begin{center}
-\begin{tabularx}{\textwidth}{|l|l|X|l|l|}
+\arrayrulecolor{primaryblue}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2cm}|X|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
 \hline
-	{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Verificatore} \\
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-0.0.1 & 01/12/2025 & Prima stesura del documento & Alberto Autiero & - \\
+0.0.4 & 19/12/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\hline
+0.0.3 & 23/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\hline
+0.0.2 & 17/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\hline
+0.0.1 & 06/11/2025 & Prima stesura del documento con i termini del capitolato aggiudicato (5) e diapositive dei docenti& Alberto Autiero & - & - \\
 \hline
 \end{tabularx}
-\end{center}
 }
 
 \newpage
