@@ -1,0 +1,83 @@
+name: Close Issue on Commit
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  close_issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Close issues mentioned in commit messages
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            // Push event can contain multiple commits
+            const commits = context.payload.commits || [];
+
+            // Matches: chiudi <titolo> (titolo racchiuso tra angolari)
+            // Esempi validi: "chiudi <Norme di Progetto>", "fix; chiudi <Aggiornare Glossario RTB> altre note"
+            // Cattura il titolo interno come gruppo 1
+            const pattern = /chiudi\s*<([^>]+)>/gi;
+
+            function normalizeTitle(raw) {
+              // Rimuovi spazi extra, punteggiatura finale e virgolette eventuali
+              let t = (raw || '').trim();
+              t = t.replace(/^['"\s]+|['"\s]+$/g, '');
+              t = t.replace(/[\s]+/g, ' '); // normalizza spazi multipli
+              t = t.replace(/[\.,;:]+$/g, ''); // togli punteggiatura finale
+              return t.trim();
+            }
+
+            async function closeIssueByTitle(titleRaw) {
+              const title = normalizeTitle(titleRaw);
+              // Search open issues with exact title
+              const { data: issues } = await github.rest.issues.listForRepo({
+                owner, repo, state: 'open', per_page: 100
+              });
+              const match = issues.find(i => i.title.trim().toLowerCase() === title.trim().toLowerCase());
+              if (!match) {
+                core.info(`No open issue found with title: ${title}`);
+                return;
+              }
+              await github.rest.issues.update({ owner, repo, issue_number: match.number, state: 'closed' });
+              core.info(`Closed issue #${match.number} - ${match.title}`);
+            }
+
+            for (const commit of commits) {
+              const msg = commit.message || '';
+              let m;
+              const titles = [];
+              while ((m = pattern.exec(msg)) !== null) {
+                titles.push(m[1]);
+              }
+              if (titles.length === 0) {
+                core.info(`No close directive in commit: ${commit.id}`);
+                continue;
+              }
+              for (const t of titles) {
+                await closeIssueByTitle(t);
+              }
+            }
+
+            // Also check the head commit (some providers send only head_commit)
+            const headMsg = (context.payload.head_commit && context.payload.head_commit.message) || '';
+            let hm;
+            const headTitles = [];
+            while ((hm = pattern.exec(headMsg)) !== null) {
+              headTitles.push(hm[1]);
+            }
+            for (const t of headTitles) {
+              await closeIssueByTitle(t);
+            }
+
+            core.info('Done processing commit messages.');
