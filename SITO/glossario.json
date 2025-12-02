@@ -121,6 +121,10 @@
       "definition": "Pattern creazionale che separa la costruzione di un oggetto complesso dalla sua rappresentazione, in modo che lo stesso processo di costruzione possa creare diverse rappresentazioni. Il pattern Builder è composto da Director, Builder e Product."
     },
     {
+      "term": "Candidatura",
+      "definition": "Processo con cui un gruppo di studenti presenta la propria offerta per aggiudicarsi un capitolato d'appalto nel corso di Ingegneria del Software, proponendo una soluzione che soddisfi i requisiti del proponente."
+    },
+    {
       "term": "Capitolato",
       "definition": "Documento contrattuale che specifica i requisiti, le caratteristiche tecniche e le condizioni di un progetto software proposto da un'azienda proponente per il corso di Ingegneria del Software."
     },
@@ -401,6 +405,10 @@
       "definition": "Tecnologia che converte immagini di testo scritto o stampato in testo digitale machine-readable."
     },
     {
+      "term": "PB (Product Baseline)",
+      "definition": "Baseline che definisce lo stato del prodotto software in un determinato momento, tipicamente al termine di una fase di sviluppo o di uno sprint. Include le specifiche del prodotto, la documentazione e il codice sorgente, e serve come riferimento per le fasi successive o per il rilascio."
+    },
+    {
       "term": "Pattern Creazionali",
       "definition": "Categoria di design pattern che si occupano dei meccanismi di creazione degli oggetti, cercando di creare oggetti in modo adatto alla situazione. Esempi includono Factory Method, Abstract Factory, Builder, Singleton, etc."
     },
@@ -470,7 +478,7 @@
     },
     {
       "term": "Processi organizzativi",
-      "definition": "Processi trasversali rispetto ai singoli progetti che riguardano la gestione dei processi, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione."
+      "definition": "Processi trasversali rispetto ai singoli progetti che riguardano la gestione dei processes, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione."
     },
     {
       "term": "Processi primari",
@@ -541,8 +549,8 @@
       "definition": "Requisiti che sono utili ma non necessari, e la cui implementazione dipende dalla disponibilità di risorse e tempo. Possono essere considerati per versioni future del prodotto."
     },
     {
-      "term": "Requirements Baseline",
-      "definition": "Insieme dei requisiti concordati e formalmente approvati che costituisce il riferimento per lo sviluppo del progetto. Una volta stabilita, qualsiasi modifica alla baseline dei requisiti deve seguire un processo formale di controllo delle modifiche."
+      "term": "RTB (Requirements and Technology Baseline)",
+      "definition": "Baseline che combina i requisiti e le tecnologie approvate per il progetto. Definisce l'insieme dei requisiti concordati e formalmente approvati e lo stack tecnologico di riferimento, costituendo la base per lo sviluppo del progetto. Ogni modifica a questa baseline deve seguire un processo formale di controllo delle modifiche."
     },
     {
       "term": "Requisito software",
@@ -562,7 +570,7 @@
     },
     {
       "term": "Robustezza",
-      "definition": "Capacità di un sistema software di funzionare correttamente in condizioni anomale o in presenza di input non validi."
+      "definition": "Capacità di un sistema software di funzionare correttamente in condizioni anomali o in presenza di input non validi."
     },
     {
       "term": "Sandbox di Sviluppo",
@@ -605,7 +613,7 @@
       "definition": "Relazione tra tipi per cui un tipo (sottotipo) può essere utilizzato in ogni contesto in cui è atteso un altro tipo (supertipo), in accordo con il principio di sostituzione di Liskov."
     },
     {
-      "term": "Specificazione Tecnica",
+      "term": "Specification Tecnica",
       "definition": "Documento che descrive in dettaglio l'architettura, il design e le scelte implementative del sistema software, guidando le attività di sviluppo."
     },
     {
@@ -678,7 +686,7 @@
     },
     {
       "term": "Verificatore",
-      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettino gli standard di qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
+      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettano gli standard di qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
     },
     {
       "term": "Versionamento/versioning",
