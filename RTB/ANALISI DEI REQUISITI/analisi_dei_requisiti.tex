@@ -88,6 +88,12 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \hline
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
 \hline
+0.0.6 & 03/12/2025 & 
+\begin{minipage}[t]{\linewidth}
+Aggiunti casi d'uso sezione 2, aggiunta varianti/exceptions sezione 2, scritta possibile struttura requisiti.
+\end{minipage} 
+& Leonardo Salviato & - \\
+\hline
 0.0.5 & 02/12/2025 & 
 \begin{minipage}[t]{\linewidth}
 Aggiunto schema attori
@@ -1007,6 +1013,16 @@ Di seguito sono esposti gli attori utilizzati:
     \item I documenti sono disponibili per le successive fasi di riconoscimento ed elaborazione AI.
 \end{itemize}
 
+\textbf{Varianti/Exceptions}
+\begin{itemize}
+    \item File duplicato $\rightarrow$ UC-2A.1 
+    \item Formato non valido $\rightarrow$ UC-2A.2
+\end{itemize}
+
+\subsubsection{UC-2A.1 – Inserimento file duplicato}
+
+\subsubsection{UC-2A.2 – Inserimento file in formato non valido}
+
 \vspace{0.5cm}
 
 \subsubsection{UC-2B – Riconoscimento automatico del documento (OCR + classificazione)}
@@ -1038,6 +1054,16 @@ Di seguito sono esposti gli attori utilizzati:
     \item I documenti sono pronti per l’estrazione dei destinatari o per una eventuale revisione manuale.
 \end{itemize}
 
+\textbf{Varianti/Exceptions}
+\begin{itemize}
+    \item Bassa confidenza $\rightarrow$ UC-2B.1 
+    \item OCR parziale o fallito $\rightarrow$ UC-2B.2
+\end{itemize}
+
+\subsubsection{UC-2B.1 – Bassa confidenza}
+
+\subsubsection{UC-2B.2 – OCR parziale o fallito}
+
 \vspace{0.5cm}
 
 \subsubsection{UC-2C – Estrazione e riconoscimento dei destinatari}
@@ -1068,6 +1094,16 @@ Di seguito sono esposti gli attori utilizzati:
     \item Per ciascun documento è stato individuato almeno un destinatario, con relativo punteggio di confidenza.
     \item I documenti sono pronti per l’eventuale fase di split (se multi-destinatario) o per la revisione manuale.
 \end{itemize}
+
+\textbf{Varianti/Exceptions}
+\begin{itemize}
+    \item Multimatch (omonomie) $\rightarrow$ UC-2C.1 
+    \item Destinatario mancante $\rightarrow$ UC-2C.2
+\end{itemize}
+
+\subsubsection{UC-2C.1 – Multimatch (omonomie)}
+
+\subsubsection{UC-2C.2 – Destinatario mancante}
 
 \vspace{0.5cm}
 
@@ -1101,6 +1137,16 @@ Di seguito sono esposti gli attori utilizzati:
     \item I documenti singoli risultano pronti per la revisione e per la successiva esportazione.
 \end{itemize}
 
+\textbf{Varianti/Exceptions}
+\begin{itemize}
+    \item Pagine non rilevabili $\rightarrow$ UC-2D.1 
+    \item Split incompleto $\rightarrow$ UC-2D.2
+\end{itemize}
+
+\subsubsection{UC-2D.1 – Pagine non rilevabili}
+
+\subsubsection{UC-2D.2 – Split incompleto}
+
 \vspace{0.5cm}
 
 \subsubsection{UC-2E – Revisione manuale dei risultati (Human-in-the-Loop)}
@@ -1132,9 +1178,17 @@ Di seguito sono esposti gli attori utilizzati:
     \item Le informazioni corrette sono pronte per la creazione di liste di distribuzione o per l’esportazione.
 \end{itemize}
 
+\textbf{Varianti/Exceptions}
+\begin{itemize}
+    \item Correzione in bulk $\rightarrow$ UC-2E.1 
+\end{itemize}
+
+\subsubsection{UC-2E.1 – Correzione in bulk}
+
+
 \vspace{0.5cm}
 
-\subsubsection{UC-2F – Creazione di liste di distribuzione ed esportazione dei documenti}
+\subsubsection{UC-2F – Creazione di liste di distribuzione}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1164,9 +1218,75 @@ Di seguito sono esposti gli attori utilizzati:
     \item La lista di distribuzione è salvata localmente per eventuale tracciamento e riuso.
 \end{itemize}
 
+\textbf{Varianti/Exceptions}
+\begin{itemize}
+    \item Canale non disponibile per alcuni destinatari $\rightarrow$ UC-2F.1 
+\end{itemize}
+
+\subsubsection{UC-2F.1 – Canale non disponibile per alcuni destinatari}
+
 \vspace{0.5cm}
 
-\subsubsection{UC-2G – Consultazione storico documentale e audit locale}
+\subsubsection{UC-2G – Invio, tracciamento e prova di consegna}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore di studio CdL.
+    \item Sistema NEXUM.
+    \item Destinatario del documento.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item É stata giá generata una lista di distribuzione/dispaccio.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'operatore avvia invio (immediato o pianificato)
+    \item Il sistema invia su canali selezionati, applica firma digitale/marca temporale se previsto
+    \item Registra esiti (consegnato, non consegnato, in attesa, letto) e genera ricevute
+    \item Il destinatario riceve la notifica e accede al documento (portale/app)
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Tracciamento completo in registro di dispaccio; KPI aggiornati.
+\end{itemize}
+
+\textbf{Varianti/Exceptions}
+\begin{itemize}
+    \item Bounce o mancata consegna $\rightarrow$ UC-2G.1 
+    \item Revoca/annullo prima del download $\rightarrow$ UC-2G.2
+\end{itemize}
+
+\subsubsection{UC-2G.1 – Bounce o mancata consegna}
+
+\subsubsection{UC-2G.2 – Revoca/annullo prima del download}
+
+\vspace{0.5cm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{UC-2 – Consultazione storico documentale e audit locale}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1199,6 +1319,7 @@ Di seguito sono esposti gli attori utilizzati:
 \subsection{Requisiti funzionali}
 Descrivono le funzionalità che il sistema deve offrire, ovvero ciò che il sistema deve fare.
 Rappresentano i comportamenti osservabili del sistema in risposta alle azioni degli utenti o ad altri eventi.
+\vspace{0.5cm}
 
 \textbf{Caratterisitiche}
 \begin{enumerate}
@@ -1209,8 +1330,9 @@ Rappresentano i comportamenti osservabili del sistema in risposta alle azioni de
 
 
 \subsection{Requisiti non funzionali}
-Descrivono come il sistema deve comportarsi, cioè le qualità, i vincoli e le caratteristiche del software che non riguardano le funzionalità, ma le prestazioni,  \\ 
+Descrivono come il sistema deve comportarsi, cioè le qualità, i vincoli e le caratteristiche del software che non riguardano le funzionalità, ma le prestazioni,
 l’usabilità, la sicurezza, ecc.
+\vspace{0.5cm}
 
 \textbf{Caratterisitiche}
 \begin{enumerate}
@@ -1222,6 +1344,7 @@ l’usabilità, la sicurezza, ecc.
 \subsection{Requisiti di dominio}
 Derivano dal contesto specifico del problema che si vuole risolvere.
 Sono requisiti legati all’ambiente applicativo e alle regole del dominio.
+\vspace{0.5cm}
 
 \textbf{Caratterisitiche}
 \begin{enumerate}
@@ -1232,6 +1355,7 @@ Sono requisiti legati all’ambiente applicativo e alle regole del dominio.
 \subsection{Requisiti utente}
 Descrivono ciò che l’utente si aspetta dal sistema, spesso in termini non tecnici.
 Sono più astratti rispetto ai requisiti funzionali.
+\vspace{0.5cm}
 
 \textbf{Caratterisitiche}
 \begin{enumerate}
@@ -1241,6 +1365,7 @@ Sono più astratti rispetto ai requisiti funzionali.
 \subsection{Requisiti di sistema}
 Descrivono cosa il sistema nel suo complesso deve garantire.
 Sono più ampi dei requisiti funzionali e includono aspetti architetturali.
+\vspace{0.5cm}
 
 \textbf{Caratterisitiche}
 \begin{enumerate}
@@ -1249,6 +1374,8 @@ Sono più ampi dei requisiti funzionali e includono aspetti architetturali.
 
 \subsection{Requisiti opzionali, desiderabili, obbligatori}
 Questa classificazione viene usata per stabilire la priorità dei requisiti.
+
+\vspace{0.5cm}
 
 \textbf{Caratterisitiche}
 \begin{enumerate}
