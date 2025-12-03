@@ -433,8 +433,14 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: nessuno (la registrazione è un punto di ingresso al Sistema).
-    \item \textit{extend}: UC-0B – Login / Autenticazione utente (in caso di login automatico al termine della registrazione).
+    \item \textit{include}:
+    \begin{itemize}
+        \item nessuno (la registrazione è un punto di ingresso al Sistema).
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-0B – Login / Autenticazione utente (in caso di login automatico al termine della registrazione).
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -466,7 +472,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
     \caption{Didascalia dell'immagine}
 \end{figure}
 
@@ -478,8 +484,14 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: nessuno (caso d’uso base di autenticazione).
-    \item \textit{extend}: nessuno (questo caso d’uso è base e viene richiamato da altri, ma non estende ulteriori flussi).
+    \item \textit{include}:
+    \begin{itemize}
+        \item nessuno (caso d’uso base di autenticazione).
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item nessuno (questo caso d’uso è base e viene richiamato da altri, ma non estende ulteriori flussi).
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -521,8 +533,14 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: UC-0B – Login / Autenticazione utente (è necessario che l’utente sia autenticato).
-    \item \textit{extend}: nessuno.
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-0B – Login / Autenticazione utente (è necessario che l’utente sia autenticato).
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item nessuno.
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -561,8 +579,15 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: UC-0B – Login / Autenticazione utente (l’Amministratore deve essere autenticato come Admin).
-    \item \textit{extend}: nessuno.
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-0B – Login / Autenticazione utente (l’Amministratore deve essere autenticato come Admin).
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item nessuno.
+    \end{itemize}
+    
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -606,8 +631,14 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: UC-0B – Login / Autenticazione utente (per poter effettuare il logout è necessaria una sessione attiva).
-    \item \textit{extend}: Nessuno.
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-0B – Login / Autenticazione utente (per poter effettuare il logout è necessaria una sessione attiva).
+    \end{itemize}
+    \item \textit{extend}:
+    \begin{itemize}
+        \item Nessuno.
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -648,8 +679,14 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: UC-1D – Salvataggio e gestione dei prompt (il prompt utilizzato viene sempre salvato nello storico).
-    \item \textit{extend}: Nessuna.
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1D – Salvataggio e gestione dei prompt (il prompt utilizzato viene sempre salvato nello storico).
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuna.
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -694,8 +731,14 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: UC-1A – Creazione di un nuovo contenuto tramite prompt (è necessario che esista un contenuto generato da modificare).
-    \item \textit{extend}: UC-1F – Rigenerazione del contenuto (la modifica può essere arricchita da rigenerazioni automatiche di parti del testo).
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (è necessario che esista un contenuto generato da modificare).
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-1F – Rigenerazione del contenuto (la modifica può essere arricchita da rigenerazioni automatiche di parti del testo).
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -741,7 +784,10 @@ Di seguito sono esposti gli attori utilizzati:
     \begin{itemize}
         \item UC-1A – Creazione di un nuovo contenuto tramite prompt (deve esistere una bozza).
     \end{itemize}
-    \item \textit{extend}: Nessuna.
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuna.
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -775,8 +821,14 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: UC-1A – Creazione di un nuovo contenuto tramite prompt (i prompt derivano da richieste di generazione).
-    \item \textit{extend}: UC-1A – Creazione di un nuovo contenuto tramite prompt (variante in cui il contenuto viene generato a partire da un prompt già presente nello storico anziché da un nuovo prompt).
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (i prompt derivano da richieste di generazione).
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (variante in cui il contenuto viene generato a partire da un prompt già presente nello storico anziché da un nuovo prompt).
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -815,7 +867,10 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: UC-1A – Creazione di un nuovo contenuto tramite prompt (deve esistere un contenuto visualizzabile).
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (deve esistere un contenuto visualizzabile).
+    \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-1A – Creazione di un nuovo contenuto tramite prompt (valutazione immediata dopo la generazione).
@@ -858,7 +913,12 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: UC-1A – Creazione di un nuovo contenuto tramite prompt (deve esistere una prima versione generata).
+    \item \textit{include}:
+    \begin{itemize}
+        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (deve esistere una
+            prima versione generata).
+    \end{itemize}
+    
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-1A – Creazione di un nuovo contenuto tramite prompt (variante in cui l’utente non accetta la prima generazione e richiede una nuova versione).
@@ -908,7 +968,10 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-1A – Creazione di un nuovo contenuto tramite prompt.
         \item UC-1B – Modifica del contenuto generato (se il contenuto è stato modificato).
     \end{itemize}
-    \item \textit{extend}: UC-1C – Pubblicazione o scarto del contenuto (la revisione si inserisce come passo alternativo prima della decisione finale).
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-1C – Pubblicazione o scarto del contenuto (la revisione si inserisce come passo alternativo prima della decisione finale).
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -946,7 +1009,10 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: nessuna (usa i dati storici già presenti).
+    \item \textit{include}: 
+    \begin{itemize}
+        \item nessuna (usa i dati storici già presenti).
+    \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-1A – Creazione di un nuovo contenuto tramite prompt (analisi delle generazioni effettuate).
@@ -988,6 +1054,18 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item Operatore di studio CdL (utente autenticato).
     \item Sistema di gestione documentale locale dell’applicazione standalone.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -1033,6 +1111,18 @@ Di seguito sono esposti gli attori utilizzati:
     \item Operatore di studio CdL (in qualità di supervisore).
 \end{itemize}
 
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{itemize}
+
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item Uno o più documenti sono presenti nel repository con stato ``In attesa di elaborazione'' (UC-2A completato).
@@ -1072,6 +1162,18 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item Sistema AI di estrazione entità (entity extraction).
     \item Operatore di studio CdL.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -1115,6 +1217,18 @@ Di seguito sono esposti gli attori utilizzati:
     \item Operatore di studio CdL.
 \end{itemize}
 
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{itemize}
+
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item È presente un documento multi-destinatario (es. file unico con più cedolini) nel repository.
@@ -1154,6 +1268,18 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Attori}
 \begin{itemize}
     \item Operatore di studio CdL.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -1196,6 +1322,18 @@ Di seguito sono esposti gli attori utilizzati:
     \item Sistema di esportazione documentale dell’applicazione standalone.
 \end{itemize}
 
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{itemize}
+
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item I documenti sono stati riconosciuti e validati (UC-2B, UC-2C, UC-2D e UC-2E, secondo necessità).
@@ -1234,6 +1372,18 @@ Di seguito sono esposti gli attori utilizzati:
     \item Operatore di studio CdL.
     \item Sistema NEXUM.
     \item Destinatario del documento.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
@@ -1275,6 +1425,18 @@ Di seguito sono esposti gli attori utilizzati:
     \item Amministratore dell’applicazione standalone.
 \end{itemize}
 
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{itemize}
+
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item Sono presenti nel Sistema documenti caricati, elaborati, revisionati o esportati.
@@ -1305,46 +1467,25 @@ Di seguito sono esposti gli attori utilizzati:
 \vspace{0.5cm}
 
 
-\subsubsection{UC-2I – Gestione ruoli, permessi e policy (Sicurezza & GDPR)}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Admin cliente.
-    \item Admin Eggon.
-    \item Sistema
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Tenant e ruoli configurati.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Definizione ruoli (Admin CdL, Editor, Viewer, Auditor).
-    \item Policy retention per tipologia documentale (es. 10 anni per cedolini).
-    \item Configurazione consensi e informative per destinatari.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Accessi e trattamenti compliant (principi di minimizzazione e tracciabilità).
-\end{itemize}
-
-\textbf{Varianti/Exceptions}
-\begin{itemize}
-    \item Accesso non autorizzato $\rightarrow$ UC-2I.1 
-\end{itemize}
-
-\subsubsection{UC-2H.1 – Accesso non autorizzato}
-
-\subsubsection{UC-2J – Monitoraggio qualità AI e miglioramento continuo}
+\subsubsection{UC-2I – Monitoraggio qualità AI e miglioramento continuo}
 
 \textbf{Attori}
 \begin{itemize}
     \item Data analyst.
     \item Admin Eggon.
     \item Sistema
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
