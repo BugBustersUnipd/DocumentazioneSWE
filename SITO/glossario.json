@@ -17,6 +17,14 @@
       "definition": "Grado di interdipendenza tra componenti software. Un accoppiamento stretto indica forte dipendenza, mentre un accoppiamento debole minimizza le dipendenze, favorendo manutenibilità e riutilizzo del codice."
     },
     {
+      "term": "Accoppiamento (Coupling)",
+      "definition": "Grado di interdipendenza tra componenti software. Un accoppiamento stretto indica forte dipendenza, mentre un accoppiamento debole minimizza le dipendenze, favorendo manutenibilità e riutilizzo del codice."
+    },
+    {
+      "term": "Affidabilità (Reliability)",
+      "definition": "Capacità di un sistema software di mantenere il proprio livello di prestazioni in condizioni specificate per un determinato periodo di tempo."
+    },
+    {
       "term": "Agile",
       "definition": "Metodologia di sviluppo del software iterativa e incrementale che si basa su principi come la collaborazione continua con il cliente, la consegna frequente di software funzionante e la capacità di rispondere ai cambiamenti dei requisiti."
     },
@@ -45,6 +53,34 @@
       "definition": "Processo formale attraverso il quale un documento o una funzionalità viene accettata e considerata completa dopo aver superato le verifiche e validazioni necessarie."
     },
     {
+      "term": "Architettura a livelli",
+      "definition": "Pattern architetturale che organizza il sistema in livelli gerarchici, dove ogni livello fornisce servizi al livello superiore e utilizza servizi del livello inferiore."
+    },
+    {
+      "term": "Architettura dei microservizi",
+      "definition": "Approccio architetturale che struttura un'applicazione come una collezione di servizi piccoli, autonomi e indipendenti, ciascuno responsabile di una specifica funzionalità di business."
+    },
+    {
+      "term": "Architettura di dettaglio",
+      "definition": "Fase della progettazione software in cui si specificano nel dettaglio i componenti, le interfacce e le relazioni tra di essi, partendo dall'architettura logica."
+    },
+    {
+      "term": "Architettura logica",
+      "definition": "Fase della progettazione software in cui si definisce la struttura del sistema a livello di componenti e delle loro interazioni, senza scendere nel dettaglio implementativo."
+    },
+    {
+      "term": "Architettura multilivello",
+      "definition": "Pattern architetturale che separa le responsabilità dell'applicazione in livelli logici distinti, tipicamente presentazione, logica di business e persistenza dati."
+    },
+    {
+      "term": "Architettura Pipe-and-Filter",
+      "definition": "Pattern architetturale in cui i componenti (filtri) elaborano i dati in sequenza, passandoli attraverso connessioni (pipe)."
+    },
+    {
+      "term": "Architettura Three-Tier",
+      "definition": "Architettura software che divide l'applicazione in tre livelli: presentazione, logica di business e dati."
+    },
+    {
       "term": "Associazione",
       "definition": "Relazione strutturale in OOP che rappresenta una connessione duratura tra oggetti di classi diverse, dove gli oggetti interagiscono per un periodo di tempo prolungato condividendo riferimenti."
     },
@@ -58,7 +94,11 @@
     },
     {
       "term": "Attore secondario",
-      "definition": "Utente o sistema esterno che fornisce servizi o supporto all'attore principale durante l'esecuzione di um caso d'uso. Partecipa all'interazione ma non è il beneficiario principale del risultato, spesso fornendo funzionalità accessorie o di supporto."
+      "definition": "Utente o sistema esterno che fornisce servizi o supporto all'attore principale durante l'esecuzione di un caso d'uso. Partecipa all'interazione ma non è il beneficiario principale del risultato, spesso fornendo funzionalità accessorie o di supporto."
+    },
+    {
+      "term": "Availability (Disponibilità)",
+      "definition": "Misura della percentuale di tempo in cui un sistema è operativo e accessibile agli utenti."
     },
     {
       "term": "AWS (Amazon Web Services)",
@@ -75,6 +115,14 @@
     {
       "term": "Best Practice",
       "definition": "Insieme di tecniche, metodi e procedure che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto."
+    },
+    {
+      "term": "Builder",
+      "definition": "Pattern creazionale che separa la costruzione di un oggetto complesso dalla sua rappresentazione, in modo che lo stesso processo di costruzione possa creare diverse rappresentazioni. Il pattern Builder è composto da Director, Builder e Product."
+    },
+    {
+      "term": "Candidatura",
+      "definition": "Processo con cui un gruppo di studenti presenta la propria offerta per aggiudicarsi un capitolato d'appalto nel corso di Ingegneria del Software, proponendo una soluzione che soddisfi i requisiti del proponente."
     },
     {
       "term": "Capitolato",
@@ -94,7 +142,7 @@
     },
     {
       "term": "Cerimonia",
-      "definition": "Evento formale o informale nel framework Scrum che segue un agenda prestabilita e ha uno scopo specifico, come la Pianificazione dello Sprint, il Daily Stand-up, la Revisione dello Sprint o la Retrospettiva."
+      "definition": "Evento formale o informale nel framework Scrum che segue un'agenda prestabilita e ha uno scopo specifico, come la Pianificazione dello Sprint, il Daily Stand-up, la Revisione dello Sprint o la Retrospettiva."
     },
     {
       "term": "Committente",
@@ -105,8 +153,28 @@
       "definition": "Relazione strutturale in OOP che rappresenta un legame \"parte-tutto\" forte dove gli componenti non possono esistere indipendentemente dall'oggetto che li contiene. Implica ownership esclusiva e distruzione concomitante."
     },
     {
+      "term": "Comprensibilità",
+      "definition": "Capacità di un sistema software di essere facilmente compreso dai suoi utilizzatori, riducendo lo sforzo cognitivo necessario per il suo utilizzo."
+    },
+    {
+      "term": "Constructor Injection",
+      "definition": "Tecnica di Dependency Injection in cui le dipendenze vengono fornite a un componente attraverso il suo costruttore."
+    },
+    {
+      "term": "Controllo di Qualità",
+      "definition": "Insieme di attività e tecniche volte a garantire che i prodotti software soddisfino gli standard di qualità prestabiliti. Il controllo di qualità si concentra sull'identificazione di difetti nel prodotto realizzato."
+    },
+    {
       "term": "Cruscotto/Dashboard",
       "definition": "Interfaccia utente che presenta in forma grafica e sintetica le metriche, gli indicatori di performance e lo stato corrente del progetto o dell'applicazione."
+    },
+    {
+      "term": "Cruscotto di Controllo",
+      "definition": "Strumento di monitoraggio che fornisce una visualizzazione in tempo reale degli indicatori chiave di prestazione (KPI) e delle metriche di qualità del progetto. Consente di tracciare lo stato delle attività di verifica e validazione."
+    },
+    {
+      "term": "Decomposizione funzionale",
+      "definition": "Processo di scomposizione di un sistema complesso in funzioni o componenti più piccoli e gestibili."
     },
     {
       "term": "Decisione esterna",
@@ -117,24 +185,52 @@
       "definition": "Scelta presa dal team di progetto riguardante aspetti tecnici, organizzativi o metodologici, documentata per garantire tracciabilità e coerenza nelle attività successive."
     },
     {
-      "term": "Diagrammi delle classi",
-      "definition": "Diagrammi UML che mostrano le classi del sistema, i loro attributi, metodi e le relazioni tra di esse (associazioni, ereditarietà, dipendenze, ecc.)."
+      "term": "Dependency Injection",
+      "definition": "Pattern architetturale in cui le dipendenze di un componente vengono fornite dall'esterno, anziché essere create internamente al componente stesso."
     },
     {
-      "term": "Diagrammi dei casi d'uso",
-      "definition": "Diagrammi UML che descrivono le interazioni tra gli attori e il sistema, mostrando i diversi scenari possibili per raggiungere un obiettivo specifico."
+      "term": "Design Pattern",
+      "definition": "Soluzione progettuale generale e riutilizzabile a un problema ricorrente all'interno di un dato contesto nella progettazione di software. I design pattern non sono progetti finiti che possono essere trasformati direttamente in codice, ma modelli astratti che devono essere adattati al caso specifico."
     },
     {
-      "term": "Diagrammi di attività",
-      "definition": "Diagrammi UML che modellano il flusso di controllo o il flusso di dati tra attività, utilizzati per descrivere la logica di procedura, di business o di caso d'uso."
+      "term": "Design pattern architetturali",
+      "definition": "Soluzioni progettuali ricorrenti e collaudate per problemi architetturali comuni nei sistemi software."
     },
     {
-      "term": "Diagrammi di Gantt",
+      "term": "Diagramma dei componenti",
+      "definition": "Diagramma UML che mostra l'organizzazione e le dipendenze tra i componenti software di un sistema."
+    },
+    {
+      "term": "Diagramma dei casi d'uso",
+      "definition": "Diagramma UML che descrive le interazioni tra gli attori e il sistema, mostrando i diversi scenari possibili per raggiungere un obiettivo specifico."
+    },
+    {
+      "term": "Diagramma delle classi",
+      "definition": "Diagramma UML che mostra le classi del sistema, i loro attributi, metodi e le relazioni tra di esse (associazioni, ereditarietà, dipendenze, ecc.)."
+    },
+    {
+      "term": "Diagramma degli stati",
+      "definition": "Diagramma UML che descrive il comportamento di un oggetto in risposta a eventi, mostrando i diversi stati in cui può trovarsi e le transizioni tra essi."
+    },
+    {
+      "term": "Diagramma di attività",
+      "definition": "Diagramma UML che modella il flusso di controllo o il flusso di dati tra attività, utilizzato per descrivere la logica di procedura, di business o di caso d'uso."
+    },
+    {
+      "term": "Diagramma di deployment",
+      "definition": "Diagramma UML che mostra la configurazione fisica dei nodi di elaborazione e dei componenti software eseguiti su di essi."
+    },
+    {
+      "term": "Diagramma di Gantt",
       "definition": "Strumento di pianificazione progettuale che visualizza le attività su un asse temporale, mostrando durate, sequenzialità, parallelismo e progressi rispetto alle pianificazioni."
     },
     {
-      "term": "Diagrammi di PERT",
-      "definition": "Strumento di analisi delle dipendenze temporali entre attività di progetto, utilizzato per identificare cammini critici e margini temporali (slack time)."
+      "term": "Diagramma di PERT",
+      "definition": "(Program Evaluation and Review Technique) Strumento di analisi delle dipendenze temporali tra attività di progetto, utilizzato per identificare cammini critici e margini temporali (slack time)."
+    },
+    {
+      "term": "Diagramma di sequenza",
+      "definition": "Diagramma UML che mostra le interazioni tra oggetti in sequenza temporale, evidenziando l'ordine dei messaggi scambiati."
     },
     {
       "term": "Dipendenza",
@@ -147,6 +243,10 @@
     {
       "term": "Dispatch",
       "definition": "Processo di distribuzione automatizzata dei documenti verso i destinatari finali attraverso diversi canali (es. app, portale, email, PEC)."
+    },
+    {
+      "term": "Disponibilità",
+      "definition": "Capacità di un sistema di essere accessibile e utilizzabile quando richiesto dagli utenti. Misura la percentuale di tempo in cui il sistema è operativo."
     },
     {
       "term": "Dominio d'uso",
@@ -162,11 +262,15 @@
     },
     {
       "term": "Efficienza",
-      "definition": "Rapporto entre i risultati ottenuti e le risorse impiegate per conseguirli. Un processo è efficiente quando raggiunge i suoi obiettivi utilizzando il minimo di risorse necessarie."
+      "definition": "Rapporto tra i risultati ottenuti e le risorse impiegate per conseguirli. Un processo è efficiente quando raggiunge i suoi obiettivi utilizzando il minimo di risorse necessarie."
     },
     {
       "term": "Entity Resolution",
       "definition": "Processo di identificazione e associazione di entità (es. persone o aziende) a partire da dati parziali o duplicati, tramite algoritmi di matching e disambiguazione."
+    },
+    {
+      "term": "Error Handling",
+      "definition": "Insieme di tecniche e meccanismi di programmazione per gestire le condizioni di errore che possono verificarsi durante l'esecuzione di un software. L'error handling prevede l'identificazione, la segnalazione e il recupero dagli errori, al fine di mantenere la stabilità e l'affidabilità del sistema."
     },
     {
       "term": "Ereditarietà",
@@ -178,7 +282,11 @@
     },
     {
       "term": "Ereditarietà dell'interfaccia",
-      "definition": "Meccanismo di ereditarietà in cui una interfaccia eredita da un'altra interfaccia, oppure una classe implementa un'interfaccia."
+      "definition": "Meccanismo di ereditarietà in cui un'interfaccia eredita da un'altra interfaccia, oppure una classe implementa un'interfaccia."
+    },
+    {
+      "term": "Flessibilità",
+      "definition": "Capacità di un sistema software di adattarsi a cambiamenti nei requisiti o nell'ambiente operativo con modifiche minime."
     },
     {
       "term": "Front-end",
@@ -198,11 +306,15 @@
     },
     {
       "term": "GitHub",
-      "definition": "Piattaforma di hosting per repository Git che offre strumenti per o version control, la collaborazione e la gestione del ciclo di vita del software."
+      "definition": "Piattaforma di hosting per repository Git che offre strumenti per il version control, la collaborazione e la gestione del ciclo di vita del software."
+    },
+    {
+      "term": "Google Meet",
+      "definition": "Piattaforma di videoconferenza sviluppata da Google che consente meeting virtuali, condivisione dello schermo e chat. Utilizzata dal gruppo per le riunioni di coordinamento e le presentazioni."
     },
     {
       "term": "Glossario",
-      "definition": "Documento che raccoglie e definisce i termini specifici, gli acronimi e le parole ambigue utilizzati nella documentazione di progetto, con lo scopo di garantire uma comprensione univoca della terminologia da parte di tutti i membri del team e dei destinatari."
+      "definition": "Documento che raccoglie e definisce i termini specifici, gli acronimi e le parole ambigue utilizzati nella documentazione di progetto, con lo scopo di garantire una comprensione univoca della terminologia da parte di tutti i membri del team e dei destinatari."
     },
     {
       "term": "Human in the loop",
@@ -217,12 +329,20 @@
       "definition": "Principio della programmazione orientata agli oggetti che consiste nel racchiudere in un'unica entità (classe) dati e metodi che operano su di essi, nascondendo i dettagli implementativi all'esterno."
     },
     {
+      "term": "Incapsulamento (Encapsulation)",
+      "definition": "Principio della programmazione orientata agli oggetti che consiste nel racchiudere in un'unica entità (classe) dati e metodi che operano su di essi, nascondendo i dettagli implementativi all'esterno e esponendo solo un'interfaccia pubblica."
+    },
+    {
       "term": "Information Hiding",
       "definition": "Principio di progettazione software che consiste nel nascondere i dettagli implementativi di un modulo, esponendo solo le interfacce necessarie, per ridurre l'accoppiamento e aumentare la manutenibilità."
     },
     {
+      "term": "Interfaccia",
+      "definition": "In programmazione orientata agli oggetti, un'interfaccia è un tipo astratto che contiene una serie di metodi dichiarati senza implementazione. Le classi che implementano un'interfaccia devono fornire un'implementazione per tutti i suoi metodi. Le interfacce definiscono un contratto che le classi devono seguire."
+    },
+    {
       "term": "Issue",
-      "definition": "Segnalazione di um problema, un bug o uma richiesta di miglioramento nel sistema di tracking del progetto. Ogni issue viene tracciata, assegnata e gestita fino alla risoluzione."
+      "definition": "Segnalazione di un problema, un bug o una richiesta di miglioramento nel sistema di tracking del progetto. Ogni issue viene tracciata, assegnata e gestita fino alla risoluzione."
     },
     {
       "term": "KPI (Key Performance Indicator)",
@@ -233,12 +353,68 @@
       "definition": "Sistema di composizione tipografica utilizzato per la produzione di documentazione tecnica e scientifica di alta qualità, particolarmente adatto per documenti complessi con formule matematiche."
     },
     {
+      "term": "Livelli aperti",
+      "definition": "Architettura a livelli in cui un livello può utilizzare servizi di qualsiasi livello sottostante, non solo di quello immediatamente inferiore."
+    },
+    {
+      "term": "Livelli chiusi",
+      "definition": "Architettura a livelli in cui un livello può utilizzare solo i servizi del livello immediatamente inferiore."
+    },
+    {
       "term": "LLM (Large Language Model)",
       "definition": "Modello di linguaggio di grandi dimensioni addestrato su vasti corpus di testo, in grado di generare, comprendere e elaborare linguaggio naturale in modo sofisticato."
     },
     {
+      "term": "Load balancer",
+      "definition": "Componente che distribuisce il carico di lavoro tra più server per migliorare le prestazioni e l'affidabilità del sistema."
+    },
+    {
+      "term": "Microservizio",
+      "definition": "Approccio architetturale in cui un'applicazione è composta da piccoli servizi indipendenti, ciascuno eseguibile autonomamente e comunicante tramite API."
+    },
+    {
+      "term": "Microsoft Teams",
+      "definition": "Piattaforma di collaborazione sviluppata da Microsoft che offre chat, videoconferenze, archiviazione file e integrazione con applicazioni. Utilizzata dal gruppo per le riunioni di coordinamento e la condivisione di documenti."
+    },
+    {
+      "term": "Model",
+      "definition": "Componente in un pattern architetturale che rappresenta i dati e la logica di business dell'applicazione, indipendentemente dall'interfaccia utente."
+    },
+    {
+      "term": "Model-View-Controller (MVC)",
+      "definition": "Pattern architetturale che separa l'applicazione in tre componenti interconnessi: Model (dati e logica di business), View (interfaccia utente) e Controller (gestisce l'input dell'utente e media tra Model e View)."
+    },
+    {
+      "term": "Model-View-Presenter (MVP)",
+      "definition": "Pattern architetturale derivato da MVC che separa l'applicazione in Model, View e Presenter, dove il Presenter contiene la logica di presentazione e agisce da intermediario tra View e Model."
+    },
+    {
+      "term": "Model-View-ViewModel (MVVM)",
+      "definition": "Pattern architetturale che separa l'applicazione in Model, View e ViewModel, utilizzando il data binding per sincronizzare automaticamente View e ViewModel."
+    },
+    {
+      "term": "Modularità",
+      "definition": "Grado in cui un sistema è composto da componenti separati che possono essere sviluppati, testati e mantenuti indipendentemente."
+    },
+    {
+      "term": "Modulo",
+      "definition": "Componente software autonomo e sostituibile che incapsula una specifica funzionalità e fornisce un'interfaccia ben definita. I moduli favoriscono la modularità, il riuso e la manutenibilità del sistema."
+    },
+    {
       "term": "OCR (Optical Character Recognition)",
       "definition": "Tecnologia che converte immagini di testo scritto o stampato in testo digitale machine-readable."
+    },
+    {
+      "term": "PB (Product Baseline)",
+      "definition": "Baseline che definisce lo stato del prodotto software in un determinato momento, tipicamente al termine di una fase di sviluppo o di uno sprint. Include le specifiche del prodotto, la documentazione e il codice sorgente, e serve come riferimento per le fasi successive o per il rilascio."
+    },
+    {
+      "term": "Pattern Creazionali",
+      "definition": "Categoria di design pattern che si occupano dei meccanismi di creazione degli oggetti, cercando di creare oggetti in modo adatto alla situazione. Esempi includono Factory Method, Abstract Factory, Builder, Singleton, etc."
+    },
+    {
+      "term": "Piano di Qualifica",
+      "definition": "Documento che definisce le modalità, le risorse e le tempistiche per le attività di verifica e validazione del software. Descrive gli standard di qualità da adottare, le metriche per la misurazione della qualità, i processi di controllo e le responsabilità del team per garantire la qualità del prodotto."
     },
     {
       "term": "Polimorfismo",
@@ -250,11 +426,35 @@
     },
     {
       "term": "Pre-condizione",
-      "definition": "Condizione o stato del sistema che debe essere vero prima che un caso d'uso possa iniziare. Definisce i prerequisiti necessari per l'esecuzione corretta del caso d'uso."
+      "definition": "Condizione o stato del sistema che deve essere vero prima che un caso d'uso possa iniziare. Definisce i prerequisiti necessari per l'esecuzione corretta del caso d'uso."
     },
     {
       "term": "Preventivo",
       "definition": "Documento di pianificazione che stima i costi e le risorse necessarie per lo svolgimento del progetto, basato sulle attività pianificate e sulle risorse disponibili."
+    },
+    {
+      "term": "Procedimento agile",
+      "definition": "Approccio iterativo e incrementale allo sviluppo software che enfatizza la flessibilità e la collaborazione con il cliente."
+    },
+    {
+      "term": "Procedimento bottom-up",
+      "definition": "Approccio allo sviluppo software che parte dai componenti di basso livello per costruire gradualmente sistemi più complessi."
+    },
+    {
+      "term": "Procedimento top-down",
+      "definition": "Approccio allo sviluppo software che parte da una visione d'insieme per scomporre gradualmente il sistema in componenti più piccoli."
+    },
+    {
+      "term": "Prodotto (Product)",
+      "definition": "Nel contesto dei design pattern creazionali, il Product è l'oggetto complesso che viene costruito. In particolare, nel pattern Builder, il Product è l'oggetto finale che viene assemblato dal Director utilizzando il Builder."
+    },
+    {
+      "term": "Progettazione di dettaglio",
+      "definition": "Fase della progettazione software in cui si specificano nel dettaglio i componenti, le interfacce e le relazioni tra di essi."
+    },
+    {
+      "term": "Progettazione logica",
+      "definition": "Fase della progettazione software in cui si definisce l'architettura del sistema senza considerare i dettagli implementativi specifici."
     },
     {
       "term": "Progettista",
@@ -270,7 +470,7 @@
     },
     {
       "term": "Prompt",
-      "definition": "Input (testo e/o altri dati) fornito a un modello di intelligenza artificiale per ottenere uma risposta o un output specifico."
+      "definition": "Input (testo e/o altri dati) fornito a un modello di intelligenza artificiale per ottenere una risposta o un output specifico."
     },
     {
       "term": "Proponente",
@@ -289,8 +489,24 @@
       "definition": "Processi che supportano i processi primari, includendo documentazione, gestione della configurazione, accertamento della qualità, verifica, validazione e risoluzione dei problemi."
     },
     {
+      "term": "Pull Model",
+      "definition": "Pattern architetturale in cui il client richiede attivamente i dati al server quando necessario."
+    },
+    {
+      "term": "Push Model",
+      "definition": "Pattern architetturale in cui il server invia automaticamente i dati al client senza che quest'ultimo li abbia esplicitamente richiesti."
+    },
+    {
       "term": "PWA (Progressive Web App)",
       "definition": "Applicazione web che utilizza tecnologie web moderne per offrire un'esperienza simile a quella di un'app nativa, funzionando offline e potendo essere installata sul dispositivo."
+    },
+    {
+      "term": "Qualità",
+      "definition": "Insieme delle caratteristiche di un prodotto software che gli conferiscono la capacità di soddisfare le esigenze espresse e implicite degli stakeholder. La qualità del software si misura in base a attributi interni (visibili agli sviluppatori) ed esterni (visibili agli utenti)."
+    },
+    {
+      "term": "Qualità architetturale",
+      "definition": "Insieme delle caratteristiche che definiscono la bontà di un'architettura software in termini di modularità, riusabilità, manutenibilità e altre proprietà desiderabili."
     },
     {
       "term": "Rating System",
@@ -314,7 +530,7 @@
     },
     {
       "term": "Requisiti desiderabili",
-      "definition": "Requisiti che sono importanti ma non essenziali per o funzionamento base del sistema. La loro implementazione apporta valore aggiunto ma la loro assenza non compromette il progetto."
+      "definition": "Requisiti che sono importanti ma non essenziali per il funzionamento base del sistema. La loro implementazione apporta valore aggiunto ma la loro assenza non compromette il progetto."
     },
     {
       "term": "Requisiti funzionali",
@@ -330,11 +546,11 @@
     },
     {
       "term": "Requisiti opzionali",
-      "definition": "Requisiti che sono utili ma non necessari, e la cui implementazione dipende dalla disponibilità di risorse e tempo. Possono be considerati per versioni future del prodotto."
+      "definition": "Requisiti che sono utili ma non necessari, e la cui implementazione dipende dalla disponibilità di risorse e tempo. Possono essere considerati per versioni future del prodotto."
     },
     {
-      "term": "Requirements Baseline",
-      "definition": "Insieme dei requisiti concordati e formalmente approvati che costituisce il riferimento per lo sviluppo del progetto. Una volta stabilita, qualsiasi modifica alla baseline dei requisiti deve seguire un processo formale di controllo delle modifiche."
+      "term": "RTB (Requirements and Technology Baseline)",
+      "definition": "Baseline che combina i requisiti e le tecnologie approvate per il progetto. Definisce l'insieme dei requisiti concordati e formalmente approvati e lo stack tecnologico di riferimento, costituendo la base per lo sviluppo del progetto. Ogni modifica a questa baseline deve seguire un processo formale di controllo delle modifiche."
     },
     {
       "term": "Requisito software",
@@ -349,8 +565,20 @@
       "definition": "Figura di riferimento del progetto con compiti di coordinamento, pianificazione, gestione delle risorse e comunicazione con docenti e proponenti."
     },
     {
+      "term": "Riusabilità",
+      "definition": "Capacità di un componente software di essere utilizzato in diversi contesti o applicazioni senza modifiche sostanziali."
+    },
+    {
+      "term": "Robustezza",
+      "definition": "Capacità di un sistema software di funzionare correttamente in condizioni anomali o in presenza di input non validi."
+    },
+    {
       "term": "Sandbox di Sviluppo",
       "definition": "Ambiente isolato per testare e validare funzionalità senza influenzare i sistemi di produzione, utilizzato per sviluppare e verificare nuove feature in sicurezza."
+    },
+    {
+      "term": "Scalabilità",
+      "definition": "Capacità di un sistema di gestire un aumento del carico di lavoro aggiungendo risorse, senza modifiche all'architettura."
     },
     {
       "term": "Scenario",
@@ -362,7 +590,7 @@
     },
     {
       "term": "Scenario principale",
-      "definition": "Sequenza di interazioni entre l'attore principale e il sistema che descrive il percorso di successo del caso d'uso, dove l'obiettivo viene raggiunto senza intoppi o condizioni eccezionali. Rappresenta il flusso ideale e più frequente di esecuzione."
+      "definition": "Sequenza di interazioni tra l'attore principale e il sistema che descrive il percorso di successo del caso d'uso, dove l'obiettivo viene raggiunto senza intoppi o condizioni eccezionali. Rappresenta il flusso ideale e più frequente di esecuzione."
     },
     {
       "term": "Scope",
@@ -374,15 +602,19 @@
     },
     {
       "term": "SEMAT",
-      "definition": "Iniziativa internazionale per rifondare l'ingegneria del software come disciplina rigorosa, basata su un kernel di elementi essenziali comuni a tutti i metodi di sviluppo software."
+      "definition": "(Software Engineering Method and Theory) Iniziativa internazionale per rifondare l'ingegneria del software come disciplina rigorosa, basata su un kernel di elementi essenziali comuni a tutti i metodi di sviluppo software."
+    },
+    {
+      "term": "Sicurezza",
+      "definition": "Insieme di caratteristiche e meccanismi che proteggono il sistema da accessi non autorizzati, garantiscono la riservatezza, l'integrità e la disponibilità dei dati, e prevengono attacchi e vulnerabilità."
     },
     {
       "term": "Sottotipizzazione",
-      "definition": "Relazione entre tipi per cui un tipo (sottotipo) può essere utilizzato in ogni contesto in cui è atteso un altro tipo (supertipo), in accordo con il principio di sostituzione di Liskov."
+      "definition": "Relazione tra tipi per cui un tipo (sottotipo) può essere utilizzato in ogni contesto in cui è atteso un altro tipo (supertipo), in accordo con il principio di sostituzione di Liskov."
     },
     {
-      "term": "Specificazione Tecnica",
-      "definition": "Documento che descrive in dettaglio l'architettura, o design e le scelte implementative del sistema software, guidando le attività di sviluppo."
+      "term": "Specification Tecnica",
+      "definition": "Documento che descrive in dettaglio l'architettura, il design e le scelte implementative del sistema software, guidando le attività di sviluppo."
     },
     {
       "term": "Sprint",
@@ -401,12 +633,44 @@
       "definition": "Insieme delle tecnologie, framework, librerie e strumenti di sviluppo selezionati e approvati per il progetto. Definisce lo stack tecnologico di riferimento e costituisce la base per le scelte implementative, garantendo coerenza e standardizzazione nell'architettura software."
     },
     {
+      "term": "Template",
+      "definition": "Struttura o modello predefinito che definisce il layout e l'aspetto di un'interfaccia utente, separando la presentazione dalla logica di business."
+    },
+    {
       "term": "Test",
       "definition": "Processo sistematico di verifica che il software soddisfi i requisiti specificati e identifichi difetti, attraverso l'esecuzione controllata di casi di test."
     },
     {
+      "term": "Test di Accettazione (TA) / Collaudo",
+      "definition": "Test condotti per determinare se un sistema soddisfa i criteri di accettazione stabiliti dal cliente e per permettere al cliente di decidere se accettare o meno il sistema. Viene eseguito in un ambiente il più possibile simile a quello di produzione."
+    },
+    {
+      "term": "Test di Integrazione (TI)",
+      "definition": "Test che verificano l'interazione e la corretta comunicazione tra i moduli o i componenti integrati del sistema. L'obiettivo è individuare difetti nelle interfacce e nelle interazioni tra i componenti."
+    },
+    {
+      "term": "Test di Sistema (TS)",
+      "definition": "Test che verificano il sistema nel suo complesso, in un ambiente il più possibile simile a quello di produzione, per accertare che soddisfi i requisiti specificati. Comprende test funzionali e non funzionali."
+    },
+    {
+      "term": "Test di Unità (TU)",
+      "definition": "Test che verificano il corretto funzionamento delle singole unità (moduli, classi, funzioni) del software in isolamento. Sono tipicamente scritti e eseguiti dagli sviluppatori durante la fase di implementazione."
+    },
+    {
+      "term": "Tracciamento (dei requisiti)",
+      "definition": "Processo di documentazione e gestione delle relazioni tra i requisiti e gli elementi del sistema (come componenti, test, casi d'uso) che li soddisfano. Garantisce che tutti i requisiti siano presi in carico e permette di valutarne l'impatto in caso di modifiche."
+    },
+    {
+      "term": "Transazioni distribuite",
+      "definition": "Transazioni che coinvolgono multiple risorse distribuite in diversi nodi di un sistema, richiedendo meccanismi di coordinamento per garantire atomicità e consistenza."
+    },
+    {
+      "term": "Unità architetturali",
+      "definition": "Componenti fondamentali che costituiscono l'architettura di un sistema software, come moduli, componenti, connettori e dati."
+    },
+    {
       "term": "Validatore",
-      "definition": "Membro del team responsabile di eseguire attività de validazione, accertando che il prodotto software soddisfi le effettive esigenze del cliente e gli obiettivi di business."
+      "definition": "Membro del team responsabile di eseguire attività di validazione, accertando che il prodotto software soddisfi le effettive esigenze del cliente e gli obiettivi di business."
     },
     {
       "term": "Validazione",
@@ -417,12 +681,20 @@
       "definition": "Processo sistematico che determina se i prodotti di lavoro (documenti, codice, componenti) soddisfano i requisiti e le specifiche definite per loro. Risponde alla domanda \"Stiamo costruendo il prodotto nel modo giusto?\" e include attività come revisioni, ispezioni e test."
     },
     {
+      "term": "Verifica vs. Validazione",
+      "definition": "La verifica è il processo di valutazione dei prodotti di lavoro di un progetto per accertare che soddisfino i requisiti specificati e le condizioni imposte all'inizio dello sviluppo. Risponde alla domanda \"Stiamo costruendo il prodotto nel modo giusto?\". La validazione, invece, accerta che il prodotto finale soddisfi le effettive esigenze del cliente e gli obiettivi di business. Risponde alla domanda \"Stiamo costruendo il prodotto giusto?\". In sintesi, la verifica si concentra sulla correttezza del processo di sviluppo, mentre la validazione sulla correttezza del prodotto finale."
+    },
+    {
       "term": "Verificatore",
-      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettino gli standard de qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
+      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettano gli standard di qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
     },
     {
       "term": "Versionamento/versioning",
       "definition": "Sistema per gestire le diverse versioni di file, codice sorgente o documenti, permettendo di tracciare le modifiche, collaborare in team e revertire a versioni precedenti."
+    },
+    {
+      "term": "ViewModel",
+      "definition": "Componente nel pattern MVVM che espone i dati e i comandi del Model in modo da essere facilmente legati alla View, spesso implementando notifiche di cambiamento per aggiornare automaticamente la View."
     },
     {
       "term": "Way of Working",
