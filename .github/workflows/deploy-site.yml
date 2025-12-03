@@ -25,7 +25,8 @@ jobs:
           EXTRA_FOLDERS: |
             CANDIDATURA
             DIARIO DI BORDO
-            GLOSSARIO
+            RTB
+            NORME DI PROGETTO
             assets
         run: |
           set -euo pipefail
