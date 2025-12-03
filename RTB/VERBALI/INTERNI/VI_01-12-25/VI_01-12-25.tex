@@ -1,0 +1,191 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Interno}\\[0.3cm]
+  {\Large\color{secondaryblue} 1 dicembre 2025}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattori}    & Marco Favero \\
+\textbf{Verificatore}    & Linor Sadè \\
+\textbf{Uso}          & Interno \\
+\textbf{Destinatari}  & BugBusters \\
+\textbf{Versione} & 1.0.0\\
+
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale dell'incontro interno del gruppo BugBusters.
+Sono stati analizzati i casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} e il mockup dell'applicazione, proponendo modifiche 
+e nuove funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}}; è stato preparato un documento Google condiviso per raccogliere domande da 
+porre a Nexum in sede di colloquio. Si è deciso di automatizzare la pubblicazione dei verbali sul 
+sito e di adottare workflow\textsubscript{\scalebox{0.6}{\textbf{G}}} GitHub\textsubscript{\scalebox{0.6}{\textbf{G}}} per chiudere automaticamente le issue tramite commit. 
+È stato inoltre fatto un allineamento sullo stato delle conoscenze tecniche del gruppo. Sono 
+state definite decisioni operative e assegnati compiti (RTB17-RTB25) con responsabili specifici. 
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} interna
+    \item \textbf{Piattaforma:} Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item \textbf{Data:} 01/12/2025
+    \item \textbf{Orario di inizio:} 14:30
+    \item \textbf{Orario di fine:} 16:30
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+    \item \label{itm:casi-duso-G} Discussione su casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+    \item \label{itm:mockup} Discussione su mock up della applicazione e funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} principali.
+    \item \label{itm:colloquio} Preparazione per colloquio con Nexum, raccolta domande e dubbi.
+    \item \label{itm:automazioni} Automazioni per aggiornare il sito, per chiudere automaticamente le issue\textsubscript{\scalebox{0.6}{\textbf{G}}} nei commit.
+    \item \label{itm:allineamento} Allineamento sullo stato di avanzamento delle conoscenze delle 
+    tecnologie richieste. 
+\end{enumerate}
+
+\newpage
+\section{Svolgimento}
+\subsection*{\ref{itm:casi-duso-G}. Discussione sui casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+I membri del gruppo hanno discusso sui casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} individuati fino ad ora, apportando alcune modifiche e 
+suggerendo l'aggiunta di nuovi casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} per coprire meglio le funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} richieste dal progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+
+\subsection*{\ref{itm:mockup}. Discussione su mock up della applicazione e funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} principali}
+È stato visionato un mockup grafico dell'applicazione e sono state discusse le funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} principali 
+che dovranno essere implementate. Questo mockup aiuterà a visualizzare meglio l'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} utente e a 
+pianificare lo sviluppo. Non è assolutamente definitivo e potrà essere modificato in futuro, è utile 
+per avere un'idea di massima di come potrebbe essere l'applicazione e dunque ridurre l'astrazione durante l'analisi.
+
+\subsection*{\ref{itm:colloquio}. Preparazione per colloquio con Nexum}
+Sono state raccolte domande e dubbi da porre a Nexum durante il colloquio, in modo da chiarire eventuali
+incertezze e ottenere maggiori dettagli sul progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}. Si è discusso anche di come strutturare il colloquio
+stesso per massimizzare l'efficacia\textsubscript{\scalebox{0.6}{\textbf{G}}} della comunicazione con Nexum. 
+è stato creato un documento su Google Docs condiviso tra i membri del gruppo per raccogliere
+tutte le domande e i dubbi da porre a Nexum.
+
+\subsection*{\ref{itm:automazioni}. Automazioni per aggiornare il sito, per chiudere automaticamente le issue\textsubscript{\scalebox{0.6}{\textbf{G}}} nei commit}
+Si è deciso che i verbali li si vuole più automatici possibili, dunque verranno caricati automaticamente sul sito. \\
+Inoltre si è deciso di utilizzare le automazioni di GitHub\textsubscript{\scalebox{0.6}{\textbf{G}}} per chiudere automaticamente le issue quando
+si effettuano commit che le risolvono, possibilmente usando parole chiave specifiche nei messaggi di commit.
+
+
+\subsection*{\ref{itm:allineamento}. Allineamento sullo stato di avanzamento delle conoscenze delle tecnologie richieste}
+Abbiamo discusso del nostro stato di avanzamento delle conoscenze delle tecnologie richieste per il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}, utile per 
+condividere spunti e risorse tra i membri del gruppo. 
+
+\section{Tabella delle decisioni e azioni}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+\hline
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/19}{RTB17} \label{RTB17}}{Definire domande tramite google docs condiviso da porre alla proponente\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Tutti}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/20}{RTB18} \label{RTB18}}{Informarsi e implementare automazioni per aggiornare il sito web e per chiudere automaticamente le issue nei commit.}{Marco Favero}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/21}{RTB19} \label{RTB19}}{Avanzamento Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Leonardo Salviato, Marco Piro}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/22}{RTB20} \label{RTB20}}{Avanzamento Norme.}{Marco Favero, Alberto Pignat}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/23}{RTB21} \label{RTB21}}{Informarsi riguardo al Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Luca Slongo}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/24}{RTB22} \label{RTB22}}{Informarsi riguardo al Piano di Progetto, eventualmente scrivere bozza.}{Alberto Autiero}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/25}{RTB23} \label{RTB23}}{Verificare questo verbale}{Linor Sadè}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/26}{RTB24} \label{RTB24}}{Verificare Norme}{Linor Sadè}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/27}{RTB25} \label{RTB25}}{Verificare Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}}{Linor Sadè}
+\end{tabularx}
+\fussy
+
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
