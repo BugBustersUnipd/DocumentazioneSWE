@@ -18,6 +18,8 @@
 \usepackage{tabularx}
 \usepackage{caption}
 \usepackage{colortbl}  % <-- Add this line
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
 
 % hyperref dovrebbe essere caricato quasi per ultimo
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
@@ -496,26 +498,64 @@ Si prospetta l'utilizzo delle seguenti risorse
 \hline
  & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & 8 & - & - & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & 4 & - & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & - & 8 & - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & - & - & - & - & 12 \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - & 8 & - & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & 8 & - & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
-\hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+Luca Slongo & - & - & 8 & - & - & - \\
 \hline
 \end{tabular}
 \caption{Preventivo\gloss\ per componenti nello Sprint 1}
 \label{tab:preventivo-sprint1}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Pie chart - Responsabile: 12.5% (45°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:45:2) -- cycle;
+  \node at (22.5:1.2) {\small\bfseries 12.5\%};
+  
+  % Amministratore: 6.25% (22.5° cumulative)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (45:2) arc (45:67.5:2) -- cycle;
+  \node[rotate=56.25] at (56.25:1.5) {\small\bfseries 6.25\%};
+  
+  % Analista: 50% (180° cumulative)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (67.5:2) arc (67.5:247.5:2) -- cycle;
+  \node at (157.5:1.2) {\small\bfseries 50\%};
+  
+  % Verificatore: 18.75% (67.5° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (247.5:2) arc (247.5:360:2) -- cycle;
+  \node at (303.75:1.2) {\small\bfseries 18.75\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Analista};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore};
+\end{tikzpicture}
+\caption{Grafico 1: Sprint 1 - Preventivo}
+\label{fig:grafico-sprint1}
+\end{figure}
 
 \noindent\textbf{Consuntivo}
 
