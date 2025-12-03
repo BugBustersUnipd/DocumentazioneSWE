@@ -1267,26 +1267,7 @@ Di seguito sono esposti gli attori utilizzati:
 \vspace{0.5cm}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsubsection{UC-2 – Consultazione storico documentale e audit locale}
+\subsubsection{UC-2H – Consultazione storico documentale e audit locale}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1312,6 +1293,75 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item L’utente dispone di una visione completa e tracciata delle operazioni svolte sui documenti.
     \item Le informazioni storiche possono essere utilizzate per verifiche interne e per migliorare il flusso di lavoro.
+\end{itemize}
+
+\textbf{Varianti/Exceptions}
+\begin{itemize}
+    \item Richiesta di oblìo (GDPR) $\rightarrow$ UC-2H.1 
+\end{itemize}
+
+\subsubsection{UC-2H.1 – Richiesta di oblìo (GDPR)}
+
+\vspace{0.5cm}
+
+
+\subsubsection{UC-2I – Gestione ruoli, permessi e policy (Sicurezza & GDPR)}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Admin cliente.
+    \item Admin Eggon.
+    \item Sistema
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Tenant e ruoli configurati.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Definizione ruoli (Admin CdL, Editor, Viewer, Auditor).
+    \item Policy retention per tipologia documentale (es. 10 anni per cedolini).
+    \item Configurazione consensi e informative per destinatari.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Accessi e trattamenti compliant (principi di minimizzazione e tracciabilità).
+\end{itemize}
+
+\textbf{Varianti/Exceptions}
+\begin{itemize}
+    \item Accesso non autorizzato $\rightarrow$ UC-2I.1 
+\end{itemize}
+
+\subsubsection{UC-2H.1 – Accesso non autorizzato}
+
+\subsubsection{UC-2J – Monitoraggio qualità AI e miglioramento continuo}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Data analyst.
+    \item Admin Eggon.
+    \item Sistema
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Pipeline AI in produzione con raccolta metriche.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Raccolta metriche: confidenza media, percentuale interventi manuali, accuratezza mapping, tempi medi.
+    \item Analisi rating (feedback operatori) per addestrare regole/LLM e aggiornare soglie.
+    \item Rilascio miglioramenti (nuovi pattern, dizionari cliente, layout engine).
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Modelli e regole ottimizzati; riduzione errori e tempi di ciclo.
 \end{itemize}
 
 \section{Requisiti}
@@ -1381,9 +1431,6 @@ Questa classificazione viene usata per stabilire la priorità dei requisiti.
 \begin{enumerate}
     \item Descrivono il livello di importanza del requisito.
 \end{enumerate}
-
-
-
 
 
 \end{document}
