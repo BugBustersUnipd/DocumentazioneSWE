@@ -1,0 +1,206 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Esterno}\\[0.3cm]
+  {\Large\color{secondaryblue} 19 novembre 2025}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Redattori}    & Marco Favero \\
+\textbf{Verificatore}    & Linor Sadè \\
+\textbf{Uso}          & Esterno \\
+\textbf{Destinatari}  & Prof. Tullio Vardanega, Prof. Riccardo Cardin, Eggon, BugBusters\\
+\textbf{Versione} & 0.0.1\\
+
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Questo verbale documenta la riunione esterna del 3 dicembre 2025 con l'azienda Eggon, durante la quale sono stati discussi 
+aspetti tecnici e funzionali del progetto. Sono stati chiariti dubbi relativi all'autenticazione, alla gestione dei cedolini,
+ alla separazione dei documenti e al tono delle comunicazioni automatiche. L'incontro ha permesso di risolvere criticità e definire 
+ più precisamente i requisiti dell'applicazione.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Esterna
+    \item \textbf{Piattaforma:} Google Meet
+    \item \textbf{Data:} 03/12/2025
+    \item \textbf{Orario di inizio:} 15:00
+    \item \textbf{Orario di fine:} 15:30
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+    \item \textbf{Assenti:} 
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+    \item Nessuno
+    \end{itemize}
+    \item \textbf{Presenti Esterni:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+    \item Luca Iuzzolino
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+    \item \label{itm:autenticazione} Richista sul autenticazione riguardo alle app stand alone.
+    \item \label{itm:SeparazioneDOc} Richiesta feature separazione documenti su CDL.
+    \item \label{itm:Cedolini} Richiesta se dobbiamo implementare la funzione di visualizzazione dei cedolini.
+    \item \label{itm:Tono} Come definire il tono aziendale.
+    \item \label{itm:domande} Richiesta domande minori.
+
+\end{enumerate}
+
+\newpage
+\section{Svolgimento}
+
+\subsection*{\ref{itm:autenticazione}. Richista sul autenticazione riguardo alle app stand alone}
+Visto che l'applicazione che verrá sviluppata dal gruppo BugBusters non sarà integrata direttamente nell'applicazione NEXUM, ma verrà sviluppata come app stand alone, 
+il team ha chiesto se l'autenticazione degli utenti potrà essere gestita tramite un sistema di autenticazione separato o se non sará requisito necessario.
+Luca Iuzzolino ha tenuto a ribadire che non é parte richiesta dal progetto e non interessante per noi.\\
+
+\subsection*{\ref{itm:SeparazioneDOc}. Richiesta feature separazione documenti su CDL.}
+È stata discussa la funzionalità di separazione (split) dei documenti caricati su CDL: il team ha chiesto che venga resa opzionale, 
+poiché non sempre ne percepisce l'utilità. \\
+Luca Iuzzolino ha precisato che la funzione è utile quando i software che generano i cedolini 
+producono file PDF contenenti più cedolini in un unico documento. Si è concordato dunque chela funzionalitá resterá primaria.
+
+\subsection*{\ref{itm:Cedolini}. Richiesta se dobbiamo implementare la funzione di visualizzazione dei cedolini}
+I cedolini sono gestiti all'interno di NEXUM. 
+Poiché la nostra applicazione sarà standalone e non integrata in NEXUM, 
+il team ha chiesto se sia necessario implementare una funzionalità per la 
+visualizzazione dei cedolini. Luca Iuzzolino ha risposto che non è richiesto: 
+l'applicazione dovrà occuparsi esclusivamente dell'invio dei cedolini tramite 
+sistemi di notifica, mentre la visualizzazione rimane a carico di NEXUM.
+
+
+\subsection*{\ref{itm:Tono}. Come definire il tono aziendale.}
+Il team chiede se usare una knowledge base per definire il tono aziendale, in quanto non é stato specificato nulla a riguardo.
+Luca Iuzzolino risponde che non é strettamente necessario, in quanto il tono aziendale si puó definire tramite scelta fra toni predefiniti, 
+puó impararlo durante l'utilizzo o puó ricercare su internet informazioni riguardo all'azienda e adattare il tono di conseguenza.
+La ricerca e l'analisi dunque viene affidata al team BugBusters.
+
+\subsection*{\ref{itm:domande}. Domande minori.}
+Il team chiede se é possibile avere un account Bedrock per poter iniziare a toccare con mano le tecnologie richieste. La risposta é stata positiva.\\
+Il team domanda ulteriori iformazioni riguardo alla funzionalitá duplica/riutilizza prompt: la funzionalitá di duplicazione permette di copiare un prompt esistente e modificarlo per creare un nuovo prompt,
+mentre la funzionalitá di riutilizzo consente di utilizzare un prompt esistente senza modificarlo.\\
+
+
+\section{Tabella delle decisioni e azioni}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+\hline
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/29}{RTB26} \label{RTB26}}{Rivedere analisi requisiti dopo i chiarimenti con la proponente.}{Leonardo Salviato}
+\end{tabularx}
+\fussy
+
+
+\section{Esito Riunione}
+Sono stati discussi i punti riportati nell'ordine del giorno, aiutando il team a risolvere i propri dubbi. Il prossimo meeting é stato fissato il 17 dicembre 2025.\\
+Si ringraziano l'azienda Eggon e i rappresentanti Gianpaolo Ferrarin e Luca Iuzzolino per la disponibilità dimostrata.
+
+\vspace{1.5cm}
+\noindent\textbf{\Large Data}\\[0.4cm]
+\underline{\hspace{4cm}}
+
+\vspace{1.5cm}
+\noindent\textbf{\Large Firma}\\[0.8cm]
+\underline{\hspace{6cm}} \\[0.2cm]
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
