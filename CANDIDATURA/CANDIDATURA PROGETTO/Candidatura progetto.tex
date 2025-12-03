@@ -11,6 +11,7 @@
 \usepackage{tabularx}
 \usepackage{hyperref}
 \usepackage{eurosym}
+\usepackage{graphicx}
 
 % Definizione colori
 \definecolor{primarycolor}{RGB}{0,102,204}
@@ -49,9 +50,10 @@
     bottom=12pt
 ]
     \begin{minipage}[c]{0.7\textwidth}
-        {\color{white}\Huge\bfseries Candidatura}\\[0.2cm]
+        {\color{white}\Huge\bfseries Candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.2cm]
         {\color{white}\huge Nexum - Eggon}\\[0.2cm]
-        {\color{white}\Large Capitolato\textbf{\textsubscript{G}} C5}
+        {\color{white}\Large Capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ C5}
     \end{minipage}\hfill
     \begin{minipage}[c]{0.25\textwidth}
         \raggedleft
@@ -84,9 +86,11 @@
 
 \opening{Egregi Professori,}
 
-Con la presente, il gruppo \textbf{BugBusters} comunica formalmente la propria candidatura per la realizzazione
- del capitolato\textbf{\textsubscript{G}} \textbf{C5 -- Nexum}, proposto dall'azienda \textbf{Eggon}. 
- Per lo sviluppo del progetto\textbf{\textsubscript{G}} è stato stimato un costo totale di \textbf{12.790}\euro , come preventivato nel file di 
+Con la presente, il gruppo \textbf{BugBusters} comunica formalmente la propria candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} per la realizzazione
+ del capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ \textbf{C5 -- Nexum}, proposto dall'azienda \textbf{Eggon}. 
+ Per lo sviluppo del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ è stato stimato un costo totale di \textbf{12.790}\euro , come preventivato nel file di 
  \href{https://bugbustersunipd.github.io/BugBusterSite/assets/docs/DICHIARAZIONE_IMPEGNI/Dichiarazione_impegni.pdf}{dichiarazione impegni},
   e il completamento è previsto entro il \textbf{21 marzo 2026}. Successivamente verranno illustrate le motivazioni che hanno 
  orientato la scelta, insieme ai riferimenti e alle informazioni utili per una valutazione 
@@ -97,42 +101,67 @@ Con la presente, il gruppo \textbf{BugBusters} comunica formalmente la propria c
 	\textbf{Motivazioni della scelta}
 
 
-Il gruppo ha identificato i seguenti punti di forza che hanno orientato la scelta verso questo capitolato\textbf{\textsubscript{G}}:
+Il gruppo ha identificato i seguenti punti di forza che hanno orientato la scelta verso questo capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+:
 
 \begin{itemize}
     \item \textbf{Supporto aziendale strutturato e continuo:} Eggon ha dimostrato un approccio chiaro, disponibile e supportivo, con un plano di supporto ben definito che include:
     \begin{itemize}
-        \item Partecipazione attiva alle cerimonie\textbf{\textsubscript{G}} Scrum\textbf{\textsubscript{G}} aziendali (Planning, Review, Retrospective). Questo permette al team di sperimentare un contesto lavorativo reale e di imparare metodologie agili\textbf{\textsubscript{G}}.
+        \item Partecipazione attiva alle cerimonie\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ Scrum\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ aziendali (Planning, Review, Retrospective). Questo permette al team di sperimentare un contesto lavorativo reale e di imparare metodologie agili\textsubscript{\scalebox{0.6}{\textbf{G}}}
+.
         \item Supporto tecnico continuo tramite code review, pairing e un canale di comunicazione dedicato (email/Telegram).
-        \item Disponibilità di un seed repository\textbf{\textsubscript{G}} e di un ambiente sandbox\textbf{\textsubscript{G}} per agevolare testing\textbf{\textsubscript{G}} e sviluppo.
+        \item Disponibilità\textsubscript{\scalebox{0.6}{\textbf{G}}} di un seed repository\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ e di un ambiente sandbox\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ per agevolare testing e sviluppo.
         \item Atteggiamento orientato alla crescita del team, non solo al risultato finale.
     \end{itemize}
 
-    \item \textbf{Integrazione in un prodotto reale ed esistente:} Nexum è una piattaforma HR già operativa, con utenti reali. Sviluppare moduli che saranno effettivamente utilizzati fornisce esperienza diretta su un prodotto commerciale, affrontando sfide come l'integrazione con codice legacy e standard aziendali.
+    \item \textbf{Integrazione in un prodotto reale ed esistente:} Nexum è una piattaforma HR già operativa, con utenti reali. Sviluppare moduli\textsubscript{\scalebox{0.6}{\textbf{G}}} che saranno effettivamente utilizzati fornisce esperienza diretta su un prodotto commerciale, affrontando sfide come l'integrazione con codice legacy e standard aziendali.
 
     \item \textbf{Esperienza con tecnologie moderne e di rilievo:} utilizzo di tecnologie attuali e rilevanti nel mercato:
     \begin{itemize}
-        \item AWS\textbf{\textsubscript{G}} (Bedrock per LLM\textbf{\textsubscript{G}}, S3, Cognito, ecc.).
+        \item AWS\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ (Bedrock per LLM\textsubscript{\scalebox{0.6}{\textbf{G}}}
+, S3, Cognito, ecc.).
         \item Ruby on Rails, Angular, Next.js.
-        \item AI\textbf{\textsubscript{G}} Generativa\textbf{\textsubscript{G}} e OCR\textbf{\textsubscript{G}}.
+        \item AI\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ Generativa\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ e OCR\textsubscript{\scalebox{0.6}{\textbf{G}}}
+.
     \end{itemize}
     L'esperienza con questi tool rappresenta un valore aggiunto per il curriculum. Eggon incoraggia l'apprendimento progressivo e fornisce risorse per affrontare le tecnologie proposte.
 
     \item \textbf{Allineamento con le aspirazioni del team:} il team ha apprezzato lo stile giovane, informale e professionale di Eggon. L'opportunità di lavorare in un contesto aziendale reale, con un prodotto già sul mercato, è stata percepita come un valore aggiunto significativo.
 
-    \item \textbf{Chiarezza di requisiti\textbf{\textsubscript{G}} e flessibilità progettuale:} i requisiti\textbf{\textsubscript{G}} sono ben definiti, ma l'azienda è aperta a ridefinirli insieme al team. Sono stati forniti casi d'uso\textbf{\textsubscript{G}} dettagliati, obiettivi misurabili e criteri di accettazione chiari. Eggon ha espresso flessibilità nella scelta dei modelli LLM\textbf{\textsubscript{G}} e nell'approccio architetturale.
+    \item \textbf{Chiarezza di requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ e flessibilità\textsubscript{\scalebox{0.6}{\textbf{G}}} progettuale:} i requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ sono ben definiti, ma l'azienda è aperta a ridefinirli insieme al team. Sono stati forniti casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ dettagliati, obiettivi misurabili e criteri di accettazione chiari. Eggon ha espresso flessibilità\textsubscript{\scalebox{0.6}{\textbf{G}}} nella scelta dei modelli LLM\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ e nell'approccio architetturale.
 
-    \item \textbf{Impegno nonostante la complessità:} pur riconoscendo la complessità tecnica del capitolato\textbf{\textsubscript{G}}, il team si impegna concretamente nello sviluppo del progetto\textbf{\textsubscript{G}}, forte del fatto che tutti i membri non hanno esami arretrati e possono quindi dedicare tempo ed energie complete al progetto\textbf{\textsubscript{G}}.
+    \item \textbf{Impegno nonostante la complessità:} pur riconoscendo la complessità tecnica del capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+, il team si impegna concretamente nello sviluppo del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+, forte del fatto che tutti i membri non hanno esami arretrati e possono quindi dedicare tempo ed energie complete al progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+.
     
-    \item \textbf{Possibilità di impatto, visibilità e crescita professionale:} il progetto\textbf{\textsubscript{G}} non è solo un esercizio accademico, ma un contributo a un prodotto commerciale. Eggon ha espresso l'intenzione di valorizzare il lavoro del team e di considerarlo come un'opportunità di recruiting. È stata menzionata la possibilità di stage e collaborazioni successive per i membri del team, offrendo un'opportunità concreta di crescita professionale e di ingresso in un'azienda del territorio.
+    \item \textbf{Possibilità di impatto, visibilità e crescita professionale:} il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ non è solo un esercizio accademico, ma un contributo a un prodotto commerciale. Eggon ha espresso l'intenzione di valorizzare il lavoro del team e di considerarlo come un'opportunità di recruiting. È stata menzionata la possibilità di stage e collaborazioni successive per i membri del team, offrendo un'opportunità concreta di crescita professionale e di ingresso in un'azienda del territorio.
     
-    \item \textbf{Progetto\textbf{\textsubscript{G}} bilanciato tra innovazione e fattibilità:} il progetto\textbf{\textsubscript{G}} è stato scomposto in due moduli principali (AI\textbf{\textsubscript{G}} Assistant e AI\textbf{\textsubscript{G}} Co-Pilot\textbf{\textsubscript{G}}), con una complessità tecnica gestibile e un buon equilibrio tra innovazione e realizzabilità.
+    \item \textbf{Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ bilanciato tra innovazione e fattibilità:} il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ è stato scomposto in due moduli\textsubscript{\scalebox{0.6}{\textbf{G}}} principali (AI\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ Assistant e AI\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}
+), con una complessità tecnica gestibile e un buon equilibrio tra innovazione e realizzabilità.
 \end{itemize}
 
 \vspace{0.8em}
 
 Per ulteriori dettagli sulle motivazioni della scelta e sui nostri criteri di valutazione, 
-vi invitiamo a prendere visione del documento riguardante la \href{https://bugbustersunipd.github.io/BugBusterSite/assets/docs/SCELTA_CAPITOLATO/Resoconto_capitolati.pdf}{valutazione dei capitolati\textbf{\textsubscript{G}}}.
+vi invitiamo a prendere visione del documento riguardante la \href{https://bugbustersunipd.github.io/BugBusterSite/assets/docs/SCELTA_CAPITOLATO/Resoconto_capitolati.pdf}{valutazione dei capitolati\textsubscript{\scalebox{0.6}{\textbf{G}}}
+}.
 
 \vspace{1em}
 
