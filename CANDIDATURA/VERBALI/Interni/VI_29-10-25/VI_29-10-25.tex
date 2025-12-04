@@ -1,0 +1,156 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{tocloft}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+% Configurazione semplice e funzionale per l'indice
+\setcounter{tocdepth}{2}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Interno\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.3cm]
+  {\Large\color{secondaryblue} 29 ottobre 2025}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattore}    & Luca Slongo\\
+\textbf{Verificatore}    & Marco Favero \\
+\textbf{Uso}          & Interno \\
+\textbf{Destinatari}  & BugBusters \\
+\textbf{Versione} & 2.0.0\\
+
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale interno\textsubscript{\scalebox{0.6}{\textbf{G}}} della riunione del gruppo BugBusters tenutasi il 29 ottobre 2025 tramite Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}. È stata terminata la stesura del documento di candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} al capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}} C5 (Nexum).
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+% INDICE
+\tableofcontents
+
+\newpage
+
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} interna
+    \item \textbf{Piattaforma:} Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}
+
+    \item \textbf{Data:} 29/10/2025
+    \item \textbf{Orario di inizio:} 14:00
+    \item \textbf{Orario di fine:} 16:00
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+    \item \textbf{Assenti:} Nessuno
+
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+    \item Discussione sull'accessibilità del sito
+    \item Stesura del documento di candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} al capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+
+    \item Allineamento del nome BugBusters
+\end{enumerate}
+
+\section{Svolgimento}
+
+\begin{itemize}
+    \item La riunione è iniziata alle 14:00.
+    \item Discussione sull'accessibilità del sito.
+    \item Terminata la stesura del documento di candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} al capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+.
+    \item Allineamento nome BugBusters sui documenti, su GitHub\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ e sul sito.
+    \item La riunione è terminata alle 16:00.
+\end{itemize}
+
+\section{Decisioni prese}
+
+\begin{itemize}
+    \item Confermata la visual identity per i verbali\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+    \item Deciso che il sito deve essere reso accessibile.
+\end{itemize}
+
+\section{Todo}
+
+\begin{tcolorbox}[colback=secondaryblue!8,colframe=secondaryblue!60,arc=2mm,boxrule=0.5pt,left=10pt,right=10pt]
+\begin{itemize}[topsep=5pt]
+    \item Rileggere i documenti
+    \item Informarsi su come consegnare la candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+\end{tcolorbox}
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}

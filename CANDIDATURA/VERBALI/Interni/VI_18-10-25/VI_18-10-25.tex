@@ -1,0 +1,166 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[titles]{tocloft}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+% Configurazione per l'indice dettagliato
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{2} % Mostra sezioni e sottosezioni nell'indice
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\setlength{\cftbeforesecskip}{6pt}
+\setlength{\cftbeforesubsecskip}{4pt}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsecpagefont}{}
+\renewcommand{\cftsubsecfont}{}
+\renewcommand{\cftsubsecpagefont}{}
+\renewcommand{\numberline}[1]{}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Interno\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.3cm]
+  {\Large\color{secondaryblue} 18 ottobre 2025}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattori}    & Alberto Autiero, Alberto Pignat \\
+\textbf{Verificatore}    &  Marco Favero \\
+\textbf{Uso}          & Interno \\
+\textbf{Destinatari}  & BugBusters \\
+\textbf{Versione} & 2.0.0\\
+
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale\textsubscript{\scalebox{0.6}{\textbf{G}}} della seconda riunione avvenuta in via telematica per confrontarci sulla risposta avuta dall'azienda Zucchetti S.P.A. Inizio creazione documento Scelta capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}} e Candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} interna
+    \item \textbf{Piattaforma:} Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}
+
+    \item \textbf{Data:} 18/10/2025
+    \item \textbf{Orario di inizio:} 15:00
+    \item \textbf{Orario di fine:} 16:15
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Marco Favero
+    \end{itemize}
+    \item \textbf{Assenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Linor Sadè
+        \item Luca Slongo
+        \item Leonardo Salviato
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+    \item Analisi della risposta ricevuta dall'azienda Zucchetti S.P.A.
+    \item Avvio della stesura del documento di Scelta del capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item Inizio redazione della Candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} per il capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ scelto
+    \item Creazione del repository\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ GitHub\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+
+\end{enumerate}
+
+\section{Svolgimento}
+
+\begin{itemize}
+    \item La riunione è iniziata alle ore 15:00.
+    \item Il team\textsubscript{\scalebox{0.6}{\textbf{G}}} ha analizzato in dettaglio la risposta pervenuta da Zucchetti S.P.A. riguardo alle domande formulate nella riunione precedente.
+    \item Il gruppo ha concordato di allargare le possibili opzioni di capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}, includendo anche Miriade S.R.L. e M31 S.R.L. come potenziali aziende partner.
+    \item È stata avviata la stesura del documento formale di Scelta del capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}} e della Candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}}, definendone la struttura e i contenuti principali.
+    \item È stato creato il repository\textsubscript{\scalebox{0.6}{\textbf{G}}} GitHub\textsubscript{\scalebox{0.6}{\textbf{G}}} del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} per la gestione dei documenti e per il codice.
+    \item La riunione è terminata alle ore 16:15.
+\end{itemize}
+
+\section{Decisioni prese}
+
+\begin{itemize}
+    \item \textbf{Struttura documenti:} definita la struttura base dei documenti da produrre.
+\end{itemize}
+
+\section{Todo}
+
+\begin{tcolorbox}[colback=secondaryblue!8,colframe=secondaryblue!60,arc=2mm,boxrule=0.5pt,left=10pt,right=10pt]
+\begin{itemize}[topsep=5pt]
+    \item Scrivere alcune domande da proporre alle aziende Miriade e M31
+    \item Iniziare a scrivere il contenuto di scelta del capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}, analisi dei capitolati\textsubscript{\scalebox{0.6}{\textbf{G}}} e candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item Prossima riunione: 20/10/2025 alle ore 14:00
+\end{itemize}
+\end{tcolorbox}
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}

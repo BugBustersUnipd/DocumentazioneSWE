@@ -1,0 +1,218 @@
+\documentclass[a4paper,12pt]{article}
+\newcommand{\CurrentVersion}{2.0.0}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage[titles]{tocloft}
+\usepackage{tabularx}
+\usepackage{eurosym}
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+% Configurazione per l'indice dettagliato
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{2} % Mostra sezioni e sottosezioni nell'indice
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\setlength{\cftbeforesecskip}{6pt}
+\setlength{\cftbeforesubsecskip}{4pt}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsecpagefont}{}
+\renewcommand{\cftsubsecfont}{}
+\renewcommand{\cftsubsecpagefont}{}
+\renewcommand{\numberline}[1]{}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Esterno\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.3cm]
+  {\Large\color{secondaryblue} 22 ottobre 2025}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Redattori}   & Leonardo Salviato\\
+\textbf{Verificatore} & Alberto Pignat\\
+\textbf{Uso}          & Esterno\\
+\textbf{Destinatari}  & Prof. Tullio Vardanega, Prof. Riccardo Cardin, Miriade, BugBusters\\
+\textbf{Versione} & \CurrentVersion \\
+
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale\textsubscript{\scalebox{0.6}{\textbf{G}}} della prima riunione avvenuta con l'azienda Miriade in via telematica per chiedere delucidazioni riguardanti il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ "L'app che Protegge e Trasforma" e sui sistemi di collaborazione tra il gruppo e l'azienda.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+% INDICE
+\tableofcontents
+
+\newpage
+
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Esterna
+    \item \textbf{Piattaforma:} Google Meet\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item \textbf{Data:} 22/10/2025
+    \item \textbf{Orario di inizio:} 16:00
+    \item \textbf{Orario di fine:} 16:30
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Marco Favero
+        \item Linor Sadè
+        \item Luca Slongo
+        \item Leonardo Salviato
+    \end{itemize}
+    \item \textbf{Assenti:} Nessuno
+    \item \textbf{Presenti Esterni:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Emanuele Righetto
+        \item Arianna Bellino
+    \end{itemize}
+
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+    \item Chiarimenti generali sul capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+
+    \item Chiarimenti sui requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ minimi per una soddisfacente realizzazione del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+
+    \item Domande tecniche sulle tecnologie che sará necessario utilizzare
+    \item Chiarimenti su come verrá disposta la formazione tecnica
+    \item Chiarimenti sul supporto a livello contenutistico che avremo durante lo sviluppo
+\end{enumerate}
+
+\section{Svolgimento}
+    La riunione è iniziata come previsto alle ore 16:00. I componenti del gruppo hanno espresso le loro perplessitá riguardanti il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+. I punti trattati sono i seguenti
+    \begin{itemize}
+    \item \textbf{Chiarimenti generali sul capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ e sull'organizzazione}\\
+    \noindent
+    \textit{Risposta:} \\
+    \begin{itemize}
+        \item L'azienda per progetti\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ si organizza in sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ bisettimanali
+        \item È disponibile supporto anche al di fuori dei metting sia richiesto tramite mail o tramite riunioni in sede a Padova
+        \item L'applicazione per ogni utente sará anonima con tracciamento delle azioni interne all'app e localizzazione (per inviare supporto se necessario)
+    \end{itemize}
+    
+    \vspace{1em}
+
+    \item \textbf{Chiarimenti sui requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ minimi per una soddisfacente realizzazione del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+}\\
+    \noindent
+    Essendo un progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ alquanto completo quello presentato nel capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ il team voleva sapere se era stata fatta una stima delle tempistiche per l'implementazione\textsubscript{\scalebox{0.6}{\textbf{G}}} delle varie funzionalitá e se erano stati predisposti dei requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ minimi ottenibili nel tempo che ci è stato assegnato.\\ \\
+    \textit{Risposta:} 
+    
+    I requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ minimi non sono stati ancora determinati, verranno indicati all'inizio del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ in caso di conferma dell'assegnazione. Ci è stato detto comunque che l'attenzione sará rivolta alle funzionalitá principali per poi eventualmente allargarsi verso quelle secondarie. Data la mancanza di requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ minimi non possono ancora essere determinate le tempistiche per il nostro team.
+    \vspace{1em}
+
+    \item \textbf{Domande tecniche sulle tecnologie che sarà necessario utilizzare}\\
+    \noindent
+    Approfondimento delle tecnologie sulla qual è importante specializzarsi per la riuscita del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+.\\ \\
+    \textit{Risposta:} 
+    Le tecnologie necessarie sono molteplici, in particolare l'attenzione è stata rivolta a Flatter e ad AWS\textsubscript{\scalebox{0.6}{\textbf{G}}}
+.
+    \vspace{1em}
+
+    \item \textbf{Chiarimenti su come verrà disposta la formazione tecnica}\\
+    \noindent
+    Dato l'utilizzo necessario di tecnologie nuove per i membri del gruppo si voleva ottenere un chiarimento sul tipo di supporto che avremmo avuto a livello tecnico. \\ \\
+    \textit{Risposta:} 
+    La formazione a livello tecnico verrá svolta tramite corsi da loro indicati e durante il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ avremo il loro supporto tecnico in caso di problemi che non superabili autonomamente.
+    \vspace{1em}
+
+    \item \textbf{Chiarimenti sul supporto a livello contenutistico che avremo durante lo sviluppo}\\
+    \noindent
+    Essendo che l'applicazione tratta tematiche di supporto per persone a rischio di violenza di genere (argomento alquanto sensibile) il team voleva sapere che tipo di sostegno avremmo avuto non a livello tecnico ma piú contenutistico per l'applicazione. \\ \\
+    \textit{Risposta:} \\
+    I rappresentanti ci hanno spiegato come non solo un membro del loro team potrá darci supporto in questo lato ma anche un'associazione che ha come fulcro questo tipo di tematiche.
+    \vspace{1em}
+\end{itemize}
+
+La riunione si è conclusa alle 16:30.
+
+
+\section{Esito riunione}
+    L'esito della riunione è stato complessivamente positivo, le domande riguardanti il capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}} sono state risposte in maniera esaustiva. Si ringraziano l'azienda Miriade e i rappresentanti Emanuele Righetto e Arianna Bellino per la disponibilitá dimostrata.
+    
+
+% SEZIONE FIRMA E DATA SOSTITUITA CON L'IMMAGINE
+\vspace{1.0cm}
+\noindent
+\includegraphics[width=0.5\textwidth]{Data e firma.png}
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
