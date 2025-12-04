@@ -1,0 +1,782 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[titles]{tocloft}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{array}
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+% Configurazione per l'indice dettagliato
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{2} % Mostra sezioni e sottosezioni nell'indice
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\setlength{\cftbeforesecskip}{6pt}
+\setlength{\cftbeforesubsecskip}{4pt}
+\renewcommand{\cftsecfont}{\color{primaryblue}}
+\renewcommand{\cftsecpagefont}{\color{black}}  % Numeri di pagina in nero
+\renewcommand{\cftsubsecfont}{\color{primaryblue}}
+\renewcommand{\cftsubsecpagefont}{\color{black}}  % Numeri di pagina in nero
+
+% Formattazione sezioni in primaryblue
+\titleformat{\section}{\normalfont\Large\bfseries\color{primaryblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{primaryblue}}{\thesubsection}{1em}{}
+
+% Per colorare il titolo dell'indice
+\renewcommand{\contentsname}{\color{primaryblue}Indice}
+
+% Comando per la versione corrente
+\newcommand{\CurrentVersion}{0.0.4}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Gruppo 4 - BugBusters}
+\fancyhead[R]{Glossario}
+\fancyfoot[L]{\thepage\ di \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\begin{center}
+  \thispagestyle{empty}
+  \IfFileExists{../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(../../assets/Logo.jpg)}}\\[0.5cm]
+  }
+  {\Large\bfseries BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Glossario}\\[0.8cm]
+\end{center}
+
+\begin{center}
+{\large\textbf{\color{secondaryblue} Versione 0.0.4}}
+
+\vspace{0.5cm}
+
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}lp{0.7\textwidth}@{}}
+\textbf{Stato}         & In redazione \\
+\textbf{Redattori}     & Alberto Autiero \\
+\textbf{Verificatori}  & [Nome Cognome] \\
+\textbf{Uso}           & Interno ed esterno \\
+\textbf{Destinatari}   & Prof. Tullio Vardanega, Prof. Riccardo Cardin, \\
+                       & BugBusters, Eggon \\
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+% Versioni del documento - NON inclusa nell'indice
+\begin{center}
+{\Large\bfseries Versioni del documento}
+\end{center}
+
+\section*{Registro delle modifiche}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+\arrayrulecolor{primaryblue}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2cm}|X|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\hline
+0.0.4 & 30/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\hline
+0.0.3 & 23/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\hline
+0.0.2 & 17/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\hline
+0.0.1 & 06/11/2025 & Prima stesura del documento con i termini del capitolato aggiudicato (5) e diapositive dei docenti& Alberto Autiero & - & - \\
+\hline
+\end{tabularx}
+}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduzione}
+Questo documento è stato redatto per garantire chiarezza e uniformità nell'interpretazione della terminologia utilizzata nell'intera documentazione del progetto. Al fine di eliminare possibili fraintendimenti, vengono presentate qui le definizioni dei termini tecnici, degli acronimi e delle espressioni che potrebbero risultare ambigue. L'obiettivo del glossario consiste nell'assicurare che tutti i membri del gruppo di lavoro e i destinatari della documentazione condividano un'interpretazione univoca e coerente della terminologia impiegata.
+
+La nomenclatura utilizzata per evidenziare che una parola, con annessa la sua definizione, è presente all'interno del Glossario viene indicata come segue: \textbf{parola\textsubscript{\scalebox{0.6}{\textbf{G}}}}.
+\newpage
+
+\section{A}
+
+\subsection{AI (Artificial Intelligence)}
+Campo dell'informatica che si occupa di sviluppare sistemi in grado di svolgere compiti che normalmente richiedono l'intelligenza umana, come il riconoscimento vocale, la visione artificiale, l'elaborazione del linguaggio naturale e il processo decisionale.
+
+\subsection{AI Co-Pilot}
+Modulo di supporto automatizzato per gli studi dei Consulenti del Lavoro (CdL), che assiste nei processi di gestione, riconoscimento e distribuzione documentale attraverso tecniche di intelligenza artificiale.
+
+\subsection{AI generativa}
+Tipo di intelligenza artificiale in grado di creare autonomamente nuovi contenuti (testo, immagini, audio, codice) basandosi su pattern appresi dai dati di addestramento.
+
+\subsection{Accoppiamento}
+Grado di interdipendenza tra componenti software. Un accoppiamento stretto indica forte dipendenza, mentre un accoppiamento debole minimizza le dipendenze, favorendo manutenibilità e riutilizzo del codice.
+
+\subsection{Accoppiamento (Coupling)}
+Grado di interdipendenza tra componenti software. Un accoppiamento stretto indica forte dipendenza, mentre un accoppiamento debole minimizza le dipendenze, favorendo manutenibilità e riutilizzo del codice.
+
+\subsection{Affidabilità (Reliability)}
+Capacità di un sistema software di mantenere il proprio livello di prestazioni in condizioni specificate per un determinato periodo di tempo.
+
+\subsection{Agile}
+Metodologia di sviluppo del software iterativa e incrementale che si basa su principi come la collaborazione continua con il cliente, la consegna frequente di software funzionante e la capacità di rispondere ai cambiamenti dei requisiti.
+
+\subsection{Aggregazione}
+Relazione strutturale in OOP che rappresenta un legame "parte-tutto" dove gli componenti possono esistere indipendentemente dall'oggetto che li contiene. È una forma di associazione con condivisione dei riferimenti.
+
+\subsection{Amministratore}
+Figura responsabile della gestione dell'infrastruttura, degli strumenti di sviluppo e dei processi del progetto. Si occupa di configurare e mantenere gli ambienti di lavoro e garantire che il team abbia a disposizione gli strumenti necessari.
+
+\subsection{Analisi dei capitolati}
+Processo di studio e valutazione dei diversi capitolati d'appalto proposti dalle aziende proponenti, finalizzato a selezionare il progetto più adatto alle competenze, agli interessi e alle risorse del gruppo. Include la comprensione dei requisiti, delle tecnologie richieste e dei vincoli di progetto.
+
+\subsection{Analisi dei Requisiti}
+Processo sistematico volto a identificare, documentare e validare i bisogni, i vincoli e le esigenze del progetto, trasformandoli in requisiti formali che guideranno lo sviluppo del software.
+
+\subsection{Analista}
+Figura professionale specializzata nell'analisi dei requisiti e nella specifica delle funzionalità del sistema. Collabora con gli stakeholder per comprendere lesigenze e tradurle in specifiche tecniche.
+
+\subsection{API (Application Programming Interface)}
+Insieme di definizioni, protocolli e strumenti per la costruzione e l'integrazione di software applicativo. Consente a diversi sistemi di comunicare tra loro.
+
+\subsection{Approvazione}
+Processo formale attraverso il quale un documento o una funzionalità viene accettata e considerata completa dopo aver superato le verifiche e validazioni necessarie.
+
+\subsection{Architettura a livelli}
+Pattern architetturale che organizza il sistema in livelli gerarchici, onde ogni livello fornisce servizi al livello superiore e utilizza servizi del livello inferiore.
+
+\subsection{Architettura dei microservizi}
+Approccio architetturale che struttura un'applicazione come una collezione di servizi piccoli, autonomi e indipendenti, ciascuno responsabile di una specifica funzionalità di business.
+
+\subsection{Architettura di dettaglio}
+Fase della progettazione software in cui si specificano nel dettaglio i componenti, le interfacce e le relazioni tra di essi, partendo dall'architettura logica.
+
+\subsection{Architettura logica}
+Fase della progettazione software in cui si definisce la struttura del sistema a livello di componenti e delle loro interazioni, senza scendere nel dettaglio implementativo.
+
+\subsection{Architettura multilivello}
+Pattern architetturale che separa le responsabilità dell'applicazione in livelli logici distinti, tipicamente presentazione, logica di business e persistenza dati.
+
+\subsection{Architettura Pipe-and-Filter}
+Pattern architetturale in cui i componenti (filtri) elaborano i dati in sequenza, passandoli attraverso connessioni (pipe).
+
+\subsection{Architettura Three-Tier}
+Architettura software che divide l'applicazione in tre livelli: presentazione, logica di business e dati.
+
+\subsection{Associazione}
+Relazione strutturale in OOP che rappresenta una connessione duratura tra oggetti di classi diverse, dove gli oggetti interagiscono per un periodo di tempo prolungato condividendo riferimenti.
+
+\subsection{Attore}
+Ruolo svolto da un utente o sistema esterno che interagisce con il sistema software per raggiungere obiettivi specifici. Gli attori possono essere primari (beneficiari diretti) o secondari (fornitori di servizi).
+
+\subsection{Attore principale}
+Utente o sistema esterno che interagisce direttamente con il sistema software per raggiungere un obiettivo specifico nel caso d'uso. È il protagonista dell'interazione e trae beneficio diretto dall'esecuzione del caso d'uso.
+
+\subsection{Attore secondario}
+Utente o sistema esterno che fornisce servizi o supporto all'attore principale durante l'esecuzione di un caso d'uso. Partecipa all'interazione ma non è il beneficiario principale del risultato, spesso fornendo funzionalità accessorie o di supporto.
+
+\subsection{Availability (Disponibilità)}
+Misura della percentuale di tempo in cui un sistema è operativo e accessibile agli utenti.
+
+\subsection{AWS (Amazon Web Services)}
+Piattaforma di cloud computing che offre servizi di calcolo, storage, database e altre funzionalità per supportare lo sviluppo e il deployment di applicazioni.
+
+\newpage
+
+\section{B}
+
+\subsection{Back-end}
+Parte di un'applicazione software che gestisce la logica di business, l'elaborazione dei dati e la comunicazione con il database. Opera sul server ed è inaccessibile direttamente all'utente finale.
+
+\subsection{Baseline}
+Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedure formali di controllo.
+
+\subsection{Best Practice}
+Insieme di tecniche, metodi e procedure che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto.
+
+\subsection{Builder}
+Pattern creazionale che separa la costruzione di un oggetto complesso dalla sua rappresentazione, in modo che lo stesso processo di costruzione possa creare diverse rappresentazioni. Il pattern Builder è composto da Director, Builder e Product.
+
+\newpage
+
+\section{C}
+
+\subsection{Candidatura}
+Processo con cui un gruppo di studenti presenta la propria offerta per aggiudicarsi un capitolato d’appalto nel corso di Ingegneria del Software, proponendo una soluzione che soddisfi i requisiti del proponente.
+
+\subsection{Capitolato}
+Documento contrattuale che specifica i requisiti, le caratteristiche tecniche e le condizioni di un progetto software proposto da un'azienda proponente per il corso di Ingegneria del Software.
+
+\subsection{Casi d'uso}
+Tecnica di specifica dei requisiti che descrive le interazioni tra gli attori (utenti o sistemi esterni) e il sistema software per raggiungere un obiettivo specifico.
+
+\subsection{Cedolini}
+Documenti retributivi che attestano la retribuzione corrisposta al dipendente per un determinato periodo di paga.
+
+\subsection{Cedolini Massivi}
+File contenenti più documenti retributivi aggregati, da suddividere e assegnare ai singoli destinatari tramite riconoscimento automatico.
+
+\subsection{Cerimonia}
+Evento formale o informale nel framework Scrum che segue un agenda prestabilita e ha uno scopo specifico, come la Pianificazione dello Sprint, il Daily Stand-up, la Revisione dello Sprint o la Retrospettiva.
+
+\subsection{Committente}
+Soggetto che commissiona il progetto, definendone gli obiettivi, i vincoli e i requisiti, e che recepisce il prodotto finale. Nel contesto del corso di Ingegneria del Software, può essere un'azienda proponente o un docente.
+
+\subsection{Composizione}
+Relazione strutturale in OOP che rappresenta un legame "parte-tutto" forte dove gli componenti non possono esistere indipendentemente dall'oggetto che li contiene. Implica ownership esclusiva e distruzione concomitante.
+
+\subsection{Comprensibilità}
+Capacità di un sistema software di essere facilmente compreso dai suoi utilizzatori, riducendo lo sforzo cognitivo necessario per il suo utilizzo.
+
+\subsection{Constructor Injection}
+Tecnica di Dependency Injection in cui le dipendenze vengono fornite a un componente attraverso il suo costruttore.
+
+\subsection{Controllo di Qualità}
+Insieme di attività e tecniche volte a garantire che i prodotti software soddisfino gli standard di qualità prestabiliti. Il controllo di qualità si concentra sull'identificazione di difetti nel prodotto realizzato.
+
+\subsection{Cruscotto/Dashboard}
+Interfaccia utente che presenta in forma grafica e sintetica le metriche, gli indicatori di performance e lo stato corrente del progetto o dell'applicazione.
+
+\subsection{Cruscotto di Controllo}
+Strumento di monitoraggio che fornisce una visualizzazione in tempo reale degli indicatori chiave di prestazione (KPI) e delle metriche di qualità del progetto. Consente di tracciare lo stato delle attività di verifica e validazione.
+
+\newpage
+
+\section{D}
+
+\subsection{Decomposizione funzionale}
+Processo di scomposizione di un sistema complesso in funzioni o componenti più piccoli e gestibili.
+
+\subsection{Decisione esterna}
+Scelta presa da entità esterne al team di progetto (come il committente o il proponente) che vincola le attività del progetto e che il team deve rispettare.
+
+\subsection{Decisione interna}
+Scelta presa dal team di progetto riguardante aspetti tecnici, organizzativi o metodologici, documentata per garantire tracciabilità e coerenza nelle attività successive.
+
+\subsection{Dependency Injection}
+Pattern architetturale in cui le dipendenze di un componente vengono fornite dall'esterno, anziché essere create internamente al componente stesso.
+
+\subsection{Design Pattern}
+Soluzione progettuale generale e riutilizzabile a un problema ricorrente all'interno di un dato contesto nella progettazione di software. I design pattern non sono progetti finiti che possono essere trasformati direttamente in codice, ma modelli astratti che devono essere adattati al caso specifico.
+
+\subsection{Design pattern architetturali}
+Soluzioni progettuali ricorrenti e collaudate per problemi architetturali comuni nei sistemi software.
+
+\subsection{Diagramma dei componenti}
+Diagramma UML che mostra l'organizzazione e le dipendenze tra i componenti software di un sistema.
+
+\subsection{Diagramma dei casi d'uso}
+Diagramma UML che descrive le interazioni tra gli attori e il sistema, mostrando i diversi scenari possibili per raggiungere un obiettivo specifico.
+
+\subsection{Diagramma delle classi}
+Diagramma UML che mostra le classi del sistema, i loro attributi, metodi e le relazioni tra di esse (associazioni, ereditarietà, dipendenze, ecc.).
+
+\subsection{Diagramma degli stati}
+Diagramma UML che descrive il comportamento di un oggetto in risposta a eventi, mostrando i diversi stati in cui può trovarsi e le transizioni tra essi.
+
+\subsection{Diagramma di attività}
+Diagramma UML che modella il flusso di controllo o il flusso di dati tra attività, utilizzato per descrivere la logica di procedura, di business o di caso d'uso.
+
+\subsection{Diagramma di deployment}
+Diagramma UML che mostra la configurazione fisica dei nodi di elaborazione e dei componenti software eseguiti su di essi.
+
+\subsection{Diagramma di Gantt}
+Strumento di pianificazione progettuale che visualizza le attività su un asse temporale, mostrando durate, sequenzialità, parallelismo e progressi rispetto alle pianificazioni.
+
+\subsection{Diagramma di PERT}
+(Program Evaluation and Review Technique) Strumento di analisi delle dipendenze temporali tra attività di progetto, utilizzato per identificare cammini critici e margini temporali (slack time).
+
+\subsection{Diagramma di sequenza}
+Diagramma UML che mostra le interazioni tra oggetti in sequenza temporale, evidenziando l'ordine dei messaggi scambiati.
+
+\subsection{Dipendenza}
+Relazione tra componenti software per cui un componente (dipendente) richiede un altro componente (dipenduto) per funzionare correttamente. Le modifiche al componente dipenduto possono influenzare il componente dipendente.
+
+\subsection{Discord}
+Piattaforma di comunicazione tramite chat vocale, testuale e video, utilizzata dal gruppo per la comunicazione interna e la collaborazione quotidiana.
+
+\subsection{Dispatch}
+Processo di distribuzione automatizzata dei documenti verso i destinatari finali attraverso diversi canali (es. app, portale, email, PEC).
+
+\subsection{Disponibilità}
+Capacità di un sistema di essere accessibile e utilizzabile quando richiesto dagli utenti. Misura la percentuale di tempo in cui il sistema è operativo.
+
+\subsection{Dominio d'uso}
+Contesto specifico o ambiente operativo in cui il sistema software sarà impiegato, comprendente le caratteristiche degli utenti finali, le condizioni operative, i vincoli tecnologici e le regole di business che definiscono l'ambito di applicazione del prodotto.
+
+\newpage
+
+\section{E}
+
+\subsection{Economicità}
+Principio gestionale che combina efficienza ed efficacia, misurando la capacità di raggiungere obiettivi prefissati (efficacia) impiegando le risorse minime indispensabili (efficienza).
+
+\subsection{Efficacia}
+Capacità di raggiungere gli obiettivi prefissati e produrre i risultati attesi, indipendentemente dalle risorse impiegate.
+
+\subsection{Efficienza}
+Rapporto tra i risultati ottenuti e le risorse impiegate per conseguirli. Un processo è efficiente quando raggiunge i suoi obiettivi utilizzando il minimo di risorse necessarie.
+
+\subsection{Entity Resolution}
+Processo di identificazione e associazione di entità (es. persone o aziende) a partire da dati parziali ouplicati, tramite algoritmi di matching e disambiguazione.
+
+\subsection{Error Handling}
+Insieme di tecniche e meccanismi di programmazione per gestire le condizioni di errore che possono verificarsi durante l'esecuzione di un software. L'error handling prevede l'identificazione, la segnalazione e il recupero dagli errori, al fine di mantenere la stabilità e l'affidabilità del sistema.
+
+\subsection{Ereditarietà}
+Meccanismo della programmazione orientata agli oggetti che permette a una classe (sottoclasse) di acquisire attributi e metodi di un'altra classe (superclasse), favorendo il riutilizzo del codice e le relazioni di generalizzazione.
+
+\subsection{Ereditarietà di classe}
+Meccanismo di ereditarietà in cui una classe eredita da un'altra classe (sia classe concreta che astratta).
+
+\subsection{Ereditarietà dell'interfaccia}
+Meccanismo di ereditarietà in cui una interfaccia eredita da un'altra interfaccia, oppure una classe implementa un'interfaccia.
+
+\newpage
+
+\section{F}
+
+\subsection{Flessibilità}
+Capacità di un sistema software di adattarsi a cambiamenti nei requisiti o nell'ambiente operativo con modifiche minime.
+
+\subsection{Front-end}
+Parte di un'applicazione software con cui l'utente interagisce direttamente, responsabile della presentazione dei dati e dell'acquisizione dell'input dell'utente.
+
+\subsection{Funzionalità}
+Caratteristica o capacità specifica che un sistema software deve possedere per soddisfare i bisogni degli utenti e gli obiettivi del progetto.
+
+\newpage
+
+\section{G}
+
+\subsection{GDPR (General Data Protection Regulation)}
+Regolamento generale sulla protezione dei dati dell'Unione Europea che stabilisce norme per la protezione e la libera circolazione dei dati personali.
+
+\subsection{Gestione dei rischi}
+Processo sistematico di identificazione, analisi, pianificazione e controllo dei rischi di progetto, volto a minimizzare la probabilità di occorrenza e l'impatto degli eventi negativi.
+
+\subsection{GitHub}
+Piattaforma di hosting per repository Git che offre strumenti per il version control, la collaborazione e la gestione del ciclo di vita del software.
+
+\subsection{Google Meet}
+Piattaforma di videoconferenza sviluppata da Google che consente meeting virtuali, condivisione dello schermo e chat. Utilizzata dal gruppo per le riunioni di coordinamento e le presentazioni.
+
+\subsection{Glossario}
+Documento che raccoglie e definisce i termini specifici, gli acronimi e le parole ambigue utilizzati nella documentazione di progetto, con lo scopo di garantire una comprensione univoca della terminologia da parte di tutti i membri del team e dei destinatari.
+
+\newpage
+
+\section{H}
+
+\subsection{Human in the loop}
+Approccio in cui l'intelligenza artificiale e gli esseri umani collaborano, con l'uomo che supervisiona, corregge o fornisce feedback al sistema AI, particolarmente utile quando la confidenza del sistema è bassa.
+
+\newpage
+
+\section{I}
+
+\subsection{Implementazione}
+Processo di traduzione di un design in codice eseguibile, realizzando le specifiche funzionali e non funzionali.
+
+\subsection{Incapsulamento}
+Principio della programmazione orientata agli oggetti che consiste nel racchiudere in un'unica entità (classe) dati e metodi che operano su di essi, nascondendo i dettagli implementativi all'esterno.
+
+\subsection{Incapsulamento (Encapsulation)}
+Principio della programmazione orientata agli oggetti che consiste nel racchiudere in un'unica entità (classe) dati e metodi che operano su di essi, nascondendo i dettagli implementativi all'esterno e esponendo solo un'interfaccia pubblica.
+
+\subsection{Information Hiding}
+Principio di progettazione software che consiste nel nascondere i dettagli implementativi di un modulo, esponendo solo le interfacce necessarie, per ridurre l'accoppiamento e aumentare la manutenibilità.
+
+\subsection{Interfaccia}
+In programmazione orientata agli oggetti, un'interfaccia è un tipo astratto che contiene una serie di metodi dichiarati senza implementazione. Le classi che implementano un'interfaccia devono fornire un'implementazione per tutti i suoi metodi. Le interfacce definiscono un contratto che le classi devono seguire.
+
+\subsection{Issue}
+Segnalazione di un problema, un bug o una richiesta di miglioramento nel sistema di tracking del progetto. Ogni issue viene tracciata, assegnata e gestita fino alla risoluzione.
+
+\newpage
+
+\section{K}
+
+\subsection{KPI (Key Performance Indicator)}
+Indicatore chiave di performance che misura l'efficacia di un processo, un'attività o un'organizzazione nel raggiungere i propri obiettivi.
+
+\newpage
+
+\section{L}
+
+\subsection{Latex}
+Sistema di composizione tipografica utilizzato per la produzione di documentazione tecnica e scientifica di alta qualità, particolarmente adatto per documenti complessi con formule matematiche.
+
+\subsection{Lettera di candidatura}
+Documento formale con cui un gruppo di studenti esprime ufficialmente il proprio interesse a realizzare un capitolato d'appalto specifico, presentando le motivazioni, le competenze del gruppo e una proposta preliminare di approccio al progetto. Viene indirizzata ai docenti e al proponente.
+
+\subsection{Livelli aperti}
+Architettura a livelli in cui un livello può utilizzare servizi di qualsiasi livello sottostante, non solo di quello immediatamente inferiore.
+
+\subsection{Livelli chiusi}
+Architettura a livelli in cui un livello può utilizzare solo i servizi del livello immediatamente inferiore.
+
+\subsection{LLM (Large Language Model)}
+Modello di linguaggio di grandi dimensioni addestrato su vasti corpus di testo, in grado di generare, comprendere e elaborare linguaggio naturale in modo sofisticato.
+
+\subsection{Load balancer}
+Componente che distribuisce il carico di lavoro tra più server per migliorare le prestazioni e l'affidabilità del sistema.
+
+\newpage
+
+\section{M}
+
+\subsection{Microservizio}
+Approccio architetturale in cui un'applicazione è composta da piccoli servizi indipendenti, ciascuno eseguibile autonomamente e comunicante tramite API.
+
+\subsection{Microsoft Teams}
+Piattaforma di collaborazione sviluppata da Microsoft che offre chat, videoconferenze, archiviazione file e integrazione con applicazioni. Utilizzata dal gruppo per le riunioni di coordinamento e la condivisione di documenti.
+
+\subsection{Model}
+Componente in un pattern architetturale che rappresenta i dati e la logica di business dell'applicazione, indipendentemente dall'interfaccia utente.
+
+\subsection{Model-View-Controller (MVC)}
+Pattern architetturale che separa l'applicazione in tre componenti interconnessi: Model (dati e logica di business), View (interfaccia utente) e Controller (gestisce l'input dell'utente e media tra Model e View).
+
+\subsection{Model-View-Presenter (MVP)}
+Pattern architetturale derivato da MVC che separa l'applicazione in Model, View e Presenter, dove il Presenter contiene la logica di presentazione e agisce da intermediario tra View e Model.
+
+\subsection{Model-View-ViewModel (MVVM)}
+Pattern architetturale che separa l'applicazione in Model, View e ViewModel, utilizzando il data binding per sincronizzare automaticamente View e ViewModel.
+
+\subsection{Modularità}
+Grado in cui un sistema è composto da componenti separati che possono essere sviluppati, testati e mantenuti indipendentemente.
+
+\subsection{Modulo}
+Componente software autonomo e sostituibile che incapsula una specifica funzionalità e fornisce un'interfaccia ben definita. I moduli favoriscono la modularità, il riuso e la manutenibilità del sistema.
+
+\newpage
+
+\section{N}
+
+\subsection{Norme di progetto}
+Documento che definisce le regole, le convenzioni, le procedure e gli standard adottati dal gruppo per la realizzazione del progetto. Include norme per la redazione dei documenti, la gestione del versionamento, le convenzioni di codifica, le procedure di verifica e validazione, e le modalità di comunicazione interna ed esterna.
+
+\newpage
+
+\section{O}
+
+\subsection{OCR (Optical Character Recognition)}
+Tecnologia che converte immagini di testo scritto o stampato in testo digitale machine-readable.
+
+\newpage
+
+\section{P}
+
+\subsection{PB (Product Baseline)}
+Baseline che definisce lo stato del prodotto software in un determinato momento, tipicamente al termine di una fase di sviluppo o di uno sprint. Include le specifiche del prodotto, la documentazione e il codice sorgente, e serve come riferimento per le fasi successive o per il rilascio.
+
+\subsection{Pattern Creazionali}
+Categoria di design pattern che si occupano dei meccanismi di creazione degli oggetti, cercando di creare oggetti in modo adatto alla situazione. Esempi includono Factory Method, Abstract Factory, Builder, Singleton, etc.
+
+\subsection{Piano di progetto}
+Documento di pianificazione che descrive come il progetto sarà condotto, gestito e controllato. Definisce gli obiettivi, le attività, le risorse, i tempi, i costi, i rischi e le modalità di monitoraggio e comunicazione del progetto.
+
+\subsection{Piano di qualifica}
+Documento che definisce le strategie, le risorse e le attività per garantire la qualità del processo di sviluppo e del prodotto software. Include la definizione degli standard di qualità, le metriche per la misurazione, i processi di verifica e validazione, e le responsabilità del team per il controllo della qualità.
+
+\subsection{Piano di Qualifica}
+Documento che definisce le modalità, le risorse e le tempistiche per le attività di verifica e validazione del software. Descrive gli standard di qualità da adottare, le metriche per la misurazione della qualità, i processi di controllo e le responsabilità del team per garantire la qualità del prodotto.
+
+\subsection{Polimorfismo}
+Principio della programmazione orientata agli oggetti che permette a oggetti di classi diverse di rispondere allo stesso messaggio (metodo) in modo specifico per la propria classe, favorendo flessibilità ed estensibilità del codice.
+
+\subsection{Post-condizione}
+Condizione o stato del sistema che deve essere vero dopo il completamento di un caso d'uso. Definisce il risultato atteso e le garanzie che il sistema fornisce al termine dell'esecuzione del caso d'uso.
+
+\subsection{Pre-condizione}
+Condizione o stato del sistema che deve essere vero prima che un caso d'uso possa iniziare. Definisce i prerequisiti necessari per l'esecuzione corretta del caso d'uso.
+
+\subsection{Preventivo}
+Documento di pianificazione che stima i costi e le risorse necessarie per lo svolgimento del progetto, basato sulle attività pianificate e sulle risorse disponibili.
+
+\subsection{Procedimento agile}
+Approccio iterativo e incrementale allo sviluppo software che enfatizza la flessibilità e la collaborazione con il cliente.
+
+\subsection{Procedimento bottom-up}
+Approccio allo sviluppo software che parte dai componenti di basso livello per costruire gradualmente sistemi più complessi.
+
+\subsection{Procedimento top-down}
+Approccio allo sviluppo software che parte da una visione d'insieme per scomporre gradualmente il sistema in componenti più piccoli.
+
+\subsection{Prodotto (Product)}
+Nel contesto dei design pattern creazionali, il Product è l'oggetto complesso che viene costruito. In particolare, nel pattern Builder, il Product è l'oggetto finale che viene assemblato dal Director utilizzando il Builder.
+
+\subsection{Progettazione di dettaglio}
+Fase della progettazione software in cui si specificano nel dettaglio i componenti, le interfacce e le relazioni tra di essi.
+
+\subsection{Progettazione logica}
+Fase della progettazione software in cui si definisce l'architettura del sistema senza considerare i dettagli implementativi specifici.
+
+\subsection{Progettista}
+Figura responsabile della progettazione dell'architettura software e delle soluzioni tecniche, garantendo che soddisfino i requisiti e siano realizzabili efficientemente.
+
+\subsection{Programmatore}
+Figura che implementa il codice sorgente secondo le specifiche tecniche, seguendo le best practice e gli standard di qualità definiti nel progetto.
+
+\subsection{Progetto}
+Insieme di attività che devono raggiungere obiettivi specifici a partire da date specificate, con un inizio e una fine fissate in calendario, disponendo di risorse limitate (persone, tempo, denaro, strumenti) e consumando risorse nel loro svolgersi.
+
+\subsection{Prompt}
+Input (testo e/o altri dati) fornito a un modello di intelligenza artificiale per ottenere una risposta o un output specifico.
+
+\subsection{Proponente}
+Azienda o organizzazione che propone un capitolato d'appalto per il progetto del corso di Ingegneria del Software, definendone requisiti e obiettivi.
+
+\subsection{Processi organizzativi}
+Processi trasversali rispetto ai singoli progetti che riguardano la gestione dei processi, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione.
+
+\subsection{Processi primari}
+Processi fondamentali che agiscono direttamente sul ciclo di vita del prodotto software, includendo acquisizione, fornitura, sviluppo, operazione e manutenzione.
+
+\subsection{Processi di supporto}
+Processi che supportano i processi primari, includendo documentazione, gestione della configurazione, accertamento della qualità, verifica, validazione e risoluzione dei problemi.
+
+\subsection{Pull Model}
+Pattern architetturale in cui il client richiede attivamente i dati al server quando necessario.
+
+\subsection{Push Model}
+Pattern architetturale in cui il server invia automaticamente i dati al client senza che quest'ultimo li abbia esplicitamente richiesti.
+
+\subsection{PWA (Progressive Web App)}
+Applicazione web che utilizza tecnologie web moderne per offrire un'esperienza simile a quella di un'app nativa, funzionando offline e potendo essere installata sul dispositivo.
+
+\newpage
+
+\section{Q}
+
+\subsection{Qualità}
+Insieme delle caratteristiche di un prodotto software che gli conferiscono la capacità di soddisfare le esigenze espresse e implicite degli stakeholder. La qualità del software si misura in base a attributi interni (visibili agli sviluppatori) ed esterni (visibili agli utenti).
+
+\subsection{Qualità architetturale}
+Insieme delle caratteristiche che definiscono la bontà di un'architettura software in termini di modularità, riusabilità, manutenibilità e altre proprietà desiderabili.
+
+\newpage
+
+\section{R}
+
+\subsection{Rating System}
+Sistema di valutazione che assegna un punteggio o un giudizio a un'entità (es. prodotto, servizio, contenuto) in base a criteri prestabiliti.
+
+\subsection{RBAC (Role-Based Access Control)}
+Modello di controllo degli accessi in cui i permessi sono assegnati a ruoli specifici, e gli utenti ottengono i permessi attraverso l'assegnazione a questi ruoli.
+
+\subsection{Redattore}
+Membro del team responsabile della stesura e della produzione dei documenti di progetto, garantendo chiarezza, completezza e conformità alle norme stabilite.
+
+\subsection{Repository}
+Archivio centrale in cui vengono memorizzati e versionati i file sorgente, la documentazione e le risorse del progetto utilizzando un sistema di controllo versione.
+
+\subsection{Requisito}
+Condizione o capacità che deve essere posseduta da un sistema o componente software per soddisfare un contratto, standard, specifica o altro documento formalmente imposto.
+
+\subsection{Requisiti desiderabili}
+Requisiti che sono importanti ma non essenziali per il funzionamento base del sistema. La loro implementazione apporta valore aggiunto ma la loro assenza non compromette il progetto.
+
+\subsection{Requisiti funzionali}
+Specificano cosa il sistema deve fare, descrivendo le funzionalità, i comportamenti e le interazioni che il software deve supportare.
+
+\subsection{Requisiti non funzionali}
+Definiscono come il sistema deve comportarsi in termini di prestazioni, sicurezza, affidabilità, usabilità e altri attributi di qualità, senza riguardo alle funzionalità specifiche.
+
+\subsection{Requisiti obbligatori}
+Requisiti che devono essere necessariamente soddisfatti e la cui mancata implementazione comporterebbe il fallimento del progetto. Sono critici per il successo del sistema.
+
+\subsection{Requisiti opzionali}
+Requisiti che sono utili ma non necessari, e la cui implementazione dipende dalla disponibilità di risorse e tempo. Possono essere considerati per versioni future del prodotto.
+
+\subsection{RTB (Requirements and Technology Baseline)}
+Baseline che combina i requisiti e le tecnologie approvate per il progetto. Definisce l'insieme dei requisiti concordati e formalmente approvati e lo stack tecnologico di riferimento, costituendo la base per lo sviluppo del progetto. Ogni modifica a questa baseline deve seguire un processo formale di controllo delle modifiche.
+
+\subsection{Requisito software}
+Requisito specificato in termini tecnici, destinato agli sviluppatori, che descrive in modo dettagliato e misurabile una funzionalità o un vincolo del sistema software.
+
+\subsection{Requisito utente}
+Requisito espresso dal punto di vista dell'utente finale, descritto in linguaggio naturale e senza dettagli tecnici, focalizzato su ciò che l'utente si aspetta che il sistema faccia.
+
+\subsection{Responsabile}
+Figura di riferimento del progetto con compiti di coordinamento, pianificazione, gestione delle risorse e comunicazione con docenti e proponenti.
+
+\subsection{Riusabilità}
+Capacità di un componente software di essere utilizzato in diversi contesti o applicazioni senza modifiche sostanziali.
+
+\subsection{Robustezza}
+Capacità di un sistema software di funzionare correttamente in condizioni anomali o in presenza di input non validi.
+
+\newpage
+
+\section{S}
+
+\subsection{Sandbox di Sviluppo}
+Ambiente isolato per testare e validare funzionalità senza influenzare i sistemi di produzione, utilizzato per sviluppare e verificare nuove feature in sicurezza.
+
+\subsection{Scalabilità}
+Capacità di un sistema di gestire un aumento del carico di lavoro aggiungendo risorse, senza modifiche all'architettura.
+
+\subsection{Scenario}
+Sequenza di interazioni tra attori e sistema che descrive un percorso specifico attraverso un caso d'uso. Può essere principale (percorso di successo) o alternativo (variazioni ed eccezioni).
+
+\subsection{Scenario alternativo}
+Sequenza di interazioni nel caso d'uso che rappresenta un percorso diverso da quello principale, tipicamente gestendo condizioni eccezionali, errori o scelte alternative dell'utente. Descrive come il sistema reagisce in situazioni non standard.
+
+\subsection{Scenario principale}
+Sequenza di interazioni tra l'attore principale e il sistema che descrive il percorso di successo del caso d'uso, dove l'obiettivo viene raggiunto senza intoppi o condizioni eccezionali. Rappresenta il flusso ideale e più frequente di esecuzione.
+
+\subsection{Scope}
+Ambito di un progetto, che definisce i confini, i deliverables, gli obiettivi e i compiti che sono inclusi nel progetto.
+
+\subsection{SCRUM}
+Framework agile per la gestione dello sviluppo software che enfatizza lo sviluppo iterativo, l'adattamento ai cambiamenti e la consegna incrementale di valore.
+
+\subsection{SEMAT}
+(Software Engineering Method and Theory) Iniziativa internazionale per rifondare l'ingegneria del software come disciplina rigorosa, basata su un kernel di elementi essenziali comuni a tutti i metodi di sviluppo software.
+
+\subsection{Sicurezza}
+Insieme di caratteristiche e meccanismi che proteggono il sistema da accessi non autorizzati, garantiscono la riservatezza, l'integrità e la disponibilità dei dati, e prevengono attacchi e vulnerabilità.
+
+\subsection{Sottotipizzazione}
+Relazione tra tipi per cui un tipo (sottotipo) può essere utilizzato in ogni contesto in cui è atteso un altro tipo (supertipo), in accordo con il principio di sostituzione di Liskov.
+
+\subsection{Specification Tecnica}
+Documento che descrive in dettaglio l'architettura, il design e le scelte implementative del sistema software, guidando le attività di sviluppo.
+
+\subsection{Sprint}
+Periodo di tempo fisso (tipicamente 2-4 settimane) in Scrum durante il quale il team sviluppa e consegna un incremento di prodotto potenzialmente rilasciabile.
+
+\subsection{Stakeholder}
+Portatore di interesse, ovvero qualsiasi individuo, gruppo o organizzazione che può influenzare o essere influenzato da un progetto, un'azienda o un sistema.
+
+\subsection{Stima dei costi}
+Processo di previsione dei costi associati alle attività di progetto, considerando risorse umane, strumenti, infrastrutture e altri fattori che influenzano il budget complessivo.
+
+\newpage
+
+\section{T}
+
+\subsection{Technology Baseline}
+Insieme delle tecnologie, framework, librerie e strumenti di sviluppo selezionati e approvati per il progetto. Definisce lo stack tecnologico di riferimento e costituisce la base per le scelte implementative, garantendo coerenza e standardizzazione nell'architettura software.
+
+\subsection{Template}
+Struttura o modello predefinito che definisce il layout e l'aspetto di un'interfaccia utente, separando la presentazione dalla logica di business.
+
+\subsection{Test}
+Processo sistematico di verifica che il software soddisfi i requisiti specificati e identifichi difetti, attraverso l'esecuzione controllata di casi di test.
+
+\subsection{Test di Accettazione (TA) / Collaudo}
+Test condotti per determinare se un sistema soddisfa i criteri di accettazione stabiliti dal cliente e per permettere al cliente di decidere se accettare o meno il sistema. Viene eseguito in un ambiente il più possibile simile a quello di produzione.
+
+\subsection{Test di Integrazione (TI)}
+Test che verificano l'interazione e la corretta comunicazione tra i moduli o i componenti integrati del sistema. L'obiettivo è individuare difetti nelle interfacce e nelle interazioni tra i componenti.
+
+\subsection{Test di Sistema (TS)}
+Test che verificano il sistema nel suo complesso, in un ambiente il più possibile simile a quello di produzione, per accertare che soddisfi i requisiti specificati. Comprende test funzionali e non funzionali.
+
+\subsection{Test di Unità (TU)}
+Test che verificano il corretto funzionamento delle singole unità (moduli, classi, funzioni) del software in isolamento. Sono tipicamente scritti e eseguiti dagli sviluppatori durante la fase di implementazione.
+
+\subsection{Tracciamento (dei requisiti)}
+Processo di documentazione e gestione delle relazioni tra i requisiti e gli elementi del sistema (come componenti, test, casi d'uso) che li soddisfano. Garantisce che tutti i requisiti siano presi in carico e permette di valutarne l'impatto in caso di modifiche.
+
+\subsection{Transazioni distribuite}
+Transazioni che coinvolgono multiple risorse distribuite in diversi nodi di un sistema, richiedendo meccanismi di coordinamento per garantire atomicità e consistenza.
+
+\newpage
+
+\section{U}
+
+\subsection{Unità architetturali}
+Componenti fondamentali che costituiscono l'architettura di un sistema software, come moduli, componenti, connettori e dati.
+
+\newpage
+
+\section{V}
+
+\subsection{Validatore}
+Membro del team responsabile di eseguire attività di validazione, accertando che il prodotto software soddisfi le effettive esigenze del cliente e gli obiettivi di business.
+
+\subsection{Validazione}
+Processo che accerta che il prodotto software sviluppato soddisfi le effettive esigenze del cliente e gli obiettivi di business per i quali è stato realizzato. Risponde alla domanda "Stiamo costruendo il prodotto giusto?" e viene tipicamente effettuata attraverso test di accettazione con il cliente.
+
+\subsection{Verbale}
+Documento formale che registra quanto discusso, deciso e pianificato durante una riunione. Include informazioni come data, partecipanti, ordine del giorno, punti discussi, decisioni prese e azioni da intraprendere.
+
+\subsection{Verbale esterno}
+Verbale redatto in seguito a una riunione con soggetti esterni al gruppo di progetto, come il proponente o i docenti. Oltre ai contenuti standard di un verbale, può includere specifiche decisioni o accordi presi con le parti esterne.
+
+\subsection{Verbale interno}
+Verbale redatto in seguito a una riunione interna al gruppo di progetto. Documenta le discussioni e le decisioni prese dai membri del team, e viene utilizzato per tracciare lo stato di avanzamento, assegnare compiti e coordinare le attività.
+
+\subsection{Verifica}
+Processo sistematico che determina se i prodotti di lavoro (documenti, codice, componenti) soddisfano i requisiti e le specifiche definite per loro. Risponde alla domanda "Stiamo costruendo il prodotto nel modo giusto?" e include attività come revisioni, ispezioni e test.
+
+\subsection{Verifica vs. Validazione}
+La verifica è il processo di valutazione dei prodotti di lavoro di un progetto per accertare che soddisfino i requisiti specificati e le condizioni imposte all'inizio dello sviluppo. Risponde alla domanda "Stiamo costruendo il prodotto nel modo giusto?". La validazione, invece, accerta che il prodotto finale soddisfi le effettive esigenze del cliente e gli obiettivi di business. Risponde alla domanda "Stiamo costruendo il prodotto giusto?". In sintesi, la verifica si concentra sulla correttezza del processo di sviluppo, mentre la validazione sulla correttezza del prodotto finale.
+
+\subsection{Verificatore}
+Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettano gli standard di qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità.
+
+\subsection{Versionamento/versioning}
+Sistema per gestire le diverse versioni di file, codice sorgente o documenti, permettendo di tracciare le modifiche, collaborare in team e revertire a versioni precedenti.
+
+\subsection{ViewModel}
+Componente nel pattern MVVM che espone i dati e i comandi del Model in modo da essere facilmente legati alla View, spesso implementando notifiche di cambiamento per aggiornare automaticamente la View.
+
+\newpage
+
+\section{W}
+
+\subsection{Way of Working}
+Insieme di processi, metodologie, strumenti e pratiche adottati dal team per organizzare e svolgere le attività di progetto in modo coordinato ed efficiente. Definisce come il team collabora, comunica e gestisce il lavoro quotidiano.
+
+\subsection{Workflow}
+Sequenza di attività che definiscono un processo di business, dove compiti, informazioni o documenti passano da un partecipante all'altro secondo regole prestabilite.
+
+\end{document}
