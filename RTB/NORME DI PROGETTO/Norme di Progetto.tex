@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.0.7} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.0.8} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -135,7 +135,9 @@ Documento contenente le norme di progetto adottate dal team BugBusters per lo sv
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\rowcolor{secondaryblue!10} 0.0.7 & 02/12/2025 & Avanzamento processi di supporto: documentazione & Alberto Pignat & - & - \\
+\rowcolor{secondaryblue!10} 0.0.8 & 04/12/2025 & Conclusione momentanea della sezione relativa ai processi di supporto & Alberto Pignat & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.7 & 02/12/2025 & Avanzamento processi di supporto: Configurazioni e Qualifica & Alberto Pignat & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.0.6 & 28/11/2025 & Iniziati processi di supporto: documentazione & Marco Favero & - & - \\
 \hline
@@ -642,9 +644,59 @@ Dove:
 \subsection{Qualifica}
 \subsubsection{Verifica}
 Il processo della Verifica\G ha come obiettivo principale quello di verificare che quanto prodotto sia a regola d'arte, ovvero conforme con i requisiti richiesti.\\
-L'obbiettivo della verifica\G è poter rispondere alla domanda <<Did I build the system right?>> gli esiti di tale processo sono riportari nel (Inserire Parte Relativa Nel Piano Di Qualifica).
+L'obiettivo della verifica\G è poter rispondere alla domanda <<Did I build the system right?>> gli esiti di tale processo sono riportari nel (Inserire Parte Relativa Nel Piano Di Qualifica).
 \subsubsubsection{Attività di verifica}
 Il team BugBusters si è principalmente occupato della verifica relativa alla documentazione, controllando la correttezza grammaticale, sintattica e la correttezza del contenuto di ogni documento.\\
 Relativamente alle verifiche sul codice, sarà un argomento che verrà trattato più in dettaglio al raggiungimento della \textit{Requirements and Technology Baseline}\G.\\
 In ogni caso tutte le informazioni relative alla verifica, verranno riportate nel Piano di Qualifica (Inserire Link Futuro alla sezione del Piano relativa ai test).
+Il processo di verifica\G verrà realizzata in due modi: tramite Analisi Statica e Analisi Dinamica.
+\subsubsubsection{Analisi Statica}
+L'analisi statica non richiede l'esecuzione dell'oggetto di cui si fa la verifica\G, ciò permette di applicarla già prima della fine della codifica.\\
+Può essere eseguita mediante \textbf{metodi formali}(ad esempio prove matematiche) o mediante \textbf{metodi di lettura}.
+Tra i \textbf{metodi di lettura} ne troviamo due significativi:
+\begin{itemize}
+    \item \textbf{Walkthrough}: si esegue un esame privo di assunzioni o presupposti , non si sa esattamente dove è più probabile che vi siano difetti, dunque si guarda ovunque. Si percorre dunque il codice simulandone possibili esecuzioni e si studia ogni parte di documento come farebbe un compilatore. È un metodo di verifica\G costoso e non automatizzabile;
+    \item \textbf{Inspection}: si esegue un esame focalizzato su presupposti, si sa già dove cercare, i verificatori dunque rilevano la presenza di difetti eseguendo una lettura mirata dell'oggetto di verifica\G. Non è esaustiva come il Walkthrough, ma permette di creare una lista di controllo apposita per ogni oggetto di verifica\G, così da individuare potenziali problemi;
+\end{itemize}
+
+\subsubsubsection{Analisi Dinamica}
+L'analisi dinamica è chiamata così perché per essere eseguita necessita l'esecuzione dell'oggetto da verificare.\\
+Serve per verificare se sono presenti comportamenti inattesi, e dunque rimuovere o modificare le parti che ne causano il fault.\\
+Per raggiungere tale obiettivo, si usufruisce di Test\G, che devono essere ripetibili e automatizzabili.\\
+Ripetibili poichè se si presenta un failure nel codice, e vengono corretti i fault, posso eseguire lo stesso test\G nelle stesse condizioni per verificare l'effettiva correzione del failure.\\
+Automatizzabili mediante  driver (che serve per pilotare il test), stub (che simula i moduli necessari al test\G ma che non ne sono oggetto) e logger (che registra ciò che avviene durante l'esecuzione).\\
+Le principali tipologie di Test\G sono:
+\begin{itemize}
+    \item \textbf{Test di Unità}\G;
+    \item \textbf{Test di Regressione};
+    \item \textbf{Test di Integrazione}\G;
+    \item \textbf{Test di Sistema}\G;
+\end{itemize}
+I test eseguiti da BugBusters (reperibili nel INSERIRE LINK PIANO DI QUALIFICA DOVE SONO PRESENTI I TEST) sono descritti nella seguente maniera:
+DOBBIAMO ANCORA FARLI, SUCCESSIVAMENTE QUA INSERIRE NOMENCLATURA TEST.
+\subsubsubsection{Test di Unità\G}
+I \textbf{test di unità}\G hanno lo scopo di verificare le singole unità di un software, definite durante la progettazione di dettaglio. Per unità si intende la più piccola quantità di Software che sia utilmente sottoponibile a verifica\G come oggetto singolo.\\
+I test di unità\G possono essere funzionali (black-box), cioè basati sulle specifiche dell’unità.
+In questo caso, vengono verificati gli input e output dati dal sistema, ma non viene verificata la logica che fornisce tali risultati.\\
+Tuttavia, i test\G funzionali da soli non sono sufficienti per verificare la correttezza della logica interna del modulo. Per questo motivo vengono affiancati dai test\G strutturali (white-box), che analizzano la logica interna dell’unità cercando di percorrere tutti i cammini di esecuzione al suo interno, raggiungendo una copertura massima.\\
+L’esecuzione di questi test\G può essere facilitata dall’uso del debugger.\\
+Il testing di unità si considera completo quando tutte le unità del sistema sono state verificate.
+\subsubsubsection{Test di Regressione}
+I \textbf{Test di regressione} sono necessari affinchè delle modifiche effettuate per aggiunta, correzione o rimozione non pregiudichino le funzionalità già verificate.\\
+Per far ciò il test di regressione\G comprende tutti  i test\G necessari ad accertare che la modifica di una parte P $\in$ S, non causi errori in P o in alcuna altra parte di S esterna a P.
+\subsubsubsection{Test di Integrazione\G}
+I \textbf{Test di integrazione}\G verificano il corretto funzionamento di più unità software combinate tra loro, controllando che le loro interazioni avvengano come previsto.\\
+L'obiettivo è assicurarsi che le unità già testate singolarmente comunichino e collaborino correttamente tra loro.\\
+Ci sono diverse strategie per implementare tali test\G:
+\begin{itemize}
+    \item \textbf{Bottom-up}: si parte dalle componenti più basse(con meno dipendenze) e si integrano progressivamente verso l'alto, usando driver per simulare moduli superiori mancanti;
+    \item \textbf{Top-down}: si dalle componenti di alto livello(con più dipendenze) e si scende verso quelli inferiori, usando stub per simulare moduli non ancora sviluppati;
+\end{itemize}
+\subsubsubsection{Test di Sistema\G}
+I \textbf{Test di sistema}\G verificano il comportamento dell'intero software nel suo complesso, controllando che il sistema soddisfi i requisiti funzionali e non funzionali specificati. 
+\subsubsection{Validazione}
+La \textbf{validazione} è un processo per confermare in modo definitivo che le caratteristiche del software siano conformi ai bisogni dell'utente finale e all'uso previsto, risponde alla domanda: <<Did i build the right system?>>
+\subsubsubsection{Processo di Validazione}
+BugBusters ha raccolto tutte le richieste di \textbf{Eggon} e le ha raccolte nell'Analisi dei Requisiti\G (LINK DA INSERIRE QUANDO ANALISI DEI REQUISITI è PRONTA), in modo tale da poter tracciare correttamente i requisiti e da poter eseguire i test di accettazione\G per controllare che quanto sviluppato corrisponda alle richieste di \textbf{Eggon}.
+\section{Processi Organizzativi}
 \end{document}
