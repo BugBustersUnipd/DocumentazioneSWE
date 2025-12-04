@@ -435,11 +435,16 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}:
     \begin{itemize}
-        \item nessuno (la registrazione è un punto di ingresso al Sistema).
+        \item UC-0A.1 - Inserimento email
+        \item UC-0A.2 - Inserimento password
+        \item UC-0A.3 - Inserimento username
+        \item UC-0A.4 - Inserimento nome 
+        \item UC-0A.5 - Inserimento cognome
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-0B – Login / Autenticazione utente (in caso di login automatico al termine della registrazione).
+        \item UC-0A.6 – Registrazione fallita.
     \end{itemize}
 \end{itemize}
 
@@ -486,11 +491,12 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}:
     \begin{itemize}
-        \item nessuno (caso d’uso base di autenticazione).
+        \item UC-0A.1 - Inserimento email
+        \item UC-0A.2 - Inserimento password
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item nessuno (questo caso d’uso è base e viene richiamato da altri, ma non estende ulteriori flussi).
+        \item UC-0B.1 - Login fallito.
     \end{itemize}
 \end{itemize}
 
@@ -517,7 +523,56 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0C – Gestione profilo utente}
+
+
+\subsubsection{UC-0C – Visualizzazione pagina principale / dashboard}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0C.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-1A - Visualizzazione modulo di generazione contenuti AI.
+        \item Visualizzazione modulo di upload e gestione documentale.
+        \item UC-0D - Visualizzazione modulo gestione profilo utente.
+        \item UC-0E - Visualizzazione modulo gestione ruoli.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente ha effettuato il login ed è autenticato.
+    \item Esiste un profilo associato all’utente nel Sistema (dati anagrafici e preferenze).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente dopo aver effettuato il login si ritrova in una schermata con la scelta di diversi moduli.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente autenticato puó scegliere tra diverse azioni.
+\end{itemize}
+
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0D – Visualizzazione gestione profilo utente}
 
 \begin{figure}[H]
     \centering
@@ -535,11 +590,22 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-0B – Login / Autenticazione utente (è necessario che l’utente sia autenticato).
+        \item UC-0D.1 - Visualizzazione email
+        \item UC-0D.2 - Visualizzazione password
+        \item UC-0D.3 - Visualizzazione username
+        \item UC-0D.4 - Visualizzazione nome 
+        \item UC-0D.5 - Visualizzazione cognome
+        \item UC-0D.6 - Visualizzazione id
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item nessuno.
+        \item UC-0A.1 - Inserimento email
+        \item UC-0A.2 - Inserimento password
+        \item UC-0A.3 - Inserimento username
+        \item UC-0A.4 - Inserimento nome 
+        \item UC-0A.5 - Inserimento cognome
+        \item UC-0D.7 – Salva profilo utente.
+        \item UC-0D.8 – Uscita senza salvare profilo utente.
     \end{itemize}
 \end{itemize}
 
@@ -547,13 +613,15 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item L’utente ha effettuato il login ed è autenticato.
     \item Esiste un profilo associato all’utente nel Sistema (dati anagrafici e preferenze).
+    \item L'utente speciale é entrato nel modulo di gestione profilo utente dalla dashboard principale.
+
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L’utente accede alla sezione “Profilo” dalla dashboard dell’applicazione.
     \item Il Sistema mostra i dati correnti del profilo (es. nome, cognome, e-mail, ruolo, preferenze AI come tono/stile predefinito).
-    \item L’utente modifica uno o più campi del profilo (es. nome visualizzato, preferenze di tono, lingua).
+    \item L’utente puó uno o più campi del profilo (es. nome visualizzato, preferenze di tono, lingua).
     \item L’utente conferma le modifiche.
     \item Il Sistema valida i dati inseriti (ad esempio formato dell’e-mail, campi obbligatori).
     \item Il Sistema salva le modifiche nel proprio archivio.
@@ -568,12 +636,11 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D – Gestione ruoli (Admin / Editor)}
+\subsubsection{UC-0E – Visualizzazione gestione ruoli (Admin / Editor)}
 
 \textbf{Attori}
 \begin{itemize}
-    \item Amministratore dell’applicazione standalone (Admin).
-    \item Utenti registrati (Editor o altri ruoli definiti).
+    \item Utenti speciali (Admin o altri ruoli definiti).
     \item Sistema di gestione ruoli e permessi.
 \end{itemize}
 
@@ -581,11 +648,15 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-0B – Login / Autenticazione utente (l’Amministratore deve essere autenticato come Admin).
+        \item UC-0E.1 - Visualizzazione nome utenti registrati.
+        \item UC-0E.2 - Visualizzazione cognome utenti registrati.
+        \item UC-0E.3 - Visualizzazione ruolo utenti registrati.
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item nessuno.
+        \item UC-0E.4 - Modifica ruolo utente registrato.
+        \item UC-0E.5 - Salva modifica ruolo utente registrato.
+        \item UC-0E.6 - Annulla modifica ruolo utente registrato
     \end{itemize}
     
 \end{itemize}
@@ -594,6 +665,7 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item L’utente amministratore ha effettuato il login ed è autenticato come Admin.
     \item Esistono uno o più account utente registrati nel Sistema.
+    \item L'utente speciale é entrato nel modulo di gestione ruoli dalla dashboard principale.
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -615,7 +687,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E – Logout}
+\subsubsection{UC-0F – Logout}
 
 \begin{figure}[H]
     \centering
@@ -633,7 +705,7 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-0B – Login / Autenticazione utente (per poter effettuare il logout è necessaria una sessione attiva).
+        \item Nessuno.
     \end{itemize}
     \item \textit{extend}:
     \begin{itemize}
@@ -661,6 +733,62 @@ Di seguito sono esposti gli attori utilizzati:
 
 
 \subsection{Sezione 1 – Modulo AI Assistant Generativo}
+
+\subsubsection{UC-1A – Visualizzazione modulo di generazione contenuti AI}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1A.jpg}
+    \caption{Diagramma del caso d'uso UC-1A – Creazione di un nuovo contenuto tramite prompt}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autenticato (Editor o Admin).
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item Nessuna.
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-1A.1 - Inserimento prompt
+        \item UC-1A.2 - Selezione tono
+        \item UC-1A.3 - Selezione stile
+        \item UC-1A.4 - Visualizzazione storico prompt
+        \item UC-1A.5 - Generazione contenuto tramite AI
+    \end{itemize}
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente ha effettuato il login.
+    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Assistant.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla sezione “AI Assistant Generativo”.
+    \item Il Sistema mostra il campo per l’inserimento del prompt.
+    \item L’utente inserisce il prompt desiderato (ad esempio: “Comunicato di benvenuto ai nuovi dipendenti”).
+    \item Il Sistema richiede la selezione di tono e stile (formale, informale, tecnico, neutro).
+    \item Il Sistema invia la richiesta al motore AI.
+    \item Il motore AI genera titolo, contenuto testuale e immagine di copertina coerenti.
+    \item Il Sistema mostra l’anteprima del contenuto generato.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Una bozza temporanea del contenuto risulta generata e visibile in anteprima.
+    \item Il prompt utilizzato è stato salvato nello storico (vedi UC-1D).
+\end{itemize}
+
+
+\vspace{0.5cm}
 
 \subsubsection{UC-1A – Creazione di un nuovo contenuto tramite prompt}
 
