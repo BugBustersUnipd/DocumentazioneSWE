@@ -1039,93 +1039,73 @@ Di seguito sono esposti gli attori utilizzati:
 \vspace{0.5cm}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsubsection{UC-2A – Upload documento nel repository locale CdL}
+\subsubsection{UC-2B – Visualizzazione pagina lista documenti.}
 
 \textbf{Attori}
 \begin{itemize}
-    \item Operatore di studio CdL (utente autenticato).
-    \item Sistema di gestione documentale locale dell’applicazione standalone.
+    \item Utente autorizzato (Operatore di studio CdL).
+    \item Sistema AI Doc Classifier.
 \end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item 
+        \item UC-2B.1 – Visualizzazione numero documento
+        \item UC-2B.2 - Visualizzazione tipologia documento
+        \item UC-2B.3 - Visualizzazione competenza documento
+        \item UC-2B.4 – Visualizzazione azienda documento
+        \item UC-2B.5 - Visualizzazione causale
+        \item UC-2B.6 - Visualizzazione lingua
+        \item UC-2B.7 - Visualizzazione numero pagine documento
+        \item UC-2B.8 - Visualizzazione nome documento originale
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item 
+        \item UC-2B.9 - Filtraggio documenti
+        \item UC-2C – Visualizzazione pagina documento
+        \item UC-2D - Visualizzazione pagina destinatario
     \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente ha effettuato il login nell’applicazione standalone.
-    \item Il repository documentale locale è disponibile e correttamente inizializzato.
+    \item É stato caricato almeno un documento tramite UC-2A.
+    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
+    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente accede alla sezione ``Repository documentale CdL''.
-    \item Il Sistema mostra l’elenco dei documenti già presenti e le azioni disponibili.
-    \item L’utente seleziona l’azione di upload di uno o più file (es. PDF, ZIP, immagini).
-    \item L’utente seleziona i file dal proprio dispositivo.
-    \item L’utente, se necessario, inserisce alcuni metadati di base (es. mese/anno di competenza, azienda, categoria documento).
-    \item Il Sistema verifica il formato dei file caricati.
-    \item In caso di esito positivo, il Sistema memorizza i file nel repository locale e li marca come ``In attesa di elaborazione''.
+    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
+    \item Il Sistema mostra l’elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
 \end{enumerate}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item I documenti risultano archiviati nel repository locale con stato ``In attesa di elaborazione''.
-    \item I documenti sono disponibili per le successive fasi di riconoscimento ed elaborazione AI.
+    \item L'utente puó visualizzare la lista dei documenti caricati e le relative informazioni.
 \end{itemize}
 
-\textbf{Varianti/Exceptions}
-\begin{itemize}
-    \item File duplicato $\rightarrow$ UC-2A.1 
-    \item Formato non valido $\rightarrow$ UC-2A.2
-\end{itemize}
-
-\subsubsection{UC-2A.1 – Inserimento file duplicato}
-
-\subsubsection{UC-2A.2 – Inserimento file in formato non valido}
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
+    \caption{Diagramma del caso d'uso UC-2B – }
+\end{figure}
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B – Riconoscimento automatico del documento (OCR + classificazione)}
+\subsubsection{UC-2C – Visualizzazione pagina documento}
 
 \textbf{Attori}
 \begin{itemize}
-    \item Sistema AI di riconoscimento documentale (OCR + classificatore).
-    \item Operatore di studio CdL (in qualità di supervisore).
+    \item 
 \end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
+        \item 
         \item 
     \end{itemize}
     \item \textit{extend}: 
@@ -1136,49 +1116,39 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Uno o più documenti sono presenti nel repository con stato ``In attesa di elaborazione'' (UC-2A completato).
-    \item Il motore OCR e il classificatore AI sono configurati e disponibili nell’applicazione standalone.
+    \item 
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente avvia l’elaborazione automatica dei documenti oppure il Sistema la esegue in modo asincrono.
-    \item Il Sistema esegue l’OCR sul documento per estrarne il testo.
-    \item Il Sistema applica il modello di classificazione per identificare la tipologia di documento (es. cedolino, CU, comunicazione, lettera).
-    \item Il Sistema associa al documento la tipologia rilevata e un punteggio di confidenza.
-    \item Il Sistema aggiorna lo stato del documento a ``Riconosciuto'' o ``Da verificare'' in base alla soglia di confidenza.
+    \item 
 \end{enumerate}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Ogni documento elaborato possiede una tipologia identificata e un punteggio di confidenza.
-    \item I documenti sono pronti per l’estrazione dei destinatari o per una eventuale revisione manuale.
+    \item 
 \end{itemize}
 
-\textbf{Varianti/Exceptions}
-\begin{itemize}
-    \item Bassa confidenza $\rightarrow$ UC-2B.1 
-    \item OCR parziale o fallito $\rightarrow$ UC-2B.2
-\end{itemize}
-
-\subsubsection{UC-2B.1 – Bassa confidenza}
-
-\subsubsection{UC-2B.2 – OCR parziale o fallito}
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
+    \caption{Diagramma del caso d'uso UC-2C – Visualizzazione pagina documento}
+\end{figure}
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2C – Estrazione e riconoscimento dei destinatari}
+\subsubsection{UC-2D - Visualizzazione pagina destinatario }
 
 \textbf{Attori}
 \begin{itemize}
-    \item Sistema AI di estrazione entità (entity extraction).
-    \item Operatore di studio CdL.
+    \item 
 \end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
+        \item 
         \item 
     \end{itemize}
     \item \textit{extend}: 
@@ -1189,332 +1159,28 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Il documento è stato elaborato tramite OCR e classificazione (UC-2B completato).
-    \item Il testo del documento è disponibile in forma strutturata o semi-strutturata.
+    \item 
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente seleziona un documento in stato ``Riconosciuto''.
-    \item Il Sistema analizza il testo alla ricerca di entità rilevanti (es. nome e cognome, codice fiscale, matricola, reparto).
-    \item Il Sistema propone uno o più possibili destinatari in base ai dati estratti.
-    \item Il Sistema associa al documento il destinatario selezionato o quello con confidenza più alta.
-    \item Il Sistema aggiorna lo stato del documento a ``Destinatario riconosciuto'' o ``Ambiguità da risolvere''.
+    \item 
 \end{enumerate}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Per ciascun documento è stato individuato almeno un destinatario, con relativo punteggio di confidenza.
-    \item I documenti sono pronti per l’eventuale fase di split (se multi-destinatario) o per la revisione manuale.
+    \item 
 \end{itemize}
 
-\textbf{Varianti/Exceptions}
-\begin{itemize}
-    \item Multimatch (omonomie) $\rightarrow$ UC-2C.1 
-    \item Destinatario mancante $\rightarrow$ UC-2C.2
-\end{itemize}
-
-\subsubsection{UC-2C.1 – Multimatch (omonomie)}
-
-\subsubsection{UC-2C.2 – Destinatario mancante}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2D – Split dei documenti massivi per destinatario}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Sistema di splitting documentale.
-    \item Operatore di studio CdL.
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item È presente un documento multi-destinatario (es. file unico con più cedolini) nel repository.
-    \item Il documento è stato elaborato tramite OCR (UC-2B) ed eventualmente sono stati identificati pattern utili alla separazione.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente seleziona un documento identificato come ``massivo''.
-    \item Il Sistema analizza la struttura del documento (pagine, sezioni, marcatori) per individuare i confini fra i diversi destinatari.
-    \item Il Sistema propone una suddivisione del documento in più documenti singoli.
-    \item Il Sistema associa a ciascun documento derivato uno o più possibili destinatari (se disponibili da UC-2C).
-    \item L’utente conferma o corregge la suddivisione proposta.
-    \item Il Sistema crea i documenti singoli nel repository, mantenendo un riferimento all’originale.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il documento massivo è stato suddiviso in documenti singoli, ciascuno associato al proprio destinatario.
-    \item I documenti singoli risultano pronti per la revisione e per la successiva esportazione.
-\end{itemize}
-
-\textbf{Varianti/Exceptions}
-\begin{itemize}
-    \item Pagine non rilevabili $\rightarrow$ UC-2D.1 
-    \item Split incompleto $\rightarrow$ UC-2D.2
-\end{itemize}
-
-\subsubsection{UC-2D.1 – Pagine non rilevabili}
-
-\subsubsection{UC-2D.2 – Split incompleto}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2E – Revisione manuale dei risultati (Human-in-the-Loop)}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore di studio CdL.
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Esistono documenti in stato ``Da verificare'', ``Ambiguità da risolvere'' oppure documenti derivati dallo split (UC-2B, UC-2C o UC-2D completati).
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente accede alla sezione di revisione documenti.
-    \item Il Sistema mostra l’elenco dei documenti che richiedono intervento umano (bassa confidenza, ambiguità, split da confermare).
-    \item L’utente seleziona un documento da revisionare.
-    \item Il Sistema mostra il documento, i metadati rilevati (tipologia, destinatari, competenza) e i relativi punteggi di confidenza.
-    \item L’utente corregge, conferma o integra le informazioni (tipologia documento, destinatario, metadati).
-    \item L’utente conferma le modifiche.
-    \item Il Sistema aggiorna i dati del documento e imposta lo stato come ``Validato manualmente''.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item I documenti selezionati risultano revisionati e validati dall’operatore.
-    \item Le informazioni corrette sono pronte per la creazione di liste di distribuzione o per l’esportazione.
-\end{itemize}
-
-\textbf{Varianti/Exceptions}
-\begin{itemize}
-    \item Correzione in bulk $\rightarrow$ UC-2E.1 
-\end{itemize}
-
-\subsubsection{UC-2E.1 – Correzione in bulk}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2F – Creazione di liste di distribuzione}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore di studio CdL.
-    \item Sistema di esportazione documentale dell’applicazione standalone.
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item I documenti sono stati riconosciuti e validati (UC-2B, UC-2C, UC-2D e UC-2E, secondo necessità).
-    \item Ogni documento è associato a uno o più destinatari.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente accede alla sezione di generazione delle liste di distribuzione.
-    \item Il Sistema propone una lista di documenti raggruppati per destinatario.
-    \item L’utente seleziona un insieme di documenti da esportare (ad esempio tutti i cedolini di un mese).
-    \item Il Sistema genera una lista di distribuzione contenente destinatari e documenti associati.
-    \item L’utente sceglie la modalità di esportazione (es. cartella locale, archivio ZIP, esportazione metadati in CSV).
-    \item Il Sistema produce il pacchetto di esportazione contenente documenti e metadati (lista di distribuzione).
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item È stato generato un output (es. archivio ZIP o struttura di cartelle) che contiene i documenti pronti per l’invio tramite canali esterni all’applicazione standalone.
-    \item La lista di distribuzione è salvata localmente per eventuale tracciamento e riuso.
-\end{itemize}
-
-\textbf{Varianti/Exceptions}
-\begin{itemize}
-    \item Canale non disponibile per alcuni destinatari $\rightarrow$ UC-2F.1 
-\end{itemize}
-
-\subsubsection{UC-2F.1 – Canale non disponibile per alcuni destinatari}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2G – Invio, tracciamento e prova di consegna}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore di studio CdL.
-    \item Sistema NEXUM.
-    \item Destinatario del documento.
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item É stata giá generata una lista di distribuzione/dispaccio.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'operatore avvia invio (immediato o pianificato)
-    \item Il sistema invia su canali selezionati, applica firma digitale/marca temporale se previsto
-    \item Registra esiti (consegnato, non consegnato, in attesa, letto) e genera ricevute
-    \item Il destinatario riceve la notifica e accede al documento (portale/app)
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Tracciamento completo in registro di dispaccio; KPI aggiornati.
-\end{itemize}
-
-\textbf{Varianti/Exceptions}
-\begin{itemize}
-    \item Bounce o mancata consegna $\rightarrow$ UC-2G.1 
-    \item Revoca/annullo prima del download $\rightarrow$ UC-2G.2
-\end{itemize}
-
-\subsubsection{UC-2G.1 – Bounce o mancata consegna}
-
-\subsubsection{UC-2G.2 – Revoca/annullo prima del download}
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
+    \caption{Diagramma del caso d'uso UC-2D - Visualizzazione pagina destinatario }
+\end{figure}
 
 \vspace{0.5cm}
 
 
-\subsubsection{UC-2H – Consultazione storico documentale e audit locale}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore di studio CdL.
-    \item Amministratore dell’applicazione standalone.
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Sono presenti nel Sistema documenti caricati, elaborati, revisionati o esportati.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente accede alla sezione ``Storico e audit'' dell’applicazione.
-    \item Il Sistema mostra l’elenco dei documenti con i relativi stati (caricato, riconosciuto, validato, esportato).
-    \item L’utente applica filtri di ricerca (per azienda, destinatario, tipologia documento, intervallo temporale).
-    \item Il Sistema aggiorna i risultati in base ai filtri selezionati.
-    \item L’utente seleziona un documento per visualizzare i dettagli (metadati, log delle operazioni, eventuali revisioni manuali).
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L’utente dispone di una visione completa e tracciata delle operazioni svolte sui documenti.
-    \item Le informazioni storiche possono essere utilizzate per verifiche interne e per migliorare il flusso di lavoro.
-\end{itemize}
-
-\textbf{Varianti/Exceptions}
-\begin{itemize}
-    \item Richiesta di oblìo (GDPR) $\rightarrow$ UC-2H.1 
-\end{itemize}
-
-\subsubsection{UC-2H.1 – Richiesta di oblìo (GDPR)}
-
-\vspace{0.5cm}
-
-
-\subsubsection{UC-2I – Monitoraggio qualità AI e miglioramento continuo}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Data analyst.
-    \item Admin Eggon.
-    \item Sistema
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Pipeline AI in produzione con raccolta metriche.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Raccolta metriche: confidenza media, percentuale interventi manuali, accuratezza mapping, tempi medi.
-    \item Analisi rating (feedback operatori) per addestrare regole/LLM e aggiornare soglie.
-    \item Rilascio miglioramenti (nuovi pattern, dizionari cliente, layout engine).
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Modelli e regole ottimizzati; riduzione errori e tempi di ciclo.
-\end{itemize}
 
 \section{Requisiti}
 
