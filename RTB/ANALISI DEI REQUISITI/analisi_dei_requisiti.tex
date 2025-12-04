@@ -547,7 +547,7 @@ Di seguito sono esposti gli attori utilizzati:
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-1A - Visualizzazione modulo di generazione contenuti AI.
-        \item Visualizzazione modulo di upload e gestione documentale.
+        \item UC-2A - Visualizzazione modulo di upload e gestione documentale.
         \item UC-0D - Visualizzazione modulo gestione profilo utente.
         \item UC-0E - Visualizzazione modulo gestione ruoli.
     \end{itemize}
@@ -740,12 +740,12 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1A.jpg}
-    \caption{Diagramma del caso d'uso UC-1A – Creazione di un nuovo contenuto tramite prompt}
+    \caption{Diagramma del caso d'uso UC-1A – Visualizzazione modulo di generazione contenuti AI}
 \end{figure}
 
 \textbf{Attori}
 \begin{itemize}
-    \item Utente autenticato (Editor o Admin).
+    \item Utente autorizzato (Editor o Admin).
 \end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -759,49 +759,42 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-1A.1 - Inserimento prompt
         \item UC-1A.2 - Selezione tono
         \item UC-1A.3 - Selezione stile
-        \item UC-1A.4 - Visualizzazione storico prompt
-        \item UC-1A.5 - Generazione contenuto tramite AI
+        \item UC-1A.4 - Generazione contenuto tramite AI
+        \item UC-1B - Visualizzazione storico prompt
     \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente ha effettuato il login.
+    \item L’utente é entrato nel modulo AI Assistant Generativo dalla dashboard principale.
     \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Assistant.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L’utente accede alla sezione “AI Assistant Generativo”.
-    \item Il Sistema mostra il campo per l’inserimento del prompt.
-    \item L’utente inserisce il prompt desiderato (ad esempio: “Comunicato di benvenuto ai nuovi dipendenti”).
-    \item Il Sistema richiede la selezione di tono e stile (formale, informale, tecnico, neutro).
-    \item Il Sistema invia la richiesta al motore AI.
-    \item Il motore AI genera titolo, contenuto testuale e immagine di copertina coerenti.
-    \item Il Sistema mostra l’anteprima del contenuto generato.
+    \item Il Sistema mostra il campo per l’inserimento del prompt e le azione che possono essere eseguite dall'utente.
 \end{enumerate}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Una bozza temporanea del contenuto risulta generata e visibile in anteprima.
-    \item Il prompt utilizzato è stato salvato nello storico (vedi UC-1D).
+    \item L'utente visualizza l’interfaccia di generazione contenuti AI, pronta per l’inserimento del prompt e la selezione delle opzioni.
 \end{itemize}
 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1A – Creazione di un nuovo contenuto tramite prompt}
-
+\subsubsection{UC-1A.4 - Generazione contenuto tramite AI}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1A.jpg}
-    \caption{Diagramma del caso d'uso UC-1A – Creazione di un nuovo contenuto tramite prompt}
+    \caption{Diagramma del caso d'uso UC-1A.4 - Generazione contenuto tramite AI}
 \end{figure}
 
 \textbf{Attori}
 \begin{itemize}
-    \item Utente autenticato (Editor o Admin).
+    \item Utente autorizzato (Editor o Admin).
     \item Sistema AI di generazione contenuti.
 \end{itemize}
 
@@ -809,100 +802,44 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-1D – Salvataggio e gestione dei prompt (il prompt utilizzato viene sempre salvato nello storico).
+        \item UC-1C – Visualizzazione pagina contenuto generato.
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item Nessuna.
+        \item 
     \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente ha effettuato il login.
     \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Assistant.
+    \item L’utente ha inserito un prompt.
+    \item L’utente ha selezionato tono desiderato.
+    \item L’utente ha selezionato stile desiderato.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L’utente accede alla sezione “AI Assistant Generativo”.
-    \item Il Sistema mostra il campo per l’inserimento del prompt.
-    \item L’utente inserisce il prompt desiderato (ad esempio: “Comunicato di benvenuto ai nuovi dipendenti”).
-    \item Il Sistema richiede la selezione di tono e stile (formale, informale, tecnico, neutro).
-    \item Il Sistema invia la richiesta al motore AI.
-    \item Il motore AI genera titolo, contenuto testuale e immagine di copertina coerenti.
-    \item Il Sistema mostra l’anteprima del contenuto generato.
+    \item L’utente inserisce un prompt descrittivo del contenuto desiderato.
+    \item L’utente seleziona il tono (es. formale, informale) e lo stile (es. sintetico, dettagliato).
+    \item L’utente avvia la generazione del contenuto.
 \end{enumerate}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Una bozza temporanea del contenuto risulta generata e visibile in anteprima.
-    \item Il prompt utilizzato è stato salvato nello storico (vedi UC-1D).
+    \item Una bozza temporanea del contenuto risulta generata e visibile in anteprima (vedi UC-1C).
+    \item Il prompt utilizzato è stato salvato nello storico (vedi UC-1).
 \end{itemize}
 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B – Modifica del contenuto generato}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1B.jpg}
-    \caption{Diagramma del caso d'uso UC-1B – Modifica del contenuto generato}
-\end{figure}
+\subsubsection{UC-1B – Visualizzazione storico prompt}
 
 \textbf{Attori}
 \begin{itemize}
-    \item Utente autenticato.
-    \item Sistema AI (in caso di nuove generazioni parziali).
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (è necessario che esista un contenuto generato da modificare).
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-1F – Rigenerazione del contenuto (la modifica può essere arricchita da rigenerazioni automatiche di parti del testo).
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Un contenuto è stato generato tramite UC-1A.
-    \item L’utente ha i permessi per modificarlo.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente apre l’anteprima del contenuto generato.
-    \item Il Sistema mostra gli elementi modificabili (titolo, corpo del messaggio, immagine).
-    \item L’utente modifica uno o più elementi.
-    \item Il Sistema aggiorna l’anteprima in tempo reale.
-    \item L’utente conferma le modifiche effettuate.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item La versione aggiornata del contenuto è pronta per essere salvata o scartata.
-\end{itemize}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1C – Pubblicazione o scarto del contenuto}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1C.jpg}
-    \caption{Diagramma del caso d'uso UC-1C – Pubblicazione o scarto del contenuto}
-\end{figure}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autenticato (Editor o Admin).
+    \item Utente autorizzato (Editor o Admin).
     \item Sistema di persistenza locale.
 \end{itemize}
 
@@ -910,271 +847,217 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (deve esistere una bozza).
+        \item UC-1B.1 – Visualizzazione prompt
+        \item UC-1B.2 – Visualizzazione Tono
+        \item UC-1B.3 – Visualizzazione stile
+        \item UC-1B.4 – Visualizzazione risultato
+        \item UC-1B.5 – Visualizzazione timestamp
+        \item UC-1B.6 – Visualizzazione Valutazione
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item Nessuna.
+        \item UC-1B.7 – Ricerca
+        \item UC-1B.8 – Riutilizza (rigenera con lo stesso prompt)
+        \item UC-1B.9 – Duplica (Ti riporta al modulo di generazione con prompt, tono e stile precompilati)
     \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Un contenuto è disponibile, generato tramite UC-1A e/o modificato tramite UC-1B.
+    \item Ci sono stati precedenti utilizzi del modulo AI Assistant Generativo.
+    \item L’utente é entrato nel modulo AI Assistant Generativo dalla dashboard principale.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente decide se salvare la bozza, pubblicare il contenuto o scartarlo.
-    \item Il Sistema esegue la validazione dei campi obbligatori.
-    \item Se l’utente sceglie “Pubblica”, il Sistema memorizza il contenuto e lo marca come “pubblicato”.
-    \item Se l’utente sceglie “Scarta”, il Sistema elimina la bozza e ritorna alla schermata iniziale.
+    \item L’utente accede alla sezione “Storico Prompt” all’interno del modulo AI Assistant Generativo.
+    \item Il Sistema mostra l’elenco dei prompt precedentemente utilizzati, con i relativi dettagli (tono, stile, risultato generato, data/ora, valutazione).
 \end{enumerate}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Il contenuto risulta pubblicato o eliminato, a seconda dell’azione scelta dall’utente.
-\end{itemize}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1D – Salvataggio e gestione dei prompt}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autenticato.
-    \item Sistema di archivio locale.
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (i prompt derivano da richieste di generazione).
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (variante in cui il contenuto viene generato a partire da un prompt già presente nello storico anziché da un nuovo prompt).
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L’utente ha generato almeno un contenuto tramite UC-1A, oppure esistono già prompt salvati in archivio.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il Sistema salva automaticamente il prompt utilizzato, il tono, lo stile e la data di utilizzo.
-    \item L’utente accede alla sezione “Storico Prompt”.
-    \item Il Sistema mostra l’elenco dei prompt salvati.
-    \item L’utente può filtrare, ricercare, duplicare o riutilizzare un prompt.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Lo storico dei prompt risulta aggiornato e consultabile.
-    \item L’utente può utilizzare i prompt salvati come base per nuove generazioni.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1D.jpg}
-    \caption{Diagramma del caso d'uso UC-1D – Salvataggio e gestione dei prompt}
-\end{figure}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1E – Valutazione della qualità del contenuto (Rating)}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autenticato.
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (deve esistere un contenuto visualizzabile).
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (valutazione immediata dopo la generazione).
-        \item UC-1C – Pubblicazione o scarto del contenuto (valutazione dopo la pubblicazione).
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L’utente ha generato un contenuto ed è in grado di visualizzarlo (anteprima o stato pubblicato).
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il Sistema mostra un widget di valutazione (es. stelle 1–5).
-    \item L’utente seleziona il voto desiderato.
-    \item Il Sistema salva la valutazione e la associa al contenuto e/o al prompt originario.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il contenuto ha associata una valutazione salvata localmente.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1E.jpg}
-    \caption{Diagramma del caso d'uso UC-1E – Valutazione della qualità del contenuto (Rating)}
-\end{figure}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1F – Rigenerazione del contenuto}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autenticato.
-    \item Sistema AI di generazione contenuti.
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}:
-    \begin{itemize}
-        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (deve esistere una
-            prima versione generata).
-    \end{itemize}
-    
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (variante in cui l’utente non accetta la prima generazione e richiede una nuova versione).
-        \item UC-1B – Modifica del contenuto generato (variante in cui parte delle modifiche viene ottenuta tramite nuova generazione AI).
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L’utente ha effettuato il login.
-    \item Un contenuto è stato generato tramite UC-1A.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente visualizza l’anteprima del contenuto generato.
-    \item L’utente decide di volere un’alternativa al contenuto proposto.
-    \item Il Sistema invia una nuova richiesta al motore AI (utilizzando lo stesso prompt o una sua variante).
-    \item Il motore AI genera una nuova versione del contenuto.
-    \item Il Sistema mostra in anteprima la nuova versione, sostituendo o affiancando la precedente, a seconda delle impostazioni.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item È disponibile una nuova versione del contenuto, che può essere modificata, valutata o pubblicata come negli altri casi d'uso.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1F.jpg}
-    \caption{Diagramma del caso d'uso UC-1F – Rigenerazione del contenuto}
-\end{figure}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1G – Revisione finale del contenuto}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autenticato (Editor o Admin).
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1A – Creazione di un nuovo contenuto tramite prompt.
-        \item UC-1B – Modifica del contenuto generato (se il contenuto è stato modificato).
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-1C – Pubblicazione o scarto del contenuto (la revisione si inserisce come passo alternativo prima della decisione finale).
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Un contenuto è stato generato e/o modificato.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente accede alla schermata di revisione.
-    \item Il Sistema mostra il contenuto completo (titolo, testo, immagine).
-    \item L’utente verifica la correttezza del contenuto.
-    \item L’utente decide se procedere al salvataggio/pubblicazione (UC-1C) o tornare alla modifica (UC-1B).
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il contenuto è pronto per essere gestito tramite UC-1C (pubblicato o scartato).
+    \item L'utente visualizza lo storico dei prompt utilizzati e puó interagire con essi (es. riutilizzo, duplicazione, ricerca).
 \end{itemize}
 
 \begin{figure}[H]
     \centering
     %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1G.jpg}
-    \caption{Diagramma del caso d'uso UC-1G – Revisione finale del contenuto}
+    \caption{Diagramma del caso d'uso UC-1B – Visualizzazione storico prompt}
 \end{figure}
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1H – Analisi e reportistica sull’utilizzo}
+
+\subsubsection{UC-1C – Visualizzazione pagina contenuto generato}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1C.jpg}
+    \caption{Diagramma del caso d'uso UC-1C – Visualizzazione pagina contenuto generato}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
-    \item Utente autenticato (Admin o analista interno).
+    \item Utente autorizzato.
+    \item Sistema AI (in caso di nuove generazioni parziali).
 \end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item nessuna (usa i dati storici già presenti).
+        \item UC-1C.1 – Visualizzazione anteprima contenuto generato.
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-1A – Creazione di un nuovo contenuto tramite prompt (analisi delle generazioni effettuate).
-        \item UC-1C – Pubblicazione o scarto del contenuto (analisi dei tassi di pubblicazione/scarto).
-        \item UC-1E – Valutazione della qualità del contenuto (analisi dei rating e della qualità percepita).
+        \item UC-1C.2 – Rigenera contenuto tramite AI 
+        \item UC-1C.3 – Salva post generato
+        \item UC-1C.4 – Valuta contenuto generato
+        \item UC-1C.5 – Scarta contenuto generato
+        \item UC-1C.6 – Pubblica contenuto generato
+        \item UC-1D – Visualizzazione pagina modifica contenuto generato
     \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Esistono dati salvati relativi a generazioni, rating e utilizzo del Sistema.
+    \item Un contenuto è stato generato tramite UC-1A.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente accede alla dashboard di analytics.
-    \item Il Sistema mostra statistiche aggregate (numero generazioni, rating medi, prompt più usati, frequenza d’uso).
-    \item L’utente applica filtri o intervalli temporali.
-    \item Il Sistema aggiorna la visualizzazione dei dati in base ai criteri selezionati.
+    \item Il contenuto viene generato e mostrato in anteprima all’utente.
 \end{enumerate}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Le informazioni statistiche sono consultabili per valutare l'efficacia del modulo generativo.
+    \item L'utente puó eseguire le varie azioni mostrate a schermo
+\end{itemize}
+
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1D – Visualizzazione pagina modifica contenuto generato}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1D.jpg}
+    \caption{Diagramma del caso d'uso UC-1D – Visualizzazione pagina modifica contenuto generato}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Editor o Admin).
+    \item Sistema di persistenza locale.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1C.1 – Visualizzazione anteprima contenuto generato
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-1D.1 – Modifica immagine
+        \item UC-1D.2 – Modifica titolo
+        \item UC-1D.3 – Modifica testo
+        \item UC-1D.4 – Salva modifiche
+        \item UC-1D.5 – Annulla modifiche
+    \end{itemize}
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha generato un contenuto tramite UC-1A e lo sta visualizzando in anteprima tramite UC-1C.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente é nella pagina del contenuto generato.
+    \item L'utente seleziona l’opzione di modifica del contenuto generato.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica e puó eseguire le opzioni mostrate.
+\end{itemize}
+
+
+\vspace{0.5cm}
+
+
+
+\subsection{Sezione 2 – Modulo AI Co-Pilot per i Consulenti del Lavoro (CdL)}
+
+\subsubsection{UC-2A – Visualizzazione modulo di upload e gestione documentale.}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item Nessuna.
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-2A.1 - Caricamento file
+        \item UC-2A.2 - Inserimento categoria
+        \item UC-2A.3 - Inserimento mese/anno di competenza
+        \item UC-2A.4 - Inserimento azienda
+        \item UC-2A.5 - Inserimento reparto
+        \item UC-2A.6 - Avvio upload
+    \end{itemize}
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
+    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot per i CdL.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item 
 \end{itemize}
 
 \begin{figure}[H]
     \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1H.jpg}
-    \caption{Diagramma del caso d'uso UC-1H – Analisi e reportistica sull’utilizzo}
+    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1G.jpg}
+    \caption{Diagramma del caso d'uso UC-1 – }
 \end{figure}
 
+\vspace{0.5cm}
 
-\subsection{Sezione 2 – Modulo AI Co-Pilot per i Consulenti del Lavoro (CdL)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsubsection{UC-2A – Upload documento nel repository locale CdL}
 
