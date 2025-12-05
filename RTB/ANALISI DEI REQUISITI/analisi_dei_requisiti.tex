@@ -88,6 +88,18 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \hline
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
 \hline
+0.0.8 & 05/12/2025 & 
+\begin{minipage}[t]{\linewidth}
+Riscrittura casi d'uso con aggiornato grado di precisione (sezione 2).
+\end{minipage} 
+& Leonardo Salviato & - \\
+\hline
+0.0.7 & 04/12/2025 & 
+\begin{minipage}[t]{\linewidth}
+Riscrittura casi d'uso con aggiornato grado di precisione (sezioni 0 e 1).
+\end{minipage} 
+& Leonardo Salviato & - \\
+\hline
 0.0.6 & 03/12/2025 & 
 \begin{minipage}[t]{\linewidth}
 Aggiunti casi d'uso sezione 2, aggiunta varianti/exceptions sezione 2, scritta possibile struttura requisiti.
@@ -759,7 +771,7 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-1A.1 - Inserimento prompt
         \item UC-1A.2 - Selezione tono
         \item UC-1A.3 - Selezione stile
-        \item UC-1A.4 - Generazione contenuto tramite AI
+        \item UC-1C - Generazione contenuto tramite AI
         \item UC-1B - Visualizzazione storico prompt
     \end{itemize}
 \end{itemize}
@@ -784,57 +796,6 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1A.4 - Generazione contenuto tramite AI}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1A.jpg}
-    \caption{Diagramma del caso d'uso UC-1A.4 - Generazione contenuto tramite AI}
-\end{figure}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autorizzato (Editor o Admin).
-    \item Sistema AI di generazione contenuti.
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1C – Visualizzazione pagina contenuto generato.
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Assistant.
-    \item L’utente ha inserito un prompt.
-    \item L’utente ha selezionato tono desiderato.
-    \item L’utente ha selezionato stile desiderato.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente accede alla sezione “AI Assistant Generativo”.
-    \item L’utente inserisce un prompt descrittivo del contenuto desiderato.
-    \item L’utente seleziona il tono (es. formale, informale) e lo stile (es. sintetico, dettagliato).
-    \item L’utente avvia la generazione del contenuto.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Una bozza temporanea del contenuto risulta generata e visibile in anteprima (vedi UC-1C).
-    \item Il prompt utilizzato è stato salvato nello storico (vedi UC-1).
-\end{itemize}
-
-
-\vspace{0.5cm}
-
 \subsubsection{UC-1B – Visualizzazione storico prompt}
 
 \textbf{Attori}
@@ -848,7 +809,7 @@ Di seguito sono esposti gli attori utilizzati:
     \item \textit{include}: 
     \begin{itemize}
         \item UC-1B.1 – Visualizzazione prompt
-        \item UC-1B.2 – Visualizzazione Tono
+        \item UC-1B.2 – Visualizzazione tono
         \item UC-1B.3 – Visualizzazione stile
         \item UC-1B.4 – Visualizzazione risultato
         \item UC-1B.5 – Visualizzazione timestamp
@@ -1022,12 +983,13 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item 
+    \item L'utente dalla dashboard principale accede al Modulo AI Co-Pilot per i Consulenti del Lavoro.
+    \item Il Sistema mostra l’interfaccia di upload documenti, con le azioni
 \end{enumerate}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item 
+    \item L'utente visualizza l’interfaccia di upload documenti, pronta per il caricamento e la gestione dei file.
 \end{itemize}
 
 \begin{figure}[H]
@@ -1051,7 +1013,7 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2B.1 – Visualizzazione numero documento
+        \item UC-2B.1 – Visualizzazione codice documento
         \item UC-2B.2 - Visualizzazione tipologia documento
         \item UC-2B.3 - Visualizzazione competenza documento
         \item UC-2B.4 – Visualizzazione azienda documento
@@ -1059,10 +1021,11 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-2B.6 - Visualizzazione lingua
         \item UC-2B.7 - Visualizzazione numero pagine documento
         \item UC-2B.8 - Visualizzazione nome documento originale
+        \item UC-2B.9 - Visualizzazione data redazione documento
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2B.9 - Filtraggio documenti
+        \item UC-2B.10 - Filtraggio documenti
         \item UC-2C – Visualizzazione pagina documento
         \item UC-2D - Visualizzazione pagina destinatario
     \end{itemize}
@@ -1098,7 +1061,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Attori}
 \begin{itemize}
-    \item 
+    \item Utente autorizzato (Operatore di studio CdL).
 \end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -1141,35 +1104,41 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Attori}
 \begin{itemize}
-    \item 
+    \item Utente autorizzato (Operatore di studio CdL).
 \end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item 
-        \item 
+        \item UC-2B.1 – Visualizzazione codice documento
+        \item UC-2D.1 – Visualizzazione destinatario
+        \item UC-2D.2 - Visualizzazione codice fiscale
+        \item UC-2D.3 - Visualizzazione matricola
+        \item UC-2D.4 - Visualizzazione reparto
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item 
+        \item UC-2B – Visualizzazione pagina lista documenti.
+        \item UC-2C – Visualizzazione pagina documento
+        \item UC-2E - Visualizzazione pagina storico documenti
     \end{itemize}
 \end{itemize}
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item 
+    \item Si é nella pagina lista documenti tramite UC-2B.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item 
+    \item L'utente ha finito di visualizzare le informazioni del documento e seleziona l’opzione per visualizzare i dettagli del destinatario.
 \end{enumerate}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item 
+    \item L'utente visualizza le informazioni dettagliate del destinatario associate al documento selezionato.
+    \item L'utente puó nuovamente accedere alla pagina del documento tramite UC-2C.
 \end{itemize}
 
 \begin{figure}[H]
@@ -1180,7 +1149,209 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-2E – Visualizzazione pagina storico documenti}
 
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2B.1 – Visualizzazione codice documento
+        \item UC-2E.1 - Visualizzazione stato
+        \item UC-2E.2 - Visualizzazione percentuale confidenza
+        \item UC-2E.3 - Visualizzazione lista distribuzione
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-2C – Visualizzazione pagina documento
+        \item UC-2D - Visualizzazione pagina destinatario
+        \item UC-2E.4 - Selezione documento
+        \item UC-2F - Gestione messaggio
+    \end{itemize}
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina destinatario tramite UC-2D.
+    \item L'utente ha selezionato l’opzione per inviare il documento al destinatario.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente dopo aver fatto le opportune verifiche sul documento e sul destinatario seleziona l’opzione per inviare il documento.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente va alla pagina di gestione dell'invio e del rispettivo messaggio.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
+    \caption{Diagramma del caso d'uso UC- – }
+\end{figure}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2F – Gestione messaggio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+    \item Sistema di invio documenti.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2B.1 – Visualizzazione codice documento
+        \item UC-2B.4 – Visualizzazione azienda documento
+        \item UC-2B.9 - Visualizzazione data redazione documento
+        \item UC-2F.6 - Visualizzazione oggetto messaggio
+        \item UC-2F.7 - Visualizzazione testo messaggio
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-2F.1 - Salva template messaggio
+        \item UC-2G - Tabella template salvati
+        \item UC-1A.2 - Selezione tono
+        \item UC-1A.3 - Selezione stile
+        \item UC-2F.2 - Modifica oggetto messaggio
+        \item UC-2F.3 - Modifica testo messaggio
+        \item UC-2F.4 - Conferma modifica messaggio
+        \item UC-2F.5 - Genera messaggio
+        \item UC-2E – Visualizzazione pagina storico documenti
+        \item UC-2H – Invio documento e messaggio
+    \end{itemize}
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Ci si trova nella pagina gestione messaggio tramite UC-2E.
+    \item Almeno un documento è stato selezionato per l'invio.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Un utente ha selezionato uno o piú documenti da inviare a uno o piú destinatari e sta prepara in messaggio da inviare assieme ai documenti.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il messaggio é pronto per essere inviato assieme ai documenti selezionati.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
+    \caption{Diagramma del caso d'uso UC- – }
+\end{figure}
+
+\vspace{0.5cm}
+
+
+\subsubsection{UC-2G - Tabella template salvati }
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+    \item Sistema di gestione template messaggi.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1B.2 – Visualizzazione tono
+        \item UC-1B.3 – Visualizzazione stile 
+        \item UC-2F.6 – Visualizzazione oggetto messaggio
+        \item UC-2F.7 – Visualizzazione testo messaggio
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-2F – Gestione messaggio
+    \end{itemize}
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di gestione messaggio tramite UC-2F.
+    \item Esistono uno o più template di messaggi salvati nel sistema.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente ha bisogno di utilizzare un template di messaggio salvato per preparare il messaggio da inviare assieme ai documenti selezionati.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente si ritrova nella pagina di gestione messaggio con il template selezionato caricato nei campi oggetto e testo del messaggio.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
+    \caption{Diagramma del caso d'uso UC- – }
+\end{figure}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2H – Invio documento e messaggio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+    \item Sistema di invio documenti e messaggi.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2F.6 – Visualizzazione oggetto messaggio
+        \item UC-2F.7 – Visualizzazione testo messaggio
+        \item UC-2H.4 – Visualizzazione lista destinatari
+        \item UC-2H.5 – Visualizzazione lista documenti
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-2H.1 – Allega file
+        \item UC-2H.2 – Pianifica invio
+        \item UC-2H.3 – Conferma invio
+    \end{itemize}
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di gestione messaggio tramite UC-2F.
+    \item Il messaggio é stato completato con oggetto, testo e documenti allegati.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente ha completato la preparazione del messaggio e dei documenti da inviare.
+    \item L'utente seleziona l’opzione per inviare il messaggio e i documenti ai destinatari.
+\end{enumerate}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il messaggio e i documenti sono stati inviati con successo ai destinatari previsti.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
+    \caption{Diagramma del caso d'uso UC- – }
+\end{figure}
+
+\vspace{0.5cm}
 
 \section{Requisiti}
 
