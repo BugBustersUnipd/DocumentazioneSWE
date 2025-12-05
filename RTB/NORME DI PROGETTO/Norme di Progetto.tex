@@ -603,7 +603,7 @@ La produzione della documentazione segue un processo strutturato per garantire q
      garantendo che tutte le versioni siano tracciate e documentate.
 \end{itemize}
 
-\subsection{Gestione della configurazione}
+\subsection{Gestione della configurazione}\label{gestione configurazione}
 La gestione delle configurazioni è l’insieme di attività e strumenti che servono a controllare, 
 tracciare e organizzare tutte le modifiche fatte a un qualsiasi elemento del progetto\G{}.\\
 Basandosi sullo standard ISO/IEC 12207:1995, la gestione della configurazione deve occuparsi di monitorare
@@ -627,6 +627,8 @@ Per tracciare le modifiche da approvare BugBusters utilizza le \textbf{issue}\G{
 \end{itemize}
 Ogni issue\G{} è identificata da un codice univoco dato dalla fase del progetto\G{} a cui essa è relativa, e da un numero incrementale (es: RTB1,RTB2,RTB3 ecc...).\\
 Una issue\G{} viene chiusa solo nel momento in cui è stata verificata.
+Per velocizzare il processo di gestione delle issue\G{}, BugBusters utilizza una GitHub action che, se in qualsiasi commit viene scritto: \textit{chiudi <NOME ISSUE>}, la issue\G{} 
+corrispondente verrà immediatamente chiusa, qualsiasi sia il branch in cui ci si trova.\\
 \begin{itemize}
     \item \textbf{Board}: Serve per definire lo stato in cui si trova una issue\G{}, ovvero se: è ancora da iniziare, è in sviluppo o è terminata.
     \item \textbf{Pull Request}: serve per richiedere la verifica\G{} o approvazione di una modifica prima di fonderla con un ramo della repository\G{}.
@@ -724,13 +726,101 @@ tempi e costi.
 \subsection{Attività}
 
 \subsection{Gestione degli Sprint}
-descrizione e subsubsection per la descrizione di ogni ruolo
+Ogni due settimane viene pianificato uno sprint in cui vengono assegnate le attività da svolgere
+ai vari membri del team. Viene fatto un meeting di pianificazione in cui si scelgono le attività da svolgere
+e si assegnano ai vari membri. Al termine dello sprint viene fatta una review in cui si mostrano i risultati ottenuti
+e si discutono le difficoltà incontrate. Viene anche fatto un meeting di retrospettiva in cui si discute su 
+cosa è andato bene e cosa può essere migliorato per il prossimo sprint.
+Durante lo sprint vengono definiti i vari ruoli che i membri del team devono svolgere.
+
+\subsection{Ruoli}
+\subsubsection{Responsabile}
+Il responsabile ha il compito di coordinare il team, pianificare le attività,
+gestire le risorse e comunicare con il proponente e i docenti.
+In particolare dovrà assegnare i compiti, redigere i documenti:
+\begin{itemize}
+    \item Verbali Esterni ed Interni, con assegnazione dei compiti previsti nelle riunioni.
+    \item Diario di Bordo
+    \item Avanzamento piano di progetto
+\end{itemize}
+\subsubsection{Amministratore}
+È la figura incaricata di sviluppare, mantenere e migliorare gli strumenti, le 
+risorse e i processi che garantiscono il regolare avanzamento del progetto. Si 
+occupa di supervisionare la configurazione degli ambienti di lavoro e di 
+monitorare le scadenze di carattere amministrativo, offrendo supporto al team 
+nelle varie attività.
+Tra le sue responsabilità rientrano:
+\begin{itemize}
+    \item predisporre e gestire gli ambienti di lavoro;
+    \item controllare e aggiornare gli strumenti utilizzati dal gruppo per collaborare e comunicare;
+    \item occuparsi del versionamento dei documenti;
+    \item redigere e mantenere aggiornato il documento Norme di Progetto.
+\end{itemize}
+\subsubsection{Analista}
+L'analista ha il compito di raccogliere, analizzare e documentare i requisiti del 
+progetto, assicurandosi che siano chiari, completi e coerenti con le esigenze del 
+proponente. Inoltre, collabora con il team per tradurre i requisiti in specifiche tecniche 
+utilizzabili durante le fasi di progettazione e sviluppo.
+In particolare dovrà occuparsi di:
+\begin{itemize}
+    \item redigere il documento di Analisi dei Requisiti;
+    \item redigere il documento di Piano di Qualifica;
+    \item gestire le richieste di chiarimento e modifica dei requisiti con il proponente;
+    \item collaborare con il team per garantire che i requisiti siano compresi e implementati correttamente.
+\end{itemize}
+
+\subsubsection{Progettista}
+Il progettista ha il compito di definire l'architettura e la struttura del sistema, 
+assicurandosi che soddisfi i requisiti funzionali e non funzionali stabiliti. Collabora con il team per tradurre i requisiti in soluzioni tecniche 
+efficienti e scalabili.
+In particolare dovrà occuparsi di:
+\begin{itemize}
+    \item Determinare le tecnologie e gli strumenti più adatti per lo sviluppo del progetto;
+    \item definire l'architettura del sistema e le sue componenti principali;
+    \item Supervisionare lo sviluppo tecnico e garantire la coerenza con le specifiche progettuali;
+\end{itemize}
+
+\subsubsubsection{Programmatore}
+Il programmatore ha il compito di implementare le funzionalità del sistema
+secondo le specifiche tecniche fornite dal progettista. Collabora con il team per
+garantire che il codice sia di alta qualità, efficiente e manutenibile.
+In particolare dovrà occuparsi di:
+\begin{itemize}
+    \item scrivere il codice sorgente seguendo le linee guida e gli standard di
+    programmazione stabiliti, traducendo le specifiche tecniche definite dal progettista in soluzioni funzionanti;
+    \item Occuparsi del testing del codice per garantire la correttezza e 
+    l'affidabilità delle funzionalità implementate;
+    \item collaborare con il team per risolvere problemi tecnici e implementare
+    nuove funzionalità.
+\end{itemize}
+
+\subsubsection{Verificatore}
+Il verificatore ha il compito di assicurare che il prodotto sviluppato soddisfi i requisiti
+stabiliti e che sia di alta qualità. Collabora con il team per identificare e risolvere
+problemi, garantendo che il sistema sia affidabile, efficiente e conforme agli standard.
+In particolare dovrà occuparsi di:
+\begin{itemize}
+    \item pianificare e condurre attività di verifica, come test funzionali, test di integrazione e test di sistema;
+    \item revisionare la documentazione prodotta per garantire la correttezza e la completezza;
+    \item documentare i risultati delle attività di verifica e segnalare eventuali difetti
+    o non conformità riscontrate;
+    \item identificare possibili miglioramenti o punti critici nel processo di sviluppo e proporre soluzioni per
+    aumentarne l'efficacia.
+\end{itemize}
 
 \subsection{Tracciamento Ore}
 da mettere come lo tracciamo e la nostra previsione ore. anche dove ce le segnamo
 
 \subsection{Tracciamento Azioni}
-tiketing github, automazioni da terminale per chiudere issue. Parte umana
+Le azioni sono tracciate nei verbali delle riunioni interne ed esterne.
+Dopo ogni riunione il responsabile redige il verbale in cui vengono riportate tutte le decisioni 
+prese e le azioni da svolgere.
+Ogni azione viene assegnata a un membro del team tramite issue tracking su GitHub, dunque nei verbali è presente
+il collegamento con il ticket aperto sulla piattaforma.
+Nel caso ci fossero problemi o dubbi riguardo l'azione assegnata, il membro del team può aprire una discussione
+all'interno della issue per chiedere chiarimenti o segnalare difficoltà.
+Come riportato dalla sezione \ref{gestione configurazione}, il team utilizza automazioni per rendere
+più fluido il processo di tracciamento delle azioni, garantendo maggior tracciamento possibile.
 
 \subsection{Organizzazione Interna}
 comunicazione, ruoli, meeting. Si possono fare subsection
