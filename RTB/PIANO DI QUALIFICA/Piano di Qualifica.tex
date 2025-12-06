@@ -1,0 +1,229 @@
+\documentclass[a4paper,11pt]{article}
+   
+\newcommand{\CurrentVersion}{0.0.1} % ultima versione, da cambiare ad ogni push significativo
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[titles]{tocloft}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref}
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+ {\Large\bfseries\color{primaryblue}}
+ {\thesection}{1em}{}
+
+\titleformat{\subsection}
+ {\large\bfseries\color{primaryblue}} % Sottosezione: colore secondaryblue
+ {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+ {\normalsize\bfseries\color{secondaryblue}} % Sotto-sottosezione: colore secondaryblue
+ {\thesubsubsection}{1em}{}
+
+% per il footer con il numero di pagina
+\usepackage{fancyhdr}
+\usepackage{lastpage} % per ottenere il numero dell'ultima pagina da mettere nel footer
+
+
+\usepackage{ltablex} %per far andare a capo le tabelle
+\keepXColumns
+
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\newcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+
+
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+%configurazione per il footer
+\pagestyle{fancy}
+\fancyhf{} % pulisce tutti i campi del header e footer
+
+% Header: sinistra e destra
+\fancyhead[L]{Gruppo 4 - BugBusters} % sinistra
+\fancyhead[R]{Piano di Qualifica}   % destra
+
+\fancyfoot[L]{ \thepage\ di \pageref{LastPage}} %definisce il formato del footer
+\fancyfoot[R]{ \nouppercase{\rightmark}} % nome della sezione
+
+
+\renewcommand{\headrulewidth}{0pt} % rimuove la linea dell'header
+\renewcommand{\footrulewidth}{0pt} % se vuoi anche togliere eventuale linea del footer
+
+% abilitare numerazione e TOC fino al livello "paragraph" (subsubsubsection)
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+% formattazione del nuovo livello per avere aspetto coerente
+\titleformat{\paragraph}[block]{\normalsize\bfseries\color{secondaryblue}}{\theparagraph}{1em}{}
+% alias comodo per usare "subsubsubsection"
+\newcommand{\subsubsubsection}{\paragraph}
+
+\begin{center}
+  \IfFileExists{../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(../../assets/Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.5cm]
+
+  {\Huge\bfseries\color{primaryblue} Piano di Qualifica}\\[0.3cm]
+  {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+% Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
+	{Stato} & In redazione \\
+	{Responsabile} &  \\
+	{Verificatore} &  \\
+	{Redattori} & Luca Slongo \\
+	{Distribuzione} & BugBusters, Eggon, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Descrizione}]
+Piano di Qualifica del Team BugBusters per il Capitolato C5 proposto da Eggon, che ha l'obiettivo di far rispettare uno standard di qualità per il codice e rispettare i requisiti funzionali prestabiliti.\end{tcolorbox}
+\end{center}
+
+\newpage
+
+% Registro delle Modifiche (pagina 2)
+\section*{Registro delle Modifiche}
+
+\arrayrulecolor{primaryblue}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2cm}|X|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\hline
+\CurrentVersion & 03/12/2025 & Prima stesura del documento & Luca Slongo & - & - \\
+\hline
+\end{tabularx}
+}
+
+\newpage
+
+% Indice cliccabile
+\setcounter{tocdepth}{3} % Mostra fino al livello di sottosezione (2)
+\tableofcontents
+\listoftables
+\listoffigures
+
+\newpage
+\section{Introduzione}
+
+\subsection{Scopo del documento}
+Lo scopo di redigere un Piano di Qualifica è garantire che il prodotto finale soddisfi in modo verificabile i requisiti stabiliti, assicurando qualità, affidabilità e conformità agli standard adottati. Questo documento definisce obiettivi, procedure e responsabilità legate alle attività di verifica e validazione per il controllo della qualità lungo tutto il ciclo di vita del progetto. Ciò permette di ridurre il rischio di errori, migliorare la trasparenza del processo e assicurare che il software sia robusto e coerente con le aspettative del committente.
+
+\subsection {Glossario (Ho riusato quello che c'era scritto in piano di progetto, valutare se cambiarlo o tenerlo uguale)}
+La realizzazione di un sistema software richiede, ancor prima della scrittura del codice, un'attenta fase di confronto, analisi e progettazione. Per supportare il lavoro asincrono del team, tutte le informazioni prodotte durante queste attività vengono opportunamente documentate.
+
+È tuttavia del tutto prevedibile che tali documenti possano contenere termini tecnici o espressioni non immediatamente comprensibili. Per questo motivo è stato redatto un Glossario, che raccoglie e spiega in modo puntuale i termini utilizzati. Il Glossario è soggetto ad aggiornamenti continui ed è consultabile nella sua versione corrente al seguente indirizzo: DA INSERIRE QUANDO VERRà CARICATO SUL SITO.
+
+I termini che dispongono di una definizione nel Glossario saranno contrassegnati nel modo seguente: parola\G{}.
+
+\subsection{Riferimenti}
+
+\subsubsection{Riferimenti normativi}
+\begin{itemize}
+    \item Regolamento del progetto didattico\\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf} \\
+    Ultimo Accesso XXX
+    \item Capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}} d'appalto C5: NEXUM - Eggon \\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf} \\
+    Ultimo Accesso XXX
+    \item Norme di Progetto versione X.X.X \\
+    \url{DA AGGIUNGERE APPENA CARICATO SUL SITO} \\
+    Ultimo Accesso XXX
+\end{itemize}
+
+\subsubsection{Riferimenti informativi}
+\begin{itemize}
+    \item Glossario ver. X.X.X \\
+    \url{DA AGGIUNGERE APPENA SI CARICA SUL SITO} \\
+    Ultimo Accesso XXX
+    \item Standard ISO/IEC 9126 \\
+    \url{https://it.wikipedia.org/wiki/ISO/IEC_9126} \\
+    Ultimo Accesso XXX
+    \item Standard ISO/IEC 12207:1995 \\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf} \\
+    Ultimo Accesso XXX
+\end{itemize}
+
+\newpage
+
+\section{Obiettivi stabiliti per la qualità}
+
+È fondamentale stabilire degli obiettivi da raggiungere per assicurare la qualità prefissata del prodotto. Questo documento definisce i valori di accettazione e ottimalità delle metriche secondo gli standard definiti nelle Norme di Progetto.
+
+\subsection{Qualità di processo}
+Un indicatore della qualità di un prodotto è il metodo con cui è stato sviluppato. Se il processo di sviluppo segue delle linee guida ben definite, esso favorisce la buona riuscita del prodotto. Come stabilito nelle Norme di Progetto, nel nostro way of working abbiamo adottato lo Standard ISO/IEC 12207:1995 adattandolo alle nostre esigenze e a quelle del progetto. /////Oltre allo standard abbiamo deciso di effettuare delle revisioni periodiche per analizzare lo stato di avanzamento rispetto agli ovbiettivi stabilti./////LE FAREMO? INTANTO L'HO SCRITTO POI AL MASSIMO CANCELLIAMO
+
+\subsubsection{Processi primari}
+\subsubsubsection{Fornitura}
+Tabella
+\subsubsubsection{Sviluppo}
+Tabella
+
+\subsubsection{Processi di supporto}
+\subsubsubsection{Documentazione}
+Tabella
+\subsubsubsection{Verifica}
+Tabella
+\subsubsubsection{Gestione della qualità}
+Tabella
+
+\subsubsection{Processi organizzativi}
+\subsubsubsection{Gestione dei processi}
+Tabella
+
+\subsection{Qualità di prodotto}
+
+Per qualità di prodotto si intende una valutazione complessiva del software sia dal punto di vista funzionale sia dal punto di vista strutturale. Il codice deve adempiere alle funzionalità prestabilite in modo efficiente e semplice, e al contempo essere manutenibile, affidabile e portabile. Il gruppo ha aderito allo standard ISO/IEC 9126 per garantire il rispetto di queste caratteristiche fondamentali, affinchè il prodotto sviluppato sia di alta qualità.
+
+\subsubsection{Funzionalità}
+Tabella
+\subsubsection{Affidabilità}
+Tabella
+\subsubsection{Efficienza}
+Tabella
+\subsubsection{Usabilità}
+Tabella
+\subsubsection{Mantenibilità}
+Tabella
+\subsubsection{Portabilità}
+Tabella
+
+\end{document}
