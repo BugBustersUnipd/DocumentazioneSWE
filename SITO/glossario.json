@@ -1,6 +1,10 @@
 {
   "terms": [
     {
+      "term": "AbstractClass",
+      "definition": "Classe astratta nella programmazione orientata agli oggetti che non può essere istanziata direttamente e che serve come base per altre classi. Definisce un'interfaccia comune e può contenere metodi astratti (senza implementazione) e metodi concreti (con implementazione)."
+    },
+    {
       "term": "AI (Artificial Intelligence)",
       "definition": "Campo dell'informatica che si occupa di sviluppare sistemi in grado di svolgere compiti che normalmente richiedono l'intelligenza umana, come il riconoscimento vocale, la visione artificiale, l'elaborazione del linguaggio naturale e il processo decisionale."
     },
@@ -118,7 +122,7 @@
     },
     {
       "term": "Best Practice",
-      "definition": "Insieme di tecniche, metodi e procedure che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto."
+      "definition": "Insieme di tecniche, metodi e procedure che sono stata riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto."
     },
     {
       "term": "Builder",
@@ -197,8 +201,16 @@
       "definition": "Soluzione progettuale generale e riutilizzabile a un problema ricorrente all'interno di un dato contesto nella progettazione di software. I design pattern non sono progetti finiti che possono essere trasformati direttamente in codice, ma modelli astratti che devono essere adattati al caso specifico."
     },
     {
+      "term": "Design Pattern Comportamentali",
+      "definition": "Categoria di design pattern che si occupano della comunicazione e dell'assegnazione di responsabilità tra oggetti. Definiscono modi efficaci per organizzare il comportamento degli oggetti, migliorando la flessibilità e la riusabilità. Esempi includono Observer, Iterator, Strategy, e Command."
+    },
+    {
       "term": "Design pattern architetturali",
       "definition": "Soluzioni progettuali ricorrenti e collaudate per problemi architetturali comuni nei sistemi software."
+    },
+    {
+      "term": "Design Pattern Strutturali",
+      "definition": "Categoria di design pattern che si occupano della composizione di classi e oggetti per formare strutture più grandi e complesse. Facilitano la progettazione definendo relazioni semplici tra entità per realizzare nuove funzionalità. Esempi includono Adapter, Decorator, Composite, e Proxy."
     },
     {
       "term": "Diagramma dei componenti",
@@ -349,6 +361,10 @@
       "definition": "Segnalazione di un problema, un bug o una richiesta di miglioramento nel sistema di tracking del progetto. Ogni issue viene tracciata, assegnata e gestita fino alla risoluzione."
     },
     {
+      "term": "Iterator",
+      "definition": "Design pattern comportamentale che fornisce un modo per accedere sequenzialmente agli elementi di una collezione senza esporne la rappresentazione interna. Separa l'algoritmo di iterazione dalla struttura dati, permettendo diversi tipi di iterazione su una stessa collezione."
+    },
+    {
       "term": "KPI (Key Performance Indicator)",
       "definition": "Indicatore chiave di performance che misura l'efficacia di un processo, un'attività o un'organizzazione nel raggiungere i propri obiettivi."
     },
@@ -411,6 +427,10 @@
     {
       "term": "Norme di progetto",
       "definition": "Documento che definisce le regole, le convenzioni, le procedure e gli standard adottati dal gruppo per la realizzazione del progetto. Include norme per la redazione dei documenti, la gestione del versionamento, le convenzioni di codifica, le procedure di verifica e validazione, e le modalità di comunicazione interna ed esterna."
+    },
+    {
+      "term": "Observer",
+      "definition": "Design pattern comportamentale che definisce una dipendenza uno-a-molti tra oggetti, in modo che quando un oggetto (soggetto) cambia stato, tutti i suoi dipendenti (osservatori) vengano notificati e aggiornati automaticamente. È fondamentale per implementare sistemi di eventi e notifiche."
     },
     {
       "term": "OCR (Optical Character Recognition)",
