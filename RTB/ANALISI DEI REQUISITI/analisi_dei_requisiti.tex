@@ -78,6 +78,8 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \end{minipage}
 \end{center}
 
+
+
 \newpage
 
 \section*{Registro delle Modifiche}
@@ -87,6 +89,12 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \begin{tabularx}{\textwidth}{|l|l|X|l|l|}
 \hline
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
+\hline
+0.0.9 & 06/12/2025 & 
+\begin{minipage}[t]{\linewidth}
+Aggiunti a ogni sezione scenari secondari, relativi casi d'uso (eccezioni e varianti) e trigger.
+\end{minipage} 
+& Leonardo Salviato & - \\
 \hline
 0.0.8 & 05/12/2025 & 
 \begin{minipage}[t]{\linewidth}
@@ -473,6 +481,11 @@ Di seguito sono esposti gli attori utilizzati:
     \item L’utente corregge i dati e ripete l’inserimento.
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Avviare l'applicativo standalone e selezionare l'opzione di registrazione.
+\end{itemize}
+
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}:
@@ -540,6 +553,11 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente inserisce credenziali non valide.
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente avvia l'applicazione standalone e seleziona l'opzione di login.
+\end{itemize}
+
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -596,6 +614,11 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item 
 \end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Effettuare il login con successo nell'applicazione standalone.
+\end{itemize}
 
 
 
@@ -662,6 +685,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di gestione profilo utente dalla dashboard principale.
+\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -734,6 +761,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item Un utente non autorizzato tenta di accedere al modulo di gestione ruoli.
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di gestione ruoli dalla dashboard principale (solo per utenti con permessi Admin).
+\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -793,6 +824,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di logout dall'interfaccia utente.
+\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -846,6 +881,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di modulo AI Assistant Generativo dalla dashboard principale.
+\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -901,6 +940,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item Non ci sono prompt salvati nello storico.
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di visualizzazione storico prompt all’interno del modulo AI Assistant Generativo.
+\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -960,6 +1003,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Completamento della generazione del contenuto AI.
+\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1016,6 +1063,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di modifica del contenuto generato dalla pagina di visualizzazione del contenuto.
+\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -1077,6 +1128,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di modulo AI Co-Pilot per i CdL dalla dashboard principale.
+\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -1138,6 +1193,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema non riconosce alcun documento caricato.
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di visualizzazione lista documenti all’interno del modulo AI Co-Pilot per i CdL.
+\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1205,6 +1264,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare un documento dalla lista per visualizzarne i dettagli.
+\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -1267,6 +1330,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di visualizzazione dettagli destinatario dalla pagina lista documenti.
+\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -1323,6 +1390,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item Non sono mai stati caricati documenti, quindi la visualizzazione di dati non è possibile.
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di invio documento dalla pagina destinatario.
+\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1380,6 +1451,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di gestione messaggio dalla pagina storico documenti.
+\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -1446,6 +1521,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di visualizzazione tabella template salvati dalla pagina gestione messaggio.
+\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -1503,6 +1582,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di invio documento e messaggio dalla pagina gestione messaggio.
+\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
