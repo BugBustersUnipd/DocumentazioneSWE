@@ -381,6 +381,7 @@ possibilità di errori non avrà Scenari secondari):
     \item \textbf{Scenario secondario}: Descrizione ragionevole degli eventi che possono accadere
     qualora una delle operazioni descritte nello Scenario
     principale non vada a buon fine
+    \item \textbf{Trigger}: Evento che innesca l’inizio del Caso d’Uso
     \item \textbf{Inclusioni}: Casi d’Uso ulteriori che l’Attore deve compiere per realizzare
     il Caso d’Uso attualmente descritto
     \item \textbf{Estensioni}: Casi d’Uso ulteriori che possono realizzarsi durante
@@ -443,6 +444,35 @@ Di seguito sono esposti gli attori utilizzati:
     \item Sistema di autenticazione dell’applicazione standalone.
 \end{itemize}
 
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente non ha una sessione attiva.
+    \item L’utente non è ancora registrato nel Sistema (l’e-mail inserita non risulta già presente).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Esiste un nuovo account utente registrato nel Sistema.
+    \item L’utente può effettuare il login utilizzando le credenziali appena create.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla schermata di registrazione dell’applicazione standalone.
+    \item L’utente inserisce i dati richiesti (ad esempio: nome, cognome, e-mail, password).
+    \item Il Sistema verifica la correttezza formale dei dati inseriti (es. formato e-mail, forza della password).
+    \item Il Sistema controlla che l’indirizzo e-mail non sia già associato a un account esistente.
+    \item In caso di esito positivo, il Sistema crea un nuovo account utente e lo memorizza nel proprio archivio.
+    \item Il Sistema conferma l’avvenuta registrazione e può opzionalmente eseguire il login automatico del nuovo utente.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Nell'inserimento dei dati, uno o più campi non rispettano i requisiti di validità (es. e-mail non valida, password debole).
+    \item Il Sistema mostra un messaggio di errore specifico per il campo non valido.
+    \item L’utente corregge i dati e ripete l’inserimento.
+\end{enumerate}
+
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}:
@@ -452,35 +482,18 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-0A.3 - Inserimento username
         \item UC-0A.4 - Inserimento nome 
         \item UC-0A.5 - Inserimento cognome
+        \item UC-0A.6 - Inserimento matricola
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-0B – Login / Autenticazione utente (in caso di login automatico al termine della registrazione).
-        \item UC-0A.6 – Registrazione fallita.
+        \item UC-0A.7 – email non valida.
+        \item UC-0A.8 – password non valida.
+        \item UC-0A.9 – email già registrata.
+        \item UC-0A.10 – username già registrato.
+        \item UC-0A.11 – matricola già registrata.
+        \item UC-0A.12 – matricola non valida.
     \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L’utente non ha una sessione attiva.
-    \item L’utente non è ancora registrato nel Sistema (l’e-mail inserita non risulta già presente).
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente accede alla schermata di registrazione dell’applicazione standalone.
-    \item L’utente inserisce i dati richiesti (ad esempio: nome, cognome, e-mail, password).
-    \item L’utente accetta le condizioni d’uso e l’informativa sulla privacy.
-    \item Il Sistema verifica la correttezza formale dei dati inseriti (es. formato e-mail, forza della password).
-    \item Il Sistema controlla che l’indirizzo e-mail non sia già associato a un account esistente.
-    \item In caso di esito positivo, il Sistema crea un nuovo account utente e lo memorizza nel proprio archivio.
-    \item Il Sistema conferma l’avvenuta registrazione e può opzionalmente eseguire il login automatico del nuovo utente.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Esiste un nuovo account utente registrato nel Sistema.
-    \item L’utente può effettuare il login utilizzando le credenziali appena create.
 \end{itemize}
 
 \vspace{0.5cm}
@@ -499,23 +512,16 @@ Di seguito sono esposti gli attori utilizzati:
     \item Sistema di autenticazione dell’applicazione standalone.
 \end{itemize}
 
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}:
-    \begin{itemize}
-        \item UC-0A.1 - Inserimento email
-        \item UC-0A.2 - Inserimento password
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-0B.1 - Login fallito.
-    \end{itemize}
-\end{itemize}
-
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item L’utente è già registrato nel Sistema.
     \item Non esiste una sessione attiva associata all’utente sul dispositivo corrente.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L’utente risulta autenticato nel Sistema.
+    \item È attiva una sessione associata all’utente, che consente l’accesso alle funzionalità riservate (es. generazione contenuti, upload documenti).
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -527,10 +533,29 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il Sistema reindirizza l’utente alla dashboard principale dell’applicazione standalone.
 \end{enumerate}
 
-\textbf{Post-condizioni}
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item L'utente inserisce un’e-mail non registrata nel Sistema.
+    \item L'utente inserisce una password errata.
+    \item L'utente inserisce credenziali non valide.
+\end{enumerate}
+
+
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item L’utente risulta autenticato nel Sistema.
-    \item È attiva una sessione associata all’utente, che consente l’accesso alle funzionalità riservate (es. generazione contenuti, upload documenti).
+    \item \textit{include}:
+    \begin{itemize}
+        \item UC-0A.1 - Inserimento email
+        \item UC-0A.2 - Inserimento password
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-0A.7 – email non valida.
+        \item UC-0A.8 – password non valida.
+        \item UC-0B.1 – email non registrata.
+        \item UC-0B.2 – password errata.
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
@@ -550,6 +575,30 @@ Di seguito sono esposti gli attori utilizzati:
     \item Utente autenticato.
 \end{itemize}
 
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente ha effettuato il login ed è autenticato.
+    \item Esiste un profilo associato all’utente nel Sistema (dati anagrafici e preferenze).
+\end{itemize}
+
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente autenticato puó scegliere tra diverse azioni.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente dopo aver effettuato il login si ritrova in una schermata con la scelta di diversi moduli.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
+
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
@@ -563,22 +612,6 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-0D - Visualizzazione modulo gestione profilo utente.
         \item UC-0E - Visualizzazione modulo gestione ruoli.
     \end{itemize}
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L’utente ha effettuato il login ed è autenticato.
-    \item Esiste un profilo associato all’utente nel Sistema (dati anagrafici e preferenze).
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente dopo aver effettuato il login si ritrova in una schermata con la scelta di diversi moduli.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente autenticato puó scegliere tra diverse azioni.
 \end{itemize}
 
 
@@ -598,28 +631,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Sistema di gestione profilo dell’applicazione standalone.
 \end{itemize}
 
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-0D.1 - Visualizzazione email
-        \item UC-0D.2 - Visualizzazione password
-        \item UC-0D.3 - Visualizzazione username
-        \item UC-0D.4 - Visualizzazione nome 
-        \item UC-0D.5 - Visualizzazione cognome
-        \item UC-0D.6 - Visualizzazione id
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-0A.1 - Inserimento email
-        \item UC-0A.2 - Inserimento password
-        \item UC-0A.3 - Inserimento username
-        \item UC-0A.4 - Inserimento nome 
-        \item UC-0A.5 - Inserimento cognome
-        \item UC-0D.7 – Salva profilo utente.
-        \item UC-0D.8 – Uscita senza salvare profilo utente.
-    \end{itemize}
-\end{itemize}
 
 \textbf{Pre-condizioni}
 \begin{itemize}
@@ -627,6 +638,12 @@ Di seguito sono esposti gli attori utilizzati:
     \item Esiste un profilo associato all’utente nel Sistema (dati anagrafici e preferenze).
     \item L'utente speciale é entrato nel modulo di gestione profilo utente dalla dashboard principale.
 
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Le informazioni del profilo utente risultano aggiornate nel Sistema.
+    \item Le nuove preferenze (ad esempio tono/stile predefinito) verranno utilizzate nelle interazioni successive con i moduli AI.
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -640,21 +657,84 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il Sistema conferma l’avvenuto aggiornamento del profilo.
 \end{enumerate}
 
-\textbf{Post-condizioni}
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item Le informazioni del profilo utente risultano aggiornate nel Sistema.
-    \item Le nuove preferenze (ad esempio tono/stile predefinito) verranno utilizzate nelle interazioni successive con i moduli AI.
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-0D.1 - Visualizzazione email
+        \item UC-0D.2 - Visualizzazione password
+        \item UC-0D.3 - Visualizzazione username
+        \item UC-0D.4 - Visualizzazione nome 
+        \item UC-0D.5 - Visualizzazione cognome
+        \item UC-0D.6 - Visualizzazione matricola
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-0A.1 - Inserimento email
+        \item UC-0A.2 - Inserimento password
+        \item UC-0A.3 - Inserimento username
+        \item UC-0A.4 - Inserimento nome 
+        \item UC-0A.5 - Inserimento cognome
+        \item UC-0A.6 - Inserimento matricola
+        \item UC-0D.7 – Salva profilo utente. %in questo caso d'uso ci saranno tutti gli errori su inserimenti sbaliati (uguali a quelli della registrazione)
+        \item UC-0D.8 – Uscita senza salvare profilo utente.
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
 
 \subsubsection{UC-0E – Visualizzazione gestione ruoli (Admin / Editor)}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
 \textbf{Attori}
 \begin{itemize}
     \item Utenti speciali (Admin o altri ruoli definiti).
     \item Sistema di gestione ruoli e permessi.
 \end{itemize}
+
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente amministratore ha effettuato il login ed è autenticato come Admin.
+    \item Esistono uno o più account utente registrati nel Sistema.
+    \item L'utente speciale é entrato nel modulo di gestione ruoli dalla dashboard principale.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item I ruoli e i permessi degli utenti risultano aggiornati nel Sistema.
+    \item Le funzionalità accessibili a ciascun utente dipendono dal nuovo ruolo assegnato (es. solo Admin può modificare i parametri AI globali).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’Amministratore accede alla sezione di amministrazione utenti.
+    \item Il Sistema mostra l’elenco degli utenti registrati, con i rispettivi ruoli correnti.
+    \item L’Amministratore seleziona un utente da modificare.
+    \item L’Amministratore assegna o modifica il ruolo dell’utente (es. da Editor a Admin, oppure rimozione privilegi).
+    \item L’Amministratore conferma le modifiche.
+    \item Il Sistema aggiorna i ruoli e i permessi associati all’utente.
+    \item Il Sistema registra l’operazione per finalità di audit interno.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Un utente non autorizzato tenta di accedere al modulo di gestione ruoli.
+\end{enumerate}
+
+
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -669,32 +749,9 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-0E.4 - Modifica ruolo utente registrato.
         \item UC-0E.5 - Salva modifica ruolo utente registrato.
         \item UC-0E.6 - Annulla modifica ruolo utente registrato
+        \item UC-0E.7 - Utente non autorizzato.
     \end{itemize}
     
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L’utente amministratore ha effettuato il login ed è autenticato come Admin.
-    \item Esistono uno o più account utente registrati nel Sistema.
-    \item L'utente speciale é entrato nel modulo di gestione ruoli dalla dashboard principale.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’Amministratore accede alla sezione di amministrazione utenti.
-    \item Il Sistema mostra l’elenco degli utenti registrati, con i rispettivi ruoli correnti.
-    \item L’Amministratore seleziona un utente da modificare.
-    \item L’Amministratore assegna o modifica il ruolo dell’utente (es. da Editor a Admin, oppure rimozione privilegi).
-    \item L’Amministratore conferma le modifiche.
-    \item Il Sistema aggiorna i ruoli e i permessi associati all’utente.
-    \item Il Sistema registra l’operazione per finalità di audit interno.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item I ruoli e i permessi degli utenti risultano aggiornati nel Sistema.
-    \item Le funzionalità accessibili a ciascun utente dipendono dal nuovo ruolo assegnato (es. solo Admin può modificare i parametri AI globali).
 \end{itemize}
 
 \vspace{0.5cm}
@@ -713,6 +770,30 @@ Di seguito sono esposti gli attori utilizzati:
     \item Sistema di gestione sessione dell’applicazione standalone.
 \end{itemize}
 
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente ha una sessione attiva nel Sistema.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Non esiste più una sessione attiva associata all’utente sul dispositivo corrente.
+    \item Per accedere nuovamente alle funzionalità riservate è necessario eseguire un nuovo login.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente seleziona l’opzione di logout (ad esempio dal menu della dashboard).
+    \item Il Sistema invalida la sessione corrente associata all’utente (es. rimozione token di sessione).
+    \item Il Sistema reindirizza l’utente alla schermata di login o alla schermata iniziale pubblica.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
@@ -725,24 +806,7 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
 \end{itemize}
 
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L’utente ha una sessione attiva nel Sistema.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente seleziona l’opzione di logout (ad esempio dal menu della dashboard).
-    \item Il Sistema invalida la sessione corrente associata all’utente (es. rimozione token di sessione).
-    \item Il Sistema reindirizza l’utente alla schermata di login o alla schermata iniziale pubblica.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Non esiste più una sessione attiva associata all’utente sul dispositivo corrente.
-    \item Per accedere nuovamente alle funzionalità riservate è necessario eseguire un nuovo login.
-\end{itemize}
-
+\vspace{0.5cm}
 
 \subsection{Sezione 1 – Modulo AI Assistant Generativo}
 
@@ -760,6 +824,29 @@ Di seguito sono esposti gli attori utilizzati:
     \item Utente autorizzato (Editor o Admin).
 \end{itemize}
 
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente é entrato nel modulo AI Assistant Generativo dalla dashboard principale.
+    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Assistant.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza l’interfaccia di generazione contenuti AI, pronta per l’inserimento del prompt e la selezione delle opzioni.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla sezione “AI Assistant Generativo”.
+    \item Il Sistema mostra il campo per l’inserimento del prompt e le azione che possono essere eseguite dall'utente.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
@@ -776,33 +863,44 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
 \end{itemize}
 
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L’utente é entrato nel modulo AI Assistant Generativo dalla dashboard principale.
-    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Assistant.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente accede alla sezione “AI Assistant Generativo”.
-    \item Il Sistema mostra il campo per l’inserimento del prompt e le azione che possono essere eseguite dall'utente.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza l’interfaccia di generazione contenuti AI, pronta per l’inserimento del prompt e la selezione delle opzioni.
-\end{itemize}
-
-
 \vspace{0.5cm}
 
 \subsubsection{UC-1B – Visualizzazione storico prompt}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
     \item Utente autorizzato (Editor o Admin).
     \item Sistema di persistenza locale.
 \end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Ci sono stati precedenti utilizzi del modulo AI Assistant Generativo.
+    \item L’utente é entrato nel modulo AI Assistant Generativo dalla dashboard principale.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza lo storico dei prompt utilizzati e puó interagire con essi (es. riutilizzo, duplicazione, ricerca).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L’utente accede alla sezione “Storico Prompt” all’interno del modulo AI Assistant Generativo.
+    \item Il Sistema mostra l’elenco dei prompt precedentemente utilizzati, con i relativi dettagli (tono, stile, risultato generato, data/ora, valutazione).
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Non ci sono prompt salvati nello storico.
+\end{enumerate}
+
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -820,31 +918,9 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-1B.7 – Ricerca
         \item UC-1B.8 – Riutilizza (rigenera con lo stesso prompt)
         \item UC-1B.9 – Duplica (Ti riporta al modulo di generazione con prompt, tono e stile precompilati)
+        \item UC-1B.10 – Nessun prompt salvato.
     \end{itemize}
 \end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Ci sono stati precedenti utilizzi del modulo AI Assistant Generativo.
-    \item L’utente é entrato nel modulo AI Assistant Generativo dalla dashboard principale.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L’utente accede alla sezione “Storico Prompt” all’interno del modulo AI Assistant Generativo.
-    \item Il Sistema mostra l’elenco dei prompt precedentemente utilizzati, con i relativi dettagli (tono, stile, risultato generato, data/ora, valutazione).
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza lo storico dei prompt utilizzati e puó interagire con essi (es. riutilizzo, duplicazione, ricerca).
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1G.jpg}
-    \caption{Diagramma del caso d'uso UC-1B – Visualizzazione storico prompt}
-\end{figure}
 
 \vspace{0.5cm}
 
@@ -863,6 +939,28 @@ Di seguito sono esposti gli attori utilizzati:
     \item Sistema AI (in caso di nuove generazioni parziali).
 \end{itemize}
 
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Un contenuto è stato generato tramite UC-1A.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente puó eseguire le varie azioni mostrate a schermo
+\end{itemize}
+
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il contenuto viene generato e mostrato in anteprima all’utente.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
@@ -880,22 +978,6 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
 \end{itemize}
 
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Un contenuto è stato generato tramite UC-1A.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il contenuto viene generato e mostrato in anteprima all’utente.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente puó eseguire le varie azioni mostrate a schermo
-\end{itemize}
-
-
 \vspace{0.5cm}
 
 \subsubsection{UC-1D – Visualizzazione pagina modifica contenuto generato}
@@ -912,6 +994,30 @@ Di seguito sono esposti gli attori utilizzati:
     \item Sistema di persistenza locale.
 \end{itemize}
 
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha generato un contenuto tramite UC-1A e lo sta visualizzando in anteprima tramite UC-1C.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica e puó eseguire le opzioni mostrate.
+\end{itemize}
+
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente é nella pagina del contenuto generato.
+    \item L'utente seleziona l’opzione di modifica del contenuto generato.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
+
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
@@ -925,25 +1031,9 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-1D.3 – Modifica testo
         \item UC-1D.4 – Salva modifiche
         \item UC-1D.5 – Annulla modifiche
+        \item UC-1D.6 - File immagine non valido
     \end{itemize}
 \end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente ha generato un contenuto tramite UC-1A e lo sta visualizzando in anteprima tramite UC-1C.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente é nella pagina del contenuto generato.
-    \item L'utente seleziona l’opzione di modifica del contenuto generato.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente si trova nella pagina di modifica e puó eseguire le opzioni mostrate.
-\end{itemize}
-
 
 \vspace{0.5cm}
 
@@ -953,10 +1043,41 @@ Di seguito sono esposti gli attori utilizzati:
 
 \subsubsection{UC-2A – Visualizzazione modulo di upload e gestione documentale.}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
 \textbf{Attori}
 \begin{itemize}
     \item Utente autorizzato (Operatore di studio CdL).
 \end{itemize}
+
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
+    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot per i CdL.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza l’interfaccia di upload documenti, pronta per il caricamento e la gestione dei file.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente dalla dashboard principale accede al Modulo AI Co-Pilot per i Consulenti del Lavoro.
+    \item Il Sistema mostra l’interfaccia di upload documenti, con le azioni
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -966,7 +1087,7 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2A.1 - Caricamento file
+        \item UC-2A.1 - Caricamento file %Errore nel caricamento file (format non valido, dimensione eccessiva)
         \item UC-2A.2 - Inserimento categoria
         \item UC-2A.3 - Inserimento mese/anno di competenza
         \item UC-2A.4 - Inserimento azienda
@@ -975,39 +1096,48 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
 \end{itemize}
 
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
-    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot per i CdL.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente dalla dashboard principale accede al Modulo AI Co-Pilot per i Consulenti del Lavoro.
-    \item Il Sistema mostra l’interfaccia di upload documenti, con le azioni
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza l’interfaccia di upload documenti, pronta per il caricamento e la gestione dei file.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1G.jpg}
-    \caption{Diagramma del caso d'uso UC-1 – }
-\end{figure}
-
 \vspace{0.5cm}
 
 
 \subsubsection{UC-2B – Visualizzazione pagina lista documenti.}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
     \item Utente autorizzato (Operatore di studio CdL).
     \item Sistema AI Doc Classifier.
 \end{itemize}
+
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item É stato caricato almeno un documento tramite UC-2A.6.
+    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
+    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
+\end{itemize}
+
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente puó visualizzare la lista dei documenti caricati e le relative informazioni.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
+    \item Il Sistema mostra l’elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il sistema non riconosce alcun documento caricato.
+\end{enumerate}
+
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1026,86 +1156,118 @@ Di seguito sono esposti gli attori utilizzati:
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-2B.10 - Filtraggio documenti
+        \item UC-2B.11 - Nessun documento riconosciuto.
         \item UC-2C – Visualizzazione pagina documento
         \item UC-2D - Visualizzazione pagina destinatario
     \end{itemize}
 \end{itemize}
 
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item É stato caricato almeno un documento tramite UC-2A.
-    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
-    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
-    \item Il Sistema mostra l’elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente puó visualizzare la lista dei documenti caricati e le relative informazioni.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
-    \caption{Diagramma del caso d'uso UC-2B – }
-\end{figure}
 
 \vspace{0.5cm}
 
 \subsubsection{UC-2C – Visualizzazione pagina documento}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
 \textbf{Attori}
 \begin{itemize}
     \item Utente autorizzato (Operatore di studio CdL).
 \end{itemize}
+
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Ci si trova in una delle pagine precedenti (UC-2B o UC-2D o UC-2E).
+    \item Si é selezionato un documento da una delle lista.
+    \item Il documento é disponibile per la visualizzazione.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente ha apportato le modifiche desiderate al documento e puó procedere con le azioni successive (salvataggio, invio, ecc.).
+    \item L'utente é giá soddisfatto delle informazioni del documento e puó tornare alla pagina precedente.
+\end{itemize}
+
+
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente ha caricato vari documenti e vuole ricontrollare le informazioni prima di inviarli.
+    \item L'utente seleziona un documento dalla lista per visualizzarne i dettagli.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item 
-        \item 
+        \item UC-2B.1 – Visualizzazione codice documento
+        \item UC-2B.2 - Visualizzazione tipologia documento
+        \item UC-2D.1 – Visualizzazione destinatario
+        \item UC-2B.8 - Visualizzazione nome documento originale
+        \item UC-2C.1 - Visualizzazione anteprima documento
+        \item UC-2E.2 - Visualizzazione percentuale confidenza
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item 
+        \item UC-2C.2 – Modifica destinatario
+        \item UC-2C.3 – Modifica tipologia documento
+        \item UC-2C.4 – Rivaluta percentuale confidenza
+        \item UC-2C.5 – Salva modifiche documento
+        \item UC-2B – Visualizzazione pagina lista documenti.
+        \item UC-2D - Visualizzazione pagina destinatario
+        \item UC-2E - Visualizzazione pagina storico documenti
     \end{itemize}
 \end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item 
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item 
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item 
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
-    \caption{Diagramma del caso d'uso UC-2C – Visualizzazione pagina documento}
-\end{figure}
 
 \vspace{0.5cm}
 
 \subsubsection{UC-2D - Visualizzazione pagina destinatario }
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
 \textbf{Attori}
 \begin{itemize}
     \item Utente autorizzato (Operatore di studio CdL).
 \end{itemize}
+
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Si é nella pagina lista documenti tramite UC-2B.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza le informazioni dettagliate del destinatario associate al documento selezionato.
+    \item L'utente puó nuovamente accedere alla pagina del documento tramite UC-2C.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente ha finito di visualizzare le informazioni del documento e seleziona l’opzione per visualizzare i dettagli del destinatario.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1125,36 +1287,42 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
 \end{itemize}
 
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Si é nella pagina lista documenti tramite UC-2B.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente ha finito di visualizzare le informazioni del documento e seleziona l’opzione per visualizzare i dettagli del destinatario.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza le informazioni dettagliate del destinatario associate al documento selezionato.
-    \item L'utente puó nuovamente accedere alla pagina del documento tramite UC-2C.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
-    \caption{Diagramma del caso d'uso UC-2D - Visualizzazione pagina destinatario }
-\end{figure}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-2E – Visualizzazione pagina storico documenti}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
     \item Utente autorizzato (Operatore di studio CdL).
 \end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina destinatario tramite UC-2D.
+    \item L'utente ha selezionato l’opzione per inviare il documento al destinatario.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente va alla pagina di gestione dell'invio e del rispettivo messaggio.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente dopo aver fatto le opportune verifiche sul documento e sul destinatario seleziona l’opzione per inviare il documento.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Non sono mai stati caricati documenti, quindi la visualizzazione di dati non è possibile.
+\end{enumerate}
+
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1171,40 +1339,48 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-2D - Visualizzazione pagina destinatario
         \item UC-2E.4 - Selezione documento
         \item UC-2F - Gestione messaggio
+        \item UC-2E.4 - Documenti assenti.
     \end{itemize}
 \end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente si trova nella pagina destinatario tramite UC-2D.
-    \item L'utente ha selezionato l’opzione per inviare il documento al destinatario.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente dopo aver fatto le opportune verifiche sul documento e sul destinatario seleziona l’opzione per inviare il documento.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente va alla pagina di gestione dell'invio e del rispettivo messaggio.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
-    \caption{Diagramma del caso d'uso UC- – }
-\end{figure}
 
 \vspace{0.5cm}
 
 \subsubsection{UC-2F – Gestione messaggio}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
     \item Utente autorizzato (Operatore di studio CdL).
     \item Sistema di invio documenti.
 \end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Ci si trova nella pagina gestione messaggio tramite UC-2E.
+    \item Almeno un documento è stato selezionato per l'invio.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il messaggio é pronto per essere inviato assieme ai documenti selezionati.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Un utente ha selezionato uno o piú documenti da inviare a uno o piú destinatari e sta prepara in messaggio da inviare assieme ai documenti.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1231,38 +1407,46 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
 \end{itemize}
 
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Ci si trova nella pagina gestione messaggio tramite UC-2E.
-    \item Almeno un documento è stato selezionato per l'invio.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Un utente ha selezionato uno o piú documenti da inviare a uno o piú destinatari e sta prepara in messaggio da inviare assieme ai documenti.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il messaggio é pronto per essere inviato assieme ai documenti selezionati.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
-    \caption{Diagramma del caso d'uso UC- – }
-\end{figure}
-
 \vspace{0.5cm}
 
 
 \subsubsection{UC-2G - Tabella template salvati }
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
     \item Utente autorizzato (Operatore di studio CdL).
     \item Sistema di gestione template messaggi.
 \end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di gestione messaggio tramite UC-2F.
+    \item Esistono uno o più template di messaggi salvati nel sistema.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente si ritrova nella pagina di gestione messaggio con il template selezionato caricato nei campi oggetto e testo del messaggio.
+\end{itemize}
+
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente ha bisogno di utilizzare un template di messaggio salvato per preparare il messaggio da inviare assieme ai documenti selezionati.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1275,41 +1459,51 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2F – Gestione messaggio
+        \item UC-2F – Gestione messaggio %Sarebbe carica template messaggio
+        \item UC-2G.1 – Elimina template
+        \item UC-2G.2 – Nessun template salvato
     \end{itemize}
 \end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente si trova nella pagina di gestione messaggio tramite UC-2F.
-    \item Esistono uno o più template di messaggi salvati nel sistema.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente ha bisogno di utilizzare un template di messaggio salvato per preparare il messaggio da inviare assieme ai documenti selezionati.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente si ritrova nella pagina di gestione messaggio con il template selezionato caricato nei campi oggetto e testo del messaggio.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
-    \caption{Diagramma del caso d'uso UC- – }
-\end{figure}
 
 \vspace{0.5cm}
 
 \subsubsection{UC-2H – Invio documento e messaggio}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
     \item Utente autorizzato (Operatore di studio CdL).
     \item Sistema di invio documenti e messaggi.
 \end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di gestione messaggio tramite UC-2F.
+    \item Il messaggio é stato completato con oggetto, testo e documenti allegati.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il messaggio e i documenti sono stati inviati con successo ai destinatari previsti.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente ha completato la preparazione del messaggio e dei documenti da inviare.
+    \item L'utente seleziona l’opzione per inviare il messaggio e i documenti ai destinatari.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1325,31 +1519,9 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-2H.1 – Allega file
         \item UC-2H.2 – Pianifica invio
         \item UC-2H.3 – Conferma invio
+        \item UC-2F – Gestione messaggio %Torna a gestione messaggio
     \end{itemize}
 \end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente si trova nella pagina di gestione messaggio tramite UC-2F.
-    \item Il messaggio é stato completato con oggetto, testo e documenti allegati.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente ha completato la preparazione del messaggio e dei documenti da inviare.
-    \item L'utente seleziona l’opzione per inviare il messaggio e i documenti ai destinatari.
-\end{enumerate}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il messaggio e i documenti sono stati inviati con successo ai destinatari previsti.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    %\includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1.jpg}
-    \caption{Diagramma del caso d'uso UC- – }
-\end{figure}
 
 \vspace{0.5cm}
 
