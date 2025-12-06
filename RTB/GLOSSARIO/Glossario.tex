@@ -45,7 +45,7 @@
 \renewcommand{\contentsname}{\color{primaryblue}Indice}
 
 % Comando per la versione corrente
-\newcommand{\CurrentVersion}{0.0.4}
+\newcommand{\CurrentVersion}{0.0.5}
 
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
@@ -83,7 +83,7 @@
 \end{center}
 
 \begin{center}
-{\large\textbf{\color{secondaryblue} Versione 0.0.4}}
+{\large\textbf{\color{secondaryblue} Versione 0.0.5}}
 
 \vspace{0.5cm}
 
@@ -118,6 +118,8 @@
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
+0.0.5 & 06/12/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\hline
 0.0.4 & 30/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
 \hline
 0.0.3 & 23/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
@@ -142,6 +144,9 @@ La nomenclatura utilizzata per evidenziare che una parola, con annessa la sua de
 \newpage
 
 \section{A}
+
+\subsection{AbstractClass}
+Classe astratta nella programmazione orientata agli oggetti che non può essere istanziata direttamente e che serve come base per altre classi. Definisce un'interfaccia comune e può contenere metodi astratti (senza implementazione) e metodi concreti (con implementazione).
 
 \subsection{AI (Artificial Intelligence)}
 Campo dell'informatica che si occupa di sviluppare sistemi in grado di svolgere compiti che normalmente richiedono l'intelligenza umana, come il riconoscimento vocale, la visione artificiale, l'elaborazione del linguaggio naturale e il processo decisionale.
@@ -245,7 +250,7 @@ Pattern creazionale che separa la costruzione di un oggetto complesso dalla sua 
 \section{C}
 
 \subsection{Candidatura}
-Processo con cui un gruppo di studenti presenta la propria offerta per aggiudicarsi un capitolato d’appalto nel corso di Ingegneria del Software, proponendo una soluzione che soddisfi i requisiti del proponente.
+Processo con cui un gruppo di studenti presenta la propria offerta per aggiudicarsi un capitolato d'appalto nel corso di Ingegneria del Software, proponendo una soluzione che soddisfi i requisiti del proponente.
 
 \subsection{Capitolato}
 Documento contrattuale che specifica i requisiti, le caratteristiche tecniche e le condizioni di un progetto software proposto da un'azienda proponente per il corso di Ingegneria del Software.
@@ -304,6 +309,12 @@ Soluzione progettuale generale e riutilizzabile a un problema ricorrente all'int
 
 \subsection{Design pattern architetturali}
 Soluzioni progettuali ricorrenti e collaudate per problemi architetturali comuni nei sistemi software.
+
+\subsection{Design Pattern Comportamentali}
+Categoria di design pattern che si occupano della comunicazione e dell'assegnazione di responsabilità tra oggetti. Definiscono modi efficaci per organizzare il comportamento degli oggetti, migliorando la flessibilità e la riusabilità. Esempi includono Observer, Iterator, Strategy, e Command.
+
+\subsection{Design Pattern Strutturali}
+Categoria di design pattern che si occupano della composizione di classi e oggetti per formare strutture più grandi e complesse. Facilitano la progettazione definendo relazioni semplici tra entità per realizzare nuove funzionalità. Esempi includono Adapter, Decorator, Composite, e Proxy.
 
 \subsection{Diagramma dei componenti}
 Diagramma UML che mostra l'organizzazione e le dipendenze tra i componenti software di un sistema.
@@ -436,6 +447,9 @@ In programmazione orientata agli oggetti, un'interfaccia è un tipo astratto che
 \subsection{Issue}
 Segnalazione di un problema, un bug o una richiesta di miglioramento nel sistema di tracking del progetto. Ogni issue viene tracciata, assegnata e gestita fino alla risoluzione.
 
+\subsection{Iterator}
+Design pattern comportamentale che fornisce un modo per accedere sequenzialmente agli elementi di una collezione senza esporne la rappresentazione interna. Separa l'algoritmo di iterazione dalla struttura dati, permettendo diversi tipi di iterazione su una stessa collezione.
+
 \newpage
 
 \section{K}
@@ -503,6 +517,9 @@ Documento che definisce le regole, le convenzioni, le procedure e gli standard a
 \newpage
 
 \section{O}
+
+\subsection{Observer}
+Design pattern comportamentale che definisce una dipendenza uno-a-molti tra oggetti, in modo che quando un oggetto (soggetto) cambia stato, tutti i suoi dipendenti (osservatori) vengano notificati e aggiornati automaticamente. È fondamentale per implementare sistemi di eventi e notifiche.
 
 \subsection{OCR (Optical Character Recognition)}
 Tecnologia che converte immagini di testo scritto o stampato in testo digitale machine-readable.
