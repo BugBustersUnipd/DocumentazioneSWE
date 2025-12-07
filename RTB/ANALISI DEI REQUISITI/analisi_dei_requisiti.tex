@@ -173,32 +173,27 @@ Prima stesura della struttura del documento.
 2.2 Attori \\
 2.3 Lista casi d'uso \\
 2.4 Sezione 0 – Applicazione standalone\\
-\quad 2.4.1 UC-0A: \\
-\quad 2.4.2 UC-0B: \\
-\quad 2.4.3 UC-0C: \\
-\quad 2.4.4 UC-0D: \\
-\quad 2.4.5 UC-0E: \\
+\quad 2.4.1 UC-0A: Registrazione nuovo utente \\
+\quad 2.4.2 UC-0B: Login / Autenticazione utente \\
+\quad 2.4.3 UC-0C: Visualizzazione pagina principale / dashboard \\
+\quad 2.4.4 UC-0D: Visualizzazione gestione profilo utente \\
+\quad 2.4.5 UC-0E: Visualizzazione gestione ruoli (Admin / Editor)\\
+\quad 2.4.6 UC-0F: Logout \\
 2.5 Sezione 1 – Modulo “AI Assistant Generativo\\
-\quad 2.5.1 UC-1A: \\
-\quad 2.5.2 UC-1B: \\
-\quad 2.5.3 UC-1C: \\
-\quad 2.5.4 UC-1D: \\
-\quad 2.5.5 UC-1E: \\
-\quad 2.5.6 UC-1F: \\
-\quad 2.5.7 UC-1G: \\
-\quad 2.5.8 UC-1H: \\
-
+\quad 2.5.1 UC-1A: Visualizzazione modulo di generazione contenuti AI\\
+\quad 2.5.2 UC-1B: Visualizzazione storico prompt\\
+\quad 2.5.3 UC-1C: Visualizzazione pagina contenuto generato\\
+\quad 2.5.4 UC-1D: Visualizzazione pagina modifica contenuto generato\\
 
 2.6 Sezione 2 – Modulo "AI Co-Pilot per i CdL"\\
-\quad 2.6.1 UC-2A: \\
-\quad 2.6.2 UC-2B: \\
-\quad 2.6.3 UC-2C: \\
-\quad 2.6.4 UC-2D: \\
-\quad 2.6.5 UC-2E: \\
-\quad 2.6.5 UC-2F: \\
-\quad 2.6.5 UC-2G: \\
-
-
+\quad 2.6.1 UC-2A: Visualizzazione modulo di upload e gestione documentale\\
+\quad 2.6.2 UC-2B: Visualizzazione pagina lista documenti\\
+\quad 2.6.3 UC-2C: Visualizzazione pagina documento\\
+\quad 2.6.4 UC-2D: Visualizzazione pagina destinatario\\
+\quad 2.6.5 UC-2E: Visualizzazione pagina storico documenti\\
+\quad 2.6.6 UC-2F: Gestione messaggio\\
+\quad 2.6.7 UC-2G: Tabella template salvati\\
+\quad 2.6.8 UC-2H: Invio documento e messaggio\\
 
 
 \end{minipage}
@@ -1013,11 +1008,11 @@ Di seguito sono esposti gli attori utilizzati:
     \item \textit{include}: 
     \begin{itemize}
         \item UC-1C.1 – Visualizzazione anteprima contenuto generato.
+        \item \item UC-1C.3 – Salva post generato nello storico.
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-1C.2 – Rigenera contenuto tramite AI 
-        \item UC-1C.3 – Salva post generato
         \item UC-1C.4 – Valuta contenuto generato
         \item UC-1C.5 – Scarta contenuto generato
         \item UC-1C.6 – Pubblica contenuto generato
