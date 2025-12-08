@@ -632,6 +632,7 @@ corrispondente verrà immediatamente chiusa, qualsiasi sia il branch in cui ci s
 \begin{itemize}
     \item \textbf{Board}: Serve per definire lo stato in cui si trova una issue\G{}, ovvero se: è ancora da iniziare, è in sviluppo o è terminata.
     \item \textbf{Pull Request}: serve per richiedere la verifica\G{} o approvazione di una modifica prima di fonderla con un ramo della repository\G{}.
+    Il team bugbuster, oltre che per un corretto workflow di verifica, usa le pull request come unico modo di modifica in produzione, in quanto si vuole che il branch main sia modificato solo a seguito di una pull request con 2 review positive.
 \end{itemize}
 \subsubsection{Registrazione stato di configurazione}
 Per poter tenere traccia dei cambiamenti di ogni documento e codice, è previsto il sistema di versionamento\G{} seguente:
@@ -809,7 +810,21 @@ In particolare dovrà occuparsi di:
 \end{itemize}
 
 \subsection{Tracciamento Ore}
-da mettere come lo tracciamo e la nostra previsione ore. anche dove ce le segnamo
+Per garantire una corretta gestione del tempo e delle risorse, ogni 
+membro del team BugBusters è tenuto a registrare le ore lavorate su 
+ciascuna attività. Il tracciamento avviene tramite un foglio di 
+calcolo condiviso su Google Sheets, dove ogni membro del team 
+inserisce le ore dedicate alle varie attività e alle relative 
+issue di progetto. Questo approccio centralizzato consente di 
+monitorare l'avanzamento effettivo rispetto alla pianificazione, 
+identificare tempestivamente discrepanze tra stima e consuntivo e 
+facilitare decisioni di riallocazione delle risorse, se necessario.
+
+Il foglio di calcolo contiene inoltre la tabella di stima iniziale, 
+permettendo una comparazione immediata tra preventivo e consuntivo 
+e garantendo visibilità sull'andamento complessivo del progetto. 
+Ogni membro del team è responsabile dell'accuratezza e della propria registrazione.
+
 
 \subsection{Tracciamento Azioni}
 Le azioni sono tracciate nei verbali delle riunioni interne ed esterne.
@@ -822,10 +837,29 @@ all'interno della issue per chiedere chiarimenti o segnalare difficoltà.
 Come riportato dalla sezione \ref{gestione configurazione}, il team utilizza automazioni per rendere
 più fluido il processo di tracciamento delle azioni, garantendo maggior tracciamento possibile.
 
-\subsection{Organizzazione Interna}
-comunicazione, ruoli, meeting. Si possono fare subsection
+\subsection{Comunicazione}
+\subsubsection{Comunicazione Interna}
+Le comunicazioni interne al team BugBusters avvengono principalmente tramite:
+\begin{itemize}
+    \item \textbf{WhatsApp}: utilizzato per comunicazioni rapide, discussioni tecniche e coordinamento quotidiano tra i membri del team.
+    \item \textbf{Discussioni GitHub}: utilizzate per comunicazioni formali relative a issue, pull request e documentazione, 
+    garantendo tracciabilità e storicizzazione delle decisioni. Utili in quanto permettono di cominicare solo con i membri interessati alla discussione.
+\end{itemize}
+In caso di problemi tecnici o necessità di confronto più approfondito, il team può organizzare riunioni virtuali tramite piattaforme Discord.
+Per ulteriori dettagli sulle riunioni, si veda la sezione \ref{riunioni}.
 
-\subsection{Riunioni}
+\subsubsection{Comunicazione Esterna}
+Le comunicazioni esterne con il proponente e i docenti avvengono principalmente tramite:
+\begin{itemize}
+    \item \textbf{Email}: utilizzata per comunicazioni formali, invio di documenti e aggiornamenti sullo stato del progetto, 
+    usando la mail bugbusters.unipd@gmail.com.
+    \item \textbf{Telegram}: utilizzato per comunicazioni rapide e coordinamento con il proponente.
+\end{itemize}
+Analogmanete per quanto riguarda le comunicazioni interne, in caso 
+di necessità di confronto più approfondito, il team può organizzare riunioni virtuali tramite piattaforma Google Meet.
+Per ulteriori dettagli sulle riunioni, si veda la sezione \ref{riunioni}.
+
+\subsection{Riunioni}\label{riunioni}
 \subsubsection{Riunioni Interne}
 \subsubsection{Riunioni Esterne}
 \section{Standard di progetto}
