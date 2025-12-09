@@ -702,7 +702,7 @@
     },
      {
       "term": "Stand-alone",
-      "definition": "Si riferisce a un sistema, un'applicazione o un componente software che opera in modo autonomo e indipendente, senza richiedere l'integrazione o la dipendenza da altri sistemi esterni per funzionare. Un'applicazione stand-alone è generalmente autosufficiente, contiene al suo interno tutte le risorse necessarie per l'esecuzione e non dipende da servizi di rete, server remoti o altre infrastrutture esterne per fornire le proprie funzionalità di base."
+      "definition": "Nel contesto del progetto sviluppato dal team BugBusters, si riferisce a un'applicazione o modulo software sviluppato in modo autonomo e indipendente dall'infrastruttura NEXUM esistente. I moduli AI Assistant Generativo e AI Co-Pilot per i CdL saranno realizzati come applicazioni stand-alone che simulano i comportamenti e le interfacce di NEXUM dove necessario, con l'obiettivo di poter essere integrati successivamente nella piattaforma principale. Questo approccio consente uno sviluppo più flessibile e isolato, pur mantenendo la compatibilità con l'architettura e le API di NEXUM."
     },
     {
       "term": "Sprint",
