@@ -90,6 +90,12 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \hline
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
 \hline
+0.0.10 & 10/12/2025 & 
+\begin{minipage}[t]{\linewidth}
+Rinominazione casi d'uso, aggiunta sotto-casi d'uso alle prime due sezioni.
+\end{minipage} 
+& Leonardo Salviato & - \\
+\hline
 0.0.9 & 06/12/2025 & 
 \begin{minipage}[t]{\linewidth}
 Aggiunti a ogni sezione scenari secondari, relativi casi d'uso (eccezioni e varianti) e trigger.
@@ -175,22 +181,22 @@ Prima stesura della struttura del documento.
 2.4 Sezione 0 – Applicazione standalone\\
 \quad 2.4.1 UC-0A: Registrazione nuovo utente \\
 \quad 2.4.2 UC-0B: Login / Autenticazione utente \\
-\quad 2.4.3 UC-0C: Visualizzazione pagina principale / dashboard \\
-\quad 2.4.4 UC-0D: Visualizzazione gestione profilo utente \\
-\quad 2.4.5 UC-0E: Visualizzazione gestione ruoli (Admin / Editor)\\
+\quad 2.4.3 UC-0C: Apertura dashboard \\
+\quad 2.4.4 UC-0D: Apertura gestione profilo utente \\
+\quad 2.4.5 UC-0E: Apertura gestione ruoli (Admin / Editor)\\
 \quad 2.4.6 UC-0F: Logout \\
 2.5 Sezione 1 – Modulo “AI Assistant Generativo\\
-\quad 2.5.1 UC-1A: Visualizzazione modulo di generazione contenuti AI\\
-\quad 2.5.2 UC-1B: Visualizzazione storico prompt\\
-\quad 2.5.3 UC-1C: Visualizzazione pagina contenuto generato\\
-\quad 2.5.4 UC-1D: Visualizzazione pagina modifica contenuto generato\\
+\quad 2.5.1 UC-1A: Apertura modulo di generazione contenuti AI\\
+\quad 2.5.2 UC-1B: Apertura storico prompt\\
+\quad 2.5.3 UC-1C: Generazione contenuto tramite AI\\
+\quad 2.5.4 UC-1D: Apertura modifica contenuto generato\\
 
 2.6 Sezione 2 – Modulo "AI Co-Pilot per i CdL"\\
-\quad 2.6.1 UC-2A: Visualizzazione modulo di upload e gestione documentale\\
-\quad 2.6.2 UC-2B: Visualizzazione pagina lista documenti\\
-\quad 2.6.3 UC-2C: Visualizzazione pagina documento\\
-\quad 2.6.4 UC-2D: Visualizzazione pagina destinatario\\
-\quad 2.6.5 UC-2E: Visualizzazione pagina storico documenti\\
+\quad 2.6.1 UC-2A: Apertura modulo di upload e gestione documentale\\
+\quad 2.6.2 UC-2B: Apertura lista documenti\\
+\quad 2.6.3 UC-2C: Apertura documento\\
+\quad 2.6.4 UC-2D: Apertura informazioni destinatario\\
+\quad 2.6.5 UC-2E: Apertura storico documenti\\
 \quad 2.6.6 UC-2F: Gestione messaggio\\
 \quad 2.6.7 UC-2G: Tabella template salvati\\
 \quad 2.6.8 UC-2H: Invio documento e messaggio\\
@@ -506,6 +512,360 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-0A.1 – Inserimento email}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Casella di testo vuota
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo contenente l'email inserita
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente durante la registrazione inserisce la propria email nell'apposita casella di testo
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sulla casella di testo per l'inserimento dell'email
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0A.2 – Inserimento password}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Casella di testo vuota
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo contenente la password inserita
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente durante la registrazione inserisce la propria password nell'apposita casella di testo
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sulla casella di testo per l'inserimento della password
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0A.3 – Inserimento username}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Casella di testo vuota
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo contenente l'username inserito
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente durante la registrazione inserisce il proprio username nell'apposita casella di testo
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sulla casella di testo per l'inserimento dell'username
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0A.4 – Inserimento nome}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Casella di testo vuota
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo contenente il nome inserito
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente durante la registrazione inserisce il proprio nome nell'apposita casella di testo
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sulla casella di testo per l'inserimento del nome
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0A.5 – Inserimento cognome}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Casella di testo vuota
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo contenente il cognome inserito
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente durante la registrazione inserisce il proprio cognome nell'apposita casella di testo
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sulla casella di testo per l'inserimento del cognome
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0A.6 – Inserimento matricola}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Casella di testo vuota
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo contenente la matricola inserita
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente durante la registrazione inserisce la propria matricola nell'apposita casella di testo
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sulla casella di testo per l'inserimento della matricola
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0A.7 – Email non valida}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha inserito dei caratteri nel campo email
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio di errore relativo al formato non valido dell'email
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce un indirizzo email che non rispetta il formato standard (es. manca la chiocciola o il dominio)
+    \item Il sistema rileva che il formato non è corretto
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente conferma l'inserimento o passa al campo successivo
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0A.8 – Password non valida}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha inserito dei caratteri nel campo password
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio di errore relativo ai requisiti di sicurezza della password
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce una password che non soddisfa i criteri minimi di sicurezza (es. lunghezza minima, caratteri speciali)
+    \item Il sistema rileva che la password è troppo debole
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente conferma l'inserimento o passa al campo successivo
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0A.9 – Email già registrata}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'indirizzo email inserito è già presente all'interno del sistema
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio di errore che notifica l'esistenza dell'account
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce un'email formalmente valida ma già associata ad un altro utente registrato
+    \item Il sistema verifica la presenza dell'email nel database e blocca l'operazione
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente tenta di completare la registrazione o conferma il campo email
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0A.10 – Username già registrato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Lo username inserito è già presente all'interno del sistema
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio di errore che indica che lo username non è disponibile
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce uno username già utilizzato da un altro utente
+    \item Il sistema verifica l'univocità dello username e ne segnala l'indisponibilità
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente tenta di completare la registrazione o conferma il campo username
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0A.11 – Matricola già registrata}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La matricola inserita è già associata ad un account esistente
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio di errore che impedisce la registrazione multipla con la stessa matricola
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce un numero di matricola già presente nel sistema
+    \item Il sistema rileva la duplicazione e impedisce il proseguimento
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente tenta di completare la registrazione
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0A.12 – Matricola non valida}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha inserito dei dati nel campo matricola
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio di errore sul formato della matricola
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce una matricola che non rispetta il formato atteso (es. contiene lettere dove non previste o ha una lunghezza errata)
+    \item Il sistema invalida il dato inserito
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente conferma l'inserimento o passa al campo successivo
+\end{itemize}
+
+\vspace{0.5cm}
+
 \subsubsection{UC-0B – Login / Autenticazione utente}
 
 \begin{figure}[H]
@@ -573,9 +933,68 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-0B.1 – Email non registrata}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'email inserita nel modulo di accesso non è presente nel database del sistema
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio di errore e l'accesso viene negato
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente tenta di effettuare il login inserendo un indirizzo email non associato ad alcun account
+    \item Il sistema verifica l'esistenza dell'email e non trova corrispondenze
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul pulsante di conferma per effettuare il login
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0B.2 – Password errata}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'email inserita è corretta, ma la password non corrisponde a quella salvata nel sistema
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio di errore relativo alle credenziali non valide
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce la propria email (corretta) e una password errata
+    \item Il sistema verifica la corrispondenza delle credenziali e rileva l'errore
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul pulsante di conferma per effettuare il login
+\end{itemize}
+
+\vspace{0.5cm}
 
 
-\subsubsection{UC-0C – Visualizzazione pagina principale / dashboard}
+\subsubsection{UC-0C – Apertura dashboard}
 
 \begin{figure}[H]
     \centering
@@ -625,17 +1044,17 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-1A - Visualizzazione modulo di generazione contenuti AI.
-        \item UC-2A - Visualizzazione modulo di upload e gestione documentale.
-        \item UC-0D - Visualizzazione modulo gestione profilo utente.
-        \item UC-0E - Visualizzazione modulo gestione ruoli.
+        \item UC-1A - Apertura modulo di generazione contenuti AI.
+        \item UC-2A - Apertura modulo di upload e gestione documentale.
+        \item UC-0D - Apertura modulo gestione profilo utente.
+        \item UC-0E - Apertura modulo gestione ruoli.
     \end{itemize}
 \end{itemize}
 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D – Visualizzazione gestione profilo utente}
+\subsubsection{UC-0D – Apertura gestione profilo utente}
 
 \begin{figure}[H]
     \centering
@@ -712,7 +1131,242 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E – Visualizzazione gestione ruoli (Admin / Editor)}
+\subsubsection{UC-0D.1 – Visualizzazione email}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha effettuato l'accesso e si trova nella pagina del profilo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo precompilata con l'email attuale dell'utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera l'email associata all'account e la mostra nell'apposita casella
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente accede alla sezione "Modifica Profilo" o "I miei dati"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0D.2 – Visualizzazione password}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha effettuato l'accesso e si trova nella pagina del profilo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo contenente la password attuale (tipicamente oscurata)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema predispone il campo password permettendo all'utente di visualizzarne lo stato o modificarla
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente accede alla sezione "Modifica Profilo"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0D.3 – Visualizzazione username}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha effettuato l'accesso e si trova nella pagina del profilo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo precompilata con lo username attuale dell'utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera lo username associato all'account e lo mostra nell'apposita casella
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente accede alla sezione "Modifica Profilo"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0D.4 – Visualizzazione nome}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha effettuato l'accesso e si trova nella pagina del profilo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo precompilata con il nome attuale dell'utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera il nome dell'utente e lo mostra nell'apposita casella
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente accede alla sezione "Modifica Profilo"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0D.5 – Visualizzazione cognome}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha effettuato l'accesso e si trova nella pagina del profilo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo precompilata con il cognome attuale dell'utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera il cognome dell'utente e lo mostra nell'apposita casella
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente accede alla sezione "Modifica Profilo"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0D.6 – Visualizzazione matricola}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha effettuato l'accesso e si trova nella pagina del profilo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Casella di testo precompilata con la matricola attuale dell'utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera la matricola associata all'account e la mostra nell'apposita casella
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente accede alla sezione "Modifica Profilo"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0D.7 – Salva profilo utente}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha modificato uno o più campi del proprio profilo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item I dati aggiornati vengono salvati nel database oppure vengono mostrati i messaggi di errore pertinenti
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente preme il pulsante di salvataggio delle modifiche
+    \item Il sistema verifica la validità dei nuovi dati inseriti (controllo formato, unicità email/username/matricola analogamente alla fase di registrazione)
+    \item Se non sono presenti errori, il sistema sovrascrive i dati precedenti con quelli nuovi; in caso contrario, segnala l'errore specifico al campo interessato
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul pulsante "Salva" o "Aggiorna"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0D.8 – Uscita senza salvare profilo utente}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica profilo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente viene reindirizzato alla pagina precedente o alla home senza che alcuna modifica venga applicata al database
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente decide di annullare l'operazione di modifica
+    \item Il sistema scarta le modifiche pendenti nei campi di testo e chiude la schermata
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul pulsante "Annulla" o "Indietro"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0E – Apertura gestione ruoli (Admin / Editor)}
 
 \begin{figure}[H]
     \centering
@@ -782,6 +1436,212 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-0E.1 – Visualizzazione nome utenti registrati}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Amministratore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'amministratore ha effettuato l'accesso e si trova nella sezione di gestione utenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzata la lista dei nomi degli utenti registrati nel sistema
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera dal database la lista degli utenti e ne mostra i nomi in formato tabellare o a lista
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'amministratore accede alla pagina "Gestione Utenti"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0E.2 – Visualizzazione cognome utenti registrati}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Amministratore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'amministratore ha effettuato l'accesso e si trova nella sezione di gestione utenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzata la lista dei cognomi degli utenti registrati nel sistema
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera dal database la lista degli utenti e ne mostra i cognomi in corrispondenza dei rispettivi nomi
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'amministratore accede alla pagina "Gestione Utenti"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0E.3 – Visualizzazione ruolo utenti registrati}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Amministratore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'amministratore ha effettuato l'accesso e si trova nella sezione di gestione utenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato il ruolo attuale (es. Utente, Admin, Moderatore) associato a ciascun utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema identifica i permessi di ogni utente e mostra l'etichetta del ruolo corrispondente
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'amministratore accede alla pagina "Gestione Utenti"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0E.4 – Modifica ruolo utente registrato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Amministratore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'amministratore ha selezionato un utente specifico dalla lista
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'interfaccia permette la selezione di un nuovo ruolo per l'utente scelto
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'amministratore interagisce con il campo relativo al ruolo (es. tramite menu a tendina) e seleziona una nuova tipologia di permessi
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'amministratore clicca sul comando di modifica o sul menu del ruolo utente
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0E.5 – Salva modifica ruolo utente registrato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Amministratore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'amministratore ha modificato il ruolo di un utente ma non ha ancora confermato
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il nuovo ruolo viene aggiornato nel database e l'utente acquisisce i nuovi permessi
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'amministratore conferma l'operazione di cambio ruolo
+    \item Il sistema registra la modifica e aggiorna lo stato dell'utente
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'amministratore clicca sul pulsante "Salva" o "Conferma"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0E.6 – Annulla modifica ruolo utente registrato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Amministratore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'amministratore sta modificando il ruolo di un utente
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il ruolo dell'utente rimane invariato e l'interfaccia torna allo stato precedente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'amministratore decide di non applicare le modifiche al ruolo
+    \item Il sistema ripristina il valore originale visualizzato
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'amministratore clicca sul pulsante "Annulla"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0E.7 – Utente non autorizzato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente generico (non amministratore)
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Un utente senza privilegi di amministrazione tenta di accedere a funzionalità o pagine riservate alla gestione ruoli
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'accesso viene negato e viene mostrato un messaggio di errore o effettuato un reindirizzamento
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente tenta di navigare verso l'URL di gestione utenti o di inviare una richiesta di modifica ruolo
+    \item Il sistema verifica i permessi, rileva l'assenza del ruolo di amministratore e blocca l'operazione
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente tenta l'accesso diretto alla risorsa protetta
+\end{itemize}
+
+\vspace{0.5cm}
+
 \subsubsection{UC-0F – Logout}
 
 \begin{figure}[H]
@@ -814,11 +1674,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il Sistema reindirizza l’utente alla schermata di login o alla schermata iniziale pubblica.
 \end{enumerate}
 
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item 
-\end{enumerate}
-
 \textbf{Trigger}
 \begin{itemize}
     \item Selezionare l'opzione di logout dall'interfaccia utente.
@@ -840,13 +1695,13 @@ Di seguito sono esposti gli attori utilizzati:
 
 \subsection{Sezione 1 – Modulo AI Assistant Generativo}
 
-\subsubsection{UC-1A – Visualizzazione modulo di generazione contenuti AI}
+\subsubsection{UC-1A – Apertura modulo di generazione contenuti AI}
 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1A.jpg}
-    \caption{Diagramma del caso d'uso UC-1A – Visualizzazione modulo di generazione contenuti AI}
+    \caption{Diagramma del caso d'uso UC-1A – Apertura modulo di generazione contenuti AI}
 \end{figure}
 
 \textbf{Attori}
@@ -893,13 +1748,103 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-1A.2 - Selezione tono
         \item UC-1A.3 - Selezione stile
         \item UC-1C - Generazione contenuto tramite AI
-        \item UC-1B - Visualizzazione storico prompt
+        \item UC-1B - Apertura storico prompt
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B – Visualizzazione storico prompt}
+\subsubsection{UC-1A.1 – Inserimento prompt}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Editor o Admin)
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente si trova nell'interfaccia di generazione contenuti AI (UC-1A)
+    \item La casella di testo del prompt è vuota o modificabile
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item La casella di testo contiene la descrizione (prompt) inserita dall'utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce o incolla il testo descrittivo per la generazione del contenuto nell'apposita area di testo
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sulla casella di testo dedicata al prompt
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1A.2 – Selezione tono}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Editor o Admin)
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente si trova nell'interfaccia di generazione contenuti AI
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il parametro "Tono" risulta impostato sulla scelta effettuata (es. Professionale, Informale, Spiritoso)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente interagisce con il selettore del tono (es. menu a tendina)
+    \item L'utente sceglie l'opzione desiderata tra quelle disponibili
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul menu di selezione del tono
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1A.3 – Selezione stile}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Editor o Admin)
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L’utente si trova nell'interfaccia di generazione contenuti AI
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il parametro "Stile" risulta impostato sulla scelta effettuata (es. Articolo di blog, Post social, Email)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente interagisce con il selettore dello stile
+    \item L'utente sceglie la tipologia di formato desiderata per il testo in output
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul menu di selezione dello stile
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B – Apertura storico prompt}
 
 \begin{figure}[H]
     \centering
@@ -944,15 +1889,11 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-1B.1 – Visualizzazione prompt
-        \item UC-1B.2 – Visualizzazione tono
-        \item UC-1B.3 – Visualizzazione stile
-        \item UC-1B.4 – Visualizzazione risultato
-        \item UC-1B.5 – Visualizzazione timestamp
-        \item UC-1B.6 – Visualizzazione Valutazione
+        \item Nessuna
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
+        \item UC-1B.11 – visualizzazione informazioni elemento
         \item UC-1B.7 – Ricerca
         \item UC-1B.8 – Riutilizza (rigenera con lo stesso prompt)
         \item UC-1B.9 – Duplica (Ti riporta al modulo di generazione con prompt, tono e stile precompilati)
@@ -962,13 +1903,352 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-1B.7 – Ricerca}
 
-\subsubsection{UC-1C – Visualizzazione pagina contenuto generato}
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Lo storico è popolato da diversi elementi
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item La lista visualizzata viene filtrata mostrando solo gli elementi che corrispondono ai criteri di ricerca
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce una parola chiave (es. parte del prompt o data) nella barra di ricerca
+    \item Il sistema filtra gli elementi dello storico in tempo reale o alla conferma
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Inserimento testo nel campo di ricerca o click sul pulsante "Cerca"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.8 – Riutilizza}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+    \item AI Assistant System
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha individuato un prompt passato che vuole rieseguire immediatamente
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il sistema avvia una nuova generazione utilizzando esattamente gli stessi parametri (prompt, tono, stile) dell'elemento selezionato
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sul comando "Riutilizza" associato ad un elemento dello storico
+    \item Il sistema invia direttamente i dati al motore AI per generare un nuovo output senza passare per la schermata di modifica
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul pulsante "Riutilizza" o "Rigenera"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.9 – Duplica}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente vuole usare un vecchio prompt come base per una nuova generazione
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente viene riportato al modulo di generazione (UC-1A) con i campi prompt, tono e stile già compilati con i dati storici, pronti per essere modificati
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sul comando "Duplica" associato ad un elemento dello storico
+    \item Il sistema reindirizza l'utente alla pagina di creazione, pre-popolando i campi con i valori recuperati dallo storico
+    \item L'utente può ora modificare il prompt o i parametri prima di generare
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul pulsante "Duplica" o "Usa come bozza"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.10 – Nessun prompt salvato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente accede alla sezione dello storico ma non ha mai effettuato generazioni precedenti o lo storico è stato cancellato
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio informativo (placeholder) che indica l'assenza di dati
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema interroga il database per recuperare lo storico
+    \item Il sistema non trova record associati all'utente e mostra un messaggio del tipo "Nessun prompt presente nello storico"
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'apertura della sezione "Storico Prompt"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.11 – Visualizzazione informazioni elemento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dello storico contiene almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza i dettagli completi di una specifica generazione (prompt completo, parametri usati, output ottenuto, data)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente seleziona un elemento dalla lista dello storico
+    \item Il sistema espande l'elemento o apre una modale mostrando tutti i metadati associati a quella generazione
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click su una riga o su un'icona di dettaglio dell'elemento in elenco
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1B.1 – Visualizzazione prompt
+        \item UC-1B.2 – Visualizzazione tono
+        \item UC-1B.3 – Visualizzazione stile
+        \item UC-1B.4 – Visualizzazione risultato
+        \item UC-1B.5 – Visualizzazione timestamp
+        \item UC-1B.6 – Visualizzazione Valutazione
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.1 – Visualizzazione prompt}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha aperto la visualizzazione di dettaglio di un elemento dello storico (UC-1B.11)
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato il testo completo del prompt inserito originariamente dall'utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera dal database il testo della richiesta (prompt) associato alla generazione selezionata e lo mostra a video
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Apertura del dettaglio elemento (incluso in UC-1B.11)
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.2 – Visualizzazione tono}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha aperto la visualizzazione di dettaglio di un elemento dello storico
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato il parametro "Tono" utilizzato per la generazione
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera e visualizza l'etichetta del tono (es. Professionale, Amichevole) salvato con la generazione
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Apertura del dettaglio elemento (incluso in UC-1B.11)
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.3 – Visualizzazione stile}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha aperto la visualizzazione di dettaglio di un elemento dello storico
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato il parametro "Stile" utilizzato per la generazione
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera e visualizza la tipologia di contenuto o stile (es. Articolo, Post Social) salvato con la generazione
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Apertura del dettaglio elemento (incluso in UC-1B.11)
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.4 – Visualizzazione risultato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha aperto la visualizzazione di dettaglio di un elemento dello storico
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato il testo generato dall'intelligenza artificiale
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema mostra il contenuto testuale prodotto dall'AI in risposta al prompt, mantenendo la formattazione originale se presente
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Apertura del dettaglio elemento (incluso in UC-1B.11)
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.5 – Visualizzazione timestamp}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha aperto la visualizzazione di dettaglio di un elemento dello storico
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzata la data e l'ora in cui è stata effettuata la generazione
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema mostra il timestamp (data e ora) di creazione del contenuto
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Apertura del dettaglio elemento (incluso in UC-1B.11)
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.6 – Visualizzazione Valutazione}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha aperto la visualizzazione di dettaglio di un elemento dello storico
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato il feedback o il voto assegnato dall'utente (se presente)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema verifica se esiste una valutazione associata al contenuto
+    \item Se presente, mostra l'indicatore grafico (es. stelle, thumbs up/down); in caso contrario mostra un campo vuoto o l'opzione per aggiungere una valutazione
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Apertura del dettaglio elemento (incluso in UC-1B.11)
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1C – Generazione contenuto tramite AI}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1C.jpg}
-    \caption{Diagramma del caso d'uso UC-1C – Visualizzazione pagina contenuto generato}
+    \caption{Diagramma del caso d'uso UC-1C – Generazione contenuto tramite AI}
 \end{figure}
 
 \textbf{Attori}
@@ -1019,18 +2299,198 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-1C.4 – Valuta contenuto generato
         \item UC-1C.5 – Scarta contenuto generato
         \item UC-1C.6 – Pubblica contenuto generato
-        \item UC-1D – Visualizzazione pagina modifica contenuto generato
+        \item UC-1D – Apertura modifica contenuto generato
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1D – Visualizzazione pagina modifica contenuto generato}
+\subsubsection{UC-1C.1 – Visualizzazione anteprima contenuto generato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Il sistema AI ha completato l'elaborazione della richiesta
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il testo generato è visibile a schermo e formattato correttamente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema riceve l'output dall'AI e lo renderizza nell'area di visualizzazione principale, permettendo all'utente di leggerlo
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Conclusione del processo di generazione (UC-1C)
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1C.2 – Rigenera contenuto tramite AI}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+    \item Sistema AI
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item È presente un contenuto generato visibile, ma l'utente non è soddisfatto del risultato
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il contenuto precedente viene sostituito da una nuova versione generata con gli stessi parametri (o parametri lievemente aggiustati)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente richiede al sistema di provare nuovamente a generare il contenuto
+    \item Il sistema invia una nuova richiesta all'AI
+    \item Il nuovo risultato sovrascrive quello visualizzato in anteprima
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul pulsante "Rigenera" o sull'icona di refresh
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1C.3 – Salva post generato nello storico}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Sistema
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Un contenuto è stato generato con successo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item I dati della generazione (prompt, parametri, output) sono persistiti nel database e accessibili tramite lo storico (UC-1B)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema memorizza automaticamente il risultato della generazione e i metadati associati nel database dello storico
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Completamento della generazione (o click esplicito su "Salva bozza" se previsto manualmente)
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1C.4 – Valuta contenuto generato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Il contenuto generato è visualizzato a schermo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il feedback dell'utente viene registrato e associato al contenuto nello storico
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente esprime un giudizio sulla qualità del contenuto (es. pollice in su/giù o stelle)
+    \item Il sistema salva la valutazione
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sulle icone di valutazione (feedback)
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1C.5 – Scarta contenuto generato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Il contenuto generato è visualizzato a schermo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il contenuto attuale viene rimosso dalla vista e l'utente ritorna alla fase di inserimento prompt (UC-1A)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente decide che il contenuto non è utile e vuole ricominciare da zero
+    \item Il sistema pulisce l'area di anteprima e riporta il focus sui campi di input
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul pulsante "Indietro", "Annulla" o "Scarta"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1C.6 – Pubblica contenuto generato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Il contenuto è stato generato e l'utente lo reputa idoneo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il contenuto viene reso pubblico sulla piattaforma o inviato al CMS di destinazione
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente conferma la volontà di utilizzare il contenuto generato
+    \item Il sistema cambia lo stato del contenuto in "Pubblicato" o lo trasferisce alla sezione blog/news del sito
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul pulsante "Pubblica" o "Usa questo contenuto"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1D – Apertura modifica contenuto generato}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1D.png}
-    \caption{Diagramma del caso d'uso UC-1D – Visualizzazione pagina modifica contenuto generato}
+    \caption{Diagramma del caso d'uso UC-1D – Apertura modifica contenuto generato}
 \end{figure}
 
 \textbf{Attori}
@@ -1086,11 +2546,189 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-1D.1 – Modifica immagine}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica del contenuto (UC-1D)
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'immagine associata al contenuto viene aggiornata con quella caricata dall'utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sull'opzione per cambiare l'immagine (upload o selezione da libreria)
+    \item L'utente seleziona un file valido dal proprio dispositivo
+    \item Il sistema sostituisce l'immagine generata dall'AI con quella fornita dall'utente
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente interagisce con l'area dedicata all'immagine o clicca su "Carica immagine"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1D.2 – Modifica titolo}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica del contenuto
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il titolo del contenuto risulta modificato secondo l'input dell'utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente modifica il testo presente nella casella di input del titolo
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca o fa focus sulla casella di testo del titolo
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1D.3 – Modifica testo}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica del contenuto
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il corpo del testo risulta modificato secondo l'input dell'utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente agisce sull'editor di testo (corpo del contenuto) aggiungendo, rimuovendo o formattando il testo generato
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca all'interno dell'area di testo principale
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1D.4 – Salva modifiche}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha apportato delle modifiche ai campi del contenuto
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Le modifiche vengono persistite nel database e il contenuto aggiornato è pronto per l'uso
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente conferma le operazioni di modifica premendo il pulsante di salvataggio
+    \item Il sistema valida i dati e sovrascrive la versione precedente del contenuto
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul pulsante "Salva modifiche"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1D.5 – Annulla modifiche}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Le modifiche non salvate vengono scartate e l'utente ritorna alla visualizzazione precedente (anteprima originale)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente decide di non applicare le modifiche correnti
+    \item Il sistema ripristina lo stato del contenuto a quello precedente l'apertura dell'editor
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul pulsante "Annulla"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1D.6 – File immagine non valido}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente tenta di caricare un'immagine tramite UC-1D.1
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene mostrato un messaggio di errore e l'immagine precedente rimane invariata
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente seleziona un file che non rispetta i requisiti del sistema (formato non supportato, dimensione eccessiva, file corrotto)
+    \item Il sistema rileva l'anomalia durante il caricamento e blocca l'operazione
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Conferma della selezione del file da parte dell'utente
+\end{itemize}
+
+\vspace{0.5cm}
 
 
 \subsection{Sezione 2 – Modulo AI Co-Pilot per i Consulenti del Lavoro (CdL)}
 
-\subsubsection{UC-2A – Visualizzazione modulo di upload e gestione documentale.}
+\subsubsection{UC-2A – Apertura modulo di upload e gestione documentale.}
 
 \begin{figure}[H]
     \centering
@@ -1151,8 +2789,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-
-\subsubsection{UC-2B – Visualizzazione pagina lista documenti.}
+\subsubsection{UC-2B – Apertura lista documenti.}
 
 \begin{figure}[H]
     \centering
@@ -1214,15 +2851,15 @@ Di seguito sono esposti gli attori utilizzati:
     \begin{itemize}
         \item UC-2B.10 - Filtraggio documenti
         \item UC-2B.11 - Nessun documento riconosciuto.
-        \item UC-2C – Visualizzazione pagina documento
-        \item UC-2D - Visualizzazione pagina destinatario
+        \item UC-2C – Apertura documento
+        \item UC-2D - Apertura informazioni destinatario
     \end{itemize}
 \end{itemize}
 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2C – Visualizzazione pagina documento}
+\subsubsection{UC-2C – Apertura documento}
 
 \begin{figure}[H]
     \centering
@@ -1285,15 +2922,15 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-2C.3 – Modifica tipologia documento
         \item UC-2C.4 – Rivaluta percentuale confidenza
         \item UC-2C.5 – Salva modifiche documento
-        \item UC-2B – Visualizzazione pagina lista documenti.
-        \item UC-2D - Visualizzazione pagina destinatario
-        \item UC-2E - Visualizzazione pagina storico documenti
+        \item UC-2B – Apertura lista documenti.
+        \item UC-2D - Apertura informazioni destinatario
+        \item UC-2E - Apertura storico documenti
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2D - Visualizzazione pagina destinatario }
+\subsubsection{UC-2D - Apertura informazioni destinatario }
 
 \begin{figure}[H]
     \centering
@@ -1347,14 +2984,14 @@ Di seguito sono esposti gli attori utilizzati:
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-2B – Visualizzazione pagina lista documenti.
-        \item UC-2C – Visualizzazione pagina documento
-        \item UC-2E - Visualizzazione pagina storico documenti
+        \item UC-2C – Apertura documento
+        \item UC-2E - Apertura storico documenti
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E – Visualizzazione pagina storico documenti}
+\subsubsection{UC-2E – Apertura storico documenti}
 
 \begin{figure}[H]
     \centering
@@ -1397,18 +3034,21 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2B.1 – Visualizzazione codice documento
-        \item UC-2E.1 - Visualizzazione stato
-        \item UC-2E.2 - Visualizzazione percentuale confidenza
-        \item UC-2E.3 - Visualizzazione lista distribuzione
+        \item nessuna
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2C – Visualizzazione pagina documento
-        \item UC-2D - Visualizzazione pagina destinatario
+        \item UC-2E.6 - Filtraggio documenti
+        \item UC-2E.7 - visualizzazione informazioni documentazione %che dentro avrá i seguenti casi d'uso come include
+        % \item UC-2B.1 – Visualizzazione codice documento
+        % \item UC-2E.1 - Visualizzazione stato
+        % \item UC-2E.2 - Visualizzazione percentuale confidenza
+        % \item UC-2E.3 - Visualizzazione lista distribuzione
+        \item UC-2C – Apertura documento
+        \item UC-2D - Apertura informazioni destinatario
         \item UC-2E.4 - Selezione documento
         \item UC-2F - Gestione messaggio
-        \item UC-2E.4 - Documenti assenti.
+        \item UC-2E.5 - Documenti assenti.
     \end{itemize}
 \end{itemize}
 
@@ -1475,13 +3115,12 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-2F.3 - Modifica testo messaggio
         \item UC-2F.4 - Conferma modifica messaggio
         \item UC-2F.5 - Genera messaggio
-        \item UC-2E – Visualizzazione pagina storico documenti
+        \item UC-2E – Apertura storico documenti
         \item UC-2H – Invio documento e messaggio
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
-
 
 \subsubsection{UC-2G - Tabella template salvati }
 
