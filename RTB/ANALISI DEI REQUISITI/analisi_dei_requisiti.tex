@@ -90,6 +90,11 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \hline
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
 \hline
+0.0.11 & 11/12/2025 & 
+\begin{minipage}[t]{\linewidth}
+Aggiungto modulo 3\end{minipage} 
+& Marco Piro & - \\
+\hline
 0.0.10 & 10/12/2025 & 
 \begin{minipage}[t]{\linewidth}
 Rinominazione casi d'uso, aggiunta sotto-casi d'uso alle prime due sezioni.
@@ -3219,7 +3224,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Selezionare l'opzione di invio documento e messaggio dalla pagina gestione messaggio.
 \end{itemize}
 
-
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
@@ -3237,6 +3241,73 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-2F – Gestione messaggio %Torna a gestione messaggio
     \end{itemize}
 \end{itemize}
+
+
+\section{Sezione 3 - Modulo Analytics e Monitoraggio Trasversale}
+\subsection{UC-3A - Visualizzazione dashboard di analisi e Monitoraggio AI}
+
+\begin{figure}[H]
+    \centering
+   
+    \caption{Diagramma del caso d'uso UC-3A}
+    \label{fig:uc3a}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst (principale).
+    \item Amministratore.
+    \item Sistema di Analytics.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha effettuato il login ed è autenticato come Auditor, Data Analyst o Amministratore.
+    \item Il sistema ha accumulato dati storici.
+    \item L'utente accede alla sezione ``Analytics e Monitoraggio'' dalla dashboard principale.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza le metriche aggiornate in base ai filtri applicati (o di default).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente accede al modulo centralizzato di Analytics.
+    \item Il Sistema calcola e mostra una panoramica generale (Dashboard) applicando i filtri di default (es. Periodo: Ultimo Mese, Utenti: Tutti).
+    \item Il Sistema visualizza i grafici e le tabelle relative alle metriche (confidenza, rating, volumi) per il contesto di default.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il sistema non dispone di dati sufficienti nel periodo di default.
+    \item Il Sistema mostra un messaggio ``Nessun dato disponibile per il periodo selezionato''.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare la voce ``Analytics / Monitoraggio AI'' dal menu principale.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-3A.1 - Visualizzazione volume prompt generati.
+        \item UC-3A.2 - Visualizzazione statistiche toni e stili utilizzati.
+        \item UC-3A.3 - Visualizzazione rating medio e feedback.
+        \item UC-3A.4 - Visualizzazione confidenza media riconoscimento.
+        \item UC-3A.5 - Visualizzazione percentuale interventi manuali.
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-3A.6 - Filtraggio per periodo temporale (L'utente modifica le date).
+        \item UC-3A.7 - Filtraggio per utente/operatore (L'utente seleziona uno specifico operatore).
+        \item UC-3A.8 - Esportazione Report (PDF/CSV).
+        \item UC-3A.9 - Assenza di dati storici.
+    \end{itemize}
+\end{itemize} 
 
 \vspace{0.5cm}
 
