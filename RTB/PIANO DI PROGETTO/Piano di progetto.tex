@@ -19,10 +19,9 @@
 \usepackage{caption}
 \usepackage{colortbl}  % <-- Add this line
 \usepackage{pgfplots}
+% Comando per la versione corrente
+\newcommand{\CurrentVersion}{0.0.3}
 \pgfplotsset{compat=1.16}
-
-% hyperref dovrebbe essere caricato quasi per ultimo
-\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
 
 % Configurazione delle didascalie per tabelle
 \captionsetup[table]{
@@ -83,7 +82,7 @@
   {\Large\bfseries\color{primaryblue} BugBusters}\\[0.5cm]
 
   {\Huge\bfseries\color{primaryblue} Piano di Progetto}\\[0.3cm]
-  {\Large\color{secondaryblue} Versione 0.0.2}\\[0.8cm]
+  {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
 \end{center}
 
 \begin{center}
@@ -118,7 +117,7 @@ Il Piano di Progetto riporta il riepilogo delle attività effettuate e quelle an
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-0.0.3 & 11/12/2025 & Continuazione documento & Alberto Autiero & - & - \\
+\CurrentVersion & 11/12/2025 & Continuazione documento & Alberto Autiero & - & - \\
 \hline0.0.2 & 03/12/2025 & Continuazione documento & Alberto Autiero & - & - \\
 \hline
 0.0.1 & 01/12/2025 & Prima stesura del documento & Alberto Autiero & - & - \\
