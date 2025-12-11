@@ -481,6 +481,10 @@
       "definition": "Baseline che definisce lo stato del prodotto software in un determinato momento, tipicamente al termine di una fase di sviluppo o di uno sprint. Include le specifiche del prodotto, la documentazione e il codice sorgente, e serve come riferimento per le fasi successive o per il rilascio."
     },
     {
+      "term": "POC (Proof of Concept)",
+      "definition": "Realizzazione preliminare e limitata di un'idea o di un concetto, finalizzata a verificarne la fattibilità tecnica, l'adeguatezza rispetto ai requisiti o la validità di un'architettura proposta. Un POC viene solitamente sviluppato con risorse minime per valutare rapidamente se un'approccio o una tecnologia siano promettenti prima di impegnare risorse significative in uno sviluppo completo."
+    },    
+    {
       "term": "Pattern Creazionali",
       "definition": "Categoria di design pattern che si occupano dei meccanismi di creazione degli oggetti, cercando di creare oggetti in modo adatto alla situazione. Esempi includono Factory Method, Abstract Factory, Builder, Singleton, etc."
     },
