@@ -20,6 +20,9 @@
 \usepackage[titles]{tocloft}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref}
 
+% Macro
+\input{../../assets/macro/macro-verbali.tex}
+
 \definecolor{primaryblue}{RGB}{0,102,204}
 \definecolor{secondaryblue}{RGB}{51,153,255}
 \definecolor{lightgray}{RGB}{245,245,245}
@@ -66,7 +69,7 @@
 
 % Header: sinistra e destra
 \fancyhead[L]{Gruppo 4 - BugBusters} % sinistra
-\fancyhead[R]{Piano di Qualifica}   % destra
+\fancyhead[R]{Piano di Qualifica\G}   % destra
 
 \fancyfoot[L]{ \thepage\ di \pageref{LastPage}} %definisce il formato del footer
 \fancyfoot[R]{ \nouppercase{\rightmark}} % nome della sezione
@@ -92,7 +95,7 @@
   
   {\Large\bfseries\color{primaryblue} BugBusters}\\[0.5cm]
 
-  {\Huge\bfseries\color{primaryblue} Piano di Qualifica}\\[0.3cm]
+  {\Huge\bfseries\color{primaryblue} Piano di Qualifica\G}\\[0.3cm]
   {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
 \end{center}
 
@@ -113,7 +116,7 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Descrizione}]
-Piano di Qualifica del Team BugBusters per il Capitolato C5 proposto da Eggon, che ha l'obiettivo di far rispettare uno standard di qualità per il codice e rispettare i requisiti funzionali prestabiliti.\end{tcolorbox}
+Piano di Qualifica\G del Team BugBusters per il Capitolato C5 proposto da Eggon, che ha l'obiettivo di far rispettare uno standard di qualità per il codice e rispettare i requisiti funzionali\G prestabiliti.\end{tcolorbox}
 \end{center}
 
 \newpage
@@ -145,12 +148,10 @@ Piano di Qualifica del Team BugBusters per il Capitolato C5 proposto da Eggon, c
 \section{Introduzione}
 
 \subsection{Scopo del documento}
-Lo scopo di redigere un Piano di Qualifica è garantire che il prodotto finale soddisfi in modo verificabile i requisiti stabiliti, assicurando qualità, affidabilità e conformità agli standard adottati. Questo documento definisce obiettivi, procedure e responsabilità legate alle attività di verifica e validazione per il controllo della qualità lungo tutto il ciclo di vita del progetto. Ciò permette di ridurre il rischio di errori, migliorare la trasparenza del processo e assicurare che il software sia robusto e coerente con le aspettative del committente.
+Lo scopo di redigere un Piano di Qualifica\G è garantire che il prodotto finale soddisfi in modo verificabile i requisiti stabiliti, assicurando qualità, affidabilità e conformità agli standard adottati. Questo documento definisce obiettivi, procedure e responsabilità legate alle attività di verifica e validazione per il controllo della qualità lungo tutto il ciclo di vita del progetto. Ciò permette di ridurre il rischio di errori, migliorare la trasparenza del processo e assicurare che il software sia robusto e coerente con le aspettative del committente.
 
-\subsection {Glossario (Ho riusato quello che c'era scritto in piano di progetto, valutare se cambiarlo o tenerlo uguale)}
-La realizzazione di un sistema software richiede, ancor prima della scrittura del codice, un'attenta fase di confronto, analisi e progettazione. Per supportare il lavoro asincrono del team, tutte le informazioni prodotte durante queste attività vengono opportunamente documentate.
-
-È tuttavia del tutto prevedibile che tali documenti possano contenere termini tecnici o espressioni non immediatamente comprensibili. Per questo motivo è stato redatto un Glossario, che raccoglie e spiega in modo puntuale i termini utilizzati. Il Glossario è soggetto ad aggiornamenti continui ed è consultabile nella sua versione corrente al seguente indirizzo: DA INSERIRE QUANDO VERRà CARICATO SUL SITO.
+\subsection {Glossario}
+Il Glossario è un documento nel quale sono raccolte e spiegate in modo puntuale le definizioni dei termini tecnici e delle espressioni utilizzate nei documenti di progetto. Questo strumento è essenziale per garantire una comprensione uniforme tra tutti i membri del team e per facilitare la comunicazione con i soggetti esterni.
 
 I termini che dispongono di una definizione nel Glossario saranno contrassegnati nel modo seguente: parola\G{}.
 
@@ -189,15 +190,15 @@ I termini che dispongono di una definizione nel Glossario saranno contrassegnati
 È fondamentale stabilire degli obiettivi da raggiungere per assicurare la qualità prefissata del prodotto. Questo documento definisce i valori di accettazione e ottimalità delle metriche secondo gli standard definiti nelle Norme di Progetto.
 
 \subsection{Qualità di processo}
-Un indicatore della qualità di un prodotto è il metodo con cui è stato sviluppato. Se il processo di sviluppo segue delle linee guida ben definite, esso favorisce la buona riuscita del prodotto. Come stabilito nelle Norme di Progetto, nel nostro way of working abbiamo adottato lo Standard ISO/IEC 12207:1995 adattandolo alle nostre esigenze e a quelle del progetto. /////Oltre allo standard abbiamo deciso di effettuare delle revisioni periodiche per analizzare lo stato di avanzamento rispetto agli ovbiettivi stabilti./////LE FAREMO? INTANTO L'HO SCRITTO POI AL MASSIMO CANCELLIAMO
+Un indicatore della qualità di un prodotto è il metodo con cui è stato sviluppato. Se il processo di sviluppo segue delle linee guida ben definite, esso favorisce la buona riuscita del prodotto. Come stabilito nelle Norme di Progetto, nel nostro way of working\G abbiamo adottato lo Standard ISO/IEC 12207:1995 adattandolo alle nostre esigenze e a quelle del progetto. /////Oltre allo standard abbiamo deciso di effettuare delle revisioni periodiche per analizzare lo stato di avanzamento rispetto agli ovbiettivi stabilti./////LE FAREMO? INTANTO L'HO SCRITTO POI AL MASSIMO CANCELLIAMO
 
-\subsubsection{Processi primari}
+\subsubsection{Processi primari\G}
 \subsubsubsection{Fornitura}
 Tabella
 \subsubsubsection{Sviluppo}
 Tabella
 
-\subsubsection{Processi di supporto}
+\subsubsection{Processi di supporto\G}
 \subsubsubsection{Documentazione}
 Tabella
 \subsubsubsection{Verifica}
@@ -205,7 +206,7 @@ Tabella
 \subsubsubsection{Gestione della qualità}
 Tabella
 
-\subsubsection{Processi organizzativi}
+\subsubsection{Processi organizzativi\G}
 \subsubsubsection{Gestione dei processi}
 Tabella
 
@@ -225,5 +226,4 @@ Tabella
 Tabella
 \subsubsection{Portabilità}
 Tabella
-
 \end{document}
