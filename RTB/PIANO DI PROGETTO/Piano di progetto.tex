@@ -19,10 +19,9 @@
 \usepackage{caption}
 \usepackage{colortbl}  % <-- Add this line
 \usepackage{pgfplots}
+% Comando per la versione corrente
+\newcommand{\CurrentVersion}{0.0.3}
 \pgfplotsset{compat=1.16}
-
-% hyperref dovrebbe essere caricato quasi per ultimo
-\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
 
 % Configurazione delle didascalie per tabelle
 \captionsetup[table]{
@@ -83,7 +82,7 @@
   {\Large\bfseries\color{primaryblue} BugBusters}\\[0.5cm]
 
   {\Huge\bfseries\color{primaryblue} Piano di Progetto}\\[0.3cm]
-  {\Large\color{secondaryblue} Versione 0.0.2}\\[0.8cm]
+  {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
 \end{center}
 
 \begin{center}
@@ -117,7 +116,9 @@ Il Piano di Progetto riporta il riepilogo delle attività effettuate e quelle an
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
-\hline0.0.2 & 03/12/2025 & Continuazione documento& Alberto Autiero & - & - \\
+\hline
+\CurrentVersion & 11/12/2025 & Continuazione documento & Alberto Autiero & - & - \\
+\hline0.0.2 & 03/12/2025 & Continuazione documento & Alberto Autiero & - & - \\
 \hline
 0.0.1 & 01/12/2025 & Prima stesura del documento & Alberto Autiero & - & - \\
 \hline
@@ -251,7 +252,7 @@ Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tr
 \hline
 \textbf{Nome} & Rischio Individuale derivante dalle altre attività universitarie \\
 \hline
-\textbf{Descrizione} & I membri del gruppo frequentamp altri corsi di insegnamento oltre a Ingegneria del Software, pertanto è probabile che si verifichino periodi di minore disponibilità\textsubscript{\scalebox{0.6}{\textbf{G}}} dovuti a esami, scadenze di altri progetti o impegni correlati. \\
+\textbf{Descrizione} & I membri del gruppo frequentano altri corsi di insegnamento oltre a Ingegneria del Software, pertanto è probabile che si verifichino periodi di minore disponibilità\textsubscript{\scalebox{0.6}{\textbf{G}}} dovuti a esami, scadenze di altri progetti o impegni correlati. \\
 \hline
 \textbf{Mitigazione} & Il membro interessato deve comunicare tempestivamente la propria ridotta disponibilità\textsubscript{\scalebox{0.6}{\textbf{G}}}. Gli altri componenti si redistribuiranno il carico di lavoro. Il membro interessato recupererà le attività non appena possibile. \\
 \hline
@@ -468,7 +469,7 @@ Il gruppo, inoltre, si impegna a organizzare colloqui in via telematica o in pre
 \textbf{Giorni di ritardo:} 0
 
 \noindent\textbf{Informazioni generali e attività da svolgere}\\
-Questo primo periodo ha l'obiettivo principale di risolvere tutti i problemi sorti durante la
+Questo primo sprint ha l'obiettivo principale di risolvere tutti i problemi sorti durante la
 candidatura; successivamente, avverrà la redazione dei documenti necessari per un buon
 inizio dei lavori.\\ \\
 In particolare, le attività previste sono:
@@ -586,8 +587,6 @@ Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
-\hline
 \end{tabular}
 \caption{Consuntivo per componenti nello Sprint 1}
 \label{tab:consuntivo-sprint1}
@@ -614,7 +613,7 @@ Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
 Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
-\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\textbf{Totale} & & & & & \textbf{[X]€} \\
 \hline
 \end{tabular}
 \caption{Variazione nelle risorse disponibili nello Sprint 1}
@@ -622,11 +621,11 @@ Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
-RG2: Rischio Globale derivato da malcomprensione del capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}\\
-RI1: Rischio Individuale derivante dalle altre attività universitarie
+Durante questo primo sprint si è concretizzato il rischio RT1: Rischio Tecnologico legato alla tecnologia utilizzata, nella redazione dell'Analisi dei requisiti a causa di conoscenza limitata delle tecnologie e soprattutto dall'inesperienza.
+
 
 \noindent\textbf{Retrospettiva}\\
-Il primo sprint si è concentrato sul raggiungimento di due obiettivi principali: redazione dei documenti e l' aggiornamento del sito web con la suddivisione in CANDIDATURA, RTB e DIAPOSITIVE. Inoltre sono state implementate automazioni l'upload automatico dei verbali sul sito. Entrambi i traguardi sono stati conseguiti. 
+Il primo sprint si è concentrato sul raggiungimento di due obiettivi principali: prima stesura e conseguente redazione di Analisi dei requisiti, Norme di Progetto e Glossario. Inoltre ci si è concentrati sull' aggiornamento del sito web con la suddivisione in CANDIDATURA, RTB e DIAPOSITIVE. Inoltre sono state implementate automazioni l'upload automatico dei verbali sul sito.
 
 \subsubsection{Sprint 2}
 
@@ -636,24 +635,24 @@ Il primo sprint si è concentrato sul raggiungimento di due obiettivi principali
 \textbf{Giorni di ritardo:} 0
 
 \noindent\textbf{Informazioni generali e attività da svolgere}\\
-Questo primo periodo ha l'obiettivo principale di risolvere tutti i problemi sorti durante la
-candidatura; successivamente, avverrà la redazione dei documenti necessari per un buon
-inizio dei lavori.\\
+Questo secondo sprint ha l'obiettivo principale di continuare la stesura delle Norme di progetto e l'Analisi dei requisiti.\\\\
 In particolare, le attività previste sono:
 \begin{itemize}
     \item Prima redazione del Piano di Progetto
-    \item Incontro con l'azienda proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} Eggon per discutere i requisiti e i Casi d'Uso\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+    \item Incontro con l'azienda proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} Eggon per discutere i requisiti e i casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}.
     \item Redazione del verbale interno del 01/12/2025
     \item Redazione del verbale esterno del 03/12/2025
     \item Studio delle tecnologie necessarie
     \item Continuazione della redazione del Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item Continuazione della redazione Analisi dei requisiti
+    \item Continuazione della redazione Norme di Progetto
 \end{itemize}
 
 \noindent\textbf{Rischi attesi}\\
 I componenti del team BugBusters ritengono siano possibili i seguenti rischi:
 \begin{itemize}
-    \item RI1: Rischio Individuale derivante dalle altre attività universitarie
     \item RT1: Rischio Tecnologico legato alla tecnologia utilizzata
+    \item RI1: Rischio Individuale derivante dalle altre attività universitarie
 \end{itemize}
 
 \noindent\textbf{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\
@@ -666,21 +665,19 @@ Si prospetta l'utilizzo delle seguenti risorse
 \hline
  & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & 8 & - & - & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & 4 & - & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & - & 8 & - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & - & - & - & - & 12 \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - & 8 & - & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & 8 & - & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
-\hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+Luca Slongo & - & - & 8 & - & - & - \\
 \hline
 \end{tabular}
 \caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 2}
@@ -710,8 +707,6 @@ Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
-\hline
 \end{tabular}
 \caption{Consuntivo per componenti nello Sprint\gloss\ 2}
 \label{tab:consuntivo-sprint2}
@@ -738,7 +733,7 @@ Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
 Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
-\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\textbf{Totale} & & & & & \textbf{[X]€} \\
 \hline
 \end{tabular}
 \caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 2}
@@ -746,11 +741,11 @@ Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
-RI1: Rischio Individuale derivante dalle altre attività universitarie\\
-RT1: Rischio Tecnologico legato alla tecnologia utilizzata
+Durante questo secondo sprint si è concretizzato il rischio RI1: Rischio Individuale derivante dalle altre attività universitarie, a causa dell’inizio del progetto di Tecnologie WEB.
+
 
 \noindent\textbf{Retrospettiva}\\
-L'obiettivo principale del secondo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} è stata l'elaborazione dell'Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}, attività ritenuta prioritaria e base propedeutica per l'intero ciclo di progettazione e sviluppo.
+Nel secondo sprint abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti individuata come priorità immediatae e fondamentale per le succesive fasi di progetto e sviluppo. L’obiettivo raggiunto è stato quello di portare l’analisi ad uno stadio avanzato.
 
 \subsubsection{Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 3}
 
@@ -760,18 +755,21 @@ L'obiettivo principale del secondo sprint\textsubscript{\scalebox{0.6}{\textbf{G
 \textbf{Giorni di ritardo:} 0
 
 \noindent\textbf{Informazioni generali e attività da svolgere}\\
-XXX\\
+Questo terzo sprint ha l'obiettivo principale di continuare la stesura delle Norme di progetto e l'Analisi dei requisiti.\\\\
 In particolare, le attività previste sono:
 \begin{itemize}
-    \item XXX
-    \item XXX
+    \item Continuazione della redazione del Piano di Progetto
+    \item Continuazione della redazione del'Analisi dei requisiti
+    \item Continuazione della redazione delle Norme di Progetto
+    \item Continuazione studio delle tecnologie necessarie
+    \item Verifica ed approvazione del Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}}
 \end{itemize}
 
 \noindent\textbf{Rischi attesi}\\
 I componenti del team BugBusters ritengono siano possibili i seguenti rischi:
 \begin{itemize}
-    \item XXX
-    \item XXX
+    \item RT1: Rischio Tecnologico legato alla tecnologia utilizzata
+    \item RI1: Rischio Individuale derivante dalle altre attività universitarie
 \end{itemize}
 
 \noindent\textbf{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\
@@ -784,21 +782,19 @@ Si prospetta l'utilizzo delle seguenti risorse
 \hline
  & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & 8 & - & - & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & 4 & - & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & - & 8 & - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & - & - & - & - & 12 \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - & 8 & - & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & 8 & - & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
-\hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+Luca Slongo & - & - & 8 & - & - & - \\
 \hline
 \end{tabular}
 \caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 3}
@@ -828,8 +824,6 @@ Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
-\hline
 \end{tabular}
 \caption{Consuntivo per componenti nello Sprint\gloss\ 3}
 \label{tab:consuntivo-sprint3}
@@ -856,7 +850,7 @@ Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
 Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
-\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\textbf{Totale} & & & & & \textbf{[X]€} \\
 \hline
 \end{tabular}
 \caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 3}
@@ -865,10 +859,9 @@ Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 
 \noindent\textbf{Rischi incontrati}\\
 XXX
-XXX
 
 \noindent\textbf{Retrospettiva}\\
-XXX
+Nel terzo sprint abbiamo concentrato gli sforzi XXX
 
 \subsubsection{Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 4}
 
@@ -902,21 +895,19 @@ Si prospetta l'utilizzo delle seguenti risorse
 \hline
  & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & 8 & - & - & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & 4 & - & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & - & 8 & - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & - & - & - & - & 12 \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - & 8 & - & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & 8 & - & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
-\hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+Luca Slongo & - & - & 8 & - & - & - \\
 \hline
 \end{tabular}
 \caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 4}
@@ -946,8 +937,6 @@ Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
-\hline
 \end{tabular}
 \caption{Consuntivo per componenti nello Sprint\gloss\ 4}
 \label{tab:consuntivo-sprint4}
@@ -974,7 +963,7 @@ Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
 Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
-\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\textbf{Totale} & & & & & \textbf{[X]€} \\
 \hline
 \end{tabular}
 \caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 4}
@@ -1020,21 +1009,19 @@ Si prospetta l'utilizzo delle seguenti risorse
 \hline
  & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & 8 & - & - & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & 4 & - & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & - & 8 & - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & - & - & - & - & 12 \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - & 8 & - & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & 8 & - & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
-\hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+Luca Slongo & - & - & 8 & - & - & - \\
 \hline
 \end{tabular}
 \caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 5}
@@ -1064,8 +1051,6 @@ Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
-\hline
 \end{tabular}
 \caption{Consuntivo per componenti nello Sprint\gloss\ 5}
 \label{tab:consuntivo-sprint5}
@@ -1092,7 +1077,7 @@ Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
 Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
-\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\textbf{Totale} & & & & & \textbf{[X]€} \\
 \hline
 \end{tabular}
 \caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 5}
@@ -1138,21 +1123,19 @@ Si prospetta l'utilizzo delle seguenti risorse
 \hline
  & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & 8 & - & - & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & 4 & - & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & - & 8 & - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & - & - & - & - & 12 \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - & 8 & - & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & 8 & - & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
-\hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+Luca Slongo & - & - & 8 & - & - & - \\
 \hline
 \end{tabular}
 \caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 6}
@@ -1182,8 +1165,6 @@ Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
-\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
-\hline
 \end{tabular}
 \caption{Consuntivo per componenti nello Sprint\gloss\ 6}
 \label{tab:consuntivo-sprint6}
@@ -1210,7 +1191,7 @@ Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
 Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \hline
-\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\textbf{Totale} & & & & & \textbf{[X]€} \\
 \hline
 \end{tabular}
 \caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 6}

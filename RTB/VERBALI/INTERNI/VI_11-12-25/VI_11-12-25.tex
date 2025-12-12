@@ -1,0 +1,162 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Interno}\\[0.3cm]
+  {\Large\color{secondaryblue} 11 dicembre 2025}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattori}    & Alberto Pignat \\
+\textbf{Verificatore}    & Luca Slongo  \\
+\textbf{Uso}          & Interno \\
+\textbf{Destinatari}  & BugBusters \\
+\textbf{Versione} & 0.0.1\\
+
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale dell'incontro interno del gruppo BugBusters.
+È stato preparato il diario di bordo.
+Con l'inizio del nuovo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} sono stati assegnati compiti (RTB27-RTB35) con responsabili specifici. 
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Interna
+    \item \textbf{Piattaforma:} Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item \textbf{Data:} 11/12/2025
+    \item \textbf{Orario di inizio:} 14:30
+    \item \textbf{Orario di fine:} 16:30
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+    \item \label{itm:diario di bordo} Preparazione del diario di bordo.
+    \item \label{itm:sprint} Cambio dei ruoli per lo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} e assegnazione di relativi compiti.
+\end{enumerate}
+
+\newpage
+\section{Svolgimento}
+\subsection*{\ref{itm:diario di bordo} Diario di bordo} È stato redatto il diario di bordo e dunque sono state discusse eventuali difficoltà e dubbi su come procedere con il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+
+\subsection*{\ref{itm:sprint} Inizio nuovo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}} Poichè è iniziato un nuovo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} sono stati assegnati nuovi ruoli ad ogni membro del team, sono stati assegnati successivamente nuovi compiti ad ognuno. 
+
+\section{Tabella delle decisioni e azioni}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+\hline
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/46}{RTB27} \label{RTB27}}{Avanzamento Norme di progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Marco Piro}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/47}{RTB28} \label{RTB28}}{Verificare questo verbale\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Luca Slongo}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/48}{RTB29} \label{RTB29}}{Verificare Analisi dei requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Luca Slongo}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/49}{RTB30} \label{RTB30}}{Verificare Norme di progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Luca Slongo}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/50}{RTB31} \label{RTB31}}{Verificare Piano di progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Leonardo Salviato}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/51}{RTB32} \label{RTB32}}{Verificare Piano di qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Leonardo Salviato}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/52}{RTB33} \label{RTB33}}{Iniziare a informarsi sul POC\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Marco Favero, Linor Sadè}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/53}{RTB34} \label{RTB34}}{Avanzamento Piano di qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Marco Favero, Alberto Pignat}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/54}{RTB35} \label{RTB35}}{Avanzamento Piano di progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}.}{Alberto Autiero}
+
+
+\end{tabularx}
+\fussy
+
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
