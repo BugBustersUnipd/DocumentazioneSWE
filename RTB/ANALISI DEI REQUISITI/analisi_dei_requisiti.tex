@@ -90,14 +90,19 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \hline
 \textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
 \hline
+0.0.12 & 12/12/2025 & 
+\begin{minipage}[t]{\linewidth}
+Aggiunta sotto-casi d'uso alla sezione 2\end{minipage} 
+& Leonardo Salviato & - \\
+\hline
 0.0.11 & 11/12/2025 & 
 \begin{minipage}[t]{\linewidth}
-Aggiungto modulo 3\end{minipage} 
+Aggiunto modulo 3\end{minipage} 
 & Marco Piro & - \\
 \hline
 0.0.10 & 10/12/2025 & 
 \begin{minipage}[t]{\linewidth}
-Rinominazione casi d'uso, aggiunta sotto-casi d'uso alle prime due sezioni.
+Rinominazione casi d'uso, aggiunta sotto-casi d'uso alle sezioni 0 e 1.
 \end{minipage} 
 & Leonardo Salviato & - \\
 \hline
@@ -2789,6 +2794,193 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-2A.1 – Caricamento file}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL)
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nell'interfaccia di upload
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il file è stato selezionato e pre-caricato nel browser, pronto per l'associazione dei metadati (oppure viene mostrato un errore)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sull'area di upload o trascina un file dal proprio computer
+    \item Il sistema verifica che il file rispetti i requisiti di formato (es. PDF, Excel) e dimensione massima
+    \item Se la verifica è positiva, il file viene mostrato in lista d'attesa
+\end{enumerate}
+
+\textbf{Eccezioni}
+\begin{itemize}
+    \item \textbf{Formato non valido:} L'utente tenta di caricare un'estensione non supportata. Il sistema blocca il caricamento e mostra un messaggio di errore.
+    \item \textbf{Dimensione eccessiva:} Il file supera il limite di megabyte consentiti. Il sistema rifiuta il file e notifica l'utente.
+\end{itemize}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezione del file tramite "Sfoglia" o "Drag \& Drop"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2A.2 – Inserimento categoria}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL)
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Un file è stato selezionato per l'upload
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Al file viene associata una categoria documentale (es. Cedolino, F24, Contratto)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente interagisce con il menu a tendina "Categoria"
+    \item L'utente seleziona la tipologia corretta per il documento in lavorazione
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul selettore della categoria
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2A.3 – Inserimento mese/anno di competenza}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL)
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Un file è stato selezionato per l'upload
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Al file viene associato il periodo temporale di riferimento
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce o seleziona tramite date-picker il mese e l'anno a cui il documento fa riferimento
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sui campi Mese e Anno
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2A.4 – Inserimento azienda}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL)
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Un file è stato selezionato per l'upload
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Al file viene associata l'azienda cliente proprietaria del documento
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inizia a digitare il nome dell'azienda o la seleziona da un elenco predefinito
+    \item Il sistema collega il documento all'anagrafica aziendale selezionata
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente interagisce con il campo di ricerca/selezione azienda
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2A.5 – Inserimento reparto}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL)
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Un file è stato selezionato e l'azienda è stata indicata
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Al file viene associato uno specifico reparto o dipartimento (opzionale)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente specifica il reparto di riferimento (es. Amministrazione, Produzione) se pertinente per il documento
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul campo di inserimento reparto
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2A.6 – Avvio upload}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL)
+    \item Sistema di archiviazione (Cloud/Server)
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Il file è stato selezionato e tutti i metadati obbligatori (Categoria, Azienda, Periodo) sono stati compilati
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il file viene trasferito fisicamente sul server e indicizzato nel database documentale
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente conferma l'operazione premendo il pulsante di avvio upload
+    \item Il sistema visualizza una barra di progresso durante il trasferimento
+    \item Al termine, il sistema conferma l'avvenuto salvataggio e pulisce il modulo per un nuovo inserimento
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul pulsante "Carica" o "Salva Documento"
+\end{itemize}
+
+\vspace{0.5cm}
+
 \subsubsection{UC-2B – Apertura lista documenti.}
 
 \begin{figure}[H]
@@ -2856,6 +3048,327 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
 \end{itemize}
 
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.1 – Visualizzazione codice documento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista dei documenti (incluso in UC-2B)
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato l'identificativo univoco (ID) assegnato dal sistema al documento
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera il codice identificativo dal database e lo mostra nella riga corrispondente al documento
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della lista documenti
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.2 – Visualizzazione tipologia documento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista dei documenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzata la categoria del documento (es. Cedolino, LUL, F24)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema mostra l'etichetta della tipologia documentale associata al file
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della lista documenti
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.3 – Visualizzazione competenza documento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista dei documenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato il periodo di competenza (Mese/Anno)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema mostra il mese e l'anno di riferimento fiscale/contabile del documento
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della lista documenti
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.4 – Visualizzazione azienda documento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista dei documenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzata la ragione sociale dell'azienda a cui il documento appartiene
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera il nome dell'azienda collegata e lo mostra in elenco
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della lista documenti
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.5 – Visualizzazione causale}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista dei documenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzata la descrizione o causale specifica del documento
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema mostra eventuali note o causali inserite in fase di upload o rilevate automaticamente
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della lista documenti
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.6 – Visualizzazione lingua}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista dei documenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene indicata la lingua principale del contenuto del documento
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema mostra un indicatore (es. bandiera o codice ISO) della lingua rilevata
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della lista documenti
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.7 – Visualizzazione numero pagine documento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista dei documenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene mostrato il conteggio totale delle pagine che compongono il file
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema calcola e visualizza il numero di pagine del documento PDF o immagine
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della lista documenti
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.8 – Visualizzazione nome documento originale}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista dei documenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato il nome del file originale caricato dall'utente
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema mostra il filename originale per facilitare il riconoscimento
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della lista documenti
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.9 – Visualizzazione data redazione documento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista dei documenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzata la data in cui il documento è stato creato o caricato a sistema
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera il timestamp di creazione o upload e lo mostra formattato
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della lista documenti
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.10 – Filtraggio documenti}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei documenti è visibile e contiene più elementi
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item La lista viene aggiornata mostrando solo i documenti che soddisfano i criteri selezionati
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente imposta uno o più filtri (es. per Azienda, per Periodo di competenza, per Tipologia)
+    \item Il sistema elabora la richiesta e ridisegna la tabella mostrando solo i risultati pertinenti
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente clicca sul pulsante "Filtra" o modifica i campi di filtro
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.11 – Nessun documento riconosciuto}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente accede alla lista o effettua una ricerca/filtro
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene mostrato un messaggio che informa l'utente dell'assenza di documenti
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema interroga il database in base ai criteri correnti (o visualizzazione generale)
+    \item Non trovando corrispondenze (o se l'archivio è vuoto), il sistema mostra un placeholder grafico o testuale "Nessun documento trovato"
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Accesso alla lista vuota o applicazione di filtri troppo restrittivi
+\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2930,6 +3443,172 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-2C.1 – Visualizzazione anteprima documento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha effettuato l'accesso al dettaglio del documento (UC-2C).
+    \item Il file fisico o digitale del documento è accessibile nel sistema di storage.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'anteprima del documento viene mostrata correttamente a video permettendo il confronto con i dati estratti.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera il file sorgente (PDF o immagine).
+    \item Il sistema renderizza l'anteprima del documento nell'area dedicata della pagina di dettaglio.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Apertura della pagina di dettaglio del documento (automatico all'avvio di UC-2C).
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2C.2 – Modifica destinatario}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Si è all'interno della visualizzazione di dettaglio (UC-2C).
+    \item Il campo destinatario è modificabile.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il documento è associato provvisoriamente a un nuovo destinatario (in attesa di salvataggio).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente nota che il destinatario assegnato automaticamente o precedentemente è errato o mancante.
+    \item L'utente attiva il campo di modifica del destinatario.
+    \item L'utente ricerca e seleziona il destinatario corretto dall'anagrafica.
+    \item Il sistema aggiorna il campo visualizzato con il nuovo valore.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sull'icona di modifica o sul campo del destinatario.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2C.3 – Modifica tipologia documento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Si è all'interno della visualizzazione di dettaglio (UC-2C).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item La tipologia del documento è aggiornata.
+    \item I campi dati specifici per la nuova tipologia vengono predisposti.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente rileva che la classificazione automatica del documento è errata (es. classificato come "Fattura" invece di "Contratto").
+    \item L'utente seleziona la nuova tipologia da un menu a tendina.
+    \item Il sistema aggiorna la tipologia.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezione di una nuova categoria dal menu "Tipologia documento".
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2C.4 – Rivaluta percentuale confidenza}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+    \item Sistema (Attore secondario).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha apportato modifiche sostanziali al documento (es. UC-2C.3 Modifica tipologia).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item La percentuale di confidenza viene ricalcolata o impostata al 100\% (validazione manuale).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente ha modificato la tipologia del documento (UC-2C.3).
+    \item Il sistema ri-analizza i campi in base alla nuova struttura dati prevista.
+    \item Il sistema aggiorna la percentuale di confidenza per riflettere la nuova coerenza dei dati o la validazione manuale dell'utente.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Completamento di UC-2C.3 o azione esplicita "Rivaluta dati".
+\end{itemize}
+\vspace{0.5cm}
+
+\subsubsection{UC-2C.5 – Salva modifiche documento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Sono state apportate modifiche ai metadati del documento (destinatario, tipologia, note, ecc.).
+    \item I dati inseriti rispettano i vincoli di validazione.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Le modifiche sono persistite nel database.
+    \item Il documento viene marcato come "Validato" o "Processato".
+    \item L'utente viene riportato alla lista documenti o rimane sulla pagina con notifica di successo.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sul pulsante di salvataggio/conferma.
+    \item Il sistema valida la coerenza dei dati inseriti.
+    \item Il sistema salva le modifiche nel database.
+    \item Il sistema notifica all'utente l'avvenuto salvataggio.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il sistema rileva dati mancanti o incongruenti (Errore validazione).
+    \item Il salvataggio viene bloccato e viene mostrato un messaggio di errore all'utente.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul pulsante "Salva" o "Conferma modifiche".
+\end{itemize}
+
 \subsubsection{UC-2D - Apertura informazioni destinatario }
 
 \begin{figure}[H]
@@ -2991,6 +3670,133 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-2D.1 – Visualizzazione destinatario}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla pagina di informazioni del destinatario (UC-2D).
+    \item Il destinatario è correttamente associato al documento nel sistema.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il nome e cognome (o ragione sociale) del destinatario sono visibili a schermo.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera l'identificativo del destinatario associato al documento selezionato.
+    \item Il sistema interroga l'anagrafica per ottenere i dati anagrafici principali.
+    \item Il sistema mostra il nome del destinatario nell'intestazione della scheda.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina UC-2D (Automatico).
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2D.2 – Visualizzazione codice fiscale}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla pagina di informazioni del destinatario (UC-2D).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il codice fiscale del destinatario è visibile per la verifica dell'identità.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera il codice fiscale dal record anagrafico del destinatario.
+    \item Il sistema formatta e visualizza il codice fiscale nel campo dedicato.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina UC-2D (Automatico).
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2D.3 – Visualizzazione matricola}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla pagina di informazioni del destinatario (UC-2D).
+    \item Il destinatario è un dipendente censito con numero di matricola.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il numero di matricola è visualizzato correttamente.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema verifica se al destinatario è associato un numero di matricola aziendale.
+    \item Il sistema mostra il numero di matricola per permettere la correlazione con i sistemi paghe.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il destinatario non possiede una matricola (es. collaboratore esterno).
+    \item Il campo viene mostrato vuoto o con dicitura "N/D".
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina UC-2D (Automatico).
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2D.4 – Visualizzazione reparto}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla pagina di informazioni del destinatario (UC-2D).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza il reparto o l'unità operativa di appartenenza del destinatario.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera le informazioni sull'organigramma o l'assegnazione del destinatario.
+    \item Il sistema visualizza il nome del reparto di afferenza.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina UC-2D (Automatico).
+\end{itemize}
+
 \subsubsection{UC-2E – Apertura storico documenti}
 
 \begin{figure}[H]
@@ -3038,21 +3844,256 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2E.6 - Filtraggio documenti
-        \item UC-2E.7 - visualizzazione informazioni documentazione %che dentro avrá i seguenti casi d'uso come include
-        % \item UC-2B.1 – Visualizzazione codice documento
-        % \item UC-2E.1 - Visualizzazione stato
-        % \item UC-2E.2 - Visualizzazione percentuale confidenza
-        % \item UC-2E.3 - Visualizzazione lista distribuzione
+        \item UC-2E.3 - Filtraggio documenti
+        \item UC-2E.4 - visualizzazione informazioni documento
         \item UC-2C – Apertura documento
         \item UC-2D - Apertura informazioni destinatario
-        \item UC-2E.4 - Selezione documento
+        \item UC-2E.1 - Selezione documento
         \item UC-2F - Gestione messaggio
-        \item UC-2E.5 - Documenti assenti.
+        \item UC-2E.2 - Documenti assenti.
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
+
+\subsubsection{UC-2E.1 – Selezione documento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista dello storico documenti (UC-2E).
+    \item È presente almeno un documento in lista.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il sistema apre il dettaglio del documento selezionato (reindirizzando a UC-2C).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente individua il documento di interesse scorrendo la lista.
+    \item L'utente clicca sulla riga corrispondente o sull'icona di dettaglio.
+    \item Il sistema naviga alla pagina di dettaglio del documento.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click su un elemento della lista documenti.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2E.2 – Documenti assenti}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Sistema.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha richiesto l'accesso allo storico documenti (UC-2E).
+    \item Non esistono documenti associati al destinatario o ai filtri correnti.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene mostrato un messaggio informativo che indica l'assenza di risultati.
+    \item La lista appare vuota.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema interroga il database per recuperare i documenti.
+    \item La ricerca non produce risultati (0 record).
+    \item Il sistema visualizza un placeholder o un messaggio "Nessun documento trovato" per informare l'utente.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina (automatico) o applicazione di un filtro troppo restrittivo.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2E.3 – Filtraggio documenti}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei documenti è visualizzata e popolata.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item La lista mostra solo i documenti che soddisfano i criteri di ricerca inseriti.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente desidera restringere la ricerca (es. per data, per tipologia o per stato invio).
+    \item L'utente utilizza la barra di ricerca o i filtri laterali.
+    \item Il sistema aggiorna la vista in tempo reale o dopo la conferma, nascondendo i documenti non pertinenti.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item L'utente rimuove i filtri.
+    \item Il sistema ripristina la visualizzazione completa dello storico.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Inserimento testo nella barra di ricerca o selezione di un filtro.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2E.4 – Visualizzazione informazioni documento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina dello storico documenti (UC-2E).
+    \item I documenti sono caricati in lista.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Per ogni riga della lista vengono mostrati i metadati essenziali del documento.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera i metadati principali per ogni documento in elenco.
+    \item Il sistema renderizza le colonne della tabella mostrando: Codice documento, Data caricamento, Stato elaborazione e Percentuale di confidenza.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina UC-2E (Automatico).
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2B.1 – Visualizzazione codice documento
+        \item UC-2E.5 - Visualizzazione stato
+        \item UC-2E.6 - Visualizzazione percentuale confidenza
+        \item UC-2E.7 - Visualizzazione lista distribuzione
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuna
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2E.5 – Visualizzazione stato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente sta visualizzando la lista o il dettaglio dei documenti (tramite UC-2E o UC-2E.4).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente conosce lo stato attuale del ciclo di vita del documento (es. "Da validare", "Pronto per l'invio", "Inviato", "Errore").
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema interroga il workflow del documento per determinarne lo stato corrente.
+    \item Il sistema visualizza un'etichetta testuale o un'icona colorata rappresentativa dello stato (es. Verde per inviato, Giallo per in attesa).
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina (Automatico).
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2E.6 – Visualizzazione percentuale confidenza}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Il documento è stato elaborato dal motore di analisi (OCR/AI).
+    \item L'utente sta visualizzando le informazioni del documento.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene mostrato un indicatore numerico o visivo dell'affidabilità dei dati estratti.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera il punteggio di confidenza calcolato durante l'importazione.
+    \item Il sistema formatta il dato come percentuale.
+    \item Il sistema visualizza il dato, evidenziandolo (es. in rosso) se la confidenza è sotto una soglia di sicurezza, suggerendo un controllo manuale.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina (Automatico).
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2E.7 – Visualizzazione lista distribuzione}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Al documento sono stati associati uno o più destinatari.
+    \item L'utente sta visualizzando i dettagli del documento nello storico.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza chi riceverà o ha ricevuto il documento.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera i collegamenti tra il documento e le anagrafiche destinatari.
+    \item Il sistema mostra i nomi dei destinatari o, in caso di lista lunga, un riepilogo (es. "Mario Rossi + 2 altri") espandibile al passaggio del mouse o al click.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina (Automatico).
+\end{itemize}
 
 \subsubsection{UC-2F – Gestione messaggio}
 
@@ -3122,6 +4163,221 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-2F.1 – Salva template messaggio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha modificato o generato un messaggio che ritiene utile per usi futuri.
+    \item Il campo testo del messaggio non è vuoto.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il contenuto del messaggio viene salvato nel database dei template personali o globali.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente, soddisfatto del messaggio attuale, clicca sul pulsante "Salva come template".
+    \item Il sistema richiede di assegnare un nome al nuovo template.
+    \item L'utente inserisce il nome e conferma.
+    \item Il sistema salva il template rendendolo disponibile per futuri utilizzi (vedi UC-2G).
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul pulsante "Salva come template".
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2F.2 – Modifica oggetto messaggio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di gestione messaggio (UC-2F).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'oggetto della mail/messaggio è aggiornato con il testo inserito dall'utente.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente seleziona il campo di input relativo all'oggetto del messaggio.
+    \item L'utente digita o modifica il testo esistente (es. aggiungendo riferimenti specifici).
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click o focus sul campo di input "Oggetto".
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2F.3 – Modifica testo messaggio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di gestione messaggio (UC-2F).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il corpo del messaggio è aggiornato.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente seleziona l'area di testo contenente il corpo del messaggio.
+    \item L'utente apporta modifiche manuali, aggiunge note o corregge il testo generato/preimpostato.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click o focus sull'area di testo del messaggio ("Body").
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2F.4 – Conferma modifica messaggio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Sono state apportate modifiche ai campi oggetto o testo (UC-2F.2 o UC-2F.3).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Le modifiche vengono validate temporaneamente in preparazione all'invio.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente termina la digitazione.
+    \item L'utente clicca fuori dall'area di testo o preme un pulsante di conferma parziale.
+    \item Il sistema mantiene in memoria la versione aggiornata del messaggio pronta per l'invio (UC-2H).
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Evento di \textit{blur} (perdita del focus) dai campi di testo o click su "Conferma/Applica".
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2F.5 – Genera messaggio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Sistema (AI/Generatore di template).
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Sono stati selezionati i parametri di generazione (es. tono, stile) o è stato richiesto un suggerimento automatico.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item I campi Oggetto e Testo vengono popolati automaticamente dal sistema.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sul pulsante "Genera messaggio" (eventualmente dopo aver selezionato tono e stile in UC-1A).
+    \item Il sistema elabora i dati del documento e del destinatario.
+    \item Il sistema crea una proposta di testo coerente con il contesto.
+    \item Il sistema sovrascrive o riempie i campi di visualizzazione.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul pulsante "Genera messaggio" o "Crea bozza con IA".
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2F.6 – Visualizzazione oggetto messaggio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Accesso alla pagina di gestione messaggio (UC-2F).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'oggetto corrente (vuoto, di default o generato) è visibile.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera l'eventuale oggetto predefinito basato sulla tipologia di documento.
+    \item Il sistema mostra il contenuto nel campo dedicato.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina UC-2F (Automatico).
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2F.7 – Visualizzazione testo messaggio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Accesso alla pagina di gestione messaggio (UC-2F).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il corpo del messaggio è visibile e leggibile.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera il testo (vuoto o pre-generato).
+    \item Il sistema renderizza l'area di testo permettendo la lettura del contenuto.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina UC-2F (Automatico).
+\end{itemize}
+
 \subsubsection{UC-2G - Tabella template salvati }
 
 \begin{figure}[H]
@@ -3175,13 +4431,112 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2F – Gestione messaggio %Sarebbe carica template messaggio
         \item UC-2G.1 – Elimina template
         \item UC-2G.2 – Nessun template salvato
+        \item UC-2G.3 – Carica template
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
+
+\subsubsection{UC-2G.1 – Elimina template}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista dei template salvati (UC-2G).
+    \item Il template da eliminare è presente in lista.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il template viene rimosso definitivamente dal sistema.
+    \item La lista viene aggiornata e non mostra più il template eliminato.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente identifica un template obsoleto o errato nella tabella.
+    \item L'utente clicca sull'icona di eliminazione (es. cestino) in corrispondenza della riga.
+    \item Il sistema richiede conferma dell'operazione.
+    \item L'utente conferma e il sistema cancella il record dal database.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul pulsante "Elimina" associato a un template.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2G.2 – Nessun template salvato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Sistema.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha richiesto l'apertura della tabella template (UC-2G).
+    \item Non sono presenti template nel database per l'utente o per lo studio.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio informativo ("Nessun template trovato").
+    \item La tabella appare vuota o nascosta.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema interroga il database per recuperare la lista dei template disponibili.
+    \item La query restituisce un risultato vuoto.
+    \item Il sistema notifica all'utente che non ci sono template da caricare.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina UC-2G (Automatico in assenza di dati).
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2G.3 – Carica template}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+    \item Sistema.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha selezionato un template valido dalla lista (UC-2G).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item I dati del template (Oggetto e Corpo del messaggio) vengono trasferiti nei campi di input della pagina di gestione messaggio (UC-2F).
+    \item Il modale o la pagina di selezione template si chiude.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sul pulsante "Carica" o sulla riga del template desiderato.
+    \item Il sistema recupera il contenuto del template (testo e oggetto).
+    \item Il sistema sovrascrive o compila i campi corrispondenti nell'interfaccia di composizione del messaggio.
+    \item L'utente può ora procedere a modificare o inviare il messaggio (ritorno a UC-2F).
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezione di un template dalla lista e conferma di caricamento.
+\end{itemize}
 
 \subsubsection{UC-2H – Invio documento e messaggio}
 
@@ -3242,6 +4597,172 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
 \end{itemize}
 
+\subsubsection{UC-2H.1 – Allega file}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di riepilogo invio (UC-2H).
+    \item Si desidera aggiungere un documento aggiuntivo (es. informativa generica) non presente nello storico personale del destinatario.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il nuovo file viene aggiunto alla lista degli allegati pronti per l'invio.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sul pulsante "Aggiungi allegato".
+    \item Il sistema apre la finestra di selezione file del sistema operativo.
+    \item L'utente seleziona il file desiderato.
+    \item Il sistema carica il file e lo mostra nella lista allegati (UC-2H.5).
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul pulsante/icona "Allega file".
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2H.2 – Pianifica invio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+    \item Sistema (Scheduler).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Il messaggio e i documenti sono pronti.
+    \item L'utente non desidera l'invio immediato.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'invio viene schedulato per la data e ora selezionate.
+    \item Lo stato dei documenti passa a "Pianificato".
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente seleziona l'opzione "Pianifica invio".
+    \item Il sistema mostra un selettore di data e ora.
+    \item L'utente imposta il momento desiderato per l'invio e conferma.
+    \item Il sistema prende in carico la richiesta e la accoda per l'elaborazione futura.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezione dell'opzione "Pianifica" o click sull'icona orologio.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2H.3 – Conferma invio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Tutti i dati (destinatari, allegati, messaggio) sono stati verificati.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il sistema avvia il processo di spedizione delle email/messaggi.
+    \item L'utente riceve un feedback di successo.
+    \item L'utente viene reindirizzato alla pagina iniziale o allo storico.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sul pulsante finale "Invia ora".
+    \item Il sistema chiede una conferma definitiva (opzionale).
+    \item Il sistema processa l'invio e notifica l'esito positivo ("Messaggio inviato con successo").
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il sistema rileva un errore durante l'invio (es. errore SMTP).
+    \item Viene mostrato un messaggio di errore e l'invio viene annullato permettendo di riprovare.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul pulsante "Invia" o conferma del modale di riepilogo.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2H.4 – Visualizzazione lista destinatari}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Si è nella fase di riepilogo invio (UC-2H).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'elenco completo dei destinatari (principali, copia conoscenza, copia nascosta) è visibile.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera i dati di contatto del destinatario selezionato in UC-2D.
+    \item Il sistema visualizza gli indirizzi email o i recapiti che riceveranno la comunicazione.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina UC-2H (Automatico).
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2H.5 – Visualizzazione lista documenti}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Si è nella fase di riepilogo invio (UC-2H).
+    \item Sono stati selezionati documenti dallo storico (UC-2E) o caricati manualmente (UC-2H.1).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente vede l'elenco dei file che verranno allegati al messaggio.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema aggrega i documenti selezionati.
+    \item Il sistema mostra una lista contenente i nomi dei file, la dimensione e l'estensione (es. PDF).
+    \item L'utente può verificare visivamente la correttezza degli allegati prima dell'invio.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Caricamento della pagina UC-2H (Automatico).
+\end{itemize}
 
 \section{Sezione 3 - Modulo Analytics e Monitoraggio Trasversale}
 \subsection{UC-3A - Visualizzazione dashboard di analisi e Monitoraggio AI}
@@ -3313,71 +4834,123 @@ Di seguito sono esposti gli attori utilizzati:
 
 \section{Requisiti}
 
-\subsection{Requisiti funzionali}
-Descrivono le funzionalità che il sistema deve offrire, ovvero ciò che il sistema deve fare.
-Rappresentano i comportamenti osservabili del sistema in risposta alle azioni degli utenti o ad altri eventi.
+Questa sezione classifica i requisiti del sistema in quattro categorie principali: funzionali, di qualità, di vincolo e prestazionali.
+
+\subsection{Requisiti Funzionali}
+Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappresentano il "cosa" il sistema deve fare in risposta a determinati input o situazioni.
 \vspace{0.5cm}
 
-\textbf{Caratterisitiche}
+\textbf{Caratteristiche}
 \begin{enumerate}
-    \item Derivano direttamente dai casi d'uso.
-    \item Sono specifici, misurabili e testabili.
-    \item Rispondono alla domanda "Cosa deve fare il sistema?".
+    \item Descrivono le interazioni tra l'utente (o altri sistemi) e il software.
+    \item Sono diretti: se il requisito non è soddisfatto, il sistema non funziona come previsto.
+    \item Derivano direttamente dai casi d'uso e dalle user stories.
 \end{enumerate}
-
-
-\subsection{Requisiti non funzionali}
-Descrivono come il sistema deve comportarsi, cioè le qualità, i vincoli e le caratteristiche del software che non riguardano le funzionalità, ma le prestazioni,
-l’usabilità, la sicurezza, ecc.
-\vspace{0.5cm}
-
-\textbf{Caratterisitiche}
-\begin{enumerate}
-    \item Un requisito non funzionale deve essere espresso in modo tale da poter essere misurato oggettivamente.
-    \item Deve essere possibile verificare tramite test, ispezioni o metriche se il requisito è stato soddisfatto.
-    \item I requisiti non funzionali non devono essere in conflitto fra loro o con quelli funzionali.
-\end{enumerate}
-
-\subsection{Requisiti di dominio}
-Derivano dal contesto specifico del problema che si vuole risolvere.
-Sono requisiti legati all’ambiente applicativo e alle regole del dominio.
-\vspace{0.5cm}
-
-\textbf{Caratterisitiche}
-\begin{enumerate}
-    \item Non dipendono dalle specifiche implementazioni tecniche.
-    \item Sono legati alle regole di business.
-\end{enumerate}
-
-\subsection{Requisiti utente}
-Descrivono ciò che l’utente si aspetta dal sistema, spesso in termini non tecnici.
-Sono più astratti rispetto ai requisiti funzionali.
-\vspace{0.5cm}
-
-\textbf{Caratterisitiche}
-\begin{enumerate}
-    \item Vengono trasformati in requisiti funzionali.
-\end{enumerate}
-
-\subsection{Requisiti di sistema}
-Descrivono cosa il sistema nel suo complesso deve garantire.
-Sono più ampi dei requisiti funzionali e includono aspetti architetturali.
-\vspace{0.5cm}
-
-\textbf{Caratterisitiche}
-\begin{enumerate}
-    \item Spesso derivano dai requisiti utente e dai requisiti non funzionali.
-\end{enumerate}
-
-\subsection{Requisiti opzionali, desiderabili, obbligatori}
-Questa classificazione viene usata per stabilire la priorità dei requisiti.
 
 \vspace{0.5cm}
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Aumenta la spaziatura delle righe
+    \begin{tabular}{|l|p{8cm}|l|l|}
+        \hline
+        \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+        \hline
+        UC-0A & Descrizione 1 & link & Facoltativo \\
+        \hline
+        UC-0A.1 & Descrizione 2 & link & Facoltativo \\
+        \hline
+        UC-0A.2 & Descrizione 3 & link & Facoltativo \\
+        \hline
+    \end{tabular}
+    \caption{Tabella dei Requisiti Funzionali}
+    \label{tab:req_funzionali}
+\end{table}
 
-\textbf{Caratterisitiche}
+\subsection{Requisiti di Qualità}
+Definiscono gli attributi qualitativi del software che influenzano l'esperienza d'uso e la manutenibilità del progetto. Spesso indicati come "attributi di qualità" (es. usabilità, affidabilità, manutenibilità).
+\vspace{0.5cm}
+
+\textbf{Caratteristiche}
 \begin{enumerate}
-    \item Descrivono il livello di importanza del requisito.
+    \item Determinano il livello di soddisfazione dell'utente e la facilità di evoluzione del software.
+    \item Devono essere misurabili tramite metriche specifiche o feedback utente.
 \end{enumerate}
 
+\vspace{0.5cm}
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|l|p{8cm}|l|l|}
+        \hline
+        \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+        \hline
+        boh & Descrizione 1 & link & Desiderabile \\
+        \hline
+        boh & Descrizione 2 & link & Obbligatorio \\
+        \hline
+        boh & Descrizione 3 & link & Obbligatorio \\
+        \hline
+    \end{tabular}
+    \caption{Tabella dei Requisiti di Qualità}
+    \label{tab:req_qualita}
+\end{table}
+
+\subsection{Requisiti di Vincolo}
+Rappresentano le limitazioni e le restrizioni entro cui il sistema deve essere sviluppato o operare. Questi vincoli restringono lo spazio delle soluzioni possibili.
+\vspace{0.5cm}
+
+\textbf{Caratteristiche}
+\begin{enumerate}
+    \item Possono essere di natura tecnologica (hardware, linguaggio), normativa (GDPR) o di business (budget).
+    \item Sono mandatori e non negoziabili.
+\end{enumerate}
+
+\vspace{0.5cm}
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|l|p{8cm}|l|l|}
+        \hline
+        \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+        \hline
+        boh & Descrizione 1 & link & Desiderabile \\
+        \hline
+        boh & Descrizione 2 & link & Obbligatorio \\
+        \hline
+        boh & Descrizione 3 & link & Obbligatorio \\
+        \hline
+    \end{tabular}
+    \caption{Tabella dei Requisiti di Vincolo}
+    \label{tab:req_vincolo}
+\end{table}
+
+\subsection{Requisiti Prestazionali}
+Specificano i parametri numerici relativi all'efficienza del sistema. Sebbene siano tecnicamente un sottoinsieme della qualità, vengono trattati separatamente per la loro criticità e misurabilità quantitativa.
+\vspace{0.5cm}
+
+\textbf{Caratteristiche}
+\begin{enumerate}
+    \item Definiscono limiti su tempi di risposta, throughput e utilizzo delle risorse.
+    \item Sono sempre espressi con valori numerici e soglie precise.
+\end{enumerate}
+
+\vspace{0.5cm}
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|l|p{8cm}|l|l|}
+        \hline
+        \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+        \hline
+        boh & Descrizione 1 & link & Desiderabile \\
+        \hline
+        boh & Descrizione 2 & link & Obbligatorio \\
+        \hline
+        boh & Descrizione 3 & link & Obbligatorio \\
+        \hline
+    \end{tabular}
+    \caption{Tabella dei Requisiti Prestazionali}
+    \label{tab:req_prestazionali}
+\end{table}
 
 \end{document}
