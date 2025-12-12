@@ -1,6 +1,10 @@
 {
   "terms": [
     {
+      "term": "Abstract Class",
+      "definition": "Classe astratta nella programmazione orientata agli oggetti che non può essere istanziata direttamente e che serve come base per altre classi. Definisce un'interfaccia comune e può contenere metodi astratti (senza implementazione) e metodi concreti (con implementazione)."
+    },
+    {
       "term": "AI (Artificial Intelligence)",
       "definition": "Campo dell'informatica che si occupa di sviluppare sistemi in grado di svolgere compiti che normalmente richiedono l'intelligenza umana, come il riconoscimento vocale, la visione artificiale, l'elaborazione del linguaggio naturale e il processo decisionale."
     },
@@ -39,6 +43,10 @@
     {
       "term": "Analisi dei Requisiti",
       "definition": "Processo sistematico volto a identificare, documentare e validare i bisogni, i vincoli e le esigenze del progetto, trasformandoli in requisiti formali che guideranno lo sviluppo del software."
+    },
+    {
+      "term": "Analisi dinamica",
+      "definition": "Tecnica di verifica che prevede l'esecuzione del software per osservarne il comportamento in fase di runtime, al fine di identificare errori, verificare le prestazioni e validare le funzionalità. Comprende attività di testing e profiling."
     },
     {
       "term": "Analista",
@@ -110,11 +118,15 @@
     },
     {
       "term": "Baseline",
-      "definition": "Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedure formali di controllo."
+      "definition": "Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedure formali di controllo. Può riferirsi a diverse fasi (Requirements Baseline, Design Baseline, Product Baseline) e garantisce stabilità e tracciabilità."
     },
     {
       "term": "Best Practice",
       "definition": "Insieme di tecniche, metodi e procedure che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto."
+    },
+    {
+      "term": "Branch Coverage",
+      "definition": "Metrica di copertura del testing strutturale (white-box) che misura la percentuale di rami (decisioni) in un programma eseguiti da un insieme di test. Un ramo è tipicamente il risultato di una condizione (es. if-else, switch). Un coverage del 100% significa che ogni possibile esito di ogni decisione è stato testato."
     },
     {
       "term": "Builder",
@@ -149,6 +161,10 @@
       "definition": "Soggetto che commissiona il progetto, definendone gli obiettivi, i vincoli e i requisiti, e che recepisce il prodotto finale. Nel contesto del corso di Ingegneria del Software, può essere un'azienda proponente o un docente."
     },
     {
+      "term": "Complessità ciclomatica",
+      "definition": "Metrica software introdotta da Thomas J. McCabe che misura la complessità strutturale di un programma. È calcolata dal grafo di controllo del flusso e indica il numero di cammini linearmente indipendenti all'interno del codice. È utilizzata per identificare moduli ad alto rischio e per pianificare il testing (in particolare per determinare il numero minimo di casi di test necessari per la copertura dei cammini)."
+    },
+    {
       "term": "Composizione",
       "definition": "Relazione strutturale in OOP che rappresenta un legame \"parte-tutto\" forte dove gli componenti non possono esistere indipendentemente dall'oggetto che li contiene. Implica ownership esclusiva e distruzione concomitante."
     },
@@ -157,8 +173,16 @@
       "definition": "Capacità di un sistema software di essere facilmente compreso dai suoi utilizzatori, riducendo lo sforzo cognitivo necessario per il suo utilizzo."
     },
     {
+      "term": "Condition/Decision Coverage",
+      "definition": "Metrica di copertura del testing strutturale (white-box) che richiede che ogni condizione elementare all'interno di una decisione e l'intera decisione stessa assumano sia vero che falso durante l'esecuzione dei test. È più forte della branch coverage perché richiede anche la copertura delle singole condizioni."
+    },
+    {
       "term": "Constructor Injection",
       "definition": "Tecnica di Dependency Injection in cui le dipendenze vengono fornite a un componente attraverso il suo costruttore."
+    },
+    {
+      "term": "Continuous Integration (CI)",
+      "definition": "Pratica di sviluppo software che prevede l'integrazione frequente (più volte al giorno) del codice prodotto dai membri del team in un repository condiviso. Ogni integrazione è verificata da una build automatizzata e da una serie di test per rilevare errori il più rapidamente possibile. Mira a migliorare la qualità del software e a ridurre il tempo necessario per validare e rilasciare nuovi aggiornamenti."
     },
     {
       "term": "Controllo di Qualità",
@@ -193,8 +217,16 @@
       "definition": "Soluzione progettuale generale e riutilizzabile a un problema ricorrente all'interno di un dato contesto nella progettazione di software. I design pattern non sono progetti finiti che possono essere trasformati direttamente in codice, ma modelli astratti che devono essere adattati al caso specifico."
     },
     {
+      "term": "Design Pattern Comportamentali",
+      "definition": "Categoria di design pattern che si occupano della comunicazione e dell'assegnazione di responsabilità tra oggetti. Definiscono modi efficaci per organizzare il comportamento degli oggetti, migliorando la flessibilità e la riusabilità. Esempi includono Observer, Iterator, Strategy, e Command."
+    },
+    {
       "term": "Design pattern architetturali",
       "definition": "Soluzioni progettuali ricorrenti e collaudate per problemi architetturali comuni nei sistemi software."
+    },
+    {
+      "term": "Design Pattern Strutturali",
+      "definition": "Categoria di design pattern che si occupano della composizione di classi e oggetti per formare strutture più grandi e complesse. Facilitano la progettazione definendo relazioni semplici tra entità per realizzare nuove funzionalità. Esempi includono Adapter, Decorator, Composite, e Proxy."
     },
     {
       "term": "Diagramma dei componenti",
@@ -214,7 +246,7 @@
     },
     {
       "term": "Diagramma di attività",
-      "definition": "Diagramma UML che modella il flusso di controllo o il flusso di dati tra attività, utilizzato per descrivere la logica di procedura, di business o di caso d'uso."
+      "definition": "Diagramma UML che modella il flusco di controllo o il flusso di dati tra attività, utilizzato per descrivere la logica di procedura, di business o di caso d'uso."
     },
     {
       "term": "Diagramma di deployment",
@@ -269,6 +301,10 @@
       "definition": "Processo di identificazione e associazione di entità (es. persone o aziende) a partire da dati parziali o duplicati, tramite algoritmi di matching e disambiguazione."
     },
     {
+      "term": "Error / Errore",
+      "definition": "Manifestazione di un fault all'interno del sistema durante la sua esecuzione. È uno stato interno del sistema che può portare a un failure se non gestito. Corrisponde a una discrepanza tra il valore calcolato, osservato o misurato e il valore vero, specificato o teoricamente corretto."
+    },
+    {
       "term": "Error Handling",
       "definition": "Insieme di tecniche e meccanismi di programmazione per gestire le condizioni di errore che possono verificarsi durante l'esecuzione di un software. L'error handling prevede l'identificazione, la segnalazione e il recupero dagli errori, al fine di mantenere la stabilità e l'affidabilità del sistema."
     },
@@ -283,6 +319,14 @@
     {
       "term": "Ereditarietà dell'interfaccia",
       "definition": "Meccanismo di ereditarietà in cui un'interfaccia eredita da un'altra interfaccia, oppure una classe implementa un'interfaccia."
+    },
+    {
+      "term": "Failure / Fallimento",
+      "definition": "Evento osservabile esternamente in cui il sistema devia dal suo comportamento corretto o atteso, non fornendo il servizio richiesto. Rappresenta l'impatto esterno di un fault o error."
+    },
+    {
+      "term": "Fault / Guasto",
+      "definition": "Causa radice di un errore (error) nel software. Può essere un difetto statico nel codice sorgente (es. bug), nella progettazione o nei requisiti. Un fault attivato può portare a un error, che a sua volta può propagarsi e causare un failure."
     },
     {
       "term": "Flessibilità",
@@ -345,6 +389,10 @@
       "definition": "Segnalazione di un problema, un bug o una richiesta di miglioramento nel sistema di tracking del progetto. Ogni issue viene tracciata, assegnata e gestita fino alla risoluzione."
     },
     {
+      "term": "Iterator",
+      "definition": "Design pattern comportamentale che fornisce un modo per accedere sequenzialmente agli elementi di una collezione senza esporne la rappresentazione interna. Separa l'algoritmo di iterazione dalla struttura dati, permettendo diversi tipi di iterazione su una stessa collezione."
+    },
+    {
       "term": "KPI (Key Performance Indicator)",
       "definition": "Indicatore chiave di performance che misura l'efficacia di un processo, un'attività o un'organizzazione nel raggiungere i propri obiettivi."
     },
@@ -367,6 +415,10 @@
     {
       "term": "Load balancer",
       "definition": "Componente che distribuisce il carico di lavoro tra più server per migliorare le prestazioni e l'affidabilità del sistema."
+    },
+    {
+      "term": "MCDC (Modified Condition/Decision Coverage)",
+      "definition": "Metodo di copertura del testing strutturale (white-box) usato spesso in contesti di sicurezza critica (es. avionica, automotive). Richiede che ogni condizione elementare all'interno di una decisione dimostri di influenzare indipendentemente l'esito della decisione. Ogni condizione deve essere testata con valori che ne causino sia vero che falso, e per ogni condizione deve esistere un test in cui la modifica solo di quella condizione cambia l'esito dell'intera decisione."
     },
     {
       "term": "Microservizio",
@@ -401,8 +453,20 @@
       "definition": "Componente software autonomo e sostituibile che incapsula una specifica funzionalità e fornisce un'interfaccia ben definita. I moduli favoriscono la modularità, il riuso e la manutenibilità del sistema."
     },
     {
+      "term": "Norme di progetto",
+      "definition": "Documento che definisce le regole, le convenzioni, le procedure e gli standard adottati dal gruppo per la realizzazione del progetto. Include norme per la redazione dei documenti, la gestione del versionamento, le convenzioni di codifica, le procedure di verifica e validazione, e le modalità di comunicazione interna ed esterna."
+    },
+    {
+      "term": "Observer",
+      "definition": "Design pattern comportamentale che definisce una dipendenza uno-a-molti tra oggetti, in modo che quando un oggetto (soggetto) cambia stato, tutti i suoi dipendenti (osservatori) vengano notificati e aggiornati automaticamente. È fondamentale per implementare sistemi di eventi e notifiche."
+    },
+    {
       "term": "OCR (Optical Character Recognition)",
       "definition": "Tecnologia che converte immagini di testo scritto o stampato in testo digitale machine-readable."
+    },
+    {
+      "term": "Oracolo",
+      "definition": "In contesto di testing, meccanismo, processo o risorsa (umana o automatizzata) che determina se il sistema sotto test ha superato o fallito un caso di prova. L'oracolo confronta l'output effettivo del sistema con l'output atteso. Può essere un semplice confronto di valori, un modello di riferimento, o un giudizio umano."
     },
     {
       "term": "PB (Product Baseline)",
@@ -478,7 +542,7 @@
     },
     {
       "term": "Processi organizzativi",
-      "definition": "Processi trasversali rispetto ai singoli progetti che riguardano la gestione dei processes, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione."
+      "definition": "Processi trasversali rispetto ai singoli progetti che riguardano la gestione dei processi, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione."
     },
     {
       "term": "Processi primari",
@@ -519,6 +583,10 @@
     {
       "term": "Redattore",
       "definition": "Membro del team responsabile della stesura e della produzione dei documenti di progetto, garantendo chiarezza, completezza e conformità alle norme stabilite."
+    },
+    {
+      "term": "Regression test / Test di regressione",
+      "definition": "Test eseguiti dopo una modifica al software (es. correzione di un bug, aggiunta di una nuova funzionalità) per garantire che le modifiche non abbiano introdotto nuovi difetti o abbiano rotto funzionalità esistenti che precedentemente funzionavano. L'insieme di test di regressione (regression test suite) tende a crescere nel tempo e viene spesso automatizzato."
     },
     {
       "term": "Repository",
@@ -616,6 +684,10 @@
       "term": "Specification Tecnica",
       "definition": "Documento che descrive in dettaglio l'architettura, il design e le scelte implementative del sistema software, guidando le attività di sviluppo."
     },
+     {
+      "term": "Stand-alone",
+      "definition": "Nel contesto del progetto sviluppato dal team BugBusters, si riferisce a un'applicazione o modulo software sviluppato in modo autonomo e indipendente dall'infrastruttura NEXUM esistente. I moduli AI Assistant Generativo e AI Co-Pilot per i CdL saranno realizzati come applicazioni stand-alone che simulano i comportamenti e le interfacce di NEXUM dove necessario, con l'obiettivo di poter essere integrati successivamente nella piattaforma principale. Questo approccio consente uno sviluppo più flessibile e isolato, pur mantenendo la compatibilità con l'architettura e le API di NEXUM."
+    },
     {
       "term": "Sprint",
       "definition": "Periodo di tempo fisso (tipicamente 2-4 settimane) in Scrum durante il quale il team sviluppa e consegna un incremento di prodotto potenzialmente rilasciabile."
@@ -629,6 +701,10 @@
       "definition": "Processo di previsione dei costi associati alle attività di progetto, considerando risorse umane, strumenti, infrastrutture e altri fattori che influenzano il budget complessivo."
     },
     {
+      "term": "Technical debt / Debito tecnico",
+      "definition": "Metafora che descrive le conseguenze a lungo termine di scelte tecniche non ottimali fatte durante lo sviluppo, che potrebbero richiedere lavoro futuro per essere corrette. Il debito tecnico può derivare da scelte consapevoli (per rilasciare prima) o inconsapevoli (mancanza di conoscenza). Accumulare debito tecnico può portare a un aumento dei costi di manutenzione e a una riduzione della qualità."
+    },
+    {
       "term": "Technology Baseline",
       "definition": "Insieme delle tecnologie, framework, librerie e strumenti di sviluppo selezionati e approvati per il progetto. Definisce lo stack tecnologico di riferimento e costituisce la base per le scelte implementative, garantendo coerenza e standardizzazione nell'architettura software."
     },
@@ -639,6 +715,10 @@
     {
       "term": "Test",
       "definition": "Processo sistematico di verifica che il software soddisfi i requisiti specificati e identifichi difetti, attraverso l'esecuzione controllata di casi di test."
+    },
+    {
+      "term": "Test case / Caso di prova",
+      "definition": "Specifica di input, condizioni di esecuzione e risultati attesi per un singolo test. Un caso di prova è un insieme di condizioni o variabili sotto le quali un tester determina se un sistema o una sua parte funziona correttamente."
     },
     {
       "term": "Test di Accettazione (TA) / Collaudo",
@@ -657,6 +737,18 @@
       "definition": "Test che verificano il corretto funzionamento delle singole unità (moduli, classi, funzioni) del software in isolamento. Sono tipicamente scritti e eseguiti dagli sviluppatori durante la fase di implementazione."
     },
     {
+      "term": "Test funzionale (black-box)",
+      "definition": "Approccio di testing che valida il comportamento esterno del software senza considerare la struttura interna. I test sono progettati basandosi sui requisiti funzionali e sull'esperienza dell'utente. L'obiettivo è verificare che il sistema risponda correttamente a input e condizioni specifiche."
+    },
+    {
+      "term": "Test strutturale (white-box)",
+      "definition": "Approccio di testing che valida la struttura interna e il flusso di controllo del software. I test sono progettati basandosi sulla conoscenza del codice sorgente, dell'architettura e della logica di implementazione. L'obiettivo è garantire che tutti i percorsi e le strutture del codice siano esercitati."
+    },
+    {
+      "term": "Test suite",
+      "definition": "Insieme organizzato di casi di test, tipicamente eseguiti in sequenza, per verificare un componente o un sistema. Una test suite può essere progettata per testare una specifica funzionalità o un insieme di funzionalità."
+    },
+    {
       "term": "Tracciamento (dei requisiti)",
       "definition": "Processo di documentazione e gestione delle relazioni tra i requisiti e gli elementi del sistema (come componenti, test, casi d'uso) che li soddisfano. Garantisce che tutti i requisiti siano presi in carico e permette di valutarne l'impatto in caso di modifiche."
     },
@@ -667,6 +759,10 @@
     {
       "term": "Unità architetturali",
       "definition": "Componenti fondamentali che costituiscono l'architettura di un sistema software, come moduli, componenti, connettori e dati."
+    },
+    {
+      "term": "V-Model / Modello a V",
+      "definition": "Modello di sviluppo software che estende il modello a cascata, enfatizzando la verifica e la validazione in ogni fase. Nel modello a V, per ogni fase di sviluppo (es. definizione dei requisiti, progettazione architetturale, progettazione di dettaglio) esiste una corrispondente fase di test (es. test di sistema, test di integrazione, test di unità). Il modello rappresenta graficamente la relazione tra le fasi di definizione e le fasi di test."
     },
     {
       "term": "Validatore",

@@ -45,7 +45,7 @@
 \renewcommand{\contentsname}{\color{primaryblue}Indice}
 
 % Comando per la versione corrente
-\newcommand{\CurrentVersion}{0.0.4}
+\newcommand{\CurrentVersion}{1.0.0}
 
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
@@ -83,7 +83,7 @@
 \end{center}
 
 \begin{center}
-{\large\textbf{\color{secondaryblue} Versione 0.0.4}}
+{\large\textbf{\color{secondaryblue} \CurrentVersion}}
 
 \vspace{0.5cm}
 
@@ -91,7 +91,7 @@
 \begin{tabular}{@{}lp{0.7\textwidth}@{}}
 \textbf{Stato}         & In redazione \\
 \textbf{Redattori}     & Alberto Autiero \\
-\textbf{Verificatori}  & [Nome Cognome] \\
+\textbf{Verificatori}  & Linor Sadè \\
 \textbf{Uso}           & Interno ed esterno \\
 \textbf{Destinatari}   & Prof. Tullio Vardanega, Prof. Riccardo Cardin, \\
                        & BugBusters, Eggon \\
@@ -118,13 +118,19 @@
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-0.0.4 & 30/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\rowcolor{secondaryblue!10} \CurrentVersion & 07/12/2025 & Approvazione del documento & - & - & Marco Favero \\
 \hline
-0.0.3 & 23/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\rowcolor{secondaryblue!10} 0.1.0 & 06/12/2025 & Verifica del documento & - & Linor Sadè & - \\
 \hline
-0.0.2 & 17/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\rowcolor{secondaryblue!10} 0.0.5 & 06/12/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
 \hline
-0.0.1 & 06/11/2025 & Prima stesura del documento con i termini del capitolato aggiudicato (5) e diapositive dei docenti& Alberto Autiero & - & - \\
+\rowcolor{secondaryblue!10} 0.0.4 & 30/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.3 & 23/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.2 & 17/11/2025 & Sono stati aggiunti nuovi termini & Alberto Autiero & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.1 & 06/11/2025 & Prima stesura del documento con i termini del capitolato aggiudicato (5) e diapositive dei docenti& Alberto Autiero & - & - \\
 \hline
 \end{tabularx}
 }
@@ -143,6 +149,9 @@ La nomenclatura utilizzata per evidenziare che una parola, con annessa la sua de
 \newpage
 
 \section{A}
+
+\subsection{Abstract Class}
+Classe astratta nella programmazione orientata agli oggetti che non può essere istanziata direttamente e che serve come base per altre classi. Definisce un'interfaccia comune e può contenere metodi astratti (senza implementazione) e metodi concreti (con implementazione).
 
 \subsection{AI (Artificial Intelligence)}
 Campo dell'informatica che si occupa di sviluppare sistemi in grado di svolgere compiti che normalmente richiedono l'intelligenza umana, come il riconoscimento vocale, la visione artificiale, l'elaborazione del linguaggio naturale e il processo decisionale.
@@ -173,6 +182,9 @@ Figura responsabile della gestione dell'infrastruttura, degli strumenti di svilu
 
 \subsection{Analisi dei Requisiti}
 Processo sistematico volto a identificare, documentare e validare i bisogni, i vincoli e le esigenze del progetto, trasformandoli in requisiti formali che guideranno lo sviluppo del software.
+
+\subsection{Analisi dinamica}
+Tecnica di verifica che prevede l'esecuzione del software per osservarne il comportamento in fase di runtime, al fine di identificare errori, verificare le prestazioni e validare le funzionalità. Comprende attività di testing e profiling.
 
 \subsection{Analista}
 Figura professionale specializzata nell'analisi dei requisiti e nella specifica delle funzionalità del sistema. Collabora con gli stakeholder per comprendere lesigenze e tradurle in specifiche tecniche.
@@ -230,10 +242,13 @@ Piattaforma di cloud computing che offre servizi di calcolo, storage, database e
 Parte di un'applicazione software che gestisce la logica di business, l'elaborazione dei dati e la comunicazione con il database. Opera sul server ed è inaccessibile direttamente all'utente finale.
 
 \subsection{Baseline}
-Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedure formali di controllo.
+Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedure formali di controllo. Può riferirsi a diverse fasi (Requirements Baseline, Design Baseline, Product Baseline) e garantisce stabilità e tracciabilità.
 
 \subsection{Best Practice}
 Insieme di tecniche, metodi e procedure che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto.
+
+\subsection{Branch Coverage}
+Metrica di copertura del testing strutturale (white-box) che misura la percentuale di rami (decisioni) in un programma eseguiti da un insieme di test. Un ramo è tipicamente il risultato di una condizione (es. if-else, switch). Un coverage del 100\% significa che ogni possibile esito di ogni decisione è stato testato.
 
 \subsection{Builder}
 Pattern creazionale che separa la costruzione di un oggetto complesso dalla sua rappresentazione, in modo che lo stesso processo di costruzione possa creare diverse rappresentazioni. Il pattern Builder è composto da Director, Builder e Product.
@@ -243,7 +258,7 @@ Pattern creazionale che separa la costruzione di un oggetto complesso dalla sua 
 \section{C}
 
 \subsection{Candidatura}
-Processo con cui un gruppo di studenti presenta la propria offerta per aggiudicarsi un capitolato d’appalto nel corso di Ingegneria del Software, proponendo una soluzione che soddisfi i requisiti del proponente.
+Processo con cui un gruppo di studenti presenta la propria offerta per aggiudicarsi un capitolato d'appalto nel corso di Ingegneria del Software, proponendo una soluzione che soddisfi i requisiti del proponente.
 
 \subsection{Capitolato}
 Documento contrattuale che specifica i requisiti, le caratteristiche tecniche e le condizioni di un progetto software proposto da un'azienda proponente per il corso di Ingegneria del Software.
@@ -263,14 +278,23 @@ Evento formale o informale nel framework Scrum che segue un agenda prestabilita 
 \subsection{Committente}
 Soggetto che commissiona il progetto, definendone gli obiettivi, i vincoli e i requisiti, e che recepisce il prodotto finale. Nel contesto del corso di Ingegneria del Software, può essere un'azienda proponente o un docente.
 
+\subsection{Complessità ciclomatica}
+Metrica software introdotta da Thomas J. McCabe che misura la complessità strutturale di un programma. È calcolata dal grafo di controllo del flusso e indica il numero di cammini linearmente indipendenti all'interno del codice. È utilizzata per identificare moduli ad alto rischio e per pianificare il testing (in particolare per determinare il numero minimo di casi di test necessari per la copertura dei cammini).
+
 \subsection{Composizione}
 Relazione strutturale in OOP che rappresenta un legame "parte-tutto" forte dove gli componenti non possono esistere indipendentemente dall'oggetto che li contiene. Implica ownership esclusiva e distruzione concomitante.
 
 \subsection{Comprensibilità}
 Capacità di un sistema software di essere facilmente compreso dai suoi utilizzatori, riducendo lo sforzo cognitivo necessario per il suo utilizzo.
 
+\subsection{Condition/Decision Coverage}
+Metrica di copertura del testing strutturale (white-box) che richiede che ogni condizione elementare all'interno di una decisione e l'intera decisione stessa assumano sia vero che falso durante l'esecuzione dei test. È più forte della branch coverage perché richiede anche la copertura delle singole condizioni.
+
 \subsection{Constructor Injection}
 Tecnica di Dependency Injection in cui le dipendenze vengono fornite a un componente attraverso il suo costruttore.
+
+\subsection{Continuous Integration (CI)}
+Pratica di sviluppo software che prevede l'integrazione frequente (più volte al giorno) del codice prodotto dai membri del team in un repository condiviso. Ogni integrazione è verificata da una build automatizzata e da una serie di test per rilevare errori il più rapidamente possibile. Mira a migliorare la qualità del software e a ridurre il tempo necessario per validare e rilasciare nuovi aggiornamenti.
 
 \subsection{Controllo di Qualità}
 Insieme di attività e tecniche volte a garantire che i prodotti software soddisfino gli standard di qualità prestabiliti. Il controllo di qualità si concentra sull'identificazione di difetti nel prodotto realizzato.
@@ -302,6 +326,12 @@ Soluzione progettuale generale e riutilizzabile a un problema ricorrente all'int
 
 \subsection{Design pattern architetturali}
 Soluzioni progettuali ricorrenti e collaudate per problemi architetturali comuni nei sistemi software.
+
+\subsection{Design Pattern Comportamentali}
+Categoria di design pattern che si occupano della comunicazione e dell'assegnazione di responsabilità tra oggetti. Definisce modi efficaci per organizzare il comportamento degli oggetti, migliorando la flessibilità e la riusabilità. Esempi includono Observer, Iterator, Strategy, e Command.
+
+\subsection{Design Pattern Strutturali}
+Categoria di design pattern che si occupano della composizione di classi e oggetti per formare strutture più grandi e complesse. Facilitano la progettazione definendo relazioni semplici tra entità per realizzare nuove funzionalità. Esempi includono Adapter, Decorator, Composite, e Proxy.
 
 \subsection{Diagramma dei componenti}
 Diagramma UML che mostra l'organizzazione e le dipendenze tra i componenti software di un sistema.
@@ -361,6 +391,9 @@ Rapporto tra i risultati ottenuti e le risorse impiegate per conseguirli. Un pro
 \subsection{Entity Resolution}
 Processo di identificazione e associazione di entità (es. persone o aziende) a partire da dati parziali o duplicati, tramite algoritmi di matching e disambiguazione.
 
+\subsection{Error / Errore}
+Manifestazione di un fault all'interno del sistema durante la sua esecuzione. È uno stato interno del sistema che può portare a un failure se non gestito. Corrisponde a una discrepanza tra il valore calcolato, osservato o misurato e il valore vero, specificato o teoricamente corretto.
+
 \subsection{Error Handling}
 Insieme di tecniche e meccanismi di programmazione per gestire le condizioni di errore che possono verificarsi durante l'esecuzione di un software. L'error handling prevede l'identificazione, la segnalazione e il recupero dagli errori, al fine di mantenere la stabilità e l'affidabilità del sistema.
 
@@ -376,6 +409,12 @@ Meccanismo di ereditarietà in cui una interfaccia eredita da un'altra interfacc
 \newpage
 
 \section{F}
+
+\subsection{Failure / Fallimento}
+Evento osservabile esternamente in cui il sistema devia dal suo comportamento corretto o atteso, non fornendo il servizio richiesto. Rappresenta l'impatto esterno di un fault o error.
+
+\subsection{Fault / Guasto}
+Causa radice di un errore (error) nel software. Può essere un difetto statico nel codice sorgente (es. bug), nella progettazione o nei requisiti. Un fault attivato può portare a un error, che a sua volta può propagarsi e causare un failure.
 
 \subsection{Flessibilità}
 Capacità di un sistema software di adattarsi a cambiamenti nei requisiti o nell'ambiente operativo con modifiche minime.
@@ -434,6 +473,9 @@ In programmazione orientata agli oggetti, un'interfaccia è un tipo astratto che
 \subsection{Issue}
 Segnalazione di un problema, un bug o una richiesta di miglioramento nel sistema di tracking del progetto. Ogni issue viene tracciata, assegnata e gestita fino alla risoluzione.
 
+\subsection{Iterator}
+Design pattern comportamentale che fornisce un modo per accedere sequenzialmente agli elementi di una collezione senza esporne la rappresentazione interna. Separa l'algoritmo di iterazione dalla struttura dati, permettendo diversi tipi di iterazione su una stessa collezione.
+
 \newpage
 
 \section{K}
@@ -464,6 +506,9 @@ Componente che distribuisce il carico di lavoro tra più server per migliorare l
 
 \section{M}
 
+\subsection{MCDC (Modified Condition/Decision Coverage)}
+Metodo di copertura del testing strutturale (white-box) usato spesso in contesti di sicurezza critica (es. avionica, automotive). Richiede che ogni condizione elementare all'interno di una decisione dimostri di influenzare indipendentemente l'esito della decisione. Ogni condizione deve essere testata con valori che ne causino sia vero che falso, e per ogni condizione deve esistere un test in cui la modifica solo di quella condizione cambia l'esito dell'intera decisione.
+
 \subsection{Microservizio}
 Approccio architetturale in cui un'applicazione è composta da piccoli servizi indipendenti, ciascuno eseguibile autonomamente e comunicante tramite API.
 
@@ -492,8 +537,14 @@ Componente software autonomo e sostituibile che incapsula una specifica funziona
 
 \section{O}
 
+\subsection{Observer}
+Design pattern comportamentale che definisce una dipendenza uno-a-molti tra oggetti, in modo che quando un oggetto (soggetto) cambia stato, tutti i suoi dipendenti (osservatori) vengano notificati e aggiornati automaticamente. È fondamentale per implementare sistemi di eventi e notifiche.
+
 \subsection{OCR (Optical Character Recognition)}
 Tecnologia che converte immagini di testo scritto o stampato in testo digitale machine-readable.
+
+\subsection{Oracolo}
+In contesto di testing, meccanismo, processo o risorsa (umana o automatizzata) che determina se il sistema sotto test ha superato o fallito un caso di prova. L'oracolo confronta l'output effettivo del sistema con l'output atteso. Può essere un semplice confronto di valori, un modello di riferimento, o un giudizio umano.
 
 \newpage
 
@@ -594,6 +645,9 @@ Modello di controllo degli accessi in cui i permessi sono assegnati a ruoli spec
 \subsection{Redattore}
 Membro del team responsabile della stesura e della produzione dei documenti di progetto, garantendo chiarezza, completezza e conformità alle norme stabilite.
 
+\subsection{Regression test / Test di regressione}
+Test eseguiti dopo una modifica al software (es. correzione di un bug, aggiunta di una nuova funzionalità) per garantire che le modifiche non abbiano introdotto nuovi difetti o abbiano rotto funzionalità esistenti che precedentemente funzionavano. L'insieme di test di regressione (regression test suite) tende a crescere nel tempo e viene spesso automatizzato.
+
 \subsection{Repository}
 Archivio centrale in cui vengono memorizzati e versionati i file sorgente, la documentazione e le risorse del progetto utilizzando un sistema di controllo versione.
 
@@ -670,6 +724,9 @@ Relazione tra tipi per cui un tipo (sottotipo) può essere utilizzato in ogni co
 \subsection{Specification Tecnica}
 Documento che descrive in dettaglio l'architettura, il design e le scelte implementative del sistema software, guidando le attività di sviluppo.
 
+\subsection{Stand-alone}
+Nel contesto del progetto sviluppato dal team BugBusters, si riferisce a un'applicazione o modulo software sviluppato in modo autonomo e indipendente dall'infrastruttura NEXUM esistente. I moduli AI Assistant Generativo e AI Co-Pilot per i CdL saranno realizzati come applicazioni stand-alone che simulano i comportamenti e le interfacce di NEXUM dove necessario, con l'obiettivo di poter essere integrati successivamente nella piattaforma principale. Questo approccio consente uno sviluppo più flessibile e isolato, pur mantenendo la compatibilità con l'architettura e le API di NEXUM.
+
 \subsection{Sprint}
 Periodo di tempo fisso (tipicamente 2-4 settimane) in Scrum durante il quale il team sviluppa e consegna un incremento di prodotto potenzialmente rilasciabile.
 
@@ -683,6 +740,9 @@ Processo di previsione dei costi associati alle attività di progetto, considera
 
 \section{T}
 
+\subsection{Technical debt / Debito tecnico}
+Metafora che descrive le conseguenze a lungo termine di scelte tecniche non ottimali fatte durante lo sviluppo, che potrebbero richiedere lavoro futuro per essere corrette. Il debito tecnico può derivare da scelte consapevoli (per rilasciare prima) o inconsapevoli (mancanza di conoscenza). Accumulare debito tecnico può portare a un aumento dei costi di manutenzione e a una riduzione della qualità.
+
 \subsection{Technology Baseline}
 Insieme delle tecnologie, framework, librerie e strumenti di sviluppo selezionati e approvati per il progetto. Definisce lo stack tecnologico di riferimento e costituisce la base per le scelte implementative, garantendo coerenza e standardizzazione nell'architettura software.
 
@@ -691,6 +751,9 @@ Struttura o modello predefinito che definisce il layout e l'aspetto di un'interf
 
 \subsection{Test}
 Processo sistematico di verifica che il software soddisfi i requisiti specificati e identifichi difetti, attraverso l'esecuzione controllata di casi di test.
+
+\subsection{Test case / Caso di prova}
+Specifica di input, condizioni di esecuzione e risultati attesi per un singolo test. Un caso di prova è un insieme di condizioni o variabili sotto le quali un tester determina se un sistema o una sua parte funziona correttamente.
 
 \subsection{Test di Accettazione (TA) / Collaudo}
 Test condotti per determinare se un sistema soddisfa i criteri di accettazione stabiliti dal cliente e per permettere al cliente di decidere se accettare o meno il sistema. Viene eseguito in un ambiente il più possibile simile a quello di produzione.
@@ -703,6 +766,15 @@ Test che verificano il sistema nel suo complesso, in un ambiente il più possibi
 
 \subsection{Test di Unità (TU)}
 Test che verificano il corretto funzionamento delle singole unità (moduli, classi, funzioni) del software in isolamento. Sono tipicamente scritti e eseguiti dagli sviluppatori durante la fase di implementazione.
+
+\subsection{Test funzionale (black-box)}
+Approccio di testing che valida il comportamento esterno del software senza considerare la struttura interna. I test sono progettati basandosi sui requisiti funzionali e sull'esperienza dell'utente. L'obiettivo è verificare che il sistema risponda correttamente a input e condizioni specifiche.
+
+\subsection{Test strutturale (white-box)}
+Approccio di testing che valida la struttura interna e il flusso di controllo del software. I test sono progettati basandosi sulla conoscenza del codice sorgente, dell'architettura e della logica di implementazione. L'obiettivo è garantire che tutti i percorsi e le strutture del codice siano esercitati.
+
+\subsection{Test suite}
+Insieme organizzato di casi di test, tipicamente eseguiti in sequenza, per verificare un componente o un sistema. Una test suite può essere progettata per testare una specifica funzionalità o un insieme di funzionalità.
 
 \subsection{Tracciamento (dei requisiti)}
 Processo di documentazione e gestione delle relazioni tra i requisiti e gli elementi del sistema (come componenti, test, casi d'uso) che li soddisfano. Garantisce che tutti i requisiti siano presi in carico e permette di valutarne l'impatto in caso di modifiche.
@@ -720,6 +792,9 @@ Componenti fondamentali che costituiscono l'architettura di un sistema software,
 \newpage
 
 \section{V}
+
+\subsection{V-Model / Modello a V}
+Modello di sviluppo software che estende il modello a cascata, enfatizzando la verifica e la validazione in ogni fase. Nel modello a V, per ogni fase di sviluppo (es. definizione dei requisiti, progettazione architetturale, progettazione di dettaglio) esiste una corrispondente fase di test (es. test di sistema, test di integrazione, test di unità). Il modello rappresenta graficamente la relazione tra le fasi di definizione e le fasi di test.
 
 \subsection{Validatore}
 Membro del team responsabile di eseguire attività di validazione, accertando che il prodotto software soddisfi le effettive esigenze del cliente e gli obiettivi di business.
