@@ -57,6 +57,10 @@
       "definition": "Figura professionale specializzata nell'analisi dei requisiti e nella specifica delle funzionalità del sistema. Collabora con gli stakeholder per comprendere le esigenze e tradurle in specifiche tecniche."
     },
     {
+  "term": "Angular",
+  "definition": "Framework per applicazioni web sviluppato da Google, basato su TypeScript, utilizzato per costruire applicazioni client-side single-page (SPA)."
+},
+    {
       "term": "API (Application Programming Interface)",
       "definition": "Insieme di definizioni, protocolli e strumenti per la costruzione e l'integrazione di software applicativo. Consente a diversi sistemi di comunicare tra loro."
     },
@@ -676,6 +680,14 @@
       "term": "RTB (Requirements and Technology Baseline)",
       "definition": "Baseline che combina i requisiti e le tecnologie approvate per il progetto. Definisce l'insieme dei requisiti concordati e formalmente approvati e lo stack tecnologico di riferimento, costituendo la base per lo sviluppo del progetto. Ogni modifica a questa baseline deve seguire un processo formale di controllo delle modifiche."
     },
+    {
+  "term": "Ruby",
+  "definition": "Linguaggio di programmazione dinamico, open source, orientato agli oggetti e interpretato, noto per la sua semplicità e produttività."
+},
+    {
+  "term": "Ruby on Rails",
+  "definition": "Framework per applicazioni web scritto in Ruby, che segue il pattern Model-View-Controller (MVC) e i principi di convenzione sopra configurazione (convention over configuration)."
+},
     {
       "term": "Sandbox di Sviluppo",
       "definition": "Ambiente isolato per testare e validare funzionalità senza influenzare i sistemi di produzione, utilizzato per sviluppare e verificare nuove feature in sicurezza."
