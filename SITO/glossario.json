@@ -2,15 +2,11 @@
   "terms": [
     {
       "term": "Abstract Class",
-      "definition": "Classe astratta nella programmazione orientata agli oggetti che non può essere istanziata direttamente e che serve come base per altre classi. Definisce un'interfaccia comune e può contenere metodi astratti (senza implementazione) e metodi concreti (con implementazione)."
+      "definition": "Classe nella programmazione orientata agli oggetti che non può essere istanziata direttamente e che serve come base per l'ereditarietà. Può contenere sia metodi astratti (senza implementazione, da ridefinire obbligatoriamente nelle sottoclassi) sia metodi concreti (con implementazione condivisa). Definisce un'interfaccia comune e un comportamento parziale che le classi derivate devono completare o specializzare, favorendo il riuso del codice e l'applicazione del polimorfismo."
     },
     {
       "term": "Accoppiamento",
-      "definition": "Grado di interdipendenza tra componenti software. Un accoppiamento stretto indica forte dipendenza, mentre un accoppiamento debole minimizza le dipendenze, favorendo manutenibilità e riutilizzo del codice."
-    },
-    {
-      "term": "Accoppiamento (Coupling)",
-      "definition": "Grado di interdipendenza tra componenti software. Un accoppiamento stretto indica forte dipendenza, mentre un accoppiamento debole minimizza le dipendenze, favorendo manutenibilità e riutilizzo del codice."
+      "definition": "Misura del grado di dipendenza tra componenti software. Indica la probabilità che modifiche a un componente richiedano modifiche ad altri componenti. L'accoppiamento stretto (tight coupling) implica forte interdipendenza e maggiore fragilità del sistema, mentre l'accoppiamento debole (loose coupling) minimizza le dipendenze, favorendo manutenibilità, riusabilità e testabilità. La dipendenza è direttamente proporzionale alla quantità di codice condiviso (SLOC) e all'ampiezza dello scope di tale codice."
     },
     {
       "term": "Affidabilità (Reliability)",
@@ -18,7 +14,7 @@
     },
     {
       "term": "Aggregazione",
-      "definition": "Relazione strutturale in OOP che rappresenta un legame \"parte-tutto\" dove gli componenti possono esistere indipendentemente dall'oggetto che li contiene. È una forma di associazione con condivisione dei riferimenti."
+      "definition": "Relazione strutturale in OOP che rappresenta un legame \"parte-tutto\" dove i componenti possono esistere indipendentemente dall'oggetto che li contiene. È una forma di associazione con condivisione dei riferimenti."
     },
     {
       "term": "Agile",
@@ -46,7 +42,7 @@
     },
     {
       "term": "Analisi dei Requisiti",
-      "definition": "Processo sistematico volto a identificare, documentare e validare i bisogni, i vincoli e le esigenze del progetto, trasformandoli in requisiti formali che guideranno lo sviluppo del software."
+      "definition": "Processo sistematico volto a identificare, documentare, classificare e validare i bisogni e i vincoli del progetto. Trasforma i requisiti utente (espressi nel capitolato, dal punto di vista del committente) in requisiti software (specificati tecnicamente, dal punto di vista dello sviluppatore), definendo \"cosa\" il sistema deve fare senza specificare \"come\". Produce il documento di Analisi dei Requisiti (AdR) e costituisce la base per la progettazione architetturale. Include attività di studio del dominio, definizione di casi d'uso, classificazione dei requisiti (obbligatori, desiderabili, opzionali; funzionali e non-funzionali) e tracciamento."
     },
     {
       "term": "Analisi dinamica",
@@ -54,12 +50,12 @@
     },
     {
       "term": "Analista",
-      "definition": "Figura professionale specializzata nell'analisi dei requisiti e nella specifica delle funzionalità del sistema. Collabora con gli stakeholder per comprendere le esigenze e tradurle in specifiche tecniche."
+      "definition": "Figura professionale specializzata nell'analisi dei requisiti e nella specifica delle funzionalità del sistema. Collabora con gli stakeholder per comprendere lesigenze e tradurle in specifiche tecniche."
     },
     {
-  "term": "Angular",
-  "definition": "Framework per applicazioni web sviluppato da Google, basato su TypeScript, utilizzato per costruire applicazioni client-side single-page (SPA)."
-},
+      "term": "Angular",
+      "definition": "Framework per applicazioni web sviluppato da Google, basato su TypeScript, utilizzato per costruire applicazioni client-side single-page (SPA)."
+    },
     {
       "term": "API (Application Programming Interface)",
       "definition": "Insieme di definizioni, protocolli e strumenti per la costruzione e l'integrazione di software applicativo. Consente a diversi sistemi di comunicare tra loro."
@@ -70,7 +66,7 @@
     },
     {
       "term": "Architettura a livelli",
-      "definition": "Pattern architetturale che organizza il sistema in livelli gerarchici, dove ogni livello fornisce servizi al livello superiore e utilizza servizi del livello inferiore."
+      "definition": "Pattern architetturale che organizza il sistema in livelli gerarchici, onde ogni livello fornisce servizi al livello superiore e utilizza servizi del livello inferiore."
     },
     {
       "term": "Architettura dei microservizi",
@@ -134,7 +130,7 @@
     },
     {
       "term": "Branch Coverage",
-      "definition": "Metrica di copertura del testing strutturale (white-box) che misura la percentuale di rami (decisioni) in un programma eseguiti da un insieme di test. Un ramo è tipicamente il risultato di una condizione (es. if-else, switch). Un coverage del 100% significa che ogni possibile esito di ogni decisione è stato testato."
+      "definition": "Metrica di copertura del testing strutturale (white-box) che misura la percentuale di rami decisionali (branch) del flusso di controllo attraversati almeno una volta durante l'esecuzione dei test. Un ramo rappresenta un possibile percorso di esecuzione derivante da una struttura condizionale (if-then-else, switch-case). Il coverage del 100"
     },
     {
       "term": "Builder",
@@ -162,7 +158,7 @@
     },
     {
       "term": "Cerimonia",
-      "definition": "Evento formale o informale nel framework Scrum che segue un'agenda prestabilita e ha uno scopo specifico, come la Pianificazione dello Sprint, il Daily Stand-up, la Revisione dello Sprint o la Retrospettiva."
+      "definition": "Evento formale o informale nel framework Scrum che segue un agenda prestabilita e ha uno scopo specifico, come la Pianificazione dello Sprint, il Daily Stand-up, la Revisione dello Sprint o la Retrospettiva."
     },
     {
       "term": "Committente",
@@ -234,7 +230,7 @@
     },
     {
       "term": "Design Pattern Comportamentali",
-      "definition": "Categoria di design pattern che si occupano della comunicazione e dell'assegnazione di responsabilità tra oggetti. Definiscono modi efficaci per organizzare il comportamento degli oggetti, migliorando la flessibilità e la riusabilità. Esempi includono Observer, Iterator, Strategy, e Command."
+      "definition": "Categoria di design pattern che si occupano della comunicazione e dell'assegnazione di responsabilità tra oggetti. Definisce modi efficaci per organizzare il comportamento degli oggetti, migliorando la flessibilità e la riusabilità. Esempi includono Observer, Iterator, Strategy, e Command."
     },
     {
       "term": "Design Pattern Strutturali",
@@ -258,7 +254,7 @@
     },
     {
       "term": "Diagramma di attività",
-      "definition": "Diagramma UML che modella il flusco di controllo o il flusso di dati tra attività, utilizzato per descrivere la logica di procedura, di business o di caso d'uso."
+      "definition": "Diagramma UML che modella il flusso di controllo o il flusso di dati tra attività, utilizzato per descrivere la logica di procedura, di business o di caso d'uso."
     },
     {
       "term": "Diagramma di deployment",
@@ -298,19 +294,19 @@
     },
     {
       "term": "Economicità",
-      "definition": "Principio gestionale che combina efficienza ed efficacia, misurando la capacità di raggiungere obiettivi prefissati (efficacia) impiegando le risorse minime indispensabili (efficienza)."
+      "definition": "Combinazione ottimale di efficacia ed efficienza. Un sistema economico raggiunge i propri obiettivi (efficacia) senza sprecare risorse (efficienza), massimizzando il valore prodotto rispetto ai costi sostenuti."
     },
     {
       "term": "Efficacia",
-      "definition": "Capacità di raggiungere gli obiettivi prefissati e produrre i risultati attesi, indipendentemente dalle risorse impiegate."
+      "definition": "Misura della capacità di raggiungere gli obiettivi prefissati e produrre i risultati attesi. Un processo o sistema è efficace quando soddisfa i requisiti e le aspettative degli stakeholder, indipendentemente dalle risorse impiegate. Metrica: grado di raggiungimento degli obiettivi (interni ed esterni)."
     },
     {
       "term": "Efficienza",
-      "definition": "Rapporto tra i risultati ottenuti e le risorse impiegate per conseguirli. Un processo è efficiente quando raggiunge i suoi obiettivi utilizzando il minimo di risorse necessarie."
+      "definition": "Misura dell'abilità di raggiungere gli obiettivi impiegando le risorse minime indispensabili. Un processo o sistema è efficiente quando ottimizza l'uso di tempo, persone, denaro e strumenti. Metrica: produttività, ovvero rapporto tra quantità di output prodotto e risorse consumate."
     },
     {
       "term": "Entity Resolution",
-      "definition": "Processo di identificazione e associazione di entità (es. persone o aziende) a partire da dati parziali o duplicati, tramite algoritmi di matching e disambiguazione."
+      "definition": "Processo di identificazione e associazione di entità (es. persone o aziende) a partire da dati parziali ouplicati, tramite algoritmi di matching e disambiguazione."
     },
     {
       "term": "Ereditarietà",
@@ -318,7 +314,7 @@
     },
     {
       "term": "Ereditarietà dell'interfaccia",
-      "definition": "Meccanismo di ereditarietà in cui un'interfaccia eredita da un'altra interfaccia, oppure una classe implementa un'interfaccia."
+      "definition": "Meccanismo di ereditarietà in cui una interfaccia eredita da un'altra interfaccia, oppure una classe implementa un'interfaccia."
     },
     {
       "term": "Ereditarietà di classe",
@@ -450,7 +446,7 @@
     },
     {
       "term": "Milestone",
-      "definition": "Punto temporale significativo nel progetto che segna il completamento di un insieme di attività o il raggiungimento di un obiettivo importante. Le milestone sono utilizzate per monitorare l'avanzamento del progetto e per pianificare le attività future."
+      "definition": "Data di calendario che fissa un punto di avanzamento atteso nel tempo di progetto, definendo obiettivi specifici e misurabili da raggiungere. Il raggiungimento di una milestone è dimostrato dalla realizzazione di una baseline approvata. Le milestone devono essere SMART: Specifiche (obiettivi chiari), Misurabili (risultati verificabili), Achievable (realisticamente raggiungibili), Rilevanti (significative per il progetto e gli stakeholder), Time-bound (con scadenza definita). Vengono identificate procedendo a ritroso dalla milestone finale verso l'inizio del progetto, determinando le attività e le risorse necessarie per ogni periodo."
     },
     {
       "term": "Model",
@@ -550,7 +546,7 @@
     },
     {
       "term": "Processi organizzativi",
-      "definition": "Processi trasversali rispetto ai singoli progetti che riguardano la gestione dei processes, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione."
+      "definition": "Processi trasversali rispetto ai singoli progetti che riguardano la gestione dei processi, delle infrastrutture, del miglioramento continuo e della formazione del personale nell'organizzazione."
     },
     {
       "term": "Processi primari",
@@ -574,7 +570,7 @@
     },
     {
       "term": "Progetto",
-      "definition": "Insieme di attività che devono raggiungere obiettivi specifici a partire da date specifiche, con un inizio e una fine fissate in calendario, disponendo di risorse limitate (persone, tempo, denaro, strumenti) e consumando risorse nel loro svolgersi."
+      "definition": "Insieme di attività che devono raggiungere obiettivi specifici a partire da date specificate, con un inizio e una fine fissate in calendario, disponendo di risorse limitate (persone, tempo, denaro, strumenti) e consumando risorse nel loro svolgersi."
     },
     {
       "term": "Programmatore",
@@ -681,13 +677,13 @@
       "definition": "Baseline che combina i requisiti e le tecnologie approvate per il progetto. Definisce l'insieme dei requisiti concordati e formalmente approvati e lo stack tecnologico di riferimento, costituendo la base per lo sviluppo del progetto. Ogni modifica a questa baseline deve seguire un processo formale di controllo delle modifiche."
     },
     {
-  "term": "Ruby",
-  "definition": "Linguaggio di programmazione dinamico, open source, orientato agli oggetti e interpretato, noto per la sua semplicità e produttività."
-},
+      "term": "Ruby",
+      "definition": "Linguaggio di programmazione dinamico, open source, orientato agli oggetti e interpretato, noto per la sua semplicità e produttività."
+    },
     {
-  "term": "Ruby on Rails",
-  "definition": "Framework per applicazioni web scritto in Ruby, che segue il pattern Model-View-Controller (MVC) e i principi di convenzione sopra configurazione (convention over configuration)."
-},
+      "term": "Ruby on Rails",
+      "definition": "Framework per applicazioni web scritto in Ruby, che segue il pattern Model-View-Controller (MVC) e i principi di convenzione sopra configurazione (convention over configuration)."
+    },
     {
       "term": "Sandbox di Sviluppo",
       "definition": "Ambiente isolato per testare e validare funzionalità senza influenzare i sistemi di produzione, utilizzato per sviluppare e verificare nuove feature in sicurezza."
@@ -730,7 +726,7 @@
     },
     {
       "term": "Specification Tecnica",
-      "definition": "Documento che descrive in dettaglio l'architettura, o il design e le scelte implementative del sistema software, guidando le attività di sviluppo."
+      "definition": "Documento che descrive in dettaglio l'architettura, il design e le scelte implementative del sistema software, guidando le attività di sviluppo."
     },
     {
       "term": "Sprint",
@@ -778,7 +774,7 @@
     },
     {
       "term": "Test di Sistema (TS)",
-      "definition": "Test che verificano il sistema nel suo complesso, in un ambiente il più possibile simile a quello di produzione, per accertare che soddisfi i requisiti specificati. Comprende test funzionali e non funzionali."
+      "definition": "Test di tipo black-box che verificano il sistema software nel suo complesso, in un ambiente il più possibile simile a quello di produzione, per accertare che soddisfi tutti i requisiti software specificati nel documento di Analisi dei Requisiti (AdR). Comprende sia test funzionali (verifica delle funzionalità) sia test non-funzionali (prestazioni, sicurezza, usabilità, affidabilità). Viene eseguito dopo il completamento del test di integrazione e prima del collaudo (test di accettazione). Misura il requirements coverage, ovvero la percentuale di requisiti software coperti e soddisfatti. Prepara la validazione finale con il committente, accertando internamente che il prodotto sia pronto per il collaudo."
     },
     {
       "term": "Test di Unità (TU)",
@@ -858,7 +854,5 @@
     },
     {
       "term": "Workflow",
-      "definition": "Sequenza di attività che definiscono un processo di business, dove compiti, informazioni o documenti passano da un partecipante all'altro secondo regole prestabilite."
+      "definition": "Sequenza di attività che definiscono un processo di business, dove compiti, informazioni o documenti passano da un partecipante all'altro secondo regole prestabilite. \\end{document}"
     }
-  ]
-}

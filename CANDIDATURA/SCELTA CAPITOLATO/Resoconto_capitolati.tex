@@ -718,13 +718,13 @@ Le tecnologie proposte per lo sviluppo\textsubscript{\scalebox{0.6}{\textbf{G}}}
  includono:
 \begin{itemize}[noitemsep, topsep=0pt]
  \item \textbf{front-end\textsubscript{\scalebox{0.6}{\textbf{G}}}
-:} Angular (dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}}
+:} Angular\textsubscript{\scalebox{0.6}{\textbf{G}}} (dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}}
  amministrativa), Next.js (PWA\textsubscript{\scalebox{0.6}{\textbf{G}}}
  utenti finali, hosting su AWS\textsubscript{\scalebox{0.6}{\textbf{G}}}
  Amplify o S3+CloudFront);
  \item \textbf{back-end\textsubscript{\scalebox{0.6}{\textbf{G}}}
  e API\textsubscript{\scalebox{0.6}{\textbf{G}}}
-:} Ruby on Rails (stateless su ECS Fargate dietro ALB);
+:} Ruby on Rails\textsubscript{\scalebox{0.6}{\textbf{G}}} (stateless su ECS Fargate dietro ALB);
  \item \textbf{Background Jobs:} Sidekiq (su Fargate + SQS);
  \item \textbf{Database e cache:} PostgreSQL (RDS Multi-AZ con snapshot automatici), ElastiCache for Redis (cache e gestione sessioni);
  \item \textbf{Storage:} Amazon S3 (bucket separati per "uploads" e "processed", Lifecycle e legal hold opzionale);
@@ -886,9 +886,9 @@ Quali tecnologie ritenete possano presentare le principali criticità o difficol
 La documentazione di AWS\textsubscript{\scalebox{0.6}{\textbf{G}}}
  risulta in alcuni casi poco chiara. Il codice di back-end\textsubscript{\scalebox{0.6}{\textbf{G}}}
  attualmente disponibile deriva da un progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
- sviluppato alcuni anni fa e successivamente aggiornato alle versioni più recenti di Ruby on Rails. Tale codice presenta alcune parti ridondanti o non più necessarie, che potrebbero generare confusione durante lo sviluppo.
+ sviluppato alcuni anni fa e successivamente aggiornato alle versioni più recenti di Ruby on Rails\textsubscript{\scalebox{0.6}{\textbf{G}}}. Tale codice presenta alcune parti ridondanti o non più necessarie, che potrebbero generare confusione durante lo sviluppo.
 È prevedibile che l'integrazione con AWS\textsubscript{\scalebox{0.6}{\textbf{G}}}
- rappresenti una delle principali difficoltà; si consiglia pertanto di esaminare le diverse librerie e SDK disponibili per Bedrock, preferibilmente in linguaggi già noti al team, per comprendere il funzionamento del servizio. Una volta acquisite le necessarie competenze, sarà possibile effettuare una migrazione del codice in Ruby on Rails.
+ rappresenti una delle principali difficoltà; si consiglia pertanto di esaminare le diverse librerie e SDK disponibili per Bedrock, preferibilmente in linguaggi già noti al team, per comprendere il funzionamento del servizio. Una volta acquisite le necessarie competenze, sarà possibile effettuare una migrazione del codice in Ruby on Rails\textsubscript{\scalebox{0.6}{\textbf{G}}}.
 } \\
 \hline
 \end{tabularx}
@@ -1124,7 +1124,7 @@ Il team ritiene che il capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
  chiaramente delineati comporta un'eccessiva libertà decisionale, che può generare incertezza nella pianificazione e aumentare il rischio di deviazioni dagli obiettivi progettuali.
 \item L'azienda propone lo sviluppo di un'applicazione web basata su HTML per la parte front-end\textsubscript{\scalebox{0.6}{\textbf{G}}}
 . Tuttavia, il team di progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
-, è interessato anche all'utilizzo di nuove tecnologie più moderne e avanzate per lo sviluppo web, come i framework \textit{React} e \textit{Angular}. 
+, è interessato anche all'utilizzo di nuove tecnologie più moderne e avanzate per lo sviluppo web, come i framework \textit{React} e \textit{Angular\textsubscript{\scalebox{0.6}{\textbf{G}}}}. 
 \end{enumerate} \\
 \hline
 \end{tabularx}
@@ -1230,7 +1230,7 @@ Le tecnologie proposte per lo sviluppo del progetto\textsubscript{\scalebox{0.6}
  includono:
 \begin{itemize}[noitemsep, topsep=0pt]
  \item \textbf{Sviluppo:} 
- interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} utente in \textbf{Angular} per la creazione di una \textbf{SPA} (Single Page Application); 
+ interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} utente in \textbf{Angular\textsubscript{\scalebox{0.6}{\textbf{G}}}} per la creazione di una \textbf{SPA} (Single Page Application); 
  microservizi\textsubscript{\scalebox{0.6}{\textbf{G}}} sviluppati con \textbf{Node.js} e \textbf{Nest.js} in \textbf{TypeScript} per la parte di API\textsubscript{\scalebox{0.6}{\textbf{G}}}
 .
  
@@ -1305,7 +1305,7 @@ Le tecnologie richieste per lo sviluppo del progetto\textsubscript{\scalebox{0.6
  \item Siamo consapevoli del numero limitato di ore a vostra disposizione e della complessità — sicuramente stimolante — del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
 , ma grazie all'esperienza pregressa sappiamo cosa aspettarci in termini di output e possiamo venirvi incontro.
  \item Ad esempio, non è necessario approfondire GCP o Kubernetes: potete limitarvi a utilizzare Docker in locale o, se lo ritenete opportuno, Minikube.
- \item Un'altra possibilità è quella di utilizzare un'unica tecnologia per lo sviluppo dei vari componenti, sfruttando ad esempio TypeScript — con Node.js per la parte cloud e per il simulatore gateway, e Angular per la dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ \item Un'altra possibilità è quella di utilizzare un'unica tecnologia per lo sviluppo dei vari componenti, sfruttando ad esempio TypeScript — con Node.js per la parte cloud e per il simulatore gateway, e Angular\textsubscript{\scalebox{0.6}{\textbf{G}}} per la dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}}
 .
  \item Questi dettagli, tuttavia, li definiremo progressivamente, dopo che avrete avuto modo di condurre un adeguato studio preliminare del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
 , come è naturale che sia.
@@ -1352,7 +1352,7 @@ Inizialmente il team era attratto dall'idea di lavorare su un sistema distribuit
 \item Buon supporto da parte dell'azienda; eventualmente anche incontri in sede molto vicini alle nostre sedi di studio.
 \item Forte opportunità di apprendimento: il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}
  introduce tecnologie e pratiche non ancora esplorate dal team, accelerando la crescita tecnica. Nello specifico, il sistema di acquisizione dati da sensori si basa su un'architettura a microservizi\textsubscript{\scalebox{0.6}{\textbf{G}}} e introduce tecnologie come Node.js e Nest.js con TypeScript (back-end\textsubscript{\scalebox{0.6}{\textbf{G}}}
-) , Go (componenti ad alte prestazioni) , Angular (front-end\textsubscript{\scalebox{0.6}{\textbf{G}}}
+) , Go (componenti ad alte prestazioni) , Angular\textsubscript{\scalebox{0.6}{\textbf{G}}} (front-end\textsubscript{\scalebox{0.6}{\textbf{G}}}
  SPA) , MongoDB (database NoSQL) , PostgreSQL (database SQL) , Redis (caching) , Google Cloud Platform (infrastruttura cloud) , Kubernetes (orchestrazione container) , NATS o Kafka (comunicazione asincrona) , e Prometheus con Grafana (monitoring).
 \end{enumerate}
  & \begin{enumerate}
@@ -1427,7 +1427,7 @@ Tra i requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}
  REST.}
  \item \textbf{Comunicazione da/per il database:} connettori da una fonte dati ODBC o indipendenza del modello LLM\textsubscript{\scalebox{0.6}{\textbf{G}}}
  dal database.
- \item \textbf{Interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} utente:} .NET Blazor, React.js, Angular.
+ \item \textbf{Interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} utente:} .NET Blazor, React.js, Angular\textsubscript{\scalebox{0.6}{\textbf{G}}}.
 \end{itemize}
 
 \subsubsection{Chiarimenti e colloqui con l'azienda}
@@ -1605,7 +1605,7 @@ Si sviluppa prima dall'idea o in maniera test-driven?
 &
 \begin{itemize}
 \item Non esiste un giusto o sbagliato: dipende dallo stile del team.
-\item Generalmente si parte dalla progettazione, poi implementazione test-driven o modulare.
+\item Generalmente si parte dalla progettazione, poi implementazione\textsubscript{\scalebox{0.6}{\textbf{G}}} test-driven o modulare.
 \end{itemize} \\
 \hline
 Un requisito\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -1629,7 +1629,7 @@ la sicurezza\textsubscript{\scalebox{0.6}{\textbf{G}}} delle persone rappresenta
  un
 valore tangibile e significativo. Sono stati inoltre apprezzati l'utilizzo di tecnologie
 moderne e versatili, come Docker, AWS\textsubscript{\scalebox{0.6}{\textbf{G}}}
- e framework web come Angular o React,
+ e framework web come Angular\textsubscript{\scalebox{0.6}{\textbf{G}}} o React,
 che offrono ampie opportunità di apprendimento e applicazione pratica. Un
 ulteriore punto di forza è rappresentato dal supporto fornito da Vimar, che
 garantisce incontri di avanzamento regolari e fornisce un kit hardware fisico per
