@@ -9,6 +9,7 @@ Sincronizza automaticamente il glossario LaTeX con il file JSON:
 - Aggiorna il JSON in ordine alfabetico
 - Supporta aggiunta, modifica e rimozione automatica
 - Interfaccia grafica con progress bar
+- Il file JSON finale si chiama SEMPRE "glossario.json"
 """
 
 import tkinter as tk
@@ -19,9 +20,11 @@ import json
 from datetime import datetime
 import threading
 from queue import Queue
+import shutil
 
 # --------------------------- COSTANTI --------------------------------
 SUPPORTED_EXTS = {'.tex', '.latex', '.json'}
+REQUIRED_JSON_NAME = "glossario.json"
 
 # ------------------------- FUNZIONI UTILI -----------------------------
 
@@ -78,6 +81,9 @@ def clean_latex_definition(text):
 def load_json_glossary(json_path):
     """Carica il glossario JSON esistente"""
     try:
+        if not os.path.exists(json_path):
+            return {}  # File non esistente
+        
         with open(json_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         
@@ -88,18 +94,40 @@ def load_json_glossary(json_path):
                 if 'term' in item and 'definition' in item:
                     glossary_dict[item['term']] = item['definition']
             return glossary_dict
+        else:
+            # Prova formato alternativo
+            if isinstance(data, dict):
+                # Forse è già un dizionario term:definition
+                return data
+            elif isinstance(data, list):
+                # Forse è una lista di dizionari con chiavi diverse
+                glossary_dict = {}
+                for item in data:
+                    if isinstance(item, dict):
+                        # Cerca chiavi comuni
+                        if 'term' in item and 'definition' in item:
+                            glossary_dict[item['term']] = item['definition']
+                        elif 'name' in item and 'desc' in item:
+                            glossary_dict[item['name']] = item['desc']
+                return glossary_dict
         
         return {}
-    except FileNotFoundError:
-        return {}  # File non esistente, creeremo nuovo
-    except json.JSONDecodeError:
-        raise Exception("Errore nel formato JSON")
+    except json.JSONDecodeError as e:
+        raise Exception(f"Errore nel formato JSON: {str(e)}\nIl file potrebbe essere corrotto o non valido.")
     except Exception as e:
         raise Exception(f"Errore caricamento JSON: {str(e)}")
 
+def ensure_correct_json_name(json_path):
+    """Assicura che il percorso JSON abbia il nome corretto 'glossario.json'"""
+    directory = os.path.dirname(json_path)
+    correct_path = os.path.join(directory, REQUIRED_JSON_NAME)
+    return correct_path
 
 def save_json_glossary(json_path, terms_dict, progress_callback=None):
     """Salva il glossario in JSON ordinato alfabeticamente"""
+    # Assicura che il file si chiami 'glossario.json'
+    json_path = ensure_correct_json_name(json_path)
+    
     # Converti dizionario in lista di oggetti
     terms_list = []
     
@@ -110,10 +138,10 @@ def save_json_glossary(json_path, terms_dict, progress_callback=None):
         })
         
         if progress_callback and i % 10 == 0:
-            progress = (i / len(terms_dict)) * 100
+            progress = (i / len(terms_dict)) * 100 if terms_dict else 0
             progress_callback(progress)
     
-    # Crea struttura JSON SENZA metadata
+    # Crea struttura JSON
     data = {
         "terms": terms_list
     }
@@ -125,7 +153,7 @@ def save_json_glossary(json_path, terms_dict, progress_callback=None):
     if progress_callback:
         progress_callback(100)
     
-    return data
+    return data, json_path
 
 def compare_glossaries(old_dict, new_dict):
     """Confronta due glossari e restituisce differenze"""
@@ -267,7 +295,7 @@ class GlossarySyncTool:
         
         subtitle = tk.Label(
             header_frame,
-            text="Sincronizza automaticamente il glossario LaTeX con il file JSON - Ordine alfabetico automatico",
+            text=f"Sincronizza automaticamente il glossario LaTeX - Il file JSON finale si chiamerà '{REQUIRED_JSON_NAME}'",
             font=("Arial", 10),
             foreground="#7f8c8d"
         )
@@ -311,7 +339,7 @@ class GlossarySyncTool:
         # Auto-detect JSON
         ttk.Button(
             file_frame,
-            text="🔍 Auto-detect JSON dallo stesso nome",
+            text=f"🔍 Trova/Crea '{REQUIRED_JSON_NAME}'",
             command=self.auto_detect_json
         ).pack(pady=(10, 0))
     
@@ -392,7 +420,7 @@ class GlossarySyncTool:
         # Info
         info_label = tk.Label(
             footer_frame,
-            text="Termini ordinati alfabeticamente in automatico | Case-insensitive",
+            text=f"Il file JSON finale si chiama '{REQUIRED_JSON_NAME}' | Termini ordinati alfabeticamente",
             font=("Arial", 9),
             foreground="#7f8c8d"
         )
@@ -439,35 +467,90 @@ class GlossarySyncTool:
             self.json_path.set(path)
     
     def auto_detect_json(self):
-        """Auto-detect JSON dallo stesso nome del LaTeX"""
+        """Trova o crea glossario.json"""
         latex_path = self.latex_path.get().strip()
+        
         if not latex_path:
             messagebox.showwarning("Attenzione", "Seleziona prima un file LaTeX.")
             return
         
-        base_name = os.path.splitext(latex_path)[0]
-        json_path = base_name + ".json"
+        # Cerca nella cartella del file LaTeX
+        latex_dir = os.path.dirname(latex_path)
+        if not latex_dir:
+            latex_dir = "."
         
-        if os.path.exists(json_path):
-            self.json_path.set(json_path)
-            messagebox.showinfo("JSON Trovato", f"File JSON trovato:\n{json_path}")
-        else:
-            # Chiedi se creare nuovo
-            if messagebox.askyesno("JSON non trovato", 
-                                 f"File JSON non trovato:\n{json_path}\n\nCreare nuovo file?"):
+        # Prima cerca un file JSON esistente
+        json_files = []
+        if os.path.exists(latex_dir):
+            for file in os.listdir(latex_dir):
+                if file.lower().endswith('.json'):
+                    json_files.append(file)
+        
+        if json_files:
+            # Se c'è già un glossario.json, usalo
+            if REQUIRED_JSON_NAME in json_files:
+                json_path = os.path.join(latex_dir, REQUIRED_JSON_NAME)
                 self.json_path.set(json_path)
+                messagebox.showinfo("JSON Trovato", 
+                                  f"Trovato '{REQUIRED_JSON_NAME}'.\nPercorso: {json_path}")
+                return
+            
+            # Altrimenti, chiedi all'utente quale usare
+            file_list = "\n".join(f"• {f}" for f in json_files)
+            response = messagebox.askyesno(
+                "File JSON trovati",
+                f"Nella cartella sono stati trovati questi file JSON:\n\n{file_list}\n\n"
+                f"Vuoi usarne uno come base per creare '{REQUIRED_JSON_NAME}'?"
+            )
+            
+            if response:
+                # Se l'utente vuole usare un JSON esistente
+                path = filedialog.askopenfilename(
+                    initialdir=latex_dir,
+                    title="Seleziona file JSON da usare come base",
+                    filetypes=[("File JSON", "*.json")]
+                )
+                if path:
+                    self.json_path.set(path)
+                    messagebox.showinfo(
+                        "File selezionato",
+                        f"File JSON selezionato come base.\n"
+                        f"Il risultato finale sarà salvato come '{REQUIRED_JSON_NAME}'."
+                    )
+                return
+        
+        # Se non ci sono file JSON, crea nuovo
+        json_path = os.path.join(latex_dir, REQUIRED_JSON_NAME)
+        
+        response = messagebox.askyesno(
+            "Crea nuovo file",
+            f"Non sono stati trovati file JSON nella cartella.\n\n"
+            f"Creare nuovo file '{REQUIRED_JSON_NAME}'?\n\n"
+            f"Percorso: {json_path}"
+        )
+        
+        if response:
+            self.json_path.set(json_path)
+            # Crea un file JSON vuoto
+            empty_data = {"terms": []}
+            try:
+                with open(json_path, 'w', encoding='utf-8') as f:
+                    json.dump(empty_data, f, ensure_ascii=False, indent=2)
+                messagebox.showinfo("File creato", f"File '{REQUIRED_JSON_NAME}' creato con successo.")
+            except Exception as e:
+                messagebox.showerror("Errore", f"Impossibile creare il file: {str(e)}")
     
     def start_sync(self):
         """Avvia la sincronizzazione in thread separato"""
         # Verifica file
         latex_path = self.latex_path.get().strip()
-        json_path = self.json_path.get().strip()
+        json_input_path = self.json_path.get().strip()
         
         if not latex_path:
             messagebox.showwarning("Attenzione", "Seleziona un file LaTeX.")
             return
         
-        if not json_path:
+        if not json_input_path:
             messagebox.showwarning("Attenzione", "Seleziona un file JSON.")
             return
         
@@ -475,9 +558,31 @@ class GlossarySyncTool:
             messagebox.showerror("Errore", f"File LaTeX non trovato:\n{latex_path}")
             return
         
+        # Determina il percorso finale per glossario.json
+        if os.path.basename(json_input_path).lower() != REQUIRED_JSON_NAME.lower():
+            # Se l'utente ha selezionato un file con nome diverso
+            directory = os.path.dirname(json_input_path)
+            if not directory:
+                directory = "."
+            json_final_path = os.path.join(directory, REQUIRED_JSON_NAME)
+            
+            # Avvisa l'utente del cambio nome
+            response = messagebox.askyesno(
+                "Rinomina file",
+                f"Il file selezionato non si chiama '{REQUIRED_JSON_NAME}'.\n\n"
+                f"Input: {os.path.basename(json_input_path)}\n"
+                f"Output: {REQUIRED_JSON_NAME}\n\n"
+                f"Vuoi continuare? Il file sarà salvato come '{REQUIRED_JSON_NAME}'."
+            )
+            
+            if not response:
+                return
+        else:
+            json_final_path = json_input_path
+        
         # Disabilita pulsanti durante sincronizzazione
         self.sync_button.config(state=tk.DISABLED)
-        self.status_text.set("Sincronizzazione in corso...")
+        self.status_text.set(f"Sincronizzazione in corso...")
         self.progress_value.set(0)
         
         def sync_task():
@@ -501,9 +606,22 @@ class GlossarySyncTool:
                 latex_terms = extract_sections_from_latex(latex_content)
                 update_progress(40)
                 
-                # 3. Carica JSON esistente
-                update_status("Caricamento JSON...")
-                json_terms = load_json_glossary(json_path)
+                # 3. Carica JSON esistente (se esiste)
+                update_status("Caricamento JSON esistente...")
+                json_terms = {}
+                
+                # Prova a caricare dal file di input (se esiste)
+                if os.path.exists(json_input_path):
+                    try:
+                        json_terms = load_json_glossary(json_input_path)
+                    except Exception as e:
+                        # Se c'è un errore, avvisa ma continua con dizionario vuoto
+                        self.message_queue.put(('warning', 
+                            f"Attenzione: il file JSON non è stato caricato correttamente.\n"
+                            f"Errore: {str(e)}\n\n"
+                            f"Verrà creato un nuovo glossario."))
+                        json_terms = {}
+                
                 update_progress(60)
                 
                 # 4. Confronta
@@ -511,16 +629,16 @@ class GlossarySyncTool:
                 diff_result = compare_glossaries(json_terms, latex_terms)
                 update_progress(80)
                 
-                # 5. Salva nuovo JSON
-                update_status("Salvataggio JSON ordinato...")
-                save_json_glossary(json_path, latex_terms, update_progress)
+                # 5. Salva nuovo JSON con nome corretto
+                update_status(f"Salvataggio {REQUIRED_JSON_NAME}...")
+                _, saved_json_path = save_json_glossary(json_final_path, latex_terms, update_progress)
                 update_progress(90)
                 
                 # 6. Genera report
                 update_status("Generazione report...")
-                report = generate_report(latex_path, json_path, diff_result, len(latex_terms))
+                report = generate_report(latex_path, saved_json_path, diff_result, len(latex_terms))
                 
-                self.message_queue.put(('complete', (report, diff_result)))
+                self.message_queue.put(('complete', (report, diff_result, saved_json_path)))
                 
             except Exception as e:
                 self.message_queue.put(('error', str(e)))
@@ -534,8 +652,12 @@ class GlossarySyncTool:
         latex_path = self.latex_path.get().strip()
         json_path = self.json_path.get().strip()
         
-        if not latex_path or not json_path:
-            messagebox.showwarning("Attenzione", "Seleziona entrambi i file.")
+        if not latex_path:
+            messagebox.showwarning("Attenzione", "Seleziona un file LaTeX.")
+            return
+        
+        if not json_path:
+            messagebox.showwarning("Attenzione", "Seleziona un file JSON.")
             return
         
         try:
@@ -544,9 +666,32 @@ class GlossarySyncTool:
                 latex_content = f.read()
             
             latex_terms = extract_sections_from_latex(latex_content)
-            json_terms = load_json_glossary(json_path)
+            
+            # Carica JSON se esiste
+            if os.path.exists(json_path):
+                try:
+                    json_terms = load_json_glossary(json_path)
+                except Exception as e:
+                    messagebox.showerror(
+                        "Errore JSON",
+                        f"Impossibile leggere il file JSON:\n\n{str(e)}\n\n"
+                        f"Assicurati che il file sia un JSON valido."
+                    )
+                    return
+            else:
+                json_terms = {}
+                messagebox.showinfo(
+                    "File non trovato", 
+                    f"Il file JSON non esiste.\nAnalisi basata su glossario vuoto."
+                )
             
             diff_result = compare_glossaries(json_terms, latex_terms)
+            
+            # Determina il nome finale
+            if os.path.basename(json_path).lower() != REQUIRED_JSON_NAME.lower():
+                final_name = REQUIRED_JSON_NAME
+            else:
+                final_name = os.path.basename(json_path)
             
             # Genera report analisi
             report = []
@@ -554,7 +699,8 @@ class GlossarySyncTool:
             report.append("ANALISI DIFFERENZE (SOLO LETTURA)")
             report.append("=" * 80)
             report.append(f"File LaTeX: {os.path.basename(latex_path)}")
-            report.append(f"File JSON: {os.path.basename(json_path)}")
+            report.append(f"File JSON input: {os.path.basename(json_path)}")
+            report.append(f"File JSON output: {final_name}")
             report.append(f"Termini LaTeX: {len(latex_terms)}")
             report.append(f"Termini JSON: {len(json_terms)}")
             report.append("=" * 80)
@@ -579,14 +725,14 @@ class GlossarySyncTool:
                     report.append(f"  ... e altri {len(diff_result['removed']) - 20}")
             
             report.append("\n" + "=" * 80)
-            report.append("ℹ️  Questa è solo un'analisi. Usa 'SINCRONIZZA' per aggiornare.")
+            report.append(f"ℹ️  Questa è solo un'analisi. Usa 'SINCRONIZZA' per creare/aggiornare '{REQUIRED_JSON_NAME}'.")
             report.append("=" * 80)
             
             self.results_text.delete("1.0", tk.END)
             self.results_text.insert("1.0", "\n".join(report))
             
         except Exception as e:
-            messagebox.showerror("Errore Analisi", str(e))
+            messagebox.showerror("Errore Analisi", f"Errore durante l'analisi:\n\n{str(e)}")
     
     def check_queue(self):
         """Controlla la coda per messaggi dai thread"""
@@ -600,15 +746,19 @@ class GlossarySyncTool:
                 elif msg_type == 'status':
                     self.status_text.set(data)
                 
+                elif msg_type == 'warning':
+                    messagebox.showwarning("Avviso", data)
+                
                 elif msg_type == 'complete':
-                    report, diff_result = data
-                    self.show_results(report, diff_result)
+                    report, diff_result, saved_json_path = data
+                    self.show_results(report, diff_result, saved_json_path)
                     self.sync_button.config(state=tk.NORMAL)
                 
                 elif msg_type == 'error':
                     self.status_text.set(f"Errore: {data}")
                     self.sync_button.config(state=tk.NORMAL)
-                    messagebox.showerror("Errore Sincronizzazione", str(data))
+                    messagebox.showerror("Errore Sincronizzazione", 
+                                       f"Errore durante la sincronizzazione:\n\n{str(data)}")
         
         except:
             pass
@@ -616,7 +766,7 @@ class GlossarySyncTool:
         # Ricontrolla
         self.root.after(100, self.check_queue)
     
-    def show_results(self, report, diff_result):
+    def show_results(self, report, diff_result, saved_json_path):
         """Mostra i risultati della sincronizzazione"""
         self.results_text.delete("1.0", tk.END)
         self.results_text.insert("1.0", report)
@@ -645,9 +795,19 @@ class GlossarySyncTool:
         removed = len(diff_result['removed'])
         
         if added == 0 and modified == 0 and removed == 0:
-            self.status_text.set("✅ Glossari già sincronizzati")
+            self.status_text.set(f"✅ Glossari già sincronizzati")
         else:
             self.status_text.set(f"🔄 Sincronizzazione completata: +{added} ✏️{modified} -{removed}")
+        
+        # Mostra notifica con percorso del file
+        messagebox.showinfo(
+            "Sincronizzazione Completata",
+            f"Il file '{REQUIRED_JSON_NAME}' è stato creato/aggiornato con successo:\n\n"
+            f"Percorso: {saved_json_path}\n"
+            f"Termini totali: {len(diff_result['added']) + len(diff_result['modified']) + len(diff_result['unchanged'])}\n\n"
+            f"File di input: {os.path.basename(self.json_path.get())}\n"
+            f"File di output: {os.path.basename(saved_json_path)}"
+        )
     
     def export_report(self):
         """Esporta il report"""
