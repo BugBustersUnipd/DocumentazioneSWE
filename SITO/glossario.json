@@ -34,7 +34,7 @@
     },
     {
       "term": "Analista",
-      "definition": "Figura professionale specializzata nell'analisi dei requisiti e nella specifica delle funzionalità del sistema. Collabora con gli stakeholder per comprendere lesigenze e tradurle in specifiche tecniche."
+      "definition": "Figura professionale specializzata nell'analisi dei requisiti e nella specifica delle funzionalità del sistema. Collabora con gli stakeholder per comprendere le esigenze e tradurle in specifiche tecniche."
     },
     {
       "term": "Angular",
@@ -55,6 +55,10 @@
     {
       "term": "Back-end",
       "definition": "Parte di un'applicazione software che gestisce la logica di business, l'elaborazione dei dati e la comunicazione con il database. Opera sul server ed è inaccessibile direttamente all'utente finale."
+    },
+    {
+      "term": "Backlog",
+      "definition": "Elenco prioritizzato di attività, funzionalità o requisiti da completare nel corso del progetto. Nel contesto Agile e Scrum, rappresenta l'insieme di lavoro pianificato per gli sprint futuri. Il backlog viene costantemente aggiornato e riordinato in base alle priorità e alle necessità emergenti del progetto."
     },
     {
       "term": "Baseline",
@@ -114,7 +118,7 @@
     },
     {
       "term": "Decisione interna",
-      "definition": "Scelta presa dal team di progetto riguardante aspetti tecnici, organizzativi o metodologici, documentata per garantire tracciabilità e coerenza nelle attività successive.scambiati."
+      "definition": "Scelta presa dal team di progetto riguardante aspetti tecnici, organizzativi o metodologici, documentata per garantire tracciabilità e coerenza nelle attività successive."
     },
     {
       "term": "Discord",
@@ -134,7 +138,7 @@
     },
     {
       "term": "Entity Resolution",
-      "definition": "Processo di identificazione e associazione di entità (es. persone o aziende) a partire da dati parziali ouplicati, tramite algoritmi di matching e disambiguazione."
+      "definition": "Processo di identificazione e associazione di entità (es. persone o aziende) a partire da dati parziali o duplicati, tramite algoritmi di matching e disambiguazione."
     },
     {
       "term": "Error / Errore",
@@ -213,6 +217,10 @@
       "definition": "Data di calendario che fissa un punto di avanzamento atteso nel tempo di progetto, definendo obiettivi specifici e misurabili da raggiungere. Il raggiungimento di una milestone è dimostrato dalla realizzazione di una baseline approvata. Le milestone devono essere SMART: Specifiche (obiettivi chiari), Misurabili (risultati verificabili), Achievable (realisticamente raggiungibili), Rilevanti (significative per il progetto e gli stakeholder), Time-bound (con scadenza definita). Vengono identificate procedendo a ritroso dalla milestone finale verso l'inizio del progetto, determinando le attività e le risorse necessarie per ogni periodo."
     },
     {
+      "term": "Mitigazione",
+      "definition": "Insieme di azioni e strategie pianificate per ridurre la probabilità di occorrenza di un rischio o per minimizzarne l'impatto negativo sul progetto qualora si verifichi. La mitigazione rappresenta una fase fondamentale della gestione dei rischi e viene definita durante la pianificazione del progetto."
+    },
+    {
       "term": "Modularità",
       "definition": "Grado in cui un sistema è composto da componenti separati che possono essere sviluppati, testati e mantenuti indipendentemente."
     },
@@ -233,6 +241,10 @@
       "definition": "Baseline che definisce lo stato del prodotto software in un determinato momento, tipicamente al termine di una fase di sviluppo o di uno sprint. Include le specifiche del prodotto, la documentazione e il codice sorgente, e serve come riferimento per le fasi successive o per il rilascio."
     },
     {
+      "term": "Pericolosità",
+      "definition": "Nel contesto della gestione dei rischi, indica la gravità dell'impatto che un rischio può avere sul progetto qualora si verifichi. La pericolosità viene valutata considerando le conseguenze negative sugli obiettivi, sui tempi, sui costi e sulla qualità del progetto. Insieme alla probabilità di occorrenza, la pericolosità determina la priorità con cui un rischio deve essere gestito."
+    },
+    {
       "term": "Piano di Progetto",
       "definition": "Documento di pianificazione che descrive come il progetto sarà condotto, gestito e controllato. Definisce gli obiettivi, le attività, le risorse, i tempi, i costi, i rischi e le modalità di monitoraggio e comunicazione del progetto."
     },
@@ -242,11 +254,15 @@
     },
     {
       "term": "POC (Proof of Concept)",
-      "definition": "Realizzazione preliminare e limitata di un'idea o di un concetto, finalizzata a verificarne la fattibilità tecnica, l'adeguatezza rispetto ai requisiti o la validità di un'architettura proposta. Un POC viene solitamente sviluppato con risorse minime per valutare rapidamente se un'approccio o una tecnologia siano promettenti prima di impegnare risorse significative in uno sviluppo completo."
+      "definition": "Realizzazione preliminare e limitata di un'idea o di un concetto, finalizzata a verificarne la fattibilità tecnica, l'adeguatezza rispetto ai requisiti o la validità di un'architettura proposta. Un POC viene solitamente sviluppato con risorse minime per valutare rapidamente se un approccio o una tecnologia siano promettenti prima di impegnare risorse significative in uno sviluppo completo."
     },
     {
       "term": "Preventivo",
       "definition": "Documento di pianificazione che stima i costi e le risorse necessarie per lo svolgimento del progetto, basato sulle attività pianificate e sulle risorse disponibili."
+    },
+    {
+      "term": "Probabilità",
+      "definition": "Nel contesto della gestione dei rischi, rappresenta la possibilità che un evento rischioso si verifichi durante lo svolgimento del progetto. Viene generalmente espressa in termini qualitativi (bassa, media, alta) o quantitativi (percentuale). La valutazione della probabilità, insieme alla pericolosità, permette di classificare e prioritizzare i rischi da gestire."
     },
     {
       "term": "Prodotto (Product)",
@@ -307,6 +323,22 @@
     {
       "term": "Retrospettiva",
       "definition": "Cerimonia del framework Scrum che si tiene al termine di ogni sprint, durante la quale il team riflette sul processo di lavoro adottato, identifica ciò che ha funzionato bene e ciò che può essere migliorato, e definisce un piano di azione per incrementare l'efficacia e la qualità del lavoro negli sprint successivi."
+    },
+    {
+      "term": "Rischio",
+      "definition": "Evento o condizione incerta che, qualora si verificasse, potrebbe avere un impatto positivo o negativo sugli obiettivi del progetto. Nella gestione di progetto, i rischi vengono identificati, analizzati, classificati e monitorati attraverso un processo sistematico di gestione dei rischi. Ogni rischio è caratterizzato da una probabilità di occorrenza e da una pericolosità (impatto potenziale)."
+    },
+    {
+      "term": "Rischio Globale (RG)",
+      "definition": "Categoria di rischi che riguardano l'intero team o il progetto nel suo complesso, piuttosto che singoli individui o aspetti tecnici specifici. Esempi includono disaccordi significativi tra membri del team, malcomprensioni dei requisiti del capitolato, sottostima o sovrastima delle attività pianificate. Questi rischi possono influenzare l'andamento generale del progetto e richiedono strategie di mitigazione a livello di gruppo."
+    },
+    {
+      "term": "Rischio Individuale (RI)",
+      "definition": "Categoria di rischi che riguardano la disponibilità e le capacità dei singoli membri del team. Esempi includono impegni derivanti da altre attività universitarie (esami, progetti paralleli) o indisponibilità personali impreviste (problemi di salute, emergenze familiari). Questi rischi vengono mitigati attraverso la comunicazione tempestiva e la redistribuzione del carico di lavoro tra i membri disponibili."
+    },
+    {
+      "term": "Rischio Tecnologico (RT)",
+      "definition": "Categoria di rischi legati agli aspetti tecnici del progetto, come l'utilizzo di tecnologie, linguaggi o strumenti non completamente conosciuti dal team, oppure la presenza di errori e bug nel codice sviluppato. Questi rischi richiedono strategie di mitigazione che includono formazione, supporto tecnico interno al team e allocazione di tempo per la risoluzione di problemi tecnici."
     },
     {
       "term": "RTB (Requirements and Technology Baseline)",
