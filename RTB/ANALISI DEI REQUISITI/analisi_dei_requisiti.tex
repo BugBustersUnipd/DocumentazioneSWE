@@ -171,57 +171,9 @@ Prima stesura della struttura del documento.
 
 \newpage
 
-\section*{Indice}
-
-\noindent
-\begin{minipage}[t]{0.8\textwidth}
-\subsection*{1 Introduzione}
-1.1 Scopo del documento \\
-1.2 Prospettiva del prodotto \\
-1.3 Funzioni del prodotto \\
-1.4 Caratterisitiche dell'utente \\
-1.5 Definizioni, acronimi e abbreviazioni \\
-1.6 Riferimenti \\
-\quad 1.6.1 Riferimenti normativi \\
-\quad 1.6.2 Riferimenti informativi \\
-\subsection*{2 Casi d'uso}
-2.1 Introduzione \\
-2.2 Attori \\
-2.3 Lista casi d'uso \\
-2.4 Sezione 0 – Applicazione standalone\\
-\quad 2.4.1 UC-0A: Registrazione nuovo utente \\
-\quad 2.4.2 UC-0B: Login / Autenticazione utente \\
-\quad 2.4.3 UC-0C: Apertura dashboard \\
-\quad 2.4.4 UC-0D: Apertura gestione profilo utente \\
-\quad 2.4.5 UC-0E: Apertura gestione ruoli (Admin / Editor)\\
-\quad 2.4.6 UC-0F: Logout \\
-2.5 Sezione 1 – Modulo “AI Assistant Generativo\\
-\quad 2.5.1 UC-1A: Apertura modulo di generazione contenuti AI\\
-\quad 2.5.2 UC-1B: Apertura storico prompt\\
-\quad 2.5.3 UC-1C: Generazione contenuto tramite AI\\
-\quad 2.5.4 UC-1D: Apertura modifica contenuto generato\\
-
-2.6 Sezione 2 – Modulo "AI Co-Pilot per i CdL"\\
-\quad 2.6.1 UC-2A: Apertura modulo di upload e gestione documentale\\
-\quad 2.6.2 UC-2B: Apertura lista documenti\\
-\quad 2.6.3 UC-2C: Apertura documento\\
-\quad 2.6.4 UC-2D: Apertura informazioni destinatario\\
-\quad 2.6.5 UC-2E: Apertura storico documenti\\
-\quad 2.6.6 UC-2F: Gestione messaggio\\
-\quad 2.6.7 UC-2G: Tabella template salvati\\
-\quad 2.6.8 UC-2H: Invio documento e messaggio\\
+\tableofcontents
 
 
-\end{minipage}
-\begin{minipage}[t]{0.2\textwidth}
-\vspace{1.65\baselineskip}
-9 \\
-9 \\
-9 \\
-10 \\
-10 \\
-10 \\
-\end{minipage}
 
 \newpage
 
@@ -486,11 +438,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il Sistema mostra un messaggio di errore specifico per il campo non valido.
     \item L’utente corregge i dati e ripete l’inserimento.
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Avviare l'applicativo standalone e selezionare l'opzione di registrazione.
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1425,9 +1372,8 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-0E.1 - Visualizzazione nome utenti registrati.
-        \item UC-0E.2 - Visualizzazione cognome utenti registrati.
-        \item UC-0E.3 - Visualizzazione ruolo utenti registrati.
+        \item UC-0E.8 - Visualizzazione lista utenti registrati.
+
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -1441,7 +1387,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.1 – Visualizzazione nome utenti registrati}
+\subsubsection{UC-0E.1 – Visualizzazione nome utente registrato}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1470,7 +1416,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.2 – Visualizzazione cognome utenti registrati}
+\subsubsection{UC-0E.2 – Visualizzazione cognome utente registrato}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1499,7 +1445,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.3 – Visualizzazione ruolo utenti registrati}
+\subsubsection{UC-0E.3 – Visualizzazione ruolo utente registrato}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1643,6 +1589,93 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Trigger}
 \begin{itemize}
     \item L'utente tenta l'accesso diretto alla risorsa protetta
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0E.8 – Visualizzazione lista utenti registrati}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Amministratore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'amministratore ha effettuato l'accesso e si trova nella sezione di gestione utenti
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzata la lista degli utenti registrati nel sistema
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera dal database la lista degli utenti e ne mostra i dati in formato tabellare o a lista
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'amministratore accede alla pagina "Gestione Utenti"
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-0E.9 - Visualizzazione elemento lista utenti registrati.
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item nessuna
+    \end{itemize}
+    
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-0E.9 – Visualizzazione elemento lista utenti registrati}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Amministratore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'amministratore ha effettuato l'accesso e si trova nella sezione di gestione utenti
+    \item Esiste almeno un utente registrato nel sistema
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un elemento dalla lista degli utenti registrati nel sistema
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'applicazione mostra un singolo utente con i relativi dettagli (nome, cognome, ruolo, ecc.) all'interno della lista
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'amministratore accede alla pagina "Gestione Utenti"
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-0E.1 - Visualizzazione nome utente registrato.
+        \item UC-0E.2 - Visualizzazione cognome utente registrato.
+        \item UC-0E.3 - Visualizzazione ruolo utente registrato.
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuna
+    \end{itemize}
+    
 \end{itemize}
 
 \vspace{0.5cm}
@@ -1894,193 +1927,14 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item Nessuna
+        \item UC-1B.12 – Visualizzazione lista elementi storico
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-1B.11 – visualizzazione informazioni elemento
         \item UC-1B.7 – Ricerca
         \item UC-1B.8 – Riutilizza (rigenera con lo stesso prompt)
         \item UC-1B.9 – Duplica (Ti riporta al modulo di generazione con prompt, tono e stile precompilati)
         \item UC-1B.10 – Nessun prompt salvato.
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1B.7 – Ricerca}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autorizzato
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Lo storico è popolato da diversi elementi
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item La lista visualizzata viene filtrata mostrando solo gli elementi che corrispondono ai criteri di ricerca
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente inserisce una parola chiave (es. parte del prompt o data) nella barra di ricerca
-    \item Il sistema filtra gli elementi dello storico in tempo reale o alla conferma
-\end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Inserimento testo nel campo di ricerca o click sul pulsante "Cerca"
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-1B.12 – Ricerca per prompt
-        \item UC-1B.13 – Ricerca per tono
-        \item UC-1B.14 – Ricerca per stile
-        \item UC-1B.15 – Ricerca per risultato
-        \item UC-1B.16 – Ricerca per timestamp
-        \item UC-1B.17 – Ricerca per valutazione
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1B.8 – Riutilizza}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autorizzato
-    \item AI Assistant System
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente ha individuato un prompt passato che vuole rieseguire immediatamente
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il sistema avvia una nuova generazione utilizzando esattamente gli stessi parametri (prompt, tono, stile) dell'elemento selezionato
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente clicca sul comando "Riutilizza" associato ad un elemento dello storico
-    \item Il sistema invia direttamente i dati al motore AI per generare un nuovo output senza passare per la schermata di modifica
-\end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul pulsante "Riutilizza" o "Rigenera"
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1B.9 – Duplica}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autorizzato
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente vuole usare un vecchio prompt come base per una nuova generazione
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente viene riportato al modulo di generazione (UC-1A) con i campi prompt, tono e stile già compilati con i dati storici, pronti per essere modificati
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente clicca sul comando "Duplica" associato ad un elemento dello storico
-    \item Il sistema reindirizza l'utente alla pagina di creazione, pre-popolando i campi con i valori recuperati dallo storico
-    \item L'utente può ora modificare il prompt o i parametri prima di generare
-\end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul pulsante "Duplica" o "Usa come bozza"
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1B.10 – Nessun prompt salvato}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autorizzato
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente accede alla sezione dello storico ma non ha mai effettuato generazioni precedenti o lo storico è stato cancellato
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Viene visualizzato un messaggio informativo (placeholder) che indica l'assenza di dati
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il sistema interroga il database per recuperare lo storico
-    \item Il sistema non trova record associati all'utente e mostra un messaggio del tipo "Nessun prompt presente nello storico"
-\end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'apertura della sezione "Storico Prompt"
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1B.11 – Visualizzazione informazioni elemento}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autorizzato
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item La lista dello storico contiene almeno un elemento
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza i dettagli completi di una specifica generazione (prompt completo, parametri usati, output ottenuto, data)
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente seleziona un elemento dalla lista dello storico
-    \item Il sistema espande l'elemento o apre una modale mostrando tutti i metadati associati a quella generazione
-\end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Click su una riga o su un'icona di dettaglio dell'elemento in elenco
-\end{itemize}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1B.1 – Visualizzazione prompt
-        \item UC-1B.2 – Visualizzazione tono
-        \item UC-1B.3 – Visualizzazione stile
-        \item UC-1B.4 – Visualizzazione risultato
-        \item UC-1B.5 – Visualizzazione timestamp
-        \item UC-1B.6 – Visualizzazione Valutazione
     \end{itemize}
 \end{itemize}
 
@@ -2257,6 +2111,256 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Trigger}
 \begin{itemize}
     \item Apertura del dettaglio elemento (incluso in UC-1B.11)
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.7 – Ricerca}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Lo storico è popolato da diversi elementi
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item La lista visualizzata viene filtrata mostrando solo gli elementi che corrispondono ai criteri di ricerca
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce una parola chiave (es. parte del prompt o data) nella barra di ricerca
+    \item Il sistema filtra gli elementi dello storico in tempo reale o alla conferma
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Inserimento testo nel campo di ricerca o click sul pulsante "Cerca"
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1B.13 – Visualizzazione lista elementi storico filtrata
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.8 – Riutilizza}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+    \item AI Assistant System
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha individuato un prompt passato che vuole rieseguire immediatamente
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il sistema avvia una nuova generazione utilizzando esattamente gli stessi parametri (prompt, tono, stile) dell'elemento selezionato
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sul comando "Riutilizza" associato ad un elemento dello storico
+    \item Il sistema invia direttamente i dati al motore AI per generare un nuovo output senza passare per la schermata di modifica
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul pulsante "Riutilizza" o "Rigenera"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.9 – Duplica}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente vuole usare un vecchio prompt come base per una nuova generazione
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente viene riportato al modulo di generazione (UC-1A) con i campi prompt, tono e stile già compilati con i dati storici, pronti per essere modificati
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sul comando "Duplica" associato ad un elemento dello storico
+    \item Il sistema reindirizza l'utente alla pagina di creazione, pre-popolando i campi con i valori recuperati dallo storico
+    \item L'utente può ora modificare il prompt o i parametri prima di generare
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul pulsante "Duplica" o "Usa come bozza"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.10 – Nessun prompt salvato}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente accede alla sezione dello storico ma non ha mai effettuato generazioni precedenti o lo storico è stato cancellato
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio informativo (placeholder) che indica l'assenza di dati
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema interroga il database per recuperare lo storico
+    \item Il sistema non trova record associati all'utente e mostra un messaggio del tipo "Nessun prompt presente nello storico"
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'apertura della sezione "Storico Prompt"
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.11 – Visualizzazione informazioni elemento}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dello storico contiene almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza i dettagli completi di una specifica generazione (prompt completo, parametri usati, output ottenuto, data)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente seleziona un elemento dalla lista dello storico
+    \item Il sistema espande l'elemento o apre una modale mostrando tutti i metadati associati a quella generazione
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item L'utente entra nella pagina storico prompt
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1B.1 – Visualizzazione prompt
+        \item UC-1B.2 – Visualizzazione tono
+        \item UC-1B.3 – Visualizzazione stile
+        \item UC-1B.4 – Visualizzazione risultato
+        \item UC-1B.5 – Visualizzazione timestamp
+        \item UC-1B.6 – Visualizzazione Valutazione
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.12 – Visualizzazione lista elementi storico}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dello storico contiene almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista di elementi salvati nello storico nel suo insieme
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
+    \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt parziale, tono, stile, data)
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul tasto per aprire lo storico prompt
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1B.11 – Visualizzazione informazioni elemento
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.13 – Visualizzazione lista elementi storico filtrata}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dello storico contiene almeno un elemento 
+    \item L'utente ha inserito un criterio di ricerca valido
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista di elementi (coerenti con la ricerca) salvati nello storico nel suo insieme
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
+    \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt parziale, tono, stile, data)
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul tasto per aprire lo storico prompt
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1B.11 – Visualizzazione informazioni elemento
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
@@ -2994,7 +3098,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B – Apertura lista documenti.}
+\subsubsection{UC-2B – Apertura modulo informazioni documenti.}
 
 \begin{figure}[H]
     \centering
@@ -3042,22 +3146,14 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2B.1 – Visualizzazione codice documento
-        \item UC-2B.2 - Visualizzazione tipologia documento
-        \item UC-2B.3 - Visualizzazione competenza documento
-        \item UC-2B.4 – Visualizzazione azienda documento
-        \item UC-2B.5 - Visualizzazione causale
-        \item UC-2B.6 - Visualizzazione lingua
-        \item UC-2B.7 - Visualizzazione numero pagine documento
-        \item UC-2B.8 - Visualizzazione nome documento originale
-        \item UC-2B.9 - Visualizzazione data redazione documento
+        \item UC-2B.12 – Visualizzazione lista documenti
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-2B.10 - Filtraggio documenti
         \item UC-2B.11 - Nessun documento riconosciuto.
         \item UC-2C – Apertura documento
-        \item UC-2D - Apertura informazioni destinatario
+        \item UC-2D - Apertura informazioni destinatari
     \end{itemize}
 \end{itemize}
 
@@ -3385,6 +3481,108 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-2B.12 – Visualizzazione lista documenti}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei contiene almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista di elementi salvati nel suo insieme
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Co-pilot
+    \item L'utente vede l'elenco di tutti gli elementi recuperati dall'analisi
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul tasto per aprire lo storico prompt
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2B.13 – Visualizzazione elemento da lista documenti
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.13 – Visualizzazione elemento da lista documenti.}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+    \item Sistema AI Doc Classifier.
+\end{itemize}
+
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item É stato caricato almeno un documento tramite UC-2A.6.
+    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
+    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
+\end{itemize}
+
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente puó visualizzare le informazioni riguardanti un elemento dalla lista.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
+    \item Il Sistema mostra l’elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il sistema non riconosce alcun documento caricato.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di visualizzazione lista documenti all’interno del modulo AI Co-Pilot per i CdL.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2B.1 – Visualizzazione codice documento
+        \item UC-2B.2 - Visualizzazione tipologia documento
+        \item UC-2B.3 - Visualizzazione competenza documento
+        \item UC-2B.4 – Visualizzazione azienda documento
+        \item UC-2B.5 - Visualizzazione causale
+        \item UC-2B.6 - Visualizzazione lingua
+        \item UC-2B.7 - Visualizzazione numero pagine documento
+        \item UC-2B.8 - Visualizzazione nome documento originale
+        \item UC-2B.9 - Visualizzazione data redazione documento
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuno
+    \end{itemize}
+\end{itemize}
+
 \subsubsection{UC-2C – Apertura documento}
 
 \begin{figure}[H]
@@ -3448,8 +3646,8 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-2C.3 – Modifica tipologia documento
         \item UC-2C.4 – Rivaluta percentuale confidenza
         \item UC-2C.5 – Salva modifiche documento
-        \item UC-2B – Apertura lista documenti.
-        \item UC-2D - Apertura informazioni destinatario
+        \item UC-2B – Apertura modulo informazioni documenti
+        \item UC-2D - Apertura informazioni destinatari
         \item UC-2E - Apertura storico documenti
     \end{itemize}
 \end{itemize}
@@ -3622,7 +3820,7 @@ Di seguito sono esposti gli attori utilizzati:
     \item Click sul pulsante "Salva" o "Conferma modifiche".
 \end{itemize}
 
-\subsubsection{UC-2D - Apertura informazioni destinatario }
+\subsubsection{UC-2D - Apertura modulo informazioni destinatari }
 
 \begin{figure}[H]
     \centering
@@ -3667,15 +3865,11 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2B.1 – Visualizzazione codice documento
-        \item UC-2D.1 – Visualizzazione destinatario
-        \item UC-2D.2 - Visualizzazione codice fiscale
-        \item UC-2D.3 - Visualizzazione matricola
-        \item UC-2D.4 - Visualizzazione reparto
+        \item UC-2D.5 – Visualizzazione lista informazioni destinatari
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2B – Visualizzazione pagina lista documenti.
+        \item UC-2B – Apertura modulo informazioni documenti 
         \item UC-2C – Apertura documento
         \item UC-2E - Apertura storico documenti
     \end{itemize}
@@ -3810,6 +4004,104 @@ Di seguito sono esposti gli attori utilizzati:
     \item Caricamento della pagina UC-2D (Automatico).
 \end{itemize}
 
+\subsubsection{UC-2D.5 – Visualizzazione lista informazioni destinatari}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei contiene almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista di elementi salvati nel suo insieme
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Co-pilot
+    \item L'utente vede l'elenco di tutti gli elementi relativi ai destinatari recuperati dall'analisi
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul tasto per aprire lo storico prompt
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2D.6 – Visualizzazione elemento da lista informazioni destinatari
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2D.6 – Visualizzazione elemento da lista informazioni destinatari}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+    \item Sistema AI Doc Classifier.
+\end{itemize}
+
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item É stato caricato almeno un documento tramite UC-2A.6.
+    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
+    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
+\end{itemize}
+
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente puó visualizzare le informazioni riguardanti un elemento dalla lista.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
+    \item Il Sistema mostra l’elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il sistema non riconosce alcun documento caricato.
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di visualizzazione lista documenti all’interno del modulo AI Co-Pilot per i CdL.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2B.1 – Visualizzazione codice documento
+        \item UC-2D.1 – Visualizzazione destinatario
+        \item UC-2D.2 - Visualizzazione codice fiscale
+        \item UC-2D.3 - Visualizzazione matricola
+        \item UC-2D.4 - Visualizzazione reparto
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuno
+    \end{itemize}
+\end{itemize}
+
 \subsubsection{UC-2E – Apertura storico documenti}
 
 \begin{figure}[H]
@@ -3860,7 +4152,7 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-2E.3 - Filtraggio documenti
         \item UC-2E.4 - visualizzazione informazioni documento
         \item UC-2C – Apertura documento
-        \item UC-2D - Apertura informazioni destinatario
+        \item UC-2D - Apertura informazioni destinatari
         \item UC-2E.1 - Selezione documento
         \item UC-2F - Gestione messaggio
         \item UC-2E.2 - Documenti assenti.
@@ -3971,7 +4263,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.4 – Visualizzazione informazioni documento}
+\subsubsection{UC-2E.4 – Visualizzazione elemento da lista storico documenti}
 
 \textbf{Attori}
 \begin{itemize}
@@ -4007,7 +4299,7 @@ Di seguito sono esposti gli attori utilizzati:
         \item UC-2B.1 – Visualizzazione codice documento
         \item UC-2E.5 - Visualizzazione stato
         \item UC-2E.6 - Visualizzazione percentuale confidenza
-        \item UC-2E.7 - Visualizzazione lista distribuzione
+        \item UC-2E.7 - Visualizzazione appartenenza lista distribuzione
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -4079,7 +4371,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.7 – Visualizzazione lista distribuzione}
+\subsubsection{UC-2E.7 – Visualizzazione appartenenza lista distribuzione}
 
 \textbf{Attori}
 \begin{itemize}
@@ -4107,6 +4399,46 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item Caricamento della pagina (Automatico).
 \end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2E.8 – Visualizzazione lista storico documenti}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei contiene almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista di documenti nello storico salvati nel suo insieme
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Co-pilot
+    \item L'utente vede l'elenco di tutti gli elementi relativi a tutte el analisi
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul tasto per aprire lo storico prompt
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2E.4 – Visualizzazione elemento da lista storico documenti
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
 
 \subsubsection{UC-2F – Gestione messaggio}
 
@@ -4437,10 +4769,7 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-1B.2 – Visualizzazione tono
-        \item UC-1B.3 – Visualizzazione stile 
-        \item UC-2F.6 – Visualizzazione oggetto messaggio
-        \item UC-2F.7 – Visualizzazione testo messaggio
+        \item UC-2G.4 – Visualizzazione lista template salvati
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -4549,6 +4878,100 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Trigger}
 \begin{itemize}
     \item Selezione di un template dalla lista e conferma di caricamento.
+\end{itemize}
+
+\subsubsection{UC-2G.4 – Visualizzazione lista template salvati}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei contiene almeno un template salvato
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista di template salvati nel suo insieme
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nella sezione di gestione messaggi e vuole utilizzare un template salvato
+    \item L'utente vede l'elenco di tutti i template relativi ai messaggi salvati
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Click sul tasto per aprire lo storico prompt
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2G.5 – Visualizzazione elemento da lista template salvati
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2G.5 – Visualizzazione elemento da lista template salvati}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato (Operatore di studio CdL).
+    \item Sistema AI Doc Classifier.
+\end{itemize}
+
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item É stato salvato almeno un template di messaggio.
+\end{itemize}
+
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente puó visualizzare le informazioni riguardanti un elemento dalla lista.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente vuole visualizzare i dettagli di un template salvato.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item nessuno
+\end{enumerate}
+
+\textbf{Trigger}
+\begin{itemize}
+    \item Selezionare l'opzione di visualizzazione lista documenti all’interno del modulo AI Co-Pilot per i CdL.
+\end{itemize}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1B.2 – Visualizzazione tono
+        \item UC-1B.3 – Visualizzazione stile 
+        \item UC-2F.6 – Visualizzazione oggetto messaggio
+        \item UC-2F.7 – Visualizzazione testo messaggio
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuno
+    \end{itemize}
 \end{itemize}
 
 \subsubsection{UC-2H – Invio documento e messaggio}
@@ -4717,68 +5140,10 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2H.4 – Visualizzazione lista destinatari}
 
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autorizzato (Operatore di studio CdL).
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Si è nella fase di riepilogo invio (UC-2H).
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'elenco completo dei destinatari (principali, copia conoscenza, copia nascosta) è visibile.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il sistema recupera i dati di contatto del destinatario selezionato in UC-2D.
-    \item Il sistema visualizza gli indirizzi email o i recapiti che riceveranno la comunicazione.
-\end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina UC-2H (Automatico).
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2H.5 – Visualizzazione lista documenti}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autorizzato (Operatore di studio CdL).
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Si è nella fase di riepilogo invio (UC-2H).
-    \item Sono stati selezionati documenti dallo storico (UC-2E) o caricati manualmente (UC-2H.1).
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente vede l'elenco dei file che verranno allegati al messaggio.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il sistema aggrega i documenti selezionati.
-    \item Il sistema mostra una lista contenente i nomi dei file, la dimensione e l'estensione (es. PDF).
-    \item L'utente può verificare visivamente la correttezza degli allegati prima dell'invio.
-\end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina UC-2H (Automatico).
-\end{itemize}
 
 \section{Sezione 3 - Modulo Analytics e Monitoraggio Trasversale}
-\subsection{UC-3A - Visualizzazione dashboard di analisi e Monitoraggio AI}
+\subsection{UC-3A - Apertura dashboard di analisi e Monitoraggio AI}
 
 \begin{figure}[H]
     \centering
@@ -4829,17 +5194,18 @@ Di seguito sono esposti gli attori utilizzati:
     \item \textit{include}: 
     \begin{itemize}
         \item UC-3A.1 - Visualizzazione volume prompt generati.
-        \item UC-3A.2 - Visualizzazione statistiche toni e stili utilizzati.
-        \item UC-3A.3 - Visualizzazione rating medio e feedback.
-        \item UC-3A.4 - Visualizzazione confidenza media riconoscimento.
-        \item UC-3A.5 - Visualizzazione percentuale interventi manuali.
+        \item UC-3A.2 - Visualizzazione statistiche toni utilizzati.
+        \item UC-3A.3 - Visualizzazione statistiche stili utilizzati.
+        \item UC-3A.4 - Visualizzazione rating medio e feedback.
+        \item UC-3A.5 - Visualizzazione confidenza media riconoscimento.
+        \item UC-3A.6 - Visualizzazione percentuale interventi manuali.
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-3A.6 - Filtraggio per periodo temporale (L'utente modifica le date).
-        \item UC-3A.7 - Filtraggio per utente/operatore (L'utente seleziona uno specifico operatore).
-        \item UC-3A.8 - Esportazione Report (PDF/CSV).
-        \item UC-3A.9 - Assenza di dati storici.
+        \item UC-3A.7 - Filtraggio per periodo temporale (L'utente modifica le date).
+        \item UC-3A.8 - Filtraggio per utente/operatore (L'utente seleziona uno specifico operatore).
+        \item UC-3A.9 - Esportazione Report (PDF/CSV).
+        \item UC-3A.10 - Assenza di dati storici.
     \end{itemize}
 \end{itemize} 
 
