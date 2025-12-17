@@ -18,6 +18,17 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{ragged2e}
+
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\raggedbottom
+
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -5164,24 +5175,341 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \item Derivano direttamente dai casi d'uso e dalle user stories.
 \end{enumerate}
 
+
 \vspace{0.5cm}
-\begin{table}[h!]
-    \centering
-    \renewcommand{\arraystretch}{1.5} % Aumenta la spaziatura delle righe
-    \begin{tabular}{|l|p{8cm}|l|l|}
-        \hline
-        \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
-        \hline
-        UC-0A & Descrizione 1 & link & Facoltativo \\
-        \hline
-        UC-0A.1 & Descrizione 2 & link & Facoltativo \\
-        \hline
-        UC-0A.2 & Descrizione 3 & link & Facoltativo \\
-        \hline
-    \end{tabular}
-    \caption{Tabella dei Requisiti Funzionali}
-    \label{tab:req_funzionali}
-\end{table}
+
+
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+
+\newcommand{\wCod}{2.2cm}
+\newcommand{\wFonti}{2.6cm}
+\newcommand{\wPrio}{2.8cm}
+\newcommand{\wDesc}{%
+  \dimexpr\textwidth-\wCod-\wFonti-\wPrio-6\tabcolsep-5\arrayrulewidth\relax
+}
+
+\begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
+\caption{Tabella dei Requisiti Funzionali}\label{tab:reqfunzionali}\\
+\hline
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+
+    UC-0A & Registrazione nuovo utente & \hyperref[sec:uc-0a]{UC-0A} & Obbligatorio \\
+    \hline
+    UC-0A.1 & Inserimento email & \hyperref[sec:uc-0a-1]{UC-0A.1} & Obbligatorio \\
+    \hline
+    UC-0A.2 & Inserimento password & \hyperref[sec:uc-0a-2]{UC-0A.2} & Obbligatorio \\
+    \hline
+    UC-0A.3 & Inserimento username & \hyperref[sec:uc-0a-3]{UC-0A.3} & Obbligatorio \\
+    \hline
+    UC-0A.4 & Inserimento nome & \hyperref[sec:uc-0a-4]{UC-0A.4} & Obbligatorio \\
+    \hline
+    UC-0A.5 & Inserimento cognome & \hyperref[sec:uc-0a-5]{UC-0A.5} & Obbligatorio \\
+    \hline
+    UC-0A.6 & Inserimento matricola & \hyperref[sec:uc-0a-6]{UC-0A.6} & Obbligatorio \\
+    \hline
+    UC-0A.7 & Email non valida & \hyperref[sec:uc-0a-7]{UC-0A.7} & Obbligatorio \\
+    \hline
+    UC-0A.8 & Password non valida & \hyperref[sec:uc-0a-8]{UC-0A.8} & Obbligatorio \\
+    \hline
+    UC-0A.9 & Email già registrata & \hyperref[sec:uc-0a-9]{UC-0A.9} & Obbligatorio \\
+    \hline
+    UC-0A.10 & Username già registrato & \hyperref[sec:uc-0a-10]{UC-0A.10} & Obbligatorio \\
+    \hline
+    UC-0A.11 & Matricola già registrata & \hyperref[sec:uc-0a-11]{UC-0A.11} & Obbligatorio \\
+    \hline
+    UC-0A.12 & Matricola non valida & \hyperref[sec:uc-0a-12]{UC-0A.12} & Obbligatorio \\
+    \hline
+    UC-0B & Login / Autenticazione utente & \hyperref[sec:uc-0b]{UC-0B} & Obbligatorio \\
+    \hline
+    UC-0B.1 & Email non registrata & \hyperref[sec:uc-0b-1]{UC-0B.1} & Obbligatorio \\
+    \hline
+    UC-0B.2 & Password errata & \hyperref[sec:uc-0b-2]{UC-0B.2} & Obbligatorio \\
+    \hline
+    UC-0C & Apertura dashboard & \hyperref[sec:uc-0c]{UC-0C} & Obbligatorio \\
+    \hline
+    UC-0D & Apertura gestione profilo utente & \hyperref[sec:uc-0d]{UC-0D} & Obbligatorio \\
+    \hline
+    UC-0D.1 & Visualizzazione email & \hyperref[sec:uc-0d-1]{UC-0D.1} & Obbligatorio \\
+    \hline
+    UC-0D.2 & Visualizzazione password & \hyperref[sec:uc-0d-2]{UC-0D.2} & Obbligatorio \\
+    \hline
+    UC-0D.3 & Visualizzazione username & \hyperref[sec:uc-0d-3]{UC-0D.3} & Obbligatorio \\
+    \hline
+    UC-0D.4 & Visualizzazione nome & \hyperref[sec:uc-0d-4]{UC-0D.4} & Obbligatorio \\
+    \hline
+    UC-0D.5 & Visualizzazione cognome & \hyperref[sec:uc-0d-5]{UC-0D.5} & Obbligatorio \\
+    \hline
+    UC-0D.6 & Visualizzazione matricola & \hyperref[sec:uc-0d-6]{UC-0D.6} & Obbligatorio \\
+    \hline
+    UC-0D.7 & Salva profilo utente & \hyperref[sec:uc-0d-7]{UC-0D.7} & Obbligatorio \\
+    \hline
+    UC-0D.8 & Uscita senza salvare profilo utente & \hyperref[sec:uc-0d-8]{UC-0D.8} & Obbligatorio \\
+    \hline
+    UC-0E & Apertura gestione ruoli (Admin / Editor) & \hyperref[sec:uc-0e]{UC-0E} & Obbligatorio \\
+    \hline
+    UC-0E.1 & Visualizzazione lista utenti registrati & \hyperref[sec:uc-0e-1]{UC-0E.1} & Obbligatorio \\
+    \hline
+    UC-0E.2 & Visualizzazione elemento lista utenti registrati & \hyperref[sec:uc-0e-2]{UC-0E.2} & Obbligatorio \\
+    \hline
+    UC-0E.3 & Visualizzazione ruolo utente registrato & \hyperref[sec:uc-0e-3]{UC-0E.3} & Obbligatorio \\
+    \hline
+    UC-0E.4 & Visualizzazione nome utente registrato & \hyperref[sec:uc-0e-4]{UC-0E.4} & Obbligatorio \\
+    \hline
+    UC-0E.5 & Visualizzazione cognome utente registrato & \hyperref[sec:uc-0e-5]{UC-0E.5} & Obbligatorio \\
+    \hline
+    UC-0E.6 & Annulla modifica ruolo utente registrato & \hyperref[sec:uc-0e-6]{UC-0E.6} & Obbligatorio \\
+    \hline
+    UC-0E.7 & Utente non autorizzato & \hyperref[sec:uc-0e-7]{UC-0E.7} & Obbligatorio \\
+    \hline
+    UC-0E.8 & Modifica ruolo utente registrato & \hyperref[sec:uc-0e-8]{UC-0E.8} & Obbligatorio \\
+    \hline
+    UC-0E.9 & Salva modifica ruolo utente registrato & \hyperref[sec:uc-0e-9]{UC-0E.9} & Obbligatorio \\
+    \hline
+    UC-0F & Logout & \hyperref[sec:uc-0f]{UC-0F} & Obbligatorio \\
+    \hline
+    UC-1A & Apertura modulo di generazione contenuti AI & \hyperref[sec:uc-1a]{UC-1A} & Obbligatorio \\
+    \hline
+    UC-1A.1 & Inserimento prompt & \hyperref[sec:uc-1a-1]{UC-1A.1} & Obbligatorio \\
+    \hline
+    UC-1A.2 & Selezione tono & \hyperref[sec:uc-1a-2]{UC-1A.2} & Obbligatorio \\
+    \hline
+    UC-1A.3 & Selezione stile & \hyperref[sec:uc-1a-3]{UC-1A.3} & Obbligatorio \\
+    \hline
+    UC-1B & Apertura storico prompt & \hyperref[sec:uc-1b]{UC-1B} & Obbligatorio \\
+    \hline
+    UC-1B.1 & Visualizzazione lista elementi storico & \hyperref[sec:uc-1b-1]{UC-1B.1} & Obbligatorio \\
+    \hline
+    UC-1B.2 & Visualizzazione informazioni elemento & \hyperref[sec:uc-1b-2]{UC-1B.2} & Obbligatorio \\
+    \hline
+    UC-1B.3 & Visualizzazione stile & \hyperref[sec:uc-1b-3]{UC-1B.3} & Obbligatorio \\
+    \hline
+    UC-1B.4 & Visualizzazione risultato & \hyperref[sec:uc-1b-4]{UC-1B.4} & Obbligatorio \\
+    \hline
+    UC-1B.5 & Visualizzazione timestamp & \hyperref[sec:uc-1b-5]{UC-1B.5} & Obbligatorio \\
+    \hline
+    UC-1B.6 & Visualizzazione Valutazione & \hyperref[sec:uc-1b-6]{UC-1B.6} & Obbligatorio \\
+    \hline
+    UC-1B.7 & Visualizzazione prompt & \hyperref[sec:uc-1b-7]{UC-1B.7} & Obbligatorio \\
+    \hline
+    UC-1B.8 & Visualizzazione tono & \hyperref[sec:uc-1b-8]{UC-1B.8} & Obbligatorio \\
+    \hline
+    UC-1B.9 & Duplica & \hyperref[sec:uc-1b-9]{UC-1B.9} & Obbligatorio \\
+    \hline
+    UC-1B.10 & Nessun prompt salvato & \hyperref[sec:uc-1b-10]{UC-1B.10} & Obbligatorio \\
+    \hline
+    UC-1B.11 & Riutilizza & \hyperref[sec:uc-1b-11]{UC-1B.11} & Obbligatorio \\
+    \hline
+    UC-1B.12 & Ricerca & \hyperref[sec:uc-1b-12]{UC-1B.12} & Obbligatorio \\
+    \hline
+    UC-1B.13 & Visualizzazione lista elementi storico filtrata & \hyperref[sec:uc-1b-13]{UC-1B.13} & Obbligatorio \\
+    \hline
+    UC-1C & Generazione contenuto tramite AI & \hyperref[sec:uc-1c]{UC-1C} & Obbligatorio \\
+    \hline
+    UC-1C.1 & Visualizzazione anteprima contenuto generato & \hyperref[sec:uc-1c-1]{UC-1C.1} & Obbligatorio \\
+    \hline
+    UC-1C.2 & Rigenera contenuto tramite AI & \hyperref[sec:uc-1c-2]{UC-1C.2} & Obbligatorio \\
+    \hline
+    UC-1C.3 & Salva post generato nello storico & \hyperref[sec:uc-1c-3]{UC-1C.3} & Obbligatorio \\
+    \hline
+    UC-1C.4 & Valuta contenuto generato & \hyperref[sec:uc-1c-4]{UC-1C.4} & Obbligatorio \\
+    \hline
+    UC-1C.5 & Scarta contenuto generato & \hyperref[sec:uc-1c-5]{UC-1C.5} & Obbligatorio \\
+    \hline
+    UC-1C.6 & Pubblica contenuto generato & \hyperref[sec:uc-1c-6]{UC-1C.6} & Obbligatorio \\
+    \hline
+    UC-1D & Apertura modifica contenuto generato & \hyperref[sec:uc-1d]{UC-1D} & Obbligatorio \\
+    \hline
+    UC-1D.1 & Modifica immagine & \hyperref[sec:uc-1d-1]{UC-1D.1} & Obbligatorio \\
+    \hline
+    UC-1D.2 & Modifica titolo & \hyperref[sec:uc-1d-2]{UC-1D.2} & Obbligatorio \\
+    \hline
+    UC-1D.3 & Modifica testo & \hyperref[sec:uc-1d-3]{UC-1D.3} & Obbligatorio \\
+    \hline
+    UC-1D.4 & Salva modifiche & \hyperref[sec:uc-1d-4]{UC-1D.4} & Obbligatorio \\
+    \hline
+    UC-1D.5 & Annulla modifiche & \hyperref[sec:uc-1d-5]{UC-1D.5} & Obbligatorio \\
+    \hline
+    UC-1D.6 & File immagine non valido & \hyperref[sec:uc-1d-6]{UC-1D.6} & Obbligatorio \\
+    \hline
+    UC-2A & Apertura modulo di upload e gestione documentale. & \hyperref[sec:uc-2a]{UC-2A} & Obbligatorio \\
+    \hline
+    UC-2A.1 & Caricamento file & \hyperref[sec:uc-2a-1]{UC-2A.1} & Obbligatorio \\
+    \hline
+    UC-2A.2 & Inserimento categoria & \hyperref[sec:uc-2a-2]{UC-2A.2} & Obbligatorio \\
+    \hline
+    UC-2A.3 & Inserimento mese/anno di competenza & \hyperref[sec:uc-2a-3]{UC-2A.3} & Obbligatorio \\
+    \hline
+    UC-2A.4 & Inserimento azienda & \hyperref[sec:uc-2a-4]{UC-2A.4} & Obbligatorio \\
+    \hline
+    UC-2A.5 & Inserimento reparto & \hyperref[sec:uc-2a-5]{UC-2A.5} & Obbligatorio \\
+    \hline
+    UC-2A.6 & Avvio upload & \hyperref[sec:uc-2a-6]{UC-2A.6} & Obbligatorio \\
+    \hline
+    UC-2B & Apertura modulo informazioni documenti. & \hyperref[sec:uc-2b]{UC-2B} & Obbligatorio \\
+    \hline
+    UC-2B.1 & Visualizzazione lista documenti & \hyperref[sec:uc-2b-1]{UC-2B.1} & Obbligatorio \\
+    \hline
+    UC-2B.2 & Visualizzazione elemento da lista documenti. & \hyperref[sec:uc-2b-2]{UC-2B.2} & Obbligatorio \\
+    \hline
+    UC-2B.3 & Visualizzazione competenza documento & \hyperref[sec:uc-2b-3]{UC-2B.3} & Obbligatorio \\
+    \hline
+    UC-2B.4 & Visualizzazione azienda documento & \hyperref[sec:uc-2b-4]{UC-2B.4} & Obbligatorio \\
+    \hline
+    UC-2B.5 & Visualizzazione causale & \hyperref[sec:uc-2b-5]{UC-2B.5} & Obbligatorio \\
+    \hline
+    UC-2B.6 & Visualizzazione lingua & \hyperref[sec:uc-2b-6]{UC-2B.6} & Obbligatorio \\
+    \hline
+    UC-2B.7 & Visualizzazione numero pagine documento & \hyperref[sec:uc-2b-7]{UC-2B.7} & Obbligatorio \\
+    \hline
+    UC-2B.8 & Visualizzazione nome documento originale & \hyperref[sec:uc-2b-8]{UC-2B.8} & Obbligatorio \\
+    \hline
+    UC-2B.9 & Visualizzazione data redazione documento & \hyperref[sec:uc-2b-9]{UC-2B.9} & Obbligatorio \\
+    \hline
+    UC-2B.10 & Visualizzazione codice documento & \hyperref[sec:uc-2b-10]{UC-2B.10} & Obbligatorio \\
+    \hline
+    UC-2B.11 & Visualizzazione tipologia documento & \hyperref[sec:uc-2b-11]{UC-2B.11} & Obbligatorio \\
+    \hline
+    UC-2B.12 & Filtraggio documenti & \hyperref[sec:uc-2b-12]{UC-2B.12} & Obbligatorio \\
+    \hline
+    UC-2B.13 & Nessun documento riconosciuto & \hyperref[sec:uc-2b-13]{UC-2B.13} & Obbligatorio \\
+    \hline
+    UC-2B.14 & Visualizzazione lista documenti filtrata & \hyperref[sec:uc-2b-14]{UC-2B.14} & Obbligatorio \\
+    \hline
+    UC-2C & Apertura documento & \hyperref[sec:uc-2c]{UC-2C} & Obbligatorio \\
+    \hline
+    UC-2C.1 & Visualizzazione anteprima documento & \hyperref[sec:uc-2c-1]{UC-2C.1} & Obbligatorio \\
+    \hline
+    UC-2C.2 & Modifica destinatario & \hyperref[sec:uc-2c-2]{UC-2C.2} & Obbligatorio \\
+    \hline
+    UC-2C.3 & Modifica tipologia documento & \hyperref[sec:uc-2c-3]{UC-2C.3} & Obbligatorio \\
+    \hline
+    UC-2C.4 & Rivaluta percentuale confidenza & \hyperref[sec:uc-2c-4]{UC-2C.4} & Obbligatorio \\
+    \hline
+    UC-2C.5 & Salva modifiche documento & \hyperref[sec:uc-2c-5]{UC-2C.5} & Obbligatorio \\
+    \hline
+    UC-2D  & Apertura modulo informazioni destinatari & \hyperref[sec:uc-2d---apertura-modulo-informazioni-destinatari]{UC-2D - Apertura modulo informazioni destinatari} & Obbligatorio \\
+    \hline
+    UC-2D.1 & Visualizzazione lista informazioni destinatari & \hyperref[sec:uc-2d-1]{UC-2D.1} & Obbligatorio \\
+    \hline
+    UC-2D.2 & Visualizzazione elemento da lista informazioni destinatari & \hyperref[sec:uc-2d-2]{UC-2D.2} & Obbligatorio \\
+    \hline
+    UC-2D.3 & Visualizzazione matricola & \hyperref[sec:uc-2d-3]{UC-2D.3} & Obbligatorio \\
+    \hline
+    UC-2D.4 & Visualizzazione reparto & \hyperref[sec:uc-2d-4]{UC-2D.4} & Obbligatorio \\
+    \hline
+    UC-2D.5 & Visualizzazione destinatario & \hyperref[sec:uc-2d-5]{UC-2D.5} & Obbligatorio \\
+    \hline
+    UC-2D.6 & Visualizzazione codice fiscale & \hyperref[sec:uc-2d-6]{UC-2D.6} & Obbligatorio \\
+    \hline
+    UC-2D.7 & Filtraggio destinatari & \hyperref[sec:uc-2d-7]{UC-2D.7} & Obbligatorio \\
+    \hline
+    UC-2D.8 & Visualizzazione lista destinatari filtrata & \hyperref[sec:uc-2d-8]{UC-2D.8} & Obbligatorio \\
+    \hline
+    UC-2E & Apertura storico documenti & \hyperref[sec:uc-2e]{UC-2E} & Obbligatorio \\
+    \hline
+    UC-2E.1 & Selezione documento & \hyperref[sec:uc-2e-1]{UC-2E.1} & Obbligatorio \\
+    \hline
+    UC-2E.2 & Documenti assenti & \hyperref[sec:uc-2e-2]{UC-2E.2} & Obbligatorio \\
+    \hline
+    UC-2E.3 & Visualizzazione stato & \hyperref[sec:uc-2e-3]{UC-2E.3} & Obbligatorio \\
+    \hline
+    UC-2E.4 & Visualizzazione lista storico documenti & \hyperref[sec:uc-2e-4]{UC-2E.4} & Obbligatorio \\
+    \hline
+    UC-2E.5 & Visualizzazione elemento da lista storico documenti & \hyperref[sec:uc-2e-5]{UC-2E.5} & Obbligatorio \\
+    \hline
+    UC-2E.6 & Visualizzazione percentuale confidenza & \hyperref[sec:uc-2e-6]{UC-2E.6} & Obbligatorio \\
+    \hline
+    UC-2E.7 & Visualizzazione appartenenza lista distribuzione & \hyperref[sec:uc-2e-7]{UC-2E.7} & Obbligatorio \\
+    \hline
+    UC-2E.8 & Filtraggio documenti & \hyperref[sec:uc-2e-8]{UC-2E.8} & Obbligatorio \\
+    \hline
+    UC-2E.9 & Visualizzazione lista storico documenti filtrata & \hyperref[sec:uc-2e-9]{UC-2E.9} & Obbligatorio \\
+    \hline
+    UC-2F & Gestione messaggio & \hyperref[sec:uc-2f]{UC-2F} & Obbligatorio \\
+    \hline
+    UC-2F.1 & Salva template messaggio & \hyperref[sec:uc-2f-1]{UC-2F.1} & Obbligatorio \\
+    \hline
+    UC-2F.2 & Modifica oggetto messaggio & \hyperref[sec:uc-2f-2]{UC-2F.2} & Obbligatorio \\
+    \hline
+    UC-2F.3 & Modifica testo messaggio & \hyperref[sec:uc-2f-3]{UC-2F.3} & Obbligatorio \\
+    \hline
+    UC-2F.4 & Conferma modifica messaggio & \hyperref[sec:uc-2f-4]{UC-2F.4} & Obbligatorio \\
+    \hline
+    UC-2F.5 & Genera messaggio & \hyperref[sec:uc-2f-5]{UC-2F.5} & Obbligatorio \\
+    \hline
+    UC-2F.6 & Visualizzazione oggetto messaggio & \hyperref[sec:uc-2f-6]{UC-2F.6} & Obbligatorio \\
+    \hline
+    UC-2F.7 & Visualizzazione testo messaggio & \hyperref[sec:uc-2f-7]{UC-2F.7} & Obbligatorio \\
+    \hline
+    UC-2G & Tabella template salvati & \hyperref[sec:uc-2g---tabella-template-salvati]{UC-2G - Tabella template salvati} & Obbligatorio \\
+    \hline
+    UC-2G.1 & Elimina template & \hyperref[sec:uc-2g-1]{UC-2G.1} & Obbligatorio \\
+    \hline
+    UC-2G.2 & Nessun template salvato & \hyperref[sec:uc-2g-2]{UC-2G.2} & Obbligatorio \\
+    \hline
+    UC-2G.3 & Carica template & \hyperref[sec:uc-2g-3]{UC-2G.3} & Obbligatorio \\
+    \hline
+    UC-2G.4 & Visualizzazione lista template salvati & \hyperref[sec:uc-2g-4]{UC-2G.4} & Obbligatorio \\
+    \hline
+    UC-2G.5 & Visualizzazione elemento da lista template salvati & \hyperref[sec:uc-2g-5]{UC-2G.5} & Obbligatorio \\
+    \hline
+    UC-2H & Invio documento e messaggio & \hyperref[sec:uc-2h]{UC-2H} & Obbligatorio \\
+    \hline
+    UC-2H.1 & Allega file & \hyperref[sec:uc-2h-1]{UC-2H.1} & Obbligatorio \\
+    \hline
+    UC-2H.2 & Pianifica invio & \hyperref[sec:uc-2h-2]{UC-2H.2} & Obbligatorio \\
+    \hline
+    UC-2H.3 & Conferma invio & \hyperref[sec:uc-2h-3]{UC-2H.3} & Obbligatorio \\
+    \hline
+    UC-3A & Apertura dashboard di analisi e Monitoraggio AI & \hyperref[sec:uc-3a]{UC-3A - Apertura dashboard di analisi e Monitoraggio AI} & Obbligatorio \\
+    \hline
+    UC-3A.1 & Visualizzazione elenco dati AI assistant & \hyperref[sec:uc-3a-1]{UC-3A.1 - Visualizzazione elenco dati AI assistant} & Obbligatorio \\
+    \hline
+    UC-3A.2 & Visualizzazione numero prompt generati & \hyperref[sec:uc-3a-2]{UC-3A.2} & Obbligatorio \\
+    \hline
+    UC-3A.3 & Visualizzazione rating medio prompt generati & \hyperref[sec:uc-3a-3]{UC-3A.3} & Obbligatorio \\
+    \hline
+    UC-3A.4 & Visualizzazione numero rigenerazioni prompt & \hyperref[sec:uc-3a-4]{UC-3A.4} & Obbligatorio \\
+    \hline
+    UC-3A.5 & Visualizzazione toni più usati & \hyperref[sec:uc-3a-5]{UC-3A.5} & Obbligatorio \\
+    \hline
+    UC-3A.6 & Visualizzazione stili più usati & \hyperref[sec:uc-3a-6]{UC-3A.6} & Obbligatorio \\
+    \hline
+    UC-3A.7 & Visualizzazione elenco dati AI Co-pilot & \hyperref[sec:uc-3a-7]{UC-3A.7} & Obbligatorio \\
+    \hline
+    UC-3A.8 & Visualizzazione confidenza media & \hyperref[sec:uc-3a-8]{UC-3A.8} & Obbligatorio \\
+    \hline
+    UC-3A.9 & Visualizzazione percentuale interventi manuali & \hyperref[sec:uc-3a-9]{UC-3A.9} & Obbligatorio \\
+    \hline
+    UC-3A.10 & Visualizzazione accuratezza mapping & \hyperref[sec:uc-3a-10]{UC-3A.10} & Obbligatorio \\
+    \hline
+    UC-3A.11 & Visualizzazione tempi medi analisi & \hyperref[sec:uc-3a-11]{UC-3A.11} & Obbligatorio \\
+    \hline
+    UC-3A.12 & Inserimento data inizio & \hyperref[sec:uc-3a-12]{UC-3A.12} & Obbligatorio \\
+    \hline
+    UC-3A.13 & Inserimento data fine & \hyperref[sec:uc-3a-13]{UC-3A.13} & Obbligatorio \\
+    \hline
+
+\end{longtable}
+
 
 \subsection{Requisiti di Qualità}
 Definiscono gli attributi qualitativi del software che influenzano l'esperienza d'uso e la manutenibilità del progetto. Spesso indicati come "attributi di qualità" (es. usabilità, affidabilità, manutenibilità).
