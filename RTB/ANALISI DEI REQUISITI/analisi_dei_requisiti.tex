@@ -486,11 +486,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente durante la registrazione inserisce la propria email nell'apposita casella di testo
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sulla casella di testo per l'inserimento dell'email
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0A.2 – Inserimento password}
@@ -515,10 +510,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente durante la registrazione inserisce la propria password nell'apposita casella di testo
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sulla casella di testo per l'inserimento della password
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -544,11 +535,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente durante la registrazione inserisce il proprio username nell'apposita casella di testo
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sulla casella di testo per l'inserimento dell'username
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0A.4 – Inserimento nome}
@@ -572,11 +558,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item L'utente durante la registrazione inserisce il proprio nome nell'apposita casella di testo
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sulla casella di testo per l'inserimento del nome
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -602,10 +583,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente durante la registrazione inserisce il proprio cognome nell'apposita casella di testo
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sulla casella di testo per l'inserimento del cognome
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -630,11 +607,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item L'utente durante la registrazione inserisce la propria matricola nell'apposita casella di testo
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sulla casella di testo per l'inserimento della matricola
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -661,11 +633,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema rileva che il formato non è corretto
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente conferma l'inserimento o passa al campo successivo
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0A.8 – Password non valida}
@@ -690,11 +657,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente inserisce una password che non soddisfa i criteri minimi di sicurezza (es. lunghezza minima, caratteri speciali)
     \item Il sistema rileva che la password è troppo debole
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente conferma l'inserimento o passa al campo successivo
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -721,11 +683,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema verifica la presenza dell'email nel database e blocca l'operazione
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente tenta di completare la registrazione o conferma il campo email
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0A.10 – Username già registrato}
@@ -750,11 +707,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente inserisce uno username già utilizzato da un altro utente
     \item Il sistema verifica l'univocità dello username e ne segnala l'indisponibilità
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente tenta di completare la registrazione o conferma il campo username
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -781,11 +733,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema rileva la duplicazione e impedisce il proseguimento
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente tenta di completare la registrazione
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0A.12 – Matricola non valida}
@@ -810,11 +757,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente inserisce una matricola che non rispetta il formato atteso (es. contiene lettere dove non previste o ha una lunghezza errata)
     \item Il sistema invalida il dato inserito
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente conferma l'inserimento o passa al campo successivo
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -860,13 +802,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente inserisce credenziali non valide.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente avvia l'applicazione standalone e seleziona l'opzione di login.
-\end{itemize}
-
-
-
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}:
@@ -908,11 +843,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema verifica l'esistenza dell'email e non trova corrispondenze
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul pulsante di conferma per effettuare il login
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0B.2 – Password errata}
@@ -937,11 +867,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente inserisce la propria email (corretta) e una password errata
     \item Il sistema verifica la corrispondenza delle credenziali e rileva l'errore
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul pulsante di conferma per effettuare il login
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -980,13 +905,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item 
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Effettuare il login con successo nell'applicazione standalone.
-\end{itemize}
-
-
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1051,11 +969,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di gestione profilo utente dalla dashboard principale.
-\end{itemize}
-
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1105,11 +1018,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera l'email associata all'account e la mostra nell'apposita casella
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente accede alla sezione "Modifica Profilo" o "I miei dati"
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0D.2 – Visualizzazione password}
@@ -1133,11 +1041,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item Il sistema predispone il campo password permettendo all'utente di visualizzarne lo stato o modificarla
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente accede alla sezione "Modifica Profilo"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -1163,11 +1066,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera lo username associato all'account e lo mostra nell'apposita casella
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente accede alla sezione "Modifica Profilo"
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0D.4 – Visualizzazione nome}
@@ -1191,11 +1089,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item Il sistema recupera il nome dell'utente e lo mostra nell'apposita casella
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente accede alla sezione "Modifica Profilo"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -1221,11 +1114,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera il cognome dell'utente e lo mostra nell'apposita casella
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente accede alla sezione "Modifica Profilo"
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0D.6 – Visualizzazione matricola}
@@ -1249,11 +1137,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item Il sistema recupera la matricola associata all'account e la mostra nell'apposita casella
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente accede alla sezione "Modifica Profilo"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -1281,11 +1164,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Se non sono presenti errori, il sistema sovrascrive i dati precedenti con quelli nuovi; in caso contrario, segnala l'errore specifico al campo interessato
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul pulsante "Salva" o "Aggiorna"
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0D.8 – Uscita senza salvare profilo utente}
@@ -1310,11 +1188,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente decide di annullare l'operazione di modifica
     \item Il sistema scarta le modifiche pendenti nei campi di testo e chiude la schermata
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul pulsante "Annulla" o "Indietro"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -1362,11 +1235,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Un utente non autorizzato tenta di accedere al modulo di gestione ruoli.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di gestione ruoli dalla dashboard principale (solo per utenti con permessi Admin).
-\end{itemize}
-
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1409,10 +1277,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera dal database la lista degli utenti e ne mostra i dati in formato tabellare o a lista
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'amministratore accede alla pagina "Gestione Utenti"
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1451,11 +1315,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item L'applicazione mostra un singolo utente con i relativi dettagli (nome, cognome, ruolo, ecc.) all'interno della lista
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'amministratore accede alla pagina "Gestione Utenti"
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1496,11 +1355,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema identifica i permessi di ogni utente e mostra l'etichetta del ruolo corrispondente
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'amministratore accede alla pagina "Gestione Utenti"
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0E.4 – Visualizzazione nome utente registrato}
@@ -1525,11 +1379,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera dal database la lista degli utenti e ne mostra i nomi in formato tabellare o a lista
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'amministratore accede alla pagina "Gestione Utenti"
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0E.5 – Visualizzazione cognome utente registrato}
@@ -1553,11 +1402,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item Il sistema recupera dal database la lista degli utenti e ne mostra i cognomi in corrispondenza dei rispettivi nomi
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'amministratore accede alla pagina "Gestione Utenti"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -1584,11 +1428,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema ripristina il valore originale visualizzato
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'amministratore clicca sul pulsante "Annulla"
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0E.7 – Utente non autorizzato}
@@ -1614,10 +1453,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema verifica i permessi, rileva l'assenza del ruolo di amministratore e blocca l'operazione
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente tenta l'accesso diretto alla risorsa protetta
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -1642,11 +1477,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item L'amministratore interagisce con il campo relativo al ruolo (es. tramite menu a tendina) e seleziona una nuova tipologia di permessi
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'amministratore clicca sul comando di modifica o sul menu del ruolo utente
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -1673,14 +1503,7 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema registra la modifica e aggiorna lo stato dell'utente
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'amministratore clicca sul pulsante "Salva" o "Conferma"
-\end{itemize}
-
 \vspace{0.5cm}
-
-
 
 \subsubsection{UC-0F – Logout}
 
@@ -1713,11 +1536,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il Sistema invalida la sessione corrente associata all’utente (es. rimozione token di sessione).
     \item Il Sistema reindirizza l’utente alla schermata di login o alla schermata iniziale pubblica.
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di logout dall'interfaccia utente.
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1771,11 +1589,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di modulo AI Assistant Generativo dalla dashboard principale.
-\end{itemize}
-
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
@@ -1817,11 +1630,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente inserisce o incolla il testo descrittivo per la generazione del contenuto nell'apposita area di testo
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sulla casella di testo dedicata al prompt
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-1A.2 – Selezione tono}
@@ -1847,11 +1655,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente sceglie l'opzione desiderata tra quelle disponibili
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul menu di selezione del tono
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-1A.3 – Selezione stile}
@@ -1876,11 +1679,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente interagisce con il selettore dello stile
     \item L'utente sceglie la tipologia di formato desiderata per il testo in output
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul menu di selezione dello stile
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -1920,10 +1718,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Non ci sono prompt salvati nello storico.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di visualizzazione storico prompt all’interno del modulo AI Assistant Generativo.
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1941,7 +1735,6 @@ Di seguito sono esposti gli attori utilizzati:
 \end{itemize}
 
 \vspace{0.5cm}
-
 
 \subsubsection{UC-1B.1 – Visualizzazione lista elementi storico}
 
@@ -1966,10 +1759,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt parziale, tono, stile, data)
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul tasto per aprire lo storico prompt
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -2004,10 +1793,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema espande l'elemento o apre una modale mostrando tutti i metadati associati a quella generazione
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente entra nella pagina storico prompt
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -2046,10 +1831,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera e visualizza la tipologia di contenuto o stile (es. Articolo, Post Social) salvato con la generazione
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Apertura del dettaglio elemento (incluso in UC-1B.2)
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2075,10 +1856,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema mostra il contenuto testuale prodotto dall'AI in risposta al prompt, mantenendo la formattazione originale se presente
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Apertura del dettaglio elemento (incluso in UC-1B.2)
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2104,10 +1881,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema mostra il timestamp (data e ora) di creazione del contenuto
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Apertura del dettaglio elemento (incluso in UC-1B.2)
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2134,10 +1907,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Se presente, mostra l'indicatore grafico (es. stelle, thumbs up/down); in caso contrario mostra un campo vuoto o l'opzione per aggiungere una valutazione
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Apertura del dettaglio elemento (incluso in UC-1B.2)
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2163,10 +1932,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera dal database il testo della richiesta (prompt) associato alla generazione selezionata e lo mostra a video
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Apertura del dettaglio elemento (incluso in UC-1B.2)
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2191,11 +1956,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item Il sistema recupera e visualizza l'etichetta del tono (es. Professionale, Amichevole) salvato con la generazione
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Apertura del dettaglio elemento (incluso in UC-1B.2)
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2223,10 +1983,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente può ora modificare il prompt o i parametri prima di generare
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul pulsante "Duplica" o "Usa come bozza"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2253,10 +2009,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema non trova record associati all'utente e mostra un messaggio del tipo "Nessun prompt presente nello storico"
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'apertura della sezione "Storico Prompt"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2284,10 +2036,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema invia direttamente i dati al motore AI per generare un nuovo output senza passare per la schermata di modifica
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul pulsante "Riutilizza" o "Rigenera"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2314,10 +2062,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema filtra gli elementi dello storico in tempo reale o alla conferma
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Inserimento testo nel campo di ricerca o click sul pulsante "Cerca"
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -2353,10 +2097,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt parziale, tono, stile, data)
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul tasto per aprire lo storico prompt
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -2403,10 +2143,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Completamento della generazione del contenuto AI.
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -2452,10 +2188,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema riceve l'output dall'AI e lo renderizza nell'area di visualizzazione principale, permettendo all'utente di leggerlo
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Conclusione del processo di generazione (UC-1C)
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2484,10 +2216,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il nuovo risultato sovrascrive quello visualizzato in anteprima
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul pulsante "Rigenera" o sull'icona di refresh
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2513,10 +2241,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema memorizza automaticamente il risultato della generazione e i metadati associati nel database dello storico
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Completamento della generazione (o click esplicito su "Salva bozza" se previsto manualmente)
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2543,10 +2267,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema salva la valutazione
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sulle icone di valutazione (feedback)
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2573,10 +2293,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema pulisce l'area di anteprima e riporta il focus sui campi di input
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul pulsante "Indietro", "Annulla" o "Scarta"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2603,10 +2319,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema cambia lo stato del contenuto in "Pubblicato" o lo trasferisce alla sezione blog/news del sito
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul pulsante "Pubblica" o "Usa questo contenuto"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2646,10 +2358,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di modifica del contenuto generato dalla pagina di visualizzazione del contenuto.
-\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -2695,10 +2403,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema sostituisce l'immagine generata dall'AI con quella fornita dall'utente
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente interagisce con l'area dedicata all'immagine o clicca su "Carica immagine"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2724,10 +2428,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente modifica il testo presente nella casella di input del titolo
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca o fa focus sulla casella di testo del titolo
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2753,10 +2453,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente agisce sull'editor di testo (corpo del contenuto) aggiungendo, rimuovendo o formattando il testo generato
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca all'interno dell'area di testo principale
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2783,10 +2479,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema valida i dati e sovrascrive la versione precedente del contenuto
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul pulsante "Salva modifiche"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2813,10 +2505,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema ripristina lo stato del contenuto a quello precedente l'apertura dell'editor
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul pulsante "Annulla"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2843,10 +2531,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema rileva l'anomalia durante il caricamento e blocca l'operazione
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Conferma della selezione del file da parte dell'utente
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2889,10 +2573,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di modulo AI Co-Pilot per i CdL dalla dashboard principale.
-\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -2944,10 +2624,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item \textbf{Dimensione eccessiva:} Il file supera il limite di megabyte consentiti. Il sistema rifiuta il file e notifica l'utente.
 \end{itemize}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezione del file tramite "Sfoglia" o "Drag \& Drop"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2974,10 +2650,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente seleziona la tipologia corretta per il documento in lavorazione
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul selettore della categoria
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3003,10 +2675,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente inserisce o seleziona tramite date-picker il mese e l'anno a cui il documento fa riferimento
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sui campi Mese e Anno
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3033,10 +2701,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema collega il documento all'anagrafica aziendale selezionata
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente interagisce con il campo di ricerca/selezione azienda
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3062,10 +2726,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente specifica il reparto di riferimento (es. Amministrazione, Produzione) se pertinente per il documento
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul campo di inserimento reparto
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3094,10 +2754,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Al termine, il sistema conferma l'avvenuto salvataggio e pulisce il modulo per un nuovo inserimento
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul pulsante "Carica" o "Salva Documento"
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3140,10 +2796,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema non riconosce alcun documento caricato.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di visualizzazione lista documenti all’interno del modulo AI Co-Pilot per i CdL.
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -3186,10 +2838,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente vede l'elenco di tutti gli elementi recuperati dall'analisi
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul tasto per aprire lo storico prompt
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -3225,10 +2873,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema mostra il mese e l'anno di riferimento fiscale/contabile del documento
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della lista documenti
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3254,10 +2898,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera il nome dell'azienda collegata e lo mostra in elenco
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della lista documenti
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3283,10 +2923,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema mostra eventuali note o causali inserite in fase di upload o rilevate automaticamente
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della lista documenti
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3312,11 +2948,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema mostra un indicatore (es. bandiera o codice ISO) della lingua rilevata
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della lista documenti
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-2B.7 – Visualizzazione numero pagine documento}
@@ -3341,10 +2972,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema calcola e visualizza il numero di pagine del documento PDF o immagine
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della lista documenti
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3370,10 +2997,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema mostra il filename originale per facilitare il riconoscimento
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della lista documenti
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3399,10 +3022,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera il timestamp di creazione o upload e lo mostra formattato
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della lista documenti
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3428,10 +3047,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera il codice identificativo dal database e lo mostra nella riga corrispondente al documento
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della lista documenti
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3457,42 +3072,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema mostra l'etichetta della tipologia documentale associata al file
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della lista documenti
-\end{itemize}
 
 \vspace{0.5cm}
 
 \subsubsection{UC-2B.12 – Filtraggio documenti}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Utente autorizzato
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item La lista dei documenti è visibile e contiene più elementi
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item La lista viene aggiornata mostrando solo i documenti che soddisfano i criteri selezionati
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente imposta uno o più filtri (es. per Azienda, per Periodo di competenza, per Tipologia)
-    \item Il sistema elabora la richiesta e ridisegna la tabella mostrando solo i risultati pertinenti
-\end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item L'utente clicca sul pulsante "Filtra" o modifica i campi di filtro
-\end{itemize}
-
-\vspace{0.5cm}
 
 \begin{figure}[H]
     \centering
@@ -3531,24 +3114,12 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema non riconosce alcun documento caricato.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di visualizzazione lista documenti all’interno del modulo AI Co-Pilot per i CdL.
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2B.10 – Visualizzazione codice documento
-        \item UC-2B.11 - Visualizzazione tipologia documento
-        \item UC-2B.3 - Visualizzazione competenza documento
-        \item UC-2B.4 – Visualizzazione azienda documento
-        \item UC-2B.5 - Visualizzazione causale
-        \item UC-2B.6 - Visualizzazione lingua
-        \item UC-2B.7 - Visualizzazione numero pagine documento
-        \item UC-2B.8 - Visualizzazione nome documento originale
-        \item UC-2B.9 - Visualizzazione data redazione documento
+        \item UC-2B.14 – Visualizzazione lista documenti filtrata
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -3579,9 +3150,40 @@ Di seguito sono esposti gli attori utilizzati:
     \item Non trovando corrispondenze (o se l'archivio è vuoto), il sistema mostra un placeholder grafico o testuale "Nessun documento trovato"
 \end{enumerate}
 
-\textbf{Trigger}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.14 – Visualizzazione lista documenti filtrata}
+
+\textbf{Attori}
 \begin{itemize}
-    \item Accesso alla lista vuota o applicazione di filtri troppo restrittivi
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dello storico contiene almeno un elemento 
+    \item L'utente ha inserito un criterio di ricerca valido (testo libero)
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista di elementi (coerenti con la ricerca) trovati dall'analisi
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
+    \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt parziale, tono, stile, data)
+\end{enumerate}
+
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2B.2 – Visualizzazione elemento da lista documenti
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
@@ -3626,11 +3228,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item 
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare un documento dalla lista per visualizzarne i dettagli.
-\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -3682,10 +3279,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema renderizza l'anteprima del documento nell'area dedicata della pagina di dettaglio.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Apertura della pagina di dettaglio del documento (automatico all'avvio di UC-2C).
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3715,10 +3308,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema aggiorna il campo visualizzato con il nuovo valore.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sull'icona di modifica o sul campo del destinatario.
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3747,10 +3336,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema aggiorna la tipologia.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezione di una nuova categoria dal menu "Tipologia documento".
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3779,10 +3364,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema aggiorna la percentuale di confidenza per riflettere la nuova coerenza dei dati o la validazione manuale dell'utente.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Completamento di UC-2C.3 o azione esplicita "Rivaluta dati".
-\end{itemize}
 \vspace{0.5cm}
 
 \subsubsection{UC-2C.5 – Salva modifiche documento}
@@ -3819,10 +3400,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il salvataggio viene bloccato e viene mostrato un messaggio di errore all'utente.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul pulsante "Salva" o "Conferma modifiche".
-\end{itemize}
 
 \subsubsection{UC-2D - Apertura modulo informazioni destinatari }
 
@@ -3858,11 +3435,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item 
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di visualizzazione dettagli destinatario dalla pagina lista documenti.
-\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -3903,11 +3475,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente si trova nel modulo storico dell'AI Co-pilot
     \item L'utente vede l'elenco di tutti gli elementi relativi ai destinatari recuperati dall'analisi
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul tasto per aprire lo storico prompt
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -3958,11 +3525,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema non riconosce alcun documento caricato.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di visualizzazione lista documenti all’interno del modulo AI Co-Pilot per i CdL.
-\end{itemize}
-
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
@@ -4009,11 +3571,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il campo viene mostrato vuoto o con dicitura "N/D".
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina UC-2D (Automatico).
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-2D.4 – Visualizzazione reparto}
@@ -4038,11 +3595,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera le informazioni sull'organigramma o l'assegnazione del destinatario.
     \item Il sistema visualizza il nome del reparto di afferenza.
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina UC-2D (Automatico).
-\end{itemize}
 
 \subsubsection{UC-2D.5 – Visualizzazione destinatario}
 
@@ -4069,11 +3621,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema mostra il nome del destinatario nell'intestazione della scheda.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina UC-2D (Automatico).
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-2D.6 – Visualizzazione codice fiscale}
@@ -4099,12 +3646,94 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema formatta e visualizza il codice fiscale nel campo dedicato.
 \end{enumerate}
 
-\textbf{Trigger}
+\vspace{0.5cm}
+
+\subsubsection{UC-2D.7 – Filtraggio destinatari}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
+\textbf{Attori}
 \begin{itemize}
-    \item Caricamento della pagina UC-2D (Automatico).
+    \item Utente autorizzato (Operatore di studio CdL).
+    \item Sistema AI Doc Classifier.
+\end{itemize}
+
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item É stato caricato almeno un documento tramite UC-2A.6.
+    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
+    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
+\end{itemize}
+
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente ha filtrato la lista dei destinatari in base ai criteri selezionati.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
+    \item Il Sistema mostra l’elenco dei documenti caricati, con le relative informazioni.
+    \item L'utente applica filtri specifici per visualizzare solo i destinatari di interesse (es. per nome, codice fiscale, reparto).
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il sistema non riconosce alcun destinatario.
+\end{enumerate}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2D.8 – Visualizzazione lista destinatari filtrata
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuno
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{UC-2D.8 – Visualizzazione lista destinatari filtrata}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei destinatari contiene almeno un elemento 
+    \item L'utente ha inserito un criterio di ricerca valido (testo libero)
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista di elementi (coerenti con la ricerca) trovati dall'analisi
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
+    \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali 
+\end{enumerate}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2D.2 – Visualizzazione elemento da lista documenti
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
+
 
 \subsubsection{UC-2E – Apertura storico documenti}
 
@@ -4140,11 +3769,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Non sono mai stati caricati documenti, quindi la visualizzazione di dati non è possibile.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di invio documento dalla pagina destinatario.
-\end{itemize}
-
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
@@ -4153,7 +3777,7 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2E.3 - Filtraggio documenti
+        \item UC-2E.8 - Filtraggio documenti
         \item UC-2E.5 - visualizzazione informazioni documento
         \item UC-2C – Apertura documento
         \item UC-2D - Apertura informazioni destinatari
@@ -4190,11 +3814,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema naviga alla pagina di dettaglio del documento.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click su un elemento della lista documenti.
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-2E.2 – Documenti assenti}
@@ -4223,14 +3842,9 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema visualizza un placeholder o un messaggio "Nessun documento trovato" per informare l'utente.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina (automatico) o applicazione di un filtro troppo restrittivo.
-\end{itemize}
-
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.3 – Filtraggio documenti}
+\subsubsection{UC-2E.3 – Visualizzazione stato}
 
 \textbf{Attori}
 \begin{itemize}
@@ -4239,31 +3853,19 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item La lista dei documenti è visualizzata e popolata.
+    \item L'utente sta visualizzando la lista o il dettaglio dei documenti (tramite UC-2E o UC-2E.5).
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item La lista mostra solo i documenti che soddisfano i criteri di ricerca inseriti.
+    \item L'utente conosce lo stato attuale del ciclo di vita del documento (es. "Da validare", "Pronto per l'invio", "Inviato", "Errore").
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente desidera restringere la ricerca (es. per data, per tipologia o per stato invio).
-    \item L'utente utilizza la barra di ricerca o i filtri laterali.
-    \item Il sistema aggiorna la vista in tempo reale o dopo la conferma, nascondendo i documenti non pertinenti.
+    \item Il sistema interroga il workflow del documento per determinarne lo stato corrente.
+    \item Il sistema visualizza un'etichetta testuale o un'icona colorata rappresentativa dello stato (es. Verde per inviato, Giallo per in attesa).
 \end{enumerate}
-
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item L'utente rimuove i filtri.
-    \item Il sistema ripristina la visualizzazione completa dello storico.
-\end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Inserimento testo nella barra di ricerca o selezione di un filtro.
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -4287,13 +3889,8 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente si trova nel modulo storico dell'AI Co-pilot
-    \item L'utente vede l'elenco di tutti gli elementi relativi a tutte el analisi
+    \item L'utente vede l'elenco di tutti gli elementi relativi a tutte le analisi
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul tasto per aprire lo storico prompt
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -4329,17 +3926,12 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema renderizza le colonne della tabella mostrando: Codice documento, Data caricamento, Stato elaborazione e Percentuale di confidenza.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina UC-2E (Automatico).
-\end{itemize}
-
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
         \item UC-2B.10 – Visualizzazione codice documento
-        \item UC-2E.8 - Visualizzazione stato
+        \item UC-2E.3 - Visualizzazione stato
         \item UC-2E.6 - Visualizzazione percentuale confidenza
         \item UC-2E.7 - Visualizzazione appartenenza lista distribuzione
     \end{itemize}
@@ -4376,11 +3968,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema visualizza il dato, evidenziandolo (es. in rosso) se la confidenza è sotto una soglia di sicurezza, suggerendo un controllo manuale.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina (Automatico).
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-2E.7 – Visualizzazione appartenenza lista distribuzione}
@@ -4407,14 +3994,9 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema mostra i nomi dei destinatari o, in caso di lista lunga, un riepilogo (es. "Mario Rossi + 2 altri") espandibile al passaggio del mouse o al click.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina (Automatico).
-\end{itemize}
-
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.8 – Visualizzazione stato}
+\subsubsection{UC-2E.8 – Filtraggio documenti}
 
 \textbf{Attori}
 \begin{itemize}
@@ -4423,23 +4005,58 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente sta visualizzando la lista o il dettaglio dei documenti (tramite UC-2E o UC-2E.5).
+    \item La lista dei documenti è visualizzata e popolata.
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente conosce lo stato attuale del ciclo di vita del documento (es. "Da validare", "Pronto per l'invio", "Inviato", "Errore").
+    \item La lista mostra solo i documenti che soddisfano i criteri di ricerca inseriti.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item Il sistema interroga il workflow del documento per determinarne lo stato corrente.
-    \item Il sistema visualizza un'etichetta testuale o un'icona colorata rappresentativa dello stato (es. Verde per inviato, Giallo per in attesa).
+    \item L'utente desidera restringere la ricerca (es. per data, per tipologia o per stato invio).
+    \item L'utente utilizza la barra di ricerca o i filtri laterali.
+    \item Il sistema aggiorna la vista in tempo reale o dopo la conferma, nascondendo i documenti non pertinenti.
 \end{enumerate}
 
-\textbf{Trigger}
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item L'utente rimuove i filtri.
+    \item Il sistema ripristina la visualizzazione completa dello storico.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2E.9 – Visualizzazione lista storico documenti filtrata}
+
+\textbf{Attori}
 \begin{itemize}
-    \item Caricamento della pagina (Automatico).
+    \item Utente autorizzato
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei contiene almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista filtrata di documenti nello storico salvati nel suo insieme
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Co-pilot
+    \item L'utente vede l'elenco filtrato di tutti gli elementi relativi a tutte le analisi
+\end{enumerate}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2E.5 – Visualizzazione elemento da lista storico documenti
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
@@ -4478,11 +4095,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item 
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di gestione messaggio dalla pagina storico documenti.
-\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -4538,11 +4150,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema salva il template rendendolo disponibile per futuri utilizzi (vedi UC-2G).
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul pulsante "Salva come template".
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-2F.2 – Modifica oggetto messaggio}
@@ -4567,11 +4174,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente seleziona il campo di input relativo all'oggetto del messaggio.
     \item L'utente digita o modifica il testo esistente (es. aggiungendo riferimenti specifici).
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Click o focus sul campo di input "Oggetto".
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -4598,11 +4200,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente apporta modifiche manuali, aggiunge note o corregge il testo generato/preimpostato.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click o focus sull'area di testo del messaggio ("Body").
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-2F.4 – Conferma modifica messaggio}
@@ -4628,11 +4225,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente clicca fuori dall'area di testo o preme un pulsante di conferma parziale.
     \item Il sistema mantiene in memoria la versione aggiornata del messaggio pronta per l'invio (UC-2H).
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Evento di \textit{blur} (perdita del focus) dai campi di testo o click su "Conferma/Applica".
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -4662,11 +4254,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema sovrascrive o riempie i campi di visualizzazione.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul pulsante "Genera messaggio" o "Crea bozza con IA".
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-2F.6 – Visualizzazione oggetto messaggio}
@@ -4692,11 +4279,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema mostra il contenuto nel campo dedicato.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina UC-2F (Automatico).
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-2F.7 – Visualizzazione testo messaggio}
@@ -4721,11 +4303,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema recupera il testo (vuoto o pre-generato).
     \item Il sistema renderizza l'area di testo permettendo la lettura del contenuto.
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina UC-2F (Automatico).
-\end{itemize}
 
 \subsubsection{UC-2G - Tabella template salvati }
 
@@ -4762,11 +4339,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item 
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di visualizzazione tabella template salvati dalla pagina gestione messaggio.
-\end{itemize}
 
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -4812,10 +4384,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente conferma e il sistema cancella il record dal database.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul pulsante "Elimina" associato a un template.
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -4844,11 +4412,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item La query restituisce un risultato vuoto.
     \item Il sistema notifica all'utente che non ci sono template da caricare.
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Caricamento della pagina UC-2G (Automatico in assenza di dati).
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -4879,11 +4442,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente può ora procedere a modificare o inviare il messaggio (ritorno a UC-2F).
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezione di un template dalla lista e conferma di caricamento.
-\end{itemize}
-
 \subsubsection{UC-2G.4 – Visualizzazione lista template salvati}
 
 \textbf{Attori}
@@ -4906,11 +4464,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente si trova nella sezione di gestione messaggi e vuole utilizzare un template salvato
     \item L'utente vede l'elenco di tutti i template relativi ai messaggi salvati
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul tasto per aprire lo storico prompt
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -4957,11 +4510,6 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{enumerate}
     \item nessuno
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di visualizzazione lista documenti all’interno del modulo AI Co-Pilot per i CdL.
-\end{itemize}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -5014,11 +4562,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item 
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezionare l'opzione di invio documento e messaggio dalla pagina gestione messaggio.
-\end{itemize}
-
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
@@ -5063,11 +4606,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il sistema carica il file e lo mostra nella lista allegati (UC-2H.5).
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul pulsante/icona "Allega file".
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-2H.2 – Pianifica invio}
@@ -5097,11 +4635,6 @@ Di seguito sono esposti gli attori utilizzati:
     \item L'utente imposta il momento desiderato per l'invio e conferma.
     \item Il sistema prende in carico la richiesta e la accoda per l'elaborazione futura.
 \end{enumerate}
-
-\textbf{Trigger}
-\begin{itemize}
-    \item Selezione dell'opzione "Pianifica" o click sull'icona orologio.
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -5137,16 +4670,12 @@ Di seguito sono esposti gli attori utilizzati:
     \item Viene mostrato un messaggio di errore e l'invio viene annullato permettendo di riprovare.
 \end{enumerate}
 
-\textbf{Trigger}
-\begin{itemize}
-    \item Click sul pulsante "Invia" o conferma del modale di riepilogo.
-\end{itemize}
-
 \vspace{0.5cm}
 
 
-\section{Sezione 3 - Modulo Analytics e Monitoraggio Trasversale}
-\subsection{UC-3A - Apertura dashboard di analisi e Monitoraggio AI}
+\subsection{Sezione 3 - Modulo Analytics e Monitoraggio Trasversale}
+
+\subsubsection{UC-3A - Apertura dashboard di analisi e Monitoraggio AI}
 
 \begin{figure}[H]
     \centering
@@ -5187,32 +4716,438 @@ Di seguito sono esposti gli attori utilizzati:
     \item Il Sistema mostra un messaggio ``Nessun dato disponibile per il periodo selezionato''.
 \end{enumerate}
 
-\textbf{Trigger}
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item Selezionare la voce ``Analytics / Monitoraggio AI'' dal menu principale.
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-3A.1 - Visualizzazione elenco dati AI assistant
+        \item UC-3A.7 - Visualizzazione elenco dati AI Co-Pilot
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-3A.12 - Inserimento data inizio
+        \item UC-3A.13 - Inserimento data fine
+    \end{itemize}
+\end{itemize} 
+
+\vspace{0.5cm}
+
+\subsubsection{UC-3A.1 - Visualizzazione elenco dati AI assistant}
+
+\begin{figure}[H]
+    \centering
+   
+    \caption{Diagramma del caso d'uso UC-3A}
+    \label{fig:uc3a}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst (principale).
+    \item Amministratore.
+    \item Sistema di Analytics.
 \end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha effettuato il login ed è autenticato come Auditor, Data Analyst o Amministratore.
+    \item Il sistema ha accumulato dati storici.
+    \item L'utente accede alla sezione ``Analytics e Monitoraggio'' dalla dashboard principale.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza le metriche in base ai filtri applicati (o di default).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente accede al modulo centralizzato di Analytics.
+    \item Il Sistema calcola e mostra una panoramica generale (Dashboard) applicando i filtri di data.
+    \item Il Sistema visualizza i grafici e le tabelle relative alle metriche (confidenza, rating, volumi) per il contesto di default.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il sistema non dispone di dati sufficienti nel periodo di default.
+    \item Il Sistema mostra un messaggio ``Nessun dato disponibile per il periodo selezionato''.
+\end{enumerate}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-3A.1 - Visualizzazione volume prompt generati.
-        \item UC-3A.2 - Visualizzazione statistiche toni utilizzati.
-        \item UC-3A.3 - Visualizzazione statistiche stili utilizzati.
-        \item UC-3A.4 - Visualizzazione rating medio e feedback.
-        \item UC-3A.5 - Visualizzazione confidenza media riconoscimento.
-        \item UC-3A.6 - Visualizzazione percentuale interventi manuali.
+        \item UC-3A.2 - Visualizzazione numero prompt generati
+        \item UC-3A.3 - Visualizzazione rating medio prompt generati
+        \item UC-3A.4 - Visualizzazione numero rigenerazioni prompt
+        \item UC-3A.5 - Visualizzazione toni più usati
+        \item UC-3A.6 - Visualizzazione stili più usati
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-3A.7 - Filtraggio per periodo temporale (L'utente modifica le date).
-        \item UC-3A.8 - Filtraggio per utente/operatore (L'utente seleziona uno specifico operatore).
-        \item UC-3A.9 - Esportazione Report (PDF/CSV).
-        \item UC-3A.10 - Assenza di dati storici.
+        \item Nessuna
     \end{itemize}
 \end{itemize} 
 
 \vspace{0.5cm}
+
+\subsubsection{UC-3A.2 – Visualizzazione numero prompt generati}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla dashboard di Analytics (UC-3A.1).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza il volume totale di richieste (prompt) inviate all'AI nel periodo selezionato.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema interroga il database storico filtrando per l'intervallo temporale corrente.
+    \item Il sistema conteggia il numero totale di interazioni avviate dagli utenti.
+    \item Il sistema visualizza il dato numerico (KPI) in un widget dedicato della dashboard (es. "Totale Prompt: 1.250").
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-3A.3 – Visualizzazione rating medio prompt generati}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla dashboard di Analytics (UC-3A.1).
+    \item Gli utenti finali hanno fornito feedback (es. stelle o pollici su/giù) sui messaggi generati.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza un indicatore della qualità percepita delle risposte dell'AI.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema aggrega i feedback ricevuti sulle risposte generate nel periodo di riferimento.
+    \item Il sistema calcola la media aritmetica dei voti (es. su scala 1-5 o percentuale di approvazione).
+    \item Il sistema mostra il valore medio (es. "Rating Medio: 4.2/5") permettendo di valutare la soddisfazione dell'utenza.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-3A.4 – Visualizzazione numero rigenerazioni prompt}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla dashboard di Analytics (UC-3A.1).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza quante volte è stata utilizzata la funzione "Rigenera risposta".
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema conta le occorrenze in cui un utente ha richiesto una nuova versione di un messaggio già generato (evento di "retry").
+    \item Il sistema visualizza il totale delle rigenerazioni, dato utile per capire se la prima risposta dell'AI è spesso insoddisfacente.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-3A.5 – Visualizzazione toni più usati}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla dashboard di Analytics (UC-3A.1).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la distribuzione o la classifica dei "Toni" selezionati per la generazione dei messaggi.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema raggruppa i prompt generati in base all'attributo "Tono" (es. Formale, Empatico, Assertivo).
+    \item Il sistema calcola la frequenza di utilizzo per ciascuna categoria.
+    \item Il sistema visualizza un grafico (es. a torta o a barre) o una lista ordinata che evidenzia i toni prediletti dagli utenti.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-3A.6 – Visualizzazione stili più usati}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla dashboard di Analytics (UC-3A.1).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la distribuzione o la classifica degli "Stili" selezionati per la generazione dei messaggi.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema raggruppa i prompt generati in base all'attributo "Stile" (es. Sintetico, Dettagliato, Elenco puntato).
+    \item Il sistema calcola la frequenza di utilizzo per ciascuna categoria.
+    \item Il sistema visualizza un grafico o una classifica che mostra quali formati di risposta sono più richiesti.
+\end{enumerate}
+
+\subsubsection{UC-3A.7 - Visualizzazione elenco dati AI Co-pilot}
+
+\begin{figure}[H]
+    \centering
+   
+    \caption{Diagramma del caso d'uso UC-3A}
+    \label{fig:uc3a}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst (principale).
+    \item Amministratore.
+    \item Sistema di Analytics.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha effettuato il login ed è autenticato come Auditor, Data Analyst o Amministratore.
+    \item Il sistema ha accumulato dati storici.
+    \item L'utente accede alla sezione ``Analytics e Monitoraggio'' dalla dashboard principale.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza le metriche aggiornate in base ai filtri applicati (o di default).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente accede al modulo centralizzato di Analytics.
+    \item Il Sistema calcola e mostra una panoramica generale (Dashboard) applicando i filtri di default (es. Periodo: Ultimo Mese, Utenti: Tutti).
+    \item Il Sistema visualizza i grafici e le tabelle relative alle metriche (confidenza, rating, volumi) per il contesto di default.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il sistema non dispone di dati sufficienti nel periodo di default.
+    \item Il Sistema mostra un messaggio ``Nessun dato disponibile per il periodo selezionato''.
+\end{enumerate}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-3A.8 - Visualizzazione confidenza media
+        \item UC-3A.9 - Visualizzazione percentuale interventi manuali
+        \item UC-3A.10 - Visualizzazione accuratezza mapping
+        \item UC-3A.11 - Visualizzazione tempi medi analisi
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuna
+    \end{itemize}
+\end{itemize} 
+
+\vspace{0.5cm}
+
+\subsubsection{UC-3A.8 – Visualizzazione confidenza media}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla dashboard di Analytics AI Co-pilot (UC-3A.7).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza il punteggio medio di affidabilità (confidence score) che l'AI ha attribuito alle sue estrazioni nel periodo selezionato.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema aggrega i punteggi di confidenza di tutti i documenti elaborati nell'intervallo temporale.
+    \item Il sistema calcola la media pesata o aritmetica.
+    \item Il sistema mostra il valore (es. 85\%) indicando se è in linea, superiore o inferiore rispetto ai trend storici.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-3A.9 – Visualizzazione percentuale interventi manuali}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla dashboard di Analytics AI Co-pilot (UC-3A.7).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la frequenza con cui gli operatori umani devono correggere i dati estratti dall'AI.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema analizza i log di audit per contare quanti documenti hanno subito modifiche manuali ai campi estratti prima del salvataggio.
+    \item Il sistema confronta questo dato con il volume totale dei documenti.
+    \item Il sistema visualizza la percentuale di "Human-in-the-loop" (es. 12\% di documenti corretti manualmente).
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-3A.10 – Visualizzazione accuratezza mapping}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla dashboard di Analytics AI Co-pilot (UC-3A.7).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza un indicatore che rappresenta la precisione con cui l'AI associa i dati trovati ai campi corretti del database.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema valuta la coerenza dei dati (es. verifica se i campi mappati sono stati successivamente spostati o rimossi dall'operatore).
+    \item Il sistema calcola un indice di accuratezza strutturale.
+    \item Il sistema visualizza il dato, permettendo di identificare se l'AI sta fallendo nel riconoscere specifici layout o tipologie di documento.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-3A.11 – Visualizzazione tempi medi analisi}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente ha acceduto alla dashboard di Analytics AI Co-pilot (UC-3A.7).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza il tempo medio impiegato dal sistema per processare un documento.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera i timestamp di inizio (upload) e fine (disponibilità dati) elaborazione per i documenti del periodo.
+    \item Il sistema calcola la durata media dell'elaborazione.
+    \item Il sistema mostra il tempo medio (es. "1.5 secondi per pagina"), utile per monitorare le performance dell'infrastruttura e la latenza del servizio.
+\end{enumerate}
+
+\subsubsection{UC-3A.12 – Inserimento data inizio}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella dashboard di Analytics (UC-3A).
+    \item Il filtro temporale è attivo e modificabile.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item La data di inizio del periodo di analisi è impostata.
+    \item Il sistema è pronto ad aggiornare i grafici in base al nuovo intervallo (o li aggiorna automaticamente).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente interagisce con il selettore di data "Dal" (Data inizio).
+    \item Il sistema mostra un calendario interattivo.
+    \item L'utente seleziona un giorno specifico.
+    \item Il sistema verifica che la data selezionata sia antecedente o uguale alla data di fine (se impostata).
+    \item Il sistema aggiorna il campo con la data scelta.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item L'utente seleziona una data successiva alla data di fine attuale.
+    \item Il sistema mostra un avviso di incongruenza temporale o resetta automaticamente la data di fine.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-3A.13 – Inserimento data fine}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Auditor/Data Analyst.
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella dashboard di Analytics (UC-3A).
+    \item Una data di inizio è già stata definita (o è impostata di default).
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item La data di fine del periodo di analisi è impostata.
+    \item I dati mostrati nella dashboard vengono ricalcolati in base al nuovo intervallo chiuso (Start Date - End Date).
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente interagisce con il selettore di data "Al" (Data fine).
+    \item Il sistema mostra un calendario interattivo.
+    \item L'utente seleziona il giorno conclusivo dell'analisi.
+    \item Il sistema verifica che la data sia successiva o uguale alla data di inizio.
+    \item Il sistema avvia l'aggiornamento delle metriche visualizzate (refresh della dashboard).
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item L'utente seleziona una data antecedente alla data di inizio.
+    \item Il sistema impedisce la selezione o mostra un messaggio di errore.
+\end{enumerate}
 
 \section{Requisiti}
 
