@@ -20,7 +20,7 @@
 \usepackage{colortbl}
 \usepackage{pgfplots}
 % Comando per la versione corrente
-\newcommand{\CurrentVersion}{0.0.3}
+\newcommand{\CurrentVersion}{0.0.4}
 \pgfplotsset{compat=1.16}
 
 % Comando per il pedice G compatibile con hyperref
@@ -54,6 +54,7 @@
 \definecolor{lightgray}{RGB}{245,245,245}
 \definecolor{darkgray}{RGB}{100,100,100}
 
+% Configurazione del titolo delle sezioni
 \titleformat{\section}
   {\Large\bfseries\color{primaryblue}}
   {\thesection}{1em}{}
@@ -61,6 +62,10 @@
 \titleformat{\subsection}
   {\large\bfseries\color{primaryblue}}
   {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{primaryblue}}
+  {\thesubsubsection}{1em}{}
 
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
@@ -101,14 +106,14 @@
 \vspace{0.5cm}
 
 \begin{center}
-\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Descrizione}]
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries\color{primaryblue}Descrizione}]
 Il Piano di Progetto\pediceG riporta il riepilogo delle attività effettuate e quelle ancora da svolgere dal team BugBusters.\end{tcolorbox}
 \end{center}
 
 \newpage
 
 % Registro delle Modifiche (pagina 2)
-\section*{Registro delle Modifiche}
+\section*{\color{primaryblue}Registro delle Modifiche}
 
 \arrayrulecolor{primaryblue}
 {\footnotesize
@@ -116,8 +121,11 @@ Il Piano di Progetto\pediceG riporta il riepilogo delle attività effettuate e q
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+ &  & Aggiunti ai termini presenti nel Glossario la G & Alberto Autiero & - & - \\
 \hline
-\CurrentVersion & 11/12/2025 & Continuazione documento & Alberto Autiero & - & - \\
+\CurrentVersion & 18/12/2025 & Continuazione documento & Alberto Autiero & - & - \\
+\hline
+0.0.3 & 11/12/2025 & Continuazione documento & Alberto Autiero & - & - \\
 \hline
 0.0.2 & 03/12/2025 & Continuazione documento & Alberto Autiero & - & - \\
 \hline
@@ -129,7 +137,7 @@ Il Piano di Progetto\pediceG riporta il riepilogo delle attività effettuate e q
 \newpage
 
 % Indice cliccabile
-\setcounter{tocdepth}{2} % Mostra fino al livello di sottosezione (2)
+\setcounter{tocdepth}{3} % Mostra fino al livello di sottosottosezione (3)
 \tableofcontents
 \listoftables
 \listoffigures
@@ -196,6 +204,7 @@ Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tr
 \item RG: Rischio Globale\pediceG.
 \end{itemize}
 
+\newpage
 \subsection{Rischio Tecnologico\pediceG}
 
 \subsubsection{RT1: Rischio Tecnologico\pediceG legato alla tecnologia utilizzata}
@@ -242,6 +251,7 @@ Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tr
 \label{tab:rt2}
 \end{table}
 
+\newpage
 \subsection{Rischio Individuale\pediceG}
 
 \subsubsection{RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie}
@@ -288,6 +298,7 @@ Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tr
 \label{tab:ri2}
 \end{table}
 
+\newpage
 \subsection{Rischio Globale\pediceG}
 
 \subsubsection{RG1: Rischio Globale\pediceG derivato da forte disaccordo nel gruppo}
@@ -627,6 +638,7 @@ Durante questo primo sprint\pediceG si è concretizzato il rischio RT1: Rischio 
 \noindent\textbf{Retrospettiva\pediceG}\\
 Il primo sprint\pediceG si è concentrato sul raggiungimento di due obiettivi principali: prima stesura e conseguente redazione di Analisi dei requisiti\pediceG, Norme di Progetto\pediceG e Glossario\pediceG. Inoltre ci si è concentrati sull' aggiornamento del sito web con la suddivisione in CANDIDATURA\pediceG, RTB\pediceG e DIAPOSITIVE. Inoltre sono state implementate automazioni l'upload automatico dei verbali sul sito.
 
+\newpage
 \subsubsection{Sprint\pediceG 2}
 
 \textbf{Inizio:} 24/11/2025 \\
@@ -741,11 +753,12 @@ Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
-Durante questo secondo sprint\pediceG si è concretizzato il rischio RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie, a causa dell’inizio del progetto di Tecnologie WEB.
+Durante questo secondo sprint\pediceG si è concretizzato il rischio RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie, a causa dell'inizio del progetto di Tecnologie WEB.
 
 \noindent\textbf{Retrospettiva\pediceG}\\
-Nel secondo sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG individuata come priorità immediatae e fondamentale per le succesive fasi di progetto e sviluppo. L’obiettivo raggiunto è stato quello di portare l’analisi ad uno stadio avanzato.
+Nel secondo sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG individuata come priorità immediatae e fondamentale per le succesive fasi di progetto e sviluppo. L'obiettivo raggiunto è stato quello di portare l'analisi ad uno stadio avanzato.
 
+\newpage
 \subsubsection{Sprint\pediceG 3}
 
 \textbf{Inizio:} 09/12/2025 \\
@@ -760,8 +773,10 @@ In particolare, le attività previste sono:
     \item Continuazione della redazione del Piano di Progetto\pediceG
     \item Continuazione della redazione del'Analisi dei requisiti\pediceG
     \item Continuazione della redazione delle Norme di Progetto\pediceG
+    \item Redazione del verbale interno\pediceG del 11/12/2025
+    \item Redazione del verbale esterno\pediceG del 17/12/2025
     \item Continuazione studio delle tecnologie necessarie
-    \item Verifica\pediceG ed approvazione\pediceG del Glossario\pediceG
+    \item Riorganizzazione strutturale e contenutistica del  Glossario\pediceG e sua continuazione
 \end{itemize}
 
 \noindent\textbf{Rischi attesi}\\
@@ -862,6 +877,7 @@ XXX
 \noindent\textbf{Retrospettiva\pediceG}\\
 Nel terzo sprint\pediceG abbiamo concentrato gli sforzi XXX
 
+\newpage
 \subsubsection{Sprint\pediceG 4}
 
 \textbf{Inizio:} 05/01/2026 \\
@@ -976,6 +992,7 @@ XXX
 \noindent\textbf{Retrospettiva\pediceG}\\
 XXX
 
+\newpage
 \subsubsection{Sprint\pediceG 5}
 
 \textbf{Inizio:} 02/02/2026 \\
@@ -1090,6 +1107,7 @@ XXX
 \noindent\textbf{Retrospettiva\pediceG}\\
 XXX
 
+\newpage
 \subsubsection{Sprint\pediceG 6}
 
 \textbf{Inizio:} 02/03/2026 \\
