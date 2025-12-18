@@ -187,28 +187,102 @@ I termini che dispongono di una definizione nel Glossario saranno contrassegnati
 
 \section{Obiettivi stabiliti per la qualità}
 
-È fondamentale stabilire degli obiettivi da raggiungere per assicurare la qualità prefissata del prodotto. Questo documento definisce i valori di accettazione e ottimalità delle metriche secondo gli standard definiti nelle Norme di Progetto.
+È fondamentale stabilire degli obiettivi da raggiungere per assicurare la qualità prefissata del prodotto. 
+Questo documento definisce i valori di accettazione e ottimalità delle metriche secondo gli standard definiti 
+nelle Norme di Progetto.
 
 \subsection{Qualità di processo}
-Un indicatore della qualità di un prodotto è il metodo con cui è stato sviluppato. Se il processo di sviluppo segue delle linee guida ben definite, esso favorisce la buona riuscita del prodotto. Come stabilito nelle Norme di Progetto, nel nostro way of working\G abbiamo adottato lo Standard ISO/IEC 12207:1995 adattandolo alle nostre esigenze e a quelle del progetto. /////Oltre allo standard abbiamo deciso di effettuare delle revisioni periodiche per analizzare lo stato di avanzamento rispetto agli ovbiettivi stabilti./////LE FAREMO? INTANTO L'HO SCRITTO POI AL MASSIMO CANCELLIAMO
+Un indicatore della qualità di un prodotto è il metodo con cui è stato sviluppato. Se il processo di sviluppo segue 
+delle linee guida ben definite, esso favorisce la buona riuscita del prodotto. Come stabilito nelle Norme di Progetto, 
+nel nostro way of working abbiamo adottato lo Standard ISO/IEC 12207:1995 adattandolo alle nostre esigenze e a quelle 
+del progetto. /////Oltre allo standard abbiamo deciso di effettuare delle revisioni periodiche per analizzare lo stato di avanzamento rispetto agli ovbiettivi stabilti./////LE FAREMO? INTANTO L'HO SCRITTO POI AL MASSIMO CANCELLIAMO
 
-\subsubsection{Processi primari\G}
+\subsubsection{Processi primari}
+
+I processi primari sono quelle attività che iniziano o eseguono lo sviluppo, l'operazione o la manutenzione di prodotti software. Essi rappresentano le componenti fondamentali del ciclo di vita del progetto e sono suddivisi nelle seguenti categorie:
 \subsubsubsection{Fornitura}
-Tabella
+
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{2.5cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+\hline
+MPP01 & Estimated at completion (EAC) & $\pm 5\%$ rispetto al (BAC) & Budget at completion (BAC) \\
+\hline
+MPP02 & Estimate to complete (ETC) & $\geq 0$ & $\leq$ EAC \\
+\hline
+MPP03 & Actual cost (AC) & $\geq 0$ & $\leq$ EAC \\
+\hline
+MPP04 & Earned value (EV) & $\geq 0$ & $\leq$ EAC \\
+\hline
+MPP05 & Planned value (PV) & $\geq 0$ & $\leq$ Budget at completion (BAC) \\
+\hline
+MPP06 & Schedule variance (SV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
+\hline
+MPP07 & Cost variance (CV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
+\hline
+MPP08 & Cost Performance Index (CPI) & $\geq 0.9$ & $\geq 1.0$ \\
+\hline
+\end{tabularx}
+
+
+
 \subsubsubsection{Sviluppo}
-Tabella
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{2.5cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+\hline
+MPP09 & Requirements Stability Index (EAC) & $\pm 70\%$ & 100\% \\
+\hline
+\end{tabularx}
 
-\subsubsection{Processi di supporto\G}
+
+\subsubsection{Processi di supporto}
 \subsubsubsection{Documentazione}
-Tabella
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+\hline
+MPC10 & Indice di Gulpease del documento & $\geq 60\%$ & $\geq 80\%$ \\
+\hline
+MPC11 & Errori ortografici rilevati & $0$ & $0$ \\
+\hline
+\end{tabularx}
 \subsubsubsection{Verifica}
-Tabella
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+\hline
+MPC12 & Code Coverage & $\geq 80\%$ & $100\%$ \\
+\hline
+MPC13 & Test Success Rate & $100\%$ & $100\%$ \\
+\hline
+\end{tabularx}
 \subsubsubsection{Gestione della qualità}
-Tabella
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+\hline
+MPC14 & Quality metrics satisfied & $\geq 80\%$ & $100\%$ \\
+\hline
+\end{tabularx}
 
-\subsubsection{Processi organizzativi\G}
+\subsubsection{Processi organizzativi}
 \subsubsubsection{Gestione dei processi}
-Tabella
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+\hline
+MPC15 & Time Efficiency & $\geq 50\%$ & $100\%$ \\
+\hline
+\end{tabularx}
+
+
 
 \subsection{Qualità di prodotto}
 
