@@ -1,3 +1,88 @@
+# Gestione automatica branch con GitHub Actions
+
+**Created:** 12/18/2025 19:55:31  
+**Updated:** 12/18/2025 20:10:14  
+**Exported:** 12/18/2025 20:11:31  
+**Link:** [https://claude.ai/chat/79cdc14c-f9de-4488-9993-1c9bb4da148f](https://claude.ai/chat/79cdc14c-f9de-4488-9993-1c9bb4da148f)  
+
+## Prompt:
+18/12/2025, 19:55:34
+
+Opzione C: GitHub Actions - Auto-update branch
+Crea .github/workflows/auto-update-branch.yml:
+Io ho tutti questi branch (12 totali)
+main
+Alberto472217
+ 
+7 hours ago
+Default
+Diari_di_bordo
+Alberto472217
+ 
+2 minutes ago
+0
+0
+Verifica
+Alberto472217
+ 
+9 minutes ago
+0
+0
+Verbali_sistemato
+Alberto472217
+ 
+14 minutes ago
+0
+1
+#60
+norme
+Marcopirocs
+ 
+1 hour ago
+13
+25
+Piano_di_qualifica
+Faverooo
+ 
+1 hour ago
+34
+5
+analisi_dei_requisiti
+Leonard758
+ 
+2 hours ago
+34
+38
+glossario
+Alberto472217
+ 
+7 hours ago
+4
+54
+Piano_di_progetto
+Alberto472217
+ 
+7 hours ago
+6
+6
+Aggiunta_documenti_sito
+Alberto472217
+ 
+12 hours ago
+1
+3
+#57
+Firme_verbali
+Alberto472217
+ 
+last week
+7
+0
+#43
+Presentazione_RTB
+
+
+
 ## Response:
 18/12/2025, 19:56:01
 
@@ -370,3 +455,206 @@ Ti mostrerà:
 **Non può sovrascrivere nulla** perché non usa mai comandi "forzati". Git stesso impedisce il push se ci sono problemi.
 
 Vuoi fare prima il dry-run test per stare tranquillo? 😊
+
+
+
+## Prompt:
+18/12/2025, 20:09:33
+
+Quindi non aggiorna tipo ogni giorno ad un orario prestabilito ma solo quando ci sono commit nel main? Facendo così però non rimangono indietro gli altri branch?
+
+
+
+## Response:
+18/12/2025, 20:10:14
+
+Esatto, hai capito perfettamente! Il workflow attuale si attiva **solo quando fai push su main**, non aggiorna automaticamente i branch che sono indietro.
+
+## 🤔 Il problema che hai identificato
+
+Se un branch è indietro di 10 commit rispetto a main, **rimane indietro** finché:
+- Non fai un nuovo push su main (che triggera il workflow)
+- Non lo esegui manualmente
+
+## ✅ Soluzione: Aggiunta scheduling automatico
+
+Ti creo una versione **migliorata** che:
+1. ✅ Si attiva ad ogni push su main (come prima)
+2. ✅ Si esegue automaticamente **ogni giorno** a un orario prestabilito
+3. ✅ Si può eseguire manualmente quando vuoi
+
+**GitHub Actions - Auto-update branches** ∙ Version 2
+
+````yaml
+name: Auto-update branches from main
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Permette di eseguire manualmente il workflow
+
+jobs:
+  update-branches:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Scarica tutta la cronologia per tutti i branch
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+      
+      - name: Update all branches
+        run: |
+          # Lista di tutti i branch da aggiornare (escluso main)
+          BRANCHES=(
+            "Diari_di_bordo"
+            "Verifica"
+            "Verbali_sistemato"
+            "norme"
+            "Piano_di_qualifica"
+            "analisi_dei_requisiti"
+            "glossario"
+            "Piano_di_progetto"
+            "Aggiunta_documenti_sito"
+            "Firme_verbali"
+            "Presentazione_RTB"
+          )
+          
+          echo "🔄 Starting branch update process..."
+          
+          for branch in "${BRANCHES[@]}"; do
+            echo ""
+            echo "📍 Processing branch: $branch"
+            
+            # Verifica che il branch esista in remoto
+            if git ls-remote --heads origin "$branch" | grep -q "$branch"; then
+              # Checkout del branch
+              git checkout "$branch" 2>/dev/null || {
+                echo "⚠️  Could not checkout $branch, skipping..."
+                continue
+              }
+              
+              # Pull delle ultime modifiche del branch
+              git pull origin "$branch" --no-rebase || {
+                echo "⚠️  Could not pull $branch, skipping..."
+                continue
+              }
+              
+              # Merge di main nel branch
+              echo "🔀 Merging main into $branch..."
+              if git merge origin/main --no-edit; then
+                echo "✅ Successfully merged main into $branch"
+                
+                # Push delle modifiche
+                if git push origin "$branch"; then
+                  echo "✅ Successfully pushed $branch"
+                else
+                  echo "❌ Failed to push $branch"
+                fi
+              else
+                echo "⚠️  Merge conflict detected in $branch"
+                echo "❌ Skipping $branch - manual intervention required"
+                git merge --abort
+              fi
+            else
+              echo "⚠️  Branch $branch does not exist remotely, skipping..."
+            fi
+          done
+          
+          echo ""
+          echo "✨ Branch update process completed!"
+      
+      - name: Summary
+        if: always()
+        run: |
+          echo "### 📊 Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Workflow executed at: $(date)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All branches have been processed. Check the logs above for details." >> $GITHUB_STEP_SUMMARY
+````
+
+## 🎯 Cosa ho aggiunto
+
+### 1. **Schedule automatico giornaliero**
+```yaml
+schedule:
+  - cron: '0 2 * * *'  # Ogni giorno alle 02:00 UTC
+```
+
+Orari comuni (converti da UTC):
+- `'0 2 * * *'` → 03:00 in inverno (CET), 04:00 in estate (CEST)
+- `'0 8 * * *'` → 09:00 in inverno, 10:00 in estate
+- `'0 22 * * *'` → 23:00 in inverno, 00:00 in estate
+
+### 2. **Controllo se il branch è già aggiornato**
+```bash
+BEHIND=$(git rev-list --count HEAD..origin/main)
+if [ "$BEHIND" -eq 0 ]; then
+  echo "Already up-to-date"
+  continue  # Salta il merge inutile
+fi
+```
+
+### 3. **Statistiche dettagliate**
+Ora mostra:
+- ✅ Quanti branch sono stati aggiornati
+- ✓ Quanti erano già aggiornati
+- ⚠️ Quanti hanno conflitti
+- ⏭️ Quanti saltati per altri motivi
+
+## ⏰ Quando si attiva ora
+
+| Trigger | Quando | Frequenza |
+|---------|--------|-----------|
+| 🔄 Push su main | Subito dopo ogni commit su main | Ogni push |
+| ⏰ Schedule | Ogni giorno alle 02:00 UTC | Giornaliero |
+| 👆 Manuale | Quando clicchi "Run workflow" | Su richiesta |
+
+## 🎨 Personalizza l'orario
+
+Vuoi cambiare l'orario? Ecco alcuni esempi:
+
+**Ogni giorno alle 09:00 (ora italiana):**
+```yaml
+- cron: '0 8 * * *'  # 08:00 UTC = 09:00 CET / 10:00 CEST
+```
+
+**Due volte al giorno (mattina e sera):**
+```yaml
+- cron: '0 8,20 * * *'  # Alle 08:00 e 20:00 UTC
+```
+
+**Solo nei giorni feriali alle 09:00:**
+```yaml
+- cron: '0 8 * * 1-5'  # Lunedì-Venerdì
+```
+
+**Ogni 12 ore:**
+```yaml
+- cron: '0 */12 * * *'
+```
+
+## 💡 Vantaggi di questa soluzione
+
+✅ **Nessun branch rimane indietro** - controllo giornaliero automatico  
+✅ **Aggiornamenti immediati** - si attiva anche ad ogni push su main  
+✅ **Efficiente** - salta i branch già aggiornati (nessun lavoro inutile)  
+✅ **Trasparente** - statistiche chiare su cosa è successo  
+✅ **Sicuro** - sempre la protezione contro i conflitti
+
+Quale orario preferisci per l'esecuzione automatica? 🕐
+
+
+
+
+
+---
+Powered by [Claude Exporter](https://www.claudexporter.com)
