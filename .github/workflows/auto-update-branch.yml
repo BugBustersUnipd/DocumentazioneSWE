@@ -1,10 +1,17 @@
 name: Auto-update branches from main
 
 on:
+  # Si attiva quando c'è un push su main
   push:
     branches:
       - main
-  workflow_dispatch: # Permette di eseguire manualmente il workflow
+  
+  # Si attiva automaticamente ogni giorno alle 02:00 (ora UTC)
+  schedule:
+    - cron: '0 2 * * *'  # Ogni giorno alle 02:00 UTC (03:00 CET, 04:00 CEST)
+  
+  # Permette esecuzione manuale
+  workflow_dispatch:
 
 jobs:
   update-branches:
@@ -40,6 +47,13 @@ jobs:
           )
           
           echo "🔄 Starting branch update process..."
+          echo "Triggered by: ${{ github.event_name }}"
+          echo ""
+          
+          SUCCESS_COUNT=0
+          CONFLICT_COUNT=0
+          SKIP_COUNT=0
+          ALREADY_UPDATED=0
           
           for branch in "${BRANCHES[@]}"; do
             echo ""
@@ -50,14 +64,26 @@ jobs:
               # Checkout del branch
               git checkout "$branch" 2>/dev/null || {
                 echo "⚠️  Could not checkout $branch, skipping..."
+                SKIP_COUNT=$((SKIP_COUNT + 1))
                 continue
               }
               
               # Pull delle ultime modifiche del branch
               git pull origin "$branch" --no-rebase || {
                 echo "⚠️  Could not pull $branch, skipping..."
+                SKIP_COUNT=$((SKIP_COUNT + 1))
                 continue
               }
+              
+              # Verifica se il branch è già aggiornato
+              BEHIND=$(git rev-list --count HEAD..origin/main)
+              if [ "$BEHIND" -eq 0 ]; then
+                echo "✅ $branch is already up-to-date with main"
+                ALREADY_UPDATED=$((ALREADY_UPDATED + 1))
+                continue
+              else
+                echo "📊 $branch is $BEHIND commit(s) behind main"
+              fi
               
               # Merge di main nel branch
               echo "🔀 Merging main into $branch..."
@@ -67,27 +93,53 @@ jobs:
                 # Push delle modifiche
                 if git push origin "$branch"; then
                   echo "✅ Successfully pushed $branch"
+                  SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
                 else
                   echo "❌ Failed to push $branch"
+                  SKIP_COUNT=$((SKIP_COUNT + 1))
                 fi
               else
                 echo "⚠️  Merge conflict detected in $branch"
                 echo "❌ Skipping $branch - manual intervention required"
                 git merge --abort
+                CONFLICT_COUNT=$((CONFLICT_COUNT + 1))
               fi
             else
               echo "⚠️  Branch $branch does not exist remotely, skipping..."
+              SKIP_COUNT=$((SKIP_COUNT + 1))
             fi
           done
           
           echo ""
+          echo "================================================"
           echo "✨ Branch update process completed!"
+          echo "================================================"
+          echo "✅ Successfully updated: $SUCCESS_COUNT"
+          echo "✓  Already up-to-date: $ALREADY_UPDATED"
+          echo "⚠️  Conflicts (skipped): $CONFLICT_COUNT"
+          echo "⏭️  Other issues (skipped): $SKIP_COUNT"
+          echo ""
+          
+          # Salva i risultati per il summary
+          echo "SUCCESS_COUNT=$SUCCESS_COUNT" >> $GITHUB_ENV
+          echo "CONFLICT_COUNT=$CONFLICT_COUNT" >> $GITHUB_ENV
+          echo "SKIP_COUNT=$SKIP_COUNT" >> $GITHUB_ENV
+          echo "ALREADY_UPDATED=$ALREADY_UPDATED" >> $GITHUB_ENV
       
       - name: Summary
         if: always()
         run: |
-          echo "### 📊 Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "### 📊 Branch Update Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Workflow executed at: $(date)" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** \`${{ github.event_name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Execution time:** $(date)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "All branches have been processed. Check the logs above for details." >> $GITHUB_STEP_SUMMARY
+          echo "#### Results" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Successfully updated: **$SUCCESS_COUNT** branch(es)" >> $GITHUB_STEP_SUMMARY
+          echo "- ✓ Already up-to-date: **$ALREADY_UPDATED** branch(es)" >> $GITHUB_STEP_SUMMARY
+          echo "- ⚠️ Conflicts detected: **$CONFLICT_COUNT** branch(es)" >> $GITHUB_STEP_SUMMARY
+          echo "- ⏭️ Skipped (other issues): **$SKIP_COUNT** branch(es)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "$CONFLICT_COUNT" -gt 0 ]; then
+            echo "⚠️ **Action required:** Some branches have merge conflicts and need manual intervention." >> $GITHUB_STEP_SUMMARY
+          fi
