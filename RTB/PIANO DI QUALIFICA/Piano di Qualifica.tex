@@ -15,6 +15,7 @@
 \usepackage{ifthen}
 \usepackage[table]{xcolor}
 \usepackage{tabularx}
+\usepackage{needspace}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
 \usepackage[titles]{tocloft}
@@ -50,6 +51,24 @@
 
 \renewcommand{\sectionmark}[1]{\markright{#1}}
 \newcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+
+
+% Macro tabella metrica (tabella uniforme, non spezzata e con stile coerente)
+\newcommand{\MetricTable}[1]{
+  \Needspace{10\baselineskip}% evita spezzamenti sgradevoli
+  \begin{table}[H]
+  \centering
+  \arrayrulecolor{primaryblue}
+  \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
+  \hline
+  \rowcolor{primaryblue!40}
+  		\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+  \hline
+  \ignorespaces
+  #1
+  \end{tabularx}
+  \end{table}
+}
 
 
 
@@ -202,11 +221,7 @@ del progetto. /////Oltre allo standard abbiamo deciso di effettuare delle revisi
 I processi primari sono quelle attività che iniziano o eseguono lo sviluppo, l'operazione o la manutenzione di prodotti software. Essi rappresentano le componenti fondamentali del ciclo di vita del progetto e sono suddivisi nelle seguenti categorie:
 \subsubsubsection{Fornitura}
 
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{2.5cm}|}
-\hline
-\rowcolor{primaryblue!40}
-\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
-\hline
+\MetricTable{
 MPC01 & Estimated at completion (EAC) & $\pm 5\%$ rispetto al (BAC) & Budget at completion (BAC) \\
 \hline
 MPC02 & Estimate to complete (ETC) & $\geq 0$ & $\leq$ EAC \\
@@ -222,65 +237,39 @@ MPC06 & Schedule variance (SV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
 MPC07 & Cost variance (CV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
 \hline
 MPC08 & Cost Performance Index (CPI) & $\geq 0.9$ & $\geq 1.0$ \\
-\hline
-\end{tabularx}
+\hline}
 
 
 
 \subsubsubsection{Sviluppo}
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{2.5cm}|}
-\hline
-\rowcolor{primaryblue!40}
-\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
-\hline
+\MetricTable{
 MPC09 & Requirements Stability Index (EAC) & $\pm 70\%$ & 100\% \\
-\hline
-\end{tabularx}
+\hline}
 
 
 \subsubsection{Processi di supporto}
 \subsubsubsection{Documentazione}
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
-\hline
-\rowcolor{primaryblue!40}
-\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
-\hline
+\MetricTable{
 MPC10 & Indice di Gulpease del documento & $\geq 60\%$ & $\geq 80\%$ \\
 \hline
 MPC11 & Errori ortografici rilevati & $0$ & $0$ \\
-\hline
-\end{tabularx}
+\hline}
 \subsubsubsection{Verifica}
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
-\hline
-\rowcolor{primaryblue!40}
-\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
-\hline
+\MetricTable{
 MPC12 & Code Coverage & $\geq 80\%$ & $100\%$ \\
 \hline
 MPC13 & Test Success Rate & $100\%$ & $100\%$ \\
-\hline
-\end{tabularx}
+\hline}
 \subsubsubsection{Gestione della qualità}
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
-\hline
-\rowcolor{primaryblue!40}
-\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
-\hline
+\MetricTable{
 MPC14 & Quality metrics satisfied & $\geq 80\%$ & $100\%$ \\
-\hline
-\end{tabularx}
+\hline}
 
 \subsubsection{Processi organizzativi}
 \subsubsubsection{Gestione dei processi}
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
-\hline
-\rowcolor{primaryblue!40}
-\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
-\hline
+\MetricTable{
 MPC15 & Time Efficiency & $\geq 50\%$ & $100\%$ \\
-\hline
-\end{tabularx}
+\hline}
 
 
 
@@ -293,70 +282,43 @@ standard ISO/IEC 9126 per garantire il rispetto di queste caratteristiche fondam
 sviluppato sia di alta qualità.
 
 \subsubsection{Funzionalità}
-Tabella
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
-\hline
-\rowcolor{primaryblue!40}
-\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
-\hline
+\MetricTable{
 MPD01 & Requisiti obbligatori soddisfatti & $100\%$ & $100\%$ \\
 \hline
 MPD02 & Requisiti desiderabili soddisfatti & $0\%$ & $100\%$ \\
 \hline
 MPD03 & Requisiti opzionali soddisfatti & $0\%$ & $100\%$ \\
-\hline
-\end{tabularx}
+\hline}
 
 \subsubsection{Affidabilità}
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
-\hline
-\rowcolor{primaryblue!40}
-\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
-\hline
+\MetricTable{
 MPD04 & Branch Coverage & $\geq 60\%$ & $\geq 80\%$ \\
 \hline
 MPD05 & Statement Coverage & $\geq 70\%$ & $\geq 90\%$ \\
 \hline
 MPD06 & Failure Density & $\leq 0.5$ & $\leq 0.1$ \\
-\hline
-\end{tabularx}
+\hline}
 
 \subsubsection{Efficienza}
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
-\hline
-\rowcolor{primaryblue!40}
-\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
-\hline
+\MetricTable{
 MPD07 & Time on Task & $\leq 60$ sec & $\leq 30$ sec \\
 \hline
 MPD08 & Error Rate & $\leq 5\%$ & $\leq 2\%$ \\
-\hline
-\end{tabularx}
+\hline}
 
 \subsubsection{Usabilità}
-Tabella
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
-\hline
-\rowcolor{primaryblue!40}
-\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
-\hline
+\MetricTable{
 MPD09 & Response Time & $\leq 2$ sec & $\leq 1$ sec \\
-\hline
-\end{tabularx}
+\hline}
 
 \subsubsection{Mantenibilità}
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
-\hline
-\rowcolor{primaryblue!40}
-\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
-\hline
+\MetricTable{
 MPD10 & Code Smells & $\leq 10$ & $\leq 5$ \\
 \hline
 MPD11 & Coefficient of Coupling & $\leq 0.4$ & $\leq 0.2$ \\
 \hline
 MPD12 & Cyclomatic complexity & $\leq 20$ & $\leq 10$ \\
-\hline
-\end{tabularx}
+\hline}
 
 \subsubsection{Portabilità}
 SERVE?? boh
