@@ -1,8 +1,8 @@
 # Gestione automatica branch con GitHub Actions
 
 **Created:** 12/18/2025 19:55:31  
-**Updated:** 12/18/2025 20:10:14  
-**Exported:** 12/18/2025 20:11:31  
+**Updated:** 12/18/2025 20:17:51  
+**Exported:** 12/18/2025 20:19:03  
 **Link:** [https://claude.ai/chat/79cdc14c-f9de-4488-9993-1c9bb4da148f](https://claude.ai/chat/79cdc14c-f9de-4488-9993-1c9bb4da148f)  
 
 ## Prompt:
@@ -651,6 +651,89 @@ Vuoi cambiare l'orario? Ecco alcuni esempi:
 ✅ **Sicuro** - sempre la protezione contro i conflitti
 
 Quale orario preferisci per l'esecuzione automatica? 🕐
+
+
+
+## Prompt:
+18/12/2025, 20:17:33
+
+Quindi se nel main ho un file con il seguente testo:
+
+Ciao 
+
+
+E nel Branch Glossario ho il file Ciao Bello
+
+Il branch glossario non viene updato vero?
+
+
+
+## Response:
+18/12/2025, 20:17:51
+
+Esatto! 🎯
+
+## 🔒 Cosa succede nel tuo esempio
+
+**Situazione:**
+- Main: `Ciao`
+- Branch Glossario: `Ciao Bello`
+
+**Stesso file, stessa posizione, testo diverso = CONFLITTO**
+
+### Il workflow fa questo:
+
+```bash
+1. Checkout branch "glossario" ✅
+2. Pull ultime modifiche ✅
+3. Tenta merge di main ❌ CONFLITTO!
+   
+   Git dice: "Non so quale versione tenere:
+   - Main dice: 'Ciao'
+   - Glossario dice: 'Ciao Bello'"
+   
+4. git merge --abort 🔄
+5. Branch glossario torna ESATTAMENTE com'era
+6. Log: "⚠️ Merge conflict detected in glossario"
+7. Passa al branch successivo ➡️
+```
+
+**Risultato finale:**
+- ❌ Branch glossario **NON viene toccato**
+- ✅ Rimane con `Ciao Bello`
+- 📝 Ti avvisa che c'è un conflitto da risolvere manualmente
+
+## 🔍 Quando succede un conflitto
+
+Git rileva conflitto quando **stesso file, stesse righe, contenuto diverso**:
+
+| Main | Branch | Risultato |
+|------|--------|-----------|
+| `Ciao` | `Ciao Bello` | ❌ CONFLITTO |
+| `Ciao` | File non esiste | ✅ Aggiunge il file |
+| File non esiste | `Ciao Bello` | ✅ Mantiene il file |
+| `Ciao\nMondo` | `Ciao\nBello` | ❌ CONFLITTO (riga 2 diversa) |
+| `Ciao` (riga 1) | `Bello` (riga 100) | ✅ Nessun conflitto (righe diverse) |
+
+## ✅ Quando il merge funziona
+
+Il workflow aggiorna il branch **solo se**:
+- Aggiungi nuovi file in main che non esistono nel branch
+- Modifichi file che il branch non ha toccato
+- Modifichi righe diverse dello stesso file
+
+## 🛡️ Garanzia di sicurezza
+
+```
+SE c'è anche solo 1 carattere in conflitto
+  → git merge --abort
+  → branch rimane identico a prima
+  → ZERO modifiche
+```
+
+È **impossibile** che il workflow sovrascriva `Ciao Bello` con `Ciao` perché Git stesso blocca l'operazione prima che succeda.
+
+Vuoi vedere un esempio pratico con un test su un branch sacrificabile? 🧪
 
 
 
