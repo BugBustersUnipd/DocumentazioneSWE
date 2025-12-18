@@ -207,21 +207,21 @@ I processi primari sono quelle attività che iniziano o eseguono lo sviluppo, l'
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
 \hline
-MPP01 & Estimated at completion (EAC) & $\pm 5\%$ rispetto al (BAC) & Budget at completion (BAC) \\
+MPC01 & Estimated at completion (EAC) & $\pm 5\%$ rispetto al (BAC) & Budget at completion (BAC) \\
 \hline
-MPP02 & Estimate to complete (ETC) & $\geq 0$ & $\leq$ EAC \\
+MPC02 & Estimate to complete (ETC) & $\geq 0$ & $\leq$ EAC \\
 \hline
-MPP03 & Actual cost (AC) & $\geq 0$ & $\leq$ EAC \\
+MPC03 & Actual cost (AC) & $\geq 0$ & $\leq$ EAC \\
 \hline
-MPP04 & Earned value (EV) & $\geq 0$ & $\leq$ EAC \\
+MPC04 & Earned value (EV) & $\geq 0$ & $\leq$ EAC \\
 \hline
-MPP05 & Planned value (PV) & $\geq 0$ & $\leq$ Budget at completion (BAC) \\
+MPC05 & Planned value (PV) & $\geq 0$ & $\leq$ Budget at completion (BAC) \\
 \hline
-MPP06 & Schedule variance (SV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
+MPC06 & Schedule variance (SV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
 \hline
-MPP07 & Cost variance (CV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
+MPC07 & Cost variance (CV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
 \hline
-MPP08 & Cost Performance Index (CPI) & $\geq 0.9$ & $\geq 1.0$ \\
+MPC08 & Cost Performance Index (CPI) & $\geq 0.9$ & $\geq 1.0$ \\
 \hline
 \end{tabularx}
 
@@ -233,7 +233,7 @@ MPP08 & Cost Performance Index (CPI) & $\geq 0.9$ & $\geq 1.0$ \\
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
 \hline
-MPP09 & Requirements Stability Index (EAC) & $\pm 70\%$ & 100\% \\
+MPC09 & Requirements Stability Index (EAC) & $\pm 70\%$ & 100\% \\
 \hline
 \end{tabularx}
 
@@ -286,18 +286,78 @@ MPC15 & Time Efficiency & $\geq 50\%$ & $100\%$ \\
 
 \subsection{Qualità di prodotto}
 
-Per qualità di prodotto si intende una valutazione complessiva del software sia dal punto di vista funzionale sia dal punto di vista strutturale. Il codice deve adempiere alle funzionalità prestabilite in modo efficiente e semplice, e al contempo essere manutenibile, affidabile e portabile. Il gruppo ha aderito allo standard ISO/IEC 9126 per garantire il rispetto di queste caratteristiche fondamentali, affinchè il prodotto sviluppato sia di alta qualità.
+Per qualità di prodotto si intende una valutazione complessiva del software sia dal punto di vista 
+funzionale sia dal punto di vista strutturale. Il codice deve adempiere alle funzionalità prestabilite in 
+modo efficiente e semplice, e al contempo essere manutenibile, affidabile e portabile. Il gruppo ha aderito allo 
+standard ISO/IEC 9126 per garantire il rispetto di queste caratteristiche fondamentali, affinchè il prodotto 
+sviluppato sia di alta qualità.
 
 \subsubsection{Funzionalità}
 Tabella
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+\hline
+MPD01 & Requisiti obbligatori soddisfatti & $100\%$ & $100\%$ \\
+\hline
+MPD02 & Requisiti desiderabili soddisfatti & $0\%$ & $100\%$ \\
+\hline
+MPD03 & Requisiti opzionali soddisfatti & $0\%$ & $100\%$ \\
+\hline
+\end{tabularx}
+
 \subsubsection{Affidabilità}
-Tabella
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+\hline
+MPD04 & Branch Coverage & $\geq 60\%$ & $\geq 80\%$ \\
+\hline
+MPD05 & Statement Coverage & $\geq 70\%$ & $\geq 90\%$ \\
+\hline
+MPD06 & Failure Density & $\leq 0.5$ & $\leq 0.1$ \\
+\hline
+\end{tabularx}
+
 \subsubsection{Efficienza}
-Tabella
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+\hline
+MPD07 & Time on Task & $\leq 60$ sec & $\leq 30$ sec \\
+\hline
+MPD08 & Error Rate & $\leq 5\%$ & $\leq 2\%$ \\
+\hline
+\end{tabularx}
+
 \subsubsection{Usabilità}
 Tabella
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+\hline
+MPD09 & Response Time & $\leq 2$ sec & $\leq 1$ sec \\
+\hline
+\end{tabularx}
+
 \subsubsection{Mantenibilità}
-Tabella
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+\hline
+MPD10 & Code Smells & $\leq 10$ & $\leq 5$ \\
+\hline
+MPD11 & Coefficient of Coupling & $\leq 0.4$ & $\leq 0.2$ \\
+\hline
+MPD12 & Cyclomatic complexity & $\leq 20$ & $\leq 10$ \\
+\hline
+\end{tabularx}
+
 \subsubsection{Portabilità}
-Tabella
+SERVE?? boh
 \end{document}
