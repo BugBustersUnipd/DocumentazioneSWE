@@ -1,8 +1,8 @@
 # Gestione automatica branch con GitHub Actions
 
 **Created:** 12/18/2025 19:55:31  
-**Updated:** 12/18/2025 20:17:51  
-**Exported:** 12/18/2025 20:19:03  
+**Updated:** 12/18/2025 20:35:04  
+**Exported:** 12/18/2025 20:37:02  
 **Link:** [https://claude.ai/chat/79cdc14c-f9de-4488-9993-1c9bb4da148f](https://claude.ai/chat/79cdc14c-f9de-4488-9993-1c9bb4da148f)  
 
 ## Prompt:
@@ -734,6 +734,239 @@ SE c'è anche solo 1 carattere in conflitto
 È **impossibile** che il workflow sovrascriva `Ciao Bello` con `Ciao` perché Git stesso blocca l'operazione prima che succeda.
 
 Vuoi vedere un esempio pratico con un test su un branch sacrificabile? 🧪
+
+
+
+## Prompt:
+18/12/2025, 20:34:45
+
+Nel branch aggiornato comparirà un messaggio?
+
+
+
+## Response:
+18/12/2025, 20:35:04
+
+Sì! Quando il merge va a buon fine, Git crea automaticamente un **commit di merge** nel branch aggiornato. 📝
+
+## 📬 Cosa appare nel branch aggiornato
+
+### Messaggio di commit standard:
+```
+Merge remote-tracking branch 'refs/remotes/origin/main' into <nome_branch>
+```
+
+Esempio per il branch `glossario`:
+```
+Merge remote-tracking branch 'refs/remotes/origin/main' into glossario
+```
+
+### 👤 Autore del commit:
+```
+Author: GitHub Actions Bot <actions@github.com>
+Committer: GitHub Actions Bot <actions@github.com>
+```
+
+## 🔍 Come vederlo
+
+Quando fai `git log` sul branch aggiornato vedrai:
+
+```bash
+commit abc123def456...
+Merge: 789xyz 456uvw
+Author: GitHub Actions Bot <actions@github.com>
+Date:   Thu Dec 19 02:00:00 2024
+
+    Merge remote-tracking branch 'refs/remotes/origin/main' into glossario
+
+commit 789xyz...  # Il tuo ultimo commit sul branch
+...
+
+commit 456uvw...  # I commit da main
+...
+```
+
+## 🎨 Vuoi personalizzare il messaggio?
+
+Posso modificare il workflow per avere messaggi più chiari:
+
+**GitHub Actions - Auto-update branches** ∙ Version 3
+
+````yaml
+name: Auto-update branches from main
+
+on:
+  # Si attiva quando c'è un push su main
+  push:
+    branches:
+      - main
+  
+  # Si attiva automaticamente ogni giorno alle 02:00 (ora UTC)
+  schedule:
+    - cron: '0 2 * * *'  # Ogni giorno alle 02:00 UTC (03:00 CET, 04:00 CEST)
+  
+  # Permette esecuzione manuale
+  workflow_dispatch:
+
+jobs:
+  update-branches:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Scarica tutta la cronologia per tutti i branch
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+      
+      - name: Update all branches
+        run: |
+          # Lista di tutti i branch da aggiornare (escluso main)
+          BRANCHES=(
+            "Diari_di_bordo"
+            "Verifica"
+            "Verbali_sistemato"
+            "norme"
+            "Piano_di_qualifica"
+            "analisi_dei_requisiti"
+            "glossario"
+            "Piano_di_progetto"
+            "Aggiunta_documenti_sito"
+            "Firme_verbali"
+            "Presentazione_RTB"
+          )
+          
+          echo "🔄 Starting branch update process..."
+          echo "Triggered by: ${{ github.event_name }}"
+          echo ""
+          
+          SUCCESS_COUNT=0
+          CONFLICT_COUNT=0
+          SKIP_COUNT=0
+          ALREADY_UPDATED=0
+          
+          for branch in "${BRANCHES[@]}"; do
+            echo ""
+            echo "📍 Processing branch: $branch"
+            
+            # Verifica che il branch esista in remoto
+            if git ls-remote --heads origin "$branch" | grep -q "$branch"; then
+              # Checkout del branch
+              git checkout "$branch" 2>/dev/null || {
+                echo "⚠️  Could not checkout $branch, skipping..."
+                SKIP_COUNT=$((SKIP_COUNT + 1))
+                continue
+              }
+              
+              # Pull delle ultime modifiche del branch
+              git pull origin "$branch" --no-rebase || {
+                echo "⚠️  Could not pull $branch, skipping..."
+                SKIP_COUNT=$((SKIP_COUNT + 1))
+                continue
+              }
+              
+              # Verifica se il branch è già aggiornato
+              BEHIND=$(git rev-list --count HEAD..origin/main)
+              if [ "$BEHIND" -eq 0 ]; then
+                echo "✅ $branch is already up-to-date with main"
+                ALREADY_UPDATED=$((ALREADY_UPDATED + 1))
+                continue
+              else
+                echo "📊 $branch is $BEHIND commit(s) behind main"
+              fi
+              
+              # Merge di main nel branch
+              echo "🔀 Merging main into $branch..."
+              COMMIT_MSG="🔄 Auto-merge: Aggiornato da main ($BEHIND commit)"
+              if git merge origin/main -m "$COMMIT_MSG"; then
+                echo "✅ Successfully merged main into $branch"
+                
+                # Push delle modifiche
+                if git push origin "$branch"; then
+                  echo "✅ Successfully pushed $branch"
+                  SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+                else
+                  echo "❌ Failed to push $branch"
+                  SKIP_COUNT=$((SKIP_COUNT + 1))
+                fi
+              else
+                echo "⚠️  Merge conflict detected in $branch"
+                echo "❌ Skipping $branch - manual intervention required"
+                git merge --abort
+                CONFLICT_COUNT=$((CONFLICT_COUNT + 1))
+              fi
+            else
+              echo "⚠️  Branch $branch does not exist remotely, skipping..."
+              SKIP_COUNT=$((SKIP_COUNT + 1))
+            fi
+          done
+          
+          echo ""
+          echo "================================================"
+          echo "✨ Branch update process completed!"
+          echo "================================================"
+          echo "✅ Successfully updated: $SUCCESS_COUNT"
+          echo "✓  Already up-to-date: $ALREADY_UPDATED"
+          echo "⚠️  Conflicts (skipped): $CONFLICT_COUNT"
+          echo "⏭️  Other issues (skipped): $SKIP_COUNT"
+          echo ""
+          
+          # Salva i risultati per il summary
+          echo "SUCCESS_COUNT=$SUCCESS_COUNT" >> $GITHUB_ENV
+          echo "CONFLICT_COUNT=$CONFLICT_COUNT" >> $GITHUB_ENV
+          echo "SKIP_COUNT=$SKIP_COUNT" >> $GITHUB_ENV
+          echo "ALREADY_UPDATED=$ALREADY_UPDATED" >> $GITHUB_ENV
+      
+      - name: Summary
+        if: always()
+        run: |
+          echo "### 📊 Branch Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** \`${{ github.event_name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Execution time:** $(date)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "#### Results" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Successfully updated: **$SUCCESS_COUNT** branch(es)" >> $GITHUB_STEP_SUMMARY
+          echo "- ✓ Already up-to-date: **$ALREADY_UPDATED** branch(es)" >> $GITHUB_STEP_SUMMARY
+          echo "- ⚠️ Conflicts detected: **$CONFLICT_COUNT** branch(es)" >> $GITHUB_STEP_SUMMARY
+          echo "- ⏭️ Skipped (other issues): **$SKIP_COUNT** branch(es)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "$CONFLICT_COUNT" -gt 0 ]; then
+            echo "⚠️ **Action required:** Some branches have merge conflicts and need manual intervention." >> $GITHUB_STEP_SUMMARY
+          fi
+````
+
+Ora il messaggio sarà più chiaro:
+```
+🔄 Auto-merge: Aggiornato da main (5 commit)
+```
+
+Ti dice anche quanti commit sono stati integrati! 
+
+## 📊 Esempio visivo su GitHub
+
+Quando guardi il branch su GitHub vedrai:
+
+```
+┌─────────────────────────────────────────────────────┐
+│ 🔄 Auto-merge: Aggiornato da main (5 commit)        │
+│ GitHub Actions Bot committed 2 hours ago             │
+└─────────────────────────────────────────────────────┘
+```
+
+## 🔔 Notifiche
+
+Se hai le notifiche GitHub attive, riceverai anche:
+- 📧 Email con il commit di merge
+- 🔔 Notifica nell'interfaccia GitHub
+- 📱 Notifica nell'app mobile (se installata)
+
+Vuoi un messaggio ancora più personalizzato o con informazioni diverse? 😊
 
 
 
