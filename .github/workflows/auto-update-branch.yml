@@ -87,7 +87,8 @@ jobs:
               
               # Merge di main nel branch
               echo "🔀 Merging main into $branch..."
-              if git merge origin/main --no-edit; then
+              COMMIT_MSG="🔄 Auto-merge: Aggiornato da main ($BEHIND commit)"
+              if git merge origin/main -m "$COMMIT_MSG"; then
                 echo "✅ Successfully merged main into $branch"
                 
                 # Push delle modifiche
