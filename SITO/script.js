@@ -133,4 +133,124 @@ document.addEventListener('DOMContentLoaded', function () {
     if (mainContent) {
         mainContent.setAttribute('aria-live', 'polite');
     }
+
+    // ===== CONTROLLO HASH ALL'AVVIO =====
+    // Controlla l'hash all'avvio per attivare la tab corretta
+    function checkHashOnLoad() {
+        const hash = window.location.hash.substring(1); // Rimuove il #
+        if (hash && ['candidatura', 'diapositive', 'rtb'].includes(hash)) {
+            showDocPanel(hash);
+        }
+    }
+    
+    // Chiama la funzione all'avvio
+    checkHashOnLoad();
+    
+    // Aggiungi listener per cambiamenti dell'hash
+    window.addEventListener('hashchange', checkHashOnLoad);
+
+    // ===== GESTIONE STATO DEI DETAILS (MANTIENE GLI ELEMENTI ESPANSI) =====
+    function saveDetailsState() {
+        const detailsState = {};
+        document.querySelectorAll('details').forEach(details => {
+            const id = details.id || details.querySelector('summary')?.textContent?.trim();
+            if (id) {
+                detailsState[id] = details.open;
+            }
+        });
+        localStorage.setItem('detailsState', JSON.stringify(detailsState));
+    }
+
+    function restoreDetailsState() {
+        const savedState = localStorage.getItem('detailsState');
+        if (savedState) {
+            const detailsState = JSON.parse(savedState);
+            
+            document.querySelectorAll('details').forEach(details => {
+                const id = details.id || details.querySelector('summary')?.textContent?.trim();
+                if (id && detailsState[id] === true) {
+                    // Usa setTimeout per assicurarsi che il DOM sia completamente pronto
+                    setTimeout(() => {
+                        details.open = true;
+                    }, 10);
+                }
+            });
+        }
+    }
+
+    // Ripristina lo stato dei details al caricamento della pagina
+    restoreDetailsState();
+    
+    // Salva lo stato dei details quando cambiano
+    document.querySelectorAll('details').forEach(details => {
+        details.addEventListener('toggle', saveDetailsState);
+    });
+
+    // ===== FUNZIONALITÀ TORNA SU =====
+    const tornaSuBtn = document.getElementById('tornaSuBtn');
+
+    function mostraTornaSuBtn() {
+        if (window.scrollY > 300) {
+            tornaSuBtn.style.display = 'flex';
+            setTimeout(() => {
+                tornaSuBtn.classList.add('visible');
+            }, 10);
+        } else {
+            tornaSuBtn.classList.remove('visible');
+            setTimeout(() => {
+                if (!tornaSuBtn.classList.contains('visible')) {
+                    tornaSuBtn.style.display = 'none';
+                }
+            }, 300);
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    if (tornaSuBtn) {
+        window.addEventListener('scroll', mostraTornaSuBtn);
+        tornaSuBtn.addEventListener('click', scrollToTop);
+        // Controllo iniziale
+        mostraTornaSuBtn();
+    }
+
+    // ===== FUNZIONALITÀ MODALITÀ SCURA/CHIARA =====
+    const temaToggleBtn = document.getElementById('temaToggleBtn');
+    const temaIcon = temaToggleBtn?.querySelector('.icon');
+
+    // SEMPRE TEMA CHIARO ALL'APERTURA - IGNORA QUALSIASI PREFERENZA SALVATA
+    function applicaTema(tema) {
+        if (tema === 'dark') {
+            document.body.classList.add('dark-theme');
+            if (temaIcon) temaIcon.textContent = '☀️';
+            temaToggleBtn?.classList.add('dark');
+        } else {
+            document.body.classList.remove('dark-theme');
+            if (temaIcon) temaIcon.textContent = '🌙';
+            temaToggleBtn?.classList.remove('dark');
+        }
+        
+        // NON SALVIAMO LA PREFERENZA IN LOCALSTORAGE
+    }
+
+    // Cambia il tema
+    function cambiaTema() {
+        const temaAttuale = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+        const nuovoTema = temaAttuale === 'dark' ? 'light' : 'dark';
+        
+        applicaTema(nuovoTema);
+    }
+
+    // Inizializza SEMPRE con il tema chiaro
+    applicaTema('light');
+    
+    // Aggiungi event listener al pulsante
+    if (temaToggleBtn) {
+        temaToggleBtn.addEventListener('click', cambiaTema);
+    }
 });
