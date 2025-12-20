@@ -1,11 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // New navigation and internal documentation switch
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownToggle = dropdown?.querySelector('.dropdown-toggle');
-    const dropdownMenu = dropdown?.querySelector('.dropdown-menu');
-    const dropdownItems = dropdown?.querySelectorAll('.dropdown-item');
-
-    // Smooth scroll for anchor links that should go to sections
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -13,15 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
             if (href && href.startsWith('#')) {
                 const target = document.querySelector(href);
                 if (target) {
-                    // if the link is meant to switch an internal doc panel, let showDocPanel
-                    // handle activation and scrolling to the specific panel
                     if (doc) {
                         e.preventDefault();
                         showDocPanel(doc);
                         return;
                     }
 
-                    // otherwise perform a normal smooth scroll to the target section
                     e.preventDefault();
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
@@ -29,32 +20,34 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // doc panel switching inside the Documentazione section
+    // Doc panel switching inside the Documentazione section
     const docToggles = document.querySelectorAll('.doc-toggle');
     const docPanels = document.querySelectorAll('.doc-panel');
 
     function scrollToElement(el) {
         if (!el) return;
         const header = document.querySelector('header');
-        const headerHeight = header ? header.getBoundingClientRect().height : 110; // fallback
+        const headerHeight = header ? header.getBoundingClientRect().height : 110;
         const rect = el.getBoundingClientRect();
         const y = rect.top + window.pageYOffset - (headerHeight + 12);
         window.scrollTo({ top: y, behavior: 'auto' });
     }
 
     function showDocPanel(name) {
-        // generic panel switcher: panel id is 'panel-' + name
+        // Hide all panels
         docPanels.forEach(p => {
             p.classList.remove('active');
             p.setAttribute('aria-hidden', 'true');
         });
+        
+        // Show selected panel
         const panelId = 'panel-' + name;
         const active = document.getElementById(panelId);
         if (active) {
             active.classList.add('active');
             active.setAttribute('aria-hidden', 'false');
         } else {
-            // fallback to candidatura if panel not found
+            // Fallback to candidatura if panel not found
             const fallback = document.getElementById('panel-candidatura');
             if (fallback) {
                 fallback.classList.add('active');
@@ -62,71 +55,34 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // update doc toggle buttons (the top tabs)
+        // Update doc toggle buttons
         docToggles.forEach(btn => {
             btn.classList.toggle('active', btn.getAttribute('data-show') === name);
             btn.setAttribute('aria-selected', btn.classList.contains('active') ? 'true' : 'false');
         });
 
-        // update dropdown items active state if present
-        dropdownItems?.forEach(it => {
-            const itDoc = it.getAttribute('data-doc');
-            if (itDoc === name) {
-                it.classList.add('active');
-            } else {
-                it.classList.remove('active');
-            }
-        });
-
-        // scroll to the "Documentazione" title (not the whole section)
+        // Scroll to the "Documentazione" title
         const docTitle = document.querySelector('#candidatura .page-title');
         scrollToElement(docTitle);
-        // focus the title for a11y
+        
+        // Focus the title for accessibility
         if (docTitle) {
             docTitle.setAttribute('tabindex', '-1');
-            try { docTitle.focus({ preventScroll: true }); } catch (_) { docTitle.focus(); }
+            try { 
+                docTitle.focus({ preventScroll: true }); 
+            } catch (_) { 
+                docTitle.focus(); 
+            }
         }
     }
 
+    // Add click handlers to doc toggle buttons
     docToggles.forEach(btn => {
         btn.addEventListener('click', function(e) {
             const show = this.getAttribute('data-show');
             showDocPanel(show);
         });
     });
-
-    // Wire dropdown items to scroll and switch panel
-    dropdownItems?.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const doc = this.getAttribute('data-doc');
-            if (doc) {
-                showDocPanel(doc);
-            }
-            dropdown.classList.remove('active');
-        });
-    });
-
-    // Dropdown open/close behavior
-    if (dropdownToggle && dropdown) {
-        dropdownToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const isActive = dropdown.classList.toggle('active');
-            this.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-            if (isActive) {
-                const first = dropdown.querySelector('.dropdown-item');
-                first?.focus();
-            }
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('active');
-                dropdownToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    }
 
     // Announce page load to screen readers
     const mainContent = document.getElementById('main-content');

@@ -45,25 +45,42 @@ body {
     top: 1em;
 }
 
+/* Header centrato - NON sticky */
 header {
     background: var(--white);
     color: var(--text-dark);
     padding: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
     border-bottom: 3px solid var(--primary-blue);
 }
 
 .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 40px;
-    gap: 20px;
     max-width: 1400px;
     margin: 0 auto;
+    padding: 20px 40px;
+}
+
+.header-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.header-centered .brand {
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-centered .brand-text {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.header-centered .logo {
+    margin-bottom: 10px;
 }
 
 .brand {
@@ -92,149 +109,20 @@ header {
     color: var(--text-gray);
 }
 
-.main-nav {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
 }
 
-.nav-link {
-    background: transparent;
-    color: var(--text-dark);
-    border: none;
-    padding: 12px 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
+.tab-content {
+    display: none;
+    padding: 40px;
+    min-height: calc(100vh - 200px);
 }
 
-.nav-link:hover {
-    background: var(--hover-bg);
-    color: var(--primary-blue);
-}
-
-.nav-link:focus {
-    outline: 3px solid var(--focus-outline);
-    outline-offset: 2px;
-}
-
-.glossario-link {
-    background: transparent;
-    color: var(--primary-blue);
-    font-weight: 600;
-    border: 2px solid var(--primary-blue);
-}
-
-.glossario-link:hover {
-    background: var(--primary-blue);
-    color: var(--white);
-    border-color: var(--primary-blue);
-}
-
-/* Dropdown Menu - Focus principale */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-toggle {
-    position: relative;
-    background: var(--primary-blue);
-    color: var(--white);
-    font-size: 1.1rem;
-    font-weight: 700;
-    padding: 14px 28px;
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-}
-
-.dropdown-toggle:hover {
-    background: var(--primary-blue-dark);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
-}
-
-.dropdown-arrow {
-    font-size: 0.7em;
-    margin-left: 4px;
-    transition: transform 0.2s ease;
-}
-
-.dropdown.active .dropdown-arrow {
-    transform: rotate(180deg);
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--white);
-    border: 2px solid var(--primary-blue);
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.25);
-    min-width: 220px;
-    margin-top: 8px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.dropdown.active .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-item {
+.tab-content.active {
     display: block;
-    width: 100%;
-    padding: 14px 22px;
-    background: transparent;
-    border: none;
-    text-align: left;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-dark);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border-radius: 6px;
-    margin: 4px;
-}
-
-.dropdown-item:hover {
-    background: var(--secondary-blue);
-    color: var(--primary-blue);
-    font-weight: 600;
-}
-
-.dropdown-item:focus {
-    outline: 2px solid var(--focus-outline);
-    outline-offset: -2px;
-    background: var(--secondary-blue);
-}
-
-.dropdown-item.active {
-    background: var(--primary-blue);
-    color: var(--white);
-    font-weight: 600;
-}
-
-.dropdown-item.active:hover {
-    background: var(--primary-blue-dark);
-}
-
-.nav-tabs {
-    display: flex;
-    gap: 8px;
 }
 
 .tab-btn {
@@ -267,29 +155,11 @@ header {
     border-color: var(--primary-blue);
 }
 
-
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.tab-content {
-    display: none;
-    padding: 40px;
-    min-height: calc(100vh - 200px);
-}
-
-.tab-content.active {
-    display: block;
-}
-
 /* Documentation panel controls and card layout */
 .documentation .doc-controls {
     display: flex;
     gap: 12px;
     margin-bottom: 18px;
-    /* Allow tab buttons to wrap on small screens */
     flex-wrap: wrap;
 }
 
@@ -332,7 +202,7 @@ main {
 
 /* Ensure anchor targets sit nicely under the sticky header */
 section[role="region"] {
-    scroll-margin-top: 92px; /* header height + small gap */
+    scroll-margin-top: 92px;
 }
 
 /* Styles for verbali collapsible folders using details/summary */
@@ -346,7 +216,6 @@ section[role="region"] {
 
 .verbali-folder summary {
     list-style: none;
-    /* keep space for arrow caret on the left */
     padding: 14px 18px 14px 44px;
     cursor: pointer;
     font-weight: 700;
@@ -363,7 +232,7 @@ section[role="region"] {
 
 /* Arrow caret indicator for collapsible folders */
 .verbali-folder summary::before {
-    content: "▸"; /* triangular caret */
+    content: "▸";
     position: absolute;
     left: 14px;
     top: 50%;
@@ -449,7 +318,6 @@ section[role="region"] {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    /* make anchors inline-level flex containers so viewer links can sit on the same line */
     display: inline-flex;
     align-items: center;
     padding: 14px 16px;
@@ -476,7 +344,7 @@ section[role="region"] {
     border-left: 2px solid var(--secondary-blue);
 }
 
-/* Layout for verbali list items: put file title and action buttons on one line */
+/* Layout for verbali list items */
 .doc-list li {
     display: flex;
     align-items: center;
@@ -487,7 +355,7 @@ section[role="region"] {
 .file-title {
     color: var(--primary-blue);
     font-weight: 600;
-    flex: 1 1 auto; /* allow title to take remaining space */
+    flex: 1 1 auto;
 }
 
 .btn {
@@ -565,10 +433,10 @@ section[role="region"] {
 }
 
 .member-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .member-name {
@@ -659,31 +527,41 @@ section[role="region"] {
     }
 }
 
+/* PDF Viewer Link Styles */
+.viewer-link {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.viewer-link:hover {
+    color: #218838;
+    text-decoration: underline;
+}
+
+.viewer-link:focus {
+    outline: 2px solid #28a745;
+    outline-offset: 2px;
+}
+
+.btn-viewer.viewer-link {
+    color: var(--white);
+    text-decoration: none;
+    border-color: var(--primary-blue);
+}
+
+.btn-viewer.viewer-link:hover,
+.btn-viewer.viewer-link:focus {
+    background: var(--primary-blue-dark);
+    color: var(--white);
+    outline: 3px solid var(--focus-outline);
+    outline-offset: 2px;
+}
+
 @media (max-width: 768px) {
     .header-inner {
-        flex-direction: column;
         padding: 20px;
-        gap: 15px;
-    }
-    
-    .main-nav {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .nav-link {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-    
-    .dropdown-menu {
-        left: 50%;
-        transform: translateX(-50%) translateY(-10px);
-    }
-    
-    .dropdown.active .dropdown-menu {
-        transform: translateX(-50%) translateY(0);
     }
     
     .tab-content {
@@ -720,9 +598,8 @@ section[role="region"] {
         padding: 12px;
     }
 
-    /* Make tab buttons responsive: allow shrinking and wrapping */
     .documentation .doc-controls .tab-btn {
-        flex: 1 1 40%; /* try two per row when possible */
+        flex: 1 1 40%;
         min-width: 140px;
         padding: 10px 14px;
     }
@@ -758,11 +635,6 @@ section[role="region"] {
         font-size: 1.4rem;
     }
     
-    .nav-link {
-        padding: 8px 12px;
-        font-size: 0.85rem;
-    }
-    
     .team-grid {
         grid-template-columns: 1fr;
     }
@@ -771,7 +643,6 @@ section[role="region"] {
         font-size: 2.5rem;
     }
 
-    /* On very small screens stack tab buttons vertically for best usability */
     .documentation .doc-controls {
         gap: 8px;
     }
@@ -784,40 +655,7 @@ section[role="region"] {
     }
 }
 
-/* PDF Viewer Link Styles */
-.viewer-link {
-    color: #28a745;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9em;
-}
-
-.viewer-link:hover {
-    color: #218838;
-    text-decoration: underline;
-}
-
-.viewer-link:focus {
-    outline: 2px solid #28a745;
-    outline-offset: 2px;
-}
-
-/* Ensure viewer buttons (which also have .viewer-link) remain readable on blue background */
-.btn-viewer.viewer-link {
-    color: var(--white);
-    text-decoration: none;
-    border-color: var(--primary-blue);
-}
-
-.btn-viewer.viewer-link:hover,
-.btn-viewer.viewer-link:focus {
-    background: var(--primary-blue-dark);
-    color: var(--white);
-    outline: 3px solid var(--focus-outline);
-    outline-offset: 2px;
-}
-
-/* Hide viewer links on mobile devices since iframe viewer doesn't work on mobile */
+/* Hide viewer links on mobile devices */
 @media screen and (max-width: 767px) {
     .viewer-link {
         display: none !important;

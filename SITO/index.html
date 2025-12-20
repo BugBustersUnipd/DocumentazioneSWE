@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BugBusters - Documentazione Progetto</title>
     <meta name="description" content="Documentazione ufficiale del progetto BugBusters - Ingegneria del Software">
-    <!-- Favicon: use existing assets file (case-sensitive on GitHub Pages) -->
     <link rel="icon" href="assets/Logo.jpg" type="image/jpeg">
     <meta name="theme-color" content="#0066cc">
     <link rel="stylesheet" href="style.css">
@@ -14,58 +13,19 @@
     <a href="#main-content" class="skip-to-main">Salta al contenuto principale</a>
     
     <header role="banner">
-        <div class="header-inner">
+        <div class="header-inner header-centered">
             <div class="brand">
-                <!-- Use correct capitalization to match repository file name on case-sensitive hosts -->
                 <img src="assets/Logo.jpg" alt="Logo BugBusters" class="logo">
                 <div class="brand-text">
                     <h1>BugBusters</h1>
-                    <p>Ingegneria del Software — Anno 2025/2026</p>
+                    <p>Ingegneria del Software – Anno 2025/2026</p>
                 </div>
             </div>
-
-            <nav class="main-nav" role="navigation" aria-label="Navigazione principale">
-                <a href="RTB/GLOSSARIO/Glossario.pdf" 
-                   class="nav-link glossario-link" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   aria-label="Apri il Glossario">
-                    📖 Glossario
-                </a>
-
-                <div class="dropdown">
-                    <a class="nav-link dropdown-toggle" 
-                            href="#candidatura"
-                            id="documentazione-menu">
-                        📁 Documentazione
-                        <span class="dropdown-arrow" aria-hidden="true">▼</span>
-                    </a>
-                    <div class="dropdown-menu" role="menu" aria-labelledby="documentazione-menu">
-                        <a class="dropdown-item active" 
-                                href="#candidatura"
-                                data-doc="candidatura">
-                            Candidatura
-                        </a>
-                        <a class="dropdown-item" 
-                                href="#candidatura"
-                                data-doc="diapositive">
-                            Diapositive
-                        </a>
-                        <a class="dropdown-item" 
-                                href="#candidatura"
-                                data-doc="rtb">
-                            RTB
-                        </a>
-                    </div>
-                </div>
-
-                <a class="nav-link" href="#chi-siamo" aria-label="Informazioni sul gruppo">👥 Chi siamo?</a>
-            </nav>
         </div>
     </header>
 
     <main id="main-content" role="main">
-        <!-- DOCUMENTAZIONE section: contains internal switch between Documentazione and Diapositive -->
+        <!-- DOCUMENTAZIONE section -->
         <section id="candidatura" class="section documentation" role="region" aria-label="Documentazione" tabindex="0">
             <div class="content-box">
                 <h2 class="page-title">Documentazione</h2>
@@ -77,17 +37,10 @@
                 </div>
 
                 <div class="doc-panels">
+                    <!-- Panel Candidatura -->
                     <div id="panel-candidatura" class="doc-panel active" role="tabpanel">
                         <h3 class="section-title">Candidatura</h3>
                         <div class="cards">
-                            <div class="card">
-                                <h4>Aggiudicazione appalto</h4>
-                                <p>Documento ufficiale di aggiudicazione.</p>
-                                <p>
-                                    <a href="CANDIDATURA/AGGIUDICAZIONE/Aggiudicazione appalto.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=CANDIDATURA/AGGIUDICAZIONE/Aggiudicazione%20appalto.pdf&title=Aggiudicazione%20appalto" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
-                            </div>
                             <div class="card">
                                 <h4>Candidatura progetto</h4>
                                 <p>Versione finale della candidatura.</p>
@@ -177,64 +130,54 @@
                         </details>
                     </div>
 
+                    <!-- Panel Diapositive -->
                     <div id="panel-diapositive" class="doc-panel" role="tabpanel" aria-hidden="true">
                         <h3 class="section-title">Diapositive</h3>
-                        <div class="cards">
-                            <div class="card">
-                                <h4>Diario di Bordo - 01 dicembre 2025</h4>
-                                <p>Diapositiva di report.</p>
-                                <p>
-                                    <a href="DIARIO DI BORDO/DB-01-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-01-12-25.pdf&title=Diario%20di%20Bordo%20-%2001%20dicembre%202025" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
-                            </div>
-                        </div>
+                        
+                        <details class="verbali-folder">
+                            <summary class="subsection-title">RTB</summary>
+                            <ul class="doc-list verbali" aria-label="Diari di bordo RTB">
+                                <li>
+                                    <a class="file-link" href="DIARIO DI BORDO/DB-15-12-25.pdf" target="_blank" rel="noopener noreferrer">Diario di Bordo - 15 dicembre 2025</a>
+                                    <a class="btn btn-open" href="DIARIO DI BORDO/DB-15-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-15-12-25.pdf&title=Diario%20di%20Bordo%20-%2015%20dicembre%202025">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="DIARIO DI BORDO/DB-01-12-25.pdf" target="_blank" rel="noopener noreferrer">Diario di Bordo - 01 dicembre 2025</a>
+                                    <a class="btn btn-open" href="DIARIO DI BORDO/DB-01-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-01-12-25.pdf&title=Diario%20di%20Bordo%20-%2001%20dicembre%202025">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="DIARIO DI BORDO/DB-24-11-25.pdf" target="_blank" rel="noopener noreferrer">Diario di Bordo - 24 novembre 2025</a>
+                                    <a class="btn btn-open" href="DIARIO DI BORDO/DB-24-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-24-11-25.pdf&title=Diario%20di%20Bordo%20-%2024%20novembre%202025">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="DIARIO DI BORDO/DB-17-11-25.pdf" target="_blank" rel="noopener noreferrer">Diario di Bordo - 17 novembre 2025</a>
+                                    <a class="btn btn-open" href="DIARIO DI BORDO/DB-17-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-17-11-25.pdf&title=Diario%20di%20Bordo%20-%2017%20novembre%202025">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="DIARIO DI BORDO/DB-10-11-25.pdf" target="_blank" rel="noopener noreferrer">Diario di Bordo - 10 novembre 2025</a>
+                                    <a class="btn btn-open" href="DIARIO DI BORDO/DB-10-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-10-11-25.pdf&title=Diario%20di%20Bordo%20-%2010%20novembre%202025">Apri con viewer</a>
+                                </li>
+                            </ul>
+                        </details>
 
-                        <div class="cards">
-                            <div class="card">
-                                <h4>Diario di Bordo - 24 novembre 2025</h4>
-                                <p>Diapositiva di report.</p>
-                                <p>
-                                    <a href="DIARIO DI BORDO/DB-24-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-24-11-25.pdf&title=Diario%20di%20Bordo%20-%2024%20novembre%202025" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="cards">
-                            <div class="card">
-                                <h4>Diario di Bordo - 17 novembre 2025</h4>
-                                <p>Diapositiva di report.</p>
-                                <p>
-                                    <a href="DIARIO DI BORDO/DB-17-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-17-11-25.pdf&title=Diario%20di%20Bordo%20-%2017%20novembre%202025" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="cards">
-                            <div class="card">
-                                <h4>Diario di Bordo - 10 novembre 2025</h4>
-                                <p>Diapositiva di report.</p>
-                                <p>
-                                    <a href="DIARIO DI BORDO/DB-10-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-10-11-25.pdf&title=Diario%20di%20Bordo%20-%2010%20novembre%202025" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="cards">
-                            <div class="card">
-                                <h4>Diario di Bordo - 27 ottobre 2025</h4>
-                                <p>Diapositiva di report.</p>
-                                <p>
-                                    <a href="DIARIO DI BORDO/DB-27-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-27-10-25.pdf&title=Diario%20di%20Bordo%20-%2027%20ottobre%202025" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
-                            </div>
-                        </div>
+                        <details class="verbali-folder">
+                            <summary class="subsection-title">Candidatura</summary>
+                            <ul class="doc-list verbali" aria-label="Diari di bordo Candidatura">
+                                <li>
+                                    <a class="file-link" href="DIARIO DI BORDO/DB-27-10-25.pdf" target="_blank" rel="noopener noreferrer">Diario di Bordo - 27 ottobre 2025</a>
+                                    <a class="btn btn-open" href="DIARIO DI BORDO/DB-27-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-27-10-25.pdf&title=Diario%20di%20Bordo%20-%2027%20ottobre%202025">Apri con viewer</a>
+                                </li>
+                            </ul>
+                        </details>
                     </div>
                     
+                    <!-- Panel RTB -->
                     <div id="panel-rtb" class="doc-panel" role="tabpanel" aria-hidden="true">
                         <h3 class="section-title">RTB</h3>
                         
@@ -245,7 +188,7 @@
                                      <a class="file-link" href="RTB/VERBALI/ESTERNI/VE_17-12-25/VE_17-12-25.pdf" target="_blank" rel="noopener noreferrer">VE 17 dicembre 2025</a>
                                      <a class="btn btn-open" href="RTB/VERBALI/ESTERNI/VE_17-12-25/VE_17-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
                                      <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/ESTERNI/VE_17-12-25/VE_17-12-25.pdf&title=VE%2017%20dicembre%202025%20RTB">Apri con viewer</a>
-</li>
+                                </li>
                                 <li>
                                      <a class="file-link" href="RTB/VERBALI/ESTERNI/VE_03-12-25/VE_03-12-25.pdf" target="_blank" rel="noopener noreferrer">VE 3 dicembre 2025</a>
                                      <a class="btn btn-open" href="RTB/VERBALI/ESTERNI/VE_03-12-25/VE_03-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
@@ -299,7 +242,7 @@
             </div>
         </section>
 
-        <!-- CHI SIAMO: rimane visibile sotto la documentazione -->
+        <!-- CHI SIAMO section -->
         <section id="chi-siamo" class="section" role="region" aria-label="Chi siamo" tabindex="0">
             <div class="content-box">
                 <h2 class="page-title">Chi siamo?</h2>
