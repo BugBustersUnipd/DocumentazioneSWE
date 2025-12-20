@@ -493,7 +493,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente durante la registrazione inserisce la propria email nell'apposita casella di testo
+    \item L'utente inserisce la propria email nell'apposita casella di testo
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -517,7 +517,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente durante la registrazione inserisce la propria password nell'apposita casella di testo
+    \item L'utente inserisce la propria password nell'apposita casella di testo
 \end{enumerate}
 
 
@@ -542,7 +542,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente durante la registrazione inserisce il proprio username nell'apposita casella di testo
+    \item L'utente inserisce il proprio username nell'apposita casella di testo
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -566,7 +566,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente durante la registrazione inserisce il proprio nome nell'apposita casella di testo
+    \item L'utente inserisce il proprio nome nell'apposita casella di testo
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -590,7 +590,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente durante la registrazione inserisce il proprio cognome nell'apposita casella di testo
+    \item L'utente inserisce il proprio cognome nell'apposita casella di testo
 \end{enumerate}
 
 
@@ -615,7 +615,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente durante la registrazione inserisce la propria matricola nell'apposita casella di testo
+    \item L'utente inserisce la propria matricola nell'apposita casella di testo
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -895,7 +895,7 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item L’utente ha effettuato il login ed è autenticato.
-    \item Esiste un profilo associato all’utente nel Sistema (dati anagrafici e preferenze).
+    \item Esiste un profilo associato all’utente nel Sistema
 \end{itemize}
 
 
@@ -949,22 +949,21 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item L’utente ha effettuato il login ed è autenticato.
-    \item Esiste un profilo associato all’utente nel Sistema (dati anagrafici e preferenze).
-    \item L'utente speciale é entrato nel modulo di gestione profilo utente dalla dashboard principale.
+    \item Esiste un profilo associato all’utente nel Sistema
+    \item L'utente é entrato nel modulo di gestione profilo utente dalla dashboard principale
 
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
     \item Le informazioni del profilo utente risultano aggiornate nel Sistema.
-    \item Le nuove preferenze (ad esempio tono/stile predefinito) verranno utilizzate nelle interazioni successive con i moduli AI.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L’utente accede alla sezione “Profilo” dalla dashboard dell’applicazione.
-    \item Il Sistema mostra i dati correnti del profilo (es. nome, cognome, e-mail, ruolo, preferenze AI come tono/stile predefinito).
-    \item L’utente puó uno o più campi del profilo (es. nome visualizzato, preferenze di tono, lingua).
+    \item Il Sistema mostra i dati correnti del profilo
+    \item L’utente puó modificare uno o più campi del profilo 
     \item L’utente conferma le modifiche.
     \item Il Sistema valida i dati inseriti (ad esempio formato dell’e-mail, campi obbligatori).
     \item Il Sistema salva le modifiche nel proprio archivio.
@@ -990,14 +989,9 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-0A.1 - Inserimento email
-        \item UC-0A.2 - Inserimento password
-        \item UC-0A.3 - Inserimento username
-        \item UC-0A.4 - Inserimento nome 
-        \item UC-0A.5 - Inserimento cognome
-        \item UC-0A.6 - Inserimento matricola
         \item UC-0D.7 – Salva profilo utente. %in questo caso d'uso ci saranno tutti gli errori su inserimenti sbaliati (uguali a quelli della registrazione)
         \item UC-0D.8 – Uscita senza salvare profilo utente.
+        \item UC-0D.9 - Modifica informazioni profilo utente
     \end{itemize}
 \end{itemize}
 
@@ -1198,6 +1192,50 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
+\subsubsection{UC-0D.9 – Modifica informazioni profilo utente}\label{sec:uc-0d-9}
+
+\textbf{Attori}
+\begin{itemize}
+    \item utente
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica profilo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente ha cambiato i dati del proprio profilo
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente cambia i dati del proprio profilo
+\end{enumerate}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item Nessuna
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-0A.1 - Inserimento email
+        \item UC-0A.2 - Inserimento password
+        \item UC-0A.3 - Inserimento username
+        \item UC-0A.4 - Inserimento nome 
+        \item UC-0A.5 - Inserimento cognome
+        \item UC-0A.6 - Inserimento matricola
+    \end{itemize}
+    
+\end{itemize}
+
+\vspace{0.5cm}
+
+
+
 \subsubsection{UC-0E – Apertura gestione ruoli (Admin / Editor)}\label{sec:uc-0e}
 
 \begin{figure}[H]
@@ -1216,7 +1254,7 @@ Di seguito sono esposti gli attori utilizzati:
 \begin{itemize}
     \item L’utente amministratore ha effettuato il login ed è autenticato come Admin.
     \item Esistono uno o più account utente registrati nel Sistema.
-    \item L'utente speciale é entrato nel modulo di gestione ruoli dalla dashboard principale.
+    \item L'utente amministratore é entrato nel modulo di gestione ruoli dalla dashboard principale.
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -1749,6 +1787,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
+    \item L'utente si trova all'interno della sezione dedicata allo storico
     \item La lista dello storico contiene almeno un elemento
 \end{itemize}
 
@@ -1923,7 +1962,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha aperto la visualizzazione di dettaglio di un elemento dello storico (UC-1B.2)
+    \item L'utente ha aperto la visualizzazione di dettaglio di un elemento dello storico
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -1972,7 +2011,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente vuole usare un vecchio prompt come base per una nuova generazione
+    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item Lo storico ha almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -1999,7 +2039,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente accede alla sezione dello storico ma non ha mai effettuato generazioni precedenti o lo storico è stato cancellato
+    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item Lo storico non ha neanche un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2025,7 +2066,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha individuato un prompt passato che vuole rieseguire immediatamente
+    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item Lo storico ha almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2051,7 +2093,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Lo storico è popolato da diversi elementi
+    \item Lo storico è popolato da almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2126,7 +2168,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Un contenuto è stato generato tramite UC-1A.
+    \item L'utente si trova nel modulo AI assistant
+    \item L'utente ha compilato i campi necessari alla generazione
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2202,7 +2245,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item È presente un contenuto generato visibile, ma l'utente non è soddisfatto del risultato
+    \item L'utente si trova nel modulo 
+    \item È stato generato un contenuto tramite l'AI assistant
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2229,7 +2273,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item HR manager/Redattore
+    \item È stato generato un contenuto tramite l'AI assistant
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2517,7 +2561,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente tenta di caricare un'immagine tramite UC-1D.1
+    \item Un file non idoneo é stato caricato
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2603,7 +2647,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova nell'interfaccia di upload
+    \item L'utente si trova nel modulo AI Co-Pilot
+    \item L'utente dispone di file idonei al caricamento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2636,7 +2681,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Un file è stato selezionato per l'upload
+    \item L'utente si trova nel modulo AI Co-Pilot
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2662,7 +2707,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Un file è stato selezionato per l'upload
+    \item L'utente si trova nel modulo AI Co-Pilot
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2687,7 +2732,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Un file è stato selezionato per l'upload
+    \item L'utente si trova nel modulo AI Co-Pilot
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2713,7 +2758,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Un file è stato selezionato e l'azienda è stata indicata
+    \item L'utente si trova nel modulo AI Co-Pilot
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2738,7 +2783,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Il file è stato selezionato e tutti i metadati obbligatori (Categoria, Azienda, Periodo) sono stati compilati
+    \item Il file è stato selezionato e tutti i metadati obbligatori sono stati compilati
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3300,7 +3345,7 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item L'utente ha effettuato l'accesso al dettaglio del documento (UC-2C).
-    \item Il file fisico o digitale del documento è accessibile nel sistema di storage.
+    \item Il file fisico o digitale del documento è accessibile
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3326,8 +3371,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Si è all'interno della visualizzazione di dettaglio (UC-2C).
-    \item Il campo destinatario è modificabile.
+    \item L'utente ha effettuato l'accesso al dettaglio del documento (UC-2C).
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3355,7 +3399,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Si è all'interno della visualizzazione di dettaglio (UC-2C).
+    \item L'utente ha effettuato l'accesso al dettaglio del documento (UC-2C).
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3383,7 +3427,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha apportato modifiche sostanziali al documento (es. UC-2C.3 Modifica tipologia).
+    \item L'utente ha effettuato l'accesso al dettaglio del documento
+    \item L'utente ha apportato modifiche al documento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3409,6 +3454,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
+    \item L'utente ha effettuato l'accesso al dettaglio del documento
     \item Sono state apportate modifiche ai metadati del documento (destinatario, tipologia, note, ecc.).
     \item I dati inseriti rispettano i vincoli di validazione.
 \end{itemize}
@@ -3451,7 +3497,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Si é nella pagina lista documenti tramite UC-2B.
+    \item Si é nella pagina lista documenti (UC-2B)
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3496,7 +3542,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item La lista dei contiene almeno un elemento
+    \item La lista dei destinatari contiene almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3536,9 +3582,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item É stato caricato almeno un documento tramite UC-2A.6.
-    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
-    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
+    \item La lista dei destinatari contiene almeno un elemento
 \end{itemize}
 
 
@@ -3583,8 +3627,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla pagina di informazioni del destinatario (UC-2D).
-    \item Il destinatario è un dipendente censito con numero di matricola.
+    \item La lista dei destinatari contiene almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3615,7 +3658,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla pagina di informazioni del destinatario (UC-2D).
+    \item La lista dei destinatari contiene almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3638,8 +3681,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla pagina di informazioni del destinatario (UC-2D).
-    \item Il destinatario è correttamente associato al documento nel sistema.
+    \item La lista dei destinatari contiene almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3665,7 +3707,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla pagina di informazioni del destinatario (UC-2D).
+    \item La lista dei destinatari contiene almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3697,9 +3739,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item É stato caricato almeno un documento tramite UC-2A.6.
-    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
-    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
+    \item Si é nella pagina lista documenti (UC-2B)
+    \item La lista dei destinatari contiene almeno un elemento
 \end{itemize}
 
 
@@ -3782,8 +3823,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella pagina destinatario tramite UC-2D.
-    \item L'utente ha selezionato l’opzione per inviare il documento al destinatario.
+    \item L'utente si trova nella pagina destinatario (UC-2D) o di apertura del modulo (UC-2A)
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3857,8 +3897,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha richiesto l'accesso allo storico documenti (UC-2E).
-    \item Non esistono documenti associati al destinatario o ai filtri correnti.
+    \item Non esistono documenti salvati nello storico
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3886,6 +3925,7 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item La lista dei contiene almeno un elemento
+    \item L'utente si trova nella pagina dello storico documenti (UC-2E)
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3918,8 +3958,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella pagina dello storico documenti (UC-2E).
-    \item I documenti sono caricati in lista.
+    \item La lista contiene almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3959,7 +3998,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente sta visualizzando la lista o il dettaglio dei documenti (tramite UC-2E o UC-2E.4).
+    \item La lista contiene almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3984,8 +4023,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Il documento è stato elaborato dal motore di analisi (OCR/AI).
-    \item L'utente sta visualizzando le informazioni del documento.
+    \item La lista contiene almeno un elemento
+    \item È stata calcolata la percentuale di confidenza media del documento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4011,8 +4050,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Al documento sono stati associati uno o più destinatari.
-    \item L'utente sta visualizzando i dettagli del documento nello storico.
+    \item La lista contiene almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4108,7 +4146,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Ci si trova nella pagina gestione messaggio tramite UC-2E.
+    \item Ci si trova nella pagina di storico dei documenti analizzati
     \item Almeno un documento è stato selezionato per l'invio.
 \end{itemize}
 
@@ -4295,7 +4333,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Accesso alla pagina di gestione messaggio (UC-2F).
+    \item Ci si trova nella pagina di gestione messaggio (UC-2F)
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4320,7 +4358,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Accesso alla pagina di gestione messaggio (UC-2F).
+    \item Ci si trova nella pagina di gestione messaggio (UC-2F)
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4479,7 +4517,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item La lista dei contiene almeno un template salvato
+    \item La lista contiene almeno un template salvato
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4616,7 +4654,6 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item L'utente si trova nella pagina di riepilogo invio (UC-2H).
-    \item Si desidera aggiungere un documento aggiuntivo (es. informativa generica) non presente nello storico personale del destinatario.
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4643,8 +4680,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Il messaggio e i documenti sono pronti.
-    \item L'utente non desidera l'invio immediato.
+    \item L'utente si trova nella pagina di riepilogo invio (UC-2H)
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4672,7 +4708,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Tutti i dati (destinatari, allegati, messaggio) sono stati verificati.
+    \item Tutti i dati (destinatari, allegati, messaggio) sono stati verificati
+    \item L'utente si trova nella pagina di riepilogo invio (UC-2H).
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4717,7 +4754,6 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item L'utente ha effettuato il login ed è autenticato come Auditor, Data Analyst o Amministratore.
-    \item Il sistema ha accumulato dati storici.
     \item L'utente accede alla sezione ``Analytics e Monitoraggio'' dalla dashboard principale.
 \end{itemize}
 
@@ -4771,9 +4807,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha effettuato il login ed è autenticato come Auditor, Data Analyst o Amministratore.
     \item Il sistema ha accumulato dati storici.
-    \item L'utente accede alla sezione ``Analytics e Monitoraggio'' dalla dashboard principale.
+    \item L'utente accede alla sezione dell'elenco dati AI assistant
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4821,7 +4856,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla dashboard di Analytics (UC-3A.1).
+    \item L'utente accede alla sezione dell'elenco dati AI assistant
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4847,7 +4882,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla dashboard di Analytics (UC-3A.1).
+    \item L'utente accede alla sezione dell'elenco dati AI assistant
     \item Gli utenti finali hanno fornito feedback (es. stelle o pollici su/giù) sui messaggi generati.
 \end{itemize}
 
@@ -4874,7 +4909,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla dashboard di Analytics (UC-3A.1).
+    \item L'utente accede alla sezione dell'elenco dati AI assistant
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4899,7 +4934,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla dashboard di Analytics (UC-3A.1).
+    \item L'utente accede alla sezione dell'elenco dati AI assistant
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4925,7 +4960,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla dashboard di Analytics (UC-3A.1).
+    \item L'utente accede alla sezione dell'elenco dati AI assistant
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4951,14 +4986,13 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Attori}
 \begin{itemize}
-    \itemAuditor/Data Analyst
+    \item Auditor/Data Analyst
 \end{itemize}
 
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item L'utente ha effettuato il login ed è autenticato come Auditor, Data Analyst o Amministratore.
-    \item Il sistema ha accumulato dati storici.
-    \item L'utente accede alla sezione ``Analytics e Monitoraggio'' dalla dashboard principale.
+    \item L'utente accede alla sezione AI Co-Pilot
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -5005,7 +5039,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla dashboard di Analytics AI Co-pilot (UC-3A.7).
+    \item L'utente ha fatto l'accesso alla dashboard di Analytics AI Co-pilot
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -5031,7 +5065,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla dashboard di Analytics AI Co-pilot (UC-3A.7).
+    \item L'utente ha fatto l'accesso alla dashboard di Analytics AI Co-pilot
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -5057,7 +5091,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla dashboard di Analytics AI Co-pilot (UC-3A.7).
+    \item L'utente ha fatto l'accesso alla dashboard di Analytics AI Co-pilot
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -5083,7 +5117,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha acceduto alla dashboard di Analytics AI Co-pilot (UC-3A.7).
+    \item L'utente ha fatto l'accesso alla dashboard di Analytics AI Co-pilot
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -5107,7 +5141,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella dashboard di Analytics (UC-3A).
+    \item L'utente ha fatto l'accesso alla dashboard di Analytics
     \item Il filtro temporale è attivo e modificabile.
 \end{itemize}
 
@@ -5143,8 +5177,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella dashboard di Analytics (UC-3A).
-    \item Una data di inizio è già stata definita (o è impostata di default).
+    \item L'utente ha fatto l'accesso alla dashboard di Analytics
+    \item Il filtro temporale è attivo e modificabile.
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -5270,6 +5304,8 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     RF-025 & L'utente deve avere la possibilità di salvare le modifiche al profilo utente & \hyperref[sec:uc-0d-7]{UC-0D.7} & Opzionale \\
     \hline
     RF-026 & L'utente deve avere la possibilità di non salvare le modifiche al profilo utente & \hyperref[sec:uc-0d-8]{UC-0D.8} & Opzionale \\
+    \hline
+    RF-026 & L'utente deve avere la possibilità di modificare le informazioni nel proprio profilo utente & \hyperref[sec:uc-0d-9]{UC-0D.9} & Opzionale \\
     \hline
     RF-027 & Un utente con titolo di admin deve avere la possibilità di gestire i ruoli degli altri utenti & \hyperref[sec:uc-0e]{UC-0E} & Opzionale \\
     \hline
