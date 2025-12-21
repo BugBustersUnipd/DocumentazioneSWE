@@ -901,7 +901,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente autenticato puó scegliere tra diverse azioni.
+    \item L'utente autenticato si puó eseguire diverse azioni dal modulo dashboard
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -956,7 +956,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Le informazioni del profilo utente risultano aggiornate nel Sistema.
+    \item Sono ottenibili le informazioni dal profilo utente e si possono modificare
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -1011,7 +1011,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Casella di testo precompilata con l'email attuale dell'utente
+    \item Casella di testo precompilata con l'email attuale è mostrata all'utente
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -1035,7 +1035,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Casella di testo contenente la password attuale (tipicamente oscurata)
+    \item Casella di testo contenente la password attuale (tipicamente oscurata) è mostrata all'utente
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -1059,7 +1059,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Casella di testo precompilata con lo username attuale dell'utente
+    \item Casella di testo precompilata con lo username è mostrata all'utente
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -1083,7 +1083,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Casella di testo precompilata con il nome attuale dell'utente
+    \item Casella di testo precompilata con il nome attuale è mostrata all'utente
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -1107,7 +1107,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Casella di testo precompilata con il cognome attuale dell'utente
+    \item Casella di testo precompilata con il cognome attuale è mostrata all'utente
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -1131,7 +1131,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Casella di testo precompilata con la matricola attuale dell'utente
+    \item Casella di testo precompilata con la matricola attuale è mostrata all'utente
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -1259,8 +1259,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item I ruoli e i permessi degli utenti risultano aggiornati nel Sistema.
-    \item Le funzionalità accessibili a ciascun utente dipendono dal nuovo ruolo assegnato (es. solo Admin può modificare i parametri AI globali).
+    \item L'amministratore vede gli utenti registrati con i rispettivi ruoli e ha la possibilitá di modificarli
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -1289,9 +1288,9 @@ Di seguito sono esposti gli attori utilizzati:
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-0E.8 - Modifica ruolo utente registrato.
+        \item UC-0E.6 - Modifica ruolo utente registrato.
         \item UC-0E.9 - Salva modifica ruolo utente registrato.
-        \item UC-0E.6 - Annulla modifica ruolo utente registrato
+        \item UC-0E.8 - Annulla modifica ruolo utente registrato
         \item UC-0E.7 - Utente non autorizzato.
     \end{itemize}
     
@@ -1415,7 +1414,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Viene visualizzata la lista dei nomi degli utenti registrati nel sistema
+    \item Viene visualizzatil nome di un utente 
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -1439,7 +1438,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Viene visualizzata la lista dei cognomi degli utenti registrati nel sistema
+    \item Viene visualizzato il cognome di un utente
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -1449,7 +1448,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.6 – Annulla modifica ruolo utente registrato}\label{sec:uc-0e-6}
+\subsubsection{UC-0E.6 – Modifica ruolo utente registrato}\label{sec:uc-0e-8}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1458,18 +1457,17 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'amministratore sta modificando il ruolo di un utente
+    \item L'amministratore ha selezionato un utente specifico dalla lista
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Il ruolo dell'utente rimane invariato e l'interfaccia torna allo stato precedente
+    \item L'interfaccia permette la selezione di un nuovo ruolo per l'utente scelto
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'amministratore decide di non applicare le modifiche al ruolo
-    \item Il sistema ripristina il valore originale visualizzato
+    \item L'amministratore interagisce con il campo relativo al ruolo (es. tramite menu a tendina) e seleziona una nuova tipologia di permessi
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -1500,7 +1498,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.8 – Modifica ruolo utente registrato}\label{sec:uc-0e-8}
+\subsubsection{UC-0E.8 – Annulla modifica ruolo utente registrato}\label{sec:uc-0e-6}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1509,20 +1507,22 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'amministratore ha selezionato un utente specifico dalla lista
+    \item L'amministratore sta modificando il ruolo di un utente
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'interfaccia permette la selezione di un nuovo ruolo per l'utente scelto
+    \item Il ruolo dell'utente rimane invariato e l'interfaccia torna allo stato precedente
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'amministratore interagisce con il campo relativo al ruolo (es. tramite menu a tendina) e seleziona una nuova tipologia di permessi
+    \item L'amministratore decide di non applicare le modifiche al ruolo
+    \item Il sistema ripristina il valore originale visualizzato
 \end{enumerate}
 
 \vspace{0.5cm}
+
 
 \subsubsection{UC-0E.9 – Salva modifica ruolo utente registrato}\label{sec:uc-0e-9}
 
@@ -2174,7 +2174,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente puó eseguire le varie azioni mostrate a schermo
+    \item Il contenuto viene generato e l'utente puó modicarlo e decidere come usarlo
 \end{itemize}
 
 
@@ -2355,7 +2355,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Il contenuto viene reso pubblico sulla piattaforma o inviato al CMS di destinazione
+    \item Il contenuto viene reso pubblico sulla piattaforma
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -2514,7 +2514,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Le modifiche vengono persistite nel database e il contenuto aggiornato è pronto per l'uso
+    \item Le modifiche vengono salvate nel database e il contenuto aggiornato è pronto per l'uso
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -2788,7 +2788,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Il file viene trasferito fisicamente sul server e indicizzato nel database documentale
+    \item Il file viene trasferito fisicamente sul server, indicizzato nel database documentale e analizzato con AI per ottenere le informazioni volute
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -3180,7 +3180,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente puó visualizzare le informazioni riguardanti un elemento dalla lista.
+    \item L'utente puó visualizzare le informazioni riguardanti gli elementi concordanti con il filtro
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -3292,7 +3292,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente ha apportato le modifiche desiderate al documento e puó procedere con le azioni successive (salvataggio, invio, ecc.).
+    \item L'utente puó apportare le modifiche desiderate al documento e puó procedere con le azioni successive 
     \item L'utente é già soddisfatto delle informazioni del documento e puó tornare alla pagina precedente.
 \end{itemize}
 
@@ -3350,7 +3350,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'anteprima del documento viene mostrata correttamente a video permettendo il confronto con i dati estratti.
+    \item L'anteprima del documento viene mostrata correttamente a schermo permettendo il confronto con i dati estratti.
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -3404,8 +3404,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item La tipologia del documento è aggiornata.
-    \item I campi dati specifici per la nuova tipologia vengono predisposti.
+    \item La tipologia del documento è stata modificata.
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -3503,7 +3502,6 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Post-condizioni}
 \begin{itemize}
     \item L'utente visualizza le informazioni dettagliate del destinatario associate al documento selezionato.
-    \item L'utente puó nuovamente accedere alla pagina del documento tramite UC-2C.
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -3663,7 +3661,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente visualizza il reparto o l'unità operativa di appartenenza del destinatario.
+    \item L'utente visualizza il reparto 
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -3686,7 +3684,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Il nome e cognome (o ragione sociale) del destinatario sono visibili a schermo.
+    \item Il nome e cognome del destinatario sono visibili a schermo.
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -3828,12 +3826,12 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente va alla pagina di gestione dell'invio e del rispettivo messaggio.
+    \item L'utente visualizza tutti i documenti analizzati dall'inizio dell'utilizzo dell'applicativo
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente dopo aver fatto le opportune verifiche sul documento e sul destinatario seleziona l’opzione per inviare il documento.
+    \item 
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -3876,7 +3874,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Il sistema apre il dettaglio del documento selezionato (reindirizzando a UC-2C).
+    \item Il sistema segno il documento nella lista dei documenti da inviare
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -3963,7 +3961,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Per ogni riga della lista vengono mostrati i metadati essenziali del documento.
+    \item Per ogni riga della lista vengono mostrati i dati essenziali del documento.
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -4080,7 +4078,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item La lista mostra solo i documenti che soddisfano i criteri di ricerca inseriti.
+    \item L''utente ha inserito i criteri di ricerca i criteri di ricerca inseriti.
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -4285,7 +4283,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Le modifiche vengono validate temporaneamente in preparazione all'invio.
+    \item Le modifiche vengono validate in preparazione all'invio.
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -4393,7 +4391,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente si ritrova nella pagina di gestione messaggio con il template selezionato caricato nei campi oggetto e testo del messaggio.
+    \item L'utente visualizza la pagina di gestione messaggio con il template selezionato caricato nei campi oggetto e testo del messaggio.
 \end{itemize}
 
 
@@ -5319,11 +5317,11 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-032 & Un utente con titolo di admin deve poter visualizzare il cognome di utente registrato & \hyperref[sec:uc-0e-5]{UC-0E.5} & Opzionale \\
     \hline
-    RF-033 & Un utente con titolo di admin deve poter annullare la modifica al ruolo utente registrato & \hyperref[sec:uc-0e-6]{UC-0E.6} & Opzionale \\
+    RF-033 & Un utente con titolo di admin deve poter annullare la modifica al ruolo utente registrato & \hyperref[sec:uc-0e-6]{UC-0E.8} & Opzionale \\
     \hline
     RF-034 & Deve esserci un controllo "Utente non autorizzato" quando esso prova ad accedere alla sezione "Gestione ruoli utenti" & \hyperref[sec:uc-0e-7]{UC-0E.7} & Opzionale \\
     \hline
-    RF-035 & Un utente con titolo di admin deve poter modificare il ruolo di utente registrato & \hyperref[sec:uc-0e-8]{UC-0E.8} & Opzionale \\
+    RF-035 & Un utente con titolo di admin deve poter modificare il ruolo di utente registrato & \hyperref[sec:uc-0e-8]{UC-0E.6} & Opzionale \\
     \hline
     RF-036 & Un utente con titolo di admin deve poter salvare le modifiche al ruolo di un utente registrato & \hyperref[sec:uc-0e-9]{UC-0E.9} & Opzionale \\
     \hline
