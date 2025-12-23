@@ -1,4 +1,6 @@
 \documentclass[a4paper,11pt]{article}
+\newcommand{\CurrentVersion}{0.0.13} % ultima versione, da cambiare ad ogni push significativo
+
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -23,6 +25,26 @@
 \usepackage{array}
 \usepackage{ragged2e}
 
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+% TODO è il caso di inserire queste regole in un file e includerlo in tutti i documenti
+\titleformat{\section}
+ {\Large\bfseries\color{primaryblue}}
+ {\thesection}{1em}{}
+
+\titleformat{\subsection}
+ {\large\bfseries\color{primaryblue}} % Sottosezione: colore secondaryblue
+ {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+ {\normalsize\bfseries\color{secondaryblue}} % Sotto-sottosezione: colore secondaryblue
+ {\thesubsubsection}{1em}{}
+
 \setlength{\LTpre}{0pt}
 \setlength{\LTpost}{0pt}
 \raggedbottom
@@ -43,8 +65,6 @@
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
 
-\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
 
 \begin{document}
 
@@ -59,7 +79,7 @@
   
   \rule{\textwidth}{0.5pt}\\[0.5cm]
   {\Large\bfseries Analisi dei Requisiti}\\[0.3cm]
-  {\large Versione 0.0.1}\\[0.5cm]
+  {\large Versione \CurrentVersion}\\[0.5cm]
   \rule{\textwidth}{0.5pt}\\[0.8cm]
 \end{center}
 
@@ -95,84 +115,42 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 
 \section*{Registro delle Modifiche}
 
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+\arrayrulecolor{primaryblue}
 {\footnotesize
-\begin{center}
-\begin{tabularx}{\textwidth}{|l|l|X|l|l|}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2cm}|X|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
 \hline
-\textbf{Versione} & \textbf{Data} & \textbf{Descrizione} & \textbf{Autore} & \textbf{Ruolo} \\
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\rowcolor{secondaryblue!10} \CurrentVersion & 23/12/2025 & Correzioni e aggiunte minime alla sezione 1. Migliorie grafiche & Linor Sadè & - & - \\
 \hline
-0.0.12 & 12/12/2025 & 
-\begin{minipage}[t]{\linewidth}
-Aggiunta sotto-casi d'uso alla sezione 2\end{minipage} 
-& Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.0.12 & 12/12/2025 & Aggiunta sotto-casi d'uso alla sezione 2 & Leonardo Salviato & - & - \\
 \hline
-0.0.11 & 11/12/2025 & 
-\begin{minipage}[t]{\linewidth}
-Aggiunto modulo 3\end{minipage} 
-& Marco Piro & - \\
+\rowcolor{secondaryblue!10} 0.0.11 & 11/12/2025 & Aggiunto modulo 3 & Marco Piro & - & - \\
 \hline
-0.0.10 & 10/12/2025 & 
-\begin{minipage}[t]{\linewidth}
-Rinominazione casi d'uso, aggiunta sotto-casi d'uso alle sezioni 0 e 1.
-\end{minipage} 
-& Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.0.10 & 10/12/2025 & Rinominazione casi d'uso, aggiunta sotto-casi d'uso alle sezioni 0 e 1. & Leonardo Salviato & - & - \\
 \hline
-0.0.9 & 06/12/2025 & 
-\begin{minipage}[t]{\linewidth}
-Aggiunti a ogni sezione scenari secondari, relativi casi d'uso (eccezioni e varianti) e trigger.
-\end{minipage} 
-& Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.0.9 & 06/12/2025 & Aggiunti a ogni sezione scenari secondari, relativi casi d'uso (eccezioni e varianti) e trigger. & Leonardo Salviato & - & - \\
 \hline
-0.0.8 & 05/12/2025 & 
-\begin{minipage}[t]{\linewidth}
-Riscrittura casi d'uso con aggiornato grado di precisione (sezione 2).
-\end{minipage} 
-& Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.0.8 & 05/12/2025 & Riscrittura casi d'uso con aggiornato grado di precisione (sezione 2). & Leonardo Salviato & - & - \\
 \hline
-0.0.7 & 04/12/2025 & 
-\begin{minipage}[t]{\linewidth}
-Riscrittura casi d'uso con aggiornato grado di precisione (sezioni 0 e 1).
-\end{minipage} 
-& Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.0.7 & 04/12/2025 & Riscrittura casi d'uso con aggiornato grado di precisione (sezioni 0 e 1). & Leonardo Salviato & - & - \\
 \hline
-0.0.6 & 03/12/2025 & 
-\begin{minipage}[t]{\linewidth}
-Aggiunti casi d'uso sezione 2, aggiunta varianti/exceptions sezione 2, scritta possibile struttura requisiti.
-\end{minipage} 
-& Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.0.6 & 03/12/2025 & Aggiunti casi d'uso sezione 2, aggiunta varianti/exceptions sezione 2, scritta possibile struttura requisiti. & Leonardo Salviato & - & - \\
 \hline
-0.0.5 & 02/12/2025 & 
-\begin{minipage}[t]{\linewidth}
-Aggiunto schema attori
-\end{minipage} 
-& Marco Piro & - \\
+\rowcolor{secondaryblue!10} 0.0.5 & 02/12/2025 & Aggiunto schema attori & Marco Piro & - & - \\
 \hline
-0.0.4 & 30/11/2025 & 
-\begin{minipage}[t]{\linewidth}
-    Sistemazione Attori.
-\end{minipage} 
-& Marco Piro & - \\
+\rowcolor{secondaryblue!10} 0.0.4 & 30/11/2025 & Sistemazione Attori. & Marco Piro & - & - \\
 \hline
-0.0.3 & 29/11/2025 & 
-\begin{minipage}[t]{\linewidth}
-Correzione casi d'uso e aggiunta schemi.
-\end{minipage} 
-& Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.0.3 & 29/11/2025 & Correzione casi d'uso e aggiunta schemi. & Leonardo Salviato & - & - \\
 \hline
-0.0.2 & 25/11/2025 & 
-\begin{minipage}[t]{\linewidth}
-Riscrittura della prima stesura e modifica casi d'uso.
-\end{minipage} 
-& Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.0.2 & 25/11/2025 & Riscrittura della prima stesura e modifica casi d'uso. & Leonardo Salviato & - & - \\
 \hline
-0.0.1 & 16/11/2025 & 
-\begin{minipage}[t]{\linewidth}
-Prima stesura della struttura del documento.
-\end{minipage} 
-& Leonardo Salviato e Marco Piro & - \\
+\rowcolor{secondaryblue!10} 0.0.1 & 16/11/2025 & Prima stesura della struttura del documento. & Leonardo Salviato e Marco Piro & - & - \\
 \hline
 \end{tabularx}
-\end{center}
 }
 
 \vfill
@@ -227,17 +205,17 @@ I moduli saranno quindi concepiti in modo modulare per permettere all'eventuale 
 
 \subsection{Funzioni del prodotto}
 
-Dal punto di vista dell'utilizzatore finale, l'applicazione standalone dovrà fornire le seguenti funzionalità:
+Qui di seguito le funzionalità del prodotto, divise per i due moduli principali:
 
+\textbf{Modulo AI Assistant Generativo}
 \begin{itemize}
-    \item \textbf{Generazione di contenuti tramite AI (Modulo AI Assistant Generativo)}: 
+    \item \textbf{Generazione di contenuti tramite AI}: 
     generazione di titolo, testo e immagine di copertina a partire da un prompt, 
     con possibilità di selezionare tono, stile e configurazioni avanzate del modello AI.
-
-    \item \textbf{Salvataggio locale}: 
+    \item \textbf{Salvataggio locale}:
     gestione interna di prompt, contenuti generati, immagini e valutazioni, 
     tramite archivio locale dedicato all'app standalone, indipendente dalla piattaforma NEXUM.
-
+    
     \item \textbf{Sistema di rating}: 
     valutazione della qualità dei contenuti generati dall'AI, utile per analisi interne e miglioramento continuo.
 
@@ -253,7 +231,10 @@ Dal punto di vista dell'utilizzatore finale, l'applicazione standalone dovrà fo
     \item \textbf{Gestione utenti}: 
     registrazione, autenticazione, gestione del profilo e configurazione dei parametri AI 
     (per utenti privilegiati come amministratori o editor avanzati).
+\end{itemize}
 
+\textbf{Modulo AI Co-Pilot per i CdL}
+\begin{itemize}
     \item \textbf{Upload e gestione documentale (Modulo AI Co-Pilot per i CdL)}: 
     possibilità di caricare documenti (PDF, ZIP, etc), salvarli localmente e gestirne lo stato di elaborazione.
 
@@ -279,8 +260,9 @@ Dal punto di vista dell'utilizzatore finale, l'applicazione standalone dovrà fo
     \item \textbf{Tracciamento locale}: 
     storico delle operazioni effettuate (upload, riconoscimento, revisioni, esportazioni), 
     utile per audit interni e analisi del flusso documentale.
+\end{itemize}  
+        
 
-\end{itemize}
 
 Queste funzionalità permetteranno all'app standalone di essere completamente operativa e autonoma nei due moduli (AI Assistant Generativo e AI Co-Pilot per i CdL). 
 In una fase successiva, tali componenti saranno progettati per essere integrati nella piattaforma NEXUM, 
