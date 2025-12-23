@@ -1,5 +1,5 @@
 \documentclass[a4paper,11pt]{article}
-\newcommand{\CurrentVersion}{0.0.13} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.0.14} % ultima versione, da cambiare ad ogni push significativo
 
 
 \usepackage[utf8]{inputenc}
@@ -126,11 +126,13 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \rowcolor{secondaryblue!10} \CurrentVersion & 23/12/2025 & Correzioni e aggiunte minime alla sezione 1. Migliorie grafiche & Linor Sadè & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.0.12 & 12/12/2025 & Aggiunta sotto-casi d'uso alla sezione 2 & Leonardo Salviato & - & - \\
+\rowcolor{secondaryblue!10} 0.0.13 & 12/12/2025 & Aggiunta sotto-casi d'uso alla sezione 2 & Leonardo Salviato & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.0.11 & 11/12/2025 & Aggiunto modulo 3 & Marco Piro & - & - \\
+\rowcolor{secondaryblue!10} 0.0.12 & 11/12/2025 & Aggiunto modulo 3 & Marco Piro & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.0.10 & 10/12/2025 & Rinominazione casi d'uso, aggiunta sotto-casi d'uso alle sezioni 0 e 1. & Leonardo Salviato & - & - \\
+\rowcolor{secondaryblue!10} 0.0.11 & 10/12/2025 & Rinominazione casi d'uso, aggiunta sotto-casi d'uso alle sezioni 0 e 1. & Leonardo Salviato & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.10 & 07/12/2025 & Verifica dei primi casi d'uso & - & Linor Sadè & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.0.9 & 06/12/2025 & Aggiunti a ogni sezione scenari secondari, relativi casi d'uso (eccezioni e varianti) e trigger. & Leonardo Salviato & - & - \\
 \hline
@@ -186,9 +188,10 @@ I requisiti identificati sono classificati nelle seguenti categorie:
 
 Il documento è rivolto ai seguenti destinatari:
 \begin{itemize}
-    \item Il \textbf{Committente}, che potrà verificare che i requisiti siano stati compresi e documentati correttamente;
-    \item Il \textbf{Team di Progettisti e Programmatori}, che utilizzerà questa analisi come base per la realizzazione del Sistema;
-    \item Il \textbf{Team di Verificatori}, che impiegherà il presente documento per definire i casi di Test e validare il comportamento del prodotto.
+    \item Il \textbf{committente}, che potrà verificare che i requisiti siano stati compresi e documentati correttamente;
+    \item La \textbf{proponente} (Eggon), che potrà utilizzare questo documento per monitorare l'aderenza del progetto alle specifiche concordate.
+    \item Il \textbf{team di progettisti e programmatori}, che utilizzerà questa analisi come base per la realizzazione del Sistema;
+    \item Il \textbf{team di verificatori}, che impiegherà il presente documento per definire i casi di Test e validare il comportamento del prodotto.
 \end{itemize}
 
 \subsection{Prospettiva del prodotto}
@@ -201,17 +204,17 @@ L'app standalone permetterà di testare e consolidare le funzionalità richieste
 
 Per questo motivo, l'architettura software prevede l'utilizzo di mock o simulazioni delle componenti NEXUM. Tale approccio garantisce alla Proponente una futura e agevole integrazione del sistema, evitando al contempo che il team di sviluppo debba reimplementare funzionalità già esistenti ma non strettamente necessarie nella fase attuale.
 
-I moduli saranno quindi concepiti in modo modulare per permettere all'eventuale integrazione futura con NEXUM di inserirsi nell'architettura esistente come componente riutilizzabile e scalabile. L'integrazione includerà l'adattamento delle API, l'allineamento della gestione utenti e la centralizzazione dei dati all'interno dell'infrastruttura NEXUM.
+I moduli saranno quindi concepiti in modo modulare per permettere all'applicazione, in un'eventuale integrazione futura con NEXUM, di inserirsi nell'architettura esistente come componente riutilizzabile e scalabile. L'integrazione includerà l'adattamento delle API, l'allineamento della gestione utenti e la centralizzazione dei dati all'interno dell'infrastruttura NEXUM.
 
 \subsection{Funzioni del prodotto}
 
-Qui di seguito le funzionalità del prodotto, divise per i due moduli principali:
+Qui di seguito le funzionalità del prodotto descritte in breve e divise per i due moduli che andranno sviluppati:
 
 \textbf{Modulo AI Assistant Generativo}
 \begin{itemize}
     \item \textbf{Generazione di contenuti tramite AI}: 
     generazione di titolo, testo e immagine di copertina a partire da un prompt, 
-    con possibilità di selezionare tono, stile e configurazioni avanzate del modello AI.
+    con possibilità di selezionare tono, stile.
     \item \textbf{Salvataggio locale}:
     gestione interna di prompt, contenuti generati, immagini e valutazioni, 
     tramite archivio locale dedicato all'app standalone, indipendente dalla piattaforma NEXUM.
@@ -228,41 +231,45 @@ Qui di seguito le funzionalità del prodotto, divise per i due moduli principali
     \item \textbf{Gestione delle immagini}: 
     possibilità di caricare immagini dall'utente o di generarle tramite AI, con salvataggio locale.
 
-    \item \textbf{Gestione utenti}: 
-    registrazione, autenticazione, gestione del profilo e configurazione dei parametri AI 
-    (per utenti privilegiati come amministratori o editor avanzati).
 \end{itemize}
 
 \textbf{Modulo AI Co-Pilot per i CdL}
 \begin{itemize}
-    \item \textbf{Upload e gestione documentale (Modulo AI Co-Pilot per i CdL)}: 
+    \item \textbf{Upload e gestione documentale}: 
     possibilità di caricare documenti (PDF, ZIP, etc), salvarli localmente e gestirne lo stato di elaborazione.
-
+    
     \item \textbf{Riconoscimento automatico della tipologia di documento}: 
     classificazione tramite AI (cedolini, CU, comunicazioni, lettere, moduli da firmare, ecc.) 
     sfruttando modelli OCR e classificatori addestrati.
-
+    
     \item \textbf{Estrazione dei destinatari}: 
     riconoscimento automatico di informazioni contenute nei documenti 
     (nome, cognome, codice fiscale, matricola, reparto) tramite tecniche AI di entity extraction.
-
+    
     \item \textbf{Split dei documenti massivi}: 
     suddivisione automatica dei documenti multi-destinatario (es. cedolini massivi) 
     in documenti singoli, ognuno associato al proprio destinatario riconosciuto.
-
+    
     \item \textbf{Revisione manuale (Human-in-the-Loop)}: 
     interfaccia dedicata per verificare, correggere o confermare i risultati ottenuti dall'AI 
     in ogni fase (classificazione, destinatari, split).
-
+    
     \item \textbf{Creazione di messaggi e liste di distribuzione}: 
     generazione automatica di bozze di messaggi e liste di destinatari derivanti dai documenti processati.
-
+    
     \item \textbf{Tracciamento locale}: 
     storico delle operazioni effettuate (upload, riconoscimento, revisioni, esportazioni), 
     utile per audit interni e analisi del flusso documentale.
 \end{itemize}  
-        
-
+\textbf{Altre funzionalità dell'applicazione:}
+\begin{itemize}
+    \item \textbf{Gestione utenti}: 
+    registrazione, autenticazione, gestione del profilo e configurazione dei parametri AI 
+    (per utenti privilegiati come amministratori o editor avanzati).
+    \item \textbf{Analisi e reportistica}:
+    dashboard di monitoraggio delle performance dei moduli AI per consentire valutazioni semplici su efficacia ed efficienza dei moduli. L'appicazione consentirà inoltre
+    la possibilità di rilasciare miglioramenti in seguito ad uun intervento umano. 
+\end{itemize}
 
 Queste funzionalità permetteranno all'app standalone di essere completamente operativa e autonoma nei due moduli (AI Assistant Generativo e AI Co-Pilot per i CdL). 
 In una fase successiva, tali componenti saranno progettati per essere integrati nella piattaforma NEXUM, 
@@ -272,7 +279,7 @@ consentendo così un'evoluzione verso un ecosistema HR completo, scalabile e bas
 
 
 Gli utilizzatori finali dell'applicazione standalone non appartengono a un'unica categoria specifica: 
-l'obiettivo del progetto è quello di progettare moduli intelligenti e interoperabili per essere in un futuro integrati nella piattaforma NEXUM. Tale ecosistema è concepito per rispondere alle esigenze di un ampio spettro di organizzazioni e professionisti nel settore delle risorse umane e della consulenza del lavoro.
+l'obiettivo del progetto è quello di progettare moduli intelligenti e interoperabili per essere in un futuro integrati nella piattaforma NEXUM e tale ecosistema è concepito per rispondere alle esigenze di un ampio spettro di organizzazioni e professionisti nel settore delle risorse umane e della consulenza del lavoro.
 
 In generale, è possibile affermare che gli utenti finali sono coloro che necessitano di uno strumento scalabile, 
 intelligente e semplice da utilizzare per generare contenuti tramite AI e per gestire flussi documentali complessi con il supporto del modulo Co-Pilot.
@@ -325,42 +332,44 @@ rilevanti per il progetto.
 
 \section{Casi d'uso}
 \subsection{Introduzione}
-I casi d'uso si compongono di un grafico UML e una descrizione testuale che permetta di
+I casi d'uso si compongono di un grafico UML e una descrizione testuale che permette di
 comprendere al meglio cosa il prodotto deve fornire. La descrizione testuale, in particolar
 modo, dovrà contenere le informazioni sotto presenti, salvo i casi in cui lo
 specifico campo non risulti rilevante (ad esempio, un Caso d'Uso\textsubscript{\scalebox{0.6}{\textbf{G}}} che non prevede la
-possibilità di errori non avrà Scenari secondari):
+possibilità di errori non avrà scenari alternativi):
 
 \begin{itemize}
-    \item \textbf{Attori}: Sono coloro che interagiscono attivamente con il Sistema e
+    \item \textbf{Attori}: Sono coloro che interagiscono attivamente con il sistema e
     svolgono l'azione indicata dal Caso d'Uso
-    \item \textbf{Precondizioni}: Lista di elementi che sono necessari affinché l'Attore possa
+    \item \textbf{Precondizioni}: Lista di elementi che sono necessari affinché l'attore possa
     compiere l'azione indicata dal caso d'uso
-    \item \textbf{Postcondizioni}: Lista di elementi che descrivono come il Sistema risulta
-    essere internamente cambiato dopo che l'Attore ha effettuato
-    l'azione prevista dal Caso d'Uso
+    \item \textbf{Postcondizioni}: Lista di elementi che descrivono come il sistema risulta
+    essere internamente cambiato dopo che l'attore ha effettuato
+    l'azione prevista dal caso d'uso
     \item \textbf{Scenario principale}: Descrizione ragionevole delle operazioni che l'attore deve
-    fare per compiere l'azione descritta dal Caso d'Uso
-    \item \textbf{Scenario secondario}: Descrizione ragionevole degli eventi che possono accadere
+    fare per compiere l'azione descritta dal caso d'uso
+    \item \textbf{Scenario secondario} (scenari alternativi): Descrizione ragionevole degli eventi che possono accadere
     qualora una delle operazioni descritte nello Scenario
     principale non vada a buon fine
-    \item \textbf{Trigger}: Evento che innesca l'inizio del Caso d'Uso
-    \item \textbf{Inclusioni}: Casi d'Uso ulteriori che l'Attore deve compiere per realizzare
-    il Caso d'Uso attualmente descritto
-    \item \textbf{Estensioni}: Casi d'Uso ulteriori che possono realizzarsi durante
-    l'esecuzione delle operazioni del Caso d'Uso principale
+    \item \textbf{Inclusioni}: Casi d'uso ulteriori che l'attore deve compiere per realizzare
+    il caso d'uso attualmente descritto
+    \item \textbf{Estensioni}: Casi d'uso ulteriori che possono realizzarsi durante
+    l'esecuzione delle operazioni del caso d'uso principale
     
 \end{itemize}
-Motivazioni che portano l'Attore a svolgere l'azione descritta
-dal Caso d'Uso. Non sempre disponibile in quanto il Caso
-d'Uso potrebbe essere incluso da un altro caso d'uso «principale».
+Motivazioni che portano l'attore a svolgere l'azione descritta
+dal caso d'uso. Non sempre disponibile in quanto il caso
+d'uso potrebbe essere incluso da un altro caso d'uso principale.
 
 \subsection{Attori}
-Di seguito sono esposti gli attori utilizzati:
+Nella \hyperref[fig:1]{figura~1} sono riportati gli attori considerati in questa analisi dei requisiti.
+
+Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che implementa l'autenticazione e la gestione dei ruoli. Tuttavia tale funzionalità, come verrà descritto più avanti, è requisito opzionale, pertanto gli attori devono essere considerati semplice utente se letti in un contesto in cui tale funzionalità non è implementata. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/diagramma_attori.jpg}
     \caption{Diagramma degli attori principali}
+    \label{fig:1}
 \end{figure}
 \begin{itemize}
     \item \textbf{Utente}: Rappresenta un utente che vuole accedere al Sistema.
@@ -369,10 +378,10 @@ Di seguito sono esposti gli attori utilizzati:
     \item \textbf{Data Analyst}: Figura incaricata di monitorare le prestazioni. Accede alle dashboard di analisi per consultare le statistiche di utilizzo, i rating di qualità dei contenuti generati e i KPI del riconoscimento documentale.
     \item \textbf{Amministratore}: Gestisce la configurazione tecnica dell'applicazione standalone. Si occupa della creazione degli utenti, della gestione dei ruoli e della configurazione dei parametri globali dell'AI (es. prompt di sistema o soglie di confidenza).
     \item \textbf{Operatore Studio CdL}: È l'utente principale del modulo AI Co-Pilot. Si occupa di caricare i flussi documentali (es. cedolini massivi), supervisionare il riconoscimento automatico (validazione Human-in-the-Loop) e gestire le liste di distribuzione.
-    \item \textbf{Sistema NEXUM (AI Doc Classifier)}: Il modulo intelligente incaricato di analizzare visivamente il documento, applicare l'OCR e classificarne la tipologia (es. "Cedolino", "CUD").
-    \item \textbf{Sistema NEXUM (Entity Resolver)}: Il componente che analizza il testo estratto per identificare univocamente i destinatari (es. Nome, Cognome, CF) confrontandoli con l'anagrafica.
-    \item \textbf{Sistema NEXUM (Splitter)}: L'agente automatico che scansiona i documenti massivi (es. PDF multipagina) e li suddivide in singoli file, uno per ciascun destinatario individuato.
-    \item \textbf{Sistema NEXUM (Dispatcher \& Tracking)}: Il modulo responsabile della creazione dei pacchetti di invio e della generazione delle ricevute di consegna (simulata in ambiente standalone).
+    \item \textbf{Sistema (AI Doc Classifier)}: Il modulo intelligente incaricato di analizzare visivamente il documento, applicare l'OCR e classificarne la tipologia (es. "Cedolino", "CUD").
+    \item \textbf{Sistema (Entity Resolver)}: Il componente che analizza il testo estratto per identificare univocamente i destinatari (es. Nome, Cognome, CF) confrontandoli con l'anagrafica.
+    \item \textbf{Sistema (Splitter)}: L'agente automatico che scansiona i documenti massivi (es. PDF multipagina) e li suddivide in singoli file, uno per ciascun destinatario individuato.
+    \item \textbf{Sistema (Dispatcher \& Tracking)}: Il modulo responsabile della creazione dei pacchetti di invio e della generazione delle ricevute di consegna (simulata in ambiente standalone).
     \item \textbf{Destinatario finale}: Rappresenta il dipendente a cui sono indirizzati i documenti o i messaggi. Nell'applicazione standalone, la sua interazione (ricezione e lettura) è simulata per verificare il corretto funzionamento del dispaccio.
     \item \textbf{Auditor interno}: Utente con permessi di sola lettura focalizzato sul controllo. Verifica lo storico delle operazioni (audit trail) per garantire la tracciabilità e la sicurezza dei flussi documentali.
     \item \textbf{Sistema}: L'applicazione standalone nel suo complesso, che gestisce autenticazione, database e interfaccia.
