@@ -193,16 +193,16 @@ Prima stesura della struttura del documento.
 \subsection{Scopo del documento}
 Questo documento di Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}, adottato da parte di BugBusters durante lo svolgimento del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} didattico, ha lo scopo di definire in maniera precisa e dettagliata i requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}} e non funzionali del Sistema software da sviluppare.
 
-A seguito delle nuove decisioni progettuali rispetto alle proposte del capitolato, il Sistema non sarà inizialmente integrato nella piattaforma NEXUM, ma verrà realizzato come \textbf{applicazione standalone}, autonoma e indipendente. Tale applicazione implementerà i moduli “AI Assistant Generativo” e "AI Co-Pilot per i CdL" in un ambiente isolato, così da consentire una fase di sviluppo, test e validazione più controllata. Solo in una fase successiva si valuterà l’\textbf{integrazione con la piattaforma NEXUM}, garantendo continuità architetturale e coerenza con i moduli già presenti.
+A seguito delle nuove decisioni progettuali rispetto alle proposte del capitolato, il Sistema non sarà inizialmente integrato nella piattaforma NEXUM, ma verrà realizzato come \textbf{applicazione standalone}, autonoma e indipendente da essa. Tale applicazione implementerà i moduli "AI Assistant Generativo" e "AI Co-Pilot per i CdL" in un ambiente isolato, così da consentire una fase di sviluppo, test e validazione più controllata. Eggon avrà la possibilità di valutare il prototipo standalone ed eventualmente procedere con l'integrazione nella piattaforma NEXUM.
 
-Il documento include una descrizione approfondita dei Casi d’Uso, che costituiscono la principale fonte dei requisiti finali. Per agevolare la comprensione, verranno utilizzati anche i \textbf{Diagrammi dei Casi d’Uso}, che visualizzano le interazioni tra utenti e Sistema.
+Il documento include una descrizione approfondita dei Casi d'Uso, che costituiscono la principale fonte dei requisiti finali. Per agevolare la comprensione, verranno utilizzati anche i \textbf{Diagrammi dei Casi d'Uso}, che visualizzano le interazioni tra utenti e Sistema.
 
-Questo documento rappresenta il riferimento fondamentale per la progettazione, l’implementazione e il collaudo dell’applicazione standalone, assicurando che essa soddisfi pienamente le esigenze del Committente e gli obiettivi formativi del progetto.
+Questo documento rappresenta il riferimento fondamentale per la progettazione, l'implementazione e il collaudo dell'applicazione standalone, assicurando che essa soddisfi pienamente le esigenze del Committente e gli obiettivi formativi del progetto.
 
 I requisiti identificati sono classificati nelle seguenti categorie:
 \begin{itemize}
-    \item \textbf{Obbligatori}: necessari e imprescindibili per garantire il corretto funzionamento dell’applicazione standalone;
-    \item \textbf{Desiderabili}: non strettamente necessari, ma capaci di migliorare l’esperienza utente o l’efficienza del Sistema;
+    \item \textbf{Obbligatori}: necessari e imprescindibili per garantire il corretto funzionamento dell'applicazione standalone;
+    \item \textbf{Desiderabili}: non strettamente necessari, ma capaci di migliorare l'esperienza utente o l'efficienza del Sistema;
     \item \textbf{Opzionali}: funzionalità aggiuntive utili per estensioni future, in particolare in vista della possibile integrazione con NEXUM.
 \end{itemize}
 
@@ -215,15 +215,19 @@ Il documento è rivolto ai seguenti destinatari:
 
 \subsection{Prospettiva del prodotto}
 
-Il prodotto che BugBusters si propone di sviluppare è una versione standalone dei moduli “AI Assistant Generativo” e "AI Co-Pilot per i CdL", inizialmente svincolata dalla piattaforma NEXUM. Tale applicazione costituirà un prototipo funzionale in grado di operare autonomamente e di implementare le principali funzionalità richieste dal Committente, senza dipendere dagli altri moduli della piattaforma.
+Il prodotto che BugBusters si propone di sviluppare è una versione standalone dei moduli "AI Assistant Generativo" e "AI Co-Pilot per i CdL", svincolata dalla piattaforma NEXUM. Tale applicazione costituirà un prototipo funzionale in grado di operare autonomamente e di implementare le principali funzionalità richieste dal Committente, senza dipendere dalla piattaforma esistente.
 
-L’app standalone permetterà di testare e consolidare le funzionalità richieste, offrendo un ambiente controllato che faciliti la sperimentazione e lo sviluppo incrementale. Questa fase costituirà la base per un’eventuale integrazione futura con la piattaforma NEXUM, la quale fornirà un ecosistema HR completo e dotato di servizi quali la messaggistica top-down, la timbratura digitale, la gestione delle anagrafiche e dei ruoli, e la collaborazione con gli studi dei Consulenti del Lavoro (CdL).
+Tale scelta deriva dalla necessità di rispettare le politiche di privacy e sicurezza dei dati della Proponente, le quali risultano incompatibili con la richiesta della Committente di rendere il prodotto accessibile al pubblico.
 
-L’integrazione futura con NEXUM sarà concepita in modo modulare, consentendo alla nuova applicazione di inserirsi nell’architettura esistente come componente riutilizzabile e scalabile. L’integrazione includerà l’adattamento delle API, l’allineamento della gestione utenti e la centralizzazione dei dati all’interno dell’infrastruttura NEXUM.
+L'app standalone permetterà di testare e consolidare le funzionalità richieste, offrendo un ambiente controllato che faciliti la sperimentazione e lo sviluppo incrementale. Questa fase costituirà la base per un'eventuale integrazione futura con la piattaforma NEXUM, la quale fornirà un ecosistema HR completo e dotato di servizi quali la messaggistica top-down, la timbratura digitale, la gestione delle anagrafiche e dei ruoli, e la collaborazione con gli studi dei Consulenti del Lavoro (CdL).
+
+Per questo motivo, l'architettura software prevede l'utilizzo di mock o simulazioni delle componenti NEXUM. Tale approccio garantisce alla Proponente una futura e agevole integrazione del sistema, evitando al contempo che il team di sviluppo debba reimplementare funzionalità già esistenti ma non strettamente necessarie nella fase attuale.
+
+I moduli saranno quindi concepiti in modo modulare per permettere all'eventuale integrazione futura con NEXUM di inserirsi nell'architettura esistente come componente riutilizzabile e scalabile. L'integrazione includerà l'adattamento delle API, l'allineamento della gestione utenti e la centralizzazione dei dati all'interno dell'infrastruttura NEXUM.
 
 \subsection{Funzioni del prodotto}
 
-Dal punto di vista dell’utilizzatore finale, l’applicazione standalone dovrà fornire le seguenti funzionalità:
+Dal punto di vista dell'utilizzatore finale, l'applicazione standalone dovrà fornire le seguenti funzionalità:
 
 \begin{itemize}
     \item \textbf{Generazione di contenuti tramite AI (Modulo AI Assistant Generativo)}: 
@@ -232,19 +236,19 @@ Dal punto di vista dell’utilizzatore finale, l’applicazione standalone dovr�
 
     \item \textbf{Salvataggio locale}: 
     gestione interna di prompt, contenuti generati, immagini e valutazioni, 
-    tramite archivio locale dedicato all’app standalone, indipendente dalla piattaforma NEXUM.
+    tramite archivio locale dedicato all'app standalone, indipendente dalla piattaforma NEXUM.
 
     \item \textbf{Sistema di rating}: 
-    valutazione della qualità dei contenuti generati dall’AI, utile per analisi interne e miglioramento continuo.
+    valutazione della qualità dei contenuti generati dall'AI, utile per analisi interne e miglioramento continuo.
 
     \item \textbf{Gestione dei prompt}: 
     storico dei prompt utilizzati, con possibilità di riutilizzo, duplicazione e ricerca interna.
 
     \item \textbf{Dashboard standalone}: 
-    visualizzazione e gestione di storico, filtri, ricerca e analisi delle interazioni con l’AI generativa.
+    visualizzazione e gestione di storico, filtri, ricerca e analisi delle interazioni con l'AI generativa.
 
     \item \textbf{Gestione delle immagini}: 
-    possibilità di caricare immagini dall’utente o di generarle tramite AI, con salvataggio locale.
+    possibilità di caricare immagini dall'utente o di generarle tramite AI, con salvataggio locale.
 
     \item \textbf{Gestione utenti}: 
     registrazione, autenticazione, gestione del profilo e configurazione dei parametri AI 
@@ -266,7 +270,7 @@ Dal punto di vista dell’utilizzatore finale, l’applicazione standalone dovr�
     in documenti singoli, ognuno associato al proprio destinatario riconosciuto.
 
     \item \textbf{Revisione manuale (Human-in-the-Loop)}: 
-    interfaccia dedicata per verificare, correggere o confermare i risultati ottenuti dall’AI 
+    interfaccia dedicata per verificare, correggere o confermare i risultati ottenuti dall'AI 
     in ogni fase (classificazione, destinatari, split).
 
     \item \textbf{Creazione di messaggi e liste di distribuzione}: 
@@ -278,15 +282,15 @@ Dal punto di vista dell’utilizzatore finale, l’applicazione standalone dovr�
 
 \end{itemize}
 
-Queste funzionalità permetteranno all’app standalone di essere completamente operativa e autonoma nei due moduli (AI Assistant Generativo e AI Co-Pilot per i CdL). 
+Queste funzionalità permetteranno all'app standalone di essere completamente operativa e autonoma nei due moduli (AI Assistant Generativo e AI Co-Pilot per i CdL). 
 In una fase successiva, tali componenti saranno progettati per essere integrati nella piattaforma NEXUM, 
-consentendo così un’evoluzione verso un ecosistema HR completo, scalabile e basato su automazioni intelligenti.
+consentendo così un'evoluzione verso un ecosistema HR completo, scalabile e basato su automazioni intelligenti.
 
 \subsection{Caratterisitiche dell'utente}
 
-Gli utilizzatori finali dell'applicazione standalone non appartengono a un’unica categoria specifica: 
-l’obiettivo del progetto è quello di progettare moduli intelligenti e interoperabili 
-che possano essere integrati all’interno dell’ecosistema NEXUM o utilizzati autonomamente durante la fase standalone.
+
+Gli utilizzatori finali dell'applicazione standalone non appartengono a un'unica categoria specifica: 
+l'obiettivo del progetto è quello di progettare moduli intelligenti e interoperabili per essere in un futuro integrati nella piattaforma NEXUM. Tale ecosistema è concepito per rispondere alle esigenze di un ampio spettro di organizzazioni e professionisti nel settore delle risorse umane e della consulenza del lavoro.
 
 In generale, è possibile affermare che gli utenti finali sono coloro che necessitano di uno strumento scalabile, 
 intelligente e semplice da utilizzare per generare contenuti tramite AI e per gestire flussi documentali complessi con il supporto del modulo Co-Pilot.
@@ -294,21 +298,21 @@ Rientrano in questa categoria:
 
 \begin{itemize}
     \item \textbf{Responsabili e amministratori HR}, che necessitano di strumenti avanzati per la creazione di comunicazioni interne, 
-    la gestione dei contenuti generativi e l’analisi delle produzioni.
+    la gestione dei contenuti generativi e l'analisi delle produzioni.
 
     \item \textbf{Consulenti del Lavoro (CdL) e personale amministrativo}, che richiedono un sistema in grado di caricare, riconoscere, suddividere e preparare documenti per la distribuzione ai destinatari.
 
     \item \textbf{Dipendenti e collaboratori} (in fase integrata), che potranno interagire con la piattaforma NEXUM per consultare documenti e comunicazioni, 
     pur non essendo utenti della versione standalone.
 
-    \item \textbf{Manager aziendali}, interessati a monitorare la consistenza delle comunicazioni e l’efficienza dei processi documentali, 
+    \item \textbf{Manager aziendali}, interessati a monitorare la consistenza delle comunicazioni e l'efficienza dei processi documentali, 
     sia nella versione standalone che nella futura integrazione.
 \end{itemize}
 
 In sintesi, il prodotto è rivolto a organizzazioni di varie dimensioni — in particolare aziende medio-grandi e studi professionali — 
 che necessitano di strumenti intelligenti per la creazione di contenuti, 
 la gestione automatizzata dei documenti e la collaborazione con gli studi dei Consulenti del Lavoro.
-L’app standalone funge da primo passo verso una piattaforma HR completa, modulare e potenziata dall’AI.
+L'app standalone funge da primo passo verso una piattaforma HR completa, modulare e potenziata dall'AI.
 
 
 \subsection{Definizioni, acronimi e abbreviazioni}
@@ -339,35 +343,35 @@ rilevanti per il progetto.
 
 \section{Casi d'uso}
 \subsection{Introduzione}
-I casi d’uso si compongono di un grafico UML e una descrizione testuale che permetta di
+I casi d'uso si compongono di un grafico UML e una descrizione testuale che permetta di
 comprendere al meglio cosa il prodotto deve fornire. La descrizione testuale, in particolar
 modo, dovrà contenere le informazioni sotto presenti, salvo i casi in cui lo
-specifico campo non risulti rilevante (ad esempio, un Caso d’Uso\textsubscript{\scalebox{0.6}{\textbf{G}}} che non prevede la
+specifico campo non risulti rilevante (ad esempio, un Caso d'Uso\textsubscript{\scalebox{0.6}{\textbf{G}}} che non prevede la
 possibilità di errori non avrà Scenari secondari):
 
 \begin{itemize}
     \item \textbf{Attori}: Sono coloro che interagiscono attivamente con il Sistema e
-    svolgono l’azione indicata dal Caso d’Uso
-    \item \textbf{Precondizioni}: Lista di elementi che sono necessari affinché l’Attore possa
-    compiere l’azione indicata dal caso d’uso
+    svolgono l'azione indicata dal Caso d'Uso
+    \item \textbf{Precondizioni}: Lista di elementi che sono necessari affinché l'Attore possa
+    compiere l'azione indicata dal caso d'uso
     \item \textbf{Postcondizioni}: Lista di elementi che descrivono come il Sistema risulta
-    essere internamente cambiato dopo che l’Attore ha effettuato
-    l’azione prevista dal Caso d’Uso
-    \item \textbf{Scenario principale}: Descrizione ragionevole delle operazioni che l’attore deve
-    fare per compiere l’azione descritta dal Caso d’Uso
+    essere internamente cambiato dopo che l'Attore ha effettuato
+    l'azione prevista dal Caso d'Uso
+    \item \textbf{Scenario principale}: Descrizione ragionevole delle operazioni che l'attore deve
+    fare per compiere l'azione descritta dal Caso d'Uso
     \item \textbf{Scenario secondario}: Descrizione ragionevole degli eventi che possono accadere
     qualora una delle operazioni descritte nello Scenario
     principale non vada a buon fine
-    \item \textbf{Trigger}: Evento che innesca l’inizio del Caso d’Uso
-    \item \textbf{Inclusioni}: Casi d’Uso ulteriori che l’Attore deve compiere per realizzare
-    il Caso d’Uso attualmente descritto
-    \item \textbf{Estensioni}: Casi d’Uso ulteriori che possono realizzarsi durante
-    l’esecuzione delle operazioni del Caso d’Uso principale
+    \item \textbf{Trigger}: Evento che innesca l'inizio del Caso d'Uso
+    \item \textbf{Inclusioni}: Casi d'Uso ulteriori che l'Attore deve compiere per realizzare
+    il Caso d'Uso attualmente descritto
+    \item \textbf{Estensioni}: Casi d'Uso ulteriori che possono realizzarsi durante
+    l'esecuzione delle operazioni del Caso d'Uso principale
     
 \end{itemize}
-Motivazioni che portano l’Attore a svolgere l’azione descritta
-dal Caso d’Uso. Non sempre disponibile in quanto il Caso
-d’Uso potrebbe essere incluso da un altro caso d’uso «principale».
+Motivazioni che portano l'Attore a svolgere l'azione descritta
+dal Caso d'Uso. Non sempre disponibile in quanto il Caso
+d'Uso potrebbe essere incluso da un altro caso d'uso «principale».
 
 \subsection{Attori}
 Di seguito sono esposti gli attori utilizzati:
@@ -422,31 +426,31 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente non ha una sessione attiva.
-    \item L’utente non è ancora registrato nel Sistema (l’e-mail inserita non risulta già presente).
+    \item L'utente non ha una sessione attiva.
+    \item L'utente non è ancora registrato nel Sistema (l'e-mail inserita non risulta già presente).
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
     \item Esiste un nuovo account utente registrato nel Sistema.
-    \item L’utente può effettuare il login utilizzando le credenziali appena create.
+    \item L'utente può effettuare il login utilizzando le credenziali appena create.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente accede alla schermata di registrazione dell’applicazione standalone.
-    \item L’utente inserisce i dati richiesti (ad esempio: nome, cognome, e-mail, password).
+    \item L'utente accede alla schermata di registrazione dell'applicazione standalone.
+    \item L'utente inserisce i dati richiesti (ad esempio: nome, cognome, e-mail, password).
     \item Il Sistema verifica la correttezza formale dei dati inseriti (es. formato e-mail, forza della password).
-    \item Il Sistema controlla che l’indirizzo e-mail non sia già associato a un account esistente.
+    \item Il Sistema controlla che l'indirizzo e-mail non sia già associato a un account esistente.
     \item In caso di esito positivo, il Sistema crea un nuovo account utente e lo memorizza nel proprio archivio.
-    \item Il Sistema conferma l’avvenuta registrazione e può opzionalmente eseguire il login automatico del nuovo utente.
+    \item Il Sistema conferma l'avvenuta registrazione e può opzionalmente eseguire il login automatico del nuovo utente.
 \end{enumerate}
 
 \textbf{Scenario secondario}
 \begin{enumerate}
     \item Nell'inserimento dei dati, uno o più campi non rispettano i requisiti di validità (es. e-mail non valida, password debole).
     \item Il Sistema mostra un messaggio di errore specifico per il campo non valido.
-    \item L’utente corregge i dati e ripete l’inserimento.
+    \item L'utente corregge i dati e ripete l'inserimento.
 \end{enumerate}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -785,28 +789,28 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente è già registrato nel Sistema.
-    \item Non esiste una sessione attiva associata all’utente sul dispositivo corrente.
+    \item L'utente è già registrato nel Sistema.
+    \item Non esiste una sessione attiva associata all'utente sul dispositivo corrente.
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L’utente risulta autenticato nel Sistema.
-    \item È attiva una sessione associata all’utente, che consente l’accesso alle funzionalità riservate (es. generazione contenuti, upload documenti).
+    \item L'utente risulta autenticato nel Sistema.
+    \item È attiva una sessione associata all'utente, che consente l'accesso alle funzionalità riservate (es. generazione contenuti, upload documenti).
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente accede alla schermata di login.
-    \item L’utente inserisce le proprie credenziali (e-mail e password).
+    \item L'utente accede alla schermata di login.
+    \item L'utente inserisce le proprie credenziali (e-mail e password).
     \item Il Sistema verifica la correttezza delle credenziali.
-    \item In caso di credenziali valide, il Sistema crea una nuova sessione autenticata per l’utente.
-    \item Il Sistema reindirizza l’utente alla dashboard principale dell’applicazione standalone.
+    \item In caso di credenziali valide, il Sistema crea una nuova sessione autenticata per l'utente.
+    \item Il Sistema reindirizza l'utente alla dashboard principale dell'applicazione standalone.
 \end{enumerate}
 
 \textbf{Scenario secondario}
 \begin{enumerate}
-    \item L'utente inserisce un’e-mail non registrata nel Sistema.
+    \item L'utente inserisce un'e-mail non registrata nel Sistema.
     \item L'utente inserisce una password errata.
     \item L'utente inserisce credenziali non valide.
 \end{enumerate}
@@ -894,8 +898,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente ha effettuato il login ed è autenticato.
-    \item Esiste un profilo associato all’utente nel Sistema
+    \item L'utente ha effettuato il login ed è autenticato.
+    \item Esiste un profilo associato all'utente nel Sistema
 \end{itemize}
 
 
@@ -906,7 +910,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente dopo aver effettuato il login si ritrova in una schermata con la scelta di diversi moduli.
+    \item L'utente dopo aver effettuato il login si ritrova in una schermata con la scelta di diversi moduli.
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -948,8 +952,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente ha effettuato il login ed è autenticato.
-    \item Esiste un profilo associato all’utente nel Sistema
+    \item L'utente ha effettuato il login ed è autenticato.
+    \item Esiste un profilo associato all'utente nel Sistema
     \item L'utente é entrato nel modulo di gestione profilo utente dalla dashboard principale
 
 \end{itemize}
@@ -961,13 +965,13 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente accede alla sezione “Profilo” dalla dashboard dell’applicazione.
+    \item L'utente accede alla sezione “Profilo” dalla dashboard dell'applicazione.
     \item Il Sistema mostra i dati correnti del profilo
-    \item L’utente puó modificare uno o più campi del profilo 
-    \item L’utente conferma le modifiche.
-    \item Il Sistema valida i dati inseriti (ad esempio formato dell’e-mail, campi obbligatori).
+    \item L'utente puó modificare uno o più campi del profilo 
+    \item L'utente conferma le modifiche.
+    \item Il Sistema valida i dati inseriti (ad esempio formato dell'e-mail, campi obbligatori).
     \item Il Sistema salva le modifiche nel proprio archivio.
-    \item Il Sistema conferma l’avvenuto aggiornamento del profilo.
+    \item Il Sistema conferma l'avvenuto aggiornamento del profilo.
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -1252,7 +1256,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente amministratore ha effettuato il login ed è autenticato come Admin.
+    \item L'utente amministratore ha effettuato il login ed è autenticato come Admin.
     \item Esistono uno o più account utente registrati nel Sistema.
     \item L'utente amministratore é entrato nel modulo di gestione ruoli dalla dashboard principale.
 \end{itemize}
@@ -1264,13 +1268,13 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’Amministratore accede alla sezione di amministrazione utenti.
-    \item Il Sistema mostra l’elenco degli utenti registrati, con i rispettivi ruoli correnti.
-    \item L’Amministratore seleziona un utente da modificare.
-    \item L’Amministratore assegna o modifica il ruolo dell’utente (es. da Editor a Admin, oppure rimozione privilegi).
-    \item L’Amministratore conferma le modifiche.
-    \item Il Sistema aggiorna i ruoli e i permessi associati all’utente.
-    \item Il Sistema registra l’operazione per finalità di audit interno.
+    \item L'Amministratore accede alla sezione di amministrazione utenti.
+    \item Il Sistema mostra l'elenco degli utenti registrati, con i rispettivi ruoli correnti.
+    \item L'Amministratore seleziona un utente da modificare.
+    \item L'Amministratore assegna o modifica il ruolo dell'utente (es. da Editor a Admin, oppure rimozione privilegi).
+    \item L'Amministratore conferma le modifiche.
+    \item Il Sistema aggiorna i ruoli e i permessi associati all'utente.
+    \item Il Sistema registra l'operazione per finalità di audit interno.
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -1564,20 +1568,20 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente ha una sessione attiva nel Sistema.
+    \item L'utente ha una sessione attiva nel Sistema.
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Non esiste più una sessione attiva associata all’utente sul dispositivo corrente.
+    \item Non esiste più una sessione attiva associata all'utente sul dispositivo corrente.
     \item Per accedere nuovamente alle funzionalità riservate è necessario eseguire un nuovo login.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente seleziona l’opzione di logout (ad esempio dal menu della dashboard).
-    \item Il Sistema invalida la sessione corrente associata all’utente (es. rimozione token di sessione).
-    \item Il Sistema reindirizza l’utente alla schermata di login o alla schermata iniziale pubblica.
+    \item L'utente seleziona l'opzione di logout (ad esempio dal menu della dashboard).
+    \item Il Sistema invalida la sessione corrente associata all'utente (es. rimozione token di sessione).
+    \item Il Sistema reindirizza l'utente alla schermata di login o alla schermata iniziale pubblica.
 \end{enumerate}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -1612,19 +1616,19 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente é entrato nel modulo AI Assistant Generativo dalla dashboard principale.
-    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Assistant.
+    \item L'utente é entrato nel modulo AI Assistant Generativo dalla dashboard principale.
+    \item L'utente dispone dei permessi necessari per utilizzare il modulo AI Assistant.
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente visualizza l’interfaccia di generazione contenuti AI, pronta per l’inserimento del prompt e la selezione delle opzioni.
+    \item L'utente visualizza l'interfaccia di generazione contenuti AI, pronta per l'inserimento del prompt e la selezione delle opzioni.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente accede alla sezione “AI Assistant Generativo”.
-    \item Il Sistema mostra il campo per l’inserimento del prompt e le azione che possono essere eseguite dall'utente.
+    \item L'utente accede alla sezione “AI Assistant Generativo”.
+    \item Il Sistema mostra il campo per l'inserimento del prompt e le azione che possono essere eseguite dall'utente.
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -1659,7 +1663,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente si trova nell'interfaccia di generazione contenuti AI (UC-1A)
+    \item L'utente si trova nell'interfaccia di generazione contenuti AI (UC-1A)
     \item La casella di testo del prompt è vuota o modificabile
 \end{itemize}
 
@@ -1684,7 +1688,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente si trova nell'interfaccia di generazione contenuti AI
+    \item L'utente si trova nell'interfaccia di generazione contenuti AI
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -1709,7 +1713,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente si trova nell'interfaccia di generazione contenuti AI
+    \item L'utente si trova nell'interfaccia di generazione contenuti AI
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -1741,7 +1745,7 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item Ci sono stati precedenti utilizzi del modulo AI Assistant Generativo.
-    \item L’utente é entrato nel modulo AI Assistant Generativo dalla dashboard principale.
+    \item L'utente é entrato nel modulo AI Assistant Generativo dalla dashboard principale.
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -1751,8 +1755,8 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L’utente accede alla sezione “Storico Prompt” all’interno del modulo AI Assistant Generativo.
-    \item Il Sistema mostra l’elenco dei prompt precedentemente utilizzati, con i relativi dettagli (tono, stile, risultato generato, data/ora, valutazione).
+    \item L'utente accede alla sezione “Storico Prompt” all'interno del modulo AI Assistant Generativo.
+    \item Il Sistema mostra l'elenco dei prompt precedentemente utilizzati, con i relativi dettagli (tono, stile, risultato generato, data/ora, valutazione).
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -2180,7 +2184,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item Il contenuto viene generato e mostrato in anteprima all’utente.
+    \item Il contenuto viene generato e mostrato in anteprima all'utente.
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -2394,7 +2398,7 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente é nella pagina del contenuto generato.
-    \item L'utente seleziona l’opzione di modifica del contenuto generato.
+    \item L'utente seleziona l'opzione di modifica del contenuto generato.
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -2597,19 +2601,19 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
-    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot per i CdL.
+    \item L'utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
+    \item L'utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot per i CdL.
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente visualizza l’interfaccia di upload documenti, pronta per il caricamento e la gestione dei file.
+    \item L'utente visualizza l'interfaccia di upload documenti, pronta per il caricamento e la gestione dei file.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente dalla dashboard principale accede al Modulo AI Co-Pilot per i Consulenti del Lavoro.
-    \item Il Sistema mostra l’interfaccia di upload documenti, con le azioni
+    \item Il Sistema mostra l'interfaccia di upload documenti, con le azioni
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -2818,8 +2822,8 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item É stato caricato almeno un documento tramite UC-2A.6.
-    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
-    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
+    \item L'utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
+    \item L'utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
 \end{itemize}
 
 
@@ -2831,7 +2835,7 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
-    \item Il Sistema mostra l’elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
+    \item Il Sistema mostra l'elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -3173,8 +3177,8 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item É stato caricato almeno un documento tramite UC-2A.6.
-    \item L’utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
-    \item L’utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
+    \item L'utente é entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
+    \item L'utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
 \end{itemize}
 
 
@@ -3186,7 +3190,7 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
-    \item Il Sistema mostra l’elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
+    \item Il Sistema mostra l'elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -3506,7 +3510,7 @@ Di seguito sono esposti gli attori utilizzati:
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente ha finito di visualizzare le informazioni del documento e seleziona l’opzione per visualizzare i dettagli del destinatario.
+    \item L'utente ha finito di visualizzare le informazioni del documento e seleziona l'opzione per visualizzare i dettagli del destinatario.
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -3592,7 +3596,7 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
-    \item Il Sistema mostra l’elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
+    \item Il Sistema mostra l'elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -3750,7 +3754,7 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
-    \item Il Sistema mostra l’elenco dei documenti caricati, con le relative informazioni.
+    \item Il Sistema mostra l'elenco dei documenti caricati, con le relative informazioni.
     \item L'utente applica filtri specifici per visualizzare solo i destinatari di interesse (es. per nome, codice fiscale, reparto).
 \end{enumerate}
 
@@ -4616,7 +4620,7 @@ Di seguito sono esposti gli attori utilizzati:
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente ha completato la preparazione del messaggio e dei documenti da inviare.
-    \item L'utente seleziona l’opzione per inviare il messaggio e i documenti ai destinatari.
+    \item L'utente seleziona l'opzione per inviare il messaggio e i documenti ai destinatari.
 \end{enumerate}
 
 \textbf{Scenario secondario}
