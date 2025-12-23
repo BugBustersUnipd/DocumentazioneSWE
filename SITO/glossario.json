@@ -65,6 +65,10 @@
       "definition": "Versione approvata e formalmente controllata di un documento o di un componente software che serve come riferimento per sviluppi successivi. Le modifiche successive richiedono procedure formali di controllo. Può riferirsi a diverse fasi (Requirements Baseline, Design Baseline, Product Baseline) e garantisce stabilità e tracciabilità."
     },
     {
+      "term": "Bedrock",
+      "definition": "Servizio di Amazon Web Services (AWS) che fornisce accesso a modelli di intelligenza artificiale di varie aziende leader attraverso un'API unificata. Consente di integrare e utilizzare Large Language Models (LLM) per applicazioni di AI generativa, eliminando la necessità di gestire direttamente l'infrastruttura dei modelli."
+    },
+    {
       "term": "Best Practice",
       "definition": "Insieme di tecniche, metodi e procedure che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto."
     },
@@ -255,6 +259,10 @@
     {
       "term": "POC (Proof of Concept)",
       "definition": "Realizzazione preliminare e limitata di un'idea o di un concetto, finalizzata a verificarne la fattibilità tecnica, l'adeguatezza rispetto ai requisiti o la validità di un'architettura proposta. Un POC viene solitamente sviluppato con risorse minime per valutare rapidamente se un approccio o una tecnologia siano promettenti prima di impegnare risorse significative in uno sviluppo completo."
+    },
+    {
+      "term": "PostgreSQL",
+      "definition": "Sistema di gestione di database relazionale open-source e avanzato, noto per la sua affidabilità, robustezza e conformità agli standard SQL. È ampiamente utilizzato in applicazioni web e sistemi enterprise per la sua scalabilità e flessibilità."
     },
     {
       "term": "Preventivo",
