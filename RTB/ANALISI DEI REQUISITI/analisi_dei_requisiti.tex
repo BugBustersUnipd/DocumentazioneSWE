@@ -765,6 +765,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
+
 \subsubsection{UC-0B – Login / Autenticazione utente}\label{sec:uc-0b}
 
 \begin{figure}[H]
@@ -873,6 +874,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 \vspace{0.5cm}
+
 
 \subsubsection{UC-0C – Apertura dashboard}\label{sec:uc-0c}
 
@@ -1440,7 +1442,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.6 – Modifica ruolo utente registrato}\label{sec:uc-0e-8}
+\subsubsection{UC-0E.6 – Modifica ruolo utente registrato}\label{sec:uc-0e-6}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1490,7 +1492,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.8 – Annulla modifica ruolo utente registrato}\label{sec:uc-0e-6}
+\subsubsection{UC-0E.8 – Annulla modifica ruolo utente registrato}\label{sec:uc-0e-8}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1540,6 +1542,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
+
 \subsubsection{UC-0F – Logout}\label{sec:uc-0f}
 
 \begin{figure}[H]
@@ -1586,6 +1589,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 \subsection{Sezione 1 – Modulo AI Assistant Generativo}
+
 
 \subsubsection{UC-1A – Generazione contenuti AI}\label{sec:uc-1a}
 
@@ -1634,6 +1638,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
         \item UC-1A.1 - Inserimento prompt
         \item UC-1A.2 - Selezione tono
         \item UC-1A.3 - Selezione stile
+        \item UC-1C
     \end{itemize}
 \end{itemize}
 
@@ -1714,7 +1719,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B – Visualizzazione lista elementi storico}\label{sec:uc-1b-1}
+
+\subsubsection{UC-1B – Visualizzazione lista elementi storico}\label{sec:uc-1b}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1724,7 +1730,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Pre-condizioni}
 \begin{itemize}
     \item L'utente si trova all'interno della sezione dedicata allo storico
-    \item La lista dello storico contiene almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -1745,11 +1750,15 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \begin{itemize}
         \item UC-1B.2 – Visualizzazione informazioni elemento
     \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-1B.1– Nessun prompt salvato
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B.1– Nessun prompt salvato}\label{sec:uc-1b-10}
+\subsubsection{UC-1B.1– Nessun prompt salvato}\label{sec:uc-1b-1}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1995,19 +2004,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-1C.1 – Visualizzazione anteprima contenuto generato.
-        \item UC-1C.3 – Salva post generato nello storico.
-        \item UC-1A.1 - Inserimento prompt
-        \item UC-1A.2 - Selezione tono
-        \item UC-1A.3 - Selezione stile
+        \item Nessuna
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-1H – Rigenera contenuto tramite AI 
-        \item UC-1I – Valuta contenuto generato
-        \item UC-1J – Scarta contenuto generato
-        \item UC-1K – Pubblica contenuto generato
-        \item UC-1D – Modifica contenuto generato
+        \item Nessuna
     \end{itemize}
 \end{itemize}
 
@@ -2349,7 +2350,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1H – Rigenera contenuto tramite AI}\label{sec:uc-1c-2}
+\subsubsection{UC-1H – Rigenera contenuto tramite AI}\label{sec:uc-1h}
 
 \textbf{Attori}
 \begin{itemize}
@@ -2377,7 +2378,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1I – Valuta contenuto generato}\label{sec:uc-1c-4}
+\subsubsection{UC-1I – Valuta contenuto generato}\label{sec:uc-1i}
 
 \textbf{Attori}
 \begin{itemize}
@@ -2386,7 +2387,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Il contenuto generato è visualizzato a schermo
+    \item L'utente si trova nel modulo AI assistant generativo
+    \item È stato generato un contenuto tramite l'AI assistant
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2403,7 +2405,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1J – Scarta contenuto generato}\label{sec:uc-1c-5}
+\subsubsection{UC-1J – Scarta contenuto generato}\label{sec:uc-1j}
 
 \textbf{Attori}
 \begin{itemize}
@@ -2412,7 +2414,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Il contenuto generato è visualizzato a schermo
+    \item L'utente si trova nel modulo AI assistant generativo
+    \item È stato generato un contenuto tramite l'AI assistant
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2438,7 +2441,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Il contenuto è stato generato e l'utente lo reputa idoneo
+    \item L'utente si trova nel modulo AI assistant generativo
+    \item È stato generato un contenuto tramite l'AI assistant
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2712,7 +2716,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.1 – Nessun documento riconosciuto}\label{sec:uc-2b-13}
+\subsubsection{UC-2B.1 – Nessun documento riconosciuto}\label{sec:uc-2b-1}
 
 \textbf{Attori}
 \begin{itemize}
@@ -2738,7 +2742,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.2 – Visualizzazione elemento da lista documenti.}\label{sec:uc-2b-2}
+\subsubsection{UC-2B.2 – Visualizzazione elemento da lista documenti}\label{sec:uc-2b-2}
 \textbf{Attori}
 \begin{itemize}
     \item Operatore CdL
@@ -3212,7 +3216,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il salvataggio viene bloccato e viene mostrato un messaggio di errore all'utente.
 \end{enumerate}
 
-\subsubsection{UC-2D – Visualizzazione lista informazioni destinatari analisi}\label{sec:uc-2d-1}
+\subsubsection{UC-2D – Visualizzazione lista informazioni destinatari analisi}\label{sec:uc-2d}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3239,13 +3243,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2D.0 – Visualizzazione elemento da lista informazioni destinatari
+        \item UC-2D.1 – Visualizzazione elemento da lista informazioni destinatari
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2D.1 – Visualizzazione elemento da lista informazioni destinatari}\label{sec:uc-2d-2}
+\subsubsection{UC-2D.1 – Visualizzazione elemento da lista informazioni destinatari}\label{sec:uc-2d-1}
 
 \begin{figure}[H]
     \centering
@@ -3297,7 +3301,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
 \end{itemize}
 
-\subsubsection{UC-2D.2 – Visualizzazione codice fiscale}\label{sec:uc-2d-6}
+\subsubsection{UC-2D.2 – Visualizzazione codice fiscale}\label{sec:uc-2d-2}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3402,7 +3406,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E – Visualizzazione lista storico documenti}\label{sec:uc-2e-4}
+\subsubsection{UC-2E – Visualizzazione lista storico documenti}\label{sec:uc-2e}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3436,7 +3440,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.1 – Documenti assenti}\label{sec:uc-2e-2}
+\subsubsection{UC-2E.1 – Documenti assenti}\label{sec:uc-2e-1}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3463,7 +3467,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.2 – Visualizzazione appartenenza lista distribuzione}\label{sec:uc-2e-7}
+\subsubsection{UC-2E.2 – Visualizzazione appartenenza lista distribuzione}\label{sec:uc-2e-2}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3488,7 +3492,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.3 – Visualizzazione percentuale confidenza}\label{sec:uc-2e-6}
+\subsubsection{UC-2E.3 – Visualizzazione percentuale confidenza}\label{sec:uc-2e-3}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3515,7 +3519,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.4 – Visualizzazione elemento da lista storico documenti}\label{sec:uc-2e-5}
+\subsubsection{UC-2E.4 – Visualizzazione elemento da lista storico documenti}\label{sec:uc-2e-4}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3555,7 +3559,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.5 – Visualizzazione stato}\label{sec:uc-2e-3}
+\subsubsection{UC-2E.5 – Visualizzazione stato}\label{sec:uc-2e-5}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3595,7 +3599,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Ci si trova nella pagina di storico dei documenti analizzati
     \item Almeno un documento è stato selezionato per l'invio.
 \end{itemize}
 
@@ -3836,7 +3839,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella pagina di gestione messaggio tramite UC-2F.
     \item Esistono uno o più template di messaggi salvati nel sistema.
 \end{itemize}
 
@@ -4055,7 +4057,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella pagina di gestione messaggio tramite UC-2F.
     \item Il messaggio é stato completato con oggetto, testo e documenti allegati.
 \end{itemize}
 
@@ -4183,7 +4184,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2I – Filtraggio documenti analisi}\label{sec:uc-2b-12}
+\subsubsection{UC-2I – Filtraggio documenti analisi}\label{sec:uc-2b-i}
 
 \begin{figure}[H]
     \centering
@@ -4234,7 +4235,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
 \end{itemize}
 
-\subsubsection{UC-2I.1 – Visualizzazione lista documenti filtrata}\label{sec:uc-2b-14}
+\subsubsection{UC-2I.1 – Visualizzazione lista documenti filtrata}\label{sec:uc-2b-i-1}
 
 \textbf{Attori}
 \begin{itemize}
@@ -4269,7 +4270,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2J – Filtraggio destinatari analisi}\label{sec:uc-2d-7}
+\subsubsection{UC-2J – Filtraggio destinatari analisi}\label{sec:uc-2d-J}
 
 \begin{figure}[H]
     \centering
@@ -4319,7 +4320,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
 \end{itemize}
 
-\subsubsection{UC-2J.1 – Visualizzazione lista destinatari filtrata}\label{sec:uc-2d-8}
+\subsubsection{UC-2J.1 – Visualizzazione lista destinatari filtrata}\label{sec:uc-2j-1}
 
 \textbf{Attori}
 \begin{itemize}
@@ -4353,7 +4354,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2K – Filtraggio documenti storico}\label{sec:uc-2e-8}
+\subsubsection{UC-2K – Filtraggio documenti storico}\label{sec:uc-2k}
 
 \textbf{Attori}
 \begin{itemize}
@@ -4385,7 +4386,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2K.1 – Visualizzazione lista storico documenti filtrata}\label{sec:uc-2e-9}
+\subsubsection{UC-2K.1 – Visualizzazione lista storico documenti filtrata}\label{sec:uc-2k-1}
 
 \textbf{Attori}
 \begin{itemize}
@@ -5041,7 +5042,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-051 & Un utente deve avere la possibilità di duplicare una generazione & \hyperref[sec:uc-1f]{UC-1F} & Obbligatorio \\
     \hline
-    RF-052 & C'é la possibilità che il prompt non abbia neanche un elemento data la mancanza di generazioni & \hyperref[sec:uc-1b-10]{UC-1B.10} & Obbligatorio \\
+    RF-052 & C'é la possibilità che il prompt non abbia neanche un elemento data la mancanza di generazioni & \hyperref[sec:uc-1b-1]{UC-1B.1} & Obbligatorio \\
     \hline
     RF-053 & Un utente deve avere la possibilità di riutilizzare una generazione & \hyperref[sec:uc-1e]{UC-1E} & Obbligatorio \\
     \hline
@@ -5053,15 +5054,15 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-057 & Un utente deve avere la possibilità di visualizzare un contenuto prima di pubblicarlo & \hyperref[sec:uc-1c-1]{UC-1C.1} & Obbligatorio \\
     \hline
-    RF-058 & Un utente deve avere la possibilità di rigenerare un contenuto tramite AI & \hyperref[sec:uc-1c-2]{UC-1C.2} & Obbligatorio \\
+    RF-058 & Un utente deve avere la possibilità di rigenerare un contenuto tramite AI & \hyperref[sec:uc-1h]{UC-1H} & Obbligatorio \\
     \hline
     RF-059 & Deve avvenire il salvataggio di ogni generazione nello storico & \hyperref[sec:uc-1c-3]{UC-1C.3} & Obbligatorio \\
     \hline
-    RF-060 & Deve avvenire una valutazione di ogni contenuto generato & \hyperref[sec:uc-1c-4]{UC-1C.4} & Obbligatorio \\
+    RF-060 & Deve avvenire una valutazione di ogni contenuto generato & \hyperref[sec:uc-1i]{UC-1i} & Obbligatorio \\
     \hline
-    RF-061 & Un utente deve avere la possibilità di scartare un contenuto generato & \hyperref[sec:uc-1c-5]{UC-1C.5} & Obbligatorio \\
+    RF-061 & Un utente deve avere la possibilità di scartare un contenuto generato & \hyperref[sec:uc-1j]{UC-1J} & Obbligatorio \\
     \hline
-    RF-062 & Un utente deve avere la possibilità di pubblicare un contenuto generato & \hyperref[sec:uc-1c-6]{UC-1C.6} & Obbligatorio \\
+    RF-062 & Un utente deve avere la possibilità di pubblicare un contenuto generato & \hyperref[sec:uc-1k]{UC-1K} & Obbligatorio \\
     \hline
     RF-063 & Un utente deve avere la possibilità di effettuare modifiche al contenuto generato & \hyperref[sec:uc-1d]{UC-1D} & Obbligatorio \\
     \hline
@@ -5117,7 +5118,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-089 & Un utente deve avere la possibilità di filtrare la lista dei documenti & \hyperref[sec:uc-2b-12]{UC-2B.12} & Obbligatorio \\
     \hline
-    RF-090 & Deve esserci un controllo per "Nessun documento riconosciuto" & \hyperref[sec:uc-2b-13]{UC-2B.13} & Obbligatorio \\
+    RF-090 & Deve esserci un controllo per "Nessun documento riconosciuto" & \hyperref[sec:uc-2b-1]{UC-2B.1} & Obbligatorio \\
     \hline
     RF-091 & Un utente deve avere la possibilità di visualizzare la lista filtrata delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2b-14]{UC-2B.14} & Obbligatorio \\
     \hline
@@ -5135,9 +5136,9 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-098 & Un utente deve avere la possibilità di aprire il modulo riguardante le informazioni dei destinatari & \hyperref[sec:uc-2d]{UC-2D} & Obbligatorio \\
     \hline
-    RF-099 & Un utente deve avere la possibilità di visualizzare la lista informazioni destinatari & \hyperref[sec:uc-2d-1]{UC-2D.1} & Obbligatorio \\
+    RF-099 & Un utente deve avere la possibilità di visualizzare la lista informazioni destinatari & \hyperref[sec:uc-2d]{UC-2D} & Obbligatorio \\
     \hline
-    RF-100 & Un utente deve avere la possibilità di visualizzare un elemento dalla lista informazioni destinatari & \hyperref[sec:uc-2d-2]{UC-2D.2} & Obbligatorio \\
+    RF-100 & Un utente deve avere la possibilità di visualizzare un elemento dalla lista informazioni destinatari & \hyperref[sec:uc-2d-1]{UC-2D.1} & Obbligatorio \\
     \hline
     RF-101 & Un utente deve avere la possibilità di visualizzare la matricola di un destinatario & \hyperref[sec:uc-2d-3]{UC-2D.3} & Obbligatorio \\
     \hline
@@ -5145,7 +5146,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-103 & Un utente deve avere la possibilità di visualizzare il nome di un destinatario & \hyperref[sec:uc-2d-5]{UC-2D.5} & Obbligatorio \\
     \hline
-    RF-104 & Un utente deve avere la possibilità di visualizzare il codice fiscale di un destinatario & \hyperref[sec:uc-2d-6]{UC-2D.6} & Obbligatorio \\
+    RF-104 & Un utente deve avere la possibilità di visualizzare il codice fiscale di un destinatario & \hyperref[sec:uc-2d-2]{UC-2D.2} & Obbligatorio \\
     \hline
     RF-105 & Un utente deve avere la possibilità di filtrare la lista dei destinatari & \hyperref[sec:uc-2d-7]{UC-2D.7} & Obbligatorio \\
     \hline
