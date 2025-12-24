@@ -913,21 +913,18 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item 
+        \item Nessuna
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-1A - Apertura modulo di generazione contenuti AI.
-        \item UC-2A - Apertura modulo di upload e gestione documentale.
-        \item UC-0D - Apertura modulo gestione profilo utente.
-        \item UC-0E - Apertura modulo gestione ruoli.
+        \item Nessuna
     \end{itemize}
 \end{itemize}
 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D – Apertura gestione profilo utente}\label{sec:uc-0d}
+\subsubsection{UC-0D – Gestione profilo utente}\label{sec:uc-0d}
 
 \begin{figure}[H]
     \centering
@@ -1231,7 +1228,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 
-\subsubsection{UC-0E – Apertura gestione ruoli (Admin / Editor)}\label{sec:uc-0e}
+\subsubsection{UC-0E – Gestione ruoli (Admin / Editor)}\label{sec:uc-0e}
 
 \begin{figure}[H]
     \centering
@@ -1518,7 +1515,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-
 \subsubsection{UC-0E.9 – Salva modifica ruolo utente registrato}\label{sec:uc-0e-9}
 
 \textbf{Attori}
@@ -1591,13 +1587,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \subsection{Sezione 1 – Modulo AI Assistant Generativo}
 
-\subsubsection{UC-1A – Apertura modulo di generazione contenuti AI}\label{sec:uc-1a}
+\subsubsection{UC-1A – Generazione contenuti AI}\label{sec:uc-1a}
 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1A.jpg}
-    \caption{Diagramma del caso d'uso UC-1A – Apertura modulo di generazione contenuti AI}
+    \caption{Diagramma del caso d'uso UC-1A – Generazione contenuti AI}
 \end{figure}
 
 \textbf{Attori}
@@ -1638,8 +1634,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
         \item UC-1A.1 - Inserimento prompt
         \item UC-1A.2 - Selezione tono
         \item UC-1A.3 - Selezione stile
-        \item UC-1C - Generazione contenuto tramite AI
-        \item UC-1B - Apertura storico prompt
     \end{itemize}
 \end{itemize}
 
@@ -1720,60 +1714,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B – Apertura storico prompt}\label{sec:uc-1b}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
-    \caption{Didascalia dell'immagine}
-\end{figure}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Ci sono stati precedenti utilizzi del modulo AI Assistant Generativo.
-    \item L'utente è entrato nel modulo AI Assistant Generativo dalla dashboard principale.
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza lo storico dei prompt utilizzati e può interagire con essi (es. riutilizzo, duplicazione, ricerca).
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente accede alla sezione "Storico Prompt" all'interno del modulo AI Assistant Generativo.
-    \item Il Sistema mostra l'elenco dei prompt precedentemente utilizzati, con i relativi dettagli (tono, stile, risultato generato, data/ora, valutazione).
-\end{enumerate}
-
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item Non ci sono prompt salvati nello storico.
-\end{enumerate}
-
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1B.1 – Visualizzazione lista elementi storico
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-1B.12 – Ricerca
-        \item UC-1B.11 – Riutilizza (rigenera con lo stesso prompt)
-        \item UC-1B.9 – Duplica (Ti riporta al modulo di generazione con prompt, tono e stile precompilati)
-        \item UC-1B.10 – Nessun prompt salvato.
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1B.1 – Visualizzazione lista elementi storico}\label{sec:uc-1b-1}
+\subsubsection{UC-1B – Visualizzazione lista elementi storico}\label{sec:uc-1b-1}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1805,6 +1746,33 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
         \item UC-1B.2 – Visualizzazione informazioni elemento
     \end{itemize}
 \end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1B.1– Nessun prompt salvato}\label{sec:uc-1b-10}
+
+\textbf{Attori}
+\begin{itemize}
+    \item HR manager/Redattore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item Lo storico non ha neanche un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene visualizzato un messaggio informativo (placeholder) che indica l'assenza di dati
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema interroga il database per recuperare lo storico
+    \item Il sistema non trova record associati all'utente e mostra un messaggio del tipo "Nessun prompt presente nello storico"
+\end{enumerate}
+
 
 \vspace{0.5cm}
 
@@ -1997,216 +1965,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B.9 – Duplica}\label{sec:uc-1b-9}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente si trova all'interno della sezione dedicata allo storico
-    \item Lo storico ha almeno un elemento
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente viene riportato al modulo di generazione (UC-1A) con i campi prompt, tono e stile già compilati con i dati storici, pronti per essere modificati
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente clicca sul comando "Duplica" associato ad un elemento dello storico
-    \item Il sistema reindirizza l'utente alla pagina di creazione, pre-popolando i campi con i valori recuperati dallo storico
-    \item L'utente può ora modificare il prompt o i parametri prima di generare
-\end{enumerate}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1B.10 – Nessun prompt salvato}\label{sec:uc-1b-10}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente si trova all'interno della sezione dedicata allo storico
-    \item Lo storico non ha neanche un elemento
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Viene visualizzato un messaggio informativo (placeholder) che indica l'assenza di dati
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il sistema interroga il database per recuperare lo storico
-    \item Il sistema non trova record associati all'utente e mostra un messaggio del tipo "Nessun prompt presente nello storico"
-\end{enumerate}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1B.11 – Riutilizza}\label{sec:uc-1b-11}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente si trova all'interno della sezione dedicata allo storico
-    \item Lo storico ha almeno un elemento
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il sistema avvia una nuova generazione utilizzando esattamente gli stessi parametri (prompt, tono, stile) dell'elemento selezionato
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente clicca sul comando "Riutilizza" associato ad un elemento dello storico
-    \item Il sistema invia direttamente i dati al motore AI per generare un nuovo output senza passare per la schermata di modifica
-\end{enumerate}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1B.12 – Ricerca}\label{sec:uc-1b-12}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Lo storico è popolato da almeno un elemento
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item La lista visualizzata viene filtrata mostrando solo gli elementi che corrispondono ai criteri di ricerca
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente inserisce una parola chiave (es. parte del prompt o data) nella barra di ricerca
-    \item Il sistema filtra gli elementi dello storico in tempo reale o alla conferma
-\end{enumerate}
-
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1B.13 – Visualizzazione lista elementi storico filtrata
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1B.13 – Visualizzazione lista elementi storico filtrata}\label{sec:uc-1b-13}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item La lista dello storico contiene almeno un elemento 
-    \item L'utente ha inserito un criterio di ricerca valido
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza la lista di elementi (coerenti con la ricerca) salvati nello storico nel suo insieme
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
-    \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt parziale, tono, stile, data)
-\end{enumerate}
-
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1B.2 – Visualizzazione informazioni elemento
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1C – Generazione contenuto tramite AI}\label{sec:uc-1c}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1C.jpg}
-    \caption{Diagramma del caso d'uso UC-1C – Generazione contenuto tramite AI}
-\end{figure}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente si trova nel modulo AI assistant
-    \item L'utente ha compilato i campi necessari alla generazione
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il contenuto viene generato e l'utente può modicarlo e decidere come usarlo
-\end{itemize}
-
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il contenuto viene generato e mostrato in anteprima all'utente.
-\end{enumerate}
-
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item 
-\end{enumerate}
-
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1C.1 – Visualizzazione anteprima contenuto generato.
-        \item UC-1C.3 – Salva post generato nello storico.
-        \item UC-1A.1 - Inserimento prompt
-        \item UC-1A.2 - Selezione tono
-        \item UC-1A.3 - Selezione stile
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-1C.2 – Rigenera contenuto tramite AI 
-        \item UC-1C.4 – Valuta contenuto generato
-        \item UC-1C.5 – Scarta contenuto generato
-        \item UC-1C.6 – Pubblica contenuto generato
-        \item UC-1D – Apertura modifica contenuto generato
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1C.1 – Visualizzazione anteprima contenuto generato}\label{sec:uc-1c-1}
+\subsubsection{UC-1C – Visualizzazione anteprima contenuto generato}\label{sec:uc-1c}
 
 \textbf{Attori}
 \begin{itemize}
@@ -2231,143 +1990,35 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1C.2 – Rigenera contenuto tramite AI}\label{sec:uc-1c-2}
 
-\textbf{Attori}
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item HR manager/Redattore
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1C.1 – Visualizzazione anteprima contenuto generato.
+        \item UC-1C.3 – Salva post generato nello storico.
+        \item UC-1A.1 - Inserimento prompt
+        \item UC-1A.2 - Selezione tono
+        \item UC-1A.3 - Selezione stile
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-1H – Rigenera contenuto tramite AI 
+        \item UC-1I – Valuta contenuto generato
+        \item UC-1J – Scarta contenuto generato
+        \item UC-1K – Pubblica contenuto generato
+        \item UC-1D – Modifica contenuto generato
+    \end{itemize}
 \end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente si trova nel modulo 
-    \item È stato generato un contenuto tramite l'AI assistant
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il contenuto precedente viene sostituito da una nuova versione generata con gli stessi parametri (o parametri lievemente aggiustati)
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente richiede al sistema di provare nuovamente a generare il contenuto
-    \item Il sistema invia una nuova richiesta all'AI
-    \item Il nuovo risultato sovrascrive quello visualizzato in anteprima
-\end{enumerate}
-
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1C.3 – Salva post generato nello storico}\label{sec:uc-1c-3}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item È stato generato un contenuto tramite l'AI assistant
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item I dati della generazione (prompt, parametri, output) sono persistiti nel database e accessibili tramite lo storico (UC-1B)
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il sistema memorizza automaticamente il risultato della generazione e i metadati associati nel database dello storico
-\end{enumerate}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1C.4 – Valuta contenuto generato}\label{sec:uc-1c-4}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Il contenuto generato è visualizzato a schermo
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il feedback dell'utente viene registrato e associato al contenuto nello storico
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente esprime un giudizio sulla qualità del contenuto (es. pollice in su/giù o stelle)
-    \item Il sistema salva la valutazione
-\end{enumerate}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1C.5 – Scarta contenuto generato}\label{sec:uc-1c-5}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Il contenuto generato è visualizzato a schermo
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il contenuto attuale viene rimosso dalla vista e l'utente ritorna alla fase di inserimento prompt (UC-1A)
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente decide che il contenuto non è utile e vuole ricominciare da zero
-    \item Il sistema pulisce l'area di anteprima e riporta il focus sui campi di input
-\end{enumerate}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1C.6 – Pubblica contenuto generato}\label{sec:uc-1c-6}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Il contenuto è stato generato e l'utente lo reputa idoneo
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il contenuto viene reso pubblico sulla piattaforma
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente conferma la volontà di utilizzare il contenuto generato
-    \item Il sistema cambia lo stato del contenuto in "Pubblicato" o lo trasferisce alla sezione blog/news del sito
-\end{enumerate}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-1D – Apertura modifica contenuto generato}\label{sec:uc-1d}
+\subsubsection{UC-1D – Modifica contenuto generato}\label{sec:uc-1d}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1D.png}
-    \caption{Diagramma del caso d'uso UC-1D – Apertura modifica contenuto generato}
+    \caption{Diagramma del caso d'uso UC-1D – Modifica contenuto generato}
 \end{figure}
 
 \textbf{Attori}
@@ -2573,10 +2224,241 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
+\subsubsection{UC-1E – Riutilizza}\label{sec:uc-1e}
+
+\textbf{Attori}
+\begin{itemize}
+    \item HR manager/Redattore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item Lo storico ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il sistema avvia una nuova generazione utilizzando esattamente gli stessi parametri (prompt, tono, stile) dell'elemento selezionato
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sul comando "Riutilizza" associato ad un elemento dello storico
+    \item Il sistema invia direttamente i dati al motore AI per generare un nuovo output senza passare per la schermata di modifica
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1F – Duplica}\label{sec:uc-1f}
+
+\textbf{Attori}
+\begin{itemize}
+    \item HR manager/Redattore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item Lo storico ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente viene riportato al modulo di generazione (UC-1A) con i campi prompt, tono e stile già compilati con i dati storici, pronti per essere modificati
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente clicca sul comando "Duplica" associato ad un elemento dello storico
+    \item Il sistema reindirizza l'utente alla pagina di creazione, pre-popolando i campi con i valori recuperati dallo storico
+    \item L'utente può ora modificare il prompt o i parametri prima di generare
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1G – Ricerca prompt}\label{sec:uc-1g}
+
+\textbf{Attori}
+\begin{itemize}
+    \item HR manager/Redattore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item Lo storico ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item La lista visualizzata viene filtrata mostrando solo gli elementi che corrispondono ai criteri di ricerca
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente inserisce una parola chiave (es. parte del prompt o data) nella barra di ricerca
+    \item Il sistema filtra gli elementi dello storico in tempo reale o alla conferma
+\end{enumerate}
+
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1G.1 – Visualizzazione lista elementi storico filtrata
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1G.1 – Visualizzazione lista elementi storico filtrata}\label{sec:uc-1g-1}
+
+\textbf{Attori}
+\begin{itemize}
+    \item HR manager/Redattore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dello storico contiene almeno un elemento 
+    \item L'utente ha inserito un criterio di ricerca valido
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista di elementi (coerenti con la ricerca) salvati nello storico nel suo insieme
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
+    \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt parziale, tono, stile, data)
+\end{enumerate}
+
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1B.2 – Visualizzazione informazioni elemento
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1H – Rigenera contenuto tramite AI}\label{sec:uc-1c-2}
+
+\textbf{Attori}
+\begin{itemize}
+    \item HR manager/Redattore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nel modulo AI assistant generativo
+    \item È stato generato un contenuto tramite l'AI assistant
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il contenuto precedente viene sostituito da una nuova versione generata con gli stessi parametri (o parametri lievemente aggiustati)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente richiede al sistema di provare nuovamente a generare il contenuto
+    \item Il sistema invia una nuova richiesta all'AI
+    \item Il nuovo risultato sovrascrive quello visualizzato in anteprima
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1I – Valuta contenuto generato}\label{sec:uc-1c-4}
+
+\textbf{Attori}
+\begin{itemize}
+    \item HR manager/Redattore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Il contenuto generato è visualizzato a schermo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il feedback dell'utente viene registrato e associato al contenuto nello storico
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente esprime un giudizio sulla qualità del contenuto (es. pollice in su/giù o stelle)
+    \item Il sistema salva la valutazione
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1J – Scarta contenuto generato}\label{sec:uc-1c-5}
+
+\textbf{Attori}
+\begin{itemize}
+    \item HR manager/Redattore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Il contenuto generato è visualizzato a schermo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il contenuto attuale viene rimosso dalla vista e l'utente ritorna alla fase di inserimento prompt (UC-1A)
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente decide che il contenuto non è utile e vuole ricominciare da zero
+    \item Il sistema pulisce l'area di anteprima e riporta il focus sui campi di input
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\subsubsection{UC-1K – Pubblica contenuto generato}\label{sec:uc-1c-6}
+
+\textbf{Attori}
+\begin{itemize}
+    \item HR manager/Redattore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Il contenuto è stato generato e l'utente lo reputa idoneo
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il contenuto viene reso pubblico sulla piattaforma
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente conferma la volontà di utilizzare il contenuto generato
+    \item Il sistema cambia lo stato del contenuto in "Pubblicato" o lo trasferisce alla sezione blog/news del sito
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
 
 \subsection{Sezione 2 – Modulo AI Co-Pilot per i Consulenti del Lavoro (CdL)}
 
-\subsubsection{UC-2A – Apertura modulo di upload e gestione documentale.}\label{sec:uc-2a}
+\subsubsection{UC-2A – Analisi e gestione documentale}\label{sec:uc-2a}
 
 \begin{figure}[H]
     \centering
@@ -2796,64 +2678,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B – Apertura modulo informazioni documenti.}\label{sec:uc-2b}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
-    \caption{Didascalia dell'immagine}
-\end{figure}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item É stato caricato almeno un documento tramite UC-2A.6.
-    \item L'utente è entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
-    \item L'utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
-\end{itemize}
-
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente può visualizzare la lista dei documenti caricati e le relative informazioni.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
-    \item Il Sistema mostra l'elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
-\end{enumerate}
-
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item Il sistema non riconosce alcun documento caricato.
-\end{enumerate}
-
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2B.1 – Visualizzazione lista documenti
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-2B.12 - Filtraggio documenti
-        \item UC-2B.13 - Nessun documento riconosciuto.
-        \item UC-2C – Apertura documento
-        \item UC-2D - Apertura informazioni destinatari
-    \end{itemize}
-\end{itemize}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2B.1 – Visualizzazione lista documenti}\label{sec:uc-2b-1}
+\subsubsection{UC-2B – Visualizzazione lista documenti analisi}\label{sec:uc-2b}
 
 \textbf{Attori}
 \begin{itemize}
@@ -2884,6 +2709,32 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
         \item UC-2B.2 – Visualizzazione elemento da lista documenti
     \end{itemize}
 \end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2B.1 – Nessun documento riconosciuto}\label{sec:uc-2b-13}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente accede alla lista o effettua una ricerca/filtro
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene mostrato un messaggio che informa l'utente dell'assenza di documenti
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema interroga il database in base ai criteri correnti (o visualizzazione generale)
+    \item Non trovando corrispondenze (o se l'archivio è vuoto), il sistema mostra un placeholder grafico o testuale "Nessun documento trovato"
+\end{enumerate}
+
 
 \vspace{0.5cm}
 
@@ -3151,120 +3002,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.12 – Filtraggio documenti}\label{sec:uc-2b-12}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
-    \caption{Didascalia dell'immagine}
-\end{figure}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item É stato caricato almeno un documento tramite UC-2A.6.
-    \item L'utente è entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
-    \item L'utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
-\end{itemize}
-
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente può visualizzare le informazioni riguardanti gli elementi concordanti con il filtro
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
-    \item Il Sistema mostra l'elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
-\end{enumerate}
-
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item Il sistema non riconosce alcun documento caricato.
-\end{enumerate}
-
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2B.14 – Visualizzazione lista documenti filtrata
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item Nessuno
-    \end{itemize}
-\end{itemize}
-
-\subsubsection{UC-2B.13 – Nessun documento riconosciuto}\label{sec:uc-2b-13}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente accede alla lista o effettua una ricerca/filtro
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Viene mostrato un messaggio che informa l'utente dell'assenza di documenti
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il sistema interroga il database in base ai criteri correnti (o visualizzazione generale)
-    \item Non trovando corrispondenze (o se l'archivio è vuoto), il sistema mostra un placeholder grafico o testuale "Nessun documento trovato"
-\end{enumerate}
-
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2B.14 – Visualizzazione lista documenti filtrata}\label{sec:uc-2b-14}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item La lista dello storico contiene almeno un elemento 
-    \item L'utente ha inserito un criterio di ricerca valido (testo libero)
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza la lista di elementi (coerenti con la ricerca) trovati dall'analisi
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
-    \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt parziale, tono, stile, data)
-\end{enumerate}
-
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2B.2 – Visualizzazione elemento da lista documenti
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.5cm}
-
-
-\subsubsection{UC-2C – Apertura documento}\label{sec:uc-2c}
+\subsubsection{UC-2C – Gestione documento}\label{sec:uc-2c}
 
 \begin{figure}[H]
     \centering
@@ -3314,7 +3052,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
         \item UC-2D.5 – Visualizzazione destinatario
         \item UC-2B.8 - Visualizzazione nome documento originale
         \item UC-2C.1 - Visualizzazione anteprima documento
-        \item UC-2E.2 - Visualizzazione percentuale confidenza
+        \item UC-2E.1 - Visualizzazione percentuale confidenza
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -3474,59 +3212,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il salvataggio viene bloccato e viene mostrato un messaggio di errore all'utente.
 \end{enumerate}
 
-
-\subsubsection{UC-2D - Apertura modulo informazioni destinatari}\label{sec:uc-2d}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
-    \caption{Didascalia dell'immagine}
-\end{figure}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Si é nella pagina lista documenti (UC-2B)
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza le informazioni dettagliate del destinatario associate al documento selezionato.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente ha finito di visualizzare le informazioni del documento e seleziona l'opzione per visualizzare i dettagli del destinatario.
-\end{enumerate}
-
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item 
-\end{enumerate}
-
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2D.1 – Visualizzazione lista informazioni destinatari
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-2B – Apertura modulo informazioni documenti 
-        \item UC-2C – Apertura documento
-        \item UC-2E - Apertura storico documenti
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2D.1 – Visualizzazione lista informazioni destinatari}\label{sec:uc-2d-1}
+\subsubsection{UC-2D – Visualizzazione lista informazioni destinatari analisi}\label{sec:uc-2d-1}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3553,13 +3239,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2D.2 – Visualizzazione elemento da lista informazioni destinatari
+        \item UC-2D.0 – Visualizzazione elemento da lista informazioni destinatari
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2D.2 – Visualizzazione elemento da lista informazioni destinatari}\label{sec:uc-2d-2}
+\subsubsection{UC-2D.1 – Visualizzazione elemento da lista informazioni destinatari}\label{sec:uc-2d-2}
 
 \begin{figure}[H]
     \centering
@@ -3610,6 +3296,31 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
         \item Nessuno
     \end{itemize}
 \end{itemize}
+
+\subsubsection{UC-2D.2 – Visualizzazione codice fiscale}\label{sec:uc-2d-6}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei destinatari contiene almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il codice fiscale del destinatario è visibile per la verifica dell'identità.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera il codice fiscale dal record anagrafico del destinatario.
+    \item Il sistema formatta e visualizza il codice fiscale nel campo dedicato.
+\end{enumerate}
+
+\vspace{0.5cm}
 
 \subsubsection{UC-2D.3 – Visualizzazione matricola}\label{sec:uc-2d-3}
 
@@ -3691,224 +3402,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2D.6 – Visualizzazione codice fiscale}\label{sec:uc-2d-6}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item La lista dei destinatari contiene almeno un elemento
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il codice fiscale del destinatario è visibile per la verifica dell'identità.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il sistema recupera il codice fiscale dal record anagrafico del destinatario.
-    \item Il sistema formatta e visualizza il codice fiscale nel campo dedicato.
-\end{enumerate}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2D.7 – Filtraggio destinatari}\label{sec:uc-2d-7}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
-    \caption{Didascalia dell'immagine}
-\end{figure}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Si é nella pagina lista documenti (UC-2B)
-    \item La lista dei destinatari contiene almeno un elemento
-\end{itemize}
-
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente ha filtrato la lista dei destinatari in base ai criteri selezionati.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
-    \item Il Sistema mostra l'elenco dei documenti caricati, con le relative informazioni.
-    \item L'utente applica filtri specifici per visualizzare solo i destinatari di interesse (es. per nome, codice fiscale, reparto).
-\end{enumerate}
-
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item Il sistema non riconosce alcun destinatario.
-\end{enumerate}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2D.8 – Visualizzazione lista destinatari filtrata
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item Nessuno
-    \end{itemize}
-\end{itemize}
-
-\subsubsection{UC-2D.8 – Visualizzazione lista destinatari filtrata}\label{sec:uc-2d-8}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item La lista dei destinatari contiene almeno un elemento 
-    \item L'utente ha inserito un criterio di ricerca valido (testo libero)
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza la lista di elementi (coerenti con la ricerca) trovati dall'analisi
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
-    \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali 
-\end{enumerate}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2D.2 – Visualizzazione elemento da lista documenti
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.5cm}
-
-
-\subsubsection{UC-2E – Apertura storico documenti}\label{sec:uc-2e}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
-    \caption{Didascalia dell'immagine}
-\end{figure}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente si trova nella pagina destinatario (UC-2D) o di apertura del modulo (UC-2A)
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza tutti i documenti analizzati dall'inizio dell'utilizzo dell'applicativo
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item 
-\end{enumerate}
-
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item Non sono mai stati caricati documenti, quindi la visualizzazione di dati non è possibile.
-\end{enumerate}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item nessuna
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-2E.8 - Filtraggio documenti
-        \item UC-2E.4 - visualizzazione informazioni documento
-        \item UC-2C – Apertura documento
-        \item UC-2D - Apertura informazioni destinatari
-        \item UC-2E.1 - Selezione documento
-        \item UC-2F - Gestione messaggio
-        \item UC-2E.2 - Documenti assenti.
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2E.1 – Selezione documento}\label{sec:uc-2e-1}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente visualizza la lista dello storico documenti (UC-2E).
-    \item È presente almeno un documento in lista.
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il sistema segno il documento nella lista dei documenti da inviare
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente individua il documento di interesse scorrendo la lista.
-    \item L'utente clicca sulla riga corrispondente o sull'icona di dettaglio.
-    \item Il sistema naviga alla pagina di dettaglio del documento.
-\end{enumerate}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2E.2 – Documenti assenti}\label{sec:uc-2e-2}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Non esistono documenti salvati nello storico
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Viene mostrato un messaggio informativo che indica l'assenza di risultati.
-    \item La lista appare vuota.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il sistema interroga il database per recuperare i documenti.
-    \item La ricerca non produce risultati (0 record).
-    \item Il sistema visualizza un placeholder o un messaggio "Nessun documento trovato" per informare l'utente.
-\end{enumerate}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2E.3 – Visualizzazione lista storico documenti}\label{sec:uc-2e-4}
+\subsubsection{UC-2E – Visualizzazione lista storico documenti}\label{sec:uc-2e-4}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3942,6 +3436,85 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
+\subsubsection{UC-2E.1 – Documenti assenti}\label{sec:uc-2e-2}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Non esistono documenti salvati nello storico
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene mostrato un messaggio informativo che indica l'assenza di risultati.
+    \item La lista appare vuota.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema interroga il database per recuperare i documenti.
+    \item La ricerca non produce risultati (0 record).
+    \item Il sistema visualizza un placeholder o un messaggio "Nessun documento trovato" per informare l'utente.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2E.2 – Visualizzazione appartenenza lista distribuzione}\label{sec:uc-2e-7}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista contiene almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza chi riceverà o ha ricevuto il documento.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera i collegamenti tra il documento e le anagrafiche destinatari.
+    \item Il sistema mostra i nomi dei destinatari o, in caso di lista lunga, un riepilogo (es. "Mario Rossi + 2 altri") espandibile al passaggio del mouse o al click.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2E.3 – Visualizzazione percentuale confidenza}\label{sec:uc-2e-6}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista contiene almeno un elemento
+    \item È stata calcolata la percentuale di confidenza media del documento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene mostrato un indicatore numerico o visivo dell'affidabilità dei dati estratti.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item Il sistema recupera il punteggio di confidenza calcolato durante l'importazione.
+    \item Il sistema formatta il dato come percentuale.
+    \item Il sistema visualizza il dato, evidenziandolo (es. in rosso) se la confidenza è sotto una soglia di sicurezza, suggerendo un controllo manuale.
+\end{enumerate}
+
+\vspace{0.5cm}
+
 \subsubsection{UC-2E.4 – Visualizzazione elemento da lista storico documenti}\label{sec:uc-2e-5}
 
 \textbf{Attori}
@@ -3971,8 +3544,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \begin{itemize}
         \item UC-2B.10 – Visualizzazione codice documento
         \item UC-2E.5 - Visualizzazione stato
-        \item UC-2E.6 - Visualizzazione percentuale confidenza
-        \item UC-2E.7 - Visualizzazione appartenenza lista distribuzione
+        \item UC-2E.3 - Visualizzazione percentuale confidenza
+        \item UC-2E.2 - Visualizzazione appartenenza lista distribuzione
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -4004,123 +3577,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema interroga il workflow del documento per determinarne lo stato corrente.
     \item Il sistema visualizza un'etichetta testuale o un'icona colorata rappresentativa dello stato (es. Verde per inviato, Giallo per in attesa).
 \end{enumerate}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2E.6 – Visualizzazione percentuale confidenza}\label{sec:uc-2e-6}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item La lista contiene almeno un elemento
-    \item È stata calcolata la percentuale di confidenza media del documento
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Viene mostrato un indicatore numerico o visivo dell'affidabilità dei dati estratti.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il sistema recupera il punteggio di confidenza calcolato durante l'importazione.
-    \item Il sistema formatta il dato come percentuale.
-    \item Il sistema visualizza il dato, evidenziandolo (es. in rosso) se la confidenza è sotto una soglia di sicurezza, suggerendo un controllo manuale.
-\end{enumerate}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2E.7 – Visualizzazione appartenenza lista distribuzione}\label{sec:uc-2e-7}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item La lista contiene almeno un elemento
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza chi riceverà o ha ricevuto il documento.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item Il sistema recupera i collegamenti tra il documento e le anagrafiche destinatari.
-    \item Il sistema mostra i nomi dei destinatari o, in caso di lista lunga, un riepilogo (es. "Mario Rossi + 2 altri") espandibile al passaggio del mouse o al click.
-\end{enumerate}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2E.8 – Filtraggio documenti}\label{sec:uc-2e-8}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item La lista dei documenti è visualizzata e popolata.
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L''utente ha inserito i criteri di ricerca i criteri di ricerca inseriti.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente desidera restringere la ricerca (es. per data, per tipologia o per stato invio).
-    \item L'utente utilizza la barra di ricerca o i filtri laterali.
-    \item Il sistema aggiorna la vista in tempo reale o dopo la conferma, nascondendo i documenti non pertinenti.
-\end{enumerate}
-
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item L'utente rimuove i filtri.
-    \item Il sistema ripristina la visualizzazione completa dello storico.
-\end{enumerate}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2E.9 – Visualizzazione lista storico documenti filtrata}\label{sec:uc-2e-9}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item La lista dei contiene almeno un elemento
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item L'utente visualizza la lista filtrata di documenti nello storico salvati nel suo insieme
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente si trova nel modulo storico dell'AI Co-pilot
-    \item L'utente vede l'elenco filtrato di tutti gli elementi relativi a tutte le analisi
-\end{enumerate}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2E.4 – Visualizzazione elemento da lista storico documenti
-    \end{itemize}
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -4172,7 +3628,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-2F.1 - Salva template messaggio
-        \item UC-2G - Tabella template salvati
+        \item UC-2G - Gestione template salvati
         \item UC-1A.2 - Selezione tono
         \item UC-1A.3 - Selezione stile
         \item UC-2F.2 - Modifica oggetto messaggio
@@ -4365,7 +3821,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema renderizza l'area di testo permettendo la lettura del contenuto.
 \end{enumerate}
 
-\subsubsection{UC-2G - Tabella template salvati }\label{sec:uc-2g}
+\subsubsection{UC-2G - Gestione template salvati }\label{sec:uc-2g}
 
 \begin{figure}[H]
     \centering
@@ -4727,10 +4183,245 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
+\subsubsection{UC-2I – Filtraggio documenti analisi}\label{sec:uc-2b-12}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item É stato caricato almeno un documento tramite UC-2A.6.
+    \item L'utente è entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
+    \item L'utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
+\end{itemize}
+
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente può visualizzare le informazioni riguardanti gli elementi concordanti con il filtro
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
+    \item Il Sistema mostra l'elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il sistema non riconosce alcun documento caricato.
+\end{enumerate}
+
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2I.1 – Visualizzazione lista documenti filtrata
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuno
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{UC-2I.1 – Visualizzazione lista documenti filtrata}\label{sec:uc-2b-14}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dello storico contiene almeno un elemento 
+    \item L'utente ha inserito un criterio di ricerca valido (testo libero)
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista di elementi (coerenti con la ricerca) trovati dall'analisi
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
+    \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt parziale, tono, stile, data)
+\end{enumerate}
+
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2B.2 – Visualizzazione elemento da lista documenti
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2J – Filtraggio destinatari analisi}\label{sec:uc-2d-7}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
+    \caption{Didascalia dell'immagine}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item Si é nella pagina lista documenti (UC-2B)
+    \item La lista dei destinatari contiene almeno un elemento
+\end{itemize}
+
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente ha filtrato la lista dei destinatari in base ai criteri selezionati.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
+    \item Il Sistema mostra l'elenco dei documenti caricati, con le relative informazioni.
+    \item L'utente applica filtri specifici per visualizzare solo i destinatari di interesse (es. per nome, codice fiscale, reparto).
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item Il sistema non riconosce alcun destinatario.
+\end{enumerate}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2J.1 – Visualizzazione lista destinatari filtrata
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuno
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{UC-2J.1 – Visualizzazione lista destinatari filtrata}\label{sec:uc-2d-8}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei destinatari contiene almeno un elemento 
+    \item L'utente ha inserito un criterio di ricerca valido (testo libero)
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista di elementi (coerenti con la ricerca) trovati dall'analisi
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
+    \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali 
+\end{enumerate}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2D.2 – Visualizzazione elemento da lista documenti
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2K – Filtraggio documenti storico}\label{sec:uc-2e-8}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei documenti è visualizzata e popolata.
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L''utente ha inserito i criteri di ricerca i criteri di ricerca inseriti.
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente desidera restringere la ricerca (es. per data, per tipologia o per stato invio).
+    \item L'utente utilizza la barra di ricerca o i filtri laterali.
+    \item Il sistema aggiorna la vista in tempo reale o dopo la conferma, nascondendo i documenti non pertinenti.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item L'utente rimuove i filtri.
+    \item Il sistema ripristina la visualizzazione completa dello storico.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsubsection{UC-2K.1 – Visualizzazione lista storico documenti filtrata}\label{sec:uc-2e-9}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item La lista dei contiene almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item L'utente visualizza la lista filtrata di documenti nello storico salvati nel suo insieme
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente si trova nel modulo storico dell'AI Co-pilot
+    \item L'utente vede l'elenco filtrato di tutti gli elementi relativi a tutte le analisi
+\end{enumerate}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2E.4 – Visualizzazione elemento da lista storico documenti
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
 
 \subsection{Sezione 3 - Modulo Analytics e Monitoraggio Trasversale}
 
-\subsubsection{UC-3A - Apertura dashboard di analisi e Monitoraggio AI}\label{sec:uc-3a}
+\subsubsection{UC-3A - Analisi e Monitoraggio AI}\label{sec:uc-3a}
 
 \begin{figure}[H]
     \centering
@@ -5348,15 +5039,15 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-050 & Un utente deve avere la possibilità di visualizzare il tono di una generazione & \hyperref[sec:uc-1b-8]{UC-1B.8} & Obbligatorio \\
     \hline
-    RF-051 & Un utente deve avere la possibilità di duplicare una generazione & \hyperref[sec:uc-1b-9]{UC-1B.9} & Obbligatorio \\
+    RF-051 & Un utente deve avere la possibilità di duplicare una generazione & \hyperref[sec:uc-1f]{UC-1F} & Obbligatorio \\
     \hline
     RF-052 & C'é la possibilità che il prompt non abbia neanche un elemento data la mancanza di generazioni & \hyperref[sec:uc-1b-10]{UC-1B.10} & Obbligatorio \\
     \hline
-    RF-053 & Un utente deve avere la possibilità di riutilizzare una generazione & \hyperref[sec:uc-1b-11]{UC-1B.11} & Obbligatorio \\
+    RF-053 & Un utente deve avere la possibilità di riutilizzare una generazione & \hyperref[sec:uc-1e]{UC-1E} & Obbligatorio \\
     \hline
-    RF-054 & Un utente deve avere la possibilità applicare un filtro alla lista dello storico & \hyperref[sec:uc-1b-12]{UC-1B.12} & Obbligatorio \\
+    RF-054 & Un utente deve avere la possibilità applicare un filtro alla lista dello storico & \hyperref[sec:uc-1g]{UC-1G} & Obbligatorio \\
     \hline
-    RF-055 & Un utente deve avere la possibilità di visualizzare la lista dopo aver applicato il filtro & \hyperref[sec:uc-1b-13]{UC-1B.13} & Obbligatorio \\
+    RF-055 & Un utente deve avere la possibilità di visualizzare la lista dopo aver applicato il filtro & \hyperref[sec:uc-1g-1]{UC-1G.1} & Obbligatorio \\
     \hline
     RF-056 & Un utente deve avere la possibilità di generare un contenuto tramite AI & \hyperref[sec:uc-1c]{UC-1C} & Obbligatorio \\
     \hline
@@ -5464,21 +5155,21 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-108 & Un utente deve avere la possibilitá di selezionare un documento per poterlo poi inviare & \hyperref[sec:uc-2e-1]{UC-2E.1} & Obbligatorio \\
     \hline
-    RF-109 & C'é la possibilitá che non siano mai stati registrati documenti e che quindi l'applicativo agisca di conseguenza & \hyperref[sec:uc-2e-2]{UC-2E.2} & Obbligatorio \\
+    RF-109 & C'é la possibilitá che non siano mai stati registrati documenti e che quindi l'applicativo agisca di conseguenza & \hyperref[sec:uc-2e-2]{UC-2E.1} & Obbligatorio \\
     \hline
-    RF-110 & Un utente deve avere la possibilità di visualizzare la lista storico documenti & \hyperref[sec:uc-2e-4]{UC-2E.3} & Obbligatorio \\
+    RF-110 & Un utente deve avere la possibilità di visualizzare la lista storico documenti & \hyperref[sec:uc-2e-4]{UC-2E} & Obbligatorio \\
     \hline
     RF-111 & Un utente deve avere la possibilità di visualizzare un elemento dalla lista storico documenti & \hyperref[sec:uc-2e-5]{UC-2E.4} & Obbligatorio \\
     \hline
     RF-112 & Un utente deve avere la possibilità di visualizzare lo stato da un elemento& \hyperref[sec:uc-2e-3]{UC-2E.5} & Obbligatorio \\
     \hline
-    RF-113 & Un utente deve avere la possibilità di visualizzare la percentuale di confidenza di un elemento & \hyperref[sec:uc-2e-6]{UC-2E.6} & Obbligatorio \\
+    RF-113 & Un utente deve avere la possibilità di visualizzare la percentuale di confidenza di un elemento & \hyperref[sec:uc-2e-6]{UC-2E.3} & Obbligatorio \\
     \hline
-    RF-114 & Un utente deve avere la possibilità di visualizzare la lista di appartenenza di un elemento & \hyperref[sec:uc-2e-7]{UC-2E.7} & Obbligatorio \\
+    RF-114 & Un utente deve avere la possibilità di visualizzare la lista di appartenenza di un elemento & \hyperref[sec:uc-2e-7]{UC-2E.2} & Obbligatorio \\
     \hline
     RF-115 & Un utente deve avere la possibilitá di filtrare i documenti per favorire la ricerca & \hyperref[sec:uc-2e-8]{UC-2E.8} & Obbligatorio \\
     \hline
-    RF-116 & Un utente deve avere la possibilità di visualizzare la lista filtrata storico documenti & \hyperref[sec:uc-2e-9]{UC-2E.9} & Obbligatorio \\
+    RF-116 & Un utente deve avere la possibilità di visualizzare la lista filtrata storico documenti & \hyperref[sec:uc-2e-9]{UC-2K.1} & Obbligatorio \\
     \hline
     RF-117 & Un utente deve avere la possibilità di accedere a un menú di gestione del messaggio da inviare con i documenti prima di inviarlo & \hyperref[sec:uc-2f]{UC-2F} & Obbligatorio \\
     \hline
