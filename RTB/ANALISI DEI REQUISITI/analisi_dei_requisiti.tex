@@ -225,11 +225,8 @@ Qui di seguito le funzionalità del prodotto descritte in breve e divise per i d
     \item \textbf{Gestione dei prompt}: 
     storico dei prompt utilizzati, con possibilità di riutilizzo, duplicazione e ricerca interna.
 
-    \item \textbf{Dashboard standalone}: 
-    visualizzazione e gestione di storico, filtri, ricerca e analisi delle interazioni con l'AI generativa.
-
-    \item \textbf{Gestione delle immagini}: 
-    possibilità di caricare immagini dall'utente o di generarle tramite AI, con salvataggio locale.
+    \item \textbf{Gestione risultato}:
+    possibilità di eseguire interventi manuali sui risultati delle generazioni
 
 \end{itemize}
 
@@ -357,9 +354,6 @@ possibilità di errori non avrà scenari alternativi):
     l'esecuzione delle operazioni del caso d'uso principale
     
 \end{itemize}
-Motivazioni che portano l'attore a svolgere l'azione descritta
-dal caso d'uso. Non sempre disponibile in quanto il caso
-d'uso potrebbe essere incluso da un altro caso d'uso principale.
 
 \subsection{Attori}
 Nella \hyperref[fig:1]{figura~1} sono riportati gli attori considerati in questa analisi dei requisiti.
@@ -374,9 +368,9 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textbf{Utente}: Rappresenta un utente che vuole accedere al Sistema.
     \item \textbf{HR Manager}: È la figura responsabile della comunicazione interna. Utilizza il modulo AI Assistant per generare, revisionare e pubblicare messaggi o avvisi rivolti ai dipendenti, definendone tono e stile.
-    \item Redattore: 
+    \item \textbf{Redattore}: Un qualsiasi dipendente incaricato con la creazioni di un post
     \item \textbf{Data Analyst}: Figura incaricata di monitorare le prestazioni. Accede alle dashboard di analisi per consultare le statistiche di utilizzo, i rating di qualità dei contenuti generati e i KPI del riconoscimento documentale.
-    \item \textbf{Amministratore}: Gestisce la configurazione tecnica dell'applicazione standalone. Si occupa della creazione degli utenti, della gestione dei ruoli e della configurazione dei parametri globali dell'AI (es. prompt di sistema o soglie di confidenza).
+    \item \textbf{Amministratore}: Gestisce la configurazione tecnica dell'applicazione standalone. Si occupa della creazione degli utenti, della gestione dei ruoli.
     \item \textbf{Operatore Studio CdL}: È l'utente principale del modulo AI Co-Pilot. Si occupa di caricare i flussi documentali (es. cedolini massivi), supervisionare il riconoscimento automatico (validazione Human-in-the-Loop) e gestire le liste di distribuzione.
     \item \textbf{Sistema (AI Doc Classifier)}: Il modulo intelligente incaricato di analizzare visivamente il documento, applicare l'OCR e classificarne la tipologia (es. "Cedolino", "CUD").
     \item \textbf{Sistema (Entity Resolver)}: Il componente che analizza il testo estratto per identificare univocamente i destinatari (es. Nome, Cognome, CF) confrontandoli con l'anagrafica.
@@ -457,7 +451,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-0B – Login / Autenticazione utente (in caso di login automatico al termine della registrazione).
         \item UC-0A.7 – email non valida.
         \item UC-0A.8 – password non valida.
         \item UC-0A.9 – email già registrata.
@@ -1613,13 +1606,16 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente visualizza l'interfaccia di generazione contenuti AI, pronta per l'inserimento del prompt e la selezione delle opzioni.
+    \item L'utente ha fatto generare un contenuto pubblicabile al sistema
+    \item Il contenuto è stato salvato nello storico
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente accede alla sezione "AI Assistant Generativo".
     \item Il sistema mostra il campo per l'inserimento del prompt e le azioni che possono essere eseguite dall'utente.
+    \item L'utente compila i campi 
+    \item Il sistema genera il contenuto e lo salva nello storico
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -1631,14 +1627,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item Nessuna.
+        \item Nessuna
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-1A.1 - Inserimento prompt
         \item UC-1A.2 - Selezione tono
         \item UC-1A.3 - Selezione stile
-        \item UC-1C
     \end{itemize}
 \end{itemize}
 
@@ -1719,7 +1714,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-
 \subsubsection{UC-1B – Visualizzazione lista elementi storico}\label{sec:uc-1b}
 
 \textbf{Attori}
@@ -1741,6 +1735,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
     \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt parziale, tono, stile, data)
+    \item L'utente ottiene le informazioni ricercate
 \end{enumerate}
 
 
@@ -2029,12 +2024,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente ha generato un contenuto tramite UC-1A e lo sta visualizzando in anteprima tramite UC-1C.
+    \item L'utente ha generato un contenuto tramite UC-1A
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella pagina di modifica e può eseguire le opzioni mostrate.
+    \item L'utente ha la possibilità di modificare la generazione
 \end{itemize}
 
 
@@ -2055,7 +2050,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-1C.1 – Visualizzazione anteprima contenuto generato
+        \item UC-1C – Visualizzazione anteprima contenuto generato
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -2398,6 +2393,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale}
 \begin{enumerate}
+    \item L'utente genera un contenuto tramite AI
     \item L'utente esprime un giudizio sulla qualità del contenuto (es. pollice in su/giù o stelle)
     \item Il sistema salva la valutazione
 \end{enumerate}
@@ -2484,13 +2480,15 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente visualizza l'interfaccia di upload documenti, pronta per il caricamento e la gestione dei file.
+    \item L'utente ha fatto analizzare al sistema il documento o l'insieme di documenti caricati
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente dalla dashboard principale accede al Modulo AI Co-Pilot per i Consulenti del Lavoro.
     \item Il Sistema mostra l'interfaccia di upload documenti, con le azioni
+    \item L'utente carica il file da analizzare e ha la possibilità di compilare i campi
+    \item Il sistema analizza il file fornito
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -2504,11 +2502,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item Nessuna.
+        \item UC-2A.1 - Caricamento file 
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2A.1 - Caricamento file %Errore nel caricamento file (format non valido, dimensione eccessiva)
         \item UC-2A.2 - Inserimento categoria
         \item UC-2A.3 - Inserimento mese/anno di competenza
         \item UC-2A.4 - Inserimento azienda
@@ -2702,6 +2699,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente si trova nel modulo storico dell'AI Co-pilot
+    \item L'utente ha caricato un file che poi è stato analizzato dal sistema
     \item L'utente vede l'elenco di tutti gli elementi recuperati dall'analisi
 \end{enumerate}
 
@@ -3022,9 +3020,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Ci si trova in una delle pagine precedenti (UC-2B o UC-2D o UC-2E).
-    \item Si é selezionato un documento da una delle lista.
-    \item Il documento é disponibile per la visualizzazione.
+    \item Si é selezionato un documento da una delle liste disponibili
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3236,6 +3232,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente si trova nel modulo storico dell'AI Co-pilot
+    \item L'utente ha caricato un file che poi è stato analizzato dal sistema
     \item L'utente vede l'elenco di tutti gli elementi relativi ai destinatari recuperati dall'analisi
 \end{enumerate}
 
@@ -3609,7 +3606,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item Un utente ha selezionato uno o piú documenti da inviare a uno o piú destinatari e sta prepara in messaggio da inviare assieme ai documenti.
+    \item Un utente ha selezionato uno o piú documenti da inviare a uno o piú destinatari e prepara in messaggio da inviare assieme ai documenti.
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -4964,14 +4961,20 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-013 & Deve esserci un controllo per "Matricola non valida" & \hyperref[sec:uc-0a-12]{UC-0A.12} & Opzionale \\
     \hline
+
+
     RF-014 & L'utente deve avere la possibilità di autenticarsi & \hyperref[sec:uc-0b]{UC-0B} & Opzionale \\
     \hline
     RF-015 & Deve esserci un controllo per "Email non registrata" & \hyperref[sec:uc-0b-1]{UC-0B.1} & Opzionale \\
     \hline
     RF-016 & Deve esserci un controllo per "Password errata" & \hyperref[sec:uc-0b-2]{UC-0B.2} & Opzionale \\
     \hline
+
+
     RF-017 & L'utente a seguito del login deve avere la possibilità di raggiungere la dashboard & \hyperref[sec:uc-0c]{UC-0C} & Obbligatorio \\
     \hline
+
+
     RF-018 & L'utente deve avere la possibilità di gestire il proprio profilo utente & \hyperref[sec:uc-0d]{UC-0D} & Opzionale \\
     \hline
     RF-019 & L'utente deve avere la possibilità di visualizzare la propria email & \hyperref[sec:uc-0d-1]{UC-0D.1} & Opzionale \\
@@ -4992,6 +4995,8 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-026 & L'utente deve avere la possibilità di modificare le informazioni nel proprio profilo utente & \hyperref[sec:uc-0d-9]{UC-0D.9} & Opzionale \\
     \hline
+
+
     RF-027 & Un utente con titolo di admin deve avere la possibilità di gestire i ruoli degli altri utenti & \hyperref[sec:uc-0e]{UC-0E} & Opzionale \\
     \hline
     RF-028 & Un utente con titolo di admin deve poter visualizzare lista utenti registrati & \hyperref[sec:uc-0e-1]{UC-0E.1} & Opzionale \\
@@ -5004,17 +5009,21 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-032 & Un utente con titolo di admin deve poter visualizzare il cognome di utente registrato & \hyperref[sec:uc-0e-5]{UC-0E.5} & Opzionale \\
     \hline
-    RF-033 & Un utente con titolo di admin deve poter annullare la modifica al ruolo utente registrato & \hyperref[sec:uc-0e-6]{UC-0E.8} & Opzionale \\
+    RF-035 & Un utente con titolo di admin deve poter modificare il ruolo di utente registrato & \hyperref[sec:uc-0e-6]{UC-0E.6} & Opzionale \\
     \hline
     RF-034 & Deve esserci un controllo "Utente non autorizzato" quando esso prova ad accedere alla sezione "Gestione ruoli utenti" & \hyperref[sec:uc-0e-7]{UC-0E.7} & Opzionale \\
     \hline
-    RF-035 & Un utente con titolo di admin deve poter modificare il ruolo di utente registrato & \hyperref[sec:uc-0e-8]{UC-0E.6} & Opzionale \\
+    RF-033 & Un utente con titolo di admin deve poter annullare la modifica al ruolo utente registrato & \hyperref[sec:uc-0e-6]{UC-0E.8} & Opzionale \\
     \hline
     RF-036 & Un utente con titolo di admin deve poter salvare le modifiche al ruolo di un utente registrato & \hyperref[sec:uc-0e-9]{UC-0E.9} & Opzionale \\
     \hline
+
+
     RF-037 & Un utente deve aver la possibilità di uscire al proprio profilo (Logout) & \hyperref[sec:uc-0f]{UC-0F} & Opzionale \\
     \hline
-    RF-038 & Un utente deve avere la possibilità di accedere al modulo di generazione contenuti AI & \hyperref[sec:uc-1a]{UC-1A} & Obbligatorio \\
+
+
+    RF-038 & Un utente deve avere la possibilità di generare contenuti AI & \hyperref[sec:uc-1a]{UC-1A} & Obbligatorio \\
     \hline
     RF-039 & Un utente deve avere la possibilità di inserire un prompt per la propria generazione & \hyperref[sec:uc-1a-1]{UC-1A.1} & Obbligatorio \\
     \hline
@@ -5252,7 +5261,7 @@ Definiscono gli attributi qualitativi del software che influenzano l'esperienza 
 
 \vspace{0.5cm}
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
-\caption{Tabella dei Requisiti Funzionali}\label{tab:reqfunzionali}\\
+\caption{Tabella dei Requisiti di Qualità}\label{tab:reqfunzionali}\\
 \hline
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
 \hline
@@ -5290,7 +5299,7 @@ Rappresentano le limitazioni e le restrizioni entro cui il sistema deve essere s
 
 \vspace{0.5cm}
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
-\caption{Tabella dei Requisiti Funzionali}\label{tab:reqfunzionali}\\
+\caption{Tabella dei Requisiti di Vincolo}\label{tab:reqfunzionali}\\
 \hline
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
 \hline
@@ -5328,7 +5337,7 @@ Specificano i parametri numerici relativi all'efficienza del sistema. Sebbene si
 
 \vspace{0.5cm}
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
-\caption{Tabella dei Requisiti Funzionali}\label{tab:reqfunzionali}\\
+\caption{Tabella dei Requisiti Prestazionali}\label{tab:reqfunzionali}\\
 \hline
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
 \hline
