@@ -2439,9 +2439,17 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente decide che il contenuto non è utile e vuole ricominciare da zero
-    \item Il sistema pulisce l'area di anteprima e riporta il focus sui campi di input
+    \item Il sistema assegna automaticamente la valutazione minima al contenuto
+    \item Il sistema pulisce l'area di anteprima
+    \item Il sistema riavvia il flusso di generazione contenuto
 \end{enumerate}
-
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1A – Generazione contenuto tramite AI
+    \end{itemize}
+\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2472,7 +2480,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-
+\newpage
 \subsection{Sezione 2 – Modulo AI Co-Pilot per i Consulenti del Lavoro (CdL)}
 
 \subsubsection{UC-2A – Analisi e gestione documentale}\label{sec:uc-2a}
