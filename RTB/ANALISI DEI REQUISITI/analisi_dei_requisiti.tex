@@ -1241,7 +1241,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item L'utente amministratore ha effettuato il login ed è autenticato come Admin.
     \item Esistono uno o più account utente registrati nel Sistema.
-    \item L'utente amministratore é entrato nel modulo di gestione ruoli dalla dashboard principale.
+    \item L'utente amministratore è entrato nel modulo di gestione ruoli dalla dashboard principale.
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -1606,7 +1606,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente ha fatto generare un contenuto pubblicabile al sistema
+    \item L'utente ha fatto generare un contenuto pubblicabile dal sistema
     \item Il contenuto è stato salvato nello storico
 \end{itemize}
 
@@ -1735,7 +1735,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item L'utente si trova nel modulo storico dell'AI Assistant Generativo
     \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt parziale, tono, stile, data)
-    \item L'utente ottiene le informazioni ricercate
+    \item L'utente può ottenere informazioni specifiche su risultati passati
 \end{enumerate}
 
 
@@ -1813,7 +1813,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
         \item UC-1B.3 – Visualizzazione stile
         \item UC-1B.4 – Visualizzazione risultato
         \item UC-1B.5 – Visualizzazione timestamp
-        \item UC-1B.6 – Visualizzazione Valutazione
+        \item UC-1B.6 – visualizzazione valutazione
     \end{itemize}
 \end{itemize}
 
@@ -1894,7 +1894,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B.6 – Visualizzazione Valutazione}\label{sec:uc-1b-6}
+\subsubsection{UC-1B.6 – visualizzazione valutazione}\label{sec:uc-1b-6}
 
 \textbf{Attori}
 \begin{itemize}
@@ -2035,8 +2035,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente è nella pagina del contenuto generato.
-    \item L'utente seleziona l'opzione di modifica del contenuto generato.
+    \item L'utente visualizza il contenuto generato
+    \item L'utente avvia la modifica del contenuto generato
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -2074,7 +2074,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella pagina di modifica del contenuto (UC-1D)
+    \item L'utente avvia la modifica del contenuto (UC-1D)
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2101,7 +2101,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella pagina di modifica del contenuto
+    \item L'utente avvia la modifica del contenuto (UC-1D)
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2126,7 +2126,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella pagina di modifica del contenuto
+        \item L'utente avvia la modifica del contenuto (UC-1D)
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2177,7 +2177,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella pagina di modifica
+    \item L'utente ha avviato la modifica del contenuto (UC-1D)
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2203,7 +2203,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Un file non idoneo é stato caricato
+    \item Un file non idoneo è stato caricato
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -2240,8 +2240,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente clicca sul comando "Riutilizza" associato ad un elemento dello storico
-    \item Il sistema invia direttamente i dati al motore AI per generare un nuovo output senza passare per la schermata di modifica
+    \item L'utente richiede di riutilizzare un elemento dello storico.
+    \item Il sistema invia direttamente i dati al motore AI per generare un nuovo output senza richiedere modifiche all'utente
 \end{enumerate}
 
 
@@ -2272,6 +2272,17 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente può ora modificare il prompt o i parametri prima di generare
 \end{enumerate}
 
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item Nessuna
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-1D - Modifica contenuto generato
+    \end{itemize}
+\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2284,7 +2295,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item L'utente ha avviato la sezione dedicata allo storico (UC-1B)
     \item Lo storico ha almeno un elemento
 \end{itemize}
 
@@ -2295,7 +2306,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente inserisce una parola chiave (es. parte del prompt o data) nella barra di ricerca
+    \item L'utente inserisce una parola chiave (es. parte del prompt o data) nel campo di ricerca
     \item Il sistema filtra gli elementi dello storico in tempo reale o alla conferma
 \end{enumerate}
 
@@ -3020,7 +3031,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Si é selezionato un documento da una delle liste disponibili
+    \item Si è selezionato un documento da una delle liste disponibili
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3601,7 +3612,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Il messaggio é pronto per essere inviato assieme ai documenti selezionati.
+    \item Il messaggio è pronto per essere inviato assieme ai documenti selezionati.
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -4005,7 +4016,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item É stato salvato almeno un template di messaggio.
+    \item È stato salvato almeno un template di messaggio.
 \end{itemize}
 
 
@@ -4054,7 +4065,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Il messaggio é stato completato con oggetto, testo e documenti allegati.
+    \item Il messaggio è stato completato con oggetto, testo e documenti allegati.
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -4197,7 +4208,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item É stato caricato almeno un documento tramite UC-2A.6.
+    \item È stato caricato almeno un documento tramite UC-2A.6.
     \item L'utente è entrato nel modulo AI Co-Pilot per i CdL dalla dashboard principale.
     \item L'utente dispone dei permessi necessari per utilizzare il modulo AI Co-Pilot
 \end{itemize}
@@ -4283,7 +4294,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Si é nella pagina lista documenti (UC-2B)
+    \item Si è nella pagina lista documenti (UC-2B)
     \item La lista dei destinatari contiene almeno un elemento
 \end{itemize}
 
@@ -4371,6 +4382,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente desidera restringere la ricerca (es. per data, per tipologia o per stato invio).
+    % qui troppo ui specifico
     \item L'utente utilizza la barra di ricerca o i filtri laterali.
     \item Il sistema aggiorna la vista in tempo reale o dopo la conferma, nascondendo i documenti non pertinenti.
 \end{enumerate}
@@ -5051,7 +5063,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-051 & Un utente deve avere la possibilità di duplicare una generazione & \hyperref[sec:uc-1f]{UC-1F} & Obbligatorio \\
     \hline
-    RF-052 & C'é la possibilità che il prompt non abbia neanche un elemento data la mancanza di generazioni & \hyperref[sec:uc-1b-1]{UC-1B.1} & Obbligatorio \\
+    RF-052 & C'è la possibilità che il prompt non abbia neanche un elemento data la mancanza di generazioni & \hyperref[sec:uc-1b-1]{UC-1B.1} & Obbligatorio \\
     \hline
     RF-053 & Un utente deve avere la possibilità di riutilizzare una generazione & \hyperref[sec:uc-1e]{UC-1E} & Obbligatorio \\
     \hline
@@ -5165,7 +5177,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-108 & Un utente deve avere la possibilitá di selezionare un documento per poterlo poi inviare & \hyperref[sec:uc-2e-1]{UC-2E.1} & Obbligatorio \\
     \hline
-    RF-109 & C'é la possibilitá che non siano mai stati registrati documenti e che quindi l'applicativo agisca di conseguenza & \hyperref[sec:uc-2e-2]{UC-2E.1} & Obbligatorio \\
+    RF-109 & C'è la possibilitá che non siano mai stati registrati documenti e che quindi l'applicativo agisca di conseguenza & \hyperref[sec:uc-2e-2]{UC-2E.1} & Obbligatorio \\
     \hline
     RF-110 & Un utente deve avere la possibilità di visualizzare la lista storico documenti & \hyperref[sec:uc-2e-4]{UC-2E} & Obbligatorio \\
     \hline
@@ -5201,7 +5213,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-126 & Un utente deve avere la possibilità di eliminare template dalla tabella dei template salvati& \hyperref[sec:uc-2g-1]{UC-2G.1} & Obbligatorio \\
     \hline
-    RF-127 & Il sistema non deve mostrare niente se nessun template é stato salvato all'interno dello storico & \hyperref[sec:uc-2g-2]{UC-2G.2} & Obbligatorio \\
+    RF-127 & Il sistema non deve mostrare niente se nessun template è stato salvato all'interno dello storico & \hyperref[sec:uc-2g-2]{UC-2G.2} & Obbligatorio \\
     \hline
     RF-128 & Un utente deve avere la possibilità di caricare un template per riutilizzarlo & \hyperref[sec:uc-2g-3]{UC-2G.3} & Obbligatorio \\
     \hline
