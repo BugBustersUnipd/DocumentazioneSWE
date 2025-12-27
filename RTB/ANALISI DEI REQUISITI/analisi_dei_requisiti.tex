@@ -5308,9 +5308,18 @@ Definiscono gli attributi qualitativi del software che influenzano l'esperienza 
 \endlastfoot
 
 
-    RF-001 & Registrazione nuovo utente & \hyperref[sec:uc-0a]{UC-0A} & Opzionale \\
+    RQ-01 & Presentare documento Analisi dei Requisiti contenente diagrammi e descrizioni Use Case & Capitolato & Obbligatorio \\
     \hline
-
+    RQ-02 & Il way of working descritto in Norme di Progetto deve essere rispettato & Interna & Obbligatorio \\
+    \hline
+    RQ-03 & Il Prodotto deve passare tutti i test con la copertura concordata con la proponente & Capitolato, Piano di Qualifica & Obbligatorio \\
+    \hline
+    RQ-04 & Il codice deve essere documentato secondo le linee guida descritte in Norme di Progetto & Capitolato, Interna & Obbligatorio \\
+    \hline
+    RQ-05 & È necessario versionare il codice con appositi strumenti di controllo versione, compreso di istruzioni di setup & Capitolato & Obbligatorio \\
+    \hline
+    RQ-06 & Report finale di integrazione e suggerimenti di evoluzione & Capitolato & Obbligatorio \\
+    \hline
 \end{longtable}
 
 \subsection{Requisiti di Vincolo}
@@ -5346,7 +5355,17 @@ Rappresentano le limitazioni e le restrizioni entro cui il sistema deve essere s
 \endlastfoot
 
 
-    RF-001 & Registrazione nuovo utente & \hyperref[sec:uc-0a]{UC-0A} & Opzionale \\
+    RV-01 & Git come sistema di controllo versione & Capitolato & Obbligatorio \\
+    \hline
+    RV-02 & API \& Backend devono essere sviluppati in Ruby on Rails & Capitolato & Obbligatorio \\
+    \hline
+    RV-03 & Il database deve essere PostgreSQL & Capitolato & Obbligatorio \\
+    \hline
+    RV-04 & Il frontend deve essere sviluppato in Angular & Capitolato & Obbligatorio \\
+    \hline
+    RV-05 & La gestione dei modelli AI deve essere implementata utilizzando AWS Bedrock & Capitolato & Obbligatorio \\
+    \hline
+    RV-06 & Eventuali background jobs gestiti con Sidekiq e PWA con Next.js & Capitolato, trattativa con la proponente & Opzionale \\
     \hline
 
 \end{longtable}
@@ -5384,7 +5403,7 @@ Specificano i parametri numerici relativi all'efficienza del sistema. Sebbene si
 \endlastfoot
 
 
-    RF-001 & Registrazione nuovo utente & \hyperref[sec:uc-0a]{UC-0A} & Opzionale \\
+    RP-01 & Registrazione nuovo utente &  & Opzionale \\
     \hline
 
 \end{longtable}
