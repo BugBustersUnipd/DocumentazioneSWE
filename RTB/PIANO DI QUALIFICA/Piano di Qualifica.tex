@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.0.1} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.0.2} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -150,7 +150,9 @@ Piano di Qualifica\G del Team BugBusters per il Capitolato C5 proposto da Eggon,
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\CurrentVersion & 03/12/2025 & Prima stesura del documento & Luca Slongo & - & - \\
+\CurrentVersion & 29/12/2025 & Aggiunta Test di Sistema e di Accettazione & Marco Piro & - & - \\
+\hline
+0.0.1 & 03/12/2025 & Prima stesura del documento & Luca Slongo & - & - \\
 \hline
 \end{tabularx}
 }
@@ -322,4 +324,91 @@ MPD12 & Cyclomatic complexity & $\leq 20$ & $\leq 10$ \\
 
 \subsubsection{Portabilità}
 SERVE?? boh
+
+
+
+
+\section{Metodi di testing}
+Come stabilito nelle Norme di Progetto(METTERE SEZIONE), alla quale è disponibile
+la nomenclatura utilizzata, i test da effettuare saranno:
+\begin{itemize}
+    \item Test di Unità
+    \item Test di Integrazione
+    \item Test di Sistema
+    \item Test di Regressione
+    \item Test di Accettazione
+\end{itemize}
+
+\subsection{Test di Sistema}
+% Definisci i colori se non li hai già
+\definecolor{statusred}{RGB}{200, 50, 50}
+
+\begin{longtable}{|p{2cm}|p{8cm}|p{2.5cm}|p{3cm}|}
+\hline
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Requisito} & \textbf{Stato} \\
+\hline
+\endhead
+
+TS-001 & Verifica che un utente non registrato possa completare la procedura di registrazione inserendo dati validi. & RF-001 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-002 & Verifica che il sistema impedisca la registrazione se l'email o la matricola sono già presenti o non valide. & RF-010, RF-012 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-003 & Verifica che un utente registrato possa effettuare il login con credenziali corrette e accedere alla dashboard. & RF-014, RF-017 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-004 & Verifica che un utente Admin possa modificare il ruolo di un altro utente (es. da Editor ad Admin). & RF-035 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-005 & Verifica la generazione di un contenuto (titolo, testo, immagine) tramite AI Assistant inserendo un prompt valido. & RF-038, RF-039 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-006 & Verifica che il sistema salvi correttamente nello storico ogni contenuto generato. & RF-042, RF-059 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-007 & Verifica la possibilità di modificare manualmente un contenuto generato (titolo, testo o immagine). & RF-063 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-008 & Verifica il caricamento di un file PDF nel modulo Co-Pilot e l'associazione dei metadati (categoria, azienda). & RF-071, RF-072 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-009 & Verifica che il sistema estragga e visualizzi correttamente le informazioni dai documenti caricati (destinatario, tipologia, confidenza). & RF-078, RF-113 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-010 & Verifica la possibilità di modificare il destinatario associato a un documento e salvare la modifica. & RF-094, RF-097 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-011 & Verifica la creazione e il salvataggio di un template di messaggio. & RF-118 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-012 & Verifica il corretto invio simulato di un documento con relativo messaggio al destinatario. & RF-131 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-013 & Verifica che la dashboard Analytics mostri i KPI principali (es. numero prompt, rating medio). & RF-137, RF-138 & \textcolor{statusred}{Non Implementato} \\
+\hline
+TS-014 & Verifica il filtraggio delle statistiche Analytics per data di inizio e fine. & RF-147, RF-148 & \textcolor{statusred}{Non Implementato} \\
+\hline
+\caption{Tabella dei Test di Sistema}
+\label{tab:test_sistema}
+\end{longtable}
+
+\subsection{Test di Accettazione}
+\begin{longtable}{|p{2cm}|p{8cm}|p{3cm}|p{2.5cm}|}
+  \hline
+  \textbf{Codice} & \textbf{Descrizione Scenario} & \textbf{Caso d'Uso} & \textbf{Esito} \\
+  \hline
+  \endhead
+  
+  TA-001 & \textbf{Registrazione e Accesso:} L'utente si registra, conferma l'account ed effettua il primo accesso con successo. & UC-0A, UC-0B & In Attesa \\
+  \hline
+  TA-002 & \textbf{Gestione Profilo:} L'utente accede al profilo, modifica la propria password o dati anagrafici e salva le modifiche. & UC-0D & In Attesa \\
+  \hline
+  TA-003 & \textbf{Ciclo completo AI Assistant:} L'utente genera un testo, lo modifica, ne cambia l'immagine e lo pubblica/salva. & UC-1 & In Attesa \\
+  \hline
+  TA-004 & \textbf{Gestione Storico Prompt:} L'utente cerca un vecchio prompt nello storico, lo duplica e rigenera un nuovo contenuto. & UC-1B, UC-1F & In Attesa \\
+  \hline
+  TA-005 & \textbf{Analisi Documentale Co-Pilot:} L'operatore carica un cedolino, verifica che l'AI abbia riconosciuto l'azienda e il dipendente, e corregge eventuali errori. & UC-2A, UC-2C & In Attesa \\
+  \hline
+  TA-006 & \textbf{Invio Comunicazioni:} L'operatore seleziona un documento validato, genera un messaggio da template e invia il tutto. & UC-2F, UC-2H & In Attesa \\
+  \hline
+  TA-007 & \textbf{Monitoraggio Analytics:} L'auditor accede alla dashboard, filtra per l'ultimo mese e visualizza i grafici di utilizzo e performance. & UC-3A & In Attesa \\
+  \hline
+  \caption{Tabella dei Test di Accettazione}
+  \label{tab:test_accettazione}
+  \end{longtable}
+
+
+
+
+
+DA RIVEDERE!!!!!!!!!!!!!!!!!!!
 \end{document}
