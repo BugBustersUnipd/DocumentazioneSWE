@@ -216,6 +216,19 @@ main {
     box-shadow: var(--card-shadow);
 }
 
+/* Limita la larghezza massima delle card per mantenere dimensioni uniformi */
+.cards .card {
+    max-width: 100%;
+    min-width: 0; /* Permette alle card di ridursi sotto minmax */
+    /* Su schermi grandi, limita la larghezza per evitare che le card singole si espandano troppo */
+    width: 100%;
+}
+
+/* Quando c'è una sola card, limita la larghezza massima */
+.cards:has(.card:only-child) .card {
+    max-width: 350px;
+}
+
 .card:hover,
 .diapositiva-item:hover,
 .team-member:hover {
@@ -1125,3 +1138,4 @@ body.dark-theme .viewer-link:hover {
         display: none;
     }
 }
+
