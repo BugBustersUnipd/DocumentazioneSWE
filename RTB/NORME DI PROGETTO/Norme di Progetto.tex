@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.0.8} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.1.0} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -107,7 +107,7 @@
 \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
 \begin{tabularx}{\linewidth}{@{}lX@{}}
 \textbf{Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
-\textbf{Data ultima modifica}     & 17/11/2025 \\
+\textbf{Data ultima modifica}     & 30/12/2025 \\
 \\
 \end{tabularx}
 \end{tcolorbox}
@@ -134,6 +134,8 @@ Documento contenente le norme di progetto adottate dal team BugBusters per lo sv
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\hline
+\rowcolor{secondaryblue!10} 0.1.0 & 30/12/2025 & Verificato & - & Luca Slongo & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.0.10 & 22/12/2025 & Aggiunto Piano di Progetto e di Qualifica & Marco Piro & - & - \\
 \hline
@@ -425,7 +427,7 @@ il team BugBusters adotterà durante lo sviluppo del progetto Nexum.
 La Lettera di Candidatura rappresenta il documento formale con cui il gruppo BugBusters ha ufficializzato la propria candidatura
 per il capitolato proposto dall'azienda Eggon. 
 Al suo interno sono sintetizzate le motivazioni che hanno determinato la scelta di questo specifico progetto, 
-evidenziando i punti di interesse tecnologico e formativo, oltre a fornire i riferimenti ai repository contenenti l'intera documentazione di progetto.
+evidenziando i punti di interesse tecnologico e formativo, oltre a fornire i riferimenti al documento di dichiarazione degli impegni e valutazione dei capitolati\G{}.
 \begin{center}
     \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{3.2cm}|>{\centering\arraybackslash}X|}
     \hline
@@ -468,7 +470,7 @@ Il documento viene redatto in due distinte versioni, corrispondenti alle princip
 
 \subsubsubsection{Verbali}
 I verbali sono documenti di lavoro indispensabili per tracciare le decisioni, le discussioni e le 
-azioni concordate durante le riunioni del team BugBusters e con il proponente Eggon.
+azioni concordate durante le riunioni interne del team e le riunioni con il proponente Eggon.
 Si dividono in verbali interni, prodotti durante le riunioni del team, e verbali esterni, 
 redatti dopo gli incontri con il proponente.
 
@@ -686,13 +688,12 @@ Per tracciare le modifiche da approvare BugBusters utilizza le \textbf{issue}\G{
     \item \textbf{Issue}: ogni modifica da apportare viene documentata mediante l'apertura di una issue\G{} relativa, quest'ultima viene assegnata a un componente che la prenderà in carico e procederà con le modifiche al relativo documento o codice.
 \end{itemize}
 Ogni issue\G{} è identificata da un codice univoco dato dalla fase del progetto\G{} a cui essa è relativa, e da un numero incrementale (es: RTB1,RTB2,RTB3 ecc...).\\
-Una issue\G{} viene chiusa solo nel momento in cui è stata verificata.
 Per velocizzare il processo di gestione delle issue\G{}, BugBusters utilizza una GitHub action che, se in qualsiasi commit viene scritto: \textit{chiudi <NOME ISSUE>}, la issue\G{} 
 corrispondente verrà immediatamente chiusa, qualsiasi sia il branch in cui ci si trova.\\
 \begin{itemize}
     \item \textbf{Board}: Serve per definire lo stato in cui si trova una issue\G{}, ovvero se: è ancora da iniziare, è in sviluppo o è terminata.
     \item \textbf{Pull Request}: serve per richiedere la verifica\G{} o approvazione di una modifica prima di fonderla con un ramo della repository\G{}.
-    Il team bugbuster, oltre che per un corretto workflow di verifica, usa le pull request come unico modo di modifica in produzione, in quanto si vuole che il branch main sia modificato solo a seguito di una pull request con 2 review positive.
+    Il team BugBusters, oltre che per un corretto workflow di verifica, usa le pull request come unico modo di modifica in produzione, in quanto si vuole che il branch main sia modificato solo a seguito di una pull request con 2 review positive.
 \end{itemize}
 \subsubsection{Registrazione stato di configurazione}
 Per poter tenere traccia dei cambiamenti di ogni documento e codice, è previsto il sistema di versionamento\G{} seguente:
@@ -707,7 +708,7 @@ Dove:
 \end{itemize}
 \subsection{Qualifica}
 \subsubsection{Verifica}
-Il processo della Verifica\G{} ha come obiettivo principale quello di verificare che quanto prodotto sia a regola d'arte, ovvero conforme con i requisiti richiesti.\\
+Il processo di Verifica\G{} ha come obiettivo principale quello di verificare che quanto prodotto sia a regola d'arte, ovvero conforme con i requisiti richiesti.\\
 L'obiettivo della verifica\G{} è poter rispondere alla domanda <<Did I build the system right?>> gli esiti di tale processo sono riportati nel (Inserire Parte Relativa Nel Piano Di Qualifica).
 \subsubsubsection{Attività di verifica}
 Il team BugBusters si è principalmente occupato della verifica relativa alla documentazione, controllando la correttezza grammaticale, sintattica e la correttezza del contenuto di ogni documento.\\
