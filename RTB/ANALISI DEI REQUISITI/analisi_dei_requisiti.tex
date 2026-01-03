@@ -171,13 +171,15 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \section{Introduzione}
 
 \subsection{Scopo del documento}
-Questo documento di Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}, adottato da parte di BugBusters durante lo svolgimento del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} didattico, ha lo scopo di definire in maniera precisa e dettagliata i requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}} e non funzionali del Sistema software da sviluppare.
-
-A seguito delle nuove decisioni progettuali rispetto alle proposte del capitolato, il Sistema non sarà inizialmente integrato nella piattaforma NEXUM, ma verrà realizzato come \textbf{applicazione standalone}, autonoma e indipendente da essa. Tale applicazione implementerà i moduli "AI Assistant Generativo" e "AI Co-Pilot per i CdL" in un ambiente isolato, così da consentire una fase di sviluppo, test e validazione più controllata. Eggon avrà la possibilità di valutare il prototipo standalone ed eventualmente procedere con l'integrazione nella piattaforma NEXUM.
-
+Questo documento di Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}, adottato da parte di BugBusters durante lo svolgimento del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} didattico, 
+ha lo scopo di definire in maniera precisa e dettagliata i requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}} e non funzionali del Sistema software da sviluppare.
+A seguito delle nuove decisioni progettuali rispetto alle proposte del capitolato, il Sistema non sarà inizialmente integrato nella piattaforma NEXUM, ma verrà realizzato come 
+\textbf{applicazione standalone}, autonoma e indipendente da essa. 
+Tale applicazione implementerà i moduli "AI Assistant Generativo" e "AI Co-Pilot per i CdL" in un ambiente isolato, così da consentire una fase di sviluppo, test e validazione più controllata. 
+Eggon avrà la possibilità di valutare il prototipo standalone ed eventualmente procedere con l'integrazione nella piattaforma NEXUM.
 Il documento include una descrizione approfondita dei Casi d'Uso, che costituiscono la principale fonte dei requisiti finali. Per agevolare la comprensione, verranno utilizzati anche i \textbf{Diagrammi dei Casi d'Uso}, che visualizzano le interazioni tra utenti e Sistema.
-
-Questo documento rappresenta il riferimento fondamentale per la progettazione, l'implementazione e il collaudo dell'applicazione standalone, assicurando che essa soddisfi pienamente le esigenze del Committente e gli obiettivi formativi del progetto.
+Questo documento rappresenta il riferimento fondamentale per la progettazione, l'implementazione e il collaudo dell'applicazione standalone, 
+assicurando che essa soddisfi pienamente le esigenze del Committente e gli obiettivi formativi del progetto.
 
 I requisiti identificati sono classificati nelle seguenti categorie:
 \begin{itemize}
@@ -5335,7 +5337,7 @@ Definiscono gli attributi qualitativi del software che influenzano l'esperienza 
 
 \vspace{0.5cm}
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
-\caption{Tabella dei Requisiti Funzionali}\label{tab:reqfunzionali}\\
+\caption{Tabella dei Requisiti di Qualità}\label{tab:reqqualita}\\
 \hline
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
 \hline
@@ -5356,7 +5358,17 @@ Definiscono gli attributi qualitativi del software che influenzano l'esperienza 
 \endlastfoot
 
 
-    RF-001 & Registrazione nuovo utente & \hyperref[sec:uc-0a]{UC-0A} & Opzionale \\
+    RQ-01 & Presentare documento Analisi dei Requisiti contenente diagrammi e descrizioni Use Case & Capitolato & Obbligatorio \\
+    \hline
+    RQ-02 & Il way of working descritto in Norme di Progetto deve essere rispettato & Interna & Obbligatorio \\
+    \hline
+    RQ-03 & Il Prodotto deve passare tutti i test con la copertura concordata con la proponente & Capitolato, Piano di Qualifica & Obbligatorio \\
+    \hline
+    RQ-04 & Il codice deve essere documentato secondo le linee guida descritte in Norme di Progetto & Capitolato, Interna & Obbligatorio \\
+    \hline
+    RQ-05 & È necessario versionare il codice con appositi strumenti di controllo versione, compreso di istruzioni di setup & Capitolato & Obbligatorio \\
+    \hline
+    RQ-06 & Report finale di integrazione e suggerimenti di evoluzione & Capitolato & Obbligatorio \\
     \hline
 
 \end{longtable}
@@ -5373,7 +5385,7 @@ Rappresentano le limitazioni e le restrizioni entro cui il sistema deve essere s
 
 \vspace{0.5cm}
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
-\caption{Tabella dei Requisiti Funzionali}\label{tab:reqfunzionali}\\
+\caption{Tabella dei Requisiti Vincolo}\label{tab:reqvincolo}\\
 \hline
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
 \hline
@@ -5394,7 +5406,17 @@ Rappresentano le limitazioni e le restrizioni entro cui il sistema deve essere s
 \endlastfoot
 
 
-    RF-001 & Registrazione nuovo utente & \hyperref[sec:uc-0a]{UC-0A} & Opzionale \\
+    RV-01 & Git come sistema di controllo versione & Capitolato & Obbligatorio \\
+    \hline
+    RV-02 & API \& Backend devono essere sviluppati in Ruby on Rails & Capitolato & Obbligatorio \\
+    \hline
+    RV-03 & Il database deve essere PostgreSQL & Capitolato & Obbligatorio \\
+    \hline
+    RV-04 & Il frontend deve essere sviluppato in Angular & Capitolato & Obbligatorio \\
+    \hline
+    RV-05 & La gestione dei modelli AI deve essere implementata utilizzando AWS Bedrock & Capitolato & Obbligatorio \\
+    \hline
+    RV-06 & Eventuali background jobs gestiti con Sidekiq e PWA con Next.js & Capitolato, trattativa con la proponente & Opzionale \\
     \hline
 
 \end{longtable}
@@ -5411,7 +5433,7 @@ Specificano i parametri numerici relativi all'efficienza del sistema. Sebbene si
 
 \vspace{0.5cm}
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
-\caption{Tabella dei Requisiti Funzionali}\label{tab:reqfunzionali}\\
+\caption{Tabella dei Requisiti Prestazionali}\label{tab:reqprestazionali}\\
 \hline
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
 \hline
@@ -5432,7 +5454,21 @@ Specificano i parametri numerici relativi all'efficienza del sistema. Sebbene si
 \endlastfoot
 
 
-    RF-001 & Registrazione nuovo utente & \hyperref[sec:uc-0a]{UC-0A} & Opzionale \\
+    RP-01 & Il sistema deve generare contenuti testuali tramite AI (modulo Assistant) entro 5 secondi per testi fino a 500 parole & Interna & Obbligatorio \\
+    \hline
+    RP-02 & Il sistema deve classificare e partizionare documenti PDF (modulo Co-Pilot) entro 3 secondi per pagina & Interna & Obbligatorio \\
+    \hline
+    RP-03 & Il tempo di risposta dell'interfaccia utente per operazioni standard deve essere inferiore a 2 secondi & Interna & Obbligatorio \\
+    \hline
+    RP-04 & Il sistema deve supportare l'upload di file PDF fino a 20 MB & Interna & Obbligatorio \\
+    \hline
+    RP-05 & La dashboard di Analytics deve caricare le statistiche entro 3 secondi per dataset fino a 1000 documenti & Interna & Desiderabile \\
+    \hline
+    RP-06 & Il sistema deve garantire una disponibilità del 99\% durante l'orario lavorativo (8:00-18:00) & Interna & Desiderabile \\
+    \hline
+    RP-07 & Il sistema deve essere in grado di processare almeno 50 documenti in parallelo senza degrado delle performance & Interna & Desiderabile \\
+    \hline
+    RP-08 & Il tempo di estrazione OCR per documenti scansionati deve essere inferiore a 5 secondi per pagina & Interna & Obbligatorio \\
     \hline
 
 \end{longtable}
