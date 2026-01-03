@@ -20,7 +20,7 @@
 \usepackage{colortbl}
 \usepackage{pgfplots}
 % Comando per la versione corrente
-\newcommand{\CurrentVersion}{0.0.5}
+\newcommand{\CurrentVersion}{0.1.0}
 \pgfplotsset{compat=1.16}
 
 % Comando per il pedice G compatibile con hyperref
@@ -96,7 +96,7 @@
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
 	{Stato} & In redazione \\
 	{Responsabile} &  \\
-	{Verificatore} &  \\
+	{Verificatore} &  Luca Slongo \\
 	{Redattori} & Alberto Autiero \\
 	{Destinatari} & BugBusters, Eggon, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
 \end{tabularx}
@@ -121,9 +121,11 @@ Il Piano di Progetto\pediceG riporta il riepilogo delle attività effettuate e q
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\CurrentVersion & 3/1/2026 & Verifica del documento & - & Luca Slongo & - \\
+\hline
  &  & Aggiunti ai termini presenti nel Glossario la G & Alberto Autiero & - & - \\
 \hline
-\CurrentVersion & 22/12/2025 & Redatta la pianificazione dello sprint\pediceG 3 & Alberto Autiero & - & - \\
+0.0.5 & 22/12/2025 & Redatta la pianificazione dello sprint\pediceG 3 & Alberto Autiero & - & - \\
 \hline
 0.0.4 & 18/12/2025 & Redatta la pianificazione dello sprint\pediceG 2 & Alberto Autiero & - & - \\
 \hline
@@ -189,7 +191,7 @@ I termini che dispongono di una definizione nel Glossario\pediceG saranno contra
 \subsection{Introduzione}
 Un'analisi e una classificazione efficaci dei possibili rischi legati alle attività da svolgere rappresentano una parte fondamentale nella redazione di un piano di progetto\pediceG. Una buona analisi consente infatti di prevedere quali attività potrebbero richiedere più tempo del previsto e, di conseguenza, di valutare se il carico di lavoro inserito nel backlog\pediceG settimanale è appropriato o eccessivo.
 
-Un'adeguata analisi e gestione dei rischi\pediceG se articola in quattro fasi:
+Un'adeguata analisi e gestione dei rischi\pediceG si articola in quattro fasi:
 \begin{itemize}
 \item \textbf{Identificazione}: individuazione dei possibili rischi associati a un'attività, considerando non solo l'ambito progettuale ma anche quello personale;
 \item \textbf{Analisi}: valutazione della probabilità\pediceG che ciascun rischio si verifichi e dei potenziali impatti sul successo dello sprint\pediceG e del progetto complessivo;
@@ -395,7 +397,7 @@ Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tr
 
 \section{Pianificazione nel lungo termine}
 
-Come anticipato nella Dichiarazione degli Impegni, Il gruppo prevede di terminare il progetto\pediceG entro e non oltre il giorno 21 Marzo 2026 con um budget di spesa fissato a 12790€.
+Come anticipato nella Dichiarazione degli Impegni, Il gruppo prevede di terminare il progetto\pediceG entro e non oltre il giorno 21 Marzo 2026 con un budget di spesa fissato a 12790€.
 
 Al momento della candidatura\pediceG si è teorizzato il seguente prospetto costi:
 
@@ -463,9 +465,9 @@ La redazione di questo paragrafo sarà effettuato in seguito al superamento dell
 \subsection{Premessa}
 Il gruppo BugBusters ha adottato una metodologia di sviluppo di tipo Agile\pediceG. Si è valutato che un ciclo di lavoro di due settimane rappresenti il periodo ottimale per generare incrementi di prodotto\pediceG tangibili e di valore. Pertanto, lo svolgimento del progetto sarà strutturato in sprint\pediceG della durata di quattordici giorni.
 
-All'inizio di ogni sprint\pediceG verranno pianificate le attività per il ciclo successivo. Contestualmente, avverrà la rotazione dei ruoli all'interno del gruppo. Tale rotazione, sebbene programmata all'avvio di ogni iterazione, potrà essere modificata in corso d'opera per rispondere a specifiche esigenze organizzative. L'obiettivo è consentire a ciascun membro di sperimentare ogni ruolo.
+All'inizio di ogni sprint\pediceG vengono pianificate le attività per il ciclo che sta iniziando e avviene la rotazione dei ruoli all'interno del gruppo. Tale rotazione, sebbene programmata all'avvio di ogni iterazione, potrà essere modificata in corso d'opera per rispondere a specifiche esigenze organizzative. L'obiettivo è consentire a ciascun membro di sperimentare ogni ruolo.
 
-Il gruppo, inoltre, si impegna a organizzare colloqui in via telematica o in presenza in modo regolare con il proponente\pediceG Eggon, programmandole ad ogni colloquio con la proponente\pediceG oppure durante le riunioni interne del gruppo. Questo approccio garantisce un allineamento continuo con le aspettative del committente\pediceG e soprattutto permette di validare tempestivamente il lavoro svolto.
+Il gruppo si impegna a organizzare colloqui in via telematica o in presenza con il proponente\pediceG Eggon con una cadenza bisettimanale che può variare a seconda delle esigenze. Questo approccio garantisce un allineamento continuo con le aspettative del committente\pediceG e soprattutto permette di validare tempestivamente il lavoro svolto.
 
 \vfill
 \begin{center}
@@ -638,7 +640,7 @@ Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 Durante questo primo sprint\pediceG si è concretizzato il rischio RT1: Rischio Tecnologico\pediceG legato alla tecnologia utilizzata, nella redazione dell'Analisi dei requisiti\pediceG a causa di conoscenza limitata delle tecnologie e soprattutto dall'inesperienza.
 
 \noindent\textbf{Retrospettiva\pediceG}\\
-Il primo sprint\pediceG si è concentrato sul raggiungimento di due obiettivi principali: prima stesura e conseguente redazione di Analisi dei requisiti\pediceG, Norme di Progetto\pediceG e Glossario\pediceG. Inoltre ci si è concentrati sull' aggiornamento del sito web con la suddivisione in CANDIDATURA\pediceG, RTB\pediceG e DIAPOSITIVE. Inoltre sono state implementate automazioni l'upload automatico dei verbali sul sito.
+Il primo sprint\pediceG ha avuto come obiettivo principale la prima stesura di Analisi dei requisiti\pediceG, Norme di Progetto\pediceG e Glossario\pediceG. Inoltre ci si è concentrati sull' aggiornamento del sito web con la suddivisione in CANDIDATURA\pediceG, RTB\pediceG e DIAPOSITIVE.
 
 \newpage
 \subsubsection{Sprint\pediceG 2}
@@ -758,7 +760,7 @@ Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 Durante questo secondo sprint\pediceG si è concretizzato il rischio RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie, a causa dell'inizio del progetto di Tecnologie WEB.
 
 \noindent\textbf{Retrospettiva\pediceG}\\
-Nel secondo sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG individuata come priorità immediatae e fondamentale per le succesive fasi di progetto e sviluppo. L'obiettivo raggiunto è stato quello di portare l'analisi ad uno stadio avanzato.
+Nel secondo sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG individuata come priorità immediata e fondamentale per le succesive fasi di progetto e sviluppo. L'obiettivo raggiunto è stato quello di portarla ad uno stadio avanzato.
 
 \newpage
 \subsubsection{Sprint\pediceG 3}
@@ -878,7 +880,7 @@ Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 Durante questo terzo sprint\pediceG si è concretizzato il rischio RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie, a causa della prosecuzione del progetto di Tecnologie WEB e l'inizio dello studio per gli esami della sessione invernale.
 
 \noindent\textbf{Retrospettiva\pediceG}\\
-Nel terzo sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG che è ormai ad uno stato molto avanzato. Inoltre abbiamo concentrato i nostri sforzi anche sull'inizio dello sviluppo del Proof of concept (POC)
+Nel terzo sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG che è ormai ad uno stato molto avanzato. Inoltre abbiamo dedicato del tempo allo sviluppo del Proof of concept (POC)
 
 \newpage
 \subsubsection{Sprint\pediceG 4}
