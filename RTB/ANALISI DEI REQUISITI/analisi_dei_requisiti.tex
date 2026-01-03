@@ -1557,7 +1557,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0F.jpg.jpg}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0F.jpg}
     \caption{Didascalia dell'immagine}
 \end{figure}
 
@@ -1998,7 +1998,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1C.jpg}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1C.jpg}
     \caption{Diagramma del caso d'uso UC-1C – Visualizzazione anteprima contenuto generato}
 \end{figure}
 
@@ -2282,7 +2282,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1E.jpg}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1E.jpg}
     \caption{Diagramma del caso d'uso UC-1E – Riutilizza}
 \end{figure}
 
@@ -2321,7 +2321,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1F.jpg}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1F.jpg}
     \caption{Diagramma del caso d'uso UC-1F – Duplica}
 \end{figure}
 
@@ -2431,7 +2431,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1H.jpg}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1H.jpg}
     \caption{Diagramma del caso d'uso UC-1H – Rigenera contenuto tramite AI}
 \end{figure}
 
@@ -2470,7 +2470,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1I.jpg}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1I.jpg}
     \caption{Diagramma del caso d'uso UC-1I – Valuta contenuto generato}
 \end{figure}
 
@@ -2503,7 +2503,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1J.jpg}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1J.jpg}
     \caption{Diagramma del caso d'uso UC-1J – Scarta contenuto generato}
 \end{figure}
 
@@ -2566,8 +2566,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
-    \caption{Didascalia dell'immagine}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2A.jpg}
+    \caption{Diagramma del caso d'uso UC-2A – Analisi e gestione documentale}
 \end{figure}
 
 \textbf{Attori}
@@ -2589,13 +2589,15 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni}
 \begin{itemize}
+    \item Il documento é stato analizzato tramite l'AI e i dati sono stati inviati al sistema
     \item L'utente visualizza l'interfaccia di upload documenti, pronta per il caricamento e la gestione dei file.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente dalla dashboard principale accede al Modulo AI Co-Pilot per i Consulenti del Lavoro.
-    \item Il Sistema mostra l'interfaccia di upload documenti, con le azioni
+    \item L'utente procede a caricare il file che si desidera far analizzare e se dispone dei dati richiesti puó scegliere di compilare i campi (categoria, mese/anno di competenza, azienda, reparto)
+    \item Il file viene analizzato
 \end{enumerate}
 
 \textbf{Scenario secondario}
@@ -2609,16 +2611,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item Nessuna.
+        \item UC-2A.1 - Caricamento file 
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2A.1 - Caricamento file %Errore nel caricamento file (format non valido, dimensione eccessiva)
         \item UC-2A.2 - Inserimento categoria
         \item UC-2A.3 - Inserimento mese/anno di competenza
         \item UC-2A.4 - Inserimento azienda
         \item UC-2A.5 - Inserimento reparto
-        \item UC-2A.6 - Upload
     \end{itemize}
 \end{itemize}
 
@@ -2760,34 +2760,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2A.6 – Avvio upload}\label{sec:uc-2a-6}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Il file è stato selezionato e tutti i metadati obbligatori sono stati compilati
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il file viene trasferito fisicamente sul server, indicizzato nel database documentale e analizzato con AI per ottenere le informazioni volute
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente conferma l'operazione premendo il pulsante di avvio upload
-    \item Il sistema visualizza una barra di progresso durante il trasferimento
-    \item Al termine, il sistema conferma l'avvenuto salvataggio e pulisce il modulo per un nuovo inserimento
-\end{enumerate}
-
-
-\vspace{0.5cm}
-
 \subsubsection{UC-2B – Visualizzazione lista documenti analisi}\label{sec:uc-2b}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2B.jpg}
+    \caption{Diagramma del caso d'uso UC-2B – Visualizzazione lista documenti analisi}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
@@ -2817,6 +2796,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \begin{itemize}
         \item UC-2B.2 – Visualizzazione elemento da lista documenti
     \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-2B.1 – Nessun documento riconosciuto
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
@@ -2840,8 +2823,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item Il sistema interroga il database in base ai criteri correnti (o visualizzazione generale)
-    \item Non trovando corrispondenze (o se l'archivio è vuoto), il sistema mostra un placeholder grafico o testuale "Nessun documento trovato"
+    \item L'utente ha eseguito un'analisi di un file
+    \item L'analisi non ha riconosciuto alcun documento
 \end{enumerate}
 
 
@@ -3115,6 +3098,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2C.jpg}
+    \caption{Diagramma del caso d'uso UC-2C – Gestione documento}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
     \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
     \caption{Didascalia dell'immagine}
 \end{figure}
@@ -3146,12 +3135,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente seleziona un documento dalla lista per visualizzarne i dettagli.
 \end{enumerate}
 
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item 
-\end{enumerate}
-
-
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
     \item \textit{include}: 
@@ -3169,9 +3152,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
         \item UC-2C.3 – Modifica tipologia documento
         \item UC-2C.4 – Rivaluta percentuale confidenza
         \item UC-2C.5 – Salva modifiche documento
-        \item UC-2B – Apertura modulo informazioni documenti
-        \item UC-2D - Apertura informazioni destinatari
-        \item UC-2E - Apertura storico documenti
     \end{itemize}
 \end{itemize}
 
@@ -3322,6 +3302,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 \subsubsection{UC-2D – Visualizzazione lista informazioni destinatari analisi}\label{sec:uc-2d}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2D.jpg}
+    \caption{Diagramma del caso d'uso UC-2D – Visualizzazione lista informazioni destinatari}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3511,7 +3497,40 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
+\subsubsection{UC-2D.6 – Nessun destionatario riconosciuto}\label{sec:uc-2b-6}
+
+\textbf{Attori}
+\begin{itemize}
+    \item Operatore CdL
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente accede alla lista o effettua una ricerca/filtro
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Viene mostrato un messaggio che informa l'utente dell'assenza di destinatari
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente ha eseguito un'analisi di un file
+    \item L'analisi non ha riconosciuto alcun destinatario
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+
 \subsubsection{UC-2E – Visualizzazione lista storico documenti}\label{sec:uc-2e}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2E.jpg}
+    \caption{Diagramma del caso d'uso UC-2E – Visualizzazione lista storico documenti}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3540,6 +3559,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item \textit{include}: 
     \begin{itemize}
         \item UC-2E.4 – Visualizzazione elemento da lista storico documenti
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-2E.1 – Documenti assenti
     \end{itemize}
 \end{itemize}
 
@@ -3736,15 +3759,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-2F.1 - Salva template messaggio
-        \item UC-2G - Gestione template salvati
-        \item UC-1A.2 - Selezione tono
-        \item UC-1A.3 - Selezione stile
         \item UC-2F.2 - Modifica oggetto messaggio
         \item UC-2F.3 - Modifica testo messaggio
         \item UC-2F.4 - Conferma modifica messaggio
-        \item UC-2F.5 - Genera messaggio
-        \item UC-2E – Apertura storico documenti
-        \item UC-2H – Invio documento e messaggio
+        \item UC-2F.5 - Rigenera messaggio
     \end{itemize}
 \end{itemize}
 
@@ -3854,7 +3872,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2F.5 – Genera messaggio}\label{sec:uc-2f-5}
+\subsubsection{UC-2F.5 – Rigenera messaggio}\label{sec:uc-2f-5}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3863,7 +3881,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Sono stati selezionati i parametri di generazione (es. tono, stile) o è stato richiesto un suggerimento automatico.
+    \item Sono stati selezionati i parametri (es. tono, stile).
 \end{itemize}
 
 \textbf{Post-condizioni}
@@ -3873,7 +3891,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente clicca sul pulsante "Genera messaggio" (eventualmente dopo aver selezionato tono e stile in UC-1A).
+    \item L'utente clicca sul pulsante "Rigenera messaggio"
     \item Il sistema elabora i dati del documento e del destinatario.
     \item Il sistema crea una proposta di testo coerente con il contesto.
     \item Il sistema sovrascrive o riempie i campi di visualizzazione.
@@ -3957,12 +3975,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item L'utente ha bisogno di utilizzare un template di messaggio salvato per preparare il messaggio da inviare assieme ai documenti selezionati.
 \end{enumerate}
-
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item 
-\end{enumerate}
-
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -4162,12 +4174,15 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
+    \item L'utente si trova all'interno del modulo di invio di documenti e messaggio
     \item Il messaggio é stato completato con oggetto, testo e documenti allegati.
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
+    \item Il sistema avvia il processo di spedizione delle email/messaggi.
     \item Il messaggio e i documenti sono stati inviati con successo ai destinatari previsti.
+    \item L'utente riceve un feedback di successo.
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -4250,41 +4265,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema mostra un selettore di data e ora.
     \item L'utente imposta il momento desiderato per l'invio e conferma.
     \item Il sistema prende in carico la richiesta e la accoda per l'elaborazione futura.
-\end{enumerate}
-
-\vspace{0.5cm}
-
-\subsubsection{UC-2H.3 – Conferma invio}\label{sec:uc-2h-3}
-
-\textbf{Attori}
-\begin{itemize}
-    \item Operatore CdL
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item Tutti i dati (destinatari, allegati, messaggio) sono stati verificati
-    \item L'utente si trova nella pagina di riepilogo invio (UC-2H).
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il sistema avvia il processo di spedizione delle email/messaggi.
-    \item L'utente riceve un feedback di successo.
-    \item L'utente viene reindirizzato alla pagina iniziale o allo storico.
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente clicca sul pulsante finale "Invia ora".
-    \item Il sistema chiede una conferma definitiva (opzionale).
-    \item Il sistema processa l'invio e notifica l'esito positivo ("Messaggio inviato con successo").
-\end{enumerate}
-
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item Il sistema rileva un errore durante l'invio (es. errore SMTP).
-    \item Viene mostrato un messaggio di errore e l'invio viene annullato permettendo di riprovare.
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -5109,11 +5089,11 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF- & Un utente con titolo di admin deve poter visualizzare il cognome di utente registrato & \hyperref[sec:uc-0e-5]{UC-0E.5} & Opzionale \\
     \hline
-    RF- & Un utente con titolo di admin deve poter annullare la modifica al ruolo utente registrato & \hyperref[sec:uc-0e-6]{UC-0E.8} & Opzionale \\
+    RF- & Un utente con titolo di admin deve poter modificare il ruolo di utente registrato & \hyperref[sec:uc-0e-6]{UC-0E.6} & Opzionale \\
     \hline
     RF- & Deve esserci un controllo "Utente non autorizzato" quando esso prova ad accedere alla sezione "Gestione ruoli utenti" & \hyperref[sec:uc-0e-7]{UC-0E.7} & Opzionale \\
     \hline
-    RF- & Un utente con titolo di admin deve poter modificare il ruolo di utente registrato & \hyperref[sec:uc-0e-8]{UC-0E.6} & Opzionale \\
+    RF- & Un utente con titolo di admin deve poter annullare la modifica al ruolo utente registrato & \hyperref[sec:uc-0e-8]{UC-0E.8} & Opzionale \\
     \hline
     RF- & Un utente con titolo di admin deve poter salvare le modifiche al ruolo di un utente registrato & \hyperref[sec:uc-0e-9]{UC-0E.9} & Opzionale \\
     \hline
@@ -5195,10 +5175,6 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF- & Un utente deve avere la possibilità di inserire il reparto di appartenenza del documento all'interno del modulo di upload e gestione documentale & \hyperref[sec:uc-2a-5]{UC-2A.5} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di avviare l'upload del file selezionato con i relativi metadati & \hyperref[sec:uc-2a-6]{UC-2A.6} & Obbligatorio \\
-    \hline
-    RF- & Un utente deve avere la possibilità di accedere al modulo contenente le informazioni relative ai documenti. & \hyperref[sec:uc-2b]{UC-2B} & Obbligatorio \\
-    \hline
     RF- & Un utente deve avere la possibilità di visualizzare la lista delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2b-1]{UC-2B.1} & Obbligatorio \\
     \hline
     RF- & Un utente deve avere la possibilità di visualizzare un elemento dalla lista delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2b-2]{UC-2B.2} & Obbligatorio \\
@@ -5250,6 +5226,8 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     RF- & Un utente deve avere la possibilità di visualizzare il reparto di un destinatario & \hyperref[sec:uc-2d-4]{UC-2D.4} & Obbligatorio \\
     \hline
     RF- & Un utente deve avere la possibilità di visualizzare il nome di un destinatario & \hyperref[sec:uc-2d-5]{UC-2D.5} & Obbligatorio \\
+    \hline
+    RF- & Deve esserci un controllo per "Nessun destinatario riconosciuto" & \hyperref[sec:uc-2b-6]{UC-2B.6} & Obbligatorio \\
     \hline
     RF- & Un utente deve avere la possibilità di visualizzare il codice fiscale di un destinatario & \hyperref[sec:uc-2d-2]{UC-2D.2} & Obbligatorio \\
     \hline
