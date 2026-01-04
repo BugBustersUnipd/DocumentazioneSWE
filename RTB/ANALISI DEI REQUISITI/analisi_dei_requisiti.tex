@@ -120,7 +120,7 @@ Questo documento contiene le Norme di Progetto seguite dal team \textbf{BugBuste
 \arrayrulecolor{primaryblue}
 
 {\footnotesize
-\begin{longtable}{|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{6cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
@@ -1656,7 +1656,9 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente visualizza l'interfaccia di generazione contenuti AI, pronta per l'inserimento del prompt e la selezione delle opzioni.
+    \item L'utente ha generato un contenuto testuale basato sul prompt e sui parametri selezionati
+    \item Il contenuto generato è visualizzato nell'interfaccia utente
+    \item Il contenuto generato viene salvato nel sistema
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -2073,12 +2075,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1D.jpg}
-    \caption{Diagramma del caso d'uso UC-1D – Modifica contenuto generato}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1A.jpg}
     \caption{Diagramma del caso d'uso UC-1D – Modifica contenuto generato}
 \end{figure}
 
@@ -2561,40 +2557,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 \vspace{0.5cm}
-
-\subsubsection{UC-1K – Pubblica contenuto generato}\label{sec:uc-1c-6}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1J.jpg}
-    \caption{Didascalia dell'immagine}
-\end{figure}
-
-\textbf{Attori}
-\begin{itemize}
-    \item HR manager/Redattore
-\end{itemize}
-
-\textbf{Pre-condizioni}
-\begin{itemize}
-    \item L'utente si trova nel modulo AI assistant generativo
-    \item È stato generato un contenuto tramite l'AI assistant
-\end{itemize}
-
-\textbf{Post-condizioni}
-\begin{itemize}
-    \item Il contenuto viene reso pubblico sulla piattaforma
-\end{itemize}
-
-\textbf{Scenario principale}
-\begin{enumerate}
-    \item L'utente conferma la volontà di utilizzare il contenuto generato
-    \item Il sistema cambia lo stato del contenuto in "Pubblicato" o lo trasferisce alla sezione blog/news del sito
-\end{enumerate}
-
-
-\vspace{0.5cm}
-
 
 \subsection{Sezione 2 – Modulo AI Co-Pilot per i Consulenti del Lavoro (CdL)}
 
@@ -3134,7 +3096,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2C.jpg}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2C.jpg}
     \caption{Diagramma del caso d'uso UC-2C – Gestione documento}
 \end{figure}
 
@@ -3741,9 +3703,16 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
-    \caption{Didascalia dell'immagine}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2Fa.jpg}
+    \caption{Diagramma del caso d'uso UC-2F – Gestione messaggio (include)}
 \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2Fb.jpg}
+    \caption{Diagramma del caso d'uso UC-2F – Gestione messaggio (extend)}
+\end{figure}
+
 
 \textbf{Attori}
 \begin{itemize}
@@ -3767,7 +3736,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario secondario}
 \begin{enumerate}
-    \item 
+    \item Un utente esce dalla pagina di gestione messaggio senza salvare le modifiche apportate.
 \end{enumerate}
 
 
@@ -3787,7 +3756,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
         \item UC-2F.2 - Modifica oggetto messaggio
         \item UC-2F.3 - Modifica testo messaggio
         \item UC-2F.4 - Conferma modifica messaggio
-        \item UC-2F.5 - Rigenera messaggio
+        \item UC-2F.5 - Uscita senza salvare
     \end{itemize}
 \end{itemize}
 
@@ -3897,7 +3866,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2F.5 – Rigenera messaggio}\label{sec:uc-2f-5}
+\subsubsection{UC-2F.5 – Conferma modifica messaggio}\label{sec:uc-2f-}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3906,20 +3875,19 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Sono stati selezionati i parametri (es. tono, stile).
+    \item Sono state apportate modifiche ai campi oggetto o testo (UC-2F.2 o UC-2F.3).
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item I campi Oggetto e Testo vengono popolati automaticamente dal sistema.
+    \item Le modifiche non vengono salvate e il messaggio ritorna alla versione precedente.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente clicca sul pulsante "Rigenera messaggio"
-    \item Il sistema elabora i dati del documento e del destinatario.
-    \item Il sistema crea una proposta di testo coerente con il contesto.
-    \item Il sistema sovrascrive o riempie i campi di visualizzazione.
+    \item L'utente effettua delle modifiche al messaggio.
+    \item L'utente decide di uscire dalla pagina senza salvare.
+    \item Il sistema non salva le modifiche e ripristina il messaggio alla versione precedente.
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -5181,8 +5149,6 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     RF- & Deve avvenire una valutazione di ogni contenuto generato & \hyperref[sec:uc-1i]{UC-1i} & Obbligatorio \\
     \hline
     RF- & Un utente deve avere la possibilità di scartare un contenuto generato & \hyperref[sec:uc-1j]{UC-1J} & Obbligatorio \\
-    \hline
-    RF- & Un utente deve avere la possibilità di pubblicare un contenuto generato & \hyperref[sec:uc-1k]{UC-1K} & Obbligatorio \\
     \hline
     RF- & Un utente deve avere la possibilità di effettuare modifiche al contenuto generato & \hyperref[sec:uc-1d]{UC-1D} & Obbligatorio \\
     \hline
