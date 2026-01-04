@@ -135,6 +135,8 @@ Documento contenente le norme di progetto adottate dal team BugBusters per lo sv
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
+\rowcolor{secondaryblue!10} 0.1.2 & 4/1/2026 & Aggiunte parti mancanti relative al piano di qualifica. Ulteriori correzioni al contenuto precedente. & Linor Sadè & - & - \\
+\hline
 \rowcolor{secondaryblue!10} 0.1.1 & 3/1/2026 & Correzioni minime nel documento e aggiunte alcune parti mancanti & Linor Sadè & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.1.0 & 30/12/2025 & Verificato & - & Luca Slongo & - \\
@@ -200,9 +202,10 @@ Include una messaggistica top-down con tracciamento delle letture, un builder pe
 in tempo reale; inoltre un sistema di timbratura via badge o dispositivi mobili con regole automatiche per il controllo e l'aggregazione delle ore.
 Le anagrafiche centralizzate, con ruoli e permessi, permettono una gestione granulare degli accessi e l'integrazione dei moduli, 
 garantendo un flusso informativo coerente, tracciabile e adattabile alle esigenze operative.
-Il nostro progetto mira a estendere la piattaforma Nexum con un AI assistant generativo per la scrittura di comunicazioni e con un AI Co-Pilot\G{} per
+Il nostro progetto mira alla creazione di un'applicazione stand-alone (rispetto l'applicazione Nexum già esistente) che implementa un modulo di AI assistant generativo per la scrittura di comunicazioni e l'AI Co-Pilot\G{} per
 i Cdl. In particolare quest'ultimo deve essere in grado di riconoscere i documenti caricati dagli utenti, estrarne le informazioni rilevanti, capire
 la tipologia, destinatari e consegnarli in modo massivo. \\
+Per ulteriori informazioni sul progetto si rimanda all'analisi dei requisiti al link (AGGIUNGERE LINK). %TODO
 Il nostro obiettivo è realizzare questo progetto entro il 21 marzo 2026 con un budget di 12.790 euro.
 
 
@@ -271,7 +274,7 @@ La fornitura prevede varie attività, in particolare:
     \item \textbf{Comunicazione con la proponente}: stabilire canali di comunicazione efficaci per garantire un flusso informativo 
     continuo e trasparente. Prevedere incontri regolari per aggiornamenti sullo stato del progetto, discussione di eventuali problemi 
     e raccolta di feedback.
-    \item \textbf{Revisione e approvazione}: sottoporre tutta la documentazione prodotta alla revisione e approvazione della proponente, 
+    \item \textbf{Revisione e approvazione}: sottoporre tutta la documentazione prodotta alla revisione e approvazione della proponente e del committente, 
     assicurando l'allineamento sugli obiettivi e le aspettative prima di procedere con le fasi successive del progetto.
     \item \textbf{Consegna e chiusura della fase di fornitura}: consegna di quanto prodotto durante la fase di fornitura al proponente, 
     garantendo che tutti i documenti siano completi e corretti. Completata la consegna, si procede alla chiusura formale della fase.
@@ -302,11 +305,10 @@ tempestività nelle azioni correttive.
 
 \subsubsection{Documentazione Prodotta}\label{Documentazione Prodotta}
 Durante la fase di fornitura, il team BugBusters produce e mantiene aggiornata la seguente documentazione:
+AGGIUNGERE I LINK DEI DOCUMENTI QUI SOTTO.
 \begin{itemize}
     % TODO da aggiungere i link ai documenti una volta resi pubblici (prima della consegna finale)
-    \item \href{http:\\localhost}{Valutazione dei capitolati}
     \item \href{http:\\localhost}{Glossario}
-    \item \href{http:\\localhost}{Norme di progetto}
     \item \href{http:\\localhost}{Analisi dei requisiti}
     \item \href{http:\\localhost}{Piano di progetto}
     \item \href{http:\\localhost}{Piano di qualifica}
@@ -718,13 +720,14 @@ Dove:
 \subsection{Qualifica}
 \subsubsection{Verifica}
 Il processo di Verifica\G{} ha come obiettivo principale quello di verificare che quanto prodotto sia a regola d'arte, ovvero conforme con i requisiti richiesti.\\
-L'obiettivo della verifica\G{} è poter rispondere alla domanda <<Did I build the system right?>> gli esiti di tale processo sono riportati nel (Inserire Parte Relativa Nel Piano Di Qualifica). %TODO
+L'obiettivo della verifica\G{} è poter rispondere alla domanda <<Did I build the system right?>> gli esiti di tale processo sono riportati nel documento di Piano di Qualifica nella sezione dedicata ai test.\\
+Notare che al momento della condivisione di questo documento al pubblico, il team BugBusters avrà solamente raggiunto l'RTB, per questo motivo lo stato dei test sara "Non Implementato". Al raggiungimento della PB, questa sezione verrà aggiornata con i risultati dei test eseguiti.
 \subsubsubsection{Attività di verifica}
 La verifica agisce su singoli segmenti di sviluppo, accertando che l'esecuzione di essi non abbia introdotto errori. 
 In questa prospettiva, un'attività di verifica è il controllo che il prodotto ottenuto al termine di una fase sia congruente con il semilavorato avuto come punto di partenza di quella fase.\\
 Il team BugBusters si è principalmente occupato della verifica relativa alla documentazione, controllando la correttezza grammaticale, sintattica e la correttezza del contenuto di ogni documento.\\
-Relativamente alle verifiche sul codice, sarà un argomento che verrà trattato più in dettaglio al raggiungimento della \textit{Requirements and Technology Baseline}\G{}.\\
-In ogni caso tutte le informazioni relative alla verifica, verranno riportate nel Piano di Qualifica (Inserire Link Futuro alla sezione del Piano relativa ai test). %TODO
+Relativamente alle verifiche sul codice, sarà un argomento che verrà trattato più in dettaglio dopo il raggiungimento della \textit{Requirements and Technology Baseline}\G{}.\\
+In ogni caso tutte le informazioni relative alla verifica, verranno riportate nel Piano di Qualifica (INSERIRE LINK FUTURO E SEZIONE CORRISPONENTE). %TODO
 Il processo di verifica\G{} verrà realizzata in due modi: tramite Analisi Statica e Analisi Dinamica.
 \subsubsubsection{Analisi Statica}
 L'analisi statica non richiede l'esecuzione dell'oggetto di cui si fa la verifica\G{}, ciò permette di applicarla già prima della fine della codifica.\\
@@ -751,8 +754,19 @@ Le principali tipologie di Test\G{} sono:
     \item \textbf{Test di Sistema}\G{};
 \end{itemize}
 % TODO
-I test eseguiti da BugBusters (reperibili nel INSERIRE LINK PIANO DI QUALIFICA DOVE SONO PRESENTI I TEST) sono descritti nella seguente maniera:
-DOBBIAMO ANCORA FARLI, SUCCESSIVAMENTE QUA INSERIRE NOMENCLATURA TEST.
+I test eseguiti da BugBusters reperibili nella sezione 3 Metodi di Testing del piano di qualifica (INSERIRE LINK PIANO DI QUALIFICA E IN CASO AGGIORNARE NOME) sono descritti nella seguente maniera:
+\begin{itemize}
+    \item \textbf{Codice}: un codice univoco che garantisce la traccibilità del test (quindi la sua identificazione univoca);
+    \item \textbf{Descrizione}: una breve descrizione dell'obiettivo del test;
+    \item \textbf{Requisito}: codice univoco del requisito a cui il test fa riferimento. Tale codice è reperibile nell'analisi dei requisiti nella sezione 3.1 Requisiti funzionali (INSERIRE LINK ANALISI DEI REQUISITI E IN CASO AGGIORNARE NOME); %TODO
+    \item \textbf{Stato}: lo stato del test, che può essere:
+    \begin{itemize}
+        \item \textbf{Non Implementato}: il test non è ancora stato implementato;
+        \item \textbf{Superato}: il test è stato implementato ed eseguito;
+        \item \textbf{Non Superato}: il test è stato implementato ed eseguito, ma non ha raggiunto i criteri di accettazione;
+        \item \textbf{Da Eseguire}: il test è stato implementato, ma non è ancora stato eseguito.
+    \end{itemize}
+\end{itemize}
 \subsubsubsection{Test di Unità\G{}}
 I \textbf{test di unità}\G{} hanno lo scopo di verificare le singole unità di un software, definite durante la progettazione di dettaglio. Per unità si intende la più piccola quantità di Software che sia utilmente sottoponibile a verifica\G{} come oggetto singolo.\\
 I test di unità\G{} possono essere funzionali (black-box), cioè basati sulle specifiche dell'unità.
@@ -778,6 +792,9 @@ La \textbf{validazione} è un processo per confermare in modo definitivo che le 
 \subsubsubsection{Processo di Validazione}
 BugBusters ha raccolto tutte le richieste di \textbf{Eggon} e le ha raccolte nell'Analisi dei Requisiti\G{} (LINK DA INSERIRE QUANDO ANALISI DEI REQUISITI è PRONTA), in modo tale da poter tracciare correttamente i requisiti e da poter eseguire i test di accettazione\G{} per controllare che quanto sviluppato corrisponda alle richieste di \textbf{Eggon}.
 
+I risultati della validazione verranno riportati nel documento di Piano di Qualifica nella sezione Test di accettazione (LINK DA INSERIRE QUANDO PIANO DI QUALIFICA è PRONTO).\\\\
+%TODO
+Si fa notare che al momento della condivisione di questo documento al pubblico, il team BugBusters avrà solamente raggiunto l'RTB, per questo motivo lo stato dei test sara "In Attesa". Al raggiungimento della PB, questa sezione verrà aggiornata con i risultati dei test. (MODIFICARE EVENTUALMENTE VALORE DI STATO/ESITO) 
 
 \section{Processi Organizzativi}
 
