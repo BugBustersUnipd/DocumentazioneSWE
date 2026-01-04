@@ -566,8 +566,8 @@ Per supportare le attività di documentazione, il team BugBusters utilizza i seg
 Di seguito l'elenco dei documenti obbligatori, coerenti con le indicazioni del capitolato C4. Ogni documento verrà mantenuto aggiornato e versionato sul repository del progetto.
 
 \begin{enumerate}
-    \item \textbf{Norme di Progetto}: Il presente documento: linee guida metodologiche, standard di lavoro e convenzioni adottate dal team.
-    \item \textbf{Piano di Progetto}: Cronoprogramma dettagliato e allocazione delle risorse umane e materiali per le milestone e le consegne.
+    \item \textbf{Norme di Progetto}: Il presente documento, dove vengono definite linee guida metodologiche, standard di lavoro e convenzioni adottate dal team.
+    \item \textbf{Piano di Progetto}: Documento dettagliato con allocazione delle risorse umane e materiali per le milestone e le consegne.
     \item \textbf{Piano di Qualifica}: Strategia e metriche di collaudo; obiettivo minimo di qualità: copertura dei test pari o superiore al 80\%.
     \item \textbf{Analisi dei Requisiti}: Specifica dei requisiti funzionali e non funzionali, casi d'uso principali e criteri di accettazione.
     \item \textbf{Glossario}: Elenco e definizioni dei termini tecnici e degli acronimi usati nel progetto.
@@ -695,7 +695,8 @@ Ogni issue\G{} è identificata da un codice univoco dato dalla fase del progetto
 Per velocizzare il processo di gestione delle issue\G{}, BugBusters utilizza una GitHub action che, se in qualsiasi commit viene scritto: \textit{chiudi <NOME ISSUE>}, la issue\G{} 
 corrispondente verrà immediatamente chiusa, qualsiasi sia il branch in cui ci si trova.\\
 \begin{itemize}
-    \item \textbf{Board}: Serve per definire lo stato in cui si trova una issue\G{}, ovvero se: è ancora da iniziare, è in sviluppo o è terminata.
+    \item \textbf{Board}: Serve per definire lo stato in cui si trova una issue\G{}, ovvero se: è ancora da iniziare, è in sviluppo o è terminata. Il team ha scelto il modello Kanban per la gestione delle issue.
+
     \item \textbf{Pull Request}: serve per richiedere la verifica\G{} o approvazione di una modifica prima di fonderla con un ramo della repository\G{}.
     Il team BugBusters, oltre che per un corretto workflow di verifica, usa le pull request come unico modo di modifica in produzione, in quanto si vuole che il branch main sia modificato solo a seguito di una pull request con 2 review positive.
 \end{itemize}
@@ -713,27 +714,31 @@ Dove:
 \subsection{Qualifica}
 \subsubsection{Verifica}
 Il processo di Verifica\G{} ha come obiettivo principale quello di verificare che quanto prodotto sia a regola d'arte, ovvero conforme con i requisiti richiesti.\\
-L'obiettivo della verifica\G{} è poter rispondere alla domanda <<Did I build the system right?>> gli esiti di tale processo sono riportati nel (Inserire Parte Relativa Nel Piano Di Qualifica).
+L'obiettivo della verifica\G{} è poter rispondere alla domanda <<Did I build the system right?>> gli esiti di tale processo sono riportati nel (Inserire Parte Relativa Nel Piano Di Qualifica). %TODO
 \subsubsubsection{Attività di verifica}
+La verifica agisce su singoli segmenti di sviluppo, accertando che l'esecuzione di essi non abbia introdotto errori. 
+In questa prospettiva, un'attività di verifica è il controllo che il prodotto ottenuto al termine di una fase sia congruente con il semilavorato avuto come punto di partenza di quella fase.\\
 Il team BugBusters si è principalmente occupato della verifica relativa alla documentazione, controllando la correttezza grammaticale, sintattica e la correttezza del contenuto di ogni documento.\\
 Relativamente alle verifiche sul codice, sarà un argomento che verrà trattato più in dettaglio al raggiungimento della \textit{Requirements and Technology Baseline}\G{}.\\
-In ogni caso tutte le informazioni relative alla verifica, verranno riportate nel Piano di Qualifica (Inserire Link Futuro alla sezione del Piano relativa ai test).
+In ogni caso tutte le informazioni relative alla verifica, verranno riportate nel Piano di Qualifica (Inserire Link Futuro alla sezione del Piano relativa ai test). %TODO
 Il processo di verifica\G{} verrà realizzata in due modi: tramite Analisi Statica e Analisi Dinamica.
 \subsubsubsection{Analisi Statica}
 L'analisi statica non richiede l'esecuzione dell'oggetto di cui si fa la verifica\G{}, ciò permette di applicarla già prima della fine della codifica.\\
 Può essere eseguita mediante \textbf{metodi formali} (ad esempio prove matematiche) o mediante \textbf{metodi di lettura}.
 Tra i \textbf{metodi di lettura} ne troviamo due significativi:
 \begin{itemize}
-    \item \textbf{Walkthrough}: si esegue un esame privo di assunzioni o presupposti , non si sa esattamente dove è più probabile che vi siano difetti, dunque si guarda ovunque. Si percorre dunque il codice simulandone possibili esecuzioni e si studia ogni parte di documento come farebbe un compilatore. È un metodo di verifica\G{} costoso e non automatizzabile;
+    \item \textbf{Walkthrough}: si esegue un esame privo di assunzioni o presupposti, non si sa esattamente dove è più probabile che vi siano difetti, dunque si guarda ovunque. Si percorre il codice simulandone possibili esecuzioni e si studia ogni parte di documento come farebbe un compilatore, verificando che le regole siano soddisfatte. È un metodo di verifica\G{} costoso e non automatizzabile;
     \item \textbf{Inspection}: si esegue un esame focalizzato su presupposti, si sa già dove cercare, i verificatori dunque rilevano la presenza di difetti eseguendo una lettura mirata dell'oggetto di verifica\G{}. Non è esaustiva come il Walkthrough, ma permette di creare una lista di controllo apposita per ogni oggetto di verifica\G{}, così da individuare potenziali problemi;
 \end{itemize}
-
+Ogni passo documenta attività svolte e risultanze. Gli errori identificati vengono discussi tra verificatore e autore mentre le modifiche vengono apportate generalmente solo dall'autore.\\
 \subsubsubsection{Analisi Dinamica}
 L'analisi dinamica è chiamata così perché per essere eseguita necessita l'esecuzione dell'oggetto da verificare.\\
 Serve per verificare se sono presenti comportamenti inattesi, e dunque rimuovere o modificare le parti che ne causano il fault.\\
-Per raggiungere tale obiettivo, si usufruisce di Test\G{}, che devono essere ripetibili e automatizzabili.\\
-Ripetibili poiché se si presenta un failure nel codice, e vengono corretti i fault, posso eseguire lo stesso test\G{} nelle stesse condizioni per verificare l'effettiva correzione del failure.\\
-Automatizzabili mediante  driver (che serve per pilotare il test), stub (che simula i moduli necessari al test\G{} ma che non ne sono oggetto) e logger (che registra ciò che avviene durante l'esecuzione).\\
+Per raggiungere tale obiettivo, si usufruisce di Test\G{}, che devono essere ripetibili e automatizzabili.
+\begin{itemize}
+    \item \textbf{Ripetibili}: poiché se si presenta un failure nel codice, e vengono corretti i fault, posso eseguire lo stesso test\G{} nelle stesse condizioni per verificare l'effettiva correzione del failure. Perché un test sia ripetibile, l'ambiente di esecuzione (e quindi lo stato iniziale) deve essere sempre lo stesso;
+    \item \textbf{Automatizzabili}: poiché i test possono essere centinaia, è necessario automatizzarli mediante  driver (che serve per pilotare il test), stub (che simula i moduli necessari al test\G{} ma che non ne sono oggetto) e logger (che registra ciò che avviene durante l'esecuzione).
+\end{itemize}
 Le principali tipologie di Test\G{} sono:
 \begin{itemize}
     \item \textbf{Test di Unità}\G{};
@@ -741,6 +746,7 @@ Le principali tipologie di Test\G{} sono:
     \item \textbf{Test di Integrazione}\G{};
     \item \textbf{Test di Sistema}\G{};
 \end{itemize}
+% TODO
 I test eseguiti da BugBusters (reperibili nel INSERIRE LINK PIANO DI QUALIFICA DOVE SONO PRESENTI I TEST) sono descritti nella seguente maniera:
 DOBBIAMO ANCORA FARLI, SUCCESSIVAMENTE QUA INSERIRE NOMENCLATURA TEST.
 \subsubsubsection{Test di Unità\G{}}
