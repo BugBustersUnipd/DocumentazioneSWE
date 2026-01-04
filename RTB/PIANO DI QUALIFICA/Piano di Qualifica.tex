@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.0.2} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.0.3} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -150,7 +150,9 @@ Piano di Qualifica\G del Team BugBusters per il Capitolato C5 proposto da Eggon,
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\CurrentVersion & 29/12/2025 & Aggiunta Test di Sistema e di Accettazione & Marco Piro & - & - \\
+\CurrentVersion & 04/01/2026 & Aggiunte sezioni 4 e 5 & Marco Piro & - & - \\
+\hline
+0.0.2 & 29/12/2025 & Aggiunta Test di Sistema e di Accettazione & Marco Piro & - & - \\
 \hline
 0.0.1 & 03/12/2025 & Prima stesura del documento & Luca Slongo & - & - \\
 \hline
@@ -224,21 +226,24 @@ I processi primari sono quelle attività che iniziano o eseguono lo sviluppo, l'
 \subsubsubsection{Fornitura}
 
 \MetricTable{
-MPC01 & Estimated at completion (EAC) & $\pm 5\%$ rispetto al (BAC) & Budget at completion (BAC) \\
+MPC01 & Earned value (EV) & $\geq 0$ & $\leq$ EAC \\
 \hline
-MPC02 & Estimate to complete (ETC) & $\geq 0$ & $\leq$ EAC \\
+MPC02 & Planned value (PV) & $\geq 0$ & $\leq$ Budget at completion (BAC) \\
 \hline
 MPC03 & Actual cost (AC) & $\geq 0$ & $\leq$ EAC \\
 \hline
-MPC04 & Earned value (EV) & $\geq 0$ & $\leq$ EAC \\
+MPC04 & Cost Performance Index (CPI) & $\geq 0.9$ & $\geq 1.0$ \\
 \hline
-MPC05 & Planned value (PV) & $\geq 0$ & $\leq$ Budget at completion (BAC) \\
+??????
+MPC05 & Schedule variance (SV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
 \hline
-MPC06 & Schedule variance (SV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
+MPC06 & Estimated at completion (EAC) & $\pm 5\%$ rispetto al (BAC) & Budget at completion (BAC) \\
 \hline
-MPC07 & Cost variance (CV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
+MPC07 & Estimate to complete (ETC) & $\geq 0$ & $\leq$ EAC \\
 \hline
-MPC08 & Cost Performance Index (CPI) & $\geq 0.9$ & $\geq 1.0$ \\
+?????????
+MPC0X & Cost variance (CV) & $\geq -5\%$ rispetto al (BAC) & $\geq 0\%$ \\
+
 \hline}
 
 
@@ -407,8 +412,60 @@ TS-014 & Verifica il filtraggio delle statistiche Analytics per data di inizio e
   \end{longtable}
 
 
-
-
-
 DA RIVEDERE!!!!!!!!!!!!!!!!!!!
+
+
+\section{Cruscotto di Valutazione}
+Di seguito verranno mostrate le misurazioni effettuate durante il periodo che va 
+dall'aggiudicazione del capitolatoG sino alla Requirements and Technology BaselineG (RTB). 
+Le misurazioni presenti saranno prese durante lo svolgimento delle attività per la Product BaselineG (PB).
+
+\subsection{MPC01 e MPC02 - Earned Value (EV) e Planned Value (PV)}
+Grafico
+
+\subsection{MPC03 e MPC07 - Estimate to complete (ETC) e Actual cost (AC)}
+Grafico
+
+\subsection{MPC04 e MP05 - Cost Performance Index (CPI) e Schedule performance Index}
+Grafico
+
+\subsection{MPC06 - Estimated at completion (EAC)}
+Grafico
+
+MANCA 08??
+
+\subsection{MPC09 - Requirements Stability Index (RSI)}
+Grafico
+
+\subsection{MPC10 - Indice di Gulpease}
+Grafico
+
+\subsection{MPC11 - Errori ortografici rilevati}
+Grafico
+
+\subsection{MPC14 - Quality metrics satisfied}
+Grafico
+
+\subsection{MPC15 - Time Efficiency}
+Grafico
+
+
+
+\section{Iniziative di miglioramento}
+L'ottimizzazione costante dei processi costituisce un pilastro fondamentale per la riuscita del progetto. Di seguito vengono esposte le problematiche operative riscontrate e le relative strategie di risoluzione adottate per superare tali ostacoli.
+
+\subsection{Valutazioni sull'organizzazione}
+
+
+\subsection{Valutazioni sui ruoli}
+
+
+\subsection{Valutazioni sugli strumenti}
+
+
+\subsection{Considerazioni finali}
+
+
+
+
 \end{document}
