@@ -1318,6 +1318,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \subsubsection{UC-0E.1 – Visualizzazione lista utenti registrati}\label{sec:uc-0e-1}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0E-1.jpg}
+    \caption{Diagramma del caso d'uso UC-0E.1 – Visualizzazione lista utenti registrati}
+\end{figure}
+
 \textbf{Attori}
 \begin{itemize}
     \item Amministratore
@@ -1355,6 +1361,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 \subsubsection{UC-0E.2 – Visualizzazione elemento lista utenti registrati}\label{sec:uc-0e-2}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0E-2.jpg}
+    \caption{Diagramma del caso d'uso UC-0E.2 – Visualizzazione elemento lista utenti registrati}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
@@ -1586,7 +1598,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0F.jpg}
+    \includegraphics[width=0.5\textwidth]{Diagrammi casi d'uso/UC0F.jpg}
     \caption{Diagramma del caso d'uso UC-0F – Logout}
 \end{figure}
 
@@ -1659,7 +1671,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item L'utente ha generato un contenuto testuale basato sul prompt e sui parametri selezionati
     \item Il contenuto generato è visualizzato nell'interfaccia utente
-    \item Il contenuto generato viene salvato nel sistema
 \end{itemize}
 
 \textbf{Scenario principale}
@@ -1668,10 +1679,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema mostra il campo per l'inserimento del prompt e le azioni che possono essere eseguite dall'utente.
 \end{enumerate}
 
-\textbf{Scenario secondario}
-\begin{enumerate}
-    \item 
-\end{enumerate}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1838,6 +1845,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \subsubsection{UC-1B.2 – Visualizzazione informazioni elemento}\label{sec:uc-1b-2}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1B-2.jpg}
+    \caption{Diagramma del caso d'uso UC-1B.2 – Visualizzazione informazioni elemento}
+\end{figure}
+
 \textbf{Attori}
 \begin{itemize}
     \item HR manager/Redattore
@@ -1864,12 +1877,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-1B.7– Visualizzazione prompt
-        \item UC-1B.8 – Visualizzazione tono
         \item UC-1B.3 – Visualizzazione stile
         \item UC-1B.4 – Visualizzazione risultato
         \item UC-1B.5 – Visualizzazione timestamp
         \item UC-1B.6 – Visualizzazione valutazione
+        \item UC-1B.7– Visualizzazione prompt
+        \item UC-1B.8 – Visualizzazione tono
     \end{itemize}
 \end{itemize}
 
@@ -2053,21 +2066,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema riceve l'output dall'AI e lo renderizza nell'area di visualizzazione principale, permettendo all'utente di leggerlo
 \end{enumerate}
 
-
-\vspace{0.5cm}
-
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item Nessuna
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item Nessuna
-    \end{itemize}
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2419,6 +2417,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \subsubsection{UC-1G.1 – Visualizzazione lista elementi storico filtrata}\label{sec:uc-1g-1}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1G-1.jpg}
+    \caption{Diagramma del caso d'uso UC-1G.1 – Visualizzazione lista elementi storico filtrata}
+\end{figure}
+
 \textbf{Attori}
 \begin{itemize}
     \item HR manager/Redattore
@@ -2558,6 +2562,40 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 \vspace{0.5cm}
+
+\subsubsection{UC-1K – Salva contenuto generato}\label{sec:uc-1j}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1K.jpg}
+    \caption{Diagramma del caso d'uso UC-1K – Salva contenuto generato}
+\end{figure}
+
+\textbf{Attori}
+\begin{itemize}
+    \item HR manager/Redattore
+\end{itemize}
+
+\textbf{Pre-condizioni}
+\begin{itemize}
+    \item L'utente si trova nel modulo AI assistant generativo
+    \item È stato generato un contenuto tramite l'AI assistant
+\end{itemize}
+
+\textbf{Post-condizioni}
+\begin{itemize}
+    \item Il contenuto viene salvato all'interno del sistema
+\end{itemize}
+
+\textbf{Scenario principale}
+\begin{enumerate}
+    \item L'utente decide che il contenuto è appropriato e vuole salvarlo nel sistema
+    \item Il sistema salva il contenuto generato nel database, rendendolo accessibile per usi futuri
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
 
 \subsection{Sezione 2 – Modulo AI Co-Pilot per i Consulenti del Lavoro (CdL)}
 
@@ -4569,10 +4607,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-   
-    \caption{Diagramma del caso d'uso UC-3A}
-    \label{fig:uc3a}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC3A-1.jpg}
+    \caption{Diagramma del caso d'uso UC-3A.1 – Visualizzazione elenco dati AI assistant}
 \end{figure}
+
 
 \textbf{Attori}
 \begin{itemize}
@@ -4753,9 +4791,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-   
-    \caption{Diagramma del caso d'uso UC-3A}
-    \label{fig:uc3a}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC3A-7.jpg}
+    \caption{Diagramma del caso d'uso UC-3A.7 – Visualizzazione elenco dati AI Co-pilot}
 \end{figure}
 
 \textbf{Attori}
