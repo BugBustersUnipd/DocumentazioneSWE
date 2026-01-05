@@ -951,6 +951,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
+
 \subsubsection{UC-0D – Gestione profilo utente}\label{sec:uc-0d}
 
 \begin{figure}[H]
@@ -1180,26 +1181,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente cambia i dati del proprio profilo
 \end{enumerate}
 
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item Nessuna
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-0A.1 - Inserimento email
-        \item UC-0A.2 - Inserimento password
-        \item UC-0A.3 - Inserimento username
-        \item UC-0A.4 - Inserimento nome 
-        \item UC-0A.5 - Inserimento cognome
-        \item UC-0A.6 - Inserimento matricola
-        \item UC-0D.9 – Salva profilo utente.
-        \item UC-0D.8 – Uscita senza salvare profilo utente.
-    \end{itemize}
-    
-\end{itemize}
-
 \vspace{0.5cm}
 
 \subsubsection{UC-0D.8 – Uscita senza salvare profilo utente}\label{sec:uc-0d-8}
@@ -1284,16 +1265,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item L'Amministratore accede alla sezione di amministrazione utenti.
     \item Il sistema mostra l'elenco degli utenti registrati, con i rispettivi ruoli correnti.
-    \item L'Amministratore seleziona un utente da modificare.
-    \item L'Amministratore assegna o modifica il ruolo dell'utente (es. da Editor a Admin, oppure rimozione privilegi).
-    \item L'Amministratore conferma le modifiche.
-    \item Il sistema aggiorna i ruoli e i permessi associati all'utente.
-    \item Il sistema registra l'operazione per finalità di audit interno.
+    \item L'amministratore é soddisfatto della situazione attuale e non apporta modifiche.
 \end{enumerate}
 
 \textbf{Scenario secondario}
 \begin{enumerate}
     \item Un utente non autorizzato tenta di accedere al modulo di gestione ruoli.
+    \item Un utente amministratore non é soddisfatto dei ruoli attuali e decide di modificarli.
 \end{enumerate}
 
 
@@ -2069,12 +2047,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1D – Modifica contenuto generato}\label{sec:uc-1d}
+\subsubsection{UC-1D – Revisione contenuto generato}\label{sec:uc-1d}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1D.jpg}
-    \caption{Diagramma del caso d'uso UC-1D – Modifica contenuto generato}
+    \caption{Diagramma del caso d'uso UC-1D – Revisione contenuto generato}
 \end{figure}
 
 \textbf{Attori}
@@ -2089,20 +2067,20 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente si trova nella pagina di modifica e può eseguire le opzioni mostrate.
+    \item L'utente ha revisionato il risultato ed é soddisfatto del contenuto finale.
 \end{itemize}
 
 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente è nella pagina del contenuto generato.
-    \item L'utente seleziona l'opzione di modifica del contenuto generato.
-    \item Vengono effettuate delle modifiche e successivamente salvate
+    \item L'utente seleziona l'opzione di revisione del contenuto generato.
+    \item L'utente é soddisfatto del contenuto generato e decide di lasciarlo così com'è.
 \end{enumerate}
 
 \textbf{Scenario secondario}
 \begin{enumerate}
-    \item L'utente dopo aver effettuato delle modifiche non le salva
+    \item L'utente non é soddisfatto del contenuto generato e decide di modificarlo.
 \end{enumerate}
 
 
@@ -2111,7 +2089,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-1C.1 – Visualizzazione anteprima contenuto generato
+        \item UC-1C – Visualizzazione anteprima contenuto generato
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -2563,7 +2541,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1K – Salva contenuto generato}\label{sec:uc-1j}
+\subsubsection{UC-1K – Salva contenuto generato}\label{sec:uc-1k}
 
 \begin{figure}[H]
     \centering
@@ -2633,13 +2611,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente dalla dashboard principale accede al Modulo AI Co-Pilot per i Consulenti del Lavoro.
-    \item L'utente procede a caricare il file che si desidera far analizzare e se dispone dei dati richiesti puó scegliere di compilare i campi (categoria, mese/anno di competenza, azienda, reparto)
+    \item L'utente procede a caricare il file che si desidera far analizzare
     \item Il file viene analizzato
 \end{enumerate}
 
 \textbf{Scenario secondario}
 \begin{enumerate}
-    \item 
+    \item Se l'utente dispone dei dati necessari, procede ad associare i metadati al file caricato: categoria, mese/anno di competenza, azienda, reparto.
 \end{enumerate}
 
 
@@ -3131,14 +3109,19 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2C – Gestione documento}\label{sec:uc-2c}
+\subsubsection{UC-2C – Revisione documento}\label{sec:uc-2c}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2C.jpg}
-    \caption{Diagramma del caso d'uso UC-2C – Gestione documento}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2Ca.jpg}
+    \caption{Diagramma del caso d'uso UC-2C – Revisione documento (include)}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2Cb.jpg}
+    \caption{Diagramma del caso d'uso UC-2C – Revisione documento (extend)}
+\end{figure}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3148,23 +3131,27 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Ci si trova in una delle pagine precedenti (UC-2B o UC-2D o UC-2E).
+    \item Ci si trova in una delle pagine precedenti 
     \item Si è selezionato un documento da una delle lista.
     \item Il documento è disponibile per la visualizzazione.
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente può apportare le modifiche desiderate al documento e può procedere con le azioni successive 
-    \item L'utente è già soddisfatto delle informazioni del documento e può tornare alla pagina precedente.
+    \item L'utente è soddisfatto delle informazioni del documento e può tornare alla pagina precedente.
 \end{itemize}
-
-
 
 \textbf{Scenario principale}
 \begin{enumerate}
     \item L'utente ha caricato vari documenti e vuole ricontrollare le informazioni prima di inviarli.
     \item L'utente seleziona un documento dalla lista per visualizzarne i dettagli.
+\end{enumerate}
+
+\textbf{Scenario secondario}
+\begin{enumerate}
+    \item L'utente non è soddisfatto delle informazioni estratte automaticamente e decide di modificarle.
+    \item L'utente apporta le modifiche necessarie (destinatario, tipologia, ricalcolo percentuale di confidenza).
+    \item L'utente salva le modifiche apportate
 \end{enumerate}
 
 \textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
@@ -3584,7 +3571,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2E.4 – Visualizzazione elemento da lista storico documenti
+        \item UC-2E.2 – Visualizzazione elemento da lista storico documenti
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -3621,7 +3608,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.2 – Visualizzazione appartenenza lista distribuzione}\label{sec:uc-2e-2}
+\subsubsection{UC-2E.2 – Visualizzazione elemento da lista storico documenti}\label{sec:uc-2e-4}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2E-2.jpg}
+    \caption{Diagramma del caso d'uso UC-2E.2 – Visualizzazione elemento dalista storico documenti}
+\end{figure}
+
 
 \textbf{Attori}
 \begin{itemize}
@@ -3635,14 +3629,29 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item L'utente visualizza chi riceverà o ha ricevuto il documento.
+    \item Per ogni riga della lista vengono mostrati i dati essenziali del documento.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item Il sistema recupera i collegamenti tra il documento e le anagrafiche destinatari.
-    \item Il sistema mostra i nomi dei destinatari o, in caso di lista lunga, un riepilogo (es. "Mario Rossi + 2 altri") espandibile al passaggio del mouse o al click.
+    \item Il sistema recupera i metadati principali per ogni documento in elenco.
+    \item Il sistema renderizza le colonne della tabella mostrando: Codice documento, Data caricamento, Stato elaborazione e Percentuale di confidenza.
 \end{enumerate}
+
+\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2B.10 – Visualizzazione codice documento
+        \item UC-2E.3 - Visualizzazione percentuale confidenza
+        \item UC-2E.4 - Visualizzazione appartenenza lista distribuzione
+        \item UC-2E.5 - Visualizzazione stato
+    \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item Nessuna
+    \end{itemize}
+\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3673,7 +3682,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.4 – Visualizzazione elemento da lista storico documenti}\label{sec:uc-2e-4}
+\subsubsection{UC-2E.4 – Visualizzazione appartenenza lista distribuzione}\label{sec:uc-2e-2}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3687,29 +3696,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Per ogni riga della lista vengono mostrati i dati essenziali del documento.
+    \item L'utente visualizza chi riceverà o ha ricevuto il documento.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item Il sistema recupera i metadati principali per ogni documento in elenco.
-    \item Il sistema renderizza le colonne della tabella mostrando: Codice documento, Data caricamento, Stato elaborazione e Percentuale di confidenza.
+    \item Il sistema recupera i collegamenti tra il documento e le anagrafiche destinatari.
+    \item Il sistema mostra i nomi dei destinatari o, in caso di lista lunga, un riepilogo (es. "Mario Rossi + 2 altri") espandibile al passaggio del mouse o al click.
 \end{enumerate}
-
-\textbf{Relazioni con altri casi d'uso (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2B.10 – Visualizzazione codice documento
-        \item UC-2E.5 - Visualizzazione stato
-        \item UC-2E.3 - Visualizzazione percentuale confidenza
-        \item UC-2E.2 - Visualizzazione appartenenza lista distribuzione
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item Nessuna
-    \end{itemize}
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -3738,18 +3732,19 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2F – Gestione messaggio}\label{sec:uc-2f}
+
+\subsubsection{UC-2F – Creazione messaggio}\label{sec:uc-2f}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2Fa.jpg}
-    \caption{Diagramma del caso d'uso UC-2F – Gestione messaggio (include)}
+    \caption{Diagramma del caso d'uso UC-2F – Creazione messaggio (include)}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2Fb.jpg}
-    \caption{Diagramma del caso d'uso UC-2F – Gestione messaggio (extend)}
+    \caption{Diagramma del caso d'uso UC-2F – Creazione messaggio (extend)}
 \end{figure}
 
 
@@ -3770,12 +3765,15 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item Un utente ha selezionato uno o piú documenti da inviare a uno o piú destinatari e sta prepara in messaggio da inviare assieme ai documenti.
+    \item Un utente ha selezionato uno o piú documenti da inviare a uno o piú destinatari 
+    \item L'utente é soddisfatto con il messaggio generato da inviare assieme ai documenti.
 \end{enumerate}
 
 \textbf{Scenario secondario}
 \begin{enumerate}
-    \item Un utente esce dalla pagina di gestione messaggio senza salvare le modifiche apportate.
+    \item L'utente non essere soddisfatto del messaggio generato automaticamente o preimpostato.
+    \item L'utente apporta modifiche all'oggetto e/o al testo del messaggio.
+    \item L'utente salva le modifiche apportate.
 \end{enumerate}
 
 
@@ -3905,7 +3903,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2F.5 – Conferma modifica messaggio}\label{sec:uc-2f-}
+\subsubsection{UC-2F.5 – Uscita senza salvare modifica messaggio}\label{sec:uc-2f-5}
 
 \textbf{Attori}
 \begin{itemize}
@@ -3914,19 +3912,18 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni}
 \begin{itemize}
-    \item Sono state apportate modifiche ai campi oggetto o testo (UC-2F.2 o UC-2F.3).
+    \item Sono state apportate modifiche ai campi oggetto o testo
 \end{itemize}
 
 \textbf{Post-condizioni}
 \begin{itemize}
-    \item Le modifiche non vengono salvate e il messaggio ritorna alla versione precedente.
+    \item Le modifiche nonvengono salvate in preparazione all'invio.
 \end{itemize}
 
 \textbf{Scenario principale}
 \begin{enumerate}
-    \item L'utente effettua delle modifiche al messaggio.
-    \item L'utente decide di uscire dalla pagina senza salvare.
-    \item Il sistema non salva le modifiche e ripristina il messaggio alla versione precedente.
+    \item L'utente termina la digitazione.
+    \item L'utente esce senza confermare le modifiche
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -3978,6 +3975,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema recupera il testo (vuoto o pre-generato).
     \item Il sistema renderizza l'area di testo permettendo la lettura del contenuto.
 \end{enumerate}
+
 
 \subsubsection{UC-2G - Gestione template salvati }\label{sec:uc-2g}
 
@@ -4294,7 +4292,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2I – Filtraggio documenti analisi}\label{sec:uc-2b-i}
+\subsubsection{UC-2I – Filtraggio documenti analisi}\label{sec:uc-2i}
 
 \begin{figure}[H]
     \centering
@@ -4345,7 +4343,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
 \end{itemize}
 
-\subsubsection{UC-2I.1 – Visualizzazione lista documenti filtrata}\label{sec:uc-2b-i-1}
+\subsubsection{UC-2I.1 – Visualizzazione lista documenti filtrata}\label{sec:uc-2i-1}
 
 \textbf{Attori}
 \begin{itemize}
@@ -4380,7 +4378,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2J – Filtraggio destinatari analisi}\label{sec:uc-2d-J}
+\subsubsection{UC-2J – Filtraggio destinatari analisi}\label{sec:uc-2j}
 
 \begin{figure}[H]
     \centering
@@ -4541,7 +4539,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2E.4 – Visualizzazione elemento da lista storico documenti
+        \item UC-2E.2 – Visualizzazione elemento da lista storico documenti
     \end{itemize}
 \end{itemize}
 
@@ -5064,299 +5062,327 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \endlastfoot
 
 
-    RF- & Un utente deve potersi registrare all'interno del sistema & \hyperref[sec:uc-0a]{UC-0A} & Opzionale \\
+    RF-001 & Un utente deve potersi registrare all'interno del sistema & \hyperref[sec:uc-0a]{UC-0A} & Opzionale \\
     \hline
-    RF- & L'utente deve poter inserire la propria email & \hyperref[sec:uc-0a-1]{UC-0A.1} & Opzionale \\
+    RF-002 & L'utente deve poter inserire la propria email & \hyperref[sec:uc-0a-1]{UC-0A.1} & Opzionale \\
     \hline
-    RF- & L'utente deve poter inserire password & \hyperref[sec:uc-0a-2]{UC-0A.2} & Opzionale \\
+    RF-003 & L'utente deve poter inserire password & \hyperref[sec:uc-0a-2]{UC-0A.2} & Opzionale \\
     \hline
-    RF- & L'utente deve poter inserire username & \hyperref[sec:uc-0a-3]{UC-0A.3} & Opzionale \\
+    RF-004 & L'utente deve poter inserire username & \hyperref[sec:uc-0a-3]{UC-0A.3} & Opzionale \\
     \hline
-    RF- & L'utente deve poter inserire nome & \hyperref[sec:uc-0a-4]{UC-0A.4} & Opzionale \\
+    RF-005 & L'utente deve poter inserire nome & \hyperref[sec:uc-0a-4]{UC-0A.4} & Opzionale \\
     \hline
-    RF- & L'utente deve poter inserire cognome & \hyperref[sec:uc-0a-5]{UC-0A.5} & Opzionale \\
+    RF-006 & L'utente deve poter inserire cognome & \hyperref[sec:uc-0a-5]{UC-0A.5} & Opzionale \\
     \hline
-    RF- & L'utente deve poter inserire matricola & \hyperref[sec:uc-0a-6]{UC-0A.6} & Opzionale \\
+    RF-007 & L'utente deve poter inserire matricola & \hyperref[sec:uc-0a-6]{UC-0A.6} & Opzionale \\
     \hline
-    RF- & Deve esserci un controllo per "Email non valida" & \hyperref[sec:uc-0a-7]{UC-0A.7} & Opzionale \\
+    RF-008 & Deve esserci un controllo per "Email non valida" & \hyperref[sec:uc-0a-7]{UC-0A.7} & Opzionale \\
     \hline
-    RF- & Deve esserci un controllo per "Password non valida" & \hyperref[sec:uc-0a-8]{UC-0A.8} & Opzionale \\
+    RF-009 & Deve esserci un controllo per "Password non valida" & \hyperref[sec:uc-0a-8]{UC-0A.8} & Opzionale \\
     \hline
-    RF- & Deve esserci un controllo per "Email già registrata" & \hyperref[sec:uc-0a-9]{UC-0A.9} & Opzionale \\
+    RF-010 & Deve esserci un controllo per "Email già registrata" & \hyperref[sec:uc-0a-9]{UC-0A.9} & Opzionale \\
     \hline
-    RF- & Deve esserci un controllo per "Username già registrato" & \hyperref[sec:uc-0a-10]{UC-0A.10} & Opzionale \\
+    RF-011 & Deve esserci un controllo per "Username già registrato" & \hyperref[sec:uc-0a-10]{UC-0A.10} & Opzionale \\
     \hline
-    RF- & Deve esserci un controllo per "Matricola già registrata" & \hyperref[sec:uc-0a-11]{UC-0A.11} & Opzionale \\
+    RF-012 & Deve esserci un controllo per "Matricola già registrata" & \hyperref[sec:uc-0a-11]{UC-0A.11} & Opzionale \\
     \hline
-    RF- & Deve esserci un controllo per "Matricola non valida" & \hyperref[sec:uc-0a-12]{UC-0A.12} & Opzionale \\
+    RF-013 & Deve esserci un controllo per "Matricola non valida" & \hyperref[sec:uc-0a-12]{UC-0A.12} & Opzionale \\
     \hline
-    RF- & L'utente deve avere la possibilità di autenticarsi & \hyperref[sec:uc-0b]{UC-0B} & Opzionale \\
+
+    RF-014 & L'utente deve avere la possibilità di autenticarsi & \hyperref[sec:uc-0b]{UC-0B} & Opzionale \\
     \hline
-    RF- & Deve esserci un controllo per "Email non registrata" & \hyperref[sec:uc-0b-1]{UC-0B.1} & Opzionale \\
+    RF-015 & Deve esserci un controllo per "Email non registrata" & \hyperref[sec:uc-0b-1]{UC-0B.1} & Opzionale \\
     \hline
-    RF- & Deve esserci un controllo per "Password errata" & \hyperref[sec:uc-0b-2]{UC-0B.2} & Opzionale \\
+    RF-016 & Deve esserci un controllo per "Password errata" & \hyperref[sec:uc-0b-2]{UC-0B.2} & Opzionale \\
     \hline
-    RF- & L'utente a seguito del login deve avere la possibilità di raggiungere la dashboard & \hyperref[sec:uc-0c]{UC-0C} & Obbligatorio \\
+
+    RF-017 & L'utente a seguito del login deve avere la possibilità di raggiungere la dashboard & \hyperref[sec:uc-0c]{UC-0C} & Obbligatorio \\
     \hline
-    RF- & L'utente deve avere la possibilità di gestire il proprio profilo utente & \hyperref[sec:uc-0d]{UC-0D} & Opzionale \\
+
+    RF-018 & L'utente deve avere la possibilità di gestire il proprio profilo utente & \hyperref[sec:uc-0d]{UC-0D} & Opzionale \\
     \hline
-    RF- & L'utente deve avere la possibilità di visualizzare la propria email & \hyperref[sec:uc-0d-1]{UC-0D.1} & Opzionale \\
+    RF-019 & L'utente deve avere la possibilità di visualizzare la propria email & \hyperref[sec:uc-0d-1]{UC-0D.1} & Opzionale \\
     \hline
-    RF- & L'utente deve avere la possibilità di visualizzare la propria password & \hyperref[sec:uc-0d-2]{UC-0D.2} & Opzionale \\
+    RF-020 & L'utente deve avere la possibilità di visualizzare la propria password & \hyperref[sec:uc-0d-2]{UC-0D.2} & Opzionale \\
     \hline
-    RF- & L'utente deve avere la possibilità di visualizzare il proprio username & \hyperref[sec:uc-0d-3]{UC-0D.3} & Opzionale \\
+    RF-021 & L'utente deve avere la possibilità di visualizzare il proprio username & \hyperref[sec:uc-0d-3]{UC-0D.3} & Opzionale \\
     \hline
-    RF- & L'utente deve avere la possibilità di visualizzare il proprio nome & \hyperref[sec:uc-0d-4]{UC-0D.4} & Opzionale \\
+    RF-022 & L'utente deve avere la possibilità di visualizzare il proprio nome & \hyperref[sec:uc-0d-4]{UC-0D.4} & Opzionale \\
     \hline
-    RF- & L'utente deve avere la possibilità di visualizzare il proprio cognome & \hyperref[sec:uc-0d-5]{UC-0D.5} & Opzionale \\
+    RF-023 & L'utente deve avere la possibilità di visualizzare il proprio cognome & \hyperref[sec:uc-0d-5]{UC-0D.5} & Opzionale \\
     \hline
-    RF- & L'utente deve avere la possibilità di visualizzare la propria matricola & \hyperref[sec:uc-0d-6]{UC-0D.6} & Opzionale \\
+    RF-024 & L'utente deve avere la possibilità di visualizzare la propria matricola & \hyperref[sec:uc-0d-6]{UC-0D.6} & Opzionale \\
     \hline
-    RF- & L'utente deve avere la possibilità di modificare le informazioni nel proprio profilo utente & \hyperref[sec:uc-0d-7]{UC-0D.7} & Opzionale \\
+    RF-025 & L'utente deve avere la possibilità di modificare le informazioni nel proprio profilo utente & \hyperref[sec:uc-0d-7]{UC-0D.7} & Opzionale \\
     \hline
-    RF- & L'utente deve avere la possibilità di non salvare le modifiche al profilo utente & \hyperref[sec:uc-0d-8]{UC-0D.8} & Opzionale \\
+    RF-026 & L'utente deve avere la possibilità di non salvare le modifiche al profilo utente & \hyperref[sec:uc-0d-8]{UC-0D.8} & Opzionale \\
     \hline
-    RF- & L'utente deve avere la possibilità di salvare le modifiche al profilo utente & \hyperref[sec:uc-0d-9]{UC-0D.9} & Opzionale \\
+    RF-027 & L'utente deve avere la possibilità di salvare le modifiche al profilo utente & \hyperref[sec:uc-0d-9]{UC-0D.9} & Opzionale \\
     \hline
-    RF- & Un utente con titolo di admin deve avere la possibilità di gestire i ruoli degli altri utenti & \hyperref[sec:uc-0e]{UC-0E} & Opzionale \\
+
+    RF-028 & Un utente con titolo di admin deve avere la possibilità di gestire i ruoli degli altri utenti & \hyperref[sec:uc-0e]{UC-0E} & Opzionale \\
     \hline
-    RF- & Un utente con titolo di admin deve poter visualizzare lista utenti registrati & \hyperref[sec:uc-0e-1]{UC-0E.1} & Opzionale \\
+    RF-029 & Un utente con titolo di admin deve poter visualizzare lista utenti registrati & \hyperref[sec:uc-0e-1]{UC-0E.1} & Opzionale \\
     \hline
-    RF- & Un utente con titolo di admin deve poter visualizzare un elemento della lista utenti registrati & \hyperref[sec:uc-0e-2]{UC-0E.2} & Opzionale \\
+    RF-030 & Un utente con titolo di admin deve poter visualizzare un elemento della lista utenti registrati & \hyperref[sec:uc-0e-2]{UC-0E.2} & Opzionale \\
     \hline
-    RF- & Un utente con titolo di admin deve poter visualizzare il ruolo di utente registrato & \hyperref[sec:uc-0e-3]{UC-0E.3} & Opzionale \\
+    RF-031 & Un utente con titolo di admin deve poter visualizzare il ruolo di utente registrato & \hyperref[sec:uc-0e-3]{UC-0E.3} & Opzionale \\
     \hline
-    RF- & Un utente con titolo di admin deve poter visualizzare il nome di utente registrato & \hyperref[sec:uc-0e-4]{UC-0E.4} & Opzionale \\
+    RF-032 & Un utente con titolo di admin deve poter visualizzare il nome di utente registrato & \hyperref[sec:uc-0e-4]{UC-0E.4} & Opzionale \\
     \hline
-    RF- & Un utente con titolo di admin deve poter visualizzare il cognome di utente registrato & \hyperref[sec:uc-0e-5]{UC-0E.5} & Opzionale \\
+    RF-033 & Un utente con titolo di admin deve poter visualizzare il cognome di utente registrato & \hyperref[sec:uc-0e-5]{UC-0E.5} & Opzionale \\
     \hline
-    RF- & Un utente con titolo di admin deve poter modificare il ruolo di utente registrato & \hyperref[sec:uc-0e-6]{UC-0E.6} & Opzionale \\
+    RF-034 & Un utente con titolo di admin deve poter modificare il ruolo di utente registrato & \hyperref[sec:uc-0e-6]{UC-0E.6} & Opzionale \\
     \hline
-    RF- & Deve esserci un controllo "Utente non autorizzato" quando esso prova ad accedere alla sezione "Gestione ruoli utenti" & \hyperref[sec:uc-0e-7]{UC-0E.7} & Opzionale \\
+    RF-035 & Deve esserci un controllo "Utente non autorizzato" quando esso prova ad accedere alla sezione "Gestione ruoli utenti" & \hyperref[sec:uc-0e-7]{UC-0E.7} & Opzionale \\
     \hline
-    RF- & Un utente con titolo di admin deve poter annullare la modifica al ruolo utente registrato & \hyperref[sec:uc-0e-8]{UC-0E.8} & Opzionale \\
+    RF-036 & Un utente con titolo di admin deve poter annullare la modifica al ruolo utente registrato & \hyperref[sec:uc-0e-8]{UC-0E.8} & Opzionale \\
     \hline
-    RF- & Un utente con titolo di admin deve poter salvare le modifiche al ruolo di un utente registrato & \hyperref[sec:uc-0e-9]{UC-0E.9} & Opzionale \\
+    RF-037 & Un utente con titolo di admin deve poter salvare le modifiche al ruolo di un utente registrato & \hyperref[sec:uc-0e-9]{UC-0E.9} & Opzionale \\
     \hline
-    RF- & Un utente deve aver la possibilità di uscire al proprio profilo (Logout) & \hyperref[sec:uc-0f]{UC-0F} & Opzionale \\
+
+    RF-038 & Un utente deve aver la possibilità di uscire al proprio profilo (Logout) & \hyperref[sec:uc-0f]{UC-0F} & Opzionale \\
     \hline
-    RF- & Un utente deve avere la possibilità di accedere al modulo di generazione contenuti AI & \hyperref[sec:uc-1a]{UC-1A} & Obbligatorio \\
+
+
+    RF-039 & Un utente deve avere la possibilità di generare un contenuto tramite AI & \hyperref[sec:uc-1a]{UC-1A} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di inserire un prompt per la propria generazione & \hyperref[sec:uc-1a-1]{UC-1A.1} & Obbligatorio \\
+    RF-040 & Un utente deve avere la possibilità di inserire un prompt per la propria generazione & \hyperref[sec:uc-1a-1]{UC-1A.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di selezionare un tono per la propria generazione & \hyperref[sec:uc-1a-2]{UC-1A.2} & Obbligatorio \\
+    RF-041 & Un utente deve avere la possibilità di selezionare un tono per la propria generazione & \hyperref[sec:uc-1a-2]{UC-1A.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di selezionare uno stile per la propria generazione & \hyperref[sec:uc-1a-3]{UC-1A.3} & Obbligatorio \\
+    RF-042 & Un utente deve avere la possibilità di selezionare uno stile per la propria generazione & \hyperref[sec:uc-1a-3]{UC-1A.3} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di aprire lo storico dei prompt & \hyperref[sec:uc-1b]{UC-1B} & Obbligatorio \\
+    RF-043 & Deve avvenire il salvataggio di ogni generazione nello storico & Capitolato & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la lista degli elementi presenti nello storico & \hyperref[sec:uc-1b-1]{UC-1B.1} & Obbligatorio \\
+
+    RF-044 & Un utente deve avere la possibilità di visualizzare la lista degli elementi presenti nello storico & \hyperref[sec:uc-1b]{UC-1B} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare un elemento dalla lista mostrata nello storico & \hyperref[sec:uc-1b-2]{UC-1B.2} & Obbligatorio \\
+    RF-045 & C'è la possibilità che il prompt non abbia neanche un elemento data la mancanza di generazioni & \hyperref[sec:uc-1b-1]{UC-1B.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare lo stile di una generazione & \hyperref[sec:uc-1b-3]{UC-1B.3} & Obbligatorio \\
+    RF-046 & Un utente deve avere la possibilità di visualizzare un elemento dalla lista mostrata nello storico & \hyperref[sec:uc-1b-2]{UC-1B.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il risultato della generazione & \hyperref[sec:uc-1b-4]{UC-1B.4} & Obbligatorio \\
+    RF-047 & Un utente deve avere la possibilità di visualizzare lo stile di una generazione & \hyperref[sec:uc-1b-3]{UC-1B.3} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il timestamp di una generazione & \hyperref[sec:uc-1b-5]{UC-1B.5} & Obbligatorio \\
+    RF-048 & Un utente deve avere la possibilità di visualizzare il risultato della generazione & \hyperref[sec:uc-1b-4]{UC-1B.4} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la valutazione di una generazione & \hyperref[sec:uc-1b-6]{UC-1B.6} & Obbligatorio \\
+    RF-049 & Un utente deve avere la possibilità di visualizzare il timestamp di una generazione & \hyperref[sec:uc-1b-5]{UC-1B.5} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il prompt id una generazione & \hyperref[sec:uc-1b-7]{UC-1B.7} & Obbligatorio \\
+    RF-050 & Un utente deve avere la possibilità di visualizzare la valutazione di una generazione & \hyperref[sec:uc-1b-6]{UC-1B.6} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il tono di una generazione & \hyperref[sec:uc-1b-8]{UC-1B.8} & Obbligatorio \\
+    RF-051 & Un utente deve avere la possibilità di visualizzare il prompt id una generazione & \hyperref[sec:uc-1b-7]{UC-1B.7} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di duplicare una generazione & \hyperref[sec:uc-1f]{UC-1F} & Obbligatorio \\
+    RF-052 & Un utente deve avere la possibilità di visualizzare il tono di una generazione & \hyperref[sec:uc-1b-8]{UC-1B.8} & Obbligatorio \\
     \hline
-    RF- & C'è la possibilità che il prompt non abbia neanche un elemento data la mancanza di generazioni & \hyperref[sec:uc-1b-1]{UC-1B.1} & Obbligatorio \\
+
+    RF-053 & Un utente deve avere la possibilità di visualizzare un contenuto prima di pubblicarlo & \hyperref[sec:uc-1c]{UC-1C} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di riutilizzare una generazione & \hyperref[sec:uc-1e]{UC-1E} & Obbligatorio \\
+
+    RF-054 & Un utente deve avere la possibilità di effettuare modifiche al contenuto generato & \hyperref[sec:uc-1d]{UC-1D} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità applicare un filtro alla lista dello storico & \hyperref[sec:uc-1g]{UC-1G} & Obbligatorio \\
+    RF-055 & Un utente deve avere la possibilità di modificare l'immagine di un contenuto generato & \hyperref[sec:uc-1d-1]{UC-1D.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la lista dopo aver applicato il filtro & \hyperref[sec:uc-1g-1]{UC-1G.1} & Obbligatorio \\
+    RF-056 & Un utente deve avere la possibilità di modificare il titolo di un contenuto generato & \hyperref[sec:uc-1d-2]{UC-1D.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di generare un contenuto tramite AI & \hyperref[sec:uc-1c]{UC-1C} & Obbligatorio \\
+    RF-057 & Un utente deve avere la possibilità di modificare il testo di un contenuto generato & \hyperref[sec:uc-1d-3]{UC-1D.3} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare un contenuto prima di pubblicarlo & \hyperref[sec:uc-1c-1]{UC-1C.1} & Obbligatorio \\
+    RF-058 & Un utente deve avere la possibilità di salvare le modifiche effettuate a un contenuto generato & \hyperref[sec:uc-1d-4]{UC-1D.4} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di rigenerare un contenuto tramite AI & \hyperref[sec:uc-1h]{UC-1H} & Obbligatorio \\
+    RF-059 & Un utente deve avere la possibilità di annullare le modifiche effettuate a un contenuto generato & \hyperref[sec:uc-1d-5]{UC-1D.5} & Obbligatorio \\
     \hline
-    RF- & Deve avvenire il salvataggio di ogni generazione nello storico & \hyperref[sec:uc-1c-3]{UC-1C.3} & Obbligatorio \\
+    RF-060 & Deve esserci un controllo per "File immagine non valido" & \hyperref[sec:uc-1d-6]{UC-1D.6} & Obbligatorio \\
     \hline
-    RF- & Deve avvenire una valutazione di ogni contenuto generato & \hyperref[sec:uc-1i]{UC-1i} & Obbligatorio \\
+
+    RF-061 & Un utente deve avere la possibilità di riutilizzare una generazione & \hyperref[sec:uc-1e]{UC-1E} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di scartare un contenuto generato & \hyperref[sec:uc-1j]{UC-1J} & Obbligatorio \\
+
+    RF-062 & Un utente deve avere la possibilità di duplicare una generazione & \hyperref[sec:uc-1f]{UC-1F} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di effettuare modifiche al contenuto generato & \hyperref[sec:uc-1d]{UC-1D} & Obbligatorio \\
+
+    RF-063 & Un utente deve avere la possibilità applicare un filtro alla lista dello storico & \hyperref[sec:uc-1g]{UC-1G} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di modificare l'immagine di un contenuto generato & \hyperref[sec:uc-1d-1]{UC-1D.1} & Obbligatorio \\
+    RF-064 & Un utente deve avere la possibilità di visualizzare la lista dopo aver applicato il filtro & \hyperref[sec:uc-1g-1]{UC-1G.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di modificare il titolo di un contenuto generato & \hyperref[sec:uc-1d-2]{UC-1D.2} & Obbligatorio \\
+
+
+    RF-065 & Un utente deve avere la possibilità di rigenerare un contenuto tramite AI & \hyperref[sec:uc-1h]{UC-1H} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di modificare il testo di un contenuto generato & \hyperref[sec:uc-1d-3]{UC-1D.3} & Obbligatorio \\
+
+    RF-066 & Deve avvenire una valutazione di ogni contenuto generato & \hyperref[sec:uc-1i]{UC-1i} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di salvare le modifiche effettuate a un contenuto generato & \hyperref[sec:uc-1d-4]{UC-1D.4} & Obbligatorio \\
+
+    RF-067 & Un utente deve avere la possibilità di scartare un contenuto generato & \hyperref[sec:uc-1j]{UC-1J} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di annullare le modifiche effettuate a un contenuto generato & \hyperref[sec:uc-1d-5]{UC-1D.5} & Obbligatorio \\
+
+    RF-068 & Un utente deve avere la possibilità di salvare il contenuto generato e eventualmente modificato & \hyperref[sec:uc-1k]{UC-1K} & Obbligatorio \\
     \hline
-    RF- & Deve esserci un controllo per "File immagine non valido" & \hyperref[sec:uc-1d-6]{UC-1D.6} & Obbligatorio \\
+
+
+    RF-069 & Un utente deve avere la possibilità di far analizzare un documento al sistema AI & \hyperref[sec:uc-2a]{UC-2A} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di accedere al modulo di upload e gestione documentale. & \hyperref[sec:uc-2a]{UC-2A} & Obbligatorio \\
+    RF-070 & Un utente deve avere la possibilità di caricare un file all'interno del modulo di upload e gestione documentale & \hyperref[sec:uc-2a-1]{UC-2A.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di caricare un file all'interno del modulo di upload e gestione documentale & \hyperref[sec:uc-2a-1]{UC-2A.1} & Obbligatorio \\
+    RF-071 & Un utente deve avere la possibilità di inserire la categoria del documento all'interno del modulo di upload e gestione documentale & \hyperref[sec:uc-2a-2]{UC-2A.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di inserire la categoria del documento all'interno del modulo di upload e gestione documentale & \hyperref[sec:uc-2a-2]{UC-2A.2} & Obbligatorio \\
+    RF-072 & Un utente deve avere la possibilità di inserire il mese/anno di competenza di un documento all'interno del modulo di upload e gestione documentale & \hyperref[sec:uc-2a-3]{UC-2A.3} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di inserire il mese/anno di competenza di un documento all'interno del modulo di upload e gestione documentale & \hyperref[sec:uc-2a-3]{UC-2A.3} & Obbligatorio \\
+    RF-073 & Un utente deve avere la possibilità di inserire l'azienda di appartenenza del documento all'interno del modulo di upload e gestione documentale & \hyperref[sec:uc-2a-4]{UC-2A.4} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di inserire l'azienda di appartenenza del documento all'interno del modulo di upload e gestione documentale & \hyperref[sec:uc-2a-4]{UC-2A.4} & Obbligatorio \\
+    RF-074 & Un utente deve avere la possibilità di inserire il reparto di appartenenza del documento all'interno del modulo di upload e gestione documentale & \hyperref[sec:uc-2a-5]{UC-2A.5} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di inserire il reparto di appartenenza del documento all'interno del modulo di upload e gestione documentale & \hyperref[sec:uc-2a-5]{UC-2A.5} & Obbligatorio \\
+
+
+    RF-075 & Un utente deve avere la possibilità di visualizzare la lista delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2b]{UC-2B} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la lista delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2b-1]{UC-2B.1} & Obbligatorio \\
+    RF-076 & Deve esserci un controllo per "Nessun documento riconosciuto" & \hyperref[sec:uc-2b-1]{UC-2B.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare un elemento dalla lista delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2b-2]{UC-2B.2} & Obbligatorio \\
+    RF-077 & Un utente deve avere la possibilità di visualizzare un elemento dalla lista delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2b-2]{UC-2B.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il campo di competenza di un documento & \hyperref[sec:uc-2b-3]{UC-2B.3} & Obbligatorio \\
+    RF-078 & Un utente deve avere la possibilità di visualizzare il campo di competenza di un documento & \hyperref[sec:uc-2b-3]{UC-2B.3} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare l'azienda di appartenenza di un documento & \hyperref[sec:uc-2b-4]{UC-2B.4} & Obbligatorio \\
+    RF-079 & Un utente deve avere la possibilità di visualizzare l'azienda di appartenenza di un documento & \hyperref[sec:uc-2b-4]{UC-2B.4} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la causale di un documento & \hyperref[sec:uc-2b-5]{UC-2B.5} & Obbligatorio \\
+    RF-080 & Un utente deve avere la possibilità di visualizzare la causale di un documento & \hyperref[sec:uc-2b-5]{UC-2B.5} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la lingua di un documento & \hyperref[sec:uc-2b-6]{UC-2B.6} & Obbligatorio \\
+    RF-081 & Un utente deve avere la possibilità di visualizzare la lingua di un documento & \hyperref[sec:uc-2b-6]{UC-2B.6} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il numero di pagine documento & \hyperref[sec:uc-2b-7]{UC-2B.7} & Obbligatorio \\
+    RF-082 & Un utente deve avere la possibilità di visualizzare il numero di pagine documento & \hyperref[sec:uc-2b-7]{UC-2B.7} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il nome del documento originale & \hyperref[sec:uc-2b-8]{UC-2B.8} & Obbligatorio \\
+    RF-083 & Un utente deve avere la possibilità di visualizzare il nome del documento originale & \hyperref[sec:uc-2b-8]{UC-2B.8} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la data i redazione documento & \hyperref[sec:uc-2b-9]{UC-2B.9} & Obbligatorio \\
+    RF-084 & Un utente deve avere la possibilità di visualizzare la data i redazione documento & \hyperref[sec:uc-2b-9]{UC-2B.9} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il codice di un documento & \hyperref[sec:uc-2b-10]{UC-2B.10} & Obbligatorio \\
+    RF-085 & Un utente deve avere la possibilità di visualizzare il codice di un documento & \hyperref[sec:uc-2b-10]{UC-2B.10} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la tipologia di un documento & \hyperref[sec:uc-2b-11]{UC-2B.11} & Obbligatorio \\
+    RF-086 & Un utente deve avere la possibilità di visualizzare la tipologia di un documento & \hyperref[sec:uc-2b-11]{UC-2B.11} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di filtrare la lista dei documenti & \hyperref[sec:uc-2b-12]{UC-2B.12} & Obbligatorio \\
+
+
+
+    RF-087 & Un utente deve avere la possibilità di aprire il modulo di gestione del documento & \hyperref[sec:uc-2c]{UC-2C} & Obbligatorio \\
     \hline
-    RF- & Deve esserci un controllo per "Nessun documento riconosciuto" & \hyperref[sec:uc-2b-1]{UC-2B.1} & Obbligatorio \\
+    RF-088 & Un utente deve avere la possibilità di visualizzare l'anteprima di un documento prima di inviarlo & \hyperref[sec:uc-2c-1]{UC-2C.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la lista filtrata delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2b-14]{UC-2B.14} & Obbligatorio \\
+    RF-089 & Un utente deve avere la possibilità di modificare il destinatario a un documento & \hyperref[sec:uc-2c-2]{UC-2C.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di aprire il modulo di gestione del documento & \hyperref[sec:uc-2c]{UC-2C} & Obbligatorio \\
+    RF-090 & Un utente deve avere la possibilità di modificare la tipologia a un documento & \hyperref[sec:uc-2c-3]{UC-2C.3} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare l'anteprima di un documento prima di inviarlo & \hyperref[sec:uc-2c-1]{UC-2C.1} & Obbligatorio \\
+    RF-091 & Un utente deve avere la possibilità di rivalutare la percentuale di confidenza di un documento& \hyperref[sec:uc-2c-4]{UC-2C.4} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di modificare il destinatario a un documento & \hyperref[sec:uc-2c-2]{UC-2C.2} & Obbligatorio \\
+    RF-092 & Un utente deve avere la possibilità di salvare le modifiche apportate a un documento & \hyperref[sec:uc-2c-5]{UC-2C.5} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di modificare la tipologia a un documento & \hyperref[sec:uc-2c-3]{UC-2C.3} & Obbligatorio \\
+    RF-093 & Un utente deve avere la possibilità di aprire il modulo riguardante le informazioni dei destinatari & \hyperref[sec:uc-2d]{UC-2D} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di rivalutare la percentuale di confidenza di un documento& \hyperref[sec:uc-2c-4]{UC-2C.4} & Obbligatorio \\
+    RF-094 & Un utente deve avere la possibilità di visualizzare la lista informazioni destinatari & \hyperref[sec:uc-2d]{UC-2D} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di salvare le modifiche apportate a un documento & \hyperref[sec:uc-2c-5]{UC-2C.5} & Obbligatorio \\
+    RF-095 & Un utente deve avere la possibilità di visualizzare un elemento dalla lista informazioni destinatari & \hyperref[sec:uc-2d-1]{UC-2D.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di aprire il modulo riguardante le informazioni dei destinatari & \hyperref[sec:uc-2d]{UC-2D} & Obbligatorio \\
+    RF-096 & Un utente deve avere la possibilità di visualizzare la matricola di un destinatario & \hyperref[sec:uc-2d-3]{UC-2D.3} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la lista informazioni destinatari & \hyperref[sec:uc-2d]{UC-2D} & Obbligatorio \\
+    RF-097 & Un utente deve avere la possibilità di visualizzare il reparto di un destinatario & \hyperref[sec:uc-2d-4]{UC-2D.4} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare un elemento dalla lista informazioni destinatari & \hyperref[sec:uc-2d-1]{UC-2D.1} & Obbligatorio \\
+    RF-098 & Un utente deve avere la possibilità di visualizzare il nome di un destinatario & \hyperref[sec:uc-2d-5]{UC-2D.5} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la matricola di un destinatario & \hyperref[sec:uc-2d-3]{UC-2D.3} & Obbligatorio \\
+    RF-099 & Deve esserci un controllo per "Nessun destinatario riconosciuto" & \hyperref[sec:uc-2b-6]{UC-2B.6} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il reparto di un destinatario & \hyperref[sec:uc-2d-4]{UC-2D.4} & Obbligatorio \\
+    RF-100 & Un utente deve avere la possibilità di visualizzare il codice fiscale di un destinatario & \hyperref[sec:uc-2d-2]{UC-2D.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il nome di un destinatario & \hyperref[sec:uc-2d-5]{UC-2D.5} & Obbligatorio \\
+
+
+    RF-101 & Un utente deve avere la possibilità di visualizzare la lista storico documenti & \hyperref[sec:uc-2e]{UC-2E} & Obbligatorio \\
     \hline
-    RF- & Deve esserci un controllo per "Nessun destinatario riconosciuto" & \hyperref[sec:uc-2b-6]{UC-2B.6} & Obbligatorio \\
+    RF-102 & C'è la possibilitá che non siano mai stati registrati documenti e che quindi l'applicativo agisca di conseguenza & \hyperref[sec:uc-2e-1]{UC-2E.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il codice fiscale di un destinatario & \hyperref[sec:uc-2d-2]{UC-2D.2} & Obbligatorio \\
+    RF-103 & Un utente deve avere la possibilità di visualizzare un elemento dalla lista storico documenti & \hyperref[sec:uc-2e-2]{UC-2E.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di filtrare la lista dei destinatari & \hyperref[sec:uc-2d-7]{UC-2D.7} & Obbligatorio \\
+    RF-104 & Un utente deve avere la possibilità di visualizzare la percentuale di confidenza di un elemento & \hyperref[sec:uc-2e-3]{UC-2E.3} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la lista filtrata dei destinatari & \hyperref[sec:uc-2d-8]{UC-2D.8} & Obbligatorio \\
+    RF-105 & Un utente deve avere la possibilità di visualizzare la lista di appartenenza di un elemento & \hyperref[sec:uc-2e-4]{UC-2E.4} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilitá di accedere allo storico dei documenti esaminati & \hyperref[sec:uc-2e]{UC-2E} & Obbligatorio \\
+    RF-106 & Un utente deve avere la possibilità di visualizzare lo stato da un elemento& \hyperref[sec:uc-2e-5]{UC-2E.5} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilitá di selezionare un documento per poterlo poi inviare & \hyperref[sec:uc-2e-1]{UC-2E.1} & Obbligatorio \\
+
+    RF-107 & Un utente deve avere la possibilità di creare un messaggio da inviare con i documenti & \hyperref[sec:uc-2f]{UC-2F} & Obbligatorio \\
     \hline
-    RF- & C'è la possibilitá che non siano mai stati registrati documenti e che quindi l'applicativo agisca di conseguenza & \hyperref[sec:uc-2e-2]{UC-2E.1} & Obbligatorio \\
+    RF-108 & Un utente deve avere la possibilità di salvare il template di un messaaggio in uno storico per poterlo riutilizzare in futuro & \hyperref[sec:uc-2f-1]{UC-2F.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la lista storico documenti & \hyperref[sec:uc-2e-4]{UC-2E} & Obbligatorio \\
+    RF-109 & Un utente deve avere la possibilità di modificare l'oggetto di un messaggio & \hyperref[sec:uc-2f-2]{UC-2F.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare un elemento dalla lista storico documenti & \hyperref[sec:uc-2e-5]{UC-2E.4} & Obbligatorio \\
+    RF-110 & Un utente deve avere la possibilità di modificare il testo di messaggio & \hyperref[sec:uc-2f-3]{UC-2F.3} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare lo stato da un elemento& \hyperref[sec:uc-2e-3]{UC-2E.5} & Obbligatorio \\
+    RF-111 & Un utente deve avere la possibilità di confermare le modifiche apportate ad un messaggio & \hyperref[sec:uc-2f-4]{UC-2F.4} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la percentuale di confidenza di un elemento & \hyperref[sec:uc-2e-6]{UC-2E.3} & Obbligatorio \\
+    RF-112 & Un utente deve avere la possibilità di annullare le modifiche apportate ad un messaggio & \hyperref[sec:uc-2f-5]{UC-2F.5} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la lista di appartenenza di un elemento & \hyperref[sec:uc-2e-7]{UC-2E.2} & Obbligatorio \\
+    RF-113 & Un utente deve avere la possibilità di visualizzare l'oggetto di un messaggio & \hyperref[sec:uc-2f-6]{UC-2F.6} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilitá di filtrare i documenti per favorire la ricerca & \hyperref[sec:uc-2e-8]{UC-2E.8} & Obbligatorio \\
+    RF-114 & Un utente deve avere la possibilità di visualizzare il testo di messaggio & \hyperref[sec:uc-2f-7]{UC-2F.7} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la lista filtrata storico documenti & \hyperref[sec:uc-2e-9]{UC-2K.1} & Obbligatorio \\
+
+    RF-115 & Un utente deve avere la possibilità di accedere alla pagina dei template salvati & \hyperref[sec:uc-2g]{UC-2G} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di accedere a un menú di gestione del messaggio da inviare con i documenti prima di inviarlo & \hyperref[sec:uc-2f]{UC-2F} & Obbligatorio \\
+    RF-116 & Un utente deve avere la possibilità di eliminare template dalla tabella dei template salvati& \hyperref[sec:uc-2g-1]{UC-2G.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di salvare il template di un messaaggio in uno storico per poterlo riutilizzare in futuro & \hyperref[sec:uc-2f-1]{UC-2F.1} & Obbligatorio \\
+    RF-117 & Il sistema non deve mostrare niente se nessun template è stato salvato all'interno dello storico & \hyperref[sec:uc-2g-2]{UC-2G.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di modificare l'oggetto di un messaggio & \hyperref[sec:uc-2f-2]{UC-2F.2} & Obbligatorio \\
+    RF-118 & Un utente deve avere la possibilità di caricare un template per riutilizzarlo & \hyperref[sec:uc-2g-3]{UC-2G.3} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di modificare il testo di messaggio & \hyperref[sec:uc-2f-3]{UC-2F.3} & Obbligatorio \\
+    RF-119 & Un utente deve avere la possibilità di visualizzare la lista dei template salvati & \hyperref[sec:uc-2g-4]{UC-2G.4} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di confermare le modifiche apportate ad un messaggio & \hyperref[sec:uc-2f-4]{UC-2F.4} & Obbligatorio \\
+    RF-120 & Un utente deve avere la possibilità di visualizzare un elemento dall lista template salvati & \hyperref[sec:uc-2g-5]{UC-2G.5} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di generare un messaggio tramite AI senza doverlo scrivere a mano & \hyperref[sec:uc-2f-5]{UC-2F.5} & Obbligatorio \\
+
+    RF-121 & Un utente deve avere la possibilità di inviare un documento con il relativo messaggio & \hyperref[sec:uc-2h]{UC-2H} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare l'oggetto di un messaggio & \hyperref[sec:uc-2f-6]{UC-2F.6} & Obbligatorio \\
+    RF-122 & Un utente deve avere la possibilità di visualizzare allegare un file con il documento che sta inviando & \hyperref[sec:uc-2h-1]{UC-2H.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il testo di messaggio & \hyperref[sec:uc-2f-7]{UC-2F.7} & Obbligatorio \\
+    RF-123 & Un utente deve avere la possibilità di pianificare l'invio di un documento & \hyperref[sec:uc-2h-2]{UC-2H.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di accedere alla pagina dei template salvati & \hyperref[sec:uc-2g]{UC-2G} & Obbligatorio \\
+
+    RF-124 & Un utente deve avere la possibilità di filtrare la lista dei documenti & \hyperref[sec:uc-2i]{UC-2I} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di eliminare template dalla tabella dei template salvati& \hyperref[sec:uc-2g-1]{UC-2G.1} & Obbligatorio \\
+    RF-125 & Un utente deve avere la possibilità di visualizzare la lista filtrata delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2i-1]{UC-2I.1} & Obbligatorio \\
     \hline
-    RF- & Il sistema non deve mostrare niente se nessun template è stato salvato all'interno dello storico & \hyperref[sec:uc-2g-2]{UC-2G.2} & Obbligatorio \\
+
+    RF-126 & Un utente deve avere la possibilità di filtrare la lista dei destinatari & \hyperref[sec:uc-2j]{UC-2J} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di caricare un template per riutilizzarlo & \hyperref[sec:uc-2g-3]{UC-2G.3} & Obbligatorio \\
+    RF-127 & Un utente deve avere la possibilità di visualizzare la lista filtrata dei destinatari & \hyperref[sec:uc-2j-1]{UC-2J.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare la lista dei template salvati & \hyperref[sec:uc-2g-4]{UC-2G.4} & Obbligatorio \\
+
+    RF-128 & Un utente deve avere la possibilitá di filtrare i documenti nello storico per favorire la ricerca & \hyperref[sec:uc-2k]{UC-2K} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare un elemento dall lista template salvati & \hyperref[sec:uc-2g-5]{UC-2G.5} & Obbligatorio \\
+    RF-129 & Un utente deve avere la possibilità di visualizzare la lista filtrata storico documenti & \hyperref[sec:uc-2k-1]{UC-2K.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di inviare un documento con il relativo messaggio & \hyperref[sec:uc-2h]{UC-2H} & Obbligatorio \\
+
+
+
+    RF-130 & Un utente deve avere la possibilità di accedere alla dashboard di analisi e Monitoraggio AI & \hyperref[sec:uc-3a]{UC-3A} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare allegare un file con il documento che sta inviando & \hyperref[sec:uc-2h-1]{UC-2H.1} & Obbligatorio \\
+    RF-131 & Un utente deve avere la possibilità di visualizzare l'elenco dati AI assistant & \hyperref[sec:uc-3a-1]{UC-3A.1} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di pianificare l'invio di un documento & \hyperref[sec:uc-2h-2]{UC-2H.2} & Obbligatorio \\
+    RF-132 & Un utente deve avere la possibilità di visualizzare il numero di prompt generati & \hyperref[sec:uc-3a-2]{UC-3A.2} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di dare conferma all'invio di un documento & \hyperref[sec:uc-2h-3]{UC-2H.3} & Obbligatorio \\
+    RF-133 & Un utente deve avere la possibilità di visualizzare il rating medio prompt generati & \hyperref[sec:uc-3a-3]{UC-3A.3} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di accedere alla dashboard di analisi e Monitoraggio AI & \hyperref[sec:uc-3a]{UC-3A} & Obbligatorio \\
+    RF-134 & Un utente deve avere la possibilità di visualizzare il numero rigenerazioni prompt & \hyperref[sec:uc-3a-4]{UC-3A.4} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare l'elenco dati AI assistant & \hyperref[sec:uc-3a-1]{UC-3A.1} & Obbligatorio \\
+    RF-135 & Un utente deve avere la possibilità di visualizzare i toni più usati & \hyperref[sec:uc-3a-5]{UC-3A.5} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il numero di prompt generati & \hyperref[sec:uc-3a-2]{UC-3A.2} & Obbligatorio \\
+    RF-136 & Un utente deve avere la possibilità di visualizzare gli stili più usati & \hyperref[sec:uc-3a-6]{UC-3A.6} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il rating medio prompt generati & \hyperref[sec:uc-3a-3]{UC-3A.3} & Obbligatorio \\
+    RF-137 & Un utente deve avere la possibilità di visualizzare l'elenco dati AI Co-pilot & \hyperref[sec:uc-3a-7]{UC-3A.7} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare il numero rigenerazioni prompt & \hyperref[sec:uc-3a-4]{UC-3A.4} & Obbligatorio \\
+    RF-138 & Un utente deve avere la possibilità di visualizzare la confidenza media & \hyperref[sec:uc-3a-8]{UC-3A.8} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare i toni più usati & \hyperref[sec:uc-3a-5]{UC-3A.5} & Obbligatorio \\
+    RF-139 & Un utente deve avere la possibilità di visualizzare la percentuale interventi manuali & \hyperref[sec:uc-3a-9]{UC-3A.9} & Obbligatorio \\
     \hline
-    RF- & Un utente deve avere la possibilità di visualizzare gli stili più usati & \hyperref[sec:uc-3a-6]{UC-3A.6} & Obbligatorio \\
+    RF-140 & Un utente deve avere la possibilità di visualizzare l'accuratezza mapping & \hyperref[sec:uc-3a-10]{UC-3A.10} & Obbligatorio \\
     \hline
-    RF-  & Un utente deve avere la possibilità di visualizzare l'elenco dati AI Co-pilot & \hyperref[sec:uc-3a-7]{UC-3A.7} & Obbligatorio \\
+    RF-141 & Un utente deve avere la possibilità di visualizzare i tempi medi analisi & \hyperref[sec:uc-3a-11]{UC-3A.11} & Obbligatorio \\
     \hline
-    RF-  & Un utente deve avere la possibilità di visualizzare la confidenza media & \hyperref[sec:uc-3a-8]{UC-3A.8} & Obbligatorio \\
+    RF-142 & Un utente deve avere la possibilità di visualizzare inserire la data d'inizio delle statistiche & \hyperref[sec:uc-3a-12]{UC-3A.12} & Obbligatorio \\
     \hline
-    RF-  & Un utente deve avere la possibilità di visualizzare la percentuale interventi manuali & \hyperref[sec:uc-3a-9]{UC-3A.9} & Obbligatorio \\
-    \hline
-    RF-  & Un utente deve avere la possibilità di visualizzare l'accuratezza mapping & \hyperref[sec:uc-3a-10]{UC-3A.10} & Obbligatorio \\
-    \hline
-    RF-  & Un utente deve avere la possibilità di visualizzare i tempi medi analisi & \hyperref[sec:uc-3a-11]{UC-3A.11} & Obbligatorio \\
-    \hline
-    RF-  & Un utente deve avere la possibilità di visualizzare inserire la data d'inizio delle statistiche & \hyperref[sec:uc-3a-12]{UC-3A.12} & Obbligatorio \\
-    \hline
-    RF-  & Un utente deve avere la possibilità di visualizzare inserire la data di fine delle statistiche & \hyperref[sec:uc-3a-13]{UC-3A.13} & Obbligatorio \\
+    RF-143 & Un utente deve avere la possibilità di visualizzare inserire la data di fine delle statistiche & \hyperref[sec:uc-3a-13]{UC-3A.13} & Obbligatorio \\
     \hline
 
 \end{longtable}
