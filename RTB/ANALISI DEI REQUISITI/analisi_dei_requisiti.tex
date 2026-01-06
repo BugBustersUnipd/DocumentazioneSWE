@@ -1236,12 +1236,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
-\subsubsection{UC-0E – Gestione ruoli}\label{sec:uc-0e}
+\subsubsection{UC-0E – Revisione ruoli}\label{sec:uc-0e}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
-    \caption{Diagramma del caso d'uso UC-0B – Login / Autenticazione utente}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0E.jpg}
+    \caption{Diagramma del caso d'uso UC-0E – Revisione ruoli}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1259,20 +1259,20 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} vede gli utenti registrati con i rispettivi ruoli e ha la possibilitá di modificarli
+    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} vede gli utenti registrati con i rispettivi ruoli e sono corretti
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} accede alla sezione di amministrazione utenti.
     \item Il sistema mostra l'elenco degli utenti registrati, con i rispettivi ruoli correnti.
-    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} é soddisfatto della situazione attuale e non apporta modifiche.
+    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} è soddisfatto della situazione attuale e non apporta modifiche.
 \end{enumerate}
 
 \textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item Un utente non autorizzato tenta di accedere al Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di gestione ruoli.
-    \item Un utente Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} non é soddisfatto dei ruoli attuali e decide di modificarli.
+    \item Un utente Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} non è soddisfatto dei ruoli attuali e decide di modificarli.
 \end{enumerate}
 
 
@@ -1286,8 +1286,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-0E.6 - Modifica ruolo utente registrato.
-        \item UC-0E.9 - Salva modifica ruolo utente registrato.
-        \item UC-0E.8 - Annulla modifica ruolo utente registrato
         \item UC-0E.7 - Utente non autorizzato.
     \end{itemize}
     
@@ -1476,7 +1474,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} interagisce con il campo relativo al ruolo (es. tramite menu a tendina) e seleziona una nuova tipologia di permessi
+    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} interagisce con il campo relativo al ruolo apportando delle modifiche che verranno salvate nel sistema
 \end{enumerate}
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
@@ -1489,7 +1487,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-0E.8 - Annulla modifica ruolo utente registrato
-        \item UC-0E.9 - Salva modifica ruolo utente registrato.
+        \item UC-0E.9 - Errore modifica ruolo utente registrato.
     \end{itemize}
     
 \end{itemize}
@@ -1547,7 +1545,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.9 – Salva modifica ruolo utente registrato}\label{sec:uc-0e-9}
+\subsubsection{UC-0E.9 – Errore modifica ruolo utente registrato}\label{sec:uc-0e-9}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1556,17 +1554,18 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} ha modificato il ruolo di un utente ma non ha ancora confermato
+    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} sta modificando il ruolo di un utente
+    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} ha effettuato un'operazione non valida
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il nuovo ruolo viene aggiornato nel database e l'utente acquisisce i nuovi permessi
+    \item L'assegnamento del ruolo viene impedito e viene mostrato un messaggio di errore
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} conferma l'operazione di cambio ruolo
+    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} esegue un'operazione non valida
     \item Il sistema registra la modifica e aggiorna lo stato dell'utente
 \end{enumerate}
 
@@ -2068,7 +2067,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente ha revisionato il risultato ed é soddisfatto del contenuto finale.
+    \item L'utente ha revisionato il risultato ed è soddisfatto del contenuto finale.
 \end{itemize}
 
 
@@ -2076,12 +2075,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item L'utente è nella pagina del contenuto generato.
     \item L'utente seleziona l'opzione di revisione del contenuto generato.
-    \item L'utente é soddisfatto del contenuto generato e decide di lasciarlo così com'è.
+    \item L'utente è soddisfatto del contenuto generato e decide di lasciarlo così com'è.
 \end{enumerate}
 
 \textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente non é soddisfatto del contenuto generato e decide di modificarlo.
+    \item L'utente non è soddisfatto del contenuto generato e decide di modificarlo.
 \end{enumerate}
 
 
@@ -3132,14 +3131,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Ci si trova in una delle pagine precedenti 
     \item Si è selezionato un documento da una delle lista.
     \item Il documento è disponibile per la visualizzazione.
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente è soddisfatto delle informazioni del documento e può tornare alla pagina precedente.
+    \item L'utente è soddisfatto delle informazioni del documento e i dati rimangono inalterati
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3767,7 +3765,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item Un utente ha selezionato uno o piú documenti da inviare a uno o piú destinatari 
-    \item L'utente é soddisfatto con il messaggio generato da inviare assieme ai documenti.
+    \item L'utente è soddisfatto con il messaggio generato da inviare assieme ai documenti.
 \end{enumerate}
 
 \textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -5139,7 +5137,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
     \hline
     RF-036 & Un utente con titolo di admin deve poter annullare la modifica al ruolo utente registrato & \hyperref[sec:uc-0e-8]{UC-0E.8} & Opzionale \\
     \hline
-    RF-037 & Un utente con titolo di admin deve poter salvare le modifiche al ruolo di un utente registrato & \hyperref[sec:uc-0e-9]{UC-0E.9} & Opzionale \\
+    RF-037 & Deve esserci un controllo che prevenga l'assegnamento di un ruolo non valido & \hyperref[sec:uc-0e-9]{UC-0E.9} & Opzionale \\
     \hline
 
     RF-038 & Un utente deve aver la possibilità di uscire al proprio profilo (Logout) & \hyperref[sec:uc-0f]{UC-0F} & Opzionale \\
