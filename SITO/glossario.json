@@ -49,6 +49,14 @@
       "definition": "Processo formale attraverso il quale un documento o una funzionalità viene accettata e considerata completa dopo aver superato le verifiche e validazioni necessarie."
     },
     {
+      "term": "Attore",
+      "definition": "Ruolo svolto da un utente, un sistema o un'entità esterna che interagisce con il sistema software scambiando informazioni. Un attore rappresenta una classe di utenti piuttosto che un individuo specifico."
+    },
+    {
+      "term": "Attore secondario",
+      "definition": "Attore che non avvia il caso d'uso, ma che deve essere consultato o informato dal sistema affinché l'obiettivo dell'attore primario sia raggiunto. Fornisce servizi, dati o riceve notifiche dal sistema."
+    },
+    {
       "term": "AWS (Amazon Web Services)",
       "definition": "Piattaforma di cloud computing che offre servizi di calcolo, storage, database e altre funzionalità per supportare lo sviluppo e il deployment di applicazioni."
     },
@@ -261,12 +269,24 @@
       "definition": "Realizzazione preliminare e limitata di un'idea o di un concetto, finalizzata a verificarne la fattibilità tecnica, l'adeguatezza rispetto ai requisiti o la validità di un'architettura proposta. Un POC viene solitamente sviluppato con risorse minime per valutare rapidamente se un approccio o una tecnologia siano promettenti prima di impegnare risorse significative in uno sviluppo completo."
     },
     {
+      "term": "Postcondizioni",
+      "definition": "Condizioni che devono essere vere dopo l'esecuzione di un caso d'uso o di una funzionalità del sistema. Descrivono lo stato del sistema e dell'ambiente al termine del caso d'uso, inclusi gli effetti collaterali e i risultati prodotti."
+    },
+    {
       "term": "PostgreSQL",
       "definition": "Sistema di gestione di database relazionale open-source e avanzato, noto per la sua affidabilità, robustezza e conformità agli standard SQL. È ampiamente utilizzato in applicazioni web e sistemi enterprise per la sua scalabilità e flessibilità."
     },
     {
+      "term": "Precondizioni",
+      "definition": "Stato in cui devono trovarsi il sistema e l'ambiente circostante affinché un caso d'uso possa essere avviato con successo. Se le precondizioni non sono soddisfatte, il caso d'uso non viene eseguito."
+    },
+    {
       "term": "Preventivo",
       "definition": "Documento di pianificazione che stima i costi e le risorse necessarie per lo svolgimento del progetto, basato sulle attività pianificate e sulle risorse disponibili."
+    },
+    {
+      "term": "Priorità (Obbligatorio/Desiderabile/Opzionale)",
+      "definition": "Classificazione dei requisiti in base alla loro importanza per il progetto. I requisiti obbligatori devono essere soddisfatti affinché il sistema sia considerato accettabile, i desiderabili sono importanti ma non essenziali, e gli opzionali possono essere tralasciati senza compromettere le funzionalità fondamentali."
     },
     {
       "term": "Probabilità",
@@ -319,6 +339,26 @@
     {
       "term": "Repository",
       "definition": "Archivio centrale in cui vengono memorizzati e versionati i file sorgente, la documentazione e le risorse del progetto utilizzando un sistema di controllo versione."
+    },
+    {
+      "term": "Requisiti di qualità",
+      "definition": "Sottoinsieme dei requisiti non funzionali che specificano gli attributi di qualità del prodotto software, come manutenibilità, affidabilità, usabilità, efficienza, portabilità e sicurezza. Definiscono i criteri qualitativi che il sistema deve soddisfare per essere considerato accettabile dagli stakeholder."
+    },
+    {
+      "term": "Requisiti di vincolo",
+      "definition": "Requisiti che impongono limitazioni o condizioni specifiche allo sviluppo del sistema, derivanti da fattori tecnologici, organizzativi, legali o di altro tipo. Esempi includono l'uso di specifiche tecnologie, conformità a standard, interfacce obbligate, vincoli temporali o di budget. A differenza dei requisiti funzionali e non funzionali, che definiscono cosa il sistema deve fare o come deve comportarsi, i requisiti di vincolo definiscono i limiti entro cui il sistema deve essere sviluppato."
+    },
+    {
+      "term": "Requisiti funzionali",
+      "definition": "Requisiti che descrivono le funzionalità specifiche che il sistema deve essere in grado di eseguire. Definiscono il comportamento del sistema a fronte di specifici input, specificando cosa il sistema deve fare senza entrare nel merito di come viene implementato."
+    },
+    {
+      "term": "Requisiti non funzionali",
+      "definition": "Requisiti che definiscono gli attributi di qualità, i vincoli e le proprietà sistemiche (come affidabilità, sicurezza, manutenibilità, efficienza). Non descrivono \"cosa\" fa il sistema, ma \"come\" deve comportarsi o quali standard deve rispettare."
+    },
+    {
+      "term": "Requisiti prestazionali",
+      "definition": "Sottocategoria dei requisiti non funzionali focalizzata sulle metriche di efficienza del sistema. Definiscono vincoli quantitativi su tempi di risposta, throughput, latenza e utilizzo delle risorse hardware/software in condizioni di carico specificate."
     },
     {
       "term": "Requisito",
@@ -375,6 +415,10 @@
     {
       "term": "Scenario principale",
       "definition": "Sequenza di interazioni tra l'attore principale e il sistema che descrive il percorso di successo del caso d'uso, dove l'obiettivo viene raggiunto senza intoppi o condizioni eccezionali. Rappresenta il flusso ideale e più frequente di esecuzione."
+    },
+    {
+      "term": "Scenario secondario",
+      "definition": "Variante di uno scenario che descrive un percorso alternativo o un'eccezione nel caso d'uso, che può verificarsi in condizioni specifiche e che porta a un risultato diverso (ad esempio, un errore o un'alternativa valida)."
     },
     {
       "term": "Scope",
