@@ -87,7 +87,7 @@
   {\Large\bfseries\color{primaryblue} BugBusters}\\[0.5cm]
 
   {\Huge\bfseries\color{primaryblue} Piano di Progetto\pediceG}\\[0.3cm]
-  {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
+  {\Large\color{secondaryblue} Versione 0.1.2}\\[0.8cm]
 \end{center}
 
 \begin{center}
@@ -95,8 +95,8 @@
 % Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
 	{Stato} & In redazione \\
-	{Responsabile} &  \\
-	{Verificatore} &  Luca Slongo \\
+	{Responsabile\pediceG} &  \\
+	{Verificatore\pediceG} &  Luca Slongo \\
 	{Redattori} & Alberto Autiero \\
 	{Destinatari} & BugBusters, Eggon, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
 \end{tabularx}
@@ -123,9 +123,11 @@ Il Piano di Progetto\pediceG riporta il riepilogo delle attività effettuate e q
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
  &  & Aggiunti ai termini presenti nel Glossario la G & Alberto Autiero & - & - \\
 \hline
-\CurrentVersion & 05/1/2026 & Redatta la pianificazione dello sprint\pediceG 4 e sistemazione di alcune sezioni & Alberto Autiero & & - \\
+ 0.1.2 & 08/01/2026 & Riorganizzazione documento e creazione grafici primi 4 Sprint\pediceG & Alberto Autiero & & - \\
 \hline
-0.1.0 & 03/1/2026 & Verifica iniziale del documento & - & Luca Slongo & - \\
+0.1.1 & 05/01/2026 & Redatta la pianificazione dello sprint\pediceG 4 e sistemazione di alcune sezioni & Alberto Autiero & & - \\
+\hline
+0.1.0 & 03/01/2026 & Verifica iniziale del documento & - & Luca Slongo & - \\
 \hline
 0.0.5 & 22/12/2025 & Redatta la pianificazione dello sprint\pediceG 3 & Alberto Autiero & - & - \\
 \hline
@@ -246,7 +248,7 @@ Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tr
 \hline
 \textbf{Descrizione} & È improbabile che il codice scritto funzioni correttamente al primo tentativo. Inoltre, un codice apparentemente funzionante può rivelare successivamente bug durante test\pediceG più approfonditi, richiedendo ulteriore tempo per l'analisi e la correzione. \\
 \hline
-\textbf{Mitigazione\pediceG} & Il programmatore\pediceG tenta inizialmente di risolvere autonomamente il problema. In caso di difficoltà, chiederà supporto a membri del gruppo più esperti. Per problemi particolarmente gravi, le attività meno urgenti verranno posticipate per dedicare risorse alla risoluzione. \\
+\textbf{Mitigazione\pediceG} & Il Programmatore\pediceG tenta inizialmente di risolvere autonomamente il problema. In caso di difficoltà, chiederà supporto a membri del gruppo più esperti. Per problemi particolarmente gravi, le attività meno urgenti verranno posticipate per dedicare risorse alla risoluzione. \\
 \hline
 \textbf{Frequenza probabile} & Alta \\
 \hline
@@ -524,11 +526,11 @@ Si prospetta l'utilizzo delle seguenti risorse:
 \hline
 Alberto Autiero & 8 & - & - & - & - & - \\
 \hline
-Marco Favero & - & 4 & - & - & - & - \\
+Marco Favero & - & 8 & - & - & - & - \\
 \hline
 Alberto Pignat & - & - & 8 & - & - & - \\
 \hline
-Marco Piro & - & - & - & - & - & 12 \\
+Marco Piro & - & - & - & - & - &  8 \\
 \hline
 Linor Sadè & - & - & 8 & - & - & - \\
 \hline
@@ -544,38 +546,38 @@ Luca Slongo & - & - & 8 & - & - & - \\
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[scale=1.3]
-  % Pie chart - Responsabile: 12.5% (45°)
+  % Pie chart - Responsabile\pediceG: 14.3% (51.5°)
   \draw[fill=blue!60, draw=black, line width=1.5pt] 
-    (0,0) -- (2,0) arc (0:45:2) -- cycle;
-  \node at (22.5:1.2) {\small\bfseries 12.5\%};
+    (0,0) -- (2,0) arc (0:51.5:2) -- cycle;
+  \node at (25.75:1.2) {\small\bfseries 14.3\%};
   
-  % Amministratore: 6.25% (22.5° cumulative)
+  % Amministratore\pediceG: 14.3% (51.5° cumulative)
   \draw[fill=red!60, draw=black, line width=1.5pt] 
-    (0,0) -- (45:2) arc (45:67.5:2) -- cycle;
-  \node[rotate=56.25] at (56.25:1.5) {\small\bfseries 6.25\%};
+    (0,0) -- (51.5:2) arc (51.5:103:2) -- cycle;
+  \node[rotate=77.25] at (77.25:1.5) {\small\bfseries 14.3\%};
   
-  % Analista: 50% (180° cumulative)
+  % Analista\pediceG: 57.1% (205.6° cumulative)
   \draw[fill=orange!60, draw=black, line width=1.5pt] 
-    (0,0) -- (67.5:2) arc (67.5:247.5:2) -- cycle;
-  \node at (157.5:1.2) {\small\bfseries 50\%};
+    (0,0) -- (103:2) arc (103:308.6:2) -- cycle;
+  \node at (205.8:1.2) {\small\bfseries 57.1\%};
   
-  % Verificatore: 18.75% (67.5° cumulative to 360°)
+  % Verificatore\pediceG: 14.3% (51.4° cumulative to 360°)
   \draw[fill=green!60, draw=black, line width=1.5pt] 
-    (0,0) -- (247.5:2) arc (247.5:360:2) -- cycle;
-  \node at (303.75:1.2) {\small\bfseries 18.75\%};
+    (0,0) -- (308.6:2) arc (308.6:360:2) -- cycle;
+  \node at (334.3:1.2) {\small\bfseries 14.3\%};
   
   % Legenda
   \draw[fill=blue!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
-  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile};
+  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile\pediceG};
   
   \draw[fill=red!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
-  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore};
+  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore\pediceG};
   
   \draw[fill=orange!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
-  \node[anchor=west, font=\small] at (4, 0.65) {Analista};
+  \node[anchor=west, font=\small] at (4, 0.65) {Analista\pediceG};
   
   \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
-  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore};
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
 \end{tikzpicture}
 \caption{Grafico 1: Sprint\pediceG 1 - Preventivo\pediceG}
 \label{fig:grafico-sprint1}
@@ -590,24 +592,64 @@ Luca Slongo & - & - & 8 & - & - & - \\
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & 7 & - & - & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & 7 & - & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & - & 6 & - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & - & - & - & - &  6 \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - & 8 & - & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & 9 \textcolor{red}{(+1)} & - & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+Luca Slongo & - & - & 9 & - & - & - \\
 \hline
 \end{tabular}
 \caption{Consuntivo\pediceG per componenti nello Sprint\pediceG 1}
 \label{tab:consuntivo-sprint1}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Responsabile\pediceG: 13.5% = 7h su 52h (7/52 = 0.135 -> 48.6°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:48.6:2) -- cycle;
+  \node at (24.3:1.2) {\small\bfseries 13.5\%};
+  
+  % Amministratore\pediceG: 13.5% = 7h (48.6° cumulative -> 97.2°)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (48.6:2) arc (48.6:97.2:2) -- cycle;
+  \node[rotate=72.9] at (72.9:1.5) {\small\bfseries 13.5\%};
+  
+  % Analista\pediceG: 61.5% = 32h (221.4° cumulative -> 318.6°)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (97.2:2) arc (97.2:318.6:2) -- cycle;
+  \node at (207.9:1.2) {\small\bfseries 61.5\%};
+  
+  % Verificatore\pediceG: 11.5% = 6h (41.4° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (318.6:2) arc (318.6:360:2) -- cycle;
+  \node at (339.3:1.2) {\small\bfseries 11.5\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Analista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico Consuntivo: Sprint\pediceG 1}
+\label{fig:grafico-consuntivo-sprint1}
+\end{figure}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
 
@@ -618,19 +660,19 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
 \hline
-Responsabile\pediceG & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+Responsabile\pediceG & 30€/h & 7 & 210€ & 49 & 1470€ \\
 \hline
-Amministratore\pediceG & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+Amministratore\pediceG & 20€/h & 7 & 140€ & 45 & 900€ \\
 \hline
-Analista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Analista\pediceG & 25€/h & 32 & 800€ & 24 & 600€ \\
 \hline
-Progettista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Progettista\pediceG & 25€/h & - & - & 147 & 3675€ \\
 \hline
-Programmatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Programmatore\pediceG & 15€/h & - & - & 167 & 2505€ \\
 \hline
-Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Verificatore\pediceG & 15€/h & 6 & 90€ & 160 & 2400€ \\
 \hline
-\textbf{Totale} & & & & & \textbf{[X]€} \\
+\textbf{Totale} & - & 52 & 1240€ & 592 & 11550€ \\
 \hline
 \end{tabular}
 \caption{Variazione nelle risorse disponibili nello Sprint\pediceG 1}
@@ -683,24 +725,72 @@ Si prospetta l'utilizzo delle seguenti risorse:
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & 8 & - & - & - & - & - \\
+Alberto Autiero & - & - & 4 & - & - & - \\
 \hline
-Marco Favero & - & 4 & - & - & - & - \\
+Marco Favero & 4 &  - & - & - & - & - \\
 \hline
-Alberto Pignat & - & - & 8 & - & - & - \\
+Alberto Pignat & - & 7 & -& - & - & - \\
 \hline
-Marco Piro & - & - & - & - & - & 12 \\
+Marco Piro & - & - & 8 &  & - &  \\
 \hline
-Linor Sadè & - & - & 8 & - & - & - \\
+Linor Sadè & - & - &- & - & - & 12 \\
 \hline
-Leonardo Salviato & - & - & 8 & - & - & - \\
+Leonardo Salviato & - & - & -& 10 & - & - \\
 \hline
-Luca Slongo & - & - & 8 & - & - & - \\
+Luca Slongo & - & - & - & 11 & - & - \\
 \hline
 \end{tabular}
 \caption{Preventivo\pediceG per componenti nello Sprint\pediceG 2}
 \label{tab:preventivo-sprint2}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Pie chart - Responsabile\pediceG: 7.1% (25.6°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:25.6:2) -- cycle;
+  \node at (12.8:1.2) {\small\bfseries 7.1\%};
+  
+  % Amministratore\pediceG: 12.5% (45° cumulative)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (25.6:2) arc (25.6:70.6:2) -- cycle;
+  \node[rotate=48.1] at (48.1:1.5) {\small\bfseries 12.5\%};
+  
+  % Analista\pediceG: 21.4% (77.1° cumulative)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (70.6:2) arc (70.6:147.7:2) -- cycle;
+  \node[rotate=109.15] at (109.15:1.2) {\small\bfseries 21.4\%};
+  
+  % Progettista\pediceG: 37.5% (135° cumulative)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (147.7:2) arc (147.7:282.7:2) -- cycle;
+  \node at (215.2:1.2) {\small\bfseries 37.5\%};
+  
+  % Verificatore\pediceG: 21.4% (77.3° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (282.7:2) arc (282.7:360:2) -- cycle;
+  \node at (321.35:1.2) {\small\bfseries 21.4\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 2) rectangle (3.8, 2.3);
+  \node[anchor=west, font=\small] at (4, 2.15) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Analista\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico 2: Sprint\pediceG 2 - Preventivo\pediceG}
+\label{fig:grafico-sprint2}
+\end{figure}
 
 \noindent\textbf{Consuntivo\pediceG}
 
@@ -711,24 +801,72 @@ Luca Slongo & - & - & 8 & - & - & - \\
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & - & - & 3 & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & 3 &  - & - & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & 6 & -& - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & - & 5 &  & - &  \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - &- & - & - & 9 \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & -& 8 & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+Luca Slongo & - & - & - & 8& - & - \\
 \hline
 \end{tabular}
 \caption{Consuntivo\pediceG per componenti nello Sprint\pediceG 2}
 \label{tab:consuntivo-sprint2}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Responsabile\pediceG: 7.1% = 3h su 42h (3/42 = 0.071 -> 25.6°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:25.6:2) -- cycle;
+  \node at (12.8:1.2) {\small\bfseries 7.1\%};
+  
+  % Amministratore\pediceG: 14.3% = 6h (51.4° cumulative -> 77°)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (25.6:2) arc (25.6:77:2) -- cycle;
+  \node[rotate=51.3] at (51.3:1.5) {\small\bfseries 14.3\%};
+  
+  % Analista\pediceG: 19% = 8h (68.4° cumulative -> 145.4°)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (77:2) arc (77:145.4:2) -- cycle;
+  \node[rotate=111.2] at (111.2:1.5) {\small\bfseries 19\%};
+  
+  % Progettista\pediceG: 38.1% = 16h (137.2° cumulative -> 282.6°)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (145.4:2) arc (145.4:282.6:2) -- cycle;
+  \node at (214:1.2) {\small\bfseries 38.1\%};
+  
+  % Verificatore\pediceG: 21.4% = 9h (77° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (282.6:2) arc (282.6:360:2) -- cycle;
+  \node at (321.3:1.2) {\small\bfseries 21.4\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 2) rectangle (3.8, 2.3);
+  \node[anchor=west, font=\small] at (4, 2.15) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Analista\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico Consuntivo: Sprint\pediceG 2}
+\label{fig:grafico-consuntivo-sprint2}
+\end{figure}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
 
@@ -739,19 +877,19 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
 \hline
-Responsabile\pediceG & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+Responsabile\pediceG & 30€/h & 3 & 90€ & 46 & 1380€ \\
 \hline
-Amministratore\pediceG & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+Amministratore\pediceG & 20€/h & 6 & 120€ & 39 & 780€ \\
 \hline
-Analista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Analista\pediceG & 25€/h & 8 & 200€ & 16 & 400€ \\
 \hline
-Progettista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Progettista\pediceG & 25€/h & 16 & 400€ & 131 & 3275€ \\
 \hline
-Programmatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Programmatore\pediceG & 15€/h & - & - & 167 & 2505€ \\
 \hline
-Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Verificatore\pediceG & 15€/h & 9 & 135€ & 151 & 2265€ \\
 \hline
-\textbf{Totale} & & & & & \textbf{[X]€} \\
+\textbf{Totale} & - & 42 & 945€ & 550 & 10605€ \\
 \hline
 \end{tabular}
 \caption{Variazione nelle risorse disponibili nello Sprint\pediceG 2}
@@ -763,6 +901,7 @@ Durante questo secondo sprint\pediceG si è concretizzato il rischio RI1: Rischi
 
 \noindent\textbf{Retrospettiva\pediceG}\\
 Nel secondo sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG, individuata come priorità immediata e fondamentale per le successive fasi di progetto e sviluppo. L'obiettivo raggiunto è stato quello di portarla ad uno stadio soddisfacente.
+
 
 \newpage
 \subsubsection{Sprint\pediceG 3}
@@ -805,24 +944,64 @@ Si prospetta l'utilizzo delle seguenti risorse:
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & 8 & - & - & - & - & - \\
+Alberto Autiero & - & - & - & 10 & - & - \\
 \hline
-Marco Favero & - & 4 & - & - & - & - \\
+Marco Favero & - & - & - & 11 & - & - \\
 \hline
-Alberto Pignat & - & - & 8 & - & - & - \\
+Alberto Pignat & 4 & - & - & - & - & - \\
 \hline
-Marco Piro & - & - & - & - & - & 12 \\
+Marco Piro & - & 4 & - & - & - & - \\
 \hline
-Linor Sadè & - & - & 8 & - & - & - \\
+Linor Sadè & - & - & - & 11 & - & - \\
 \hline
-Leonardo Salviato & - & - & 8 & - & - & - \\
+Leonardo Salviato & - & - & - & - & - & 12 \\
 \hline
-Luca Slongo & - & - & 8 & - & - & - \\
+Luca Slongo & - & - & - & - & - & 12 \\
 \hline
 \end{tabular}
 \caption{Preventivo\pediceG per componenti nello Sprint\pediceG 3}
 \label{tab:preventivo-sprint3}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Pie chart - Responsabile\pediceG: 6.25% (22.5°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:22.5:2) -- cycle;
+  \node at (11.25:1.2) {\small\bfseries 6.25\%};
+  
+  % Amministratore\pediceG: 6.25% (22.5° cumulative)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (22.5:2) arc (22.5:45:2) -- cycle;
+  \node[rotate=33.75] at (33.75:1.5) {\small\bfseries 6.25\%};
+  
+  % Progettista\pediceG: 50% (180° cumulative)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (45:2) arc (45:225:2) -- cycle;
+  \node at (135:1.2) {\small\bfseries 50\%};
+  
+  % Verificatore\pediceG: 37.5% (135° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (225:2) arc (225:360:2) -- cycle;
+  \node at (292.5:1.2) {\small\bfseries 37.5\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico 3: Sprint\pediceG 3 - Preventivo\pediceG}
+\label{fig:grafico-sprint3}
+\end{figure}
 
 \noindent\textbf{Consuntivo\pediceG}
 
@@ -833,24 +1012,64 @@ Luca Slongo & - & - & 8 & - & - & - \\
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & - & - & - & 9 & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & - & - & 9 & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & 4 & - & - & - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & 4 & - & - & - & - \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - & - & 8 & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & - & - & - & 6 \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+Luca Slongo & - & - & - & - & - & 8 \\
 \hline
 \end{tabular}
 \caption{Consuntivo\pediceG per componenti nello Sprint\pediceG 3}
 \label{tab:consuntivo-sprint3}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Responsabile\pediceG: 8.3% = 4h su 48h (4/48 = 0.083 -> 29.9°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:29.9:2) -- cycle;
+  \node at (15:1.2) {\small\bfseries 8.3\%};
+  
+  % Amministratore\pediceG: 8.3% = 4h (29.9° cumulative -> 59.8°)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (29.9:2) arc (29.9:59.8:2) -- cycle;
+  \node[rotate=44.85] at (44.85:1.5) {\small\bfseries 8.3\%};
+  
+  % Progettista\pediceG: 54.2% = 26h (195.1° cumulative -> 254.9°)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (59.8:2) arc (59.8:254.9:2) -- cycle;
+  \node at (157.35:1.2) {\small\bfseries 54.2\%};
+  
+  % Verificatore\pediceG: 29.2% = 14h (105.1° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (254.9:2) arc (254.9:360:2) -- cycle;
+  \node at (307.45:1.2) {\small\bfseries 29.2\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico Consuntivo: Sprint 3}
+\label{fig:grafico-consuntivo-sprint3}
+\end{figure}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
 
@@ -861,22 +1080,22 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
 \hline
-Responsabile\pediceG & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+Responsabile\pediceG & 30€/h & 4 & 120€ & 42 & 1260€ \\
 \hline
-Amministratore\pediceG & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+Amministratore\pediceG & 20€/h & 4 & 80€ & 35 & 700€ \\
 \hline
-Analista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Analista\pediceG & 25€/h & - & - & 16 & 400€ \\
 \hline
-Progettista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Progettista\pediceG & 25€/h & 26 & 650€ & 105 & 2625€ \\
 \hline
-Programmatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Programmatore\pediceG & 15€/h & - & - & 167 & 2505€ \\
 \hline
-Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Verificatore\pediceG & 15€/h & 14 & 210€ & 137 & 2055€ \\
 \hline
-\textbf{Totale} & & & & & \textbf{[X]€} \\
+\textbf{Totale} & - & 48 & 1060€ & 502 & 9545€ \\
 \hline
 \end{tabular}
-\caption{Variazione nelle risorse disponibili nello Sprint\pediceG 3}
+\caption{Variazione nelle risorse disponibili nello Sprint 3}
 \label{tab:risorse-sprint3}
 \end{table}
 
@@ -925,24 +1144,72 @@ Si prospetta l'utilizzo delle seguenti risorse:
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & 8 & - & - & - & - & - \\
+Alberto Autiero & - & - & 4 & - & - & - \\
 \hline
-Marco Favero & - & 4 & - & - & - & - \\
+Marco Favero & - & - & 8 & - & - & - \\
 \hline
-Alberto Pignat & - & - & 8 & - & - & - \\
+Alberto Pignat & - & - & - & 11 & - & - \\
 \hline
-Marco Piro & - & - & - & - & - & 12 \\
+Marco Piro & 8 & - & - & - & - & - \\
 \hline
-Linor Sadè & - & - & 8 & - & - & - \\
+Linor Sadè & - & 8 & - & - & - & - \\
 \hline
-Leonardo Salviato & - & - & 8 & - & - & - \\
+Leonardo Salviato & - & - & - & 11 & - & - \\
 \hline
-Luca Slongo & - & - & 8 & - & - & - \\
+Luca Slongo & - & - & - & - & - & 12 \\
 \hline
 \end{tabular}
 \caption{Preventivo\pediceG per componenti nello Sprint\pediceG 4}
 \label{tab:preventivo-sprint4}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Pie chart - Responsabile\pediceG: 12.9% (46.5°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:46.5:2) -- cycle;
+  \node at (23.25:1.2) {\small\bfseries 12.9\%};
+  
+  % Amministratore\pediceG: 12.9% (46.5° cumulative)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (46.5:2) arc (46.5:93:2) -- cycle;
+  \node[rotate=69.75] at (69.75:1.5) {\small\bfseries 12.9\%};
+  
+  % Analista\pediceG: 19.4% (69.8° cumulative)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (93:2) arc (93:162.8:2) -- cycle;
+  \node[rotate=127.9] at (127.9:1.5) {\small\bfseries 19.4\%};
+  
+  % Progettista\pediceG: 35.5% (127.8° cumulative)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (162.8:2) arc (162.8:290.6:2) -- cycle;
+  \node at (226.7:1.2) {\small\bfseries 35.5\%};
+  
+  % Verificatore\pediceG: 19.4% (69.4° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (290.6:2) arc (290.6:360:2) -- cycle;
+  \node at (325.3:1.2) {\small\bfseries 19.4\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 2) rectangle (3.8, 2.3);
+  \node[anchor=west, font=\small] at (4, 2.15) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Analista\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico 4: Sprint\pediceG 4 - Preventivo\pediceG}
+\label{fig:grafico-sprint4}
+\end{figure}
 
 \noindent\textbf{Consuntivo\pediceG}
 
@@ -953,24 +1220,72 @@ Luca Slongo & - & - & 8 & - & - & - \\
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & - & - & 3 & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & - & 4 & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & - & - & 9 & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & 6 & - & - & - & - & - \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & 5 & - & - & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & - & 8 & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+Luca Slongo & - & - & - & - & - & 8 \\
 \hline
 \end{tabular}
 \caption{Consuntivo\pediceG per componenti nello Sprint\pediceG 4}
 \label{tab:consuntivo-sprint4}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Responsabile\pediceG: 14% = 6h su 43h (6/43 = 0.140 -> 50.2°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:50.2:2) -- cycle;
+  \node at (25.1:1.2) {\small\bfseries 14\%};
+  
+  % Amministratore\pediceG: 11.6% = 5h (41.8° cumulative -> 92°)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (50.2:2) arc (50.2:92:2) -- cycle;
+  \node[rotate=71.1] at (71.1:1.5) {\small\bfseries 11.6\%};
+  
+  % Analista\pediceG: 16.3% = 7h (58.7° cumulative -> 150.7°)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (92:2) arc (92:150.7:2) -- cycle;
+  \node[rotate=121.35] at (121.35:1.5) {\small\bfseries 16.3\%};
+  
+  % Progettista\pediceG: 39.5% = 17h (142.2° cumulative -> 292.9°)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (150.7:2) arc (150.7:292.9:2) -- cycle;
+  \node at (221.8:1.2) {\small\bfseries 39.5\%};
+  
+  % Verificatore\pediceG: 18.6% = 8h (67.1° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (292.9:2) arc (292.9:360:2) -- cycle;
+  \node at (326.45:1.2) {\small\bfseries 18.6\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 2) rectangle (3.8, 2.3);
+  \node[anchor=west, font=\small] at (4, 2.15) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Analista\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico Consuntivo: Sprint 4}
+\label{fig:grafico-consuntivo-sprint4}
+\end{figure}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
 
@@ -981,22 +1296,22 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
 \hline
-Responsabile\pediceG & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+Responsabile\pediceG & 30€/h & 6 & 180€ & 36 & 1080€ \\
 \hline
-Amministratore\pediceG & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+Amministratore\pediceG & 20€/h & 5 & 100€ & 30 & 600€ \\
 \hline
-Analista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Analista\pediceG & 25€/h & 7 & 175€ & 9 & 225€ \\
 \hline
-Progettista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Progettista\pediceG & 25€/h & 17 & 425€ & 88 & 2200€ \\
 \hline
-Programmatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Programmatore\pediceG & 15€/h & - & - & 167 & 2505€ \\
 \hline
-Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Verificatore\pediceG & 15€/h & 8 & 120€ & 129 & 1935€ \\
 \hline
-\textbf{Totale} & & & & & \textbf{[X]€} \\
+\textbf{Totale} & - & 43 & 1000€ & 459 & 8545€ \\
 \hline
 \end{tabular}
-\caption{Variazione nelle risorse disponibili nello Sprint\pediceG 4}
+\caption{Variazione nelle risorse disponibili nello Sprint 4}
 \label{tab:risorse-sprint4}
 \end{table}
 
