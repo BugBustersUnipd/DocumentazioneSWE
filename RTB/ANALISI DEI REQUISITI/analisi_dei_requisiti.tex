@@ -431,8 +431,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0A.jpg}
-    \caption{Diagramma del caso d'uso UC-0A – Registrazione nuovo utente}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0Aa.jpg}
+    \caption{Diagramma del caso d'uso UC-0A – Registrazione nuovo utente (include)}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0Ab.jpg}
+    \caption{Diagramma del caso d'uso UC-0A – Registrazione nuovo utente (extend)}
 \end{figure}
 
 
@@ -467,7 +473,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item Nell'inserimento dei dati, uno o più campi non rispettano i Requisiti di validità (es. e-mail non valida, password debole).
     \item Il sistema mostra un messaggio di errore specifico per il campo non valido.
-    \item L'utente corregge i dati e ripete l'inserimento.
+    \item L'utente può correggere i dati e ripetere l'inserimento.
 \end{enumerate}
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
@@ -483,7 +489,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-0B – Login / Autenticazione utente (in caso di login automatico al termine della registrazione).
+        \item UC-0B – Login / Autenticazione utente 
         \item UC-0A.7 – email non valida.
         \item UC-0A.8 – password non valida.
         \item UC-0A.9 – email già registrata.
@@ -796,8 +802,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0B.jpg}
-    \caption{Diagramma del caso d'uso UC-0B – Login / Autenticazione utente}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0Ba.jpg}
+    \caption{Diagramma del caso d'uso UC-0B – Login / Autenticazione utente (include)}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0Bb.jpg}
+    \caption{Diagramma del caso d'uso UC-0B – Login / Autenticazione utente (extend)}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -827,11 +839,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 \textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{enumerate}
+\begin{itemize}
     \item L'utente inserisce un'e-mail non registrata nel sistema.
     \item L'utente inserisce una password errata.
     \item L'utente inserisce credenziali non valide.
-\end{enumerate}
+\end{itemize}
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
 \begin{itemize}
@@ -1252,7 +1264,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} ha effettuato il login ed è autenticato come Admin.
+    \item L'utente Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} ha effettuato il login ed è autenticato come "Admin".
     \item Esistono uno o più account utente registrati nel sistema.
     \item L'utente Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} è entrato nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di gestione ruoli dalla Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} principale.
 \end{itemize}
@@ -1555,7 +1567,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} sta modificando il ruolo di un utente
-    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} ha effettuato un'operazione non valida
+    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} cerca di assegnare un ruolo a un utente non idoneo (es. assegnare il ruolo di Admin a un utente già Admin)
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1655,6 +1667,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item L'utente accede alla sezione "AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} Generativo".
     \item Il sistema mostra il campo per l'inserimento del prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} e le azioni che possono essere eseguite dall'utente.
+    \item L'utente inserisce il prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} descrittivo (UC-1A.1).
+    \item L'utente seleziona il tono desiderato per il contenuto (UC-1A.2).
+    \item L'utente seleziona lo stile del contenuto (UC-1A.3).
+    \item L'utente avvia il processo di generazione del contenuto.
+    \item Il sistema invia il prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} e i parametri selezionati all'AI Post Generator.
+    \item L'AI Post Generator elabora la richiesta e genera il contenuto testuale.
+    \item Il sistema riceve il contenuto generato dall'AI Post Generator.
 \end{enumerate}
 
 
@@ -1663,11 +1682,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item \textit{include}: 
     \begin{itemize}
         \item UC-1A.1 - Inserimento prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}
+        \item UC-1A.2 - Selezione tono
+        \item UC-1A.3 - Selezione stile
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-1A.2 - Selezione tono
-        \item UC-1A.3 - Selezione stile
+        \item nessuna
     \end{itemize}
 \end{itemize}
 
@@ -2604,7 +2624,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Il documento è stato analizzato tramite l'AI e i dati sono stati inviati al sistema
-    \item L'utente visualizza l'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} di upload documenti, pronta per il caricamento e la gestione dei file.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2647,27 +2666,19 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente si trova nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item Il Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} é caricato
     \item L'utente dispone di file idonei al caricamento
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il file è stato selezionato e pre-caricato nel browser, pronto per l'associazione dei metadati (oppure viene mostrato un errore)
+    \item Il file è stato selezionato e pre-caricato nell'applicativo, pronto per l'associazione dei metadati (oppure viene mostrato un errore)
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente clicca sull'area di upload o trascina un file dal proprio computer
-    \item Il sistema verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} che il file rispetti i Requisiti di formato (es. PDF, Excel) e dimensione massima
-    \item Se la verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} è positiva, il file viene mostrato in lista d'attesa
+    \item L'utente carica il file
 \end{enumerate}
-
-\textbf{Eccezioni}
-\begin{itemize}
-    \item \textbf{Formato non valido:} L'utente tenta di caricare un'estensione non supportata. Il sistema blocca il caricamento e mostra un messaggio di errore.
-    \item \textbf{Dimensione eccessiva:} Il file supera il limite di megabyte consentiti. Il sistema rifiuta il file e notifica l'utente.
-\end{itemize}
 
 
 \vspace{0.5cm}
@@ -2691,8 +2702,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente interagisce con il menu a tendina "Categoria"
-    \item L'utente seleziona la tipologia corretta per il documento in lavorazione
+    \item L'utente seleziona la categoria corretta per il documento che deve essere analizzato
 \end{enumerate}
 
 
@@ -3108,18 +3118,18 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2C – Revisione documento}\label{sec:uc-2c}
+\subsubsection{UC-2C – Revisione documento analizzato}\label{sec:uc-2c}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2Ca.jpg}
-    \caption{Diagramma del caso d'uso UC-2C – Revisione documento (include)}
+    \caption{Diagramma del caso d'uso UC-2C – Revisione documento analizzato(include)}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2Cb.jpg}
-    \caption{Diagramma del caso d'uso UC-2C – Revisione documento (extend)}
+    \caption{Diagramma del caso d'uso UC-2C – Revisione documento analizzato (extend)}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3353,6 +3363,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \begin{itemize}
         \item UC-2D.1 – Visualizzazione elemento da lista informazioni destinatari
     \end{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-2D.6 – Nessun destinatario riconosciuto
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
@@ -3508,7 +3522,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2D.6 – Nessun destionatario riconosciuto}\label{sec:uc-2b-6}
+\subsubsection{UC-2D.6 – Nessun destinatario riconosciuto}\label{sec:uc-2b-6}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3915,7 +3929,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Le modifiche nonvengono salvate in preparazione all'invio.
+    \item Le modifiche non vengono salvate in preparazione all'invio.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -4480,7 +4494,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L''utente ha inserito i criteri di ricerca i criteri di ricerca inseriti.
+    \item La ricerca è stata eseguita in base ai criteri selezionati.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
