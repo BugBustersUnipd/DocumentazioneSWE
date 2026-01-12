@@ -79,6 +79,7 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale esterno relativo alla riunione tenutasi in data 17/12/2025 tra il team BugBusters e l'azienda Eggon, per la presentazione del POC aggiornato alla data del 7 gennaio 2026. Nel verbale sono riportati i punti salienti della presentazione, le problematiche riscontrate, le domande relative ai modelli in uso e la discussione su eventuali modifiche al documento relativo all'analisi dei requisiti.
 \end{tcolorbox}
 \end{center}
 
@@ -124,8 +125,8 @@
       \item \label{itm:poc2} Dimostrazione funzionalità implementate.
       \item \label{itm:problematiche} Discussione sulle problematiche riscontrate.
     \end{enumerate}
-    \item \label{itm:Analisi dei requisiti} Discussione su eventuali modifiche al documento relativo all'analisi dei requisiti.
     \item \label{itm:progettazione} Domande relative ai modelli in uso.
+    \item \label{itm:Analisi dei requisiti} Discussione su eventuali modifiche al documento relativo all'analisi dei requisiti.
 
 \end{enumerate}
 
@@ -135,31 +136,44 @@
 \subsection*{\ref{itm:poc}. Presentazione POC aggiornato in data 7 gennaio 2026.}
 In sede di riunione, il team ha presentato il POC aggiornato alla data corrente, illustrando le funzionalità implementate e le tecnologie utilizzate.
 Qui di seguito sono riportati i punti salienti della presentazione.
-\subsubsection*{\ref{itm:poc2}. Dimostrazione funzionalità implementate.}
+\subsubsection*{\ref{itm:poc2}. Dimostrazione delle funzionalità implementate.}
 \begin{itemize}
-  \item Il modulo AI assistant generativo, che consente agli utenti di generare contenuti testuali a partire da prompt, selezionando un'azienda di riferimento tra quelle disponibili e un tono di comunicazione preferito tra quelli disponibili per azienda.
-  \item Il modulo di Ai co-pilot per Cdl ancora in stato embrionale, che consente agli utenti di caricare documenti in vari formati (es PDF, png, jpeg, jpg) e di estrarre informazioni predefinite.
+  \item Il modulo AI assistant generativo consente agli utenti di generare contenuti testuali a partire da prompt, selezionando un'azienda di riferimento tra quelle disponibili e un tono di comunicazione preferito.
+  \item Il modulo AI co-pilot per CdL è ancora in stato embrionale; consente agli utenti di caricare documenti in vari formati (es. PDF, PNG, JPEG) e di estrarre informazioni predefinite.
 \end{itemize}
 \paragraph{}
-Durante la presentazione, è stato spiegato che il POC non ha alcuna pretesa di essere finito e di essere coerente con i requisiti definiti, ma vuole essere un primo passo verso l'uso delle tecnologie.\\
-Per esempio, il modulo AI assistant generativo consente la modifica dei contenuti generati tramite prompt consecutivi, mentre da analisi dei requisiti emerge la necessità di un risultato più preciso in seguito al singolo prompt, con eventuali modifiche manuali qualora ve ne fosse bisogno. 
-\subsubsection{\ref{itm:problematiche}. Discussione sulle problematiche riscontrate.}
-\begin{itemize}
-  \item P
-\end{itemize}
-\paragraph{} Sono stati riscontrati alcuni problemi nella generazione di contenuti, come la presenza di placeholder nel testo generato, qualora mancasse il contesto nel prompt inserito dall'utente. Il modello dovrebbe essere in grado di generare un testo completo senza placeholder, il problema potrebbe essere dovuto ad un'implementazione parziale o alla scelta del modello.\\
-Infine inserendo prompt fuori dal dominio aziendale, il modello tende a generare risposte non pertinenti o messaggi di errore (per esempio "Non sono in grado di rispondere a questa domanda"). È stato suggerito di implementare un sistema di filtraggio e di controllo dei prompt in ingresso e in uscita (guardrail AI), in modo da evitare richieste non pertinenti e che le risposte siano sicure e appropriate.
+Durante la presentazione, è stato spiegato che il POC non ha la pretesa di essere completo o pienamente coerente con i requisiti definiti; è un primo passo verso l'uso delle tecnologie.\\
+Per esempio, il modulo AI assistant generativo consente la modifica dei contenuti generati tramite prompt consecutivi; tuttavia, dall'analisi dei requisiti emerge la necessità di ottenere un risultato più preciso a seguito di un singolo prompt, con eventuali modifiche manuali qualora ce ne fosse bisogno.
+\subsubsection*{\ref{itm:problematiche}. Discussione sulle problematiche riscontrate.}
+Le problematiche principali riscontrate sono:
+\begin{enumerate}
+  \item risultati che non delineano sufficientemente un tono selezionato;
+  \item placeholder nel testo generato dal modulo AI assistant generativo;
+  \item risposte non pertinenti o messaggi di errore inseriti nel testo generato;
+\end{enumerate}
+\paragraph{1b.1} Il team ha riscontrato che il modulo AI assistant generativo non riesce a delineare sufficientemente il tono selezionato dall'utente. Per esempio, selezionando un tono formale, il testo generato risulta essere solo leggermente più formale rispetto ad un tono neutro.\\
+Eggon ha suggerito di migliorare il prompt passato al modello, in modo da enfatizzare maggiormente il tono selezionato.
+\paragraph{1b.2} Sono stati riscontrati alcuni problemi nella generazione di contenuti, come la presenza di placeholder nel testo generato se mancava il contesto nel prompt inserito dall'utente. Il modello dovrebbe essere in grado di generare un testo completo senza placeholder. Il problema potrebbe essere dovuto a un'implementazione parziale o alla scelta del modello.
+\paragraph{1b.3}
+Infine, quando vengono inseriti prompt fuori dal dominio aziendale, il modello tende a generare risposte non pertinenti o messaggi di errore (per esempio "Non sono in grado di rispondere a questa domanda"). È stato suggerito di implementare un sistema di filtraggio e controllo dei prompt in ingresso e in uscita (meccanismi di guardrail per l'AI), in modo da evitare richieste non pertinenti e garantire che le risposte siano sicure e appropriate.
 \subsection*{\ref{itm:progettazione}. Domande relative ai modelli in uso.}
-Entrambi i moduli sono stati implementati usando dei modelli \textit{Nova} di amazon: il modello \textit{Nova lite v1} e \textit{Nova Canvas v1} per il testo e per l'OCR dei documenti.\\\\
-Il dubbio del team riguardava la scelta di questi modelli, in quanto non sicuri fossero i più adatti allo scopo. Eggon ha confermato che per il primo modulo i modelli sono adeguati, anche se è da capire se il problema dei placeholder è dovuto al modello o all'implementazione. \\
-È stato suggerito di testare modelli ad uso pubblico (es GPT-4 di OpenAI, Gemini etc) per confrontare i risultati ottenuti.
-Qualora il modello risultasse inadeguato, si potrà pensare di cambiare modello nella sua interezza o di definire un sistema ibrido: usare un modello più potente per la rigenerazione del prompt scritto dall'utente, che verrà successivamente passato al modello attuale per la generazione del testo. Questo permetterebbe di mantenere i costi bassi, in quanto i modelli più potenti hanno costi di utilizzo più elevati ma nello stesso tempo di garantire risultati migliori.\\
+Entrambi i moduli sono stati implementati utilizzando modelli \textit{Nova} di Amazon: il modello \textit{Nova Canvas v1} e \textit{Nova Lite v1} per il testo e per l'OCR dei documenti.
 
-\paragraph{}
 
-\section{Tabella delle decisioni e azioni}
+\paragraph{1}
+Per il primo modulo, è stato suggerito di testare modelli di uso pubblico (es. GPT-4 di OpenAI, Gemini, ecc.) per confrontare i risultati ottenuti.
+Il dubbio del team riguardava la scelta di questi modelli, in quanto non erano sicuri che fossero i più adatti allo scopo. Eggon ha confermato che per il primo modulo i modelli sono adeguati, anche se è da capire se il problema dei placeholder sia dovuto al modello o all'implementazione.\\
+Qualora il modello risultasse inadeguato, si potrà pensare di cambiare modello nella sua interezza o di definire un sistema ibrido: usare un modello più potente per la rigenerazione del prompt a partire da quello scritto dall'utente, che verrà successivamente passato al modello attuale per la generazione del testo. Questo permetterebbe di mantenere bassi i costi, poiché i modelli più potenti hanno costi di utilizzo più elevati, ma allo stesso tempo garantire risultati migliori.
+
+\paragraph{2} Per il secondo modulo, invece, Eggon ha confermato che il modello è appropriato solo nel contesto del POC. Per il prodotto finale si dovranno utilizzare modelli più potenti come \textit{AWS Comprehend} o \textit{AWS Textract}.
 
 \subsection*{\ref{itm:Analisi dei requisiti}. Discussione su eventuali modifiche al documento relativo all'analisi dei requisiti.}
+Il team ha espresso dei dubbi sulle funzionalità di \textit{data analysis}, che al momento della scrittura dell'analisi dei requisiti non erano ancora chiare. Il team voleva capire quale fosse esattamente il processo di invio ai rispettivi destinatari dei documenti analizzati dall'AI co-pilot per il CdL, in particolare per quanto riguarda la sicurezza dei dati nei casi di bassa confidenza nell'estrazione delle informazioni.\\
+Eggon ha spiegato che il processo prevede che l'utente possa scegliere di inviare i documenti analizzati senza revisionarli, anche in caso di bassa confidenza. Sarà quindi responsabilità dell'utente finale; a tal proposito si potrebbe inserire un disclaimer.
+
+Il documento di analisi dei requisiti verrà inviato ad Eggon per una revisione sulla correttezza delle funzionalità descritte.
+\section{Tabella delle decisioni e azioni}
+
 
 \setlength{\extrarowheight}{2pt} % padding extra verticale
 \renewcommand{\arraystretch}{1.5} 
@@ -175,7 +189,7 @@ Qualora il modello risultasse inadeguato, si potrà pensare di cambiare modello 
 \rowcolor{primaryblue!40}
 \textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
 \hline
-\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/58}{RTB36} \label{RTB35}}{Verificare la disponibilità del team e di Eggon relativa ad un incontro in presenza il 7 Gennaio.}{Alberto Pignat}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/}{RTB} Inviare il documento di analisi dei requisiti }{}{}
 \end{tabularx}
 \fussy
 
