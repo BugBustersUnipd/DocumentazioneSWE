@@ -47,7 +47,10 @@
 
 \setlength{\LTpre}{0pt}
 \setlength{\LTpost}{0pt}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
 \raggedbottom
+\flushbottom
 
 \newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 
@@ -437,7 +440,7 @@ possibilità di errori non avrà scenari alternativi):
     \item \textbf{Inclusioni}: Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} ulteriori che l'attore\textsubscript{\scalebox{0.6}{\textbf{G}}} deve compiere per realizzare
     il caso d'uso attualmente descritto
     \item \textbf{Estensioni}: Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} ulteriori che possono realizzarsi durante
-    l'esecuzione delle operazioni del caso d'uso principale
+    l'esecuzione delle operazioni del caso d'uso principale e rappresentano uno scenario alternativo
     
 \end{itemize}
 Motivazioni che portano l'attore\textsubscript{\scalebox{0.6}{\textbf{G}}} a svolgere l'azione descritta
@@ -1002,11 +1005,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item L'utente accede alla sezione “Profilo” dalla Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} dell'applicazione.
     \item Il sistema mostra i dati correnti del profilo
-    \item L'utente può modificare uno o più campi del profilo 
-    \item L'utente conferma le modifiche.
-    \item Il sistema valida i dati inseriti (ad esempio formato dell'e-mail, campi obbligatori).
-    \item Il sistema salva le modifiche nel proprio archivio.
-    \item Il sistema conferma l'avvenuto aggiornamento del profilo.
 \end{enumerate}
 
 \textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1025,10 +1023,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
         \item UC-0D.4 - Visualizzazione nome 
         \item UC-0D.5 - Visualizzazione cognome
         \item UC-0D.6 - Visualizzazione matricola
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-0D.7 - Modifica informazioni profilo utente
     \end{itemize}
 \end{itemize}
 
@@ -1193,6 +1187,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item L'utente ha cambiato i dati del proprio profilo
+    \item I dati vengono salvati nel sistema
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1200,9 +1195,17 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente cambia i dati del proprio profilo
 \end{enumerate}
 
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-0D.1 - Uscita senza salvare modifiche profilo utente
+    \end{itemize}
+\end{itemize}
+
 \vspace{0.5cm}
 
-\subUseCase{Uscita senza salvare profilo utente}
+\subUseCase{Uscita senza salvare modifiche profilo utente}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1562,10 +1565,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
         \item UC-1A.1 - Inserimento prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}
         \item UC-1A.2 - Selezione tono
         \item UC-1A.3 - Selezione stile
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item nessuna
     \end{itemize}
 \end{itemize}
 
@@ -1944,6 +1943,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
+
 \useCase{Modifica immagine contenuto generato}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1953,7 +1953,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente si trova nella pagina di modifica del contenuto (UC-1D)
+    \item L'utente ha generato un contenuto con l'AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item L'utente si trova nella pagina di modifica del contenuto 
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1968,28 +1969,62 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema sostituisce l'immagine generata dall'AI con quella fornita dall'utente
 \end{enumerate}
 
-\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item Il file immagine caricato dall'utente non è valido
 \end{enumerate}
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item Nessuna
-    \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-1D.6 - File immagine non valido
+        \item UC-1D.1 - File immagine non valido
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
 
 
+\subUseCase{File immagine non valido}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item HR manager/Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica del contenuto 
+    \item L'utente ha selezionato un file immagine non valido (formato non supportato, dimensioni eccessive, file corrotto)
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'immagine non viene aggiornata e l'utente riceve un messaggio di errore che indica il problema riscontrato
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente clicca sull'opzione per cambiare l'immagine (upload o selezione da libreria)
+    \item L'utente seleziona un file non valido dal proprio dispositivo
+    \item Il sistema rimane invariato e mostra un messaggio di errore che indica il problema riscontrato (es. "Formato non supportato", "Dimensioni eccessive")
+\end{enumerate}
+
+\textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item Il file immagine caricato dall'utente non è valido
+\end{enumerate}
+
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\begin{itemize}
+    \item \textit{extend}: 
+    \begin{itemize}
+        \item UC-1D.1 - File immagine non valido
+    \end{itemize}
+\end{itemize}
 
 \vspace{0.5cm}
+
 
 \useCase{Modifica titolo contenuto generato}
 
@@ -2000,6 +2035,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
+    \item L'utente ha generato un contenuto con l'AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}}
     \item L'utente si trova nella pagina di modifica del contenuto
 \end{itemize}
 
@@ -2198,17 +2234,9 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1G.1 – Visualizzazione lista elementi storico filtrata
-    \end{itemize}
-\end{itemize}
-
 \vspace{0.5cm}
 
-\subUseCase{Visualizzazione lista elementi storico filtrata}
+\useCase{Visualizzazione lista elementi storico filtrata}
 
 \begin{figure}[H]
     \centering
@@ -2444,14 +2472,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2A.1 - Caricamento file 
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-2A.2 - Inserimento categoria
-        \item UC-2A.3 - Inserimento mese/anno di competenza
-        \item UC-2A.4 - Inserimento azienda
-        \item UC-2A.5 - Inserimento reparto
+        \item UC-2A.1 - Inserimento categoria
+        \item UC-2A.2 - Inserimento mese/anno di competenza
+        \item UC-2A.3 - Inserimento azienda
+        \item UC-2A.4 - Inserimento reparto
     \end{itemize}
 \end{itemize}
 
@@ -2901,13 +2925,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente ha effettuato l'accesso al dettaglio del documento (UC-2C).
-    \item Il file fisico o digitale del documento è accessibile
+    \item L'utente ha effettuato l'accesso al dettaglio del documento
+    \item Il file digitale del documento è accessibile
+    \item Il documento è stato analizzato e i dati sono stati estratti
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'anteprima del documento viene mostrata correttamente a schermo permettendo il confronto con i dati estratti.
+    \item L'anteprima del documento viene mostrata correttamente permettendo il confronto con i dati estratti
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2928,12 +2953,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente ha effettuato l'accesso al dettaglio del documento (UC-2C).
+    \item Il documento è stato analizzato e i dati sono stati estratti
+    \item L'utente ha effettuato l'accesso al dettaglio del documento
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il documento è associato provvisoriamente a un nuovo destinatario (in attesa di salvataggio).
+    \item Il documento è associato a un nuovo destinatario
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2956,7 +2982,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente ha effettuato l'accesso al dettaglio del documento (UC-2C).
+    \item Il documento è stato analizzato e i dati sono stati estratti
+    \item L'utente ha effettuato l'accesso al dettaglio del documento
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2989,12 +3016,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item La percentuale di confidenza viene ricalcolata o impostata al 100\% (validazione\textsubscript{\scalebox{0.6}{\textbf{G}}} manuale).
+    \item La percentuale di confidenza viene ricalcolata (validazione\textsubscript{\scalebox{0.6}{\textbf{G}}} manuale).
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente ha modificato la tipologia del documento (UC-2C.3).
+    \item L'utente ha modificato dati del documento
     \item Il sistema ri-analizza i campi in base alla nuova struttura dati prevista.
     \item Il sistema aggiorna la percentuale di confidenza per riflettere la nuova coerenza dei dati o la validazione\textsubscript{\scalebox{0.6}{\textbf{G}}} manuale dell'utente.
 \end{enumerate}
@@ -3033,11 +3060,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2D.1 – Visualizzazione elemento da lista informazioni destinatari
+        \item UC-2G.1 – Visualizzazione elemento da lista informazioni destinatari
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2D.6 – Nessun destinatario riconosciuto
+        \item UC-2G.6 – Nessun destinatario riconosciuto
     \end{itemize}
 \end{itemize}
 
@@ -3253,11 +3280,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2E.2 – Visualizzazione elemento da lista storico documenti
+        \item UC-2H.2 – Visualizzazione elemento da lista storico documenti
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-2E.1 – Documenti assenti
+        \item UC-2H.1 – Documenti assenti
     \end{itemize}
 \end{itemize}
 
@@ -3418,7 +3445,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\useCase{Carica template}
+\useCase{Carica template messaggio}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3427,13 +3454,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente ha selezionato un template valido dalla lista (UC-2G).
+    \item L'utente ha selezionato un template dalla lista dei template disponibili
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item I dati del template (Oggetto e Corpo del messaggio) vengono trasferiti nei campi di input della pagina di gestione messaggio (UC-2F).
-    \item Il modale o la pagina di selezione template si chiude.
+    \item I dati del template (Oggetto e Corpo del messaggio) vengono trasferiti nei campi di input della pagina di gestione messaggio
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3441,7 +3467,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente clicca sul pulsante "Carica" o sulla riga del template desiderato.
     \item Il sistema recupera il contenuto del template (testo e oggetto).
     \item Il sistema sovrascrive o compila i campi corrispondenti nell'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} di composizione del messaggio.
-    \item L'utente può ora procedere a modificare o inviare il messaggio (ritorno a UC-2F).
+    \item L'utente può ora procedere a modificare o inviare il messaggio
 \end{enumerate}
 
 
@@ -3504,7 +3530,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente ha modificato o generato un messaggio che ritiene utile per usi futuri.
+    \item L'utente ha modificato un messaggio l'oggetto e/o il corpo del messaggio.
     \item Il campo testo del messaggio non è vuoto.
 \end{itemize}
 
@@ -3583,7 +3609,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2G.5 – Visualizzazione elemento da lista template salvati
+        \item UC-2N.5 – Visualizzazione elemento da lista template salvati
     \end{itemize}
 \end{itemize}
 
@@ -3859,19 +3885,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2I.1 – Visualizzazione lista documenti filtrata
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item Nessuno
-    \end{itemize}
-\end{itemize}
-
-\subUseCase{Visualizzazione lista documenti filtrata}
+\useCase{Visualizzazione lista documenti filtrata}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3944,19 +3958,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema non riconosce alcun destinatario.
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2J.1 – Visualizzazione lista destinatari filtrata
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item Nessuno
-    \end{itemize}
-\end{itemize}
 
-\subUseCase{Visualizzazione lista destinatari filtrata}
+\useCase{Visualizzazione lista destinatari filtrata}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4026,21 +4029,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema ripristina la visualizzazione completa dello storico.
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2K.1 – Visualizzazione lista storico filtrata
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item Nessuno
-    \end{itemize}
-\end{itemize}
 
 \vspace{0.5cm}
 
-\subUseCase{Visualizzazione lista storico documenti filtrata}
+\useCase{Visualizzazione lista storico documenti filtrata}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4304,10 +4296,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-3A.8 - Visualizzazione confidenza media
-        \item UC-3A.9 - Visualizzazione percentuale interventi manuali
-        \item UC-3A.10 - Visualizzazione accuratezza mapping
-        \item UC-3A.11 - Visualizzazione tempi medi analisi
+        \item UC-3B.1 - Visualizzazione confidenza media
+        \item UC-3B.2 - Visualizzazione percentuale interventi manuali
+        \item UC-3B.3 - Visualizzazione accuratezza mapping
+        \item UC-3B.4 - Visualizzazione tempi medi analisi
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -4518,328 +4510,280 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \endlastfoot
 
 
-    \autoRF & Un utente deve potersi registrare all'interno del sistema & \hyperref[sec:uc-0a]{UC-0A} & Opzionale \\
+    % Gruppo UC-0A
+    \autoRF & & \hyperref[UC-0A]{UC-0A} & Opzionale \\
     \hline
-    \autoRF & L'utente deve poter inserire la propria email & \hyperref[sec:uc-0a-1]{UC-0A.1} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.1]{UC-0A.1} & Opzionale \\
     \hline
-    \autoRF & L'utente deve poter inserire password & \hyperref[sec:uc-0a-2]{UC-0A.2} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.2]{UC-0A.2} & Opzionale \\
     \hline
-    \autoRF & L'utente deve poter inserire username & \hyperref[sec:uc-0a-3]{UC-0A.3} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.3]{UC-0A.3} & Opzionale \\
     \hline
-    \autoRF & L'utente deve poter inserire nome & \hyperref[sec:uc-0a-4]{UC-0A.4} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.4]{UC-0A.4} & Opzionale \\
     \hline
-    \autoRF & L'utente deve poter inserire cognome & \hyperref[sec:uc-0a-5]{UC-0A.5} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.5]{UC-0A.5} & Opzionale \\
     \hline
-    \autoRF & L'utente deve poter inserire matricola & \hyperref[sec:uc-0a-6]{UC-0A.6} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.6]{UC-0A.6} & Opzionale \\
     \hline
-    \autoRF & Deve esserci un controllo per "Email non valida" & \hyperref[sec:uc-0a-7]{UC-0A.7} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.7]{UC-0A.7} & Opzionale \\
     \hline
-    \autoRF & Deve esserci un controllo per "Password non valida" & \hyperref[sec:uc-0a-8]{UC-0A.8} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.8]{UC-0A.8} & Opzionale \\
     \hline
-    \autoRF & Deve esserci un controllo per "Email già registrata" & \hyperref[sec:uc-0a-9]{UC-0A.9} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.9]{UC-0A.9} & Opzionale \\
     \hline
-    \autoRF & Deve esserci un controllo per "Username già registrato" & \hyperref[sec:uc-0a-10]{UC-0A.10} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.10]{UC-0A.10} & Opzionale \\
     \hline
-    \autoRF & Deve esserci un controllo per "Matricola già registrata" & \hyperref[sec:uc-0a-11]{UC-0A.11} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.11]{UC-0A.11} & Opzionale \\
     \hline
-    \autoRF & Deve esserci un controllo per "Matricola non valida" & \hyperref[sec:uc-0a-12]{UC-0A.12} & Opzionale \\
-    \hline
-
-    \autoRF & L'utente deve avere la possibilità di autenticarsi & \hyperref[sec:uc-0b]{UC-0B} & Opzionale \\
-    \hline
-    \autoRF & Deve esserci un controllo per "Email non registrata" & \hyperref[sec:uc-0b-1]{UC-0B.1} & Opzionale \\
-    \hline
-    \autoRF & Deve esserci un controllo per "Password errata" & \hyperref[sec:uc-0b-2]{UC-0B.2} & Opzionale \\
+    \autoRF & & \hyperref[UC-0A.12]{UC-0A.12} & Opzionale \\
     \hline
 
-    \autoRF & L'utente a seguito del login deve avere la possibilità di raggiungere la Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} & \hyperref[sec:uc-0c]{UC-0C} & Obbligatorio \\
+    % Gruppo UC-0B
+    \autoRF & & \hyperref[UC-0B]{UC-0B} & Opzionale \\
+    \hline
+    \autoRF & & \hyperref[UC-0B.1]{UC-0B.1} & Opzionale \\
+    \hline
+    \autoRF & & \hyperref[UC-0B.2]{UC-0B.2} & Opzionale \\
     \hline
 
-    \autoRF & L'utente deve avere la possibilità di gestire il proprio profilo utente & \hyperref[sec:uc-0d]{UC-0D} & Opzionale \\
+    % Gruppo UC-0C
+    \autoRF & & \hyperref[UC-0C]{UC-0C} & Obbligatorio \\
     \hline
-    \autoRF & L'utente deve avere la possibilità di visualizzare la propria email & \hyperref[sec:uc-0d-1]{UC-0D.1} & Opzionale \\
+    \autoRF & & \hyperref[UC-0C.1]{UC-0C.1} & Obbligatorio \\
     \hline
-    \autoRF & L'utente deve avere la possibilità di visualizzare la propria password & \hyperref[sec:uc-0d-2]{UC-0D.2} & Opzionale \\
+    \autoRF & & \hyperref[UC-0C.2]{UC-0C.2} & Obbligatorio \\
     \hline
-    \autoRF & L'utente deve avere la possibilità di visualizzare il proprio username & \hyperref[sec:uc-0d-3]{UC-0D.3} & Opzionale \\
+    \autoRF & & \hyperref[UC-0C.3]{UC-0C.3} & Obbligatorio \\
     \hline
-    \autoRF & L'utente deve avere la possibilità di visualizzare il proprio nome & \hyperref[sec:uc-0d-4]{UC-0D.4} & Opzionale \\
+    \autoRF & & \hyperref[UC-0C.4]{UC-0C.4} & Obbligatorio \\
     \hline
-    \autoRF & L'utente deve avere la possibilità di visualizzare il proprio cognome & \hyperref[sec:uc-0d-5]{UC-0D.5} & Opzionale \\
+    \autoRF & & \hyperref[UC-0C.5]{UC-0C.5} & Obbligatorio \\
     \hline
-    \autoRF & L'utente deve avere la possibilità di visualizzare la propria matricola & \hyperref[sec:uc-0d-6]{UC-0D.6} & Opzionale \\
-    \hline
-    \autoRF & L'utente deve avere la possibilità di modificare le informazioni nel proprio profilo utente & \hyperref[sec:uc-0d-7]{UC-0D.7} & Opzionale \\
-    \hline
-    \autoRF & L'utente deve avere la possibilità di non salvare le modifiche al profilo utente & \hyperref[sec:uc-0d-8]{UC-0D.8} & Opzionale \\
-    \hline
-    \autoRF & L'utente deve avere la possibilità di salvare le modifiche al profilo utente & \hyperref[sec:uc-0d-9]{UC-0D.9} & Opzionale \\
+    \autoRF & & \hyperref[UC-0C.6]{UC-0C.6} & Obbligatorio \\
     \hline
 
-    \autoRF & Un utente con titolo di admin deve avere la possibilità di gestire i ruoli degli altri utenti & \hyperref[sec:uc-0e]{UC-0E} & Opzionale \\
+    % Gruppo UC-0D
+    \autoRF & & \hyperref[UC-0D]{UC-0D} & Opzionale \\
     \hline
-    \autoRF & Un utente con titolo di admin deve poter visualizzare lista utenti registrati & \hyperref[sec:uc-0e-1]{UC-0E.1} & Opzionale \\
-    \hline
-    \autoRF & Un utente con titolo di admin deve poter visualizzare un elemento della lista utenti registrati & \hyperref[sec:uc-0e-2]{UC-0E.2} & Opzionale \\
-    \hline
-    \autoRF & Un utente con titolo di admin deve poter visualizzare il ruolo di utente registrato & \hyperref[sec:uc-0e-3]{UC-0E.3} & Opzionale \\
-    \hline
-    \autoRF & Un utente con titolo di admin deve poter visualizzare il nome di utente registrato & \hyperref[sec:uc-0e-4]{UC-0E.4} & Opzionale \\
-    \hline
-    \autoRF & Un utente con titolo di admin deve poter visualizzare il cognome di utente registrato & \hyperref[sec:uc-0e-5]{UC-0E.5} & Opzionale \\
-    \hline
-    \autoRF & Un utente con titolo di admin deve poter modificare il ruolo di utente registrato & \hyperref[sec:uc-0e-6]{UC-0E.6} & Opzionale \\
-    \hline
-    \autoRF & Deve esserci un controllo "Utente non autorizzato" quando esso prova ad accedere alla sezione "Gestione ruoli utenti" & \hyperref[sec:uc-0e-7]{UC-0E.7} & Opzionale \\
-    \hline
-    \autoRF & Un utente con titolo di admin deve poter annullare la modifica al ruolo utente registrato & \hyperref[sec:uc-0e-8]{UC-0E.8} & Opzionale \\
-    \hline
-    \autoRF & Deve esserci un controllo che prevenga l'assegnamento di un ruolo non valido & \hyperref[sec:uc-0e-9]{UC-0E.9} & Opzionale \\
+    \autoRF & & \hyperref[UC-0D.1]{UC-0D.1} & Opzionale \\
     \hline
 
-    \autoRF & Un utente deve aver la possibilità di uscire al proprio profilo (Logout) & \hyperref[sec:uc-0f]{UC-0F} & Opzionale \\
+    % Gruppo UC-0E
+    \autoRF & & \hyperref[UC-0E]{UC-0E} & Opzionale \\
+    \hline
+    \autoRF & & \hyperref[UC-0E.1]{UC-0E.1} & Opzionale \\
+    \hline
+    \autoRF & & \hyperref[UC-0E.2]{UC-0E.2} & Opzionale \\
+    \hline
+    \autoRF & & \hyperref[UC-0E.3]{UC-0E.3} & Opzionale \\
+    \hline
+    \autoRF & & \hyperref[UC-0E.4]{UC-0E.4} & Opzionale \\
     \hline
 
-
-    \autoRF & Un utente deve avere la possibilità di generare un contenuto tramite AI & \hyperref[sec:uc-1a]{UC-1A} & Obbligatorio \\
+    % Gruppo UC-0F / 0G
+    \autoRF & & \hyperref[UC-0F]{UC-0F} & Opzionale \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di inserire un prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} per la propria generazione & \hyperref[sec:uc-1a-1]{UC-1A.1} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di selezionare un tono per la propria generazione & \hyperref[sec:uc-1a-2]{UC-1A.2} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di selezionare uno stile per la propria generazione & \hyperref[sec:uc-1a-3]{UC-1A.3} & Obbligatorio \\
-    \hline
-    \autoRF & Deve avvenire il salvataggio di ogni generazione nello storico & capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-0G]{UC-0G} & Opzionale \\
     \hline
 
-    \autoRF & Un utente deve avere la possibilità di visualizzare la lista degli elementi presenti nello storico & \hyperref[sec:uc-1b]{UC-1B} & Obbligatorio \\
+    % Gruppo UC-1A
+    \autoRF & & \hyperref[UC-1A]{UC-1A} & Obbligatorio \\
     \hline
-    \autoRF & C'è la possibilità che il prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} non abbia neanche un elemento data la mancanza di generazioni & \hyperref[sec:uc-1b-1]{UC-1B.1} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1A.1]{UC-1A.1} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare un elemento dalla lista mostrata nello storico & \hyperref[sec:uc-1b-2]{UC-1B.2} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1A.2]{UC-1A.2} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare lo stile di una generazione & \hyperref[sec:uc-1b-3]{UC-1B.3} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il risultato della generazione & \hyperref[sec:uc-1b-4]{UC-1B.4} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il timestamp di una generazione & \hyperref[sec:uc-1b-5]{UC-1B.5} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la valutazione di una generazione & \hyperref[sec:uc-1b-6]{UC-1B.6} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} id una generazione & \hyperref[sec:uc-1b-7]{UC-1B.7} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il tono di una generazione & \hyperref[sec:uc-1b-8]{UC-1B.8} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1A.3]{UC-1A.3} & Obbligatorio \\
     \hline
 
-    \autoRF & Un utente deve avere la possibilità di visualizzare un contenuto prima di pubblicarlo & \hyperref[sec:uc-1c]{UC-1C} & Obbligatorio \\
+    % Gruppo UC-1B
+    \autoRF & & \hyperref[UC-1B]{UC-1B} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-1B.1]{UC-1B.1} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-1B.2]{UC-1B.2} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-1B.3]{UC-1B.3} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-1B.4]{UC-1B.4} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-1B.5]{UC-1B.5} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-1B.6]{UC-1B.6} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-1B.7]{UC-1B.7} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-1B.8]{UC-1B.8} & Obbligatorio \\
     \hline
 
-    \autoRF & Un utente deve avere la possibilità di effettuare modifiche al contenuto generato & \hyperref[sec:uc-1d]{UC-1D} & Obbligatorio \\
+    % Gruppo UC-1C -> 1J
+    \autoRF & & \hyperref[UC-1C]{UC-1C} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di modificare l'immagine di un contenuto generato & \hyperref[sec:uc-1d-1]{UC-1D.1} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1D]{UC-1D} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di modificare il titolo di un contenuto generato & \hyperref[sec:uc-1d-2]{UC-1D.2} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1E]{UC-1E} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di modificare il testo di un contenuto generato & \hyperref[sec:uc-1d-3]{UC-1D.3} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1F]{UC-1F} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di salvare le modifiche effettuate a un contenuto generato & \hyperref[sec:uc-1d-4]{UC-1D.4} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1G]{UC-1G} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di annullare le modifiche effettuate a un contenuto generato & \hyperref[sec:uc-1d-5]{UC-1D.5} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1G.1]{UC-1G.1} & Obbligatorio \\
     \hline
-    \autoRF & Deve esserci un controllo per "File immagine non valido" & \hyperref[sec:uc-1d-6]{UC-1D.6} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1H]{UC-1H} & Obbligatorio \\
     \hline
-
-    \autoRF & Un utente deve avere la possibilità di riutilizzare una generazione & \hyperref[sec:uc-1e]{UC-1E} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1I]{UC-1I} & Obbligatorio \\
     \hline
-
-    \autoRF & Un utente deve avere la possibilità di duplicare una generazione & \hyperref[sec:uc-1f]{UC-1F} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1J]{UC-1J} & Obbligatorio \\
     \hline
-
-    \autoRF & Un utente deve avere la possibilità applicare un filtro alla lista dello storico & \hyperref[sec:uc-1g]{UC-1G} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la lista dopo aver applicato il filtro & \hyperref[sec:uc-1g-1]{UC-1G.1} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-1O]{UC-1O} & Obbligatorio \\
     \hline
 
-
-    \autoRF & Un utente deve avere la possibilità di rigenerare un contenuto tramite AI & \hyperref[sec:uc-1h]{UC-1H} & Obbligatorio \\
+    % Gruppo UC-1K -> 1N
+    \autoRF & & \hyperref[UC-1K]{UC-1K} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-1L]{UC-1L} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-1M]{UC-1M} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-1N]{UC-1N} & Obbligatorio \\
     \hline
 
-    \autoRF & Deve avvenire una valutazione di ogni contenuto generato & \hyperref[sec:uc-1i]{UC-1i} & Obbligatorio \\
+    % Gruppo UC-2A
+    \autoRF & & \hyperref[UC-2A]{UC-2A} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2A.1]{UC-2A.1} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2A.2]{UC-2A.2} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2A.3]{UC-2A.3} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2A.4]{UC-2A.4} & Obbligatorio \\
     \hline
 
-    \autoRF & Un utente deve avere la possibilità di scartare un contenuto generato & \hyperref[sec:uc-1j]{UC-1J} & Obbligatorio \\
+    % Gruppo UC-2B
+    \autoRF & & \hyperref[UC-2B]{UC-2B} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2B.1]{UC-2B.1} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2B.2]{UC-2B.2} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2B.3]{UC-2B.3} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2B.4]{UC-2B.4} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2B.5]{UC-2B.5} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2B.6]{UC-2B.6} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2B.7]{UC-2B.7} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2B.8]{UC-2B.8} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2B.9]{UC-2B.9} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2B.10]{UC-2B.10} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2B.11]{UC-2B.11} & Obbligatorio \\
     \hline
 
-    \autoRF & Un utente deve avere la possibilità di salvare il contenuto generato e eventualmente modificato & \hyperref[sec:uc-1k]{UC-1K} & Obbligatorio \\
+    % Gruppo UC-2C -> 2E
+    \autoRF & & \hyperref[UC-2C]{UC-2C} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2D]{UC-2D} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2E]{UC-2E} & Obbligatorio \\
+    \hline
+    \autoRF & & \hyperref[UC-2F]{UC-2F} & Obbligatorio \\
     \hline
 
-
-    \autoRF & Un utente deve avere la possibilità di far analizzare un documento al sistema AI & \hyperref[sec:uc-2a]{UC-2A} & Obbligatorio \\
+    % Gruppo UC-2G
+    \autoRF & & \hyperref[UC-2G]{UC-2G} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di caricare un file all'interno del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di upload e gestione documentale & \hyperref[sec:uc-2a-1]{UC-2A.1} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2G.1]{UC-2G.1} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di inserire la categoria del documento all'interno del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di upload e gestione documentale & \hyperref[sec:uc-2a-2]{UC-2A.2} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2G.2]{UC-2G.2} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di inserire il mese/anno di competenza di un documento all'interno del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di upload e gestione documentale & \hyperref[sec:uc-2a-3]{UC-2A.3} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2G.3]{UC-2G.3} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di inserire l'azienda di appartenenza del documento all'interno del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di upload e gestione documentale & \hyperref[sec:uc-2a-4]{UC-2A.4} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2G.4]{UC-2G.4} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di inserire il reparto di appartenenza del documento all'interno del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di upload e gestione documentale & \hyperref[sec:uc-2a-5]{UC-2A.5} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2G.5]{UC-2G.5} & Obbligatorio \\
     \hline
-
-
-    \autoRF & Un utente deve avere la possibilità di visualizzare la lista delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2b]{UC-2B} & Obbligatorio \\
-    \hline
-    \autoRF & Deve esserci un controllo per "Nessun documento riconosciuto" & \hyperref[sec:uc-2b-1]{UC-2B.1} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare un elemento dalla lista delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2b-2]{UC-2B.2} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il campo di competenza di un documento & \hyperref[sec:uc-2b-3]{UC-2B.3} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare l'azienda di appartenenza di un documento & \hyperref[sec:uc-2b-4]{UC-2B.4} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la causale di un documento & \hyperref[sec:uc-2b-5]{UC-2B.5} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la lingua di un documento & \hyperref[sec:uc-2b-6]{UC-2B.6} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il numero di pagine documento & \hyperref[sec:uc-2b-7]{UC-2B.7} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il nome del documento originale & \hyperref[sec:uc-2b-8]{UC-2B.8} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la data i redazione documento & \hyperref[sec:uc-2b-9]{UC-2B.9} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il codice di un documento & \hyperref[sec:uc-2b-10]{UC-2B.10} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la tipologia di un documento & \hyperref[sec:uc-2b-11]{UC-2B.11} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2G.6]{UC-2G.6} & Obbligatorio \\
     \hline
 
-
-
-    \autoRF & Un utente deve avere la possibilità di aprire il Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di gestione del documento & \hyperref[sec:uc-2c]{UC-2C} & Obbligatorio \\
+    % Gruppo UC-2H
+    \autoRF & & \hyperref[UC-2H]{UC-2H} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare l'anteprima di un documento prima di inviarlo & \hyperref[sec:uc-2c-1]{UC-2C.1} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2H.1]{UC-2H.1} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di modificare il destinatario a un documento & \hyperref[sec:uc-2c-2]{UC-2C.2} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2H.2]{UC-2H.2} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di modificare la tipologia a un documento & \hyperref[sec:uc-2c-3]{UC-2C.3} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2H.3]{UC-2H.3} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di rivalutare la percentuale di confidenza di un documento& \hyperref[sec:uc-2c-4]{UC-2C.4} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2H.4]{UC-2H.4} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di salvare le modifiche apportate a un documento & \hyperref[sec:uc-2c-5]{UC-2C.5} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di aprire il Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} riguardante le informazioni dei destinatari & \hyperref[sec:uc-2d]{UC-2D} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la lista informazioni destinatari & \hyperref[sec:uc-2d]{UC-2D} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare un elemento dalla lista informazioni destinatari & \hyperref[sec:uc-2d-1]{UC-2D.1} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la matricola di un destinatario & \hyperref[sec:uc-2d-3]{UC-2D.3} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il reparto di un destinatario & \hyperref[sec:uc-2d-4]{UC-2D.4} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il nome di un destinatario & \hyperref[sec:uc-2d-5]{UC-2D.5} & Obbligatorio \\
-    \hline
-    \autoRF & Deve esserci un controllo per "Nessun destinatario riconosciuto" & \hyperref[sec:uc-2b-6]{UC-2B.6} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il codice fiscale di un destinatario & \hyperref[sec:uc-2d-2]{UC-2D.2} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2H.5]{UC-2H.5} & Obbligatorio \\
     \hline
 
-
-    \autoRF & Un utente deve avere la possibilità di visualizzare la lista storico documenti & \hyperref[sec:uc-2e]{UC-2E} & Obbligatorio \\
+    % Gruppo UC-2I -> 2R
+    \autoRF & & \hyperref[UC-2I]{UC-2I} & Obbligatorio \\
     \hline
-    \autoRF & C'è la possibilitá che non siano mai stati registrati documenti e che quindi l'applicativo agisca di conseguenza & \hyperref[sec:uc-2e-1]{UC-2E.1} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2J]{UC-2J} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare un elemento dalla lista storico documenti & \hyperref[sec:uc-2e-2]{UC-2E.2} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2K]{UC-2K} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la percentuale di confidenza di un elemento & \hyperref[sec:uc-2e-3]{UC-2E.3} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2L]{UC-2L} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la lista di appartenenza di un elemento & \hyperref[sec:uc-2e-4]{UC-2E.4} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2M]{UC-2M} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare lo stato da un elemento& \hyperref[sec:uc-2e-5]{UC-2E.5} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2N]{UC-2N} & Obbligatorio \\
     \hline
-
-    \autoRF & Un utente deve avere la possibilità di creare un messaggio da inviare con i documenti & \hyperref[sec:uc-2f]{UC-2F} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2O]{UC-2O} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di salvare il template di un messaaggio in uno storico per poterlo riutilizzare in futuro & \hyperref[sec:uc-2f-1]{UC-2F.1} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2P]{UC-2P} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di modificare l'oggetto di un messaggio & \hyperref[sec:uc-2f-2]{UC-2F.2} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2Q]{UC-2Q} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di modificare il testo di messaggio & \hyperref[sec:uc-2f-3]{UC-2F.3} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2R]{UC-2R} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di confermare le modifiche apportate ad un messaggio & \hyperref[sec:uc-2f-4]{UC-2F.4} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2S]{UC-2S} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di annullare le modifiche apportate ad un messaggio & \hyperref[sec:uc-2f-5]{UC-2F.5} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2T]{UC-2T} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare l'oggetto di un messaggio & \hyperref[sec:uc-2f-6]{UC-2F.6} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il testo di messaggio & \hyperref[sec:uc-2f-7]{UC-2F.7} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-2U]{UC-2U} & Obbligatorio \\
     \hline
 
-    \autoRF & Un utente deve avere la possibilità di accedere alla pagina dei template salvati & \hyperref[sec:uc-2g]{UC-2G} & Obbligatorio \\
+    % Gruppo UC-3A
+    \autoRF & & \hyperref[UC-3A]{UC-3A} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di eliminare template dalla tabella dei template salvati& \hyperref[sec:uc-2g-1]{UC-2G.1} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-3A.1]{UC-3A.1} & Obbligatorio \\
     \hline
-    \autoRF & Il sistema non deve mostrare niente se nessun template è stato salvato all'interno dello storico & \hyperref[sec:uc-2g-2]{UC-2G.2} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-3A.2]{UC-3A.2} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di caricare un template per riutilizzarlo & \hyperref[sec:uc-2g-3]{UC-2G.3} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-3A.3]{UC-3A.3} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la lista dei template salvati & \hyperref[sec:uc-2g-4]{UC-2G.4} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-3A.4]{UC-3A.4} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare un elemento dall lista template salvati & \hyperref[sec:uc-2g-5]{UC-2G.5} & Obbligatorio \\
-    \hline
-
-    \autoRF & Un utente deve avere la possibilità di inviare un documento con il relativo messaggio & \hyperref[sec:uc-2h]{UC-2H} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare allegare un file con il documento che sta inviando & \hyperref[sec:uc-2h-1]{UC-2H.1} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di pianificare l'invio di un documento & \hyperref[sec:uc-2h-2]{UC-2H.2} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-3A.5]{UC-3A.5} & Obbligatorio \\
     \hline
 
-    \autoRF & Un utente deve avere la possibilità di filtrare la lista dei documenti & \hyperref[sec:uc-2i]{UC-2I} & Obbligatorio \\
+    % Gruppo UC-3B
+    \autoRF & & \hyperref[UC-3B]{UC-3B} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la lista filtrata delle informazioni dei documenti partizionati dall'AI in seguito all'upload & \hyperref[sec:uc-2i-1]{UC-2I.1} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-3B.1]{UC-3B.1} & Obbligatorio \\
     \hline
-
-    \autoRF & Un utente deve avere la possibilità di filtrare la lista dei destinatari & \hyperref[sec:uc-2j]{UC-2J} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-3B.2]{UC-3B.2} & Obbligatorio \\
     \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la lista filtrata dei destinatari & \hyperref[sec:uc-2j-1]{UC-2J.1} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-3B.3]{UC-3B.3} & Obbligatorio \\
     \hline
-
-    \autoRF & Un utente deve avere la possibilitá di filtrare i documenti nello storico per favorire la ricerca & \hyperref[sec:uc-2k]{UC-2K} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la lista filtrata storico documenti & \hyperref[sec:uc-2k-1]{UC-2K.1} & Obbligatorio \\
+    \autoRF & & \hyperref[UC-3B.4]{UC-3B.4} & Obbligatorio \\
     \hline
 
+    % Gruppo UC-3C
+    \autoRF & & \hyperref[UC-3C]{UC-3C} & Obbligatorio \\
+    \hline
 
-
-    \autoRF & Un utente deve avere la possibilità di accedere alla Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} di analisi e Monitoraggio AI & \hyperref[sec:uc-3a]{UC-3A} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare l'elenco dati AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} & \hyperref[sec:uc-3a-1]{UC-3A.1} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il numero di prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati & \hyperref[sec:uc-3a-2]{UC-3A.2} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il rating medio prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati & \hyperref[sec:uc-3a-3]{UC-3A.3} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare il numero rigenerazioni prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} & \hyperref[sec:uc-3a-4]{UC-3A.4} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare i toni più usati & \hyperref[sec:uc-3a-5]{UC-3A.5} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare gli stili più usati & \hyperref[sec:uc-3a-6]{UC-3A.6} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare l'elenco dati AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} & \hyperref[sec:uc-3a-7]{UC-3A.7} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la confidenza media & \hyperref[sec:uc-3a-8]{UC-3A.8} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare la percentuale interventi manuali & \hyperref[sec:uc-3a-9]{UC-3A.9} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare l'accuratezza mapping & \hyperref[sec:uc-3a-10]{UC-3A.10} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare i tempi medi analisi & \hyperref[sec:uc-3a-11]{UC-3A.11} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare inserire la data d'inizio delle statistiche & \hyperref[sec:uc-3a-12]{UC-3A.12} & Obbligatorio \\
-    \hline
-    \autoRF & Un utente deve avere la possibilità di visualizzare inserire la data di fine delle statistiche & \hyperref[sec:uc-3a-13]{UC-3A.13} & Obbligatorio \\
-    \hline
 
 \end{longtable}
 
