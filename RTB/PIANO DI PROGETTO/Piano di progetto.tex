@@ -10,6 +10,7 @@
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{float}
+\usepackage{tabularray}
 \usepackage{ifthen}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
@@ -19,8 +20,9 @@
 \usepackage{caption}
 \usepackage{colortbl}
 \usepackage{pgfplots}
+\usepackage{makecell}
 % Comando per la versione corrente
-\newcommand{\CurrentVersion}{0.1.1}
+\newcommand{\CurrentVersion}{0.1.4}
 \pgfplotsset{compat=1.16}
 
 % Comando per il pedice G compatibile con hyperref
@@ -75,6 +77,7 @@
 
 \graphicspath{{./}{../assets/images/}{./images/}}
 
+\usepackage{multirow}
 \begin{document}
 
 \begin{center}
@@ -87,7 +90,7 @@
   {\Large\bfseries\color{primaryblue} BugBusters}\\[0.5cm]
 
   {\Huge\bfseries\color{primaryblue} Piano di Progetto\pediceG}\\[0.3cm]
-  {\Large\color{secondaryblue} Versione 0.1.3}\\[0.8cm]
+  {\Large\color{secondaryblue} Versione 0.1.4}\\[0.8cm]
 \end{center}
 
 \begin{center}
@@ -121,10 +124,10 @@ Il Piano di Progetto\pediceG riporta il riepilogo delle attività effettuate e q
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
-0.1.5 & 12/01/2026 & Compilate le attività "Redazione Norme di Progetto" e "Realizzazione PoC" nella sezione Attività previste per l'RTB\pediceG & Linor Sadè & - & - \\
-\hline 
-0.1.4 &  & Aggiunti ai termini presenti nel Glossario la G & Alberto Autiero & - & - \\
+ &  & Aggiunti ai termini presenti nel Glossario la G & Alberto Autiero & - & - \\
 \hline
+0.1.4 & 12/01/2026 & Compilate le attività "Redazione Norme di Progetto" e "Realizzazione PoC" nella sezione Attività previste per l'RTB\pediceG & Linor Sadè & - & - \\
+\hline 
  0.1.3 & 10/01/2026 & Compilazione tabella Attività previste per la Requirements and Technology Baseline (RTB)\pediceG & Alberto Autiero & & - \\
 \hline
  0.1.2 & 08/01/2026 & Creazione grafici dei primi 4 Sprint\pediceG & Alberto Autiero & & - \\
@@ -440,30 +443,72 @@ Seguiranno ora le attività previste per la Requirements and Technology Baseline
 
 \subsection{Attività previste per la Requirements and Technology Baseline (RTB)\pediceG}
 
-\begin{longtable}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}p{3.5cm}|>{\centering\arraybackslash}p{5cm}|>{\centering\arraybackslash}m{2cm}|}
-\hline
-\textbf{Attività} & \textbf{Descrizione} & \textbf{Periodo di svolgimento} & \textbf{Stato} \\
-\hline
-\endfirsthead
-\endfoot
-\hline
-Redazione Analisi dei Requisiti\pediceG & \parbox[c]{3.5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item XXX \item XXX \end{itemize}} & \parbox[c]{5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item XXX \item XXX \end{itemize}} & IN REDAZIONE \\
-\hline
-Redazione Piano di Progetto\pediceG & \parbox[c]{3.5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item Introduzione del documento \item Analisi e gestione dei rischi \item Pianificazione nel lungo e breve periodo\end{itemize}} & \parbox[c]{5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item Introduzione del documento: sprint 2 \item Analisi e gestione dei rischi: tutti gli sprint \item Pianificazione nel lungo e breve periodo: tutti gli sprint\end{itemize}} & IN REDAZIONE \\
-\hline
-Redazione Piano di Qualifica\pediceG & \parbox[c]{3.5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item XXX \item XXX \end{itemize}} & \parbox[c]{5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item XXX \item XXX \end{itemize}} & IN REDAZIONE \\
-\hline
-Redazione Norme di Progetto\pediceG & \parbox[c]{3.5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item Introduzione del documento \item Redazione dei processi primari \item Redazione dei processi di supporto \item Redazione dei processi organizzativi \item Redazione sezione Standard di progetto \item Redazione XXX\end{itemize}} & \parbox[c]{5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item  Introduzione del documento: sprint 1 \item Redazione dei processi primari: sprint 1, 2 e modifiche minime o aggiunte negli altri sprint \item Redazione dei processi di supporto: sprint 2, modifiche o aggiunte negli altri sprint\item Redazione dei processi organizzativi: fine sprint 2, inizio 3 \item Redazione sezione Standard di progetto: sprint 3 \item Redazione XXX\end{itemize}} & IN REDAZIONE \\
-\hline
-Redazione Glossario\pediceG & \parbox[c]{3.5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item Redazione e aggiornamento dei termini\end{itemize}} & \parbox[c]{5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item Tutti gli sprint \end{itemize}} & IN REDAZIONE \\
-\hline
-Realizzazione PoC\pediceG & \parbox[c]{3.5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item Prima implementazione solo con Rails (anche UI) \item Ridefinizione struttura backend-frontend aggiungendo Angular \item Implementazione e modifica di funzionalità backend con relativa implementazione in frontend \item Refactoring del codice \end{itemize}} & \parbox[c]{5cm}{\centering\begin{itemize}[leftmargin=*,itemsep=3pt] \item Prima implementazione: sprint 3 \item Ridefinizione struttura: sprint 3 \item Sprint 4 \end{itemize}} & IN REALIZZAZIONE \\
-\hline
-\caption{Attività previste per la Requirements and Technology Baseline (RTB)\pediceG}%
-\label{tab:attivita-rtb}
-\end{longtable}
+{
+% 1. Svuotiamo i template per evitare scritte "Continua..." o didascalie in alto
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{capcont}{default}{}
+\DefTblrTemplate{contfoot}{default}{}
+\DefTblrTemplate{conthead}{default}{}
+\DefTblrTemplate{contfoot-text}{default}{}
+\DefTblrTemplate{conthead-text}{default}{}
 
-\newpage
+% 2. Posizioniamo l'ancora per l'indice esattamente qui
+\phantomsection 
+
+\begin{longtblr}[
+  % Definiamo l'entry per l'indice (List of Tables)
+  entry = {Attività previste per la RTB},
+  label = {tab:attivita-rtb},
+]{
+  colspec = {|Q[c,m,3.2cm]|Q[l,m,3.8cm]|Q[l,m,4.2cm]|Q[c,m,2.8cm]|},
+  % rowhead = 1, % RIMOSSO: così l'intestazione NON si ripete tra le pagine
+  hlines = {primaryblue},
+  vlines = {primaryblue},
+  row{1} = {font=\bfseries},
+}
+% --- INTESTAZIONE (Apparirà solo una volta) ---
+Attività & Descrizione & Periodo di svolgimento & Stato \\
+
+% --- CONTENUTO ---
+\SetCell[r=2]{c} \textbf{Redazione Analisi dei Requisiti\pediceG} 
+& XXX & XXX & \SetCell[r=2]{c} IN REDAZIONE \\
+& XXX & XXX & \\
+
+\SetCell[r=3]{c} \textbf{Redazione Piano di Progetto\pediceG} 
+& Introduzione del documento & Sprint 2 & \SetCell[r=3]{c} IN REDAZIONE \\
+& Analisi e gestione dei rischi & Tutti gli sprint & \\
+& Pianificazione nel lungo e breve periodo & Tutti gli sprint & \\
+
+\SetCell[r=2]{c} \textbf{Redazione Piano di Qualifica\pediceG} 
+& XXX & XXX & \SetCell[r=2]{c} IN REDAZIONE \\
+& XXX & XXX & \\
+
+\SetCell[r=5]{c} \textbf{Redazione Norme di Progetto\pediceG} 
+& Introduzione del documento & Sprint 1 & \SetCell[r=5]{c} IN REDAZIONE \\
+& Redazione dei processi primari & Sprint 1, 2 e modifiche minime successive & \\
+& Redazione dei processi di supporto & Sprint 2 e modifiche successive & \\
+& Redazione dei processi organizzativi & Fine sprint 2, inizio sprint 3 & \\
+& Redazione sezione Standard di progetto & Sprint 3 & \\
+
+\textbf{Redazione Glossario\pediceG} & Redazione e aggiornamento dei termini & Tutti gli sprint & IN REDAZIONE \\
+
+\SetCell[r=4]{c} \textbf{Realizzazione PoC\pediceG} 
+& Prima implementazione solo con Rails & Sprint 3 & \SetCell[r=4]{c} {\small IN\\REALIZ-\\ZAZIONE} \\
+& Ridefinizione struttura backend-frontend aggiungendo Angular & Sprint 3 & \\
+& Implementazione e modifica di funzionalità backend con relativa implementazione in frontend & Sprint 4 & \\
+& Refactoring del codice & Sprint 5 & \\
+\end{longtblr}
+
+% 3. Didascalia manuale posizionata sotto la tabella
+\nopagebreak
+\begin{center}
+  \itshape Tabella \thetable: Attività previste per la Requirements and Technology Baseline (RTB)\pediceG
+\end{center}
+
+% 4. Allineamento del contatore per evitare discrepanze con l'indice
+\addtocounter{table}{-1} 
+\refstepcounter{table} 
+}
 
 \section{Pianificazione a breve termine}
 
