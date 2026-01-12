@@ -93,8 +93,8 @@
     \item \textbf{Tipo riunione:} Esterna
     \item \textbf{Piattaforma:} Google Meet
     \item \textbf{Data:} 17/12/2025
-    \item \textbf{Orario di inizio:} 15:00
-    \item \textbf{Orario di fine:} 15:30
+    \item \textbf{Orario di inizio:} 16:00
+    \item \textbf{Orario di fine:} 17:10
     \item \textbf{Presenti:}
     \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
         \item Alberto Autiero
@@ -120,6 +120,10 @@
 
 \begin{enumerate}
     \item \label{itm:poc} Presentazione POC aggiornato in data 7 gennaio 2026.
+    \begin{enumerate}
+      \item \label{itm:poc2} Dimostrazione funzionalità implementate.
+      \item \label{itm:problematiche} Discussione sulle problematiche riscontrate.
+    \end{enumerate}
     \item \label{itm:Analisi dei requisiti} Discussione su eventuali modifiche al documento relativo all'analisi dei requisiti.
     \item \label{itm:progettazione} Domande relative ai modelli in uso.
 
@@ -128,20 +132,34 @@
 \newpage
 \section{Svolgimento}
 
-\subsection*{\ref{itm:poc}. Presentazione interfaccia utente per il POC.}
-Il team ha presentato a Eggon un'idea di una possibile interfaccia di quello che sarà poi il POC.
-Riguardo alla confidenza di un file è stato fatto notare che il livello di confidenza misurato dovrebbe essere relativo a ogni entità estratta, e non solo una media complessiva della confidenza del file.
+\subsection*{\ref{itm:poc}. Presentazione POC aggiornato in data 7 gennaio 2026.}
+In sede di riunione, il team ha presentato il POC aggiornato alla data corrente, illustrando le funzionalità implementate e le tecnologie utilizzate.
+Qui di seguito sono riportati i punti salienti della presentazione.
+\subsubsection*{\ref{itm:poc2}. Dimostrazione funzionalità implementate.}
+\begin{itemize}
+  \item Il modulo AI assistant generativo, che consente agli utenti di generare contenuti testuali a partire da prompt, selezionando un'azienda di riferimento tra quelle disponibili e un tono di comunicazione preferito tra quelli disponibili per azienda.
+  \item Il modulo di Ai co-pilot per Cdl ancora in stato embrionale, che consente agli utenti di caricare documenti in vari formati (es PDF, png, jpeg, jpg) e di estrarre informazioni predefinite.
+\end{itemize}
+\paragraph{}
+Durante la presentazione, è stato spiegato che il POC non ha alcuna pretesa di essere finito e di essere coerente con i requisiti definiti, ma vuole essere un primo passo verso l'uso delle tecnologie.\\
+Per esempio, il modulo AI assistant generativo consente la modifica dei contenuti generati tramite prompt consecutivi, mentre da analisi dei requisiti emerge la necessità di un risultato più preciso in seguito al singolo prompt, con eventuali modifiche manuali qualora ve ne fosse bisogno. 
+\subsubsection{\ref{itm:problematiche}. Discussione sulle problematiche riscontrate.}
+\begin{itemize}
+  \item P
+\end{itemize}
+\paragraph{} Sono stati riscontrati alcuni problemi nella generazione di contenuti, come la presenza di placeholder nel testo generato, qualora mancasse il contesto nel prompt inserito dall'utente. Il modello dovrebbe essere in grado di generare un testo completo senza placeholder, il problema potrebbe essere dovuto ad un'implementazione parziale o alla scelta del modello.\\
+Infine inserendo prompt fuori dal dominio aziendale, il modello tende a generare risposte non pertinenti o messaggi di errore (per esempio "Non sono in grado di rispondere a questa domanda"). È stato suggerito di implementare un sistema di filtraggio e di controllo dei prompt in ingresso e in uscita (guardrail AI), in modo da evitare richieste non pertinenti e che le risposte siano sicure e appropriate.
+\subsection*{\ref{itm:progettazione}. Domande relative ai modelli in uso.}
+Entrambi i moduli sono stati implementati usando dei modelli \textit{Nova} di amazon: il modello \textit{Nova lite v1} e \textit{Nova Canvas v1} per il testo e per l'OCR dei documenti.\\\\
+Il dubbio del team riguardava la scelta di questi modelli, in quanto non sicuri fossero i più adatti allo scopo. Eggon ha confermato che per il primo modulo i modelli sono adeguati, anche se è da capire se il problema dei placeholder è dovuto al modello o all'implementazione. \\
+È stato suggerito di testare modelli ad uso pubblico (es GPT-4 di OpenAI, Gemini etc) per confrontare i risultati ottenuti.
+Qualora il modello risultasse inadeguato, si potrà pensare di cambiare modello nella sua interezza o di definire un sistema ibrido: usare un modello più potente per la rigenerazione del prompt scritto dall'utente, che verrà successivamente passato al modello attuale per la generazione del testo. Questo permetterebbe di mantenere i costi bassi, in quanto i modelli più potenti hanno costi di utilizzo più elevati ma nello stesso tempo di garantire risultati migliori.\\
 
-\subsection*{\ref{itm:Analisi dei requisiti}. Presentazione documento relativo all'analisi dei requisiti.}
-Il team ha presentato e descritto la struttura del documento relativo all'analisi dei requisiti, mostrando come sono suddivisi i casi d'uso e descrivendone la granularità.\\
-Come concordato durante le passate riunioni, viene mantenuto il caso d'uso relativo al login degli utenti, ma posto come opzionale.
-
-\subsection*{\ref{itm:Piano di Qualifica}. Domande relative alle metriche riguardanti la qualità di prodotto e processo relative al piano di qualifica.}
-Il team ha chiesto relativamente al piano di qualifica, se Eggon richiedesse delle particolari metriche di qualita di processo o prodotto da essere rispettate, oltre a quelle già definite nel capitolato
-La risposta è stata che i criteri attualmente definiti nel capitolato sono sufficienti a dimostrare l'affidabilità del sistema, ma in ogni caso il team è libero, qualora lo ritenesse necessario, 
-di aggiungere ulteriori criteri.
+\paragraph{}
 
 \section{Tabella delle decisioni e azioni}
+
+\subsection*{\ref{itm:Analisi dei requisiti}. Discussione su eventuali modifiche al documento relativo all'analisi dei requisiti.}
 
 \setlength{\extrarowheight}{2pt} % padding extra verticale
 \renewcommand{\arraystretch}{1.5} 
