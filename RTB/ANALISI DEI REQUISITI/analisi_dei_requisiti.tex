@@ -65,6 +65,58 @@
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
 
+% --- NEL PREAMBOLO (Prima di \begin{document}) ---
+\setcounter{tocdepth}{4}     % Serve per mostrare i sotto-casi nell'indice
+\setcounter{secnumdepth}{4}  
+
+% --- INIZIO DEFINIZIONI TEMPLATE DINAMICO ---
+
+\newcounter{usecase}[subsection]
+\renewcommand{\theusecase}{\Alph{usecase}}
+
+\newcounter{subusecase}[usecase]
+
+\newcommand{\currentUCID}{}
+\newcommand{\UCPrefix}{0} 
+
+% --- DEFINIZIONE DEL CASO D'USO (PADRE) ---
+% Mantiene \subsubsection perché è comodo per la struttura principale
+\newcommand{\useCase}[2]{%
+    \refstepcounter{usecase}%
+    \renewcommand{\currentUCID}{UC-\UCPrefix\theusecase}%
+    \subsubsection{\currentUCID\ – #1}\label{#2}%
+}
+
+\newcounter{fullsubusecase}[usecase]
+\renewcommand{\thefullsubusecase}{\arabic{fullsubusecase}}
+\newcommand{\currentSubUCID}{}
+
+% --- DEFINIZIONE DEL SOTTO-CASO (FIGLIO) ---
+% QUESTA È LA PARTE MODIFICATA
+% Non usa più \paragraph, ma costruisce il titolo manualmente
+\newcommand{\subUseCase}[2]{%
+    \refstepcounter{fullsubusecase}%
+    \renewcommand{\currentSubUCID}{\currentUCID.\thefullsubusecase}%
+    
+    % 1. Spaziatura verticale prima del titolo
+    \par\vspace{10pt}%
+    
+    % 2. Ancora per i link (se usi hyperref)
+    \phantomsection
+    
+    % 3. Inserimento MANUALE nell'indice (livello paragraph = 4)
+    \addcontentsline{toc}{paragraph}{\numberline{}\currentSubUCID\ – #1}%
+    
+    % 4. Stampa visiva del titolo
+    \noindent\textbf{\currentSubUCID\ – #1}% Titolo in Grassetto
+    \label{#2}% Label per i riferimenti
+    
+    % 5. A capo forzato con piccolo spazio dopo
+    \par\vspace{2pt}%
+    % Ora il testo successivo inizierà sicuramente a capo
+}
+
+% --- FINE DEFINIZIONI TEMPLATE DINAMICO ---
 
 \begin{document}
 
@@ -427,7 +479,9 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \subsection{Sezione 0 – Applicazione standalone}
 
-\subsubsection{UC-0A – Registrazione nuovo utente}\label{sec:uc-0a} 
+\renewcommand{\UCPrefix}{0}
+
+\useCase{Registrazione nuovo utente}{sec:uc-0a-1}{
 
 \begin{figure}[H]
     \centering
@@ -501,7 +555,9 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.1 – Inserimento email}\label{sec:uc-0a-1}
+}
+
+\subUseCase{Inserimento email}{sec:uc-0a-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -525,7 +581,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.2 – Inserimento password}\label{sec:uc-0a-2}
+\subUseCase{Inserimento password}{sec:uc-0a-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -550,7 +606,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.3 – Inserimento username}\label{sec:uc-0a-3}
+\subUseCase{Inserimento username}{sec:uc-0a-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -574,7 +630,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.4 – Inserimento nome\label{sec:uc-0a-4}}
+\subUseCase{Inserimento nome}{sec:uc-0a-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -598,7 +654,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.5 – Inserimento cognome}\label{sec:uc-0a-5}
+\subUseCase{Inserimento cognome}{sec:uc-0a-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -623,7 +679,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.6 – Inserimento matricola}\label{sec:uc-0a-6}
+\subUseCase{Inserimento matricola}{sec:uc-0a-6}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -647,7 +703,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.7 – Email non valida}\label{sec:uc-0a-7}
+\subUseCase{Email non valida}{sec:uc-0a-7}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -672,7 +728,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.8 – Password non valida}\label{sec:uc-0a-8}
+\subUseCase{Password non valida}{sec:uc-0a-8}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -697,7 +753,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.9 – Email già registrata}\label{sec:uc-0a-9}
+\subUseCase{Email già registrata}{sec:uc-0a-9}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -722,7 +778,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.10 – Username già registrato}\label{sec:uc-0a-10}
+\subUseCase{Username già registrato}{sec:uc-0a-10}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -747,7 +803,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.11 – Matricola già registrata}\label{sec:uc-0a-11}
+\subUseCase{Matricola già registrata}{sec:uc-0a-11}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -772,7 +828,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0A.12 – Matricola non valida}\label{sec:uc-0a-12}
+\subUseCase{Matricola non valida}{sec:uc-0a-12}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -798,7 +854,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
-\subsubsection{UC-0B – Login / Autenticazione utente}\label{sec:uc-0b}
+\useCase{Login / Autenticazione utente}{sec:uc-0b}
 
 \begin{figure}[H]
     \centering
@@ -863,7 +919,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0B.1 – Email non registrata}\label{sec:uc-0b-1}
+\subUseCase{Email non registrata}{sec:uc-0b-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -888,7 +944,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0B.2 – Password errata}\label{sec:uc-0b-2}
+\subUseCase{Password errata}{sec:uc-0b-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -914,7 +970,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
-\subsubsection{UC-0C – Apertura Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{sec:uc-0c}
+\useCase{Apertura Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}}}{sec:uc-0c}
 
 \begin{figure}[H]
     \centering
@@ -965,7 +1021,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
-\subsubsection{UC-0D – Gestione profilo utente}\label{sec:uc-0d}
+\useCase{Gestione profilo utente}{sec:uc-0d}
 
 \begin{figure}[H]
     \centering
@@ -1028,7 +1084,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D.1 – Visualizzazione email}\label{sec:uc-0d-1}
+\subUseCase{Visualizzazione email}{sec:uc-0d-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1052,7 +1108,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D.2 – Visualizzazione password}\label{sec:uc-0d-2}
+\subUseCase{Visualizzazione password}{sec:uc-0d-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1076,7 +1132,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D.3 – Visualizzazione username}\label{sec:uc-0d-3}
+\subUseCase{Visualizzazione username}{sec:uc-0d-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1100,7 +1156,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D.4 – Visualizzazione nome}\label{sec:uc-0d-4}
+\subUseCase{Visualizzazione nome}{sec:uc-0d-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1124,7 +1180,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D.5 – Visualizzazione cognome}\label{sec:uc-0d-5}
+\subUseCase{Visualizzazione cognome}{sec:uc-0d-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1148,7 +1204,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D.6 – Visualizzazione matricola}\label{sec:uc-0d-6}
+\subUseCase{Visualizzazione matricola}{sec:uc-0d-6}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1172,7 +1228,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D.7 – Modifica informazioni profilo utente}\label{sec:uc-0d-9}
+\subUseCase{Modifica informazioni profilo utente}{sec:uc-0d-9}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1196,7 +1252,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D.8 – Uscita senza salvare profilo utente}\label{sec:uc-0d-8}
+\subUseCase{Uscita senza salvare profilo utente}{sec:uc-0d-8}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1221,7 +1277,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0D.9 – Salva profilo utente}\label{sec:uc-0d-7}
+\subUseCase{Salva profilo utente}{sec:uc-0d-7}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1248,7 +1304,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
-\subsubsection{UC-0E – Revisione ruoli}\label{sec:uc-0e}
+\useCase{Revisione ruoli}{sec:uc-0e}
 
 \begin{figure}[H]
     \centering
@@ -1305,7 +1361,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.1 – Visualizzazione lista utenti registrati}\label{sec:uc-0e-1}
+\subUseCase{Visualizzazione lista utenti registrati}{sec:uc-0e-1}
 
 \begin{figure}[H]
     \centering
@@ -1349,7 +1405,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.2 – Visualizzazione elemento lista utenti registrati}\label{sec:uc-0e-2}
+\subUseCase{Visualizzazione elemento lista utenti registrati}{sec:uc-0e-2}
 
 \begin{figure}[H]
     \centering
@@ -1395,7 +1451,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.3 – Visualizzazione ruolo utente registrato}\label{sec:uc-0e-3}
+\subUseCase{Visualizzazione ruolo utente registrato}{sec:uc-0e-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1419,7 +1475,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.4 – Visualizzazione nome utente registrato}\label{sec:uc-0e-4}
+\subUseCase{Visualizzazione nome utente registrato}{sec:uc-0e-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1443,7 +1499,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.5 – Visualizzazione cognome utente registrato}\label{sec:uc-0e-5}
+\subUseCase{Visualizzazione cognome utente registrato}{sec:uc-0e-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1467,7 +1523,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.6 – Modifica ruolo utente registrato}\label{sec:uc-0e-6}
+\subUseCase{Modifica ruolo utente registrato}{sec:uc-0e-6}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1506,7 +1562,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.7 – Utente non autorizzato}\label{sec:uc-0e-7}
+\subUseCase{Utente non autorizzato}{sec:uc-0e-7}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1532,7 +1588,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.8 – Annulla modifica ruolo utente registrato}\label{sec:uc-0e-8}
+\subUseCase{Annulla modifica ruolo utente registrato}{sec:uc-0e-8}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1557,7 +1613,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-0E.9 – Errore modifica ruolo utente registrato}\label{sec:uc-0e-9}
+\subUseCase{Errore modifica ruolo utente registrato}{sec:uc-0e-9}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1584,7 +1640,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
-\subsubsection{UC-0F – Logout}\label{sec:uc-0f}
+\useCase{Logout}{sec:uc-0f}
 
 \begin{figure}[H]
     \centering
@@ -1631,8 +1687,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \subsection{Sezione 1 – Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} Generativo}
 
+\renewcommand{\UCPrefix}{1}
 
-\subsubsection{UC-1A – Generazione contenuti AI}\label{sec:uc-1a}
+
+\useCase{Generazione contenuti AI}{sec:uc-1a}
 
 
 \begin{figure}[H]
@@ -1693,7 +1751,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1A.1 – Inserimento prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{sec:uc-1a-1}
+\subUseCase{Inserimento prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}}{sec:uc-1a-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1718,7 +1776,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1A.2 – Selezione tono}\label{sec:uc-1a-2}
+\subUseCase{Selezione tono}{sec:uc-1a-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1743,7 +1801,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1A.3 – Selezione stile}\label{sec:uc-1a-3}
+\subUseCase{Selezione stile}{sec:uc-1a-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1769,7 +1827,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
-\subsubsection{UC-1B – Visualizzazione lista elementi storico}\label{sec:uc-1b}
+\useCase{Visualizzazione lista elementi storico}{sec:uc-1b}
 
 \begin{figure}[H]
     \centering
@@ -1813,7 +1871,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B.1– Nessun prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} salvato}\label{sec:uc-1b-1}
+\subUseCase{Nessun prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} salvato}{sec:uc-1b-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1840,7 +1898,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B.2 – Visualizzazione informazioni elemento}\label{sec:uc-1b-2}
+\subUseCase{Visualizzazione informazioni elemento}{sec:uc-1b-2}
 
 \begin{figure}[H]
     \centering
@@ -1885,7 +1943,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B.3 – Visualizzazione stile}\label{sec:uc-1b-3}
+\subUseCase{Visualizzazione stile}{sec:uc-1b-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1910,7 +1968,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B.4 – Visualizzazione risultato}\label{sec:uc-1b-4}
+\subUseCase{Visualizzazione risultato}{sec:uc-1b-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1935,7 +1993,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B.5 – Visualizzazione timestamp}\label{sec:uc-1b-5}
+\subUseCase{Visualizzazione timestamp}{sec:uc-1b-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1960,7 +2018,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B.6 – Visualizzazione valutazione}\label{sec:uc-1b-6}
+\subUseCase{Visualizzazione valutazione}{sec:uc-1b-6}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1986,7 +2044,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B.7 – Visualizzazione prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{sec:uc-1b-7}
+\subUseCase{Visualizzazione prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}}{sec:uc-1b-7}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2011,7 +2069,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1B.8 – Visualizzazione tono}\label{sec:uc-1b-8}
+\subUseCase{Visualizzazione tono}{sec:uc-1b-8}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2035,7 +2093,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1C – Visualizzazione anteprima contenuto generato}\label{sec:uc-1c}
+\useCase{Visualizzazione anteprima contenuto generato}{sec:uc-1c}
 
 \begin{figure}[H]
     \centering
@@ -2066,7 +2124,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1D – Revisione contenuto generato}\label{sec:uc-1d}
+\useCase{Revisione contenuto generato}{sec:uc-1d}
 
 \begin{figure}[H]
     \centering
@@ -2123,7 +2181,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1D.1 – Modifica immagine}\label{sec:uc-1d-1}
+\subUseCase{Modifica immagine}{sec:uc-1d-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2170,7 +2228,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1D.2 – Modifica titolo}\label{sec:uc-1d-2}
+\subUseCase{Modifica titolo}{sec:uc-1d-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2195,7 +2253,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1D.3 – Modifica testo}\label{sec:uc-1d-3}
+\subUseCase{Modifica testo}{sec:uc-1d-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2220,7 +2278,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1D.4 – Salva modifiche}\label{sec:uc-1d-4}
+\subUseCase{Salva modifiche}{sec:uc-1d-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2246,7 +2304,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1D.5 – Annulla modifiche}\label{sec:uc-1d-5}
+\subUseCase{Annulla modifiche}{sec:uc-1d-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2272,7 +2330,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1D.6 – File immagine non valido}\label{sec:uc-1d-6}
+\subUseCase{File immagine non valido}{sec:uc-1d-6}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2298,7 +2356,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1E – Riutilizza}\label{sec:uc-1e}
+\useCase{Riutilizza}{sec:uc-1e}
 
 \begin{figure}[H]
     \centering
@@ -2337,7 +2395,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1F – Duplica}\label{sec:uc-1f}
+\useCase{Duplica}{sec:uc-1f}
 
 \begin{figure}[H]
     \centering
@@ -2371,7 +2429,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1G – Ricerca generazione}\label{sec:uc-1g}
+\useCase{Ricerca generazione}{sec:uc-1g}
 
 \begin{figure}[H]
     \centering
@@ -2412,7 +2470,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1G.1 – Visualizzazione lista elementi storico filtrata}\label{sec:uc-1g-1}
+\subUseCase{Visualizzazione lista elementi storico filtrata}{sec:uc-1g-1}
 
 \begin{figure}[H]
     \centering
@@ -2453,7 +2511,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1H – Rigenera contenuto tramite AI}\label{sec:uc-1h}
+\useCase{Rigenera contenuto tramite AI}{sec:uc-1h}
 
 \begin{figure}[H]
     \centering
@@ -2492,7 +2550,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1I – Valuta contenuto generato}\label{sec:uc-1i}
+\useCase{Valuta contenuto generato}{sec:uc-1i}
 
 \begin{figure}[H]
     \centering
@@ -2525,7 +2583,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1J – Scarta contenuto generato}\label{sec:uc-1j}
+\useCase{Scarta contenuto generato}{sec:uc-1j}
 
 \begin{figure}[H]
     \centering
@@ -2560,7 +2618,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-1K – Salva contenuto generato}\label{sec:uc-1k}
+\useCase{Salvataggio contenuto generato}{sec:uc-1k}
 
 \begin{figure}[H]
     \centering
@@ -2596,7 +2654,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \subsection{Sezione 2 – Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per i Consulenti del Lavoro (CdL)\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 
-\subsubsection{UC-2A – Analisi e gestione documentale}\label{sec:uc-2a}
+\renewcommand{\UCPrefix}{2}
+
+
+\useCase{Analisi e gestione documentale}{sec:uc-2a}
 
 \begin{figure}[H]
     \centering
@@ -2657,7 +2718,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2A.1 – Caricamento file}\label{sec:uc-2a-1}
+\subUseCase{Caricamento file}{sec:uc-2a-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2683,7 +2744,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2A.2 – Inserimento categoria}\label{sec:uc-2a-2}
+\subUseCase{Inserimento categoria}{sec:uc-2a-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2708,7 +2769,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2A.3 – Inserimento mese/anno di competenza}\label{sec:uc-2a-3}
+\subUseCase{Inserimento mese/anno di competenza}{sec:uc-2a-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2733,7 +2794,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2A.4 – Inserimento azienda}\label{sec:uc-2a-4}
+\subUseCase{Inserimento azienda}{sec:uc-2a-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2759,7 +2820,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2A.5 – Inserimento reparto}\label{sec:uc-2a-5}
+\subUseCase{Inserimento reparto}{sec:uc-2a-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2784,7 +2845,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B – Visualizzazione lista documenti analisi}\label{sec:uc-2b}
+\useCase{Visualizzazione lista documenti analisi}{sec:uc-2b}
 
 \begin{figure}[H]
     \centering
@@ -2828,7 +2889,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.1 – Nessun documento riconosciuto}\label{sec:uc-2b-1}
+\subUseCase{Nessun documento riconosciuto}{sec:uc-2b-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2854,7 +2915,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.2 – Visualizzazione elemento da lista documenti}\label{sec:uc-2b-2}
+\subUseCase{Visualizzazione elemento da lista documenti}{sec:uc-2b-2}
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -2894,7 +2955,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.3 – Visualizzazione competenza documento}\label{sec:uc-2b-3}
+\subUseCase{Visualizzazione competenza documento}{sec:uc-2b-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2919,7 +2980,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.4 – Visualizzazione azienda documento}\label{sec:uc-2b-4}
+\subUseCase{Visualizzazione azienda documento}{sec:uc-2b-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2944,7 +3005,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.5 – Visualizzazione causale}\label{sec:uc-2b-5}
+\subUseCase{Visualizzazione causale}{sec:uc-2b-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2969,7 +3030,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.6 – Visualizzazione lingua}\label{sec:uc-2b-6}
+\subUseCase{Visualizzazione lingua}{sec:uc-2b-6}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2993,7 +3054,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.7 – Visualizzazione numero pagine documento}\label{sec:uc-2b-7}
+\subUseCase{Visualizzazione numero pagine documento}{sec:uc-2b-7}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3018,7 +3079,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.8 – Visualizzazione nome documento originale}\label{sec:uc-2b-8}
+\subUseCase{Visualizzazione nome documento originale}{sec:uc-2b-8}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3043,7 +3104,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.9 – Visualizzazione data redazione documento}\label{sec:uc-2b-9}
+\subUseCase{Visualizzazione data redazione documento}{sec:uc-2b-9}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3068,7 +3129,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.10 – Visualizzazione codice documento}\label{sec:uc-2b-10}
+\subUseCase{Visualizzazione codice documento}{sec:uc-2b-10}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3093,7 +3154,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2B.11 – Visualizzazione tipologia documento}\label{sec:uc-2b-11}
+\subUseCase{Visualizzazione tipologia documento}{sec:uc-2b-11}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3118,7 +3179,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2C – Revisione documento analizzato}\label{sec:uc-2c}
+\useCase{Revisione documento analizzato}{sec:uc-2c}
 
 \begin{figure}[H]
     \centering
@@ -3184,7 +3245,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2C.1 – Visualizzazione anteprima documento}\label{sec:uc-2c-1}
+\subUseCase{Visualizzazione anteprima documento}{sec:uc-2c-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3211,7 +3272,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2C.2 – Modifica destinatario}\label{sec:uc-2c-2}
+\subUseCase{Modifica destinatario}{sec:uc-2c-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3239,7 +3300,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2C.3 – Modifica tipologia documento}\label{sec:uc-2c-3}
+\subUseCase{Modifica tipologia documento}{sec:uc-2c-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3266,7 +3327,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2C.4 – Rivaluta percentuale confidenza}\label{sec:uc-2c-4}
+\subUseCase{Rivaluta percentuale confidenza}{sec:uc-2c-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3293,7 +3354,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2C.5 – Salva modifiche documento}\label{sec:uc-2c-5}
+\subUseCase{Salva modifiche documento}{sec:uc-2c-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3328,7 +3389,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il salvataggio viene bloccato e viene mostrato un messaggio di errore all'utente.
 \end{enumerate}
 
-\subsubsection{UC-2D – Visualizzazione lista informazioni destinatari analisi}\label{sec:uc-2d}
+\useCase{Visualizzazione lista informazioni destinatari analisi}{sec:uc-2d}
 
 \begin{figure}[H]
     \centering
@@ -3371,7 +3432,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2D.1 – Visualizzazione elemento da lista informazioni destinatari}\label{sec:uc-2d-1}
+\subUseCase{Visualizzazione elemento da lista informazioni destinatari}{sec:uc-2d-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3417,7 +3478,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
 \end{itemize}
 
-\subsubsection{UC-2D.2 – Visualizzazione codice fiscale}\label{sec:uc-2d-2}
+\subUseCase{Visualizzazione codice fiscale}{sec:uc-2d-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3442,7 +3503,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2D.3 – Visualizzazione matricola}\label{sec:uc-2d-3}
+\subUseCase{Visualizzazione matricola}{sec:uc-2d-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3473,7 +3534,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2D.4 – Visualizzazione reparto}\label{sec:uc-2d-4}
+\subUseCase{Visualizzazione reparto}{sec:uc-2d-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3496,7 +3557,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema visualizza il nome del reparto di afferenza.
 \end{enumerate}
 
-\subsubsection{UC-2D.5 – Visualizzazione destinatario}\label{sec:uc-2d-5}
+\subUseCase{Visualizzazione destinatario}{sec:uc-2d-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3522,7 +3583,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2D.6 – Nessun destinatario riconosciuto}\label{sec:uc-2b-6}
+\subUseCase{Nessun destinatario riconosciuto}{sec:uc-2b-6}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3549,7 +3610,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
-\subsubsection{UC-2E – Visualizzazione lista storico documenti}\label{sec:uc-2e}
+\useCase{Visualizzazione lista storico documenti}{sec:uc-2e}
 
 \begin{figure}[H]
     \centering
@@ -3593,7 +3654,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.1 – Documenti assenti}\label{sec:uc-2e-1}
+\subUseCase{Documenti assenti}{sec:uc-2e-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3620,7 +3681,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.2 – Visualizzazione elemento da lista storico documenti}\label{sec:uc-2e-4}
+\subUseCase{Visualizzazione elemento da lista storico documenti}{sec:uc-2e-4}
 
 \begin{figure}[H]
     \centering
@@ -3667,7 +3728,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.3 – Visualizzazione percentuale confidenza}\label{sec:uc-2e-3}
+\subUseCase{Visualizzazione percentuale confidenza}{sec:uc-2e-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3694,7 +3755,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.4 – Visualizzazione appartenenza lista distribuzione}\label{sec:uc-2e-2}
+\subUseCase{Visualizzazione appartenenza lista distribuzione}{sec:uc-2e-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3719,7 +3780,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2E.5 – Visualizzazione stato}\label{sec:uc-2e-5}
+\subUseCase{Visualizzazione stato}{sec:uc-2e-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3745,7 +3806,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
-\subsubsection{UC-2F – Creazione messaggio}\label{sec:uc-2f}
+\useCase{Creazione messaggio}{sec:uc-2f}
 
 \begin{figure}[H]
     \centering
@@ -3811,7 +3872,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2F.1 – Salva template messaggio}\label{sec:uc-2f-1}
+\subUseCase{Salva template messaggio}{sec:uc-2f-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3839,7 +3900,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2F.2 – Modifica oggetto messaggio}\label{sec:uc-2f-2}
+\subUseCase{Modifica oggetto messaggio}{sec:uc-2f-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3864,7 +3925,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2F.3 – Modifica testo messaggio}\label{sec:uc-2f-3}
+\subUseCase{Modifica testo messaggio}{sec:uc-2f-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3889,7 +3950,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2F.4 – Conferma modifica messaggio}\label{sec:uc-2f-4}
+\subUseCase{Conferma modifica messaggio}{sec:uc-2f-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3915,7 +3976,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2F.5 – Uscita senza salvare modifica messaggio}\label{sec:uc-2f-5}
+\subUseCase{Uscita senza salvare modifica messaggio}{sec:uc-2f-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3940,7 +4001,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2F.6 – Visualizzazione oggetto messaggio}\label{sec:uc-2f-6}
+\subUseCase{Visualizzazione oggetto messaggio}{sec:uc-2f-6}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3965,7 +4026,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2F.7 – Visualizzazione testo messaggio}\label{sec:uc-2f-7}
+\subUseCase{Visualizzazione testo messaggio}{sec:uc-2f-7}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3989,7 +4050,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\subsubsection{UC-2G - Gestione template salvati }\label{sec:uc-2g}
+\useCase{Gestione template salvati }{sec:uc-2g}
 
 \begin{figure}[H]
     \centering
@@ -4034,7 +4095,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2G.1 – Elimina template}\label{sec:uc-2g-1}
+\subUseCase{Elimina template}{sec:uc-2g-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4064,7 +4125,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2G.2 – Nessun template salvato}\label{sec:uc-2g-2}
+\subUseCase{Nessun template salvato}{sec:uc-2g-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4092,7 +4153,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2G.3 – Carica template}\label{sec:uc-2g-3}
+\subUseCase{Carica template}{sec:uc-2g-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4118,7 +4179,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente può ora procedere a modificare o inviare il messaggio (ritorno a UC-2F).
 \end{enumerate}
 
-\subsubsection{UC-2G.4 – Visualizzazione lista template salvati}\label{sec:uc-2g-4}
+\subUseCase{Visualizzazione lista template salvati}{sec:uc-2g-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4151,7 +4212,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2G.5 – Visualizzazione elemento da lista template salvati}\label{sec:uc-2g-5}
+\subUseCase{Visualizzazione elemento da lista template salvati}{sec:uc-2g-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4195,7 +4256,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
 \end{itemize}
 
-\subsubsection{UC-2H – Invio documento e messaggio}\label{sec:uc-2h}
+\useCase{Invio documento e messaggio}{sec:uc-2h}
 
 \begin{figure}[H]
     \centering
@@ -4249,7 +4310,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
 \end{itemize}
 
-\subsubsection{UC-2H.1 – Allega file}\label{sec:uc-2h-1}
+\subUseCase{Allega file}{sec:uc-2h-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4276,7 +4337,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2H.2 – Pianifica invio}\label{sec:uc-2h-2}
+\subUseCase{Pianifica invio}{sec:uc-2h-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4304,7 +4365,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2I – Filtraggio documenti analisi}\label{sec:uc-2i}
+\useCase{Filtraggio documenti analisi}{sec:uc-2i}
 
 \begin{figure}[H]
     \centering
@@ -4355,7 +4416,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
 \end{itemize}
 
-\subsubsection{UC-2I.1 – Visualizzazione lista documenti filtrata}\label{sec:uc-2i-1}
+\subUseCase{Visualizzazione lista documenti filtrata}{sec:uc-2i-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4390,7 +4451,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2J – Filtraggio destinatari analisi}\label{sec:uc-2j}
+\useCase{Filtraggio destinatari analisi}{sec:uc-2j}
 
 \begin{figure}[H]
     \centering
@@ -4440,7 +4501,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
 \end{itemize}
 
-\subsubsection{UC-2J.1 – Visualizzazione lista destinatari filtrata}\label{sec:uc-2j-1}
+\subUseCase{Visualizzazione lista destinatari filtrata}{sec:uc-2j-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4474,7 +4535,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2K – Filtraggio documenti storico}\label{sec:uc-2k}
+\useCase{Filtraggio documenti storico}{sec:uc-2k}
 
 \begin{figure}[H]
     \centering
@@ -4524,7 +4585,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-2K.1 – Visualizzazione lista storico documenti filtrata}\label{sec:uc-2k-1}
+\subUseCase{Visualizzazione lista storico documenti filtrata}{sec:uc-2k-1}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4560,7 +4621,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \subsection{Sezione 3 - Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} Analytics e Monitoraggio Trasversale}
 
-\subsubsection{UC-3A - Analisi e Monitoraggio AI}\label{sec:uc-3a}
+\renewcommand{\UCPrefix}{3}
+
+
+\useCase{Analisi e Monitoraggio AI}{sec:uc-3a}
 
 \begin{figure}[H]
     \centering
@@ -4613,7 +4677,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-3A.1 - Visualizzazione elenco dati AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{sec:uc-3a-1}
+\subUseCase{Visualizzazione elenco dati AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}}}{sec:uc-3a-1}
 
 \begin{figure}[H]
     \centering
@@ -4669,7 +4733,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-3A.2 – Visualizzazione numero prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati}\label{sec:uc-3a-2}
+\subUseCase{Visualizzazione numero prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati}{sec:uc-3a-2}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4695,7 +4759,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-3A.3 – Visualizzazione rating medio prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati}\label{sec:uc-3a-3}
+\subUseCase{Visualizzazione rating medio prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati}{sec:uc-3a-3}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4722,7 +4786,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-3A.4 – Visualizzazione numero rigenerazioni prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{sec:uc-3a-4}
+\subUseCase{Visualizzazione numero rigenerazioni prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}}{sec:uc-3a-4}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4747,7 +4811,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-3A.5 – Visualizzazione toni più usati}\label{sec:uc-3a-5}
+\subUseCase{Visualizzazione toni più usati}{sec:uc-3a-5}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4773,7 +4837,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-3A.6 – Visualizzazione stili più usati}\label{sec:uc-3a-6}
+\subUseCase{Visualizzazione stili più usati}{sec:uc-3a-6}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4797,7 +4861,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema visualizza un grafico o una classifica che mostra quali formati di risposta sono più richiesti.
 \end{enumerate}
 
-\subsubsection{UC-3A.7 - Visualizzazione elenco dati AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{sec:uc-3a-7}
+\subUseCase{Visualizzazione elenco dati AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}}{sec:uc-3a-7}
 
 \begin{figure}[H]
     \centering
@@ -4851,7 +4915,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-3A.8 – Visualizzazione confidenza media}\label{sec:uc-3a-8}
+\subUseCase{Visualizzazione confidenza media}{sec:uc-3a-8}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4877,7 +4941,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-3A.9 – Visualizzazione percentuale interventi manuali}\label{sec:uc-3a-9}
+\subUseCase{Visualizzazione percentuale interventi manuali}{sec:uc-3a-9}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4903,7 +4967,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-3A.10 – Visualizzazione accuratezza mapping}\label{sec:uc-3a-10}
+\subUseCase{Visualizzazione accuratezza mapping}{sec:uc-3a-10}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4929,7 +4993,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-3A.11 – Visualizzazione tempi medi analisi}\label{sec:uc-3a-11}
+\subUseCase{Visualizzazione tempi medi analisi}{sec:uc-3a-11}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4953,7 +5017,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema mostra il tempo medio (es. "1.5 secondi per pagina"), utile per monitorare le performance dell'infrastruttura e la latenza del servizio.
 \end{enumerate}
 
-\subsubsection{UC-3A.12 – Inserimento data inizio}\label{sec:uc-3a-12}
+\subUseCase{Inserimento data inizio}{sec:uc-3a-12}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4989,7 +5053,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subsubsection{UC-3A.13 – Inserimento data fine}\label{sec:uc-3a-13}
+\subUseCase{Inserimento data fine}{sec:uc-3a-13}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
