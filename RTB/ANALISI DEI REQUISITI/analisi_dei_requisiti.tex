@@ -1017,12 +1017,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-0D.1 - Visualizzazione email
-        \item UC-0D.2 - Visualizzazione password
-        \item UC-0D.3 - Visualizzazione username
-        \item UC-0D.4 - Visualizzazione nome 
-        \item UC-0D.5 - Visualizzazione cognome
-        \item UC-0D.6 - Visualizzazione matricola
+        \item UC-0C.1 - Visualizzazione email
+        \item UC-0C.2 - Visualizzazione password
+        \item UC-0C.3 - Visualizzazione username
+        \item UC-0C.4 - Visualizzazione nome 
+        \item UC-0C.5 - Visualizzazione cognome
+        \item UC-0C.6 - Visualizzazione matricola
     \end{itemize}
 \end{itemize}
 
@@ -1418,15 +1418,9 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
 \begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item Nessuna
-
-    \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-0E.8 - Annulla modifica ruolo utente registrato
-        \item UC-0E.9 - Errore modifica ruolo utente registrato.
+        \item UC-0F.1 - Annulla modifica ruolo utente registrato
     \end{itemize}
     
 \end{itemize}
@@ -2078,7 +2072,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
-\useCase{Annulla modifiche}
+\useCase{Annulla modifiche a contenuto generato}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2104,33 +2098,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subUseCase{File immagine non valido}
 
-\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item HR manager/Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
-\end{itemize}
-
-\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item Un file non idoneo è stato caricato
-\end{itemize}
-
-\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item Viene mostrato un messaggio di errore e l'immagine precedente rimane invariata
-\end{itemize}
-
-\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{enumerate}
-    \item L'utente seleziona un file che non rispetta i Requisiti del sistema (formato non supportato, dimensione eccessiva, file corrotto)
-    \item Il sistema rileva l'anomalia durante il caricamento e blocca l'operazione
-\end{enumerate}
-
-
-\vspace{0.5cm}
-
-\useCase{Riutilizza}
+\useCase{Riutilizza contenuto salvato nello storico}
 
 \begin{figure}[H]
     \centering
@@ -2169,7 +2138,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\useCase{Duplica}
+\useCase{Duplica contenuto salvato nello storico}
 
 \begin{figure}[H]
     \centering
@@ -2203,7 +2172,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\useCase{Ricerca generazione}
+\useCase{Filtraggio lista generazioni storico}
 
 \begin{figure}[H]
     \centering
@@ -3105,10 +3074,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item \textit{include}: 
     \begin{itemize}
         \item UC-2B.10 – Visualizzazione codice documento
-        \item UC-2D.5 – Visualizzazione destinatario
-        \item UC-2D.6 - Visualizzazione codice fiscale
-        \item UC-2D.3 - Visualizzazione matricola
-        \item UC-2D.4 - Visualizzazione reparto
+        \item UC-2G.2 - Visualizzazione codice fiscale
+        \item UC-2G.3 - Visualizzazione matricola
+        \item UC-2G.4 - Visualizzazione reparto
+        \item UC-2G.5 – Visualizzazione destinatario
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -3582,7 +3551,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 
-\useCase{Visualizzazione lista template salvati}
+\useCase{Visualizzazione lista template}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3609,42 +3578,15 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2N.5 – Visualizzazione elemento da lista template salvati
+        \item UC-2N.1 – Visualizzazione elemento da lista template
     \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
 
-\subUseCase{Nessun template salvato}
-
-\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
-\end{itemize}
-
-\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item L'utente ha richiesto l'apertura della tabella template (UC-2G).
-    \item Non sono presenti template nel database per l'utente o per lo studio.
-\end{itemize}
-
-\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item Viene visualizzato un messaggio informativo ("Nessun template trovato").
-    \item La tabella appare vuota o nascosta.
-\end{itemize}
-
-\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{enumerate}
-    \item Il sistema interroga il database per recuperare la lista dei template disponibili.
-    \item La query restituisce un risultato vuoto.
-    \item Il sistema notifica all'utente che non ci sono template da caricare.
-\end{enumerate}
-
-\vspace{0.5cm}
 
 
-\subUseCase{Visualizzazione elemento da lista template salvati}
+\subUseCase{Visualizzazione elemento da lista template}
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -3676,10 +3618,9 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-1B.8 – Visualizzazione tono
-        \item UC-1B.3 – Visualizzazione stile 
-        \item UC-2F.6 – Visualizzazione oggetto messaggio
-        \item UC-2F.7 – Visualizzazione testo messaggio
+        \item UC-2N.2 – Visualizzazione oggetto template
+        \item UC-2N.3 – Visualizzazione testo template
+        \item UC-2N.4 – Visualizzazione codice template
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -3688,7 +3629,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{itemize}
 
 
-\subUseCase{Visualizzazione oggetto messaggio}
+\subUseCase{Visualizzazione oggetto template}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3697,17 +3638,17 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Ci si trova nella pagina di gestione messaggio (UC-2F)
+    \item Si sta visualizzando la tabella dei template messaggio
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'oggetto corrente (vuoto, di default o generato) è visibile.
+    \item Recupero dell'oggetto del messaggio nel template
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item Il sistema recupera l'eventuale oggetto predefinito basato sulla tipologia di documento.
+    \item Il sistema recupera l'oggetto del template.
     \item Il sistema mostra il contenuto nel campo dedicato.
 \end{enumerate}
 
@@ -3722,19 +3663,46 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Ci si trova nella pagina di gestione messaggio (UC-2F)
+    \item Si sta visualizzando la tabella dei template messaggio
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il corpo del messaggio è visibile e leggibile.
+    \item Recupero del testo del messaggio nel template
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item Il sistema recupera il testo (vuoto o pre-generato).
-    \item Il sistema renderizza l'area di testo permettendo la lettura del contenuto.
+    \item Il sistema recupera il testo del template.
+    \item Il sistema mostra il contenuto nel campo dedicato.
 \end{enumerate}
+
+\vspace{0.5cm}
+
+\subUseCase{Visualizzazione codice template}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Si sta visualizzando la tabella dei template messaggio
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Recupero del codice del template
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item Il sistema recupera il codice del template.
+    \item Il sistema mostra il contenuto nel campo dedicato.
+\end{enumerate}
+
+\vspace{0.5cm}
 
 
 \useCase{Invio documento e messaggio}
@@ -3779,15 +3747,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2F.6 – Visualizzazione oggetto messaggio
-        \item UC-2F.7 – Visualizzazione testo messaggio
-        \item UC-2H.4 – Visualizzazione lista destinatari
-        \item UC-2H.5 – Visualizzazione lista documenti
-    \end{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-2H.1 – Allega file
-        \item UC-2H.2 – Pianifica invio
+        \item UC-2O.1 – Allega file
+        \item UC-2O.2 – Pianifica invio
     \end{itemize}
 \end{itemize}
 
