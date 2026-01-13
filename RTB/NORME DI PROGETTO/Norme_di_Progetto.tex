@@ -976,14 +976,14 @@ Al termine di ogni riunione, viene redatto un verbale che riassume le decisioni 
 % \end{itemize}
 Per qualità\G{} si intende l'insieme delle caratteristiche di un'entità che ne determinano la capacità di soddisfare esigenze sia espresse che implicite.La qualità si misura su due aspetti principali: 
 \begin{enumerate}
-    \item la qualità del prodotto;
-    \item la qualità del processo.
+    \item la \textbf{qualità del prodotto};
+    \item la \textbf{qualità del processo}.
 \end{enumerate}
 La qualità del prodotto finale è una conseguenza diretta della qualità del processo utilizzato per crearlo.
 Perché il software risulti di qualità è necessario che venga pianificato, e non solo controllato, un buon processo di valutazione: questo permette di lavorare seguendo una modalità proattiva (valutazione continua) piuttosto che reattiva (correzione di bug).\\
-Diventa quindi fondamentale seguire uno standard di riferimento per poter definire, misurare e valutare la qualità del software in modo oggettivo e coerente.\\
+Diventa quindi fondamentale seguire uno standard di riferimento per poter definire, misurare e valutare la qualità del software in modo oggettivo e coerente.
 
-\subsection{Standard di Riferimento e modelli}
+\subsection{Standard di riferimento e modelli}
 Storicamente definite dagli standard ISO/IEC 9126 e ISO/IEC 14598, queste sono oggi unificate e aggiornate nella serie di norme ISO/IEC 25010, nota anche come SQuaRE (Systems and software Quality Requirements and Evaluation). Questo standard internazionale organizza la qualità in 2 diverse categorie: 
 \begin{itemize}
     \item Qualità del Prodotto, che analizza le seguenti proprietà intrinseche del software:
@@ -1006,11 +1006,30 @@ Storicamente definite dagli standard ISO/IEC 9126 e ISO/IEC 14598, queste sono o
         \item \textbf{Contesto di copertura}.
     \end{enumerate}
 \end{itemize}
-
-Per quanto riguarda, invece, la qualità del processo, lo standard di riferimento è l'ISO/IEC 9001 e il modello CMMI (Capability Maturity Model Integration). Questi standard forniscono linee guida per la gestione della qualità nei processi di sviluppo software, includendo aspetti come la pianificazione, il controllo e il miglioramento continuo dei processi stessi.
+Noi ci concentriamo sulla qualità del prodotto. \\ %qui forse è da modificare, perchè noi non abbiamo metriche di qualità in uso? solo del prodotto e del processo.
+Per quanto riguarda, invece, la qualità del processo, lo standard di riferimento è l'\textbf{ISO/IEC 9001} e il \textbf{modello CMMI (Capability Maturity Model Integration)}. Questi standard forniscono linee guida per la gestione della qualità nei processi di sviluppo software, includendo aspetti come la pianificazione, il controllo e il miglioramento continuo dei processi stessi.
 
 \subsection{Processo di Valutazione della Qualità}
-% \subsubsection{Adeguatezza funzionale}
+Il processo di valutazione della qualità del software si articola in quattro fasi principali:
+\begin{enumerate}
+    \item \textbf{Fase preventiva di definizione di metriche, interpretazione delle misure e criteri di accettazione}: sia nel contesto del prodotto che del processo, vengono identificate le metriche e come queste devono essere interpretate per valutare la qualità e raggiungere l'obiettivo di accettazione.
+    \item \textbf{Misurazione}: la raccolta dei dati necessari per calcolare le metriche selezionate. Questa fase dovrebbe essere automatizzata attraverso strumenti di analisi statica e dinamica del codice, test automatici e monitoraggio delle prestazioni.
+    \item \textbf{Valutazione}: l'analisi dei dati raccolti per determinare se gli obiettivi di qualità sono stati raggiunti. Questa fase può includere la revisione dei risultati da parte di un team di verifica e validazione, nonché la documentazione dei risultati e delle eventuali azioni correttive da intraprendere.
+    \item \textbf{Accettazione}: la decisione finale su se il software soddisfa i requisiti di qualità stabiliti. Se le metriche sono soddisfatte, il software può essere considerato pronto.
+\end{enumerate}
+
+\subsection{Principi della Qualità del processo}
+Secondo lo standard ISO/IEC 9001, la qualità del processo di sviluppo software si basa su diversi principi fondamentali:
+\begin{itemize}
+    \item \textbf{Responsabilità della direzione}: il responsabile deve definire una politica per la qualità, stabilire obiettivi e garantire che tutti i membri del team siano consapevoli delle loro responsabilità.
+    \item \textbf{Gestione delle risorse}: è essenziale assicurarsi che il team abbia gli strumenti giusti (es. IDE, versionamento con git) e che i membri abbiano la formazione necessaria.
+    \item \textbf{Realizzazione del prodotto}: il processo di sviluppo richiede che le fasi di documentazione dei requisiti, progettazione e sviluppo siano sottocontrollo e tracciabili.
+    \item \textbf{Misurazione, analisi e miglioramento}: è fondamentale monitorare continuamente il processo di sviluppo per identificare aree di miglioramento e implementare azioni correttive quando necessario.
+\end{itemize}
+
+Ciò viene fatto in questo progetto attraverso una chiara definizione degli strumenti e delle metodologie di lavoro (specificate in questo documento), un monitoraggio continuo dell'avanzamento del progetto (tramite issue tracking e riunioni periodiche documentate), un'attenta analisi sulle richieste della proponente (specificate nel documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/analisi_dei_requisiti_.pdf}{analisi dei requisiti})  e una valutazione regolare della qualità del prodotto con un'analisi sul miglioramento (tramite il processo di verifica e validazione descritto nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano_di_Qualifica.pdf}{piano di qualifica}).
+
+    % \subsubsection{Adeguatezza funzionale}
 % La funzionalità verifica se sono soddisfatti i requisiti funzionali definiti con la proponente.\\ Nello specifico misura: 
 % \begin{itemize}
 %     \item \textbf{Appropriatezza}: definisce se il prodotto software offre le funzioni necessarie per svolgere i compiti fissati dalla proponente.
