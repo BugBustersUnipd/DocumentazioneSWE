@@ -135,6 +135,8 @@ Documento contenente le norme di progetto adottate dal team BugBusters per lo sv
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
+\rowcolor{secondaryblue!10} 0.1.3 & 12/1/2026 & Avanzamento: aggiunta sezione & Linor Sadè & - & - \\
+\hline
 \rowcolor{secondaryblue!10} 0.1.2 & 4/1/2026 & Aggiunte parti mancanti relative al piano di qualifica. Ulteriori correzioni al contenuto precedente. & Linor Sadè & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.1.1 & 3/1/2026 & Correzioni minime nel documento e aggiunte alcune parti mancanti & Linor Sadè & - & - \\
@@ -964,68 +966,95 @@ Le riunioni esterne con la proponente sono pianificate per garantire un allineam
 Queste riunioni si svolgono generalmente ogni due settimane, il mercoledì alle ore 15:00, ma possono essere organizzate con maggiore frequenza in caso di necessità.\\
 Questi incontri avvengono tramite piattaforma Google Meet.
 Al termine di ogni riunione, viene redatto un verbale che riassume le decisioni prese e le azioni da intraprendere, il quale verrà condiviso con la proponente e, se in linea con quanto discusso, firmato.
-\section{Standard di progetto}
-\subsection{Standard ISO/IEC 9126}
-Lo standard ISO/IEC 9126 fornisce delle linee guida e normative, in modo da poter fornire un modello univoco e riconosciuto globalmente che misura la qualità del software.\\
-Questo modello è definito da sei caratteristiche generali:
+\section{Qualità del Software}
+
+% Elenco puntato da eliminare e trasformare in testo fluido e privo di parolacce:
+% \begin{itemize}
+%     \item introduzione, spiegare brevemente: che cos'è la qualità del software, su cosa si misura la qualità: prodotto e processo, perchè processo influenza il prodottoo, il processo di valutazione cosa fa
+%     \item spiegare il processo di valutazione: definizione, selezione delle metriche e misurazione
+%     \item caratteristiche della qualità di processo.
+% \end{itemize}
+Per qualità\G{} si intende l'insieme delle caratteristiche di un'entità che ne determinano la capacità di soddisfare esigenze sia espresse che implicite.La qualità si misura su due aspetti principali: 
+\begin{enumerate}
+    \item la qualità del prodotto;
+    \item la qualità del processo.
+\end{enumerate}
+La qualità del prodotto finale è una conseguenza diretta della qualità del processo utilizzato per crearlo.
+Perché il software risulti di qualità è necessario che venga pianificato, e non solo controllato, un buon processo di valutazione: questo permette di lavorare seguendo una modalità proattiva (valutazione continua) piuttosto che reattiva (correzione di bug).\\
+Diventa quindi fondamentale seguire uno standard di riferimento per poter definire, misurare e valutare la qualità del software in modo oggettivo e coerente.\\
+
+\subsection{Standard di Riferimento e modelli}
+Storicamente definite dagli standard ISO/IEC 9126 e ISO/IEC 14598, queste sono oggi unificate e aggiornate nella serie di norme ISO/IEC 25010, nota anche come SQuaRE (Systems and software Quality Requirements and Evaluation). Questo standard internazionale organizza la qualità in 2 diverse categorie: 
 \begin{itemize}
-    \item \textbf{Funzionalità};
-    \item \textbf{Affidabilità};
-    \item \textbf{Efficienza};
-    \item \textbf{Usabilità};
-    \item \textbf{Manutenibilità};
-    \item \textbf{Portabilità};
+    \item Qualità del Prodotto, che analizza le seguenti proprietà intrinseche del software:
+    \begin{enumerate}
+        \item \textbf{Adeguatezza funzionale};
+        \item \textbf{Efficienza prestazionale};
+        \item \textbf{Compatibilità};
+        \item \textbf{Usabilità};
+        \item \textbf{Affidabilità};
+        \item \textbf{Sicurezza};
+        \item \textbf{Manutenibilità};
+        \item \textbf{Portabilità};
+    \end{enumerate}
+    \item Qualità in Uso, che valuta le seguenti caratteristiche dal punto di vista dell'utente finale:
+    \begin{enumerate}
+        \item \textbf{Efficacia};
+        \item \textbf{Efficienza};
+        \item \textbf{Soddisfazione};
+        \item \textbf{Libertà da rischi};
+        \item \textbf{Contesto di copertura}.
+    \end{enumerate}
 \end{itemize}
-\subsubsection{Funzionalità}
-La funzionalità verifica se sono soddisfatti i requisiti funzionali definiti con la proponente.\\ Nello specifico misura: 
-\begin{itemize}
-    \item \textbf{Appropriatezza}: definisce se il prodotto software offre le funzioni necessarie per svolgere i compiti fissati dalla proponente.
-    \item \textbf{Accuratezza}: è la capacità del prodotto software di produrre i precisi risultati richiesti.
-    \item \textbf{Interoperabilità}: è la capacità del prodotto software di poter interagire e operare con altri sistemi. 
-    \item \textbf{Conformità}: è la capacità del prodotto software di essere conforme a standard, convenzioni e regolamentazioni che sono di rilievo per il settore nel quale deve operare.
-    \item \textbf{Sicurezza}: è la capacità del prodotto software di tutelare le informazioni, assicurando che ciascun utente possa accedere esclusivamente ai dati per i quali possiede le necessarie autorizzazioni.
-\end{itemize}
-\subsubsection{Affidabilità}
-Consiste nella capacità con cui il software svolge i suoi compiti mantenendo un certo livello di prestazioni in qualsiasi momento, anche in periodi d'uso intensi.\\ Viene misurato nello specifico:
-\begin{itemize}
-    \item \textbf{Maturità}: è la capacità di un prodotto software di evitare che si verifichino errori, malfunzionamenti o che siano prodotti risultati errati.
-    \item \textbf{Tolleranza agli errori}: è la capacità di mantenere livelli costanti di prestazioni anche in caso di malfunzionamenti o usi scorretti del prodotto.
-    \item \textbf{Recuperabilità}: indica la capacità di un prodotto software di ripristinare un adeguato livello di funzionamento e recuperare le informazioni necessarie dopo un guasto o un malfunzionamento.
-    \item \textbf{Aderenza}: indica la capacità di aderire a standard o convenzioni inerenti all'affidabilità.
-\end{itemize}
-\subsubsection{Efficienza}
-L'efficienza misura la capacità di fornire appropriate prestazioni in confronto alla quantità di risorse utilizzate.\\ Viene misurato nello specifico:
-\begin{itemize}
-    \item \textbf{Comportamento rispetto al tempo}: è la capacità di fornire adeguati tempi di risposta ed elaborazione, sotto determinate condizioni.
-    \item \textbf{Utilizzo delle risorse}: è la capacità di utilizzare quantità e tipo di risorse in maniera adeguata.
-    \item \textbf{Conformità}: è la capacità del prodotto ad aderire a standard relativi all'efficienza.
-\end{itemize}
-\subsubsection{Usabilità}
-L'usabilità è la capacità del prodotto software di essere compreso e utilizzato dall'utente finale.\\ Viene misurato nello specifico:
-\begin{itemize}
-    \item \textbf{Comprensibilità}: misura la facilità di comprensione dei concetti del prodotto.
-    \item \textbf{Apprendibilità}: misura la facilità nell'apprendere l'uso delle funzionalità del prodotto.
-    \item \textbf{Operabilità}: definisce se l'utilizzo del prodotto da parte degli utenti risulta semplice o no.
-    \item \textbf{Attrattiva}: è la capacità del software di risultare piacevole all'utente quando viene utilizzato.
-    \item \textbf{Conformità}: è la capacità del prodotto ad aderire a standard relativi all'usabilità.
-\end{itemize}
-\subsubsection{Manutenibilità}
-La manutenibilità è la capacità del software di essere modificato, includendo correzioni, adattamenti o miglioramenti.\\ Viene misurato nello specifico:
-\begin{itemize}
-    \item \textbf{Analizzabilità}: misura la capacità con la quale è possibile analizzare il codice per trovare un errore in esso presente.
-    \item \textbf{Modificabilità}: misura la capacità del prodotto software di permettere l'implementazione di modifiche specifiche.
-    \item \textbf{Stabilità}: misura la capacità del prodotto software di evitare effetti inaspettati derivanti da modifiche errate.
-    \item \textbf{Testabilità}: definisce la capacità del prodotto software di essere facilmente testato per validare le modifiche apportate.
-\end{itemize}
-\subsubsection{Portabilità}
-La portabilità definisce la capacità del software di essere trasportato da un ambiente di lavoro ad un altro.\\ Viene misurato nello specifico:
-\begin{itemize}
-    \item \textbf{Adattabilità}: è la capacità del software di essere adattato per differenti ambienti operativi senza dover apportare modifiche.
-    \item \textbf{Installabilità}: è la capacità del software di essere installato in uno specifico ambiente.
-    \item \textbf{Conformità}: è la capacità del prodotto software di aderire a standard relativi alla portabilità.
-    \item \textbf{Sostituibilità}: è la capacità del software di essere utilizzato  al posto di un altro software per svolgere gli stessi compiti di quest'ultimo nello stesso ambiente.
-\end{itemize}
+
+Per quanto riguarda, invece, la qualità del processo, lo standard di riferimento è l'ISO/IEC 9001 e il modello CMMI (Capability Maturity Model Integration). Questi standard forniscono linee guida per la gestione della qualità nei processi di sviluppo software, includendo aspetti come la pianificazione, il controllo e il miglioramento continuo dei processi stessi.
+
+\subsection{Processo di Valutazione della Qualità}
+% \subsubsection{Adeguatezza funzionale}
+% La funzionalità verifica se sono soddisfatti i requisiti funzionali definiti con la proponente.\\ Nello specifico misura: 
+% \begin{itemize}
+%     \item \textbf{Appropriatezza}: definisce se il prodotto software offre le funzioni necessarie per svolgere i compiti fissati dalla proponente.
+%     \item \textbf{Correttezza}: è la capacità del prodotto software di fornire risultati corretti in base alle specifiche.
+%     \item \textbf{Completezza}: è la capacità del prodotto software di fornire tutte le funzioni richieste senza omissioni.
+% \end{itemize}
+% \subsubsection{Affidabilità}
+% Consiste nella capacità con cui il software svolge i suoi compiti mantenendo un certo livello di prestazioni in qualsiasi momento, anche in periodi d'uso intensi.\\ Viene misurato nello specifico:
+% \begin{itemize}
+%     \item \textbf{Maturità}: è la capacità di un prodotto software di evitare che si verifichino errori, malfunzionamenti o che siano prodotti risultati errati.
+%     \item \textbf{Tolleranza agli errori}: è la capacità di mantenere livelli costanti di prestazioni anche in caso di malfunzionamenti o usi scorretti del prodotto.
+%     \item \textbf{Recuperabilità}: indica la capacità di un prodotto software di ripristinare un adeguato livello di funzionamento e recuperare le informazioni necessarie dopo un guasto o un malfunzionamento.
+%     \item \textbf{Aderenza}: indica la capacità di aderire a standard o convenzioni inerenti all'affidabilità.
+% \end{itemize}
+% \subsubsection{Efficienza}
+% L'efficienza misura la capacità di fornire appropriate prestazioni in confronto alla quantità di risorse utilizzate.\\ Viene misurato nello specifico:
+% \begin{itemize}
+%     \item \textbf{Comportamento rispetto al tempo}: è la capacità di fornire adeguati tempi di risposta ed elaborazione, sotto determinate condizioni.
+%     \item \textbf{Utilizzo delle risorse}: è la capacità di utilizzare quantità e tipo di risorse in maniera adeguata.
+%     \item \textbf{Conformità}: è la capacità del prodotto ad aderire a standard relativi all'efficienza.
+% \end{itemize}
+% \subsubsection{Usabilità}
+% L'usabilità è la capacità del prodotto software di essere compreso e utilizzato dall'utente finale.\\ Viene misurato nello specifico:
+% \begin{itemize}
+%     \item \textbf{Comprensibilità}: misura la facilità di comprensione dei concetti del prodotto.
+%     \item \textbf{Apprendibilità}: misura la facilità nell'apprendere l'uso delle funzionalità del prodotto.
+%     \item \textbf{Operabilità}: definisce se l'utilizzo del prodotto da parte degli utenti risulta semplice o no.
+%     \item \textbf{Attrattiva}: è la capacità del software di risultare piacevole all'utente quando viene utilizzato.
+%     \item \textbf{Conformità}: è la capacità del prodotto ad aderire a standard relativi all'usabilità.
+% \end{itemize}
+% \subsubsection{Manutenibilità}
+% La manutenibilità è la capacità del software di essere modificato, includendo correzioni, adattamenti o miglioramenti.\\ Viene misurato nello specifico:
+% \begin{itemize}
+%     \item \textbf{Analizzabilità}: misura la capacità con la quale è possibile analizzare il codice per trovare un errore in esso presente.
+%     \item \textbf{Modificabilità}: misura la capacità del prodotto software di permettere l'implementazione di modifiche specifiche.
+%     \item \textbf{Stabilità}: misura la capacità del prodotto software di evitare effetti inaspettati derivanti da modifiche errate.
+%     \item \textbf{Testabilità}: definisce la capacità del prodotto software di essere facilmente testato per validare le modifiche apportate.
+% \end{itemize}
+% \subsubsection{Portabilità}
+% La portabilità definisce la capacità del software di essere trasportato da un ambiente di lavoro ad un altro.\\ Viene misurato nello specifico:
+% \begin{itemize}
+%     \item \textbf{Adattabilità}: è la capacità del software di essere adattato per differenti ambienti operativi senza dover apportare modifiche.
+%     \item \textbf{Installabilità}: è la capacità del software di essere installato in uno specifico ambiente.
+%     \item \textbf{Conformità}: è la capacità del prodotto software di aderire a standard relativi alla portabilità.
+%     \item \textbf{Sostituibilità}: è la capacità del software di essere utilizzato  al posto di un altro software per svolgere gli stessi compiti di quest'ultimo nello stesso ambiente.
+% \end{itemize}
 \end{document}
-
-
-
