@@ -1,0 +1,216 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Esterno}\\[0.3cm]
+  {\Large\color{secondaryblue} 7 gennaio 2026}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Redattori}    & Linor Sadè \\
+\textbf{Verificatore}    & Marco Favero \\
+\textbf{Uso}          & Esterno \\
+\textbf{Destinatari}  & Prof. Tullio Vardanega, Prof. Riccardo Cardin, Eggon, BugBusters\\
+\textbf{Versione} & 1.0.0\\
+
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale esterno relativo alla riunione tenutasi in data 7/01/2026 tra il team BugBusters e l'azienda Eggon, per la presentazione del POC aggiornato alla data del 7 gennaio 2026. Nel verbale sono riportati i punti salienti della presentazione, le problematiche riscontrate, le domande relative ai modelli in uso e la discussione su eventuali modifiche al documento relativo all'analisi dei requisiti.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Esterna
+    \item \textbf{Luogo:} In presenza presso la sede di Eggon
+    \item \textbf{Data:} 07/01/2026
+    \item \textbf{Orario di inizio:} 16:00
+    \item \textbf{Orario di fine:} 17:10
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+    \item \textbf{Assenti:} 
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+    \item Nessuno
+    \end{itemize}
+    \item \textbf{Presenti Esterni:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+    \item Luca Iuzzolino
+    \item Gianpaolo Ferrarin
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+    \item \label{itm:poc} Presentazione POC aggiornato in data 7 gennaio 2026.
+    \begin{enumerate}
+      \item \label{itm:poc2} Dimostrazione funzionalità implementate.
+      \item \label{itm:problematiche} Discussione sulle problematiche riscontrate.
+    \end{enumerate}
+    \item \label{itm:progettazione} Domande relative ai modelli in uso.
+    \item \label{itm:analisi_requisiti} Discussione su eventuali modifiche al documento relativo all'analisi dei requisiti.
+
+\end{enumerate}
+
+\newpage
+\section{Svolgimento}
+
+\subsection*{\ref{itm:poc}. Presentazione POC aggiornato in data 7 gennaio 2026.}
+In sede di riunione, il team ha presentato il POC aggiornato alla data corrente, illustrando le funzionalità implementate e le tecnologie utilizzate.
+Qui di seguito sono riportati i punti salienti della presentazione.
+\subsubsection*{\ref{itm:poc2}. Dimostrazione delle funzionalità implementate.}
+\begin{itemize}
+  \item Il modulo AI assistant generativo consente agli utenti di generare contenuti testuali a partire da prompt, selezionando un'azienda di riferimento tra quelle disponibili e un tono di comunicazione preferito.
+  \item Il modulo AI co-pilot per CdL è ancora in stato embrionale; consente agli utenti di caricare documenti in vari formati (es. PDF, PNG, JPEG) e di estrarre informazioni predefinite.
+\end{itemize}
+\paragraph{}
+Durante la presentazione, è stato spiegato che il POC non ha la pretesa di essere completo o pienamente coerente con i requisiti definiti; è un primo passo verso l'uso delle tecnologie.\\
+Per esempio, il modulo AI assistant generativo consente la modifica dei contenuti generati tramite prompt consecutivi; tuttavia, dall'analisi dei requisiti emerge la necessità di ottenere un risultato più preciso a seguito di un singolo prompt, con eventuali modifiche manuali qualora ce ne fosse bisogno.
+\subsubsection*{\ref{itm:problematiche}. Discussione sulle problematiche riscontrate.}
+Le problematiche principali riscontrate sono:
+\begin{enumerate}
+  \item risultati che non delineano sufficientemente un tono selezionato;
+  \item placeholder nel testo generato dal modulo AI assistant generativo;
+  \item risposte non pertinenti o messaggi di errore inseriti nel testo generato;
+\end{enumerate}
+\paragraph{1b.1} Il team ha riscontrato che il modulo AI assistant generativo non riesce a delineare sufficientemente il tono selezionato dall'utente. Per esempio, selezionando un tono formale, il testo generato risulta essere solo leggermente più formale rispetto ad un tono neutro.\\
+Eggon ha suggerito di migliorare il prompt passato al modello, in modo da enfatizzare maggiormente il tono selezionato.
+\paragraph{1b.2} Sono stati riscontrati alcuni problemi nella generazione di contenuti, come la presenza di placeholder nel testo generato se mancava il contesto nel prompt inserito dall'utente. Il modello dovrebbe essere in grado di generare un testo completo senza placeholder. Il problema potrebbe essere dovuto a un'implementazione parziale o alla scelta del modello.
+\paragraph{1b.3}
+Infine, quando vengono inseriti prompt fuori dal dominio aziendale, il modello tende a generare risposte non pertinenti o messaggi di errore (per esempio "Non sono in grado di rispondere a questa domanda"). È stato suggerito di implementare un sistema di filtraggio e controllo dei prompt in ingresso e in uscita (meccanismi di guardrail per l'AI), in modo da evitare richieste non pertinenti e garantire che le risposte siano sicure e appropriate.
+\subsection*{\ref{itm:progettazione}. Domande relative ai modelli in uso.}
+Entrambi i moduli sono stati implementati utilizzando modelli \textit{Nova} di Amazon: il modello \textit{Nova Canvas v1} e \textit{Nova Lite v1} per il testo e per l'OCR dei documenti.
+
+
+\paragraph{1}
+Per il primo modulo, è stato suggerito di testare modelli di uso pubblico (es. GPT-4 di OpenAI, Gemini, ecc.) per confrontare i risultati ottenuti.
+Il dubbio del team riguardava la scelta di questi modelli, in quanto non erano sicuri che fossero i più adatti allo scopo. Eggon ha confermato che per il primo modulo i modelli sono adeguati, anche se è da capire se il problema dei placeholder sia dovuto al modello o all'implementazione.\\
+Qualora il modello risultasse inadeguato, si potrà pensare di cambiare modello nella sua interezza o di definire un sistema ibrido: usare un modello più potente per la rigenerazione del prompt a partire da quello scritto dall'utente, che verrà successivamente passato al modello attuale per la generazione del testo. Questo permetterebbe di mantenere bassi i costi, poiché i modelli più potenti hanno costi di utilizzo più elevati, ma allo stesso tempo garantire risultati migliori.
+
+\paragraph{2} Per il secondo modulo, invece, Eggon ha confermato che il modello è appropriato solo nel contesto del POC. Per il prodotto finale si dovranno utilizzare modelli più potenti come \textit{AWS Comprehend} e \textit{AWS Textract}.
+
+\subsection*{\ref{itm:analisi_requisiti}. Discussione su eventuali modifiche al documento relativo all'analisi dei requisiti.}
+Il team ha espresso dei dubbi sulle funzionalità di \textit{data analysis}, che al momento della scrittura dell'analisi dei requisiti non erano ancora chiare. Il team voleva capire quale fosse esattamente il processo di invio ai rispettivi destinatari dei documenti analizzati dall'AI co-pilot per il CdL, in particolare per quanto riguarda la sicurezza dei dati nei casi di bassa confidenza nell'estrazione delle informazioni.\\
+Eggon ha spiegato che il processo prevede che l'utente possa scegliere di inviare i documenti analizzati senza revisionarli, anche in caso di bassa confidenza. Sarà quindi responsabilità dell'utente finale; a tal proposito si potrebbe inserire un disclaimer.
+
+Il documento di analisi dei requisiti verrà inviato ad Eggon per una revisione sulla correttezza delle funzionalità descritte.
+\section{Tabella delle decisioni e azioni}
+
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+\hline
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/104}{RTB67}}{Redazione del verbale corrente e invio del documento di analisi dei requisiti}{Linor Sadè}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/117}{RTB77}}{Verifica del verbale corrente}{Marco Favero}
+\end{tabularx}
+\fussy
+
+
+\section{Esito Riunione}
+Sono stati discussi i punti riportati nell'ordine del giorno, aiutando il team a risolvere i propri dubbi.\\
+Si ringraziano l'azienda Eggon e i rappresentanti Gianpaolo Ferrarin e Luca Iuzzolino per la disponibilità dimostrata.
+
+
+\vspace{1.5cm}
+\noindent\textbf{\Large Data}\\[0.4cm]
+\underline{\hspace{4cm}}
+
+\vspace{1.5cm}
+\noindent\textbf{\Large Firma}\\[0.8cm]
+\underline{\hspace{6cm}} \\[0.2cm]
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
