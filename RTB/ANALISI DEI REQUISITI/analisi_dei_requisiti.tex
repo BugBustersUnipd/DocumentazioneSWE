@@ -69,6 +69,12 @@
 \setlength{\parindent}{0pt}
 
 % --- NEL PREAMBOLO (Prima di \begin{document}) ---
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+            {-2.5ex\@plus -1ex \@minus -.25ex}%
+            {1.25ex \@plus .25ex}%
+            {\normalfont\normalsize\bfseries}}
+\makeatother
 \setcounter{tocdepth}{4}     % Serve per mostrare i sotto-casi nell'indice
 \setcounter{secnumdepth}{4}  
 
@@ -108,7 +114,7 @@
     \phantomsection
     
     % 3. Inserimento MANUALE nell'indice (livello paragraph = 4)
-    \addcontentsline{toc}{paragraph}{\numberline{}\currentSubUCID\ – #1}%
+    \addcontentsline{toc}{paragraph}{\numberline{\thesubsubsection.\arabic{fullsubusecase}}\currentSubUCID\ – #1}%
     
     % 4. Stampa visiva del titolo
     \noindent\textbf{\currentSubUCID\ – #1}% Titolo in Grassetto
@@ -978,8 +984,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0D.jpg}
-    \caption{Diagramma del caso d'uso UC-0D – Visualizzazione dati profilo utente}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0C.jpg}
+    \caption{Diagramma del caso d'uso UC-0C – Visualizzazione dati profilo utente}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1174,6 +1180,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Modifica informazioni profilo utente}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0D.jpg}
+    \caption{Diagramma del caso d'uso UC-0D – Modifica informazioni profilo utente}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Utente
@@ -1236,8 +1248,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0E-1.jpg}
-    \caption{Diagramma del caso d'uso UC-0E.1 – Visualizzazione lista utenti registrati}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0E.jpg}
+    \caption{Diagramma del caso d'uso UC-0E – Visualizzazione lista utenti registrati}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1265,7 +1277,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-0E.2 - Visualizzazione elemento lista utenti registrati.
+        \item UC-0E.1 - Visualizzazione elemento lista utenti registrati.
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -1280,8 +1292,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0E-2.jpg}
-    \caption{Diagramma del caso d'uso UC-0E.2 – Visualizzazione elemento lista utenti registrati}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0E-1.jpg}
+    \caption{Diagramma del caso d'uso UC-0E.1 – Visualizzazione elemento lista utenti registrati}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1309,9 +1321,9 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-0E.4 - Visualizzazione nome utente registrato.
-        \item UC-0E.5 - Visualizzazione cognome utente registrato.
-        \item UC-0E.3 - Visualizzazione ruolo utente registrato.
+        \item UC-0E.2 - Visualizzazione ruolo utente registrato.
+        \item UC-0E.3 - Visualizzazione nome utente registrato.
+        \item UC-0E.4 - Visualizzazione cognome utente registrato.
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -1396,6 +1408,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Modifica ruolo utente registrato}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0F.jpg}
+    \caption{Diagramma del caso d'uso UC-0F – Modifica ruolo utente registrato}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -1458,8 +1476,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{Diagrammi casi d'uso/UC0F.jpg}
-    \caption{Diagramma del caso d'uso UC-0F – Logout}
+    \includegraphics[width=0.5\textwidth]{Diagrammi casi d'uso/UC0G.jpg}
+    \caption{Diagramma del caso d'uso UC-0G – Logout}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1484,18 +1502,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema invalida la sessione corrente associata all'utente (es. rimozione token di sessione).
     \item Il sistema reindirizza l'utente alla schermata di login o alla schermata iniziale pubblica.
 \end{enumerate}
-
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
-\begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item Nessuno.
-    \end{itemize}
-    \item \textit{extend}:
-    \begin{itemize}
-        \item Nessuno.
-    \end{itemize}
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -1940,6 +1946,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Modifica immagine contenuto generato}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1D.jpg}
+    \caption{Diagramma del caso d'uso UC-1D – Modifica immagine contenuto generato}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item HR manager/Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -2022,6 +2034,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Modifica titolo contenuto generato}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1E.jpg}
+    \caption{Diagramma del caso d'uso UC-1E – Modifica titolo contenuto generato}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item HR manager/Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -2048,6 +2066,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Modifica testo contenuto generato}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1F.jpg}
+    \caption{Diagramma del caso d'uso UC-1F – Modifica testo contenuto generato}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item HR manager/Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -2072,7 +2096,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
+
 \useCase{Annulla modifiche a contenuto generato}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1G.jpg}
+    \caption{Diagramma del caso d'uso UC-1G – Annulla modifiche a contenuto generato}
+\end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2103,8 +2134,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1E.jpg}
-    \caption{Diagramma del caso d'uso UC-1E – Riutilizza}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1H.jpg}
+    \caption{Diagramma del caso d'uso UC-1H – Riutilizza contenuto salvato nello storico}
 \end{figure}
 
 
@@ -2142,8 +2173,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1F.jpg}
-    \caption{Diagramma del caso d'uso UC-1F – Duplica}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1I.jpg}
+    \caption{Diagramma del caso d'uso UC-1I – Duplica contenuto salvato nello storico}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2176,8 +2207,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1G.jpg}
-    \caption{Diagramma del caso d'uso UC-1G – Ricerca generazione}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1J.jpg}
+    \caption{Diagramma del caso d'uso UC-1J – Filtraggio lista generazioni storico}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2209,8 +2240,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1G-1.jpg}
-    \caption{Diagramma del caso d'uso UC-1G.1 – Visualizzazione lista elementi storico filtrata}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1K.jpg}
+    \caption{Diagramma del caso d'uso UC-1K – Visualizzazione lista elementi storico filtrata}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2242,6 +2273,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \begin{itemize}
         \item UC-1B.2 – Visualizzazione informazioni elemento
     \end{itemize}
+    \item \textit{generalizzazione}: 
+    \begin{itemize}
+        \item UC-1B – Visualizzazione lista elementi storico
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
@@ -2250,8 +2285,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1H.jpg}
-    \caption{Diagramma del caso d'uso UC-1H – Rigenera contenuto tramite AI}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1L.jpg}
+    \caption{Diagramma del caso d'uso UC-1L – Rigenera contenuto tramite AI}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2289,8 +2324,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1I.jpg}
-    \caption{Diagramma del caso d'uso UC-1I – Valuta contenuto generato}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1M.jpg}
+    \caption{Diagramma del caso d'uso UC-1M – Valuta contenuto generato}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2322,8 +2357,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1J.jpg}
-    \caption{Diagramma del caso d'uso UC-1J – Scarta contenuto generato}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1N.jpg}
+    \caption{Diagramma del caso d'uso UC-1N – Scarta contenuto generato}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2357,8 +2392,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1K.jpg}
-    \caption{Diagramma del caso d'uso UC-1K – Salva contenuto generato}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1O.jpg}
+    \caption{Diagramma del caso d'uso UC-1O – Salva contenuto generato}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2397,7 +2432,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2A.jpg}
-    \caption{Diagramma del caso d'uso UC-2A – Analisi e gestione documentale}
+    \caption{Diagramma del caso d'uso UC-2A – Analisi documento}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2622,6 +2657,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 \subUseCase{Visualizzazione elemento da lista documenti}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2B-2.jpg}
+    \caption{Diagramma del caso d'uso UC-2B.2 – Visualizzazione elemento da lista documenti}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -2887,6 +2929,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Visualizzazione anteprima documento}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2C.jpg}
+    \caption{Diagramma del caso d'uso UC-2C – Visualizzazione anteprima documento}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -2914,6 +2962,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 \useCase{Modifica destinatario documento}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2D.jpg}
+    \caption{Diagramma del caso d'uso UC-2D – Modifica destinatario documento}
+\end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2944,6 +2998,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Modifica tipologia documento}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2E.jpg}
+    \caption{Diagramma del caso d'uso UC-2E – Modifica tipologia documento}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -2971,6 +3031,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 \useCase{Rivaluta percentuale confidenza}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2F.jpg}
+    \caption{Diagramma del caso d'uso UC-2F – Rivaluta percentuale confidenza}
+\end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3000,8 +3066,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \useCase{Visualizzazione lista informazioni destinatari analisi}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2D.jpg}
-    \caption{Diagramma del caso d'uso UC-2D – Visualizzazione lista informazioni destinatari}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2G.jpg}
+    \caption{Diagramma del caso d'uso UC-2G – Visualizzazione lista informazioni destinatari}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3040,6 +3106,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 \subUseCase{Visualizzazione elemento da lista informazioni destinatari}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2G-1.jpg}
+    \caption{Diagramma del caso d'uso UC-2G.1 – Visualizzazione elemento da lista informazioni destinatari}
+\end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3219,8 +3291,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \useCase{Visualizzazione lista storico documenti}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2E.jpg}
-    \caption{Diagramma del caso d'uso UC-2E – Visualizzazione lista storico documenti}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2H.jpg}
+    \caption{Diagramma del caso d'uso UC-2H – Visualizzazione lista storico documenti}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3291,8 +3363,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2E-2.jpg}
-    \caption{Diagramma del caso d'uso UC-2E.2 – Visualizzazione elemento dalista storico documenti}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2H-2.jpg}
+    \caption{Diagramma del caso d'uso UC-2H.2 – Visualizzazione elemento da lista storico documenti}
 \end{figure}
 
 
@@ -3416,6 +3488,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Carica template messaggio}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2I.jpg}
+    \caption{Diagramma del caso d'uso UC-2I – Carica template messaggio}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -3442,6 +3520,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Modifica oggetto messaggio}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2J.jpg}
+    \caption{Diagramma del caso d'uso UC-2J – Modifica oggetto messaggio}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -3467,6 +3551,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Modifica testo messaggio}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2K.jpg}
+    \caption{Diagramma del caso d'uso UC-2K – Modifica testo messaggio}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -3491,6 +3581,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 \useCase{Salva nuovo template messaggio}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2L.jpg}
+    \caption{Diagramma del caso d'uso UC-2L – Salva nuovo template messaggio}
+\end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3520,6 +3616,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 \useCase{Elimina template messagio}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2M.jpg}
+    \caption{Diagramma del caso d'uso UC-2M – Elimina template messaggio}
+\end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3552,6 +3654,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 \useCase{Visualizzazione lista template}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2N.jpg}
+    \caption{Diagramma del caso d'uso UC-2N – Visualizzazione lista template}
+\end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3709,8 +3817,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2H.jpg}
-    \caption{Diagramma del caso d'uso UC-2H – Invio documento e messaggio}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2O.jpg}
+    \caption{Diagramma del caso d'uso UC-2O – Invio documento e messaggio}
 \end{figure}
 
 
@@ -3811,8 +3919,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2I.jpg}
-    \caption{Diagramma del caso d'uso UC-2I – Filtraggio documenti analisi}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2P.jpg}
+    \caption{Diagramma del caso d'uso UC-2P – Filtraggio documenti analisi}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3847,6 +3955,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 \useCase{Visualizzazione lista documenti filtrata}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2Q.jpg}
+    \caption{Diagramma del caso d'uso UC-2Q – Visualizzazione lista documenti filtrata}
+\end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3885,8 +3999,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2J.jpg}
-    \caption{Diagramma del caso d'uso UC-2J – Filtraggio destinatari analisi}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2R.jpg}
+    \caption{Diagramma del caso d'uso UC-2R – Filtraggio destinatari analisi}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3921,6 +4035,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 \useCase{Visualizzazione lista destinatari filtrata}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2S.jpg}
+    \caption{Diagramma del caso d'uso UC-2S – Visualizzazione lista destinatari filtrata}
+\end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3958,8 +4078,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2K.jpg}
-    \caption{Diagramma del caso d'uso UC-2K – Filtraggio documenti storico}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2T.jpg}
+    \caption{Diagramma del caso d'uso UC-2T – Filtraggio documenti storico}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3994,6 +4114,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 \useCase{Visualizzazione lista storico documenti filtrata}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2U.jpg}
+    \caption{Diagramma del caso d'uso UC-2U – Visualizzazione lista storico documenti filtrata}
+\end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4036,8 +4162,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC3A-1.jpg}
-    \caption{Diagramma del caso d'uso UC-3A.1 – Visualizzazione elenco dati AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC3A.jpg}
+    \caption{Diagramma del caso d'uso UC-3A – Visualizzazione elenco dati AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \end{figure}
 
 
@@ -4220,8 +4346,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC3A-7.jpg}
-    \caption{Diagramma del caso d'uso UC-3A.7 – Visualizzazione elenco dati AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC3B.jpg}
+    \caption{Diagramma del caso d'uso UC-3B – Visualizzazione elenco dati AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -4374,6 +4500,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Filtraggio periodo temporale}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC3C.jpg}
+    \caption{Diagramma del caso d'uso UC-3C – Filtraggio periodo temporale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Auditor/Data Analyst\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -4393,7 +4525,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente interagisce con il selettore di data "Dal" (Data inizio).
+    \item L'utente interagisce con il selettore di data "Dal" (Data inizio) e "Al" (Data fine).
     \item Il sistema mostra un calendario interattivo.
     \item L'utente seleziona un giorno specifico.
     \item Il sistema verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} che la data selezionata sia antecedente o uguale alla data di fine (se impostata).
