@@ -45,6 +45,10 @@
  {\normalsize\bfseries\color{secondaryblue}} % Sotto-sottosezione: colore secondaryblue
  {\thesubsubsection}{1em}{}
 
+ \titleformat{\paragraph}
+ {\normalsize\bfseries\color{secondaryblue}} % Sotto-sotto-sottosezione: colore secondaryblue
+ {\paragraph}{1em}{}
+
 \setlength{\LTpre}{0pt}
 \setlength{\LTpost}{0pt}
 \setlength{\LTleft}{0pt}
@@ -107,22 +111,18 @@
     \refstepcounter{fullsubusecase}%
     \renewcommand{\currentSubUCID}{\currentUCID.\thefullsubusecase}%
     
-    % 1. Spaziatura verticale prima del titolo
     \par\vspace{10pt}%
-    
-    % 2. Ancora per i link (se usi hyperref)
     \phantomsection
     
-    % 3. Inserimento MANUALE nell'indice (livello paragraph = 4)
+    % Indice (Resta nero standard o segue lo stile dei link)
     \addcontentsline{toc}{paragraph}{\numberline{\thesubsubsection.\arabic{fullsubusecase}}\currentSubUCID\ – #1}%
     
-    % 4. Stampa visiva del titolo
-    \noindent\textbf{\currentSubUCID\ – #1}% Titolo in Grassetto
-    \label{\currentSubUCID}% Label per i riferimenti
+    % --- MODIFICA QUI ---
+    % Applica colore primaryblue e grassetto a tutto il blocco (Codice + Titolo)
+    \noindent\textcolor{primaryblue}{\textbf{\currentSubUCID\ – #1}}%
     
-    % 5. A capo forzato con piccolo spazio dopo
+    \label{\currentSubUCID}%
     \par\vspace{2pt}%
-    % Ora il testo successivo inizierà sicuramente a capo
 }
 
 % --- FINE DEFINIZIONI TEMPLATE DINAMICO ---
@@ -193,6 +193,10 @@ Questo documento contiene le Norme di Progetto\textsubscript{\scalebox{0.6}{\tex
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & \textbf{\color{white} Approvato} \\
 \hline
 \endhead
+\rowcolor{secondaryblue!10} 0.2.3 & 013/01/2026 & Riscrittura a seguito del colloqui con il professor Cardin & Leonardo Salviato &  & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.2.2 & 09/01/2026 & Correzioni errori riportati & Leonardo Salviato &  & - \\
+\hline
 \rowcolor{secondaryblue!10} 0.2.1 & 06/01/2026 & Aggiunti ai termini presenti nel Glossario la G & Alberto Autiero &  & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.2.0 & 04/01/2026 & Verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} & - & Luca Slongo & - \\
@@ -460,7 +464,7 @@ Nella \hyperref[fig:1]{figura~1} sono riportati gli attori considerati in questa
 Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che implementa l'autenticazione e la gestione dei ruoli. Tuttavia tale funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}}, come verrà descritto più avanti, è requisito\textsubscript{\scalebox{0.6}{\textbf{G}}} opzionale, pertanto gli attori devono essere considerati semplice utente se letti in un contesto in cui tale funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} non è implementata. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/diagramma_attori.jpg}
+    \includegraphics[width=0.9\textwidth]{Diagrammi casi d'uso/diagramma_attori.jpg}
     \caption{Diagramma degli attori principali}
     \label{fig:1}
 \end{figure}
@@ -541,7 +545,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente può correggere i dati e ripetere l'inserimento.
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}:
     \begin{itemize}
@@ -875,7 +879,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0Bb.jpg}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC0Bb.jpg}
     \caption{Diagramma del caso d'uso UC-0B – Login / Autenticazione utente (extend)}
 \end{figure}
 
@@ -912,7 +916,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente inserisce credenziali non valide.
 \end{itemize}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}:
     \begin{itemize}
@@ -921,8 +925,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
-        \item UC-0A.7 – email non valida.
-        \item UC-0A.8 – password non valida.
         \item UC-0B.1 – email non registrata.
         \item UC-0B.2 – password errata.
     \end{itemize}
@@ -1021,7 +1023,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -1209,7 +1211,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente cambia i dati del proprio profilo
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -1275,7 +1277,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -1319,7 +1321,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'applicazione mostra un singolo utente con i relativi dettagli (nome, cognome, ruolo, ecc.) all'interno della lista
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -1436,7 +1438,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} interagisce con il campo relativo al ruolo apportando delle modifiche che verranno salvate nel sistema
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -1560,7 +1562,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -1678,7 +1680,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -1749,7 +1751,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -1982,7 +1984,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il file immagine caricato dall'utente non è valido
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -2023,7 +2025,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il file immagine caricato dall'utente non è valido
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -2038,7 +2040,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1E.jpg}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC1E.jpg}
     \caption{Diagramma del caso d'uso UC-1E – Modifica titolo contenuto generato}
 \end{figure}
 
@@ -2070,7 +2072,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1F.jpg}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC1F.jpg}
     \caption{Diagramma del caso d'uso UC-1F – Modifica testo contenuto generato}
 \end{figure}
 
@@ -2103,7 +2105,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1G.jpg}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC1G.jpg}
     \caption{Diagramma del caso d'uso UC-1G – Annulla modifiche a contenuto generato}
 \end{figure}
 
@@ -2209,7 +2211,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1J.jpg}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC1J.jpg}
     \caption{Diagramma del caso d'uso UC-1J – Filtraggio lista generazioni storico}
 \end{figure}
 
@@ -2269,7 +2271,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -2433,7 +2435,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2A.jpg}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2A.jpg}
     \caption{Diagramma del caso d'uso UC-2A – Analisi documento}
 \end{figure}
 
@@ -2474,7 +2476,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -2592,7 +2594,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2B.jpg}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC2B.jpg}
     \caption{Diagramma del caso d'uso UC-2B – Visualizzazione lista documenti analisi}
 \end{figure}
 
@@ -2618,7 +2620,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -2687,7 +2689,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -3068,7 +3070,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \useCase{Visualizzazione lista informazioni destinatari analisi}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2G.jpg}
+    \includegraphics[width=0.9\textwidth]{Diagrammi casi d'uso/UC2G.jpg}
     \caption{Diagramma del caso d'uso UC-2G – Visualizzazione lista informazioni destinatari}
 \end{figure}
 
@@ -3093,7 +3095,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente vede l'elenco di tutti gli elementi relativi ai destinatari recuperati dall'analisi
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -3111,7 +3113,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2G-1.jpg}
+    \includegraphics[width=0.9\textwidth]{Diagrammi casi d'uso/UC2G-1.jpg}
     \caption{Diagramma del caso d'uso UC-2G.1 – Visualizzazione elemento da lista informazioni destinatari}
 \end{figure}
 
@@ -3143,7 +3145,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema non riconosce alcun documento caricato.
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -3293,7 +3295,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \useCase{Visualizzazione lista storico documenti}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2H.jpg}
+    \includegraphics[width=0.9\textwidth]{Diagrammi casi d'uso/UC2H.jpg}
     \caption{Diagramma del caso d'uso UC-2H – Visualizzazione lista storico documenti}
 \end{figure}
 
@@ -3319,7 +3321,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente vede l'elenco di tutti gli elementi relativi a tutte le analisi
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -3365,7 +3367,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2H-2.jpg}
+    \includegraphics[width=0.9\textwidth]{Diagrammi casi d'uso/UC2H-2.jpg}
     \caption{Diagramma del caso d'uso UC-2H.2 – Visualizzazione elemento da lista storico documenti}
 \end{figure}
 
@@ -3391,7 +3393,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema renderizza le colonne della tabella mostrando: Codice documento, Data caricamento, Stato elaborazione e Percentuale di confidenza.
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -3659,7 +3661,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2N.jpg}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2N.jpg}
     \caption{Diagramma del caso d'uso UC-2N – Visualizzazione lista template}
 \end{figure}
 
@@ -3684,7 +3686,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente vede l'elenco di tutti i template relativi ai messaggi salvati
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -3724,7 +3726,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item nessuno
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -3853,7 +3855,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item 
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -3960,7 +3962,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2Q.jpg}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2Q.jpg}
     \caption{Diagramma del caso d'uso UC-2Q – Visualizzazione lista documenti filtrata}
 \end{figure}
 
@@ -3987,7 +3989,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -4044,7 +4046,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2S.jpg}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2S.jpg}
     \caption{Diagramma del caso d'uso UC-2S – Visualizzazione lista destinatari filtrata}
 \end{figure}
 
@@ -4070,7 +4072,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali 
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -4127,7 +4129,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2U.jpg}
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2U.jpg}
     \caption{Diagramma del caso d'uso UC-2U – Visualizzazione lista storico documenti filtrata}
 \end{figure}
 
@@ -4152,7 +4154,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente vede l'elenco filtrato di tutti gli elementi relativi a tutte le analisi
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -4210,7 +4212,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema mostra un messaggio ``Nessun dato disponibile per il periodo selezionato''.
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -4393,7 +4395,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema mostra un messaggio ``Nessun dato disponibile per il periodo selezionato''.
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} (\textit{include} / \textit{extend})}
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
@@ -4516,7 +4518,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC3C.jpg}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC3C.jpg}
     \caption{Diagramma del caso d'uso UC-3C – Filtraggio periodo temporale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \end{figure}
 
