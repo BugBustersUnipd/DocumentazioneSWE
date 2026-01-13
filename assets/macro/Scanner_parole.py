@@ -2,10 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-glossary_auto_scanner.py - Scanner automatico termini da Glossario
+glossary_auto_scanner.py - Scanner automatico termini da Glossario (VERSIONE MIGLIORATA)
 
 Carica automaticamente i termini dal file glossario.tex o glossario.json
 e verifica la presenza del TAG G nei documenti LaTeX.
+
+MIGLIORAMENTI:
+- Gestione acronimi: POC (Proof of Concept) → cerca sia "POC" che "Proof of Concept"
+- Gestione traduzioni: Affidabilità (Reliability) → cerca entrambe
+- Pattern regex migliorati per acronimi e termini speciali
 """
 
 import tkinter as tk
@@ -130,53 +135,119 @@ def load_glossary_terms(glossary_path, progress_callback=None):
     except Exception as e:
         return None, str(e)
 
-# ------------------------- FUNZIONI ANALISI -----------------------------
+# ------------------------- FUNZIONI ANALISI MIGLIORATE -----------------------------
 
-def plural_variants(phrase):
-    """Genera varianti plurali semplici"""
-    return {phrase}
+def generate_term_variants(term):
+    """
+    Genera tutte le varianti possibili di un termine per la ricerca.
+    Gestisce:
+    - Acronimi con descrizione: "POC (Proof of Concept)" -> ["POC", "Proof of Concept"]
+    - Termini con traduzioni: "Affidabilità (Reliability)" -> ["Affidabilità", "Reliability"]
+    - Termini con caratteri speciali
+    """
+    variants = set()
+    
+    # Aggiungi sempre il termine originale
+    variants.add(term)
+    
+    # Pattern per acronimi con descrizione: "ACRONIMO (Descrizione Completa)"
+    # Es: "POC (Proof of Concept)", "AI (Artificial Intelligence)"
+    acronym_pattern = r'^([A-Z]{2,})\s*\(([^)]+)\)$'
+    match = re.match(acronym_pattern, term)
+    
+    if match:
+        acronym = match.group(1).strip()  # Es: "POC"
+        full_form = match.group(2).strip()  # Es: "Proof of Concept"
+        
+        variants.add(acronym)
+        variants.add(full_form)
+        
+        # Aggiungi anche varianti con trattini se presenti nella forma estesa
+        if '-' in full_form:
+            variants.add(full_form.replace('-', ' '))
+        
+        return variants
+    
+    # Pattern per termini con descrizione/traduzione tra parentesi
+    # Es: "Affidabilità (Reliability)", "Verifica (Verification)"
+    paren_pattern = r'^(.+?)\s*\(([^)]+)\)$'
+    match = re.match(paren_pattern, term)
+    
+    if match:
+        main_term = match.group(1).strip()  # Es: "Affidabilità"
+        alt_term = match.group(2).strip()   # Es: "Reliability"
+        
+        variants.add(main_term)
+        variants.add(alt_term)
+        
+        # Se il termine alternativo ha trattini, aggiungi versione con spazi
+        if '-' in alt_term:
+            variants.add(alt_term.replace('-', ' '))
+    
+    return variants
 
-def find_occurrences_with_tag(text, variant):
+def find_occurrences_with_tag(text, term):
     """
-    Cerca tutte le occorrenze case-insensitive di `variant` in `text`.
-    Ritorna lista di tuple: (start, end, lineno, line_text, tag_present)
+    Cerca tutte le occorrenze case-insensitive di un termine e le sue varianti.
+    Ritorna lista di tuple: (start, end, lineno, line_text, tag_present, matched_variant)
     """
-    flags = re.IGNORECASE  # Sempre case-insensitive
-    
-    if " " in variant:
-        pattern = re.escape(variant)
-        pattern = r'(?<!\w)' + pattern + r'(?!\w)'
-    else:
-        pattern = r'\b' + re.escape(variant) + r'\b'
-    
     results = []
-    for m in re.finditer(pattern, text, flags):
-        start = m.start()
-        end = m.end()
-        lineno = text[:start].count("\n") + 1
-        lines = text.splitlines()
-        line_text = lines[lineno - 1] if 0 <= lineno - 1 < len(lines) else ""
+    variants = generate_term_variants(term)
+    
+    for variant in variants:
+        # Scegli il pattern regex in base al tipo di variante
         
-        # Cerca TAG_G dopo la parola
-        after_idx = end
-        max_skip = 100
-        skipped = 0
-        while after_idx < len(text) and skipped < max_skip and text[after_idx].isspace():
-            after_idx += 1
-            skipped += 1
+        # 1. Acronimi (solo lettere maiuscole, 2+ caratteri)
+        if re.match(r'^[A-Z]{2,}$', variant):
+            # Per acronimi usa lookahead/lookbehind per evitare match parziali
+            # Es: "POC" non deve matchare "EPOCH"
+            pattern = r'(?<![a-zA-Z])' + re.escape(variant) + r'(?![a-zA-Z])'
         
-        tag_present = text.startswith(TAG_G, after_idx)
+        # 2. Frasi multi-parola
+        elif ' ' in variant:
+            # Per frasi con spazi, assicurati che non ci siano caratteri word prima/dopo
+            pattern = r'(?<!\w)' + re.escape(variant) + r'(?!\w)'
         
-        if tag_present:
-            text_between = text[end:after_idx]
-            if text_between.strip():
-                tag_present = False
+        # 3. Parole singole normali
+        else:
+            # Usa word boundary standard
+            pattern = r'\b' + re.escape(variant) + r'\b'
         
-        results.append((start, end, lineno, line_text.strip(), tag_present))
+        # Cerca tutte le occorrenze (case-insensitive)
+        for match in re.finditer(pattern, text, re.IGNORECASE):
+            start = match.start()
+            end = match.end()
+            
+            # Calcola numero di riga
+            lineno = text[:start].count("\n") + 1
+            lines = text.splitlines()
+            line_text = lines[lineno - 1] if 0 <= lineno - 1 < len(lines) else ""
+            
+            # Cerca TAG_G dopo la parola (salta solo spazi bianchi)
+            after_idx = end
+            max_skip = 100
+            skipped = 0
+            
+            while after_idx < len(text) and skipped < max_skip and text[after_idx].isspace():
+                after_idx += 1
+                skipped += 1
+            
+            tag_present = text.startswith(TAG_G, after_idx)
+            
+            # Verifica che tra parola e tag ci siano SOLO spazi bianchi
+            if tag_present:
+                text_between = text[end:after_idx]
+                if text_between.strip():  # Se c'è qualcosa oltre agli spazi
+                    tag_present = False
+            
+            results.append((start, end, lineno, line_text.strip(), tag_present, variant))
+    
     return results
 
 def analyze_text(text, phrases, progress_callback=None):
-    """Analizza il testo cercando i termini del glossario"""
+    """
+    Analizza il testo cercando i termini del glossario (versione migliorata).
+    """
     terms_with_missing_tag = {}  # Termini presenti ma senza TAG
     terms_not_found = []  # Termini non presenti nel documento
     
@@ -187,28 +258,26 @@ def analyze_text(text, phrases, progress_callback=None):
             progress = (i / total) * 100
             progress_callback(progress, f"Analisi termine {i+1}/{total}: {phrase[:30]}...")
         
-        variants = plural_variants(phrase)
-        found_any = False
-        total_count = 0
-        matches_without_tag = []
-
-        for var in variants:
-            occs = find_occurrences_with_tag(text, var)
-            if occs:
-                found_any = True
-            for (s, e, lineno, line_text, tag_present) in occs:
-                total_count += 1
-                if not tag_present:
-                    matches_without_tag.append((lineno, line_text, var))
-
-        # Categorizza il termine
-        if not found_any:
+        # Usa la funzione migliorata che gestisce varianti
+        occurrences = find_occurrences_with_tag(text, phrase)
+        
+        if not occurrences:
+            # Nessuna occorrenza trovata per questo termine
             terms_not_found.append(phrase)
-        elif matches_without_tag:
-            terms_with_missing_tag[phrase] = {
-                "count": total_count,
-                "matches_without_tag": matches_without_tag
-            }
+        else:
+            # Filtra solo le occorrenze SENZA TAG
+            matches_without_tag = []
+            
+            for (start, end, lineno, line_text, tag_present, matched_variant) in occurrences:
+                if not tag_present:
+                    matches_without_tag.append((lineno, line_text, matched_variant))
+            
+            # Se ci sono occorrenze senza TAG, registrale
+            if matches_without_tag:
+                terms_with_missing_tag[phrase] = {
+                    "count": len(occurrences),
+                    "matches_without_tag": matches_without_tag
+                }
     
     if progress_callback:
         progress_callback(100, "Analisi completata!")
@@ -234,7 +303,7 @@ def find_latex_files(path):
 class GlossaryApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("🔍 Scanner Glossario Automatico")
+        self.root.title("🔍 Scanner Glossario Automatico (Migliorato)")
         self.root.geometry("1100x750")
         self.root.minsize(900, 650)
         
@@ -257,12 +326,12 @@ class GlossaryApp:
         header_frame = ttk.Frame(main_frame)
         header_frame.pack(fill=tk.X, pady=(0, 10))
         
-        title_label = tk.Label(header_frame, text="🔍 Scanner Glossario Automatico", 
+        title_label = tk.Label(header_frame, text="🔍 Scanner Glossario Automatico (v2.0)", 
                               font=("Arial", 14, "bold"), foreground="#2c3e50")
         title_label.pack(anchor=tk.W)
         
         subtitle_label = tk.Label(header_frame, 
-                                 text="Carica il glossario e verifica automaticamente tutti i termini (case-insensitive)",
+                                 text="Gestisce acronimi, traduzioni e termini speciali • Case-insensitive",
                                  font=("Arial", 9), foreground="#7f8c8d")
         subtitle_label.pack(anchor=tk.W)
         
@@ -440,15 +509,23 @@ class GlossaryApp:
             self.glossary_progress['value'] = 0
             self.glossary_progress_label.config(text="")
             
-            # Mostra anteprima termini
-            preview = ", ".join(self.terms[:10])
-            if len(self.terms) > 10:
-                preview += f"... (+{len(self.terms)-10} altri)"
+            # Mostra anteprima termini con varianti
+            preview_lines = []
+            for i, term in enumerate(self.terms[:5]):
+                variants = generate_term_variants(term)
+                if len(variants) > 1:
+                    preview_lines.append(f"• {term} → {variants}")
+                else:
+                    preview_lines.append(f"• {term}")
+            
+            preview = "\n".join(preview_lines)
+            if len(self.terms) > 5:
+                preview += f"\n... (+{len(self.terms)-5} altri)"
             
             messagebox.showinfo(
                 "Termini Caricati", 
                 f"✓ Caricati {len(self.terms)} termini dal glossario.\n\n"
-                f"Primi termini: {preview}"
+                f"Primi termini (con varianti):\n{preview}"
             )
             
         except Exception as e:
@@ -589,9 +666,16 @@ class GlossaryApp:
                         # Tronca il testo se troppo lungo
                         if len(line_text) > 80:
                             line_text = line_text[:77] + "..."
-                        highlighted_text = line_text.replace(variant, f"**{variant}**")
+                        
+                        # Evidenzia la variante trovata
+                        highlighted_text = line_text
+                        if variant in line_text:
+                            highlighted_text = line_text.replace(variant, f"**{variant}**")
+                        
                         self.results_text.insert(tk.END, 
                             f"        riga {ln:4d}: {highlighted_text}\n")
+                        self.results_text.insert(tk.END,
+                            f"                  (trovata variante: '{variant}')\n")
             
             self.results_text.insert(tk.END, "\n")
         
@@ -626,9 +710,13 @@ class GlossaryApp:
         if filename:
             try:
                 with open(filename, 'w', encoding='utf-8') as f:
-                    f.write("=== SCANNER GLOSSARIO AUTOMATICO - RISULTATI ===\n\n")
+                    f.write("=== SCANNER GLOSSARIO AUTOMATICO - RISULTATI (v2.0) ===\n\n")
                     f.write(f"Termini glossario: {len(self.terms)}\n")
                     f.write(f"File glossario: {self.glossary_path_var.get()}\n\n")
+                    f.write("FUNZIONALITÀ:\n")
+                    f.write("• Gestione acronimi: POC (Proof of Concept) → cerca POC e Proof of Concept\n")
+                    f.write("• Gestione traduzioni: Affidabilità (Reliability) → cerca entrambe\n")
+                    f.write("• Ricerca case-insensitive migliorata\n\n")
                     f.write(self.results_text.get("1.0", tk.END))
                     
                 messagebox.showinfo("Successo", f"Risultati esportati in:\n{filename}")
