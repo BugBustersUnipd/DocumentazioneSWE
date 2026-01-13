@@ -1,0 +1,187 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}
+  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Interno\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.3cm]
+  {\Large\color{secondaryblue} 12 gennaio 2026}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattori} & Linor Sadè \\
+\textbf{Verificatore\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Marco Favero \\
+\textbf{Uso} & Interno \\
+\textbf{Destinatari} & BugBusters \\
+\textbf{Versione} & 1.0.0\\
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+    Verbale interno\textsubscript{\scalebox{0.6}{\textbf{G}}} della riunione del 12 gennaio 2026, principalmente a seguito del ricevimento con il professor Cardin, per discutere delle modifiche necessarie nell'Analisi dei requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} e per pianificare le attività per la candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} all'RTB\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Interna
+    \item \textbf{Piattaforma:} Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item \textbf{Data:} 12/01/2026
+    \item \textbf{Orario di inizio:} 9:30
+    \item \textbf{Orario di fine:} 10:30
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+\begin{enumerate}
+    \item \label{itm:modifiche-analisi-requisiti} Discussione di modifiche sostanziali nell'Analisi dei requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}};
+    \item \label{itm:prossimeattivitaPOC} Discussione di eventuali modifiche nel POC\textsubscript{\scalebox{0.6}{\textbf{G}}}:
+    \begin{enumerate}
+        \item \label{itm:backend} Aggiunta funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} guardrails nel backend nel POC\textsubscript{\scalebox{0.6}{\textbf{G}}};
+        \item \label{itm:frontend} Refactoring del codice frontend del POC;
+    \end{enumerate}
+    \item \label{itm:pdq-ndp} Allineamento sullo stato di avanzamento del Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}} e Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}};
+    \item \label{itm:autiero} Modifiche al Piano di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}};
+\end{enumerate}
+
+
+\newpage
+\section{Svolgimento}
+Qui di seguito i punti discussi con più dettaglio:
+
+\subsection*{\ref{itm:modifiche-analisi-requisiti}. Discussione di modifiche sostanziali nell'Analisi dei requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+A seguito di un ricevimento organizzato con il professor Cardin, il gruppo necessita di porre alcuni cambiamenti nell'Analisi dei requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}. In particolare, gli errori riguardano principalmente l'uso di extend e include e la suddivisione di casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} che non rispettano la divisione logica delle funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+\subsection*{\ref{itm:prossimeattivitaPOC}. Discussione di eventuali modifiche nel POC\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+In risposta al feedback ricevuto dal professor Cardin, che ha chiarito dubbi sul ruolo del POC\textsubscript{\scalebox{0.6}{\textbf{G}}}, il gruppo ha deciso che quest'ultimo è quasi terminato e necessita solo di alcune modifiche minori.\\
+Tali modifiche sono state discusse e pianificate nei seguenti punti:
+\begin{adjustwidth}{1cm}{1cm} % per un rientro a sinistra e destra
+    \subsubsection*{\ref{itm:backend} Aggiunta funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} guardrails nel backend del POC\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+    Rispetto a quanto riportato anche nel verbale\textsubscript{\scalebox{0.6}{\textbf{G}}} della riunione esterna con Eggon datata 07/01/2026 (verbale\textsubscript{\scalebox{0.6}{\textbf{G}}} reperibile al seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/VERBALI/ESTERNI/VE_07-01-26/VE_07-01-26.pdf}{link}), il team ha deciso di migliorare l'AI Assistant Generativo aggiungendo guardrails per evitare risposte inappropriate. Si prevede di completare l'attività entro il 14/01/2026.
+    \subsubsection*{\ref{itm:frontend} Refactoring del codice frontend del POC\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+    Il team ha deciso di effettuare un refactoring del codice frontend del POC\textsubscript{\scalebox{0.6}{\textbf{G}}} per migliorarne la leggibilità. È stato inoltre valutato l'utilizzo del pattern \textit{Observer}, tuttavia si è deciso di non implementarlo in questa fase in quanto non rientra negli obiettivi di un POC\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+    Si prevede di completare l'attività entro il 14/01/2026.
+    \end{adjustwidth}
+\subsection*{\ref{itm:pdq-ndp}. Allineamento sullo stato di avanzamento del Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}} e Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+Il gruppo si è allineato sullo stato di avanzamento del Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}} e delle Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} in quanto l'avanzamento di quest'ultima richiede un buon stato di avanzamento del Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}}. Per le Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} il gruppo prevede il loro completamento entro il 13/01/2026.
+\subsection*{\ref{itm:autiero}. Modifiche al Piano di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+Il Piano di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} necessita di alcune piccole modifiche grafiche, quali la ristrutturazione della tabella delle attività dell'RTB\textsubscript{\scalebox{0.6}{\textbf{G}}} e la modifica della tabella del registro delle modifiche per renderla coerente con quella presente negli altri documenti. \\
+Inoltre, è stato deciso di inserire un diagramma di Gantt per rappresentare visivamente le tempistiche delle attività pianificate.
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\section{Tabella delle decisioni e azioni}
+\renewcommand{\arraystretch}{1.5} 
+
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/107}{RTB68} & Modifiche all'Analisi dei requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} & Leonardo Salviato \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/108}{RTB69}  & Aggiunta guardrails nel backend del POC\textsubscript{\scalebox{0.6}{\textbf{G}}} & Luca Slongo \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/109}{RTB70}  & Refactoring del codice frontend del POC\textsubscript{\scalebox{0.6}{\textbf{G}}} & Alberto Pignat, Marco Piro, Linor Sadè \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/110}{RTB71}  & Avanzamento Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}} & Marco Piro \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/111}{RTB72}  & Avanzamento Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} (rispetto PdQ) & Linor Sadè \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/112}{RTB73}  & Modifiche (anche estetiche) al Piano di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} & Alberto Autiero \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/113}{RTB74}  & Ricerca informazioni presentazione RTB\textsubscript{\scalebox{0.6}{\textbf{G}}} & Alberto Autiero \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/114}{RTB75}  & Redazione verbale\textsubscript{\scalebox{0.6}{\textbf{G}}} corrente & Linor Sadè \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/115}{RTB76}  & Verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} verbale\textsubscript{\scalebox{0.6}{\textbf{G}}} corrente & Marco Favero \\
+\hline
+\end{tabularx}
+\fussy
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
