@@ -10,6 +10,7 @@
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{float}
+\usepackage{tabularray}
 \usepackage{ifthen}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
@@ -19,8 +20,9 @@
 \usepackage{caption}
 \usepackage{colortbl}
 \usepackage{pgfplots}
+\usepackage{makecell}
 % Comando per la versione corrente
-\newcommand{\CurrentVersion}{0.0.5}
+\newcommand{\CurrentVersion}{0.1.5}
 \pgfplotsset{compat=1.16}
 
 % Comando per il pedice G compatibile con hyperref
@@ -75,6 +77,7 @@
 
 \graphicspath{{./}{../assets/images/}{./images/}}
 
+\usepackage{multirow}
 \begin{document}
 
 \begin{center}
@@ -87,7 +90,7 @@
   {\Large\bfseries\color{primaryblue} BugBusters}\\[0.5cm]
 
   {\Huge\bfseries\color{primaryblue} Piano di Progetto\pediceG}\\[0.3cm]
-  {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
+  {\Large\color{secondaryblue} Versione 0.1.5}\\[0.8cm]
 \end{center}
 
 \begin{center}
@@ -95,8 +98,8 @@
 % Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
 	{Stato} & In redazione \\
-	{Responsabile} &  \\
-	{Verificatore} &  \\
+	{Responsabile\pediceG} &  \\
+	{Verificatore\pediceG} &  Luca Slongo \\
 	{Redattori} & Alberto Autiero \\
 	{Destinatari} & BugBusters, Eggon, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
 \end{tabularx}
@@ -121,13 +124,25 @@ Il Piano di Progetto\pediceG riporta il riepilogo delle attività effettuate e q
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
- &  & Aggiunti ai termini presenti nel Glossario la G & Alberto Autiero & - & - \\
+ &  & Aggiunti ai termini presenti nel Glossario\pediceG la G & Alberto Autiero & - & - \\
 \hline
-\CurrentVersion & 22/12/2025 & Redatta la pianificazione dello sprint\pediceG 3 & Alberto Autiero & - & - \\
+0.1.5 & 14/01/2026 & Redatta la pianificazione dello sprint\pediceG 5 & Alberto Autiero & - & - \\
+\hline 
+0.1.4 & 12/01/2026 & Compilate le attività "Redazione Norme di Progetto\pediceG" e "Realizzazione PoC\pediceG" nella sezione Attività previste per l'RTB\pediceG & Linor Sadè & - & - \\
+\hline 
+ 0.1.3 & 10/01/2026 & Compilazione tabella Attività previste per la Requirements and Technology Baseline (RTB)\pediceG & Alberto Autiero & & - \\
+\hline
+ 0.1.2 & 08/01/2026 & Creazione grafici dei primi 4 Sprint\pediceG & Alberto Autiero & & - \\
+\hline
+0.1.1 & 05/01/2026 & Redatta la pianificazione dello sprint\pediceG 4 e sistemazione di alcune sezioni & Alberto Autiero & & - \\
+\hline
+0.1.0 & 03/01/2026 & Verifica\pediceG iniziale del documento & - & Luca Slongo & - \\
+\hline
+0.0.5 & 22/12/2025 & Redatta la pianificazione dello sprint\pediceG 3 & Alberto Autiero & - & - \\
 \hline
 0.0.4 & 18/12/2025 & Redatta la pianificazione dello sprint\pediceG 2 & Alberto Autiero & - & - \\
 \hline
-0.0.3 & 11/12/2025 & Aggiunta la sezione Analisi e gestione dei rischi e redatta la pianificazione dello sprint\pediceG 1 & Alberto Autiero & - & - \\
+0.0.3 & 11/12/2025 & Aggiunta la sezione Analisi e gestione dei rischi\pediceG e redatta la pianificazione dello sprint\pediceG 1 & Alberto Autiero & - & - \\
 \hline
 0.0.2 & 03/12/2025 & Aggiunta la sezione Introduzione  & Alberto Autiero & - & - \\
 \hline
@@ -148,12 +163,12 @@ Il Piano di Progetto\pediceG riporta il riepilogo delle attività effettuate e q
 \section{Introduzione}
 
 \subsection{Informazioni generali}
-Il Piano di Progetto\pediceG è un documento che descrive le attività svolte e quelle da svolgere durante la realizzazione del progetto di Ingegneria del Software. Riveste un ruolo fondamentale per una corretta pianificazione, poiché confronta i tempi previsti con i tempi effettivamente impiegati per ogni attività e individua i rischi\pediceG potenziali legati alle attività programmate. Dal momento che una pianificazione dettagliata a lungo termine risulterebbe poco efficace, le attività vengono pianificate di volta in volta: per questo motivo il Piano di Progetto\pediceG è un documento dinamico, che verrà aggiornato con un approccio incrementale integrando nuove informazioni man mano che il progetto procede.
+Il Piano di Progetto\pediceG è un documento che descrive le attività svolte e quelle da svolgere durante la realizzazione del progetto di Ingegneria del Software. Riveste un ruolo fondamentale per una corretta pianificazione, poiché confronta i tempi previsti con i tempi effettivamente impiegati per ogni attività e individua i rischi\pediceG potenziali legati alle attività programmate. Dal momento che una pianificazione dettagliata a lungo termine risulterebbe poco efficace, le attività vengono pianificate di volta in volta: per questo motivo il Piano di Progetto\pediceG è un documento dinamico, che verrà aggiornato con un approccio incrementale integrando nuove informazioni man mano che il progetto\pediceG procede.
 
 \subsection{Glossario\pediceG}
 La realizzazione di un sistema software richiede, ancor prima della scrittura del codice, un'attenta fase di confronto, analisi e progettazione. Per supportare il lavoro asincrono del team, tutte le informazioni prodotte durante queste attività vengono opportunamente documentate.
 
-È tuttavia del tutto prevedibile che tali documenti possano contenere termini tecnici o espressioni non immediatamente comprensibili. Per questo motivo è stato redatto un Glossario\pediceG, che raccoglie e spiega in modo puntuale i termini utilizzati. Il Glossario\pediceG è soggetto ad aggiornamenti continui ed è consultabile nella sua versione corrente al seguente indirizzo: DA INSERIRE QUANDO VERRà CARICATO SUL SITO.
+È tuttavia del tutto prevedibile che tali documenti possano contenere termini tecnici o espressioni non immediatamente comprensibili. Per questo motivo è stato redatto un Glossario\pediceG, che raccoglie e spiega in modo puntuale i termini utilizzati. Il Glossario\pediceG è soggetto ad aggiornamenti continui ed è consultabile nella sua versione corrente al seguente indirizzo: DA INSERIRE QUANDO VERRÀ CARICATO SUL SITO.
 
 I termini che dispongono di una definizione nel Glossario\pediceG saranno contrassegnati nel modo seguente: parola\pediceG.
 
@@ -163,23 +178,23 @@ I termini che dispongono di una definizione nel Glossario\pediceG saranno contra
 \begin{itemize}
     \item Capitolato\pediceG d'appalto C5: NEXUM - Eggon \\
     \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf} \\
-    Ultimo Accesso XXX
+    Ultimo accesso: XXX
     \item Norme di Progetto\pediceG versione 1.0.0 \\
     \url{DA AGGIUNGERE APPENA CARICATO SUL SITO} \\
-    Ultimo Accesso XXX
+    Ultimo accesso: XXX
 \end{itemize}
 
 \subsubsection{Riferimenti informativi}
 \begin{itemize}
     \item I processi di ciclo di vita del software \\
     \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T02.pdf} \\
-    Ultimo Accesso XXX
+    Ultimo accesso: XXX
     \item Gestione di progetto \\
     \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T04.pdf} \\
-    Ultimo Accesso XXX
+    Ultimo accesso: XXX
       \item Glossario\pediceG ver. 1.0.0 \\
     \url{DA AGGIUNGERE APPENA SI CARICA SUL SITO} \\
-    Ultimo Accesso XXX
+    Ultimo accesso: XXX
 \end{itemize}
 
 \newpage
@@ -189,12 +204,12 @@ I termini che dispongono di una definizione nel Glossario\pediceG saranno contra
 \subsection{Introduzione}
 Un'analisi e una classificazione efficaci dei possibili rischi legati alle attività da svolgere rappresentano una parte fondamentale nella redazione di un piano di progetto\pediceG. Una buona analisi consente infatti di prevedere quali attività potrebbero richiedere più tempo del previsto e, di conseguenza, di valutare se il carico di lavoro inserito nel backlog\pediceG settimanale è appropriato o eccessivo.
 
-Un'adeguata analisi e gestione dei rischi\pediceG se articola in quattro fasi:
+Un'adeguata analisi e gestione dei rischi\pediceG si articola in quattro fasi:
 \begin{itemize}
 \item \textbf{Identificazione}: individuazione dei possibili rischi associati a un'attività, considerando non solo l'ambito progettuale ma anche quello personale;
-\item \textbf{Analisi}: valutazione della probabilità\pediceG che ciascun rischio si verifichi e dei potenziali impatti sul successo dello sprint\pediceG e del progetto complessivo;
+\item \textbf{Analisi}: valutazione della probabilità\pediceG che ciascun rischio\pediceG si verifichi e dei potenziali impatti sul successo dello sprint\pediceG e del progetto\pediceG complessivo;
 \item \textbf{Pianificazione}: definizione delle strategie per ridurre la probabilità\pediceG di occorrenza dei rischi o, qualora non sia possibile prevenirli, per mitigarne gli effetti negativi;
-\item \textbf{Controllo}: monitoraggio continuo delle attività, volto a rilevare tempestivamente l'insorgere di un rischio e ad applicare le procedure di mitigazione\pediceG prestabilite.
+\item \textbf{Controllo}: monitoraggio continuo delle attività, volto a rilevare tempestivamente l'insorgere di un rischio\pediceG e ad applicare le procedure di mitigazione\pediceG prestabilite.
 \end{itemize}
 
 È ragionevole supporre che, a causa di un'esperienza limitata, le misure di mitigazione\pediceG adottate possano rivelarsi inizialmente inefficaci. Per questo motivo è fondamentale registrare e analizzare gli errori emersi durante la fase di controllo, al fine di perfezionare progressivamente le strategie utilizzate.
@@ -218,7 +233,7 @@ Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tr
 \hline
 \textbf{Nome} & Rischio Tecnologico\pediceG legato alla tecnologia utilizzata \\
 \hline
-\textbf{Descrizione} & Rischio derivante da inesperienza o conoscenza limitata di una tecnologia, un linguaggio o uno strumento specifico necessario per lo sviluppo del progetto\pediceG. \\
+\textbf{Descrizione} & Rischio\pediceG derivante da inesperienza o conoscenza limitata di una tecnologia, un linguaggio o uno strumento specifico necessario per lo sviluppo del progetto\pediceG. \\
 \hline
 \textbf{Mitigazione\pediceG} & Prevedere nella pianificazione del tempo l'attività di formazione personale. \\
 \hline
@@ -242,7 +257,7 @@ Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tr
 \hline
 \textbf{Descrizione} & È improbabile che il codice scritto funzioni correttamente al primo tentativo. Inoltre, un codice apparentemente funzionante può rivelare successivamente bug durante test\pediceG più approfonditi, richiedendo ulteriore tempo per l'analisi e la correzione. \\
 \hline
-\textbf{Mitigazione\pediceG} & Il programmatore\pediceG tenta inizialmente di risolvere autonomamente il problema. In caso di difficoltà, chiederà supporto a membri del gruppo più esperti. Per problemi particolarmente gravi, le attività meno urgenti verranno posticipate per dedicare risorse alla risoluzione. \\
+\textbf{Mitigazione\pediceG} & Il Programmatore\pediceG tenta inizialmente di risolvere autonomamente il problema. In caso di difficoltà, chiederà supporto a membri del gruppo più esperti. Per problemi particolarmente gravi, le attività meno urgenti verranno posticipate per dedicare risorse alla risoluzione. \\
 \hline
 \textbf{Frequenza probabile} & Alta \\
 \hline
@@ -289,7 +304,7 @@ Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tr
 \hline
 \textbf{Descrizione} & Un componente del gruppo deve affrontare un impegno imprevisto (personale, familiare, di salute) che ne impedisce temporaneamente la partecipazione attiva al progetto\pediceG. \\
 \hline
-\textbf{Mitigazione\pediceG} & Il membro interessato deve comunicare temestivamente l'indisponibilità al resto del gruppo. Le attività assegnate al membro verranno ridistribuite o posticipate. Al termine dell'impedimento, il membro si impegnerà a recuperare il lavoro eventualmente pendente. \\
+\textbf{Mitigazione\pediceG} & Il membro interessato deve comunicare tempestivamente l'indisponibilità al resto del gruppo. Le attività assegnate al membro verranno ridistribuite o posticipate. Al termine dell'impedimento, il membro si impegnerà a recuperare il lavoro eventualmente pendente. \\
 \hline
 \textbf{Frequenza probabile} & Media \\
 \hline
@@ -395,9 +410,9 @@ Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tr
 
 \section{Pianificazione nel lungo termine}
 
-Come anticipato nella Dichiarazione degli Impegni, Il gruppo prevede di terminare il progetto\pediceG entro e non oltre il giorno 21 Marzo 2026 con um budget di spesa fissato a 12790€.
+Come anticipato nella Dichiarazione degli Impegni, il gruppo prevede di terminare il progetto\pediceG entro e non oltre il giorno 21 Marzo 2026, con un budget di spesa fissato a 12790€.
 
-Al momento della candidatura\pediceG si è teorizzato il seguente prospetto costi:
+Al momento della candidatura\pediceG si è teorizzato il seguente prospetto dei costi:
 
 \begin{table}[H]
 \centering
@@ -426,46 +441,85 @@ Verificatore\pediceG & 15€/h & 166h & 2.490€ \\
 
 Si stima inoltre una candidatura\pediceG per la Requirements and Technology Baseline (RTB)\pediceG entro il 20 Gennaio 2026.
 
-Seguiranno ora le attività previste per la Requirements and Technology Baseline (RTB)\pediceG e la Product Baseline (PB)\pediceG: tali sezioni saranno utili per correttamente calendarizzare quanto da realizzare per ogni sprint\pediceG.
+Seguiranno ora le attività previste per la Requirements and Technology Baseline (RTB)\pediceG e la Product Baseline (PB)\pediceG: tali sezioni saranno utili per calendarizzare correttamente quanto realizzare in ogni sprint\pediceG.
 
 \subsection{Attività previste per la Requirements and Technology Baseline (RTB)\pediceG}
 
-\begin{longtable}{|p{4cm}|p{5cm}|p{3.5cm}|p{2cm}|}
-\hline
-\textbf{Attività} & \textbf{Descrizione} & \textbf{Periodo di svolgimento} & \textbf{Stato} \\
-\hline
-\endfirsthead
-\endfoot
-\hline
-Redazione Analisi dei Requisiti\pediceG & Redazione delle seguenti parti: XXX & XXX & IN REDAZIONE \\
-\hline
-Redazione Piano di Progetto\pediceG & Redazione: introduzione; analisi rischi; pianificazione & Introduzione: sprint 2; Analisi rischi: tutti gli sprint; Pianificazione: tutti gli sprint\pediceG & IN REDAZIONE \\
-\hline
-Redazione Piano di Qualifica\pediceG & XXX &  XXX & IN REDAZIONE \\
-\hline
-Redazione Norme di Progetto\pediceG & XXX & XXX & IN REDAZIONE \\
-\hline
-Redazione Glossario\pediceG & Redazione termini & Tutti gli sprint\pediceG & IN REDAZIONE \\
-\hline
-Realizzazione PoC & XXX & XXX & DA FARE \\
-\hline
-\caption{Attività previste per la Requirements and Technology Baseline (RTB)\pediceG}%
-\label{tab:attivita-rtb}
-\end{longtable}
+{
+% 1. Svuotiamo i template per evitare scritte "Continua..." o didascalie in alto
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{capcont}{default}{}
+\DefTblrTemplate{contfoot}{default}{}
+\DefTblrTemplate{conthead}{default}{}
+\DefTblrTemplate{contfoot-text}{default}{}
+\DefTblrTemplate{conthead-text}{default}{}
 
-\subsection{Attività previste per la Product Baseline (PB)\pediceG}
-La redazione di questo paragrafo sarà effettuato in seguito al superamento della Requirements and Technology Baseline (RTB)\pediceG.
+% 2. Posizioniamo l'ancora per l'indice esattamente qui
+\phantomsection 
 
-\newpage
+\begin{longtblr}[
+  % Definiamo l'entry per l'indice (List of Tables)
+  entry = {Attività previste per la RTB},
+  label = {tab:attivita-rtb},
+]{
+  colspec = {|Q[c,m,3.2cm]|Q[l,m,3.8cm]|Q[l,m,4.2cm]|Q[c,m,2.8cm]|},
+  % rowhead = 1, % RIMOSSO: così l'intestazione NON si ripete tra le pagine
+  hlines = {primaryblue},
+  vlines = {primaryblue},
+  row{1} = {font=\bfseries},
+}
+% --- INTESTAZIONE (Apparirà solo una volta) ---
+Attività & Descrizione & Periodo di svolgimento & Stato \\
+
+% --- CONTENUTO ---
+\SetCell[r=2]{c} \textbf{Redazione Analisi dei Requisiti\pediceG} 
+& XXX & XXX & \SetCell[r=2]{c} IN REDAZIONE \\
+& XXX & XXX & \\
+
+\SetCell[r=3]{c} \textbf{Redazione Piano di Progetto\pediceG} 
+& Introduzione del documento & Sprint\pediceG 2 & \SetCell[r=3]{c} IN REDAZIONE \\
+& Analisi e gestione dei rischi\pediceG & Tutti gli sprint\pediceG & \\
+& Pianificazione nel lungo e breve periodo & Tutti gli sprint\pediceG & \\
+
+\SetCell[r=2]{c} \textbf{Redazione Piano di Qualifica\pediceG} 
+& XXX & XXX & \SetCell[r=2]{c} IN REDAZIONE \\
+& XXX & XXX & \\
+
+\SetCell[r=5]{c} \textbf{Redazione Norme di Progetto\pediceG} 
+& Introduzione del documento & Sprint\pediceG 1 & \SetCell[r=5]{c} IN REDAZIONE \\
+& Redazione dei processi primari & Sprint\pediceG 1, 2 e modifiche minime successive & \\
+& Redazione dei processi di supporto & Sprint\pediceG 2 e modifiche successive & \\
+& Redazione dei processi organizzativi & Fine sprint\pediceG 2, inizio sprint\pediceG 3 & \\
+& Redazione sezione Standard di progetto & Sprint\pediceG 3 & \\
+
+\textbf{Redazione Glossario\pediceG} & Redazione e aggiornamento dei termini & Tutti gli sprint\pediceG & IN REDAZIONE \\
+
+\SetCell[r=4]{c} \textbf{Realizzazione PoC\pediceG} 
+& Prima implementazione\pediceG solo con Rails\pediceG & Sprint\pediceG 3 & \SetCell[r=4]{c} {\small IN\\REALIZ-\\ZAZIONE} \\
+& Ridefinizione struttura backend\pediceG-frontend\pediceG aggiungendo Angular\pediceG & Sprint\pediceG 3 & \\
+& Implementazione\pediceG e modifica di funzionalità\pediceG backend\pediceG con relativa implementazione\pediceG in frontend\pediceG & Sprint\pediceG 4 & \\
+& Refactoring del codice & Sprint\pediceG 5 & \\
+\end{longtblr}
+
+% 3. Didascalia manuale posizionata sotto la tabella
+\nopagebreak
+\begin{center}
+  \itshape Tabella \thetable: Attività previste per la Requirements and Technology Baseline (RTB)\pediceG
+\end{center}
+
+% 4. Allineamento del contatore per evitare discrepanze con l'indice
+\addtocounter{table}{-1} 
+\refstepcounter{table} 
+}
 
 \section{Pianificazione a breve termine}
 
 \subsection{Premessa}
-Il gruppo BugBusters ha adottato una metodologia di sviluppo di tipo Agile\pediceG. Si è valutato che un ciclo di lavoro di due settimane rappresenti il periodo ottimale per generare incrementi di prodotto\pediceG tangibili e di valore. Pertanto, lo svolgimento del progetto sarà strutturato in sprint\pediceG della durata di quattordici giorni.
+Il gruppo BugBusters ha adottato una metodologia di sviluppo di tipo Agile\pediceG. Si è valutato che un ciclo di lavoro di due settimane rappresenti il periodo ottimale per generare incrementi di prodotto\pediceG tangibili e di valore. Pertanto, lo svolgimento del progetto\pediceG sarà strutturato in sprint\pediceG della durata di quattordici giorni.
 
-All'inizio di ogni sprint\pediceG verranno pianificate le attività per il ciclo successivo. Contestualmente, avverrà la rotazione dei ruoli all'interno del gruppo. Tale rotazione, sebbene programmata all'avvio di ogni iterazione, potrà essere modificata in corso d'opera per rispondere a specifiche esigenze organizzative. L'obiettivo è consentire a ciascun membro di sperimentare ogni ruolo.
+All'apertura di ogni sprint\pediceG si definiscono le attività dello sprint\pediceG e si attua la rotazione dei ruoli. Sebbene pianificata all'inizio, la distribuzione dei compiti potrà essere modificata a seconda delle necessità operative ed organizzative, con il fine ultimo di permettere a ciascun membro di ricoprire ogni ruolo.
 
-Il gruppo, inoltre, si impegna a organizzare colloqui in via telematica o in presenza in modo regolare con il proponente\pediceG Eggon, programmandole ad ogni colloquio con la proponente\pediceG oppure durante le riunioni interne del gruppo. Questo approccio garantisce un allineamento continuo con le aspettative del committente\pediceG e soprattutto permette di validare tempestivamente il lavoro svolto.
+Il gruppo si impegna a mantenere un confronto costante con il proponente\pediceG Eggon attraverso incontri regolari, in presenza o per via telematica. Tali colloqui, previsti con cadenza bisettimanale ma flessibili in base alle necessità emergenti, garantiscono un allineamento continuo con le aspettative del committente\pediceG e consentono di validare tempestivamente il lavoro svolto.
 
 \vfill
 \begin{center}
@@ -483,9 +537,8 @@ Il gruppo, inoltre, si impegna a organizzare colloqui in via telematica o in pre
 \textbf{Giorni di ritardo:} 0
 
 \noindent\textbf{Informazioni generali e attività da svolgere}\\
-Questo primo sprint\pediceG ha l'obiettivo principale di risolvere tutti i problemi sorti durante la
-candidatura\pediceG; successivamente, avverrà la redazione dei documenti necessari per un buon
-inizio dei lavori.\\ \\
+Questo primo sprint\pediceG ha l'obiettivo principale di risolvere tutti i problemi sorti durante la candidatura\pediceG; successivamente, avverrà la redazione dei documenti necessari per un buon inizio dei lavori.\\
+
 In particolare, le attività svolte sono:
 \begin{itemize}
     \item Aggiornamento del sito web
@@ -503,14 +556,14 @@ In particolare, le attività svolte sono:
 \end{itemize}
 
 \noindent\textbf{Rischi attesi}\\
-I componenti del team BugBusters ritengono siano possibili i seguenti rischi\pediceG:
+I componenti del team BugBusters ritengono possibili i seguenti rischi\pediceG:
 \begin{itemize}
     \item RG2: Rischio Globale\pediceG derivato da malcomprensione del capitolato\pediceG
     \item RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie
 \end{itemize}
 
 \noindent\textbf{Preventivo\pediceG}\\
-Si prospetta l'utilizzo delle seguenti risorse
+Si prospetta l'utilizzo delle seguenti risorse:
 
 \begin{table}[H]
 \centering
@@ -521,11 +574,11 @@ Si prospetta l'utilizzo delle seguenti risorse
 \hline
 Alberto Autiero & 8 & - & - & - & - & - \\
 \hline
-Marco Favero & - & 4 & - & - & - & - \\
+Marco Favero & - & 8 & - & - & - & - \\
 \hline
 Alberto Pignat & - & - & 8 & - & - & - \\
 \hline
-Marco Piro & - & - & - & - & - & 12 \\
+Marco Piro & - & - & - & - & - &  8 \\
 \hline
 Linor Sadè & - & - & 8 & - & - & - \\
 \hline
@@ -541,38 +594,38 @@ Luca Slongo & - & - & 8 & - & - & - \\
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[scale=1.3]
-  % Pie chart - Responsabile: 12.5% (45°)
+  % Pie chart - Responsabile\pediceG: 14.3% (51.5°)
   \draw[fill=blue!60, draw=black, line width=1.5pt] 
-    (0,0) -- (2,0) arc (0:45:2) -- cycle;
-  \node at (22.5:1.2) {\small\bfseries 12.5\%};
+    (0,0) -- (2,0) arc (0:51.5:2) -- cycle;
+  \node at (25.75:1.2) {\small\bfseries 14.3\%};
   
-  % Amministratore: 6.25% (22.5° cumulative)
+  % Amministratore\pediceG: 14.3% (51.5° cumulative)
   \draw[fill=red!60, draw=black, line width=1.5pt] 
-    (0,0) -- (45:2) arc (45:67.5:2) -- cycle;
-  \node[rotate=56.25] at (56.25:1.5) {\small\bfseries 6.25\%};
+    (0,0) -- (51.5:2) arc (51.5:103:2) -- cycle;
+  \node[rotate=77.25] at (77.25:1.5) {\small\bfseries 14.3\%};
   
-  % Analista: 50% (180° cumulative)
+  % Analista\pediceG: 57.1% (205.6° cumulative)
   \draw[fill=orange!60, draw=black, line width=1.5pt] 
-    (0,0) -- (67.5:2) arc (67.5:247.5:2) -- cycle;
-  \node at (157.5:1.2) {\small\bfseries 50\%};
+    (0,0) -- (103:2) arc (103:308.6:2) -- cycle;
+  \node at (205.8:1.2) {\small\bfseries 57.1\%};
   
-  % Verificatore: 18.75% (67.5° cumulative to 360°)
+  % Verificatore\pediceG: 14.3% (51.4° cumulative to 360°)
   \draw[fill=green!60, draw=black, line width=1.5pt] 
-    (0,0) -- (247.5:2) arc (247.5:360:2) -- cycle;
-  \node at (303.75:1.2) {\small\bfseries 18.75\%};
+    (0,0) -- (308.6:2) arc (308.6:360:2) -- cycle;
+  \node at (334.3:1.2) {\small\bfseries 14.3\%};
   
   % Legenda
   \draw[fill=blue!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
-  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile};
+  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile\pediceG};
   
   \draw[fill=red!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
-  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore};
+  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore\pediceG};
   
   \draw[fill=orange!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
-  \node[anchor=west, font=\small] at (4, 0.65) {Analista};
+  \node[anchor=west, font=\small] at (4, 0.65) {Analista\pediceG};
   
   \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
-  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore};
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
 \end{tikzpicture}
 \caption{Grafico 1: Sprint\pediceG 1 - Preventivo\pediceG}
 \label{fig:grafico-sprint1}
@@ -587,24 +640,64 @@ Luca Slongo & - & - & 8 & - & - & - \\
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & 7 & - & - & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & 6 & - & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & - & 6 & - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & - & - & - & - &  6 \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - & 6 & - & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & 9 \textcolor{red}{(+1)} & - & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+Luca Slongo & - & - & 6 & - & - & - \\
 \hline
 \end{tabular}
 \caption{Consuntivo\pediceG per componenti nello Sprint\pediceG 1}
 \label{tab:consuntivo-sprint1}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Responsabile: 15.2% = 7h su 46h totali -> 54.7°
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:54.7:2) -- cycle;
+  \node at (27.35:1.2) {\small\bfseries 15.2\%};
+  
+  % Amministratore: 13.0% = 6h -> 46.8° (cumulativo: 54.7° -> 101.5°)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (54.7:2) arc (54.7:101.5:2) -- cycle;
+  \node[rotate=78.1] at (78.1:1.5) {\small\bfseries 13.0\%};
+  
+  % Analista: 58.7% = 27h -> 211.3° (cumulativo: 101.5° -> 312.8°)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (101.5:2) arc (101.5:312.8:2) -- cycle;
+  \node at (207.15:1.2) {\small\bfseries 58.7\%};
+  
+  % Verificatore: 13.0% = 6h -> 46.8° (cumulativo: 312.8° -> 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (312.8:2) arc (312.8:360:2) -- cycle;
+  \node at (336.4:1.2) {\small\bfseries 13.0\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Analista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico Consuntivo: Sprint\pediceG 1}
+\label{fig:grafico-consuntivo-sprint1}
+\end{figure}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
 
@@ -615,19 +708,19 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
 \hline
-Responsabile\pediceG & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+Responsabile\pediceG & 30€/h & 7 & 210€ & 49 & 1470€ \\
 \hline
-Amministratore\pediceG & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+Amministratore\pediceG & 20€/h & 6 & 120€ & 46 & 920€ \\
 \hline
-Analista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Analista\pediceG & 25€/h & 27 & 675€ & 29 & 725€ \\
 \hline
-Progettista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Progettista\pediceG & 25€/h & - & - & 147 & 3675€ \\
 \hline
-Programmatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Programmatore\pediceG & 15€/h & - & - & 167 & 2505€ \\
 \hline
-Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Verificatore\pediceG & 15€/h & 6 & 90€ & 160 & 2400€ \\
 \hline
-\textbf{Totale} & & & & & \textbf{[X]€} \\
+\textbf{Totale} & - & \textbf{46} & \textbf{1095€} & \textbf{598} & \textbf{11695€} \\
 \hline
 \end{tabular}
 \caption{Variazione nelle risorse disponibili nello Sprint\pediceG 1}
@@ -635,42 +728,43 @@ Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
-Durante questo primo sprint\pediceG si è concretizzato il rischio RT1: Rischio Tecnologico\pediceG legato alla tecnologia utilizzata, nella redazione dell'Analisi dei requisiti\pediceG a causa di conoscenza limitata delle tecnologie e soprattutto dall'inesperienza.
+Durante questo primo sprint\pediceG si è concretizzato il rischio RT1: Rischio Tecnologico\pediceG legato alla tecnologia utilizzata, nella redazione dell'Analisi dei requisiti\pediceG a causa di conoscenza limitata delle tecnologie e soprattutto dell'inesperienza.
 
 \noindent\textbf{Retrospettiva\pediceG}\\
-Il primo sprint\pediceG si è concentrato sul raggiungimento di due obiettivi principali: prima stesura e conseguente redazione di Analisi dei requisiti\pediceG, Norme di Progetto\pediceG e Glossario\pediceG. Inoltre ci si è concentrati sull' aggiornamento del sito web con la suddivisione in CANDIDATURA\pediceG, RTB\pediceG e DIAPOSITIVE. Inoltre sono state implementate automazioni l'upload automatico dei verbali sul sito.
+Il primo sprint\pediceG ha avuto come obiettivo principale la prima stesura di Analisi dei requisiti\pediceG, Norme di Progetto\pediceG e Glossario\pediceG. Inoltre, ci si è concentrati sull'aggiornamento del sito web con la suddivisione in CANDIDATURA\pediceG, RTB\pediceG e DIAPOSITIVE.
 
 \newpage
 \subsubsection{Sprint\pediceG 2}
 
 \textbf{Inizio:} 24/11/2025 \\
-\textbf{Fine prevista:} 08/12/2025 \\
-\textbf{Fine reale:} 08/12/2025 \\
+\textbf{Fine prevista:} 07/12/2025 \\
+\textbf{Fine reale:} 07/12/2025 \\
 \textbf{Giorni di ritardo:} 0
 
 \noindent\textbf{Informazioni generali e attività da svolgere}\\
-Questo secondo sprint\pediceG ha l'obiettivo principale di continuare la stesura delle Norme di progetto\pediceG e l'Analisi dei requisiti\pediceG.\\\\
+Questo secondo sprint\pediceG ha l'obiettivo principale di continuare la stesura delle Norme di Progetto\pediceG e dell'Analisi dei requisiti\pediceG.\\
+
 In particolare, le attività svolte sono:
 \begin{itemize}
     \item Prima redazione del Piano di Progetto\pediceG
-    \item Incontro con l'azienda proponente\pediceG Eggon per discutere i requisiti e i casi d'uso\pediceG.
+    \item Incontro con l'azienda proponente\pediceG Eggon per discutere i requisiti e i casi d'uso\pediceG
     \item Redazione del verbale interno\pediceG del 01/12/2025
     \item Redazione del verbale esterno\pediceG del 03/12/2025
     \item Studio delle tecnologie necessarie
     \item Continuazione della redazione del Glossario\pediceG
-    \item Continuazione della redazione Analisi dei requisiti\pediceG
-    \item Continuazione della redazione Norme di Progetto\pediceG
+    \item Continuazione della redazione dell'Analisi dei requisiti\pediceG
+    \item Continuazione della redazione delle Norme di Progetto\pediceG
 \end{itemize}
 
 \noindent\textbf{Rischi attesi}\\
-I componenti del team BugBusters ritengono siano possibili i seguenti rischi\pediceG:
+I componenti del team BugBusters ritengono possibili i seguenti rischi\pediceG:
 \begin{itemize}
     \item RT1: Rischio Tecnologico\pediceG legato alla tecnologia utilizzata
     \item RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie
 \end{itemize}
 
 \noindent\textbf{Preventivo\pediceG}\\
-Si prospetta l'utilizzo delle seguenti risorse
+Si prospetta l'utilizzo delle seguenti risorse:
 
 \begin{table}[H]
 \centering
@@ -679,24 +773,72 @@ Si prospetta l'utilizzo delle seguenti risorse
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & 8 & - & - & - & - & - \\
+Alberto Autiero & - & - & 4 & - & - & - \\
 \hline
-Marco Favero & - & 4 & - & - & - & - \\
+Marco Favero & 4 &  - & - & - & - & - \\
 \hline
-Alberto Pignat & - & - & 8 & - & - & - \\
+Alberto Pignat & - & 7 & -& - & - & - \\
 \hline
-Marco Piro & - & - & - & - & - & 12 \\
+Marco Piro & - & - & 8 &  & - &  \\
 \hline
-Linor Sadè & - & - & 8 & - & - & - \\
+Linor Sadè & - & - &- & - & - & 12 \\
 \hline
-Leonardo Salviato & - & - & 8 & - & - & - \\
+Leonardo Salviato & - & - & -& 10 & - & - \\
 \hline
-Luca Slongo & - & - & 8 & - & - & - \\
+Luca Slongo & - & - & - & 11 & - & - \\
 \hline
 \end{tabular}
 \caption{Preventivo\pediceG per componenti nello Sprint\pediceG 2}
 \label{tab:preventivo-sprint2}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Pie chart - Responsabile\pediceG: 7.1% (25.6°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:25.6:2) -- cycle;
+  \node at (12.8:1.2) {\small\bfseries 7.1\%};
+  
+  % Amministratore\pediceG: 12.5% (45° cumulative)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (25.6:2) arc (25.6:70.6:2) -- cycle;
+  \node[rotate=48.1] at (48.1:1.5) {\small\bfseries 12.5\%};
+  
+  % Analista\pediceG: 21.4% (77.1° cumulative)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (70.6:2) arc (70.6:147.7:2) -- cycle;
+  \node[rotate=109.15] at (109.15:1.2) {\small\bfseries 21.4\%};
+  
+  % Progettista\pediceG: 37.5% (135° cumulative)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (147.7:2) arc (147.7:282.7:2) -- cycle;
+  \node at (215.2:1.2) {\small\bfseries 37.5\%};
+  
+  % Verificatore\pediceG: 21.4% (77.3° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (282.7:2) arc (282.7:360:2) -- cycle;
+  \node at (321.35:1.2) {\small\bfseries 21.4\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 2) rectangle (3.8, 2.3);
+  \node[anchor=west, font=\small] at (4, 2.15) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Analista\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico 2: Sprint\pediceG 2 - Preventivo\pediceG}
+\label{fig:grafico-sprint2}
+\end{figure}
 
 \noindent\textbf{Consuntivo\pediceG}
 
@@ -707,24 +849,72 @@ Luca Slongo & - & - & 8 & - & - & - \\
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & - & - & 4 & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & 3 &  - & - & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & 5 & -& - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & - & 6 &  & - &  \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - &- & - & - & 9 \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & -& 9 & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+Luca Slongo & - & - & - & 8 & - & - \\
 \hline
 \end{tabular}
 \caption{Consuntivo\pediceG per componenti nello Sprint\pediceG 2}
 \label{tab:consuntivo-sprint2}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Responsabile: 6.8% = 3h su 44h totali -> 24.5°
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:24.5:2) -- cycle;
+  \node at (12.25:1.2) {\small\bfseries 6.8\%};
+  
+  % Amministratore: 11.4% = 5h -> 41.0° (cumulativo: 24.5° -> 65.5°)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (24.5:2) arc (24.5:65.5:2) -- cycle;
+  \node[rotate=45] at (45:1.2) {\small\bfseries 11.4\%}; % Spostato a raggio 1.2
+  
+  % Analista: 22.7% = 10h -> 81.7° (cumulativo: 65.5° -> 147.2°)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (65.5:2) arc (65.5:147.2:2) -- cycle;
+  \node at (106.35:1.5) {\small\bfseries 22.7\%}; % Spostato a raggio 1.5
+  
+  % Progettista: 38.6% = 17h -> 139.0° (cumulativo: 147.2° -> 286.2°)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (147.2:2) arc (147.2:286.2:2) -- cycle;
+  \node at (216.7:1.2) {\small\bfseries 38.6\%};
+  
+  % Verificatore: 20.5% = 9h -> 73.8° (cumulativo: 286.2° -> 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (286.2:2) arc (286.2:360:2) -- cycle;
+  \node at (323.1:1.2) {\small\bfseries 20.5\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 2) rectangle (3.8, 2.3);
+  \node[anchor=west, font=\small] at (4, 2.15) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Analista\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico Consuntivo: Sprint\pediceG 2}
+\label{fig:grafico-consuntivo-sprint2}
+\end{figure}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
 
@@ -735,19 +925,19 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
 \hline
-Responsabile\pediceG & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+Responsabile\pediceG & 30€/h & 3 & 90€ & 46 & 1380€ \\
 \hline
-Amministratore\pediceG & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+Amministratore\pediceG & 20€/h & 5 & 100€ & 41 & 820€ \\
 \hline
-Analista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Analista\pediceG & 25€/h & 10 & 250€ & 19 & 475€ \\
 \hline
-Progettista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Progettista\pediceG & 25€/h & 17 & 425€ & 130 & 3250€ \\
 \hline
-Programmatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Programmatore\pediceG & 15€/h & - & - & 167 & 2505€ \\
 \hline
-Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Verificatore\pediceG & 15€/h & 9 & 135€ & 151 & 2265€ \\
 \hline
-\textbf{Totale} & & & & & \textbf{[X]€} \\
+\textbf{Totale} & - & \textbf{44} & \textbf{1000€} & \textbf{554} & \textbf{10695€} \\
 \hline
 \end{tabular}
 \caption{Variazione nelle risorse disponibili nello Sprint\pediceG 2}
@@ -755,42 +945,45 @@ Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
-Durante questo secondo sprint\pediceG si è concretizzato il rischio RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie, a causa dell'inizio del progetto di Tecnologie WEB.
+Durante questo secondo sprint\pediceG si è concretizzato il rischio RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie, a causa dell'inizio del progetto\pediceG di Tecnologie WEB.
 
 \noindent\textbf{Retrospettiva\pediceG}\\
-Nel secondo sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG individuata come priorità immediatae e fondamentale per le succesive fasi di progetto e sviluppo. L'obiettivo raggiunto è stato quello di portare l'analisi ad uno stadio avanzato.
+Nel secondo sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG, individuata come priorità immediata e fondamentale per le successive fasi di progetto\pediceG e sviluppo. L'obiettivo raggiunto è stato quello di portarla ad uno stadio soddisfacente.
+
 
 \newpage
 \subsubsection{Sprint\pediceG 3}
 
-\textbf{Inizio:} 09/12/2025 \\
-\textbf{Fine prevista:} 22/12/2025 \\
+\textbf{Inizio:} 08/12/2025 \\
+\textbf{Fine prevista:} 21/12/2025 \\
 \textbf{Fine reale:} 22/12/2025 \\
 \textbf{Giorni di ritardo:} 0
 
 \noindent\textbf{Informazioni generali e attività da svolgere}\\
-Questo terzo sprint\pediceG ha l'obiettivo principale, oltre a quello di continuare la stesura delle Norme di progetto\pediceG e dell'Analisi dei requisiti\pediceG, anche quello di iniziare il Proof of Concept (POC)\pediceG.
+Questo terzo sprint\pediceG ha l'obiettivo principale, oltre a quello di continuare la stesura delle Norme di Progetto\pediceG e dell'Analisi dei requisiti\pediceG, anche quello di iniziare il Proof of Concept (POC)\pediceG.
+
+In particolare, le attività svolte sono:
 \begin{itemize}
     \item Continuazione della redazione del Piano di Progetto\pediceG
-    \item Continuazione della redazione del'Analisi dei requisiti\pediceG
+    \item Continuazione della redazione dell'Analisi dei requisiti\pediceG
     \item Continuazione della redazione delle Norme di Progetto\pediceG
-    \item Riorganizzazione strutturale e contenutistica del  Glossario\pediceG e sua continuazione
+    \item Riorganizzazione strutturale e contenutistica del Glossario\pediceG e sua continuazione
     \item Prima redazione del Piano di Qualifica\pediceG
     \item Redazione del verbale interno\pediceG del 11/12/2025
     \item Redazione del verbale esterno\pediceG del 17/12/2025
     \item Aggiornamento del sito web
-    \item Inizio dello sviluppo del Proof of concept (POC)
+    \item Inizio dello sviluppo del Proof of Concept (POC)\pediceG
 \end{itemize}
 
 \noindent\textbf{Rischi attesi}\\
-I componenti del team BugBusters ritengono siano possibili i seguenti rischi\pediceG:
+I componenti del team BugBusters ritengono possibili i seguenti rischi\pediceG:
 \begin{itemize}
     \item RT1: Rischio Tecnologico\pediceG legato alla tecnologia utilizzata
     \item RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie
 \end{itemize}
 
 \noindent\textbf{Preventivo\pediceG}\\
-Si prospetta l'utilizzo delle seguenti risorse
+Si prospetta l'utilizzo delle seguenti risorse:
 
 \begin{table}[H]
 \centering
@@ -799,25 +992,65 @@ Si prospetta l'utilizzo delle seguenti risorse
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & 8 & - & - & - & - & - \\
+Alberto Autiero & - & - & - & 10 & - & - \\
 \hline
-Marco Favero & - & 4 & - & - & - & - \\
+Marco Favero & - & - & - & 11 & - & - \\
 \hline
-Alberto Pignat & - & - & 8 & - & - & - \\
+Alberto Pignat & 4 & - & - & - & - & - \\
 \hline
-Marco Piro & - & - & - & - & - & 12 \\
+Marco Piro & - & 4 & - & - & - & - \\
 \hline
-Linor Sadè & - & - & 8 & - & - & - \\
+Linor Sadè & - & - & - & 11 & - & - \\
 \hline
-Leonardo Salviato & - & - & 8 & - & - & - \\
+Leonardo Salviato & - & - & - & - & - & 12 \\
 \hline
-Luca Slongo & - & - & 8 & - & - & - \\
+Luca Slongo & - & - & - & - & - & 12 \\
 \hline
 \end{tabular}
 \caption{Preventivo\pediceG per componenti nello Sprint\pediceG 3}
 \label{tab:preventivo-sprint3}
 \end{table}
 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Pie chart - Responsabile\pediceG: 6.25% (22.5°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:22.5:2) -- cycle;
+  \node at (11.25:1.2) {\small\bfseries 6.25\%};
+  
+  % Amministratore\pediceG: 6.25% (22.5° cumulative)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (22.5:2) arc (22.5:45:2) -- cycle;
+  \node[rotate=33.75] at (33.75:1.5) {\small\bfseries 6.25\%};
+  
+  % Progettista\pediceG: 50% (180° cumulative)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (45:2) arc (45:225:2) -- cycle;
+  \node at (135:1.2) {\small\bfseries 50\%};
+  
+  % Verificatore\pediceG: 37.5% (135° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (225:2) arc (225:360:2) -- cycle;
+  \node at (292.5:1.2) {\small\bfseries 37.5\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico 3: Sprint\pediceG 3 - Preventivo\pediceG}
+\label{fig:grafico-sprint3}
+\end{figure}
+
 \noindent\textbf{Consuntivo\pediceG}
 
 \begin{table}[H]
@@ -827,25 +1060,65 @@ Luca Slongo & - & - & 8 & - & - & - \\
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & - & - & - & 9 & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & - & - & 9 & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & 3 & - & - & - & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & 3 & - & - & - & - \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & - & - & 9 & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & - & - & - & 8 \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+Luca Slongo & - & - & - & - & - & 8 \\
 \hline
 \end{tabular}
 \caption{Consuntivo\pediceG per componenti nello Sprint\pediceG 3}
 \label{tab:consuntivo-sprint3}
 \end{table}
 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Responsabile: 6.1% = 3h su 49h totali -> 22.0°
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:22.0:2) -- cycle;
+  \node at (11.0:1.2) {\small\bfseries 6.1\%};
+  
+  % Amministratore: 6.1% = 3h -> 22.0° (cumulativo: 22.0° -> 44.0°)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (22.0:2) arc (22.0:44.0:2) -- cycle;
+  \node[rotate=33.0] at (33.0:1.5) {\small\bfseries 6.1\%};
+  
+  % Progettista: 55.1% = 27h -> 198.4° (cumulativo: 44.0° -> 242.4°)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (44.0:2) arc (44.0:242.4:2) -- cycle;
+  \node at (143.2:1.2) {\small\bfseries 55.1\%};
+  
+  % Verificatore: 32.7% = 16h -> 117.6° (cumulativo: 242.4° -> 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (242.4:2) arc (242.4:360:2) -- cycle;
+  \node at (301.2:1.2) {\small\bfseries 32.7\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico Consuntivo: Sprint 3}
+\label{fig:grafico-consuntivo-sprint3}
+\end{figure}
+
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
 
 \begin{table}[H]
@@ -855,62 +1128,61 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
 \hline
-Responsabile\pediceG & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+Responsabile\pediceG & 30€/h & 3 & 90€ & 43 & 1290€ \\
 \hline
-Amministratore\pediceG & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+Amministratore\pediceG & 20€/h & 3 & 60€ & 38 & 760€ \\
 \hline
-Analista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Analista\pediceG & 25€/h & - & - & 19 & 475€ \\
 \hline
-Progettista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Progettista\pediceG & 25€/h & 27 & 675€ & 103 & 2575€ \\
 \hline
-Programmatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Programmatore\pediceG & 15€/h & - & - & 167 & 2505€ \\
 \hline
-Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Verificatore\pediceG & 15€/h & 16 & 240€ & 135 & 2025€ \\
 \hline
-\textbf{Totale} & & & & & \textbf{[X]€} \\
+\textbf{Totale} & - & \textbf{49} & \textbf{1065€} & \textbf{505} & \textbf{9630€} \\
 \hline
 \end{tabular}
-\caption{Variazione nelle risorse disponibili nello Sprint\pediceG 3}
+\caption{Variazione nelle risorse disponibili nello Sprint 3}
 \label{tab:risorse-sprint3}
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
-Durante questo terzo sprint\pediceG si è concretizzato il rischio RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie, a causa della prosecuzione del progetto di Tecnologie WEB e l'inizio dello studio per gli esami della sessione invernale.
+Durante questo terzo sprint\pediceG si è concretizzato il rischio RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie, a causa della prosecuzione del progetto\pediceG di Tecnologie WEB e dell'inizio dello studio per gli esami della sessione invernale.
 
 \noindent\textbf{Retrospettiva\pediceG}\\
-Nel terzo sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG che è ormai ad uno stato molto avanzato. Inoltre abbiamo concentrato i nostri sforzi anche sull'inizio dello sviluppo del Proof of concept (POC)
+Nel terzo sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG, che è ormai ad uno stato molto avanzato. Inoltre, abbiamo iniziato lo sviluppo del Proof of Concept (POC).\pediceG
 
 \newpage
 \subsubsection{Sprint\pediceG 4}
 
-\textbf{Inizio:} 05/01/2026 \\
-\textbf{Fine prevista:} 19/01/2026]\\
-\textbf{Fine reale:} 19/01/2026\\
+\textbf{Inizio:} 22/12/2025 \\
+\textbf{Fine prevista:} 04/01/2026\\
+\textbf{Fine reale:} 04/01/2026\\
 \textbf{Giorni di ritardo:} 0
 
 \noindent\textbf{Informazioni generali e attività da svolgere}\\
-Questo quarto sprint\pediceG ha l'obiettivo principale di concludere la stesura delle Norme di progetto\pediceG e l'Analisi dei requisiti\pediceG.\\
+L'obiettivo principale di questo quarto sprint\pediceG è la contunuazione dell'Analisi dei Requisiti\pediceG e la continuazione delle Norme di Progetto\pediceG. Parallelamente, proseguono le attività sul Piano di Qualifica\pediceG e sul Piano di Progetto\pediceG, insieme all'avanzamento del Proof of Concept (POC)\pediceG.
 
 In particolare, le attività svolte sono:
 \begin{itemize}
     \item Continuazione della redazione del Piano di Progetto\pediceG
     \item Continuazione della redazione del Piano di Qualifica\pediceG
-    \item Conclusione della redazione del'Analisi dei requisiti\pediceG
-    \item Conclusione della redazione delle Norme di Progetto\pediceG
-    \item Continuazione della redazione del  Glossario\pediceG
-    \item Continuazione dello sviluppo del Proof of concept (POC)
-    \item Redazione del verbale interno\pediceG del 23/12/2025
+    \item Continuazione della redazione dell'Analisi dei requisiti\pediceG
+    \item Continuazione della redazione delle Norme di Progetto\pediceG
+    \item Continuazione della redazione del Glossario\pediceG
+    \item Continuazione dello sviluppo del Proof of Concept (POC)\pediceG
 \end{itemize}
 
 \noindent\textbf{Rischi attesi}\\
-I componenti del team BugBusters ritengono siano possibili i seguenti rischi\pediceG:
+I componenti del team BugBusters ritengono possibili i seguenti rischi\pediceG:
 \begin{itemize}
     \item RT1: Rischio Tecnologico\pediceG legato alla tecnologia utilizzata
     \item RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie
 \end{itemize}
 
 \noindent\textbf{Preventivo\pediceG}\\
-Si prospetta l'utilizzo delle seguenti risorse
+Si prospetta l'utilizzo delle seguenti risorse:
 
 \begin{table}[H]
 \centering
@@ -919,25 +1191,73 @@ Si prospetta l'utilizzo delle seguenti risorse
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & 8 & - & - & - & - & - \\
+Alberto Autiero & - & - & 4 & - & - & - \\
 \hline
-Marco Favero & - & 4 & - & - & - & - \\
+Marco Favero & - & - & 8 & - & - & - \\
 \hline
-Alberto Pignat & - & - & 8 & - & - & - \\
+Alberto Pignat & - & - & - & 11 & - & - \\
 \hline
-Marco Piro & - & - & - & - & - & 12 \\
+Marco Piro & 8 & - & - & - & - & - \\
 \hline
-Linor Sadè & - & - & 8 & - & - & - \\
+Linor Sadè & - & 8 & - & - & - & - \\
 \hline
-Leonardo Salviato & - & - & 8 & - & - & - \\
+Leonardo Salviato & - & - & - & 11 & - & - \\
 \hline
-Luca Slongo & - & - & 8 & - & - & - \\
+Luca Slongo & - & - & - & - & - & 12 \\
 \hline
 \end{tabular}
 \caption{Preventivo\pediceG per componenti nello Sprint\pediceG 4}
 \label{tab:preventivo-sprint4}
 \end{table}
 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Pie chart - Responsabile\pediceG: 12.9% (46.5°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:46.5:2) -- cycle;
+  \node at (23.25:1.2) {\small\bfseries 12.9\%};
+  
+  % Amministratore\pediceG: 12.9% (46.5° cumulative)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (46.5:2) arc (46.5:93:2) -- cycle;
+  \node[rotate=69.75] at (69.75:1.5) {\small\bfseries 12.9\%};
+  
+  % Analista\pediceG: 19.4% (69.8° cumulative)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (93:2) arc (93:162.8:2) -- cycle;
+  \node[rotate=127.9] at (127.9:1.5) {\small\bfseries 19.4\%};
+  
+  % Progettista\pediceG: 35.5% (127.8° cumulative)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (162.8:2) arc (162.8:290.6:2) -- cycle;
+  \node at (226.7:1.2) {\small\bfseries 35.5\%};
+  
+  % Verificatore\pediceG: 19.4% (69.4° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (290.6:2) arc (290.6:360:2) -- cycle;
+  \node at (325.3:1.2) {\small\bfseries 19.4\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 2) rectangle (3.8, 2.3);
+  \node[anchor=west, font=\small] at (4, 2.15) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Analista\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico 4: Sprint\pediceG 4 - Preventivo\pediceG}
+\label{fig:grafico-sprint4}
+\end{figure}
+
 \noindent\textbf{Consuntivo\pediceG}
 
 \begin{table}[H]
@@ -947,25 +1267,73 @@ Luca Slongo & - & - & 8 & - & - & - \\
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & - & - & 4 & - & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & - & 4 & - & - & - \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & - & - & 9 & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & 6 & - & - & - & - & - \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & - & 6 & - & - & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & - & 8 & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+Luca Slongo & - & - & - & - & - & 8 \\
 \hline
 \end{tabular}
 \caption{Consuntivo\pediceG per componenti nello Sprint\pediceG 4}
 \label{tab:consuntivo-sprint4}
 \end{table}
 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Responsabile: 13.3% = 6h su 45h totali -> 48.0°
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:48.0:2) -- cycle;
+  \node at (24.0:1.2) {\small\bfseries 13.3\%};
+  
+  % Amministratore: 13.3% = 6h -> 48.0° (cumulativo: 48.0° -> 96.0°)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (48.0:2) arc (48.0:96.0:2) -- cycle;
+  \node[rotate=72.0] at (72.0:1.5) {\small\bfseries 13.3\%};
+  
+  % Analista: 17.8% = 8h -> 64.0° (cumulativo: 96.0° -> 160.0°)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (96.0:2) arc (96.0:160.0:2) -- cycle;
+  \node[rotate=128.0] at (128.0:1.2) {\small\bfseries 17.8\%};
+  
+  % Progettista: 37.8% = 17h -> 136.0° (cumulativo: 160.0° -> 296.0°)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (160.0:2) arc (160.0:296.0:2) -- cycle;
+  \node at (228.0:1.2) {\small\bfseries 37.8\%};
+  
+  % Verificatore: 17.8% = 8h -> 64.0° (cumulativo: 296.0° -> 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (296.0:2) arc (296.0:360:2) -- cycle;
+  \node at (328.0:1.2) {\small\bfseries 17.8\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 2) rectangle (3.8, 2.3);
+  \node[anchor=west, font=\small] at (4, 2.15) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Analista\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico Consuntivo: Sprint 4}
+\label{fig:grafico-consuntivo-sprint4}
+\end{figure}
+
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
 
 \begin{table}[H]
@@ -975,57 +1343,64 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
 \hline
-Responsabile\pediceG & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+Responsabile\pediceG & 30€/h & 6 & 180€ & 37 & 1110€ \\
 \hline
-Amministratore\pediceG & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+Amministratore\pediceG & 20€/h & 6 & 120€ & 32 & 640€ \\
 \hline
-Analista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Analista\pediceG & 25€/h & 8 & 200€ & 11 & 275€ \\
 \hline
-Progettista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Progettista\pediceG & 25€/h & 17 & 425€ & 86 & 2150€ \\
 \hline
-Programmatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Programmatore\pediceG & 15€/h & - & - & 167 & 2505€ \\
 \hline
-Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Verificatore\pediceG & 15€/h & 8 & 120€ & 127 & 1905€ \\
 \hline
-\textbf{Totale} & & & & & \textbf{[X]€} \\
+\textbf{Totale} & - & \textbf{45} & \textbf{1045€} & \textbf{460} & \textbf{8585€} \\
 \hline
 \end{tabular}
-\caption{Variazione nelle risorse disponibili nello Sprint\pediceG 4}
+\caption{Variazione nelle risorse disponibili nello Sprint 4}
 \label{tab:risorse-sprint4}
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
-XXX
-XXX
+Durante questo quarto sprint\pediceG si è concretizzato il rischio RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie, a causa della prosecuzione del progetto\pediceG di Tecnologie WEB e del continuo studio per gli esami della sessione invernale.
 
 \noindent\textbf{Retrospettiva\pediceG}\\
-XXX
+Nel quarto sprint\pediceG abbiamo concentrato gli sforzi soprattutto sull'Analisi dei requisiti\pediceG e sulle Norme di Progetto\pediceG, che sono ormai concluse. Inoltre, abbiamo dedicato del tempo anche alla continuazione dello sviluppo del Proof of Concept (POC)\pediceG, che è ormai a uno stato avanzato.
 
 \newpage
 \subsubsection{Sprint\pediceG 5}
 
-\textbf{Inizio:} 02/02/2026 \\
-\textbf{Fine prevista:} 16/02/2026 \\
-\textbf{Fine reale:} 02/02/2026 \\
+\textbf{Inizio:} 05/01/2026 \\
+\textbf{Fine prevista:} 18/01/2026 \\
+\textbf{Fine reale:} 18/01/2026 \\
 \textbf{Giorni di ritardo:} 0
 
 \noindent\textbf{Informazioni generali e attività da svolgere}\\
-XXX\\
+L'obiettivo principale di questo quinto sprint\pediceG è la riorganizzazione dell'Analisi dei Requisiti\pediceG dopo il colloquio avuto con il Prof. Cardin e delle Norme di Progetto\pediceG. Parallelamente, proseguono le attività sul Piano di Qualifica\pediceG e sul Piano di Progetto\pediceG, insieme all'avanzamento del Proof of Concept (POC)\pediceG.
+
 In particolare, le attività svolte sono:
 \begin{itemize}
-    \item XXX
-    \item XXX
+    \item Continuazione della redazione del Piano di Progetto\pediceG
+    \item Continuazione della redazione del Piano di Qualifica\pediceG
+    \item Riorganizzazione dell'Analisi dei requisiti\pediceG a seguito del colloquio con il Prof. Cardin
+    \item Continuazione della redazione delle Norme di Progetto\pediceG
+    \item Continuazione della redazione del Glossario\pediceG
+    \item Continuazione dello sviluppo del Proof of Concept (POC)\pediceG
+    \item Redazione del verbale interno\pediceG del 05/01/2026
+    \item Redazione del verbale esterno\pediceG del 07/01/2026
+    \item Redazione del verbale interno\pediceG del 12/01/2026
 \end{itemize}
 
 \noindent\textbf{Rischi attesi}\\
-I componenti del team BugBusters ritengono siano possibili i seguenti rischi\pediceG:
+I componenti del team BugBusters ritengono possibili i seguenti rischi\pediceG:
 \begin{itemize}
-    \item XXX
-    \item XXX
+    \item RT1: Rischio Tecnologico\pediceG legato alla tecnologia utilizzata
+    \item RI1: Rischio Individuale\pediceG derivante dalle altre attività universitarie
 \end{itemize}
 
 \noindent\textbf{Preventivo\pediceG}\\
-Si prospetta l'utilizzo delle seguenti risorse
+Si prospetta l'utilizzo delle seguenti risorse:
 
 \begin{table}[H]
 \centering
@@ -1034,24 +1409,64 @@ Si prospetta l'utilizzo delle seguenti risorse
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & 8 & - & - & - & - & - \\
+Alberto Autiero & - & - & - & 11 & - & - \\
 \hline
-Marco Favero & - & 4 & - & - & - & - \\
+Marco Favero & - & - & - & - & - & 16 \\
 \hline
-Alberto Pignat & - & - & 8 & - & - & - \\
+Alberto Pignat & - & - & - & 10 & - & - \\
 \hline
-Marco Piro & - & - & - & - & - & 12 \\
+Marco Piro & - & - & - & 11 & - & - \\
 \hline
-Linor Sadè & - & - & 8 & - & - & - \\
+Linor Sadè & 4 & - & - & - & - & - \\
 \hline
-Leonardo Salviato & - & - & 8 & - & - & - \\
+Leonardo Salviato & - & 4 & - & - & - & - \\
 \hline
-Luca Slongo & - & - & 8 & - & - & - \\
+Luca Slongo & - & - & - & 10 & - & - \\
 \hline
 \end{tabular}
 \caption{Preventivo\pediceG per componenti nello Sprint\pediceG 5}
-\label{tab:preventivo-sprint5}
+\label{tab:preventivo-sprint4}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Responsabile: 7.7% = 4h su 52h totali -> 27.7°
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:27.7:2) -- cycle;
+  \node at (13.85:1.2) {\small\bfseries 7.7\%};
+  
+  % Amministratore: 7.7% = 4h -> 27.7° (cumulativo: 27.7° -> 55.4°)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (27.7:2) arc (27.7:55.4:2) -- cycle;
+  \node[rotate=41.55] at (41.55:1.2) {\small\bfseries 7.7\%};
+  
+  % Progettista: 73.1% = 38h -> 263.2° (cumulativo: 55.4° -> 318.6°)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (55.4:2) arc (55.4:318.6:2) -- cycle;
+  \node at (187:1.2) {\small\bfseries 73.1\%};
+  
+  % Verificatore: 11.5% = 6h -> 41.4° (cumulativo: 318.6° -> 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (318.6:2) arc (318.6:360:2) -- cycle;
+  \node at (339.3:1.2) {\small\bfseries 11.5\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico 5: Sprint\pediceG 5 - Preventivo\pediceG}
+\label{fig:grafico-sprint5}
+\end{figure}
 
 \noindent\textbf{Consuntivo\pediceG}
 
@@ -1062,24 +1477,72 @@ Luca Slongo & - & - & 8 & - & - & - \\
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Autiero & - & - & - & 10 & - & - \\
 \hline
-Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Favero & - & - & - & - & - & 12 \\
 \hline
-Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+Alberto Pignat & - & - & - & 8 & - & - \\
 \hline
-Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+Marco Piro & - & 2 & - & 8 & - & - \\
 \hline
-Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+Linor Sadè & 2 & 2 & - & - & - & - \\
 \hline
-Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+Leonardo Salviato & - & - & 3 & - & - & - \\
 \hline
-Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+Luca Slongo & - & - & - & 8 & - & - \\
 \hline
 \end{tabular}
 \caption{Consuntivo\pediceG per componenti nello Sprint\pediceG 5}
-\label{tab:consuntivo-sprint5}
+\label{tab:preventivo-sprint4}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Responsabile: 3.3% = 2h su 60h totali -> 11.9°
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:11.9:2) -- cycle;
+  \node at (5.95:1.2) {\small\bfseries 3.3\%};
+  
+  % Amministratore: 6.7% = 4h -> 24.1° (cumulativo: 11.9° -> 36.0°)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (11.9:2) arc (11.9:36.0:2) -- cycle;
+  \node[rotate=23.95] at (23.95:1.2) {\small\bfseries 6.7\%};
+  
+  % Analista: 5.0% = 3h -> 18.0° (cumulativo: 36.0° -> 54.0°)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (36.0:2) arc (36.0:54.0:2) -- cycle;
+  \node[rotate=45] at (45:1.5) {\small\bfseries 5.0\%};
+  
+  % Progettista: 56.7% = 34h -> 204.1° (cumulativo: 54.0° -> 258.1°)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (54.0:2) arc (54.0:258.1:2) -- cycle;
+  \node at (156.05:1.2) {\small\bfseries 56.7\%};
+  
+  % Verificatore: 28.3% = 17h -> 101.9° (cumulativo: 258.1° -> 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (258.1:2) arc (258.1:360:2) -- cycle;
+  \node at (309.05:1.2) {\small\bfseries 28.3\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 2) rectangle (3.8, 2.3);
+  \node[anchor=west, font=\small] at (4, 2.15) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Analista\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore\pediceG};
+\end{tikzpicture}
+\caption{Grafico Consuntivo: Sprint 5}
+\label{fig:grafico-consuntivo-sprint5}
+\end{figure}
 
 \noindent\textbf{Aggiornamento delle risorse rimanenti}
 
@@ -1090,38 +1553,43 @@ Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
 \hline
 Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
 \hline
-Responsabile\pediceG & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+Responsabile\pediceG & 30€/h & 2 & 60€ & 35 & 1050€ \\
 \hline
-Amministratore\pediceG & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+Amministratore\pediceG & 20€/h & 4 & 80€ & 28 & 560€ \\
 \hline
-Analista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Analista\pediceG & 25€/h & 3 & 75€ & 8 & 200€ \\
 \hline
-Progettista\pediceG & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+Progettista\pediceG & 25€/h & 34 & 850€ & 52 & 1300€ \\
 \hline
-Programmatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Programmatore\pediceG & 15€/h & - & - & 167 & 2505€ \\
 \hline
-Verificatore\pediceG & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+Verificatore\pediceG & 15€/h & 12 & 180€ & 115 & 1725€ \\
 \hline
-\textbf{Totale} & & & & & \textbf{[X]€} \\
+\textbf{Totale} & - & \textbf{55} & \textbf{1245€} & \textbf{405} & \textbf{7340€} \\
 \hline
 \end{tabular}
-\caption{Variazione nelle risorse disponibili nello Sprint\pediceG 5}
+\caption{Variazione nelle risorse disponibili nello Sprint 5}
 \label{tab:risorse-sprint5}
 \end{table}
 
 \noindent\textbf{Rischi incontrati}\\
-XXX
-XXX
+Durante questo quinto sprint si sono concretizzati i seguenti rischi:
+
+\begin{itemize}
+    \item \textbf{RI1 - Rischio Individuale\pediceG derivante dalle altre attività universitarie}: la prosecuzione del progetto\pediceG di Tecnologie Web e il continuo impegno nello studio per gli esami della sessione invernale hanno leggermente rallentato la prosecuzione del progetto\pediceG.
+    
+    \item \textbf{RG3 - Rischio Globale\pediceG derivante dalla sottostima delle attività}: per quanto riguarda l'Analisi dei Requisiti\pediceG, il gruppo si è sottoposto alla riunione di controllo del documento con il Prof. Cardin quando questo si trovava già in uno stato molto avanzato. Tale decisione ha reso necessaria una riorganizzazione sostanziale del documento per correggere le criticità segnalate dal docente.
+\end{itemize}
 
 \noindent\textbf{Retrospettiva\pediceG}\\
-XXX
+Nel quinto sprint\pediceG il gruppo ha concentrato gli sforzi sulla riorganizzazione dell'Analisi dei Requisiti\pediceG a seguito del colloquio con il Prof. Cardin. Tale necessità ha richiesto un cambio di ruolo per un membro del gruppo, che è passato da Amministratore\pediceG ad Analista\pediceG. Di conseguenza, altri membri del gruppo hanno modificato i propri ruoli per questo sprint\pediceG al fine di compensare la copertura del ruolo rimasto vacante.
 
 \newpage
 \subsubsection{Sprint\pediceG 6}
 
-\textbf{Inizio:} 02/03/2026 \\
-\textbf{Fine prevista:} 16/03/2026 \\
-\textbf{Fine reale:} 16/03/2026 \\
+\textbf{Inizio:} 19/01/2026 \\
+\textbf{Fine prevista:} 01/02/2026 \\
+\textbf{Fine reale:} 01/02/2026 \\
 \textbf{Giorni di ritardo:} 0
 
 \noindent\textbf{Informazioni generali e attività da svolgere}\\
@@ -1133,14 +1601,14 @@ In particolare, le attività svolte sono:
 \end{itemize}
 
 \noindent\textbf{Rischi attesi}\\
-I componenti del team BugBusters ritengono siano possibili i seguenti rischi\pediceG:
+I componenti del team BugBusters ritengono possibili i seguenti rischi\pediceG:
 \begin{itemize}
     \item XXX
     \item XXX
 \end{itemize}
 
 \noindent\textbf{Preventivo\pediceG}\\
-Si prospetta l'utilizzo delle seguenti risorse
+Si prospetta l'utilizzo delle seguenti risorse:
 
 \begin{table}[H]
 \centering
