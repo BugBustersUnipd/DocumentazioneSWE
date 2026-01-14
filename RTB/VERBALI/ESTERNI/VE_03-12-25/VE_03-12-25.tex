@@ -65,8 +65,8 @@
 \begin{center}
 \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
 \begin{tabularx}{\linewidth}{@{}lX@{}}
-\textbf{Redattori}    & Marco Favero \\
-\textbf{Verificatore}    & Linor Sadè \\
+\textbf{Redattore\G}    & Marco Favero \\
+\textbf{Verificatore\G}    & Linor Sadè \\
 \textbf{Uso}          & Esterno \\
 \textbf{Destinatari}  & Prof. Tullio Vardanega, Prof. Riccardo Cardin, Eggon, BugBusters\\
 \textbf{Versione} & 1.0.0\\
@@ -82,7 +82,7 @@
 Questo verbale\G{} documenta la riunione esterna del 3 dicembre 2025 con l'azienda Eggon, durante la quale sono stati discussi 
 aspetti tecnici e funzionali del progetto\G{}. Sono stati chiariti dubbi relativi all'autenticazione, alla gestione dei cedolini\G{},
  alla separazione dei documenti e al tono delle comunicazioni automatiche. L'incontro ha permesso di risolvere criticità e definire 
- più precisamente i requisiti dell'applicazione.
+ più precisamente i requisiti\G dell'applicazione.
 \end{tcolorbox}
 \end{center}
 
@@ -123,7 +123,7 @@ aspetti tecnici e funzionali del progetto\G{}. Sono stati chiariti dubbi relativ
 
 \begin{enumerate}
     \item \label{itm:autenticazione} Richiesta sull'autenticazione riguardo alle app stand-alone\G{}.
-    \item \label{itm:SeparazioneDOc} Richiesta feature separazione documenti su CDL.
+    \item \label{itm:SeparazioneDOc} Richiesta feature separazione documenti su CDL\G.
     \item \label{itm:Cedolini} Richiesta se dobbiamo implementare la funzione di visualizzazione dei cedolini\G{}.
     \item \label{itm:Tono} Come definire il tono aziendale.
     \item \label{itm:domande} Domande minori.
@@ -138,8 +138,8 @@ Visto che l'applicazione che verrà sviluppata dal gruppo BugBusters non sarà i
 il team ha chiesto se l'autenticazione degli utenti potrà essere gestita tramite un sistema di autenticazione separato o se non sarà requisito\G{} necessario.
 Luca Iuzzolino ha tenuto a ribadire che non è parte richiesta dal progetto\G{} e non interessante per noi.\\
 
-\subsection*{\ref{itm:SeparazioneDOc}. Richiesta feature separazione documenti su CDL.}
-È stata discussa la funzionalità\G{} di separazione (split) dei documenti caricati su CDL: il team ha chiesto che venga resa opzionale, 
+\subsection*{\ref{itm:SeparazioneDOc}. Richiesta feature separazione documenti su CDL\G.}
+È stata discussa la funzionalità\G{} di separazione (split) dei documenti caricati su CDL\G: il team ha chiesto che venga resa opzionale, 
 poiché non sempre ne percepisce l'utilità. \\
 Luca Iuzzolino ha precisato che la funzione è utile in quanto i software che generano i cedolini\G{} spesso
 producono file PDF contenenti più cedolini\G{} in un unico documento. Si è concordato dunque che la funzionalità\G{} resterà primaria.
@@ -149,8 +149,8 @@ I cedolini\G{} sono gestiti all'interno di NEXUM.
 Poiché la nostra applicazione sarà stand-alone\G{} e non integrata in NEXUM, 
 il team ha chiesto se sia necessario implementare una funzionalità\G{} per la 
 visualizzazione dei cedolini\G{}. Luca Iuzzolino ha risposto che non è richiesto: 
-l'applicazione dovrà occuparsi esclusivamente dell'invio dei cedolini\G{}Sistemate G tramite 
-sistemi di notifica, mentre la visualizzazione rimane a carico di NEXUM.
+l'applicazione dovrà occuparsi esclusivamente dell'invio dei cedolini\G{} tramite 
+sistemi di notifica, mentre la visualizzazione rimane a carico di Eggon.
 
 
 \subsection*{\ref{itm:Tono}. Come definire il tono aziendale.}
@@ -160,7 +160,7 @@ può impararlo durante l'utilizzo o può ricercare su internet informazioni rigu
 La ricerca e l'analisi di eventuali soluzioni viene dunque affidata al team BugBusters.
 
 \subsection*{\ref{itm:domande}. Domande minori.}
-Il team chiede se è possibile avere un account Bedrock per poter iniziare a sperimentare le tecnologie richieste. La risposta è stata positiva.\\
+Il team chiede se è possibile avere un account Bedrock\textsubscript{\scalebox{0.6}{\textbf{G}}} per poter iniziare a sperimentare le tecnologie richieste. La risposta è stata positiva.\\
 Il team domanda ulteriori informazioni riguardo alla funzionalità\G{} duplica/riutilizza prompt\G{}: la funzionalità\G{} di duplicazione permette di copiare un prompt\G{} esistente e modificarlo per creare un nuovo prompt\G{},
 mentre la funzionalità\G{} di riutilizzo consente di utilizzare un prompt\G{} esistente senza modificarlo.\\
 
@@ -181,7 +181,7 @@ mentre la funzionalità\G{} di riutilizzo consente di utilizzare un prompt\G{} e
 \rowcolor{primaryblue!40}
 \textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
 \hline
-\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/29}{RTB26} \label{RTB26}}{Rivedere analisi requisiti dopo i chiarimenti con la proponente\G{}.}{Leonardo Salviato}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/29}{RTB26} \label{RTB26}}{Rivedere Analisi dei requisiti\G dopo i chiarimenti con la proponente\G{}.}{Leonardo Salviato}
 \end{tabularx}
 \fussy
 
