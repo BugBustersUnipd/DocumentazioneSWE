@@ -345,77 +345,77 @@ la nomenclatura utilizzata, i test da effettuare saranno:
 \end{itemize}
 
 \subsection{Test di Sistema}
-La seguente tabella descrive i test di sistema definiti per verificare la copertura dei requisiti funzionali.
+La seguente tabella dettaglia i test di sistema (System Tests) progettati per verificare la completa copertura dei requisiti funzionali (RF). I codici dei test seguono il formato \textbf{TS-F-XX} (Test Sistema Funzionale).
 
-\begin{longtable}{|p{2.0cm}|p{7.5cm}|p{3.5cm}|p{2.5cm}|}
+\begin{longtable}{|p{2.2cm}|p{7cm}|p{3.5cm}|p{2.3cm}|}
 	\hline
 	\rowcolor{primaryblue!30} 
-	\textbf{Codice} & \textbf{Descrizione} & \textbf{Requisiti} & \textbf{Stato} \\
+	\textbf{Codice} & \textbf{Descrizione} & \textbf{Requisiti Coperti} & \textbf{Stato} \\
 	\hline
 	\endhead
 	
-	% --- MODULO 0 ---
+	% --- MODULO 0: AUTH & USER ---
 	\multicolumn{4}{|c|}{\cellcolor{lightgray}\textbf{Modulo 0: App Standalone e Gestione Utenti}} \\
 	\hline
-	\textbf{TS-001} & Verifica che un utente non registrato possa registrarsi inserendo dati validi (email, password, username, nome, cognome, matricola). & RF-001, RF-002, RF-003, RF-004, RF-005, RF-006, RF-007 & Non Implementato \\
+	\textbf{TS-F-001} & Verifica registrazione utente non autenticato (inserimento dati validi: email, password, anagrafica). & RF-001, RF-002, RF-003, RF-004, RF-005, RF-006, RF-007 & Non Impl. \\
 	\hline
-	\textbf{TS-002} & Verifica che il sistema mostri errori specifici in caso di dati non validi o già esistenti (email/username duplicati). & RF-008 ... RF-013 & Non Implementato \\
+	\textbf{TS-F-002} & Verifica gestione errori in registrazione (email errata, password debole, utente duplicato). & RF-008, RF-009, RF-010, RF-011, RF-012, RF-013 & Non Impl. \\
 	\hline
-	\textbf{TS-003} & Verifica che un utente registrato possa effettuare il login e che venga negato l'accesso con credenziali errate. & RF-014, RF-015, RF-016 & Non Implementato \\
+	\textbf{TS-F-003} & Verifica procedura di Login e gestione credenziali errate. & RF-014, RF-015, RF-016 & Non Impl. \\
 	\hline
-	\textbf{TS-004} & Verifica che l'utente possa visualizzare correttamente tutti i dati del proprio profilo. & RF-017 ... RF-023 & Non Implementato \\
+	\textbf{TS-F-004} & Verifica visualizzazione dati profilo utente. & RF-017, RF-018, RF-019, RF-020, RF-021, RF-022, RF-023 & Non Impl. \\
 	\hline
-	\textbf{TS-005} & Verifica la modifica dei dati del profilo e la gestione dell'uscita senza salvataggio. & RF-024, RF-025 & Non Implementato \\
+	\textbf{TS-F-005} & Verifica modifica dati profilo e gestione "unsaved changes". & RF-024, RF-025 & Non Impl. \\
 	\hline
-	\textbf{TS-006} & Verifica le funzionalità di amministrazione: lista utenti, dettagli e modifica ruolo. & RF-026 ... RF-031 & Non Implementato \\
+	\textbf{TS-F-006} & Verifica funzionalità Admin (lista utenti, dettagli, cambio ruolo). & RF-026, RF-027, RF-028, RF-029, RF-030, RF-031 & Non Impl. \\
 	\hline
-	\textbf{TS-007} & Verifica il corretto funzionamento del logout. & RF-032 & Non Implementato \\
+	\textbf{TS-F-007} & Verifica procedura di Logout. & RF-032 & Non Impl. \\
 	\hline
 	
-	% --- MODULO 1 ---
+	% --- MODULO 1: AI ASSISTANT ---
 	\multicolumn{4}{|c|}{\cellcolor{lightgray}\textbf{Modulo 1: AI Assistant Generativo}} \\
 	\hline
-	\textbf{TS-008} & Verifica la generazione di contenuti testuali inserendo prompt, selezionando tono e stile. & RF-033 ... RF-036 & Non Implementato \\
+	\textbf{TS-F-008} & Verifica generazione contenuto testuale (prompt, tono, stile). & RF-033, RF-034, RF-035, RF-036 & Non Impl. \\
 	\hline
-	\textbf{TS-009} & Verifica la visualizzazione dello storico generazioni e dei relativi dettagli. & RF-037 ... RF-045 & Non Implementato \\
+	\textbf{TS-F-009} & Verifica visualizzazione storico generazioni e dettagli entry. & RF-037, RF-038, RF-039, RF-040, RF-041, RF-042, RF-044, RF-045 & Non Impl. \\
 	\hline
-	\textbf{TS-010} & Verifica la visualizzazione dell'anteprima del contenuto e le funzionalità di modifica. & RF-046 ... RF-050 & Non Implementato \\
+	\textbf{TS-F-010} & Verifica anteprima e modifica contenuto generato. & RF-046, RF-047, RF-048, RF-049, RF-050 & Non Impl. \\
 	\hline
-	\textbf{TS-011} & Verifica la gestione contenuto: annulla, riutilizza parametri, duplica, valuta e scarta. & RF-051 ... RF-058 & Non Implementato \\
+	\textbf{TS-F-011} & Verifica azioni su contenuto (annulla, rating, scarta, duplica). & RF-051, RF-052, RF-053, RF-057, RF-058 & Non Impl. \\
 	\hline
-	\textbf{TS-012} & Verifica il salvataggio del contenuto generato nel database. & RF-059 & Non Implementato \\
+	\textbf{TS-F-012} & Verifica persistenza dati (salvataggio nel DB). & RF-059 & Non Impl. \\
 	\hline
-	\textbf{TS-013} & Verifica il filtraggio dello storico e la rigenerazione. & RF-054, RF-055, RF-056 & Non Implementato \\
+	\textbf{TS-F-013} & Verifica filtri storico e rigenerazione contenuto. & RF-054, RF-055, RF-056 & Non Impl. \\
 	\hline
 	
-	% --- MODULO 2 ---
+	% --- MODULO 2: AI CO-PILOT ---
 	\multicolumn{4}{|c|}{\cellcolor{lightgray}\textbf{Modulo 2: AI Co-Pilot (Consulenti del Lavoro)}} \\
 	\hline
-	\textbf{TS-014} & Verifica l'analisi di un documento con inserimento metadati (categoria, azienda, ecc.). & RF-060 ... RF-064 & Non Implementato \\
+	\textbf{TS-F-014} & Verifica upload e analisi documento con metadati input. & RF-060, RF-061, RF-062, RF-063, RF-064 & Non Impl. \\
 	\hline
-	\textbf{TS-015} & Verifica la lista documenti analizzati con tutti i metadati associati. & RF-065 ... RF-076 & Non Implementato \\
+	\textbf{TS-F-015} & Verifica visualizzazione lista documenti e metadati estratti. & RF-065, RF-066, RF-067, RF-068, RF-069, RF-070, RF-071, RF-072, RF-073, RF-074, RF-075, RF-076 & Non Impl. \\
 	\hline
-	\textbf{TS-016} & Verifica l'anteprima del documento e la modifica dei campi con ricalcolo confidenza. & RF-077 ... RF-080 & Non Implementato \\
+	\textbf{TS-F-016} & Verifica Human-in-the-loop (modifica campi e confidenza). & RF-077, RF-078, RF-079, RF-080 & Non Impl. \\
 	\hline
-	\textbf{TS-017} & Verifica l'estrazione e visualizzazione delle info sui destinatari (CF, matricola, ecc.). & RF-081 ... RF-087 & Non Implementato \\
+	\textbf{TS-F-017} & Verifica estrazione dati destinatari (CF, matricola, reparto). & RF-081, RF-082, RF-083, RF-084, RF-085, RF-086, RF-087 & Non Impl. \\
 	\hline
-	\textbf{TS-018} & Verifica lo storico completo dei documenti processati, stati e confidenza. & RF-088 ... RF-093 & Non Implementato \\
+	\textbf{TS-F-018} & Verifica storico processamento e stati documento. & RF-088, RF-089, RF-090, RF-091, RF-092, RF-093 & Non Impl. \\
 	\hline
-	\textbf{TS-019} & Verifica la gestione completa dei template di messaggio (CRUD). & RF-094 ... RF-103 & Non Implementato \\
+	\textbf{TS-F-019} & Verifica gestione CRUD Template messaggi. & RF-094, RF-095, RF-096, RF-097, RF-098, RF-099, RF-100, RF-101, RF-102, RF-103 & Non Impl. \\
 	\hline
-	\textbf{TS-020} & Verifica l'invio di documenti e messaggi (inclusi allegati extra e pianificazione). & RF-104, RF-105, RF-106 & Non Implementato \\
+	\textbf{TS-F-020} & Verifica invio/pianificazione documenti e messaggi. & RF-104, RF-105, RF-106 & Non Impl. \\
 	\hline
-	\textbf{TS-021} & Verifica il filtraggio delle liste (documenti, destinatari, storico). & RF-107 ... RF-112 & Non Implementato \\
+	\textbf{TS-F-021} & Verifica funzionalità di filtro liste (doc/destinatari). & RF-107, RF-108, RF-109, RF-110, RF-111, RF-112 & Non Impl. \\
 	\hline
 
-	% --- MODULO 3 ---
+	% --- MODULO 3: ANALYTICS ---
 	\multicolumn{4}{|c|}{\cellcolor{lightgray}\textbf{Modulo 3: Analytics}} \\
 	\hline
-	\textbf{TS-022} & Verifica la dashboard Analytics per AI Assistant (KPI prompt, rating, toni). & RF-113 ... RF-118 & Non Implementato \\
+	\textbf{TS-F-022} & Verifica Dashboard KPI Assistant (prompt, rating, usage). & RF-113, RF-114, RF-115, RF-116, RF-117, RF-118 & Non Impl. \\
 	\hline
-	\textbf{TS-023} & Verifica la dashboard Analytics per AI Co-Pilot (KPI confidenza, interventi manuali). & RF-119 ... RF-123 & Non Implementato \\
+	\textbf{TS-F-023} & Verifica Dashboard KPI Co-Pilot (confidenza, manual fix). & RF-119, RF-120, RF-121, RF-122, RF-123 & Non Impl. \\
 	\hline
-	\textbf{TS-024} & Verifica il filtraggio temporale dei dati di analytics. & RF-124 & Non Implementato \\
+	\textbf{TS-F-024} & Verifica filtro temporale dashboard. & RF-124 & Non Impl. \\
 	\hline
 
 \end{longtable}
