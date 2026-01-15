@@ -150,7 +150,7 @@ Piano di Qualifica\G del Team BugBusters per il Capitolato C5 proposto da Eggon,
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\CurrentVersion & 15/01/2026 & Aggiornamento Test, eliminata metrica errori ortografici & Marco Piro & - & - \\
+\CurrentVersion & 15/01/2026 & Aggiornamento Test, aggiunti test di sistema prestazionali, eliminata metrica errori ortografici & Marco Piro & - & - \\
 \hline
 0.0.4 & 11/01/2026 & Aggiunto contenuto alla sezione 5 & Marco Piro & - & - \\
 \hline
@@ -451,6 +451,34 @@ La seguente tabella descrive i test di accettazione, volti a validare il sistema
 
 \end{longtable}
 
+\subsection{Test di Sistema - Prestazionali}
+La seguente tabella descrive i test progettati per verificare i requisiti prestazionali (RP) definiti nell'Analisi dei Requisiti. I codici seguono il formato \textbf{TS-P-XX}.
+
+\begin{longtable}{|p{2.2cm}|p{7cm}|p{3.5cm}|p{2.3cm}|}
+	\hline
+	\rowcolor{primaryblue!30} 
+	\textbf{Codice} & \textbf{Descrizione} & \textbf{Requisiti Coperti} & \textbf{Stato} \\
+	\hline
+	\endhead
+	
+	\textbf{TS-P-001} & Verifica che la generazione di contenuti testuali (Modulo Assistant) avvenga entro 5 secondi per testi fino a 500 parole. & RP-01 & Non Impl. \\
+	\hline
+	\textbf{TS-P-002} & Verifica che la classificazione e il partizionamento dei PDF (Modulo Co-Pilot) avvenga entro 3 secondi per pagina. & RP-02 & Non Impl. \\
+	\hline
+	\textbf{TS-P-003} & Verifica che il tempo di risposta dell'interfaccia utente per operazioni standard sia inferiore a 2 secondi. & RP-03 & Non Impl. \\
+	\hline
+	\textbf{TS-P-004} & Verifica il supporto all'upload di file PDF fino a una dimensione massima di 20 MB. & RP-04 & Non Impl. \\
+	\hline
+	\textbf{TS-P-005} & Verifica che la Dashboard di Analytics carichi le statistiche entro 3 secondi (dataset < 1000 doc). & RP-05 & Non Impl. \\
+	\hline
+	\textbf{TS-P-006} & Verifica (tramite monitoraggio o stress test) la disponibilità del sistema del 99\% in orario lavorativo (8:00-18:00). & RP-06 & Non Impl. \\
+	\hline
+	\textbf{TS-P-007} & Verifica la capacità del sistema di processare almeno 50 documenti in parallelo senza degrado delle performance. & RP-07 & Non Impl. \\
+	\hline
+  \textbf{TS-P-008} & Verifica che l'estrazione OCR per documenti scansionati avvenga entro 5 secondi per pagina. & RP-07 & Non Impl. \\
+  \hline
+
+\end{longtable}
 
 
 
