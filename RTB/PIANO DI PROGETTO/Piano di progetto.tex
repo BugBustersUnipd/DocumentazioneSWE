@@ -26,7 +26,8 @@
 \pgfplotsset{compat=1.16}
 
 % Comando per il pedice G compatibile con hyperref
-\newcommand{\pediceG}{\texorpdfstring{\textsubscript{\scalebox{0.6}{\textbf{G}}}}{G}}
+\newcommand{\pediceG}{\texorpdfstring{\textsubscript{\scalebox{0.6}{\textbf{G}}}~}{G}}
+
 
 % Configurazione delle didascalie per tabelle
 \captionsetup[table]{
@@ -446,7 +447,7 @@ Seguiranno ora le attività previste per la Requirements and Technology Baseline
 \subsection{Attività previste per la Requirements and Technology Baseline (RTB)\pediceG}
 
 {
-% 1. Svuotiamo i template per evitare scritte "Continua..." o didascalie in alto
+% 1. Pulizia template
 \DefTblrTemplate{caption}{default}{}
 \DefTblrTemplate{capcont}{default}{}
 \DefTblrTemplate{contfoot}{default}{}
@@ -454,21 +455,23 @@ Seguiranno ora le attività previste per la Requirements and Technology Baseline
 \DefTblrTemplate{contfoot-text}{default}{}
 \DefTblrTemplate{conthead-text}{default}{}
 
-% 2. Posizioniamo l'ancora per l'indice esattamente qui
+% 2. Ancora per l'indice
 \phantomsection 
 
 \begin{longtblr}[
-  % Definiamo l'entry per l'indice (List of Tables)
   entry = {Attività previste per la RTB},
   label = {tab:attivita-rtb},
 ]{
-  colspec = {|Q[c,m,3.2cm]|Q[l,m,3.8cm]|Q[l,m,4.2cm]|Q[c,m,2.8cm]|},
-  % rowhead = 1, % RIMOSSO: così l'intestazione NON si ripete tra le pagine
+  % --- MODIFICA COLONNE QUI SOTTO ---
+  % Ho ridotto la 1° colonna a 3.0cm (era 3.2)
+  % Ho AUMENTATO la 2° colonna a 4.8cm (era 3.8) -> Ora il testo ci sta!
+  % Ho ridotto la 3° colonna a 3.2cm (era 4.2) -> Basta per "Sprint X"
+  colspec = {|Q[c,m,3.0cm]|Q[l,m,4.8cm]|Q[l,m,3.2cm]|Q[c,m,2.8cm]|},
   hlines = {primaryblue},
   vlines = {primaryblue},
   row{1} = {font=\bfseries},
 }
-% --- INTESTAZIONE (Apparirà solo una volta) ---
+% --- INTESTAZIONE ---
 Attività & Descrizione & Periodo di svolgimento & Stato \\
 
 % --- CONTENUTO ---
@@ -495,19 +498,20 @@ Attività & Descrizione & Periodo di svolgimento & Stato \\
 \textbf{Redazione Glossario\pediceG} & Redazione e aggiornamento dei termini & Tutti gli sprint\pediceG & IN REDAZIONE \\
 
 \SetCell[r=4]{c} \textbf{Realizzazione PoC\pediceG} 
+% Ora che la colonna è più larga, non serve l'invio manuale forzato
 & Prima implementazione\pediceG solo con Rails\pediceG & Sprint\pediceG 3 & \SetCell[r=4]{c} {\small IN\\REALIZ-\\ZAZIONE} \\
 & Ridefinizione struttura backend\pediceG-frontend\pediceG aggiungendo Angular\pediceG & Sprint\pediceG 3 & \\
-& Implementazione\pediceG e modifica di funzionalità\pediceG backend\pediceG con relativa implementazione\pediceG in frontend\pediceG & Sprint\pediceG 4 & \\
+& Implementazione\pediceG e modifica funzionalità\pediceG backend\pediceG con relativa implmentazione\pediceG in frontend\pediceG & Sprint\pediceG 4 & \\
 & Refactoring del codice & Sprint\pediceG 5 & \\
 \end{longtblr}
 
-% 3. Didascalia manuale posizionata sotto la tabella
+% 3. Didascalia manuale sotto
 \nopagebreak
 \begin{center}
   \itshape Tabella \thetable: Attività previste per la Requirements and Technology Baseline (RTB)\pediceG
 \end{center}
 
-% 4. Allineamento del contatore per evitare discrepanze con l'indice
+% 4. Sistemazione contatori
 \addtocounter{table}{-1} 
 \refstepcounter{table} 
 }
@@ -1390,6 +1394,7 @@ In particolare, le attività svolte sono:
     \item Redazione del verbale interno\pediceG del 05/01/2026
     \item Redazione del verbale esterno\pediceG del 07/01/2026
     \item Redazione del verbale interno\pediceG del 12/01/2026
+    \item Redazione del verbale interno\pediceG del 15/01/2026
 \end{itemize}
 
 \noindent\textbf{Rischi attesi}\\
