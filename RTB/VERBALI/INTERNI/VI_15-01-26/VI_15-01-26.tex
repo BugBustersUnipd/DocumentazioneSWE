@@ -1,0 +1,195 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}
+  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Interno\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.3cm]
+  {\Large\color{secondaryblue} 15 gennaio 2026}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Linor Sadè \\
+\textbf{Verificatore\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Marco Favero \\
+\textbf{Uso} & Interno \\
+\textbf{Destinatari} & BugBusters \\
+\textbf{Versione} & 1.0.0\\
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+    Verbale\textsubscript{\scalebox{0.6}{\textbf{G}}} della riunione interna del gruppo BugBusters tenutasi il 15 gennaio 2026 tramite Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}. Nella riunione è stato discusso il materiale per la presentazione dell'RTB\textsubscript{\scalebox{0.6}{\textbf{G}}}, una retrospettiva\textsubscript{\scalebox{0.6}{\textbf{G}}} sullo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} appena concluso, le ultime modifiche al POC\textsubscript{\scalebox{0.6}{\textbf{G}}} e le prossime attività da svolgere. Infine è stato fatto il punto della situazione sulle Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Interna
+    \item \textbf{Piattaforma:} Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item \textbf{Data:} 15/01/2026
+    \item \textbf{Orario di inizio:} 10:30
+    \item \textbf{Orario di fine:} 11:10
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+\begin{enumerate}
+    \item\label{itm:presentazioneRTB} Presentazione delle informazioni raccolte per la presentazione dell'RTB\textsubscript{\scalebox{0.6}{\textbf{G}}};
+    \item\label{itm:sprint-retrospective} Discussione di quanto emerso in questo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} (retrospective);
+    \item\label{itm:poc-novita} Discussione ultime modifiche al POC\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \begin{enumerate}
+        \item\label{itm:backend-novita} Backend\textsubscript{\scalebox{0.6}{\textbf{G}}}: aggiunta funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} guardrails nel backend\textsubscript{\scalebox{0.6}{\textbf{G}}} del POC\textsubscript{\scalebox{0.6}{\textbf{G}}} e miglioramenti vari;
+        \item\label{itm:frontend-novita} Frontend\textsubscript{\scalebox{0.6}{\textbf{G}}}: aggiunte immagini nello storico e miglioramenti vari
+    \end{enumerate}
+    \item\label{itm:prossimeattivitaPOC} Discussione di prossime modifiche nel POC\textsubscript{\scalebox{0.6}{\textbf{G}}}:
+    \begin{enumerate}
+        \item\label{itm:backend} Backend\textsubscript{\scalebox{0.6}{\textbf{G}}}: aggiungere API\textsubscript{\scalebox{0.6}{\textbf{G}}} per recupero delle analisi OCR\textsubscript{\scalebox{0.6}{\textbf{G}}} precedenti, modifica alla logica delle conversazioni;
+        \item\label{itm:frontend} Frontend\textsubscript{\scalebox{0.6}{\textbf{G}}}: aggiungere storico per l'AI Co-pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per CdL\textsubscript{\scalebox{0.6}{\textbf{G}}};
+        \item\label{itm:ricerca} Backend\textsubscript{\scalebox{0.6}{\textbf{G}}}: ricerca del cost–benefit ratio di modelli AI\textsubscript{\scalebox{0.6}{\textbf{G}}} più performanti rispetto quello attuale;
+    \end{enumerate}
+    \item\label{itm:ndp} Discussione sullo stato di avanzamento delle Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} e ultime sezioni da completare;
+\end{enumerate}
+
+
+\newpage
+\section{Svolgimento}
+Qui di seguito i punti discussi con più dettaglio:
+
+\subsection*{\ref{itm:presentazioneRTB}. Presentazione delle informazioni raccolte per la presentazione del RTB\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+Alberto Autiero ha presentato le informazioni raccolte per la presentazione dell'RTB\textsubscript{\scalebox{0.6}{\textbf{G}}} e delle prime bozze delle slide. I PowerPoint e i pdf delle slide sono consultabili (e modificabili) nel branch \textit{Presentazione-RTB} e \textit{Tecnologie}.
+Tutti i membri del gruppo sono invitati a contribuire alla stesura delle slide.
+\subsection*{\ref{itm:sprint-retrospective}. Discussione di quanto emerso in questo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} (retrospective)}
+Il team ha discusso di quanto emerso in questo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}, evidenziando le ore effettivamente lavorate rispetto a quelle pianificate e i ruoli effettivamente ricoperti rispetto a quelli pianificati.\\
+Come emerso dalla precedente riunione interna (reperibile al seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/VERBALI/INTERNI/VI_12-01-26/VI_12-01-26.pdf}{link}) è stato deciso di apportare alcune modifiche sostanziali all'Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}. Tuttavia questo ha influito nella suddivisione dei ruoli e delle ore lavorate: in particolare Leonardo Salviato ha dovuto concentrare i suoi sforzi nell'Analisi dei Requisitianalisi dei requisiti e per sopperire alla mancanza del ruolo a lui pianificato, altri membri del team hanno dovuto dedicare parte delle proprie ore a svolgere tali compiti.\\
+Quanto discusso verrà riportato nel documento di Piano di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}, nella sezione del corrente sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} (5).
+\subsection*{\ref{itm:poc-novita}. Discussione ultime modifiche al POC\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{adjustwidth}{1cm}{1cm} % per un rientro a sinistra e destra
+    \subsubsection*{\ref{itm:backend-novita} Backend: aggiunta funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} guardrails nel backend del POC\textsubscript{\scalebox{0.6}{\textbf{G}}} e miglioramenti vari}
+    È stata aggiunta la funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} di guardrails nel backend\textsubscript{\scalebox{0.6}{\textbf{G}}} del POC\textsubscript{\scalebox{0.6}{\textbf{G}}}, che permette di limitare le risposte dell'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} Assistant Generativo nella generazione di testo in base a regole predefinite. In particolare, come spiegato da Luca Slongo, sono stati implementati dei filtri in input, per evitare che l'utente inserisca richieste inappropriate o non conformi alle linee guida stabilite.\\
+    Tale funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} tuttavia, non permette di limitare le risposte sulla base del contesto specifico dell'azienda, ma solo in base a regole generali che specificano cosa non deve essere detto.\\
+    Inoltre è presente anche un filtro in output (quindi lato cloud) per evitare che l'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} generi risposte inappropriate.\\
+    \subsubsection*{\ref{itm:frontend-novita} Frontend: aggiunte immagini nello storico e miglioramenti vari}
+    Sono state esposte le ultime modifiche al frontend\textsubscript{\scalebox{0.6}{\textbf{G}}} del POC\textsubscript{\scalebox{0.6}{\textbf{G}}}, in particolare l'aggiunta delle immagini nello storico dei risultati dell'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} Assistant Generativo, qualora l'utente abbia generato un'immagine in una determinata conversazione.
+    Sono stati mostrati alcuni miglioramenti estetici e di usabilità dell'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}}, soprattutto nel modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di AI Co-pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}. Infine è stata aggiunta la gestione di un messaggio di errore nell'inserimento di un documento già analizzato.
+\end{adjustwidth}
+\subsection*{\ref{itm:prossimeattivitaPOC} Discussione di prossime modifiche nel POC\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{adjustwidth}{1cm}{1cm} % per un rientro a sinistra e destra
+    \subsubsection*{\ref{itm:backend} Backend: aggiungere API\textsubscript{\scalebox{0.6}{\textbf{G}}} per recupero delle analisi OCR\textsubscript{\scalebox{0.6}{\textbf{G}}} precedenti e modifica alla logica delle conversazioni}
+    È stata discussa l'aggiunta di una nuova API\textsubscript{\scalebox{0.6}{\textbf{G}}} per il recupero delle analisi OCR precedenti effettuate dall'utente, in modo da poterle visualizzare nello storico delle analisi. \\
+    Inoltre è stata discussa una possibile modifica alla logica delle conversazioni dell'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} Assistant Generativo per non dover inviare sempre il tono di risposta desiderato ad ogni richiesta, ma solo all'inizio della conversazione.
+    \subsubsection*{\ref{itm:frontend} Frontend: aggiungere storico per l'AI Co-pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+    In linea con la necessità di visualizzare lo storico delle analisi OCR\textsubscript{\scalebox{0.6}{\textbf{G}}} precedenti e la modifica che verrà fatta nel backend, la modifica verrà rispecchiata anche nel frontend.\\
+    Infine dovrà essere modificata la logica delle richieste inviate all'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} Assistant Generativo per rispecchiare la modifica discussa nel backend.
+    \subsubsection*{\ref{itm:ricerca} Backend: ricerca del cost–benefit ratio di modelli AI\textsubscript{\scalebox{0.6}{\textbf{G}}} più performanti rispetto quello attuale}
+    Marco Favero ha proposto di effettuare una ricerca sul cost–benefit ratio di modelli AI\textsubscript{\scalebox{0.6}{\textbf{G}}} più performanti rispetto a quello attualmente utilizzato (\textit{Nova lite v1}), in modo da valutare se l'adozione di un modello più avanzato possa portare benefici significativi in termini di qualità\textsubscript{\scalebox{0.6}{\textbf{G}}} delle risposte generate dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} Assistant Generativo, dal momento che ancora il modello attuale presenta ancora alcune lacune (es. placeholder ancora presenti).
+\end{adjustwidth}
+\subsection*{\ref{itm:ndp} Discussione sullo stato di avanzamento delle Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} e ultime sezioni da completare}
+Linor Sadè ha fatto il punto della situazione sullo stato di avanzamento delle Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}, evidenziando le ultime sezioni da completare: metriche di qualità\textsubscript{\scalebox{0.6}{\textbf{G}}} dei processi e del prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\section{Tabella delle decisioni e azioni}
+\renewcommand{\arraystretch}{1.5} 
+
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+\hline
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/134}{RTB77}}{Effettuare modifiche al backend\textsubscript{\scalebox{0.6}{\textbf{G}}} del POC\textsubscript{\scalebox{0.6}{\textbf{G}}}}{Luca Slongo, Marco Favero}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/138}{RTB78}}{Effettuare modifiche al frontend\textsubscript{\scalebox{0.6}{\textbf{G}}} del POC\textsubscript{\scalebox{0.6}{\textbf{G}}}}{Linor Sadè, Marco Piro, Alberto Pignat}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/142}{RTB79}}{Ricerca sul cost–benefit ratio di modelli AI\textsubscript{\scalebox{0.6}{\textbf{G}}} più performanti rispetto a quello attuale}{Marco Favero}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/143}{RTB80}}{Completare la tabella nel Piano di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} relativa al Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}} e Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}}{Leonardo Salviato, Marco Piro}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/144}{RTB81}}{Redigere il verbale\textsubscript{\scalebox{0.6}{\textbf{G}}} corrente}{Linor Sadè}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/145}{RTB82}}{Verificare il verbale\textsubscript{\scalebox{0.6}{\textbf{G}}} corrente}{Marco Favero}
+\hline
+\end{tabularx}
+\fussy
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
