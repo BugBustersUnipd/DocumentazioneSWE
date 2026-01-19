@@ -150,7 +150,7 @@ Piano di Qualifica\G del Team BugBusters per il Capitolato C5 proposto da Eggon,
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\CurrentVersion & 19/01/2026 & Aggiornamento Test, aggiunti test di sistema Casi Limite e integrazione, cambiato alcune metriche di prodotto & Marco Piro & - & - \\
+\CurrentVersion & 19/01/2026 & Aggiornamento Test, aggiunti test di sistema Casi Limite e integrazione, cambiato alcune metriche di prodotto. Aggiunta matrice di Tracciamento & Marco Piro & - & - \\
 \hline
 0.0.5 & 15/01/2026 & Aggiornamento Test, aggiunti test di sistema prestazionali, eliminata metrica errori ortografici & Marco Piro & - & - \\
 \hline
@@ -249,7 +249,7 @@ MPC03 & Actual cost (AC) & $\geq 0$ & $\leq$ EAC \\
 \hline
 MPC04 & Cost Performance Index (CPI) & $\geq 0.9$ & $\geq 1.0$ \\
 \hline
-MPC05 & Schedule Performance Index & $\geq 0$ & 1 \\
+MPC05 & Schedule Performance Index & $\geq 0.9$ & 1 \\
 \hline
 MPC06 & Estimated at completion (EAC) & $\pm 5\%$ rispetto al (BAC) & Budget at completion (BAC) \\
 \hline
@@ -262,7 +262,7 @@ MPC08 & Time Estimate At Completion & $\geq 0$ & $\leq$ Durata pianificata \\
 
 \subsubsubsection{Sviluppo}
 \MetricTable{
-MPC09 & Requirements Stability Index (EAC) & $\geq 70\%$ & 100\% \\
+MPC09 & Requirements Stability Index (EAC) & $\geq 80\%$ & 100\% \\
 \hline}
 
 
@@ -549,7 +549,11 @@ dall'aggiudicazione del capitolatoG sino alla Requirements and Technology Baseli
 Le misurazioni presenti saranno prese durante lo svolgimento delle attività per la Product BaselineG (PB).
 
 \subsection{MPC01 e MPC02 - Earned Value (EV) e Planned Value (PV)}
-Grafico
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{grafici/.png}
+%     \caption{Andamento Earned Value vs Planned Value}
+% \end{figure}
 
 \subsection{MPC03 e MPC07 - Actual cost (AC) e Estimate to complete (ETC)}
 Grafico
@@ -625,5 +629,65 @@ L'iterazione e l'apprendimento continuo guidano la qualità del nostro lavoro. L
 Il team resta focalizzato sul problem-solving proattivo per mantenere alti gli standard produttivi.
 
 
+\newpage
+\appendix
+\section{Matrice di Tracciamento}
+La seguente tabella associa ogni requisito funzionale (RF) al test di sistema (TS) progettato per verificarlo.
+
+\begin{longtable}{|p{3cm}|p{4cm}|}
+    \hline
+    \rowcolor{primaryblue!30} 
+    \textbf{Requisito} & \textbf{Test di Riferimento} \\
+    \hline
+    \endhead
+    RF-001 ... RF-007 & TS-F-001 \\
+    \hline
+    RF-008 ... RF-013 & TS-F-002 \\
+    \hline
+    RF-014 ... RF-016 & TS-F-003 \\
+    \hline
+    RF-017 ... RF-023 & TS-F-004 \\
+    \hline
+    RF-024, RF-025 & TS-F-005 \\
+    \hline
+    RF-026 ... RF-031 & TS-F-006 \\
+    \hline
+    RF-032 & TS-F-007 \\
+    \hline
+    RF-033 ... RF-036 & TS-F-008 \\
+    \hline
+    RF-037 ... RF-045 & TS-F-009 \\
+    \hline
+    RF-046 ... RF-050 & TS-F-010 \\
+    \hline
+    RF-051 ... RF-058 & TS-F-011 \\
+    \hline
+    RF-059 & TS-F-012 \\
+    \hline
+    RF-054 ... RF-056 & TS-F-013 \\
+    \hline
+    RF-060 ... RF-064 & TS-F-014 \\
+    \hline
+    RF-065 ... RF-076 & TS-F-015 \\
+    \hline
+    RF-077 ... RF-080 & TS-F-016 \\
+    \hline
+    RF-081 ... RF-087 & TS-F-017 \\
+    \hline
+    RF-088 ... RF-093 & TS-F-018 \\
+    \hline
+    RF-094 ... RF-103 & TS-F-019 \\
+    \hline
+    RF-104 ... RF-106 & TS-F-020 \\
+    \hline
+    RF-107 ... RF-112 & TS-F-021 \\
+    \hline
+    RF-113 ... RF-118 & TS-F-022 \\
+    \hline
+    RF-119 ... RF-123 & TS-F-023 \\
+    \hline
+    RF-124 & TS-F-024 \\
+    \hline
+\end{longtable}
 
 \end{document}
