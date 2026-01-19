@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.1.0} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.1.5} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -19,7 +19,7 @@
 \usepackage{enumitem}
 \usepackage[titles]{tocloft}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref}
-
+\usepackage{amsmath} %per scrivere formule (sezione qualità)
 \definecolor{primaryblue}{RGB}{0,102,204}
 \definecolor{secondaryblue}{RGB}{51,153,255}
 \definecolor{lightgray}{RGB}{245,245,245}
@@ -107,7 +107,7 @@
 \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
 \begin{tabularx}{\linewidth}{@{}lX@{}}
 \textbf{Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
-\textbf{Data ultima modifica}     & 30/12/2025 \\
+\textbf{Data ultima modifica}     & 14/1/2026 \\
 \\
 \end{tabularx}
 \end{tcolorbox}
@@ -134,6 +134,8 @@ Documento contenente le norme di progetto adottate dal team BugBusters per lo sv
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\hline
+\rowcolor{secondaryblue!10} \CurrentVersion & 18/1/2026 & Aggiornamento sezione qualità, aggiunti dettagli su metriche di processo & Linor Sadè & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.1.4 & 13/1/2026 & continuo sezione qualità, aggiunti: standard e modelli, principi di qualità del processo, metriche di processo  & Linor Sadè & - & - \\
 \hline
@@ -981,7 +983,7 @@ Per qualità\G{} si intende l'insieme delle caratteristiche di un'entità che ne
     \item la \textbf{qualità del prodotto};
     \item la \textbf{qualità del processo}.
 \end{enumerate}
-La qualità del prodotto finale è una conseguenza diretta della qualità del processo utilizzato per crearlo.
+\textbf{La qualità del prodotto finale è una conseguenza diretta della qualità del processo utilizzato per crearlo.}
 Perché il software risulti di qualità è necessario che venga pianificato, e non solo controllato, un buon processo di valutazione: questo permette di lavorare seguendo una modalità proattiva (valutazione continua) piuttosto che reattiva (correzione di bug).\\
 Diventa quindi fondamentale seguire uno standard di riferimento per poter definire, misurare e valutare la qualità del software in modo oggettivo e coerente.
 
@@ -1019,7 +1021,7 @@ Il processo di valutazione della qualità del software si articola in quattro fa
     \item \textbf{Valutazione}: l'analisi dei dati raccolti per determinare se gli obiettivi di qualità sono stati raggiunti. Questa fase può includere la revisione dei risultati da parte di un team di verifica e validazione, nonché la documentazione dei risultati e delle eventuali azioni correttive da intraprendere.
     \item \textbf{Accettazione}: la decisione finale su se il software soddisfa i requisiti di qualità stabiliti. Se le metriche sono soddisfatte, il software può essere considerato pronto.
 \end{enumerate}
-
+Questo intero processo è documentato all'interno del \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano_di_Qualifica.pdf}{Piano di Qualifica}.
 \subsection{Principi della Qualità del processo}
 Secondo lo standard ISO/IEC 9001, la qualità del processo di sviluppo software si basa su diversi principi fondamentali:
 \begin{itemize}
@@ -1032,8 +1034,97 @@ Secondo lo standard ISO/IEC 9001, la qualità del processo di sviluppo software 
 Ciò viene fatto in questo progetto attraverso una chiara definizione degli strumenti e delle metodologie di lavoro (specificate in questo documento), un monitoraggio continuo dell'avanzamento del progetto (tramite issue tracking e riunioni periodiche documentate), un'attenta analisi sulle richieste della proponente (specificate nel documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/analisi_dei_requisiti_.pdf}{analisi dei requisiti})  e una valutazione regolare della qualità del prodotto con un'analisi sul miglioramento (tramite il processo di verifica e validazione descritto nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano_di_Qualifica.pdf}{piano di qualifica}).
 
 \subsection{Metriche per la qualità}
+%TODO, magari inserire una descrizione di cosa sono le metriche (accennate nella sezione del processo di valutazione della qualità)
+Come descritto nella sezione precedente, la qualità del software viene misurata attraverso l'uso di metriche specifiche. Queste metriche forniscono dati quantitativi che aiutano a valutare diversi aspetti della qualità del prodotto e del processo di sviluppo.\\
+Le metriche selezionate per questo progetto vengono definite qui e misurate durante il processo di valutazione della qualità descritto nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano_di_Qualifica.pdf}{Piano di Qualifica}.\\
+Le metriche sono suddivise in due categorie principali:
+\begin{enumerate}
+    \item \textbf{Metriche per la qualità del prodotto}: queste metriche valutano aspetti come la funzionalità, l'affidabilità, l'efficienza, l'usabilità, la manutenibilità e la portabilità del software.
+    \item \textbf{Metriche per la qualità del processo}: queste metriche monitorano l'efficacia del processo di sviluppo, inclusi tempi di consegna, tassi di difetti, copertura dei test  e conformità agli standard di qualità.
+\end{enumerate}
 \subsubsection{Qualità del Processo}
+\subsubsubsection{Processi primari}
+\paragraph*{Fornitura}{
+    \begin{enumerate}[label=\textbf{MPC0\arabic*}, leftmargin=4.5em, series=metriche_processo] %nota: viene definita una serie per far sì che gli enumerate riprendano la numerazione da dove si era interrotta
+        \item \textbf{Earned Value (EV)}: misura il valore del lavoro effettivamente completato rispetto al costo preventivato.
+        \[ EV = BAC \times \text{Percentuale di completamento} \]
+        dove $BAC$ (Budget at Completion) è il budget totale previsto per il progetto.
+
+        \item \textbf{Planned Value (PV)}: misura il valore del lavoro pianificato fino a una certa data.
+        \[ PV = BAC \times \text{Percentuale di pianificazione} \]
+
+        \item \textbf{Actual Cost (AC)}: misura il costo effettivo sostenuto per il lavoro completato fino a una certa data (che coincide con quella di fine sprint).
+
+        \item \textbf{Cost Performance Index (CPI)}: indica l'efficienza dei costi del progetto.
+        \[ CPI = \frac{EV}{AC} \]
+        \textit{Interpretazione}: Se $CPI > 1$, il progetto è sotto budget (positivo).
+
+        \item \textbf{Schedule Performance Index (SPI)}: indica l'efficienza del tempo del progetto.
+        \[ SPI = \frac{EV}{PV} \]
+        \textit{Interpretazione}: Se $SPI > 1$, il progetto è in anticipo rispetto alla pianificazione (positivo).
+
+        \item \textbf{Estimated at Completion (EAC)}: stima il costo totale del progetto alla sua conclusione, basandosi sulle prestazioni attuali.
+        \[ EAC = \frac{BAC}{CPI} \]
+
+        \item \textbf{Estimate to Complete (ETC)}: stima il costo necessario per completare il lavoro rimanente del progetto.
+        \[ ETC = EAC - AC \]
+
+        \item \textbf{Time Estimate At Completion (TEAC)}: stima il tempo totale necessario per completare il progetto.
+        \[ TEAC = \frac{\text{Tempo Pianificato}}{SPI} \]
+        dove $SPI$ (Schedule Performance Index) è $\frac{EV}{PV}$.
+    \end{enumerate}
+}
+\paragraph*{Sviluppo}{
+    \begin{enumerate}[label=\textbf{MPC0\arabic*}, leftmargin=4.5em, resume=metriche_processo]
+        \item \textbf{Requirements Stability Index (RSI)}: misura la stabilità dei requisiti durante il ciclo di vita del progetto.
+        \[ RSI = 1 - \frac{\text{Numero di requisiti modificati}}{\text{Numero totale di requisiti}} \]
+        \textit{Interpretazione}: Un valore più alto indica una maggiore stabilità dei requisiti.
+    \end{enumerate}
+}
+\subsubsubsection{Processi di supporto}
+\paragraph*{Documentazione}
+{
+    \begin{enumerate}[label=\textbf{MPC\arabic*}, leftmargin=4.5em, resume=metriche_processo]%nota: qui fortunatamente si arriva a 10 quindi posso togliere lo 0 che avevo messo negli enumerate precedenti, se vengono cambiate le metriche allora forse questa fortuna non ci sarà più
+        \item \textbf{Indice di Gulpease}: misura la leggibilità di un testo in lingua italiana, utile per valutare la documentazione tecnica.
+            \[ \text{Indice di Gulpease} = 89 + \frac{300 \times \text{Numero di frasi} - 10 \times \text{Numero di lettere}}{\text{Numero di parole}} \]
+            \textit{Interpretazione}: Un valore più alto indica una maggiore leggibilità del testo
+
+    \end{enumerate}
+}
+\paragraph*{Verifica}{
+    \begin{enumerate}[label=\textbf{MPC\arabic*}, leftmargin=4.5em, resume=metriche_processo] 
+
+        \item \textbf{Code Coverage}: misura la percentuale di codice sorgente coperto dai test.
+        \[ \text{Code Coverage} = \frac{\text{Linee di codice testate}}{\text{Linee di codice totali}} \times 100\% \]
+        \textit{Interpretazione}: Un valore più alto indica una maggiore copertura dei test, riducendo il rischio di bug non rilevati.
+
+        \item \textbf{Test Success Rate}: misura la percentuale di test superati con successo.
+        \[ \text{Test Success Rate} = \frac{\text{Numero di test superati}}{\text{Numero totale di test eseguiti}} \times 100\% \]
+        \textit{Interpretazione}: Un valore più alto indica una maggiore affidabilità del software.
+    \end{enumerate}
+}
+\paragraph*{Gestione della qualità}{
+    \begin{enumerate}[label=\textbf{MPC\arabic*}, leftmargin=4.5em, resume=metriche_processo]
+        \item \textbf{Quality metrics satisfied}: misura la percentuale di metriche di qualità soddisfatte rispetto a quelle definite nel piano di qualifica.
+        \[ \text{Quality metrics satisfied} = \frac{\text{Numero di metriche soddisfatte}}{\text{Numero totale di metriche definite}} \times 100\% \]
+        \textit{Interpretazione}: Un valore più alto indica una maggiore conformità agli standard di qualità stabiliti.
+
+    \end{enumerate}
+}
+\subsubsubsection{Processi organizzativi}
+\paragraph*{Gestione dei processi}{
+    \begin{enumerate}[label=\textbf{MPC\arabic*}, leftmargin=4.5em, resume=metriche_processo]
+        \item \textbf{Time efficiency}: misura l'efficienza nella gestione del tempo rispetto alla pianificazione.
+        \[ \text{Time efficiency} = \frac{\text{Tempo pianificato}}{\text{Tempo effettivamente impiegato}} \times 100\% \]
+        \textit{Interpretazione}: Un valore più alto indica una migliore gestione del tempo e rispetto delle scadenze.
+
+    \end{enumerate}
+}
 \subsubsection{Qualità del Prodotto}
+
+
+
+% LASCIA COMMENTATO, forse metterò...
     % \subsubsection{Adeguatezza funzionale}
 % La funzionalità verifica se sono soddisfatti i requisiti funzionali definiti con la proponente.\\ Nello specifico misura: 
 % \begin{itemize}
