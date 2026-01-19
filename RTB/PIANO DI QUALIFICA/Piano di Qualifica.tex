@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.0.5} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.0.6} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -150,7 +150,9 @@ Piano di Qualifica\G del Team BugBusters per il Capitolato C5 proposto da Eggon,
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\CurrentVersion & 15/01/2026 & Aggiornamento Test, aggiunti test di sistema prestazionali, eliminata metrica errori ortografici & Marco Piro & - & - \\
+\CurrentVersion & 19/01/2026 & Aggiornamento Test, aggiunti test di sistema Casi Limite e integrazione, cambiato alcune metriche di prodotto & Marco Piro & - & - \\
+\hline
+0.0.5 & 15/01/2026 & Aggiornamento Test, aggiunti test di sistema prestazionali, eliminata metrica errori ortografici & Marco Piro & - & - \\
 \hline
 0.0.4 & 11/01/2026 & Aggiunto contenuto alla sezione 5 & Marco Piro & - & - \\
 \hline
@@ -175,41 +177,50 @@ Piano di Qualifica\G del Team BugBusters per il Capitolato C5 proposto da Eggon,
 \section{Introduzione}
 
 \subsection{Scopo del documento}
-Lo scopo di redigere un Piano di Qualifica\G è garantire che il prodotto finale soddisfi in modo verificabile i requisiti stabiliti, assicurando qualità, affidabilità e conformità agli standard adottati. Questo documento definisce obiettivi, procedure e responsabilità legate alle attività di verifica e validazione per il controllo della qualità lungo tutto il ciclo di vita del progetto. Ciò permette di ridurre il rischio di errori, migliorare la trasparenza del processo e assicurare che il software sia robusto e coerente con le aspettative del committente.
+Il presente documento, denominato \textit{Piano di Qualifica}, ha lo scopo di definire le strategie, le procedure e le metriche adottate dal gruppo \textit{BugBusters} per garantire la qualità del prodotto software e dei processi produttivi relativi al progetto C5 (NEXUM), proposto dall'azienda \textit{Eggon}.
 
-\subsection {Glossario}
-Il Glossario è un documento nel quale sono raccolte e spiegate in modo puntuale le definizioni dei termini tecnici e delle espressioni utilizzate nei documenti di progetto. Questo strumento è essenziale per garantire una comprensione uniforme tra tutti i membri del team e per facilitare la comunicazione con i soggetti esterni.
+In particolare, questo documento si prefigge di:
+\begin{itemize}
+    \item \textbf{Definire gli obiettivi di qualità:} specificare i target qualitativi per il processo di sviluppo (efficienza, stabilità) e per il prodotto software (funzionalità, affidabilità, manutenibilità), in conformità con gli standard ISO/IEC 12207 e ISO/IEC 9126;
+    \item \textbf{Identificare le metriche:} selezionare gli indicatori quantitativi più idonei per monitorare il raggiungimento degli obiettivi, fissando per ciascuno le soglie di accettazione e di ottimalità;
+    \item \textbf{Pianificare le attività di verifica e validazione:} descrivere le metodologie di test (unità, integrazione, sistema, accettazione) e le procedure di analisi statica del codice e della documentazione;
+    \item \textbf{Monitorare l'andamento del progetto:} fornire un resoconto puntuale (cruscotto di valutazione) delle misurazioni effettuate durante le varie fasi del ciclo di vita, permettendo al team di individuare tempestivamente criticità e attuare azioni correttive (miglioramento continuo).
+\end{itemize}
 
-I termini che dispongono di una definizione nel Glossario saranno contrassegnati nel modo seguente: parola\G{}.
+\subsection{Glossario}
+Al fine di evitare ambiguità e garantire una comprensione uniforme della terminologia utilizzata, è stato redatto un documento esterno denominato \textit{Glossario}.
+I termini tecnici, gli acronimi e le parole con un significato specifico all'interno del progetto sono contrassegnati nel testo da una "G" in pedice (es. parola\G). La loro definizione completa è consultabile nel \textit{Glossario}.
 
 \subsection{Riferimenti}
 
 \subsubsection{Riferimenti normativi}
 \begin{itemize}
-    \item Regolamento del progetto didattico\\
-    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf} \\
-    Ultimo Accesso XXX
-    \item Capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}} d'appalto C5: NEXUM - Eggon \\
-    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf} \\
-    Ultimo Accesso XXX
-    \item Norme di Progetto versione X.X.X \\
-    \url{DA AGGIUNGERE APPENA CARICATO SUL SITO} \\
-    Ultimo Accesso XXX
+    \item \textbf{Capitolato d'appalto C5 - NEXUM (Eggon):}\\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf}
+    
+    \item \textbf{Norme di Progetto (vX.Y.Z):}\\
+    Documento interno del gruppo \textit{BugBusters} che definisce le regole, i ruoli e le procedure operative.
+    
+    \item \textbf{Regolamento del progetto didattico:} \\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf}
 \end{itemize}
 
 \subsubsection{Riferimenti informativi}
 \begin{itemize}
-    \item Glossario ver. X.X.X \\
-    \url{DA AGGIUNGERE APPENA SI CARICA SUL SITO} \\
-    Ultimo Accesso XXX
-    \item Standard ISO/IEC 9126 \\
-    \url{https://it.wikipedia.org/wiki/ISO/IEC_9126} \\
-    Ultimo Accesso XXX
-    \item Standard ISO/IEC 12207:1995 \\
-    \url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf} \\
-    Ultimo Accesso XXX
+    \item \textbf{Glossario (vX.Y.Z):}\\
+    Documento interno del gruppo \textit{BugBusters} contenente le definizioni dei termini tecnici.
+    
+    \item \textbf{Standard ISO/IEC 12207:1995:}\\
+    \textit{Information technology - Software life cycle processes}.\\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}
+    
+    \item \textbf{Standard ISO/IEC 9126:}\\
+    \textit{Software engineering - Product quality}.\\
+    \url{https://it.wikipedia.org/wiki/ISO/IEC_9126}
+    
+    \item \textbf{Slide del corso di Ingegneria del Software:} \\
+    Materiale didattico fornito dai docenti Prof. Tullio Vardanega e Prof. Riccardo Cardin.
 \end{itemize}
-
 \newpage
 
 \section{Obiettivi stabiliti per la qualità}
@@ -222,7 +233,7 @@ nelle Norme di Progetto.
 Un indicatore della qualità di un prodotto è il metodo con cui è stato sviluppato. Se il processo di sviluppo segue 
 delle linee guida ben definite, esso favorisce la buona riuscita del prodotto. Come stabilito nelle Norme di Progetto, 
 nel nostro way of working abbiamo adottato lo Standard ISO/IEC 12207:1995 adattandolo alle nostre esigenze e a quelle 
-del progetto. /////Oltre allo standard abbiamo deciso di effettuare delle revisioni periodiche per analizzare lo stato di avanzamento rispetto agli ovbiettivi stabilti./////LE FAREMO? INTANTO L'HO SCRITTO POI AL MASSIMO CANCELLIAMO
+del progetto. 
 
 \subsubsection{Processi primari}
 
@@ -251,7 +262,7 @@ MPC08 & Time Estimate At Completion & $\geq 0$ & $\leq$ Durata pianificata \\
 
 \subsubsubsection{Sviluppo}
 \MetricTable{
-MPC09 & Requirements Stability Index (EAC) & $\pm 70\%$ & 100\% \\
+MPC09 & Requirements Stability Index (EAC) & $\geq 70\%$ & 100\% \\
 \hline}
 
 
@@ -295,54 +306,85 @@ MPD01 & Requisiti obbligatori soddisfatti & $100\%$ & $100\%$ \\
 MPD02 & Requisiti desiderabili soddisfatti & $0\%$ & $100\%$ \\
 \hline
 MPD03 & Requisiti opzionali soddisfatti & $0\%$ & $100\%$ \\
+\hline
+MPD04 & AI Acceptance Rate (Rating $\geq$ 3/5) & $\geq 60\%$ & $\geq 80\%$ \\
 \hline}
 
 \subsubsection{Affidabilità}
 \MetricTable{
-MPD04 & Branch Coverage & $\geq 60\%$ & $\geq 80\%$ \\
+MPD05 & Branch Coverage & $\geq 70\%$ & $\geq 85\%$ \\
 \hline
-MPD05 & Statement Coverage & $\geq 70\%$ & $\geq 90\%$ \\
-\hline
-MPD06 & Failure Density & $\leq 0.5$ & $\leq 0.1$ \\
+MPD06 & Defect Density & $\leq 3$ / KLOC & $\leq 1$ / KLOC \\
 \hline}
 
 \subsubsection{Efficienza}
 \MetricTable{
-MPD07 & Time on Task & $\leq 60$ sec & $\leq 30$ sec \\
+MPD07 & UI Response Time (Interfaccia) & $\leq 2$ sec & $\leq 0.5$ sec \\
 \hline
-MPD08 & Error Rate & $\leq 5\%$ & $\leq 2\%$ \\
+MPD08 & Core Response Time (AI/Upload) & $\leq 5$ sec & $\leq 3$ sec \\
 \hline}
 
 \subsubsection{Usabilità}
 \MetricTable{
-MPD09 & Response Time & $\leq 2$ sec & $\leq 1$ sec \\
+MPD09 & Click Count (Funzioni principali) & $\leq 5$ click & $\leq 3$ click \\
+\hline
+MPD10 & User Error Rate (Errori validazione) & $\leq 10\%$ & $\leq 5\%$ \\
 \hline}
 
 \subsubsection{Mantenibilità}
 \MetricTable{
-MPD10 & Code Smells & $\leq 10$ & $\leq 5$ \\
+MPD11 & Blocker Code Smells & $0$ & $0$ \\
 \hline
-MPD11 & Coefficient of Coupling & $\leq 0.4$ & $\leq 0.2$ \\
+MPD12 & Cyclomatic complexity (per metodo) & $\leq 15$ & $\leq 10$ \\
 \hline
-MPD12 & Cyclomatic complexity & $\leq 20$ & $\leq 10$ \\
+MPD13 & Comment Intensity & $\geq 10\%$ & $\geq 20\%$ \\
 \hline}
 
 \subsubsection{Portabilità}
-SERVE?? boh
-
+\MetricTable{
+MPD14 & Supported Browsers (Test passati) & $100\%$ (Desktop) & $100\%$ (All devices) \\
+\hline}
 
 
 
 \section{Metodi di testing}
-Come stabilito nelle Norme di Progetto(METTERE SEZIONE), alla quale è disponibile
-la nomenclatura utilizzata, i test da effettuare saranno:
+La strategia di verifica e validazione adottata dal gruppo \textit{BugBusters} è definita in dettaglio nel documento \textit{Norme di Progetto}. Tale strategia mira a garantire che ogni rilascio software sia conforme ai requisiti specificati e privo di difetti critici, adottando un approccio proattivo alla qualità.
+
+In conformità con lo standard ISO/IEC 12207, il processo di verifica si articola in due metodologie complementari:
 \begin{itemize}
-    \item Test di Unità
-    \item Test di Integrazione
-    \item Test di Sistema
-    \item Test di Regressione
-    \item Test di Accettazione
+    \item \textbf{Analisi Statica:} Revisione della documentazione e del codice sorgente (tramite tool di analisi automatica e code review) per individuare difetti prima dell'esecuzione.
+    \item \textbf{Analisi Dinamica:} Esecuzione del software a diversi livelli di granularità per verificarne il comportamento rispetto ai risultati attesi.
 \end{itemize}
+
+I test dinamici pianificati per il progetto seguono un approccio incrementale (piramide dei test), partendo dalle singole unità logiche fino alla validazione dell'intero sistema integrato:
+\begin{itemize}
+    \item \textbf{Test di Unità (TU):} Verifica delle singole componenti software (classi, metodi).
+    \item \textbf{Test di Integrazione (TI):} Verifica delle interfacce e del flusso dati tra i moduli.
+    \item \textbf{Test di Sistema (TS):} Verifica del comportamento globale del sistema rispetto ai requisiti funzionali e prestazionali.
+    \item \textbf{Test di Accettazione (TA):} Validazione finale del prodotto rispetto agli scenari d'uso attesi dall'utente (Usecase).
+\end{itemize}
+
+\subsection{Test di Integrazione}
+I test di integrazione verificano la corretta comunicazione tra i sottosistemi e i moduli definiti nell'architettura, assicurando che i dati fluiscano correttamente tra Frontend, Backend e servizi AI.
+
+\begin{longtable}{|p{2.2cm}|p{7cm}|p{3.5cm}|}
+	\hline
+	\rowcolor{primaryblue!30} 
+	\textbf{Codice} & \textbf{Descrizione Interfaccia} & \textbf{Moduli Coinvolti} \\
+	\hline
+	\endhead
+	
+	\textbf{TI-001} & Verifica scambio dati JSON tra Frontend e Backend (API REST) e gestione codici errore HTTP. & Standalone $\leftrightarrow$ Server \\
+	\hline
+	\textbf{TI-002} & Verifica invio prompt e ricezione risposta dal servizio LLM esterno (gestione timeout e token). & AI Assistant $\leftrightarrow$ LLM API \\
+	\hline
+	\textbf{TI-003} & Verifica corretta persistenza dei documenti analizzati e relativo recupero per lo storico. & Co-Pilot $\leftrightarrow$ Database \\
+	\hline
+	\textbf{TI-004} & Verifica aggregazione dati per le dashboard statistiche (query su dataset analizzati). & Database $\leftrightarrow$ Analytics \\
+	\hline
+	\textbf{TI-005} & Verifica passaggio del testo estratto (OCR/Parser) al motore di analisi AI. & Parser $\leftrightarrow$ Co-Pilot Logic \\
+	\hline
+\end{longtable}
 
 \subsection{Test di Sistema}
 La seguente tabella dettaglia i test di sistema (System Tests) progettati per verificare la completa copertura dei requisiti funzionali (RF). I codici dei test seguono il formato \textbf{TS-F-XX} (Test Sistema Funzionale).
@@ -480,7 +522,26 @@ La seguente tabella descrive i test progettati per verificare i requisiti presta
 
 \end{longtable}
 
+\subsection{Test di Sistema - Casi Limite (Boundary)}
+La seguente tabella descrive i test volti a verificare la robustezza del sistema ai limiti operativi definiti nei requisiti prestazionali (RP).
 
+\begin{longtable}{|p{2.2cm}|p{7cm}|p{3.5cm}|p{2.3cm}|}
+	\hline
+	\rowcolor{primaryblue!30} 
+	\textbf{Codice} & \textbf{Descrizione} & \textbf{Riferimento (RP)} & \textbf{Stato} \\
+	\hline
+	\endhead
+	
+	\textbf{TS-B-001} & Verifica il rifiuto controllato di un upload di file PDF superiore a 20 MB (es. 21 MB) con messaggio di errore user-friendly. & RP-04 & Non Impl. \\
+	\hline
+	\textbf{TS-B-002} & Verifica il comportamento del sistema con un prompt AI superiore a 500 parole (troncamento automatico o avviso bloccante). & RP-01 & Non Impl. \\
+	\hline
+	\textbf{TS-B-003} & Verifica gestione upload di file vuoti (0 KB) o file corrotti/non PDF. & RP-04 & Non Impl. \\
+	\hline
+	\textbf{TS-B-004} & Stress Test: Verifica stabilità del sistema con invio simultaneo di 55 documenti (superiore al limite di 50). & RP-07 & Non Impl. \\
+	\hline
+
+\end{longtable}
 
 \section{Cruscotto di Valutazione}
 Di seguito verranno mostrate le misurazioni effettuate durante il periodo che va 
