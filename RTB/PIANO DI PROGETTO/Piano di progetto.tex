@@ -1643,24 +1643,64 @@ Si prospetta l'utilizzo delle seguenti risorse:
 \hline
  & \rotatebox{45}{Responsabile\pediceG} & \rotatebox{45}{Amministratore\pediceG} & \rotatebox{45}{Analista\pediceG} & \rotatebox{45}{Progettista\pediceG} & \rotatebox{45}{Programmatore\pediceG} & \rotatebox{45}{Verificatore\pediceG} \\
 \hline
-Alberto Autiero & - & - & - & - & - & - \\
+Alberto Autiero & - & - & 16 & - & - & - \\
 \hline
-Marco Favero & - & - & - & - & - & - \\
+Marco Favero & - & - & - & 10 & - & - \\
 \hline
-Alberto Pignat & - & - & - & - & - & - \\
+Alberto Pignat & - & - & 12 & - & - & - \\
 \hline
-Marco Piro & - & - & - & - & - & - \\
+Marco Piro & - & - & 12& - & - & - \\
 \hline
-Linor Sadè & - & - & - & - & - & - \\
+Linor Sadè & - & - & 16 & - & - & - \\
 \hline
-Leonardo Salviato & - & - & - & - & - & - \\
+Leonardo Salviato & 8 & - & - & - & - & - \\
 \hline
-Luca Slongo & - & - & - & - & - & - \\
+Luca Slongo & - & 4 & - & - & - & - \\
 \hline
 \end{tabular}
 \caption{Preventivo\pediceG per componenti nello Sprint\pediceG 6}
 \label{tab:preventivo-sprint6}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Responsabile: 10.3% = 8h su 78h totali -> 37.1°
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:37.1:2) -- cycle;
+  \node at (18.55:1.2) {\small\bfseries 10.3\%};
+  
+  % Amministratore: 5.1% = 4h -> 18.5° (cumulativo: 37.1° -> 55.6°)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (37.1:2) arc (37.1:55.6:2) -- cycle;
+  \node[rotate=46.35] at (46.35:1.5) {\small\bfseries 5.1\%};
+  
+  % Analista: 71.8% = 56h -> 258.5° (cumulativo: 55.6° -> 314.1°)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (55.6:2) arc (55.6:314.1:2) -- cycle;
+  \node at (184.85:1.2) {\small\bfseries 71.8\%};
+  
+  % Progettista: 12.8% = 10h -> 46.1° (cumulativo: 314.1° -> 360°)
+  \draw[fill=purple!60, draw=black, line width=1.5pt] 
+    (0,0) -- (314.1:2) arc (314.1:360:2) -- cycle;
+  \node at (337.05:1.2) {\small\bfseries 12.8\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 2) rectangle (3.8, 2.3);
+  \node[anchor=west, font=\small] at (4, 2.15) {Responsabile\pediceG};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Amministratore\pediceG};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Analista\pediceG};
+  
+  \draw[fill=purple!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Progettista\pediceG};
+\end{tikzpicture}
+\caption{Grafico 6: Sprint\pediceG 6 - Preventivo\pediceG}
+\label{fig:grafico-sprint6}
+\end{figure}
 
 \noindent\textbf{Consuntivo\pediceG}
 
