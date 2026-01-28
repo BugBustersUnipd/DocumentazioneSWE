@@ -665,9 +665,9 @@ Alberto Autiero & 8 & - & - & - & - & - \\
 \hline
 Marco Favero & - & 8 & - & - & - & - \\
 \hline
-Alberto Pignat & - & - & 7 & - & - & - \\
+Alberto Pignat & - & - & 7 \textcolor{green!50!black}{(-1)} & - & - & - \\
 \hline
-Marco Piro & - & - & - & - & - &  10 \\
+Marco Piro & - & - & - & - & - &  10 \textcolor{green!50!black}{(-2)} \\
 \hline
 Linor Sadè & - & - & 8 & - & - & - \\
 \hline
@@ -872,7 +872,7 @@ Marco Piro & - & - & 8 &  & - &  \\
 \hline
 Linor Sadè & - & - &- & - & - & 12 \\
 \hline
-Leonardo Salviato & - & - & 3 &  & - & 2 \\
+Leonardo Salviato & - & - & 3 \textcolor{green!50!black}{(-1)} &  & - & 2 \\
 \hline
 Luca Slongo & - & - & 4 &  & - & - \\
 \hline
@@ -1085,7 +1085,7 @@ Linor Sadè & - & - & - & - & 6 & - \\
 \hline
 Leonardo Salviato & - & - & - & - & - & 10 \\
 \hline
-Luca Slongo & - & - & - & - & - & 11 \\
+Luca Slongo & - & - & - & - & - & 11 \textcolor{green!50!black}{(-1)} \\
 \hline
 \end{tabular}
 \caption{Consuntivo\pediceG per componenti nello Sprint\pediceG 3}
@@ -1290,7 +1290,7 @@ Luca Slongo & - & - & - & - & - & 8 \\
 \hline
 Alberto Autiero & - & - & 4 & - & - & - \\
 \hline
-Marco Favero & - & - & 3 & - & - & 3 \\
+Marco Favero & - & - & 3 \textcolor{green!50!black}{(-1)} & - & - & 3 \\
 \hline
 Alberto Pignat & - & - & - & - & 6 & - \\
 \hline
@@ -1502,7 +1502,7 @@ Luca Slongo & - & - & - & - & 6 & - \\
 \hline
 Alberto Autiero & - & - & - & - & 6 & - \\
 \hline
-Marco Favero & - & - & - & - & - & 5 \\
+Marco Favero & - & - & - & - & - & 5 \textcolor{green!50!black}{(-1)} \\
 \hline
 Alberto Pignat & - & - & - & - & - & 6 \\
 \hline
@@ -1510,7 +1510,7 @@ Marco Piro & - & - & - & - & - & 13 \textcolor{red}{(+1)} \\
 \hline
 Linor Sadè & 4 & - & - & - & - & - \\
 \hline
-Leonardo Salviato & - & 4 & - & - & - & - \\
+Leonardo Salviato & - & 4 & 2 & - & - & - \\
 \hline
 Luca Slongo & - & - & - & - & 6 & - \\
 \hline
@@ -1522,27 +1522,27 @@ Luca Slongo & - & - & - & - & 6 & - \\
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[scale=1.3]
-  % Responsabile: 8.70% (31.3°)
+  % Responsabile: 8.70% = 4h su 46h totali -> 31.3°
   \draw[fill=blue!60, draw=black, line width=1.5pt] 
     (0,0) -- (2,0) arc (0:31.3:2) -- cycle;
   \node at (15.65:1.2) {\small\bfseries 8.7\%};
   
-  % Amministratore: 8.70% (31.3° cumulative)
+  % Amministratore: 8.70% = 4h -> 31.3° (cumulativo: 31.3° -> 62.6°)
   \draw[fill=red!60, draw=black, line width=1.5pt] 
     (0,0) -- (31.3:2) arc (31.3:62.6:2) -- cycle;
   \node[rotate=46.95] at (46.95:1.5) {\small\bfseries 8.7\%};
   
-  % Analista: 4.35% (15.7° cumulative)
+  % Analista: 4.35% = 2h -> 15.7° (cumulativo: 62.6° -> 78.3°)
   \draw[fill=orange!60, draw=black, line width=1.5pt] 
     (0,0) -- (62.6:2) arc (62.6:78.3:2) -- cycle;
   \node[rotate=70.45] at (70.45:1.5) {\small\bfseries 4.4\%};
   
-  % Programmatore: 26.09% (93.9° cumulative)
+  % Programmatore: 26.09% = 12h -> 93.9° (cumulativo: 78.3° -> 172.2°)
   \draw[fill=yellow!60, draw=black, line width=1.5pt] 
     (0,0) -- (78.3:2) arc (78.3:172.2:2) -- cycle;
   \node at (125.25:1.2) {\small\bfseries 26.1\%};
   
-  % Verificatore: 52.17% (187.8° cumulative to 360°)
+  % Verificatore: 52.17% = 24h -> 187.8° (cumulativo: 172.2° -> 360°)
   \draw[fill=green!60, draw=black, line width=1.5pt] 
     (0,0) -- (172.2:2) arc (172.2:360:2) -- cycle;
   \node at (266.1:1.2) {\small\bfseries 52.2\%};
