@@ -54,7 +54,6 @@
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{0pt}
 \raggedbottom
-\flushbottom
 
 \newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 
@@ -291,6 +290,8 @@ Il documento è rivolto ai seguenti destinatari:
     \item Il \textbf{team di verifica\textsubscript{\scalebox{0.6}{\textbf{G}}}tori}, che impiegherà il presente documento per definire i casi di test\textsubscript{\scalebox{0.6}{\textbf{G}}} e validare il comportamento del prodotto.
 \end{itemize}
 
+\newpage
+
 \subsection{Prospettiva del prodotto}
 
 Il prodotto che BugBusters intende sviluppare è una versione standalone dei moduli "AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} Generativo" e "AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per i CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}", svincolata dalla piattaforma NEXUM. Tale applicazione costituirà un prototipo funzionale in grado di operare autonomamente e di implementare le principali funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} richieste dal committente\textsubscript{\scalebox{0.6}{\textbf{G}}}, senza dipendere dalla piattaforma esistente.
@@ -329,6 +330,8 @@ Qui di seguito le funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} del pr
     possibilità di caricare immagini dall'utente o di generarle tramite AI, con salvataggio locale.
 
 \end{itemize}
+
+\newpage
 
 \textbf{Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per i CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -371,6 +374,8 @@ Qui di seguito le funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} del pr
 Queste funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} permetteranno all'applicazione standalone di essere completamente operativa e autonoma nei due moduli (AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} Generativo e AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per i CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}). 
 In una fase successiva, tali componenti saranno progettati per essere integrati nella piattaforma NEXUM, 
 consentendo così un'evoluzione verso un ecosistema HR completo, scalabile e basato su automazioni intelligenti.
+
+\newpage
 
 \subsection{Caratterisitiche dell'utente}
 
@@ -472,7 +477,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{figure}
 \begin{itemize}
     \item \textbf{Utente}: Rappresenta un utente che utilizza il sistema.
-    \item \textbf{Utente non registrato}: Rappresenta un utente che non ha effettuato l'accesso al sistema.
+    \item \textbf{Utente non autenticato}: Rappresenta un utente che non ha effettuato l'accesso al sistema.
     \item \textbf{HR Manager}: È la figura responsabile\textsubscript{\scalebox{0.6}{\textbf{G}}} della comunicazione interna. Utilizza il Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} per generare, revisionare e pubblicare messaggi o avvisi rivolti ai dipendenti, definendone tono e stile.
     \item \textbf{Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}}: Utente con la capacitá di generare post
     \item \textbf{Data Analyst\textsubscript{\scalebox{0.6}{\textbf{G}}}}: Figura incaricata di monitorare le prestazioni. Accede alle Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} di analisi per consultare le statistiche di utilizzo, i rating di qualità\textsubscript{\scalebox{0.6}{\textbf{G}}} dei contenuti generati e i KPI del riconoscimento documentale.
@@ -503,19 +508,19 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0Aa.jpg}
-    \caption{Diagramma del caso d'uso UC-0A – Registrazione nuovo utente (include)}
+    \caption{Diagramma del caso d'uso UC-0A – Registrazione nuovo utente (extend)}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0Ab.jpg}
-    \caption{Diagramma del caso d'uso UC-0A – Registrazione nuovo utente (extend)}
+    \caption{Diagramma del caso d'uso UC-0A – Registrazione nuovo utente (include)}
 \end{figure}
 
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Utente non registrato
+    \item Utente non autenticato
 \end{itemize}
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -671,6 +676,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
+\newpage
+
 \subUseCase{Inserimento cognome}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -737,6 +744,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Viene visualizzato un messaggio di errore relativo al formato non valido dell'email
 \end{itemize}
 
+\newpage
+
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item L'utente inserisce un indirizzo email che non rispetta il formato standard (es. manca la chiocciola o il dominio)
@@ -795,6 +804,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
+\newpage
+
 \subUseCase{Username già registrato}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -844,6 +855,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 \vspace{0.5cm}
+\newpage
 
 \subUseCase{Matricola non valida}
 
@@ -887,7 +899,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Utente 
+    \item Utente non autenticato 
 \end{itemize}
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1007,6 +1019,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente è entrato nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di gestione profilo utente dalla Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} principale
 
 \end{itemize}
+\newpage
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1017,11 +1030,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item L'utente accede alla sezione “Profilo” dalla Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} dell'applicazione.
     \item Il sistema mostra i dati correnti del profilo
-\end{enumerate}
-
-\textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{enumerate}
-    \item 
 \end{enumerate}
 
 
@@ -1075,6 +1083,9 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item L'utente ha effettuato l'accesso e si trova nella pagina del profilo
 \end{itemize}
+
+\newpage
+
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1192,6 +1203,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \caption{Diagramma del caso d'uso UC-0D – Modifica informazioni profilo utente}
 \end{figure}
 
+\newpage
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Utente
@@ -1200,6 +1213,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item L'utente si trova nella pagina di modifica profilo
+    \item L'utente conferma le modifiche
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1294,6 +1308,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
+\newpage
+
 \subUseCase{Visualizzazione elemento lista utenti registrati}
 
 \begin{figure}[H]
@@ -1339,6 +1355,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{itemize}
 
 \vspace{0.5cm}
+
+\newpage
 
 \subUseCase{Visualizzazione ruolo utente registrato}
 
@@ -1432,12 +1450,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} permette la selezione di un nuovo ruolo per l'utente scelto
+    \item Il ruolo dell'utente è stato modificato
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} interagisce con il campo relativo al ruolo apportando delle modifiche che verranno salvate nel sistema
+    \item L'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} apporta delle modifiche al ruolo di un utente
+    \item Le modifiche vengono salvate all'interno del sistema
 \end{enumerate}
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1499,7 +1518,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Non esiste più una sessione attiva associata all'utente sul dispositivo corrente.
-    \item Per accedere nuovamente alle funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} riservate è necessario eseguire un nuovo login.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1585,13 +1603,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente si trova nell'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} di generazione contenuti AI (UC-1A)
-    \item La casella di testo del prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} è vuota o modificabile
+    \item L'utente si trova nel modulo di generazione contenuti AI (UC-1A)
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item La casella di testo contiene la descrizione (prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}) inserita dall'utente
+    \item Il prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} è inserito
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1610,7 +1627,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente si trova nell'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} di generazione contenuti AI
+    \item L'utente si trova nel modulo di generazione contenuti AI (UC-1A)
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1635,7 +1652,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente si trova nell'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} di generazione contenuti AI
+    \item L'utente si trova nel modulo di generazione contenuti AI (UC-1A)
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1659,6 +1676,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1B.jpg}
     \caption{Diagramma del caso d'uso UC-1B – Visualizzazione lista elementi storico}
 \end{figure}
+
+\newpage
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1711,13 +1730,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Viene visualizzato un messaggio informativo (placeholder) che indica l'assenza di dati
+    \item Non viene visualizzato alcun elemento
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item Il sistema interroga il database per recuperare lo storico
-    \item Il sistema non trova record associati all'utente e mostra un messaggio del tipo "Nessun prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} presente nello storico"
+    \item Il sistema non trova record associati all'utente e mostra un messaggio di avviso
 \end{enumerate}
 
 
@@ -1752,6 +1771,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema espande l'elemento o apre una modale mostrando tutti i metadati associati a quella generazione
 \end{enumerate}
 
+\newpage
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -1918,11 +1938,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\useCase{Visualizzazione anteprima contenuto generato}{sec:uc-1c}
+\useCase{Visualizzazione anteprima contenuto generato}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1C.jpg}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1C.jpg}
     \caption{Diagramma del caso d'uso UC-1C – Visualizzazione anteprima contenuto generato}
 \end{figure}
 
@@ -1945,6 +1965,16 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item Il sistema riceve l'output dall'AI e lo renderizza nell'area di visualizzazione principale, permettendo all'utente di leggerlo
 \end{enumerate}
+
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1C.1 - Visualizzazione titolo
+        \item UC-1C.2 - Visualizzazione testo
+        \item UC-1C.3 - Visualizzazione immagine
+    \end{itemize}
+\end{itemize}
 
 
 \vspace{0.5cm}
@@ -2107,7 +2137,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC1G.jpg}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1G.jpg}
     \caption{Diagramma del caso d'uso UC-1G – Annulla modifiche a contenuto generato}
 \end{figure}
 
@@ -2123,7 +2153,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Le modifiche non salvate vengono scartate e l'utente ritorna alla visualizzazione precedente (anteprima originale)
+    \item Le modifiche non salvate vengono scartate e l'utente ritorna alla visualizzazione precedente
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2230,13 +2260,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item La lista visualizzata viene filtrata mostrando solo gli elementi che corrispondono ai criteri di ricerca
+    \item Viene applicato un filtro alla lista delle generazioni dello storico
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente inserisce una parola chiave (es. parte del prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} o data) nella barra di ricerca
-    \item Il sistema filtra gli elementi dello storico in tempo reale o alla conferma
+    \item L'utente inserisce un testo chiave (es. parte del prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} o data) nella barra di ricerca
+    \item Il sistema filtra gli elementi dello storico in tempo reale
 \end{enumerate}
 
 
@@ -2244,11 +2274,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Visualizzazione lista elementi storico filtrata}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1K.jpg}
-    \caption{Diagramma del caso d'uso UC-1K – Visualizzazione lista elementi storico filtrata}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1K.jpg}
+%     \caption{Diagramma del caso d'uso UC-1K – Visualizzazione lista elementi storico filtrata}
+% \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2275,10 +2305,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-1B.2 – Visualizzazione informazioni elemento
-    \end{itemize}
+    % \item \textit{include}: 
+    % \begin{itemize}
+    %     \item UC-1B.2 – Visualizzazione informazioni elemento
+    % \end{itemize}
     \item \textit{generalizzazione}: 
     \begin{itemize}
         \item UC-1B – Visualizzazione lista elementi storico
@@ -2313,7 +2343,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il contenuto precedente viene sostituito da una nuova versione generata con gli stessi parametri (o parametri lievemente aggiustati)
+    \item Il contenuto precedente viene sostituito da una nuova versione generata con gli stessi parametri
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2380,8 +2410,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il contenuto attuale viene rimosso dalla vista e l'utente ritorna alla fase di inserimento prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}
-    \item L'area di anteprima viene pulita
     \item La generazione viene salvata nello storico con valutazione minima
 \end{itemize}
 
@@ -2422,6 +2450,134 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item L'utente decide che il contenuto è appropriato e vuole salvarlo nel sistema
     \item Il sistema salva il contenuto generato nel database, rendendolo accessibile per usi futuri
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Aggiunta tono}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1P.jpg}
+    \caption{Diagramma del caso d'uso UC-1P – Aggiunta tono}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item HR manager/Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} generativo
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item ITra le opzioni disponibili nella scelta dei toni per la generazione di un contenuto adesso è presente il nuovo tono inserito
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un nuovo tono tramite lo strumento apposito
+    \item Il tono viene salvato all'interno del sistema ed è utilizzabile per generazioni future
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Eliminazione tono}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1Q.jpg}
+    \caption{Diagramma del caso d'uso UC-1Q – Eliminazione tono}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item HR manager/Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} generativo
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item ITra le opzioni disponibili nella scelta dei toni per la generazione di un contenuto adesso non si trova più un tono precedentemente inserito
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente elimina un tono precedentemente inserito tramite lo strumento apposito
+    \item Il tono viene rimosso dal sistema e non è più utilizzabile per generazioni future
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Aggiunta stile}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1R.jpg}
+    \caption{Diagramma del caso d'uso UC-1R – Aggiunta stile}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item HR manager/Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} generativo
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item ITra le opzioni disponibili nella scelta degli stili per la generazione di un contenuto adesso è presente il nuovo stile inserito
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un nuovo stile tramite lo strumento apposito
+    \item Il stile viene salvato all'interno del sistema ed è utilizzabile per generazioni future
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Eliminazione stile}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1S.jpg}
+    \caption{Diagramma del caso d'uso UC-1S – Eliminazione stile}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item HR manager/Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} generativo
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item ITra le opzioni disponibili nella scelta degli stili per la generazione di un contenuto adesso non si trova più uno stile precedentemente inserito
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente elimina uno stile precedentemente inserito tramite lo strumento apposito
+    \item Lo stile viene rimosso dal sistema e non è più utilizzabile per generazioni future
 \end{enumerate}
 
 
@@ -3962,11 +4118,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Visualizzazione lista documenti filtrata}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2Q.jpg}
-    \caption{Diagramma del caso d'uso UC-2Q – Visualizzazione lista documenti filtrata}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2Q.jpg}
+%     \caption{Diagramma del caso d'uso UC-2Q – Visualizzazione lista documenti filtrata}
+% \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3993,10 +4149,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2B.2 – Visualizzazione elemento da lista documenti
-    \end{itemize}
+    % \item \textit{include}: 
+    % \begin{itemize}
+    %     \item UC-2B.2 – Visualizzazione elemento da lista documenti
+    % \end{itemize}
     \item \textit{generalizzazione}: 
     \begin{itemize}
         \item UC-2B – Visualizzazione lista documenti analisi
@@ -4046,11 +4202,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Visualizzazione lista destinatari filtrata}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2S.jpg}
-    \caption{Diagramma del caso d'uso UC-2S – Visualizzazione lista destinatari filtrata}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2S.jpg}
+%     \caption{Diagramma del caso d'uso UC-2S – Visualizzazione lista destinatari filtrata}
+% \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4076,10 +4232,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2G.1 – Visualizzazione elemento da lista destinatari
-    \end{itemize}
+    % \item \textit{include}: 
+    % \begin{itemize}
+    %     \item UC-2G.1 – Visualizzazione elemento da lista destinatari
+    % \end{itemize}
     \item \textit{generalizzazione}: 
     \begin{itemize}
         \item UC-2G – Visualizzazione lista informazioni destinatari analisi
@@ -4129,11 +4285,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Visualizzazione lista storico documenti filtrata}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2U.jpg}
-    \caption{Diagramma del caso d'uso UC-2U – Visualizzazione lista storico documenti filtrata}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2U.jpg}
+%     \caption{Diagramma del caso d'uso UC-2U – Visualizzazione lista storico documenti filtrata}
+% \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4158,10 +4314,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item \textit{include}: 
-    \begin{itemize}
-        \item UC-2H.2 – Visualizzazione elemento da lista storico documenti
-    \end{itemize}
+    % \item \textit{include}: 
+    % \begin{itemize}
+    %     \item UC-2H.2 – Visualizzazione elemento da lista storico documenti
+    % \end{itemize}
     \item \textit{generalizzazione}: 
     \begin{itemize}
         \item UC-2H – Visualizzazione lista storico documenti
@@ -4621,7 +4777,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \endlastfoot
 
 
-    \autoRF & Il sistema deve permettere all'utente non registrato di effettuare la registrazione di un nuovo account. & \hyperref[UC-0A]{UC-0A} & Opzionale \\
+\autoRF & Il sistema deve permettere all'utente non autenticato di effettuare la registrazione di un nuovo account. & \hyperref[UC-0A]{UC-0A} & Opzionale \\
 \hline
 \autoRF & Il sistema deve permettere all'utente di inserire il proprio indirizzo email in fase di registrazione. & \hyperref[UC-0A.1]{UC-0A.1} & Opzionale \\
 \hline
@@ -4738,6 +4894,14 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \autoRF & Il sistema deve permettere di scartare il contenuto generato e pulire l'interfaccia. & \hyperref[UC-1N]{UC-1N} & Obbligatorio \\
 \hline
 \autoRF & Il sistema deve permettere di salvare il contenuto generato nel database. & \hyperref[UC-1O]{UC-1O} & Obbligatorio \\
+\hline
+\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo tono per la generazione di contenuti & \hyperref[UC-1P]{UC-1P} & Obbligatorio \\
+\hline
+\autoRF & Il sistema deve permettere all'utente l'eliminazione di un tono per la generazione di contenuti & \hyperref[UC-1Q]{UC-1Q} & Obbligatorio \\
+\hline
+\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo stile per la generazione di contenuti & \hyperref[UC-1R]{UC-1R} & Obbligatorio \\
+\hline
+\autoRF & Il sistema deve permettere all'utente l'eliminazione di uno stile per la generazione di contenuti & \hyperref[UC-1S]{UC-1S} & Obbligatorio \\
 \hline
 \autoRF & Il sistema deve permettere l'analisi di documenti tramite il modulo AI Co-Pilot. & \hyperref[UC-2A]{UC-2A} & Obbligatorio \\
 \hline
