@@ -150,6 +150,8 @@ Piano di Qualifica\G del Team BugBusters per il Capitolato C5 proposto da Eggon,
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
+\CurrentVersion & 04/02/2026 & Aggiornamento Test, rimossa matrice di Tracciamento & Marco Piro & - & - \\
+\hline
 \CurrentVersion & 19/01/2026 & Aggiornamento Test, aggiunti test di sistema Casi Limite e integrazione, cambiato alcune metriche di prodotto. Aggiunta matrice di Tracciamento & Marco Piro & - & - \\
 \hline
 0.0.5 & 15/01/2026 & Aggiornamento Test, aggiunti test di sistema prestazionali, eliminata metrica errori ortografici & Marco Piro & - & - \\
@@ -247,7 +249,7 @@ MPC02 & Planned value (PV) & $\geq 0$ & $\leq$ Budget at completion (BAC) \\
 \hline
 MPC03 & Actual cost (AC) & $\geq 0$ & $\leq$ EAC \\
 \hline
-MPC04 & Cost Performance Index (CPI) & $\geq 0.9$ & $\geq 1.0$ \\
+MPC04 & Cost Performance Index (CPI) & $\geq 0.9$ & 1 \\
 \hline
 MPC05 & Schedule Performance Index (SPI) & $\geq 0.9$ & 1 \\
 \hline
@@ -348,24 +350,37 @@ MPD14 & Supported Browsers (Test passati) & $100\%$ (Desktop) & $100\%$ (All dev
 
 
 \section{Metodi di testing}
-La strategia di verifica e validazione adottata dal gruppo \textit{BugBusters} è definita in dettaglio nel documento \textit{Norme di Progetto}. Tale strategia mira a garantire che ogni rilascio software sia conforme ai requisiti specificati e privo di difetti critici, adottando un approccio proattivo alla qualità.
+La strategia di verifica e validazione adottata dal gruppo \textit{BugBusters} mira a garantire che ogni rilascio software sia conforme ai requisiti specificati e privo di difetti critici.
+I test dinamici pianificati seguono un approccio incrementale (piramide dei test), partendo dalle singole unità logiche fino alla validazione dell'intero sistema integrato.
 
-In conformità con lo standard ISO/IEC 12207, il processo di verifica si articola in due metodologie complementari:
-\begin{itemize}
-    \item \textbf{Analisi Statica:} Revisione della documentazione e del codice sorgente (tramite tool di analisi automatica e code review) per individuare difetti prima dell'esecuzione.
-    \item \textbf{Analisi Dinamica:} Esecuzione del software a diversi livelli di granularità per verificarne il comportamento rispetto ai risultati attesi.
-\end{itemize}
+\subsection{Riepilogo dei Requisiti}
+La seguente tabella riassume la distribuzione dei requisiti definiti nell'Analisi dei Requisiti, che costituiscono la base per la pianificazione dei test.
 
-I test dinamici pianificati per il progetto seguono un approccio incrementale (piramide dei test), partendo dalle singole unità logiche fino alla validazione dell'intero sistema integrato:
-\begin{itemize}
-    \item \textbf{Test di Unità (TU):} Verifica delle singole componenti software (classi, metodi).
-    \item \textbf{Test di Integrazione (TI):} Verifica delle interfacce e del flusso dati tra i moduli.
-    \item \textbf{Test di Sistema (TS):} Verifica del comportamento globale del sistema rispetto ai requisiti funzionali e prestazionali.
-    \item \textbf{Test di Accettazione (TA):} Validazione finale del prodotto rispetto agli scenari d'uso attesi dall'utente (Usecase).
-\end{itemize}
+\begin{table}[H]
+\centering
+\caption{Riepilogo dei requisiti}
+\label{tab:riepilogo-requisiti}
+\arrayrulecolor{primaryblue}
+\begin{tabularx}{0.8\textwidth}{|X|c|c|c|c|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Tipologia} & \textbf{\color{white} Obbligatorio} & \textbf{\color{white} Desiderabile} & \textbf{\color{white} Opzionale} & \textbf{\color{white} Totale} \\
+\hline
+Funzionali & 103 & 0 & 25 & 128 \\
+\hline
+Prestazionali & 5 & 3 & 0 & 8 \\
+\hline
+Qualità & 6 & 0 & 0 & 6 \\
+\hline
+Vincolo & 5 & 0 & 1 & 6 \\
+\hline
+\textbf{Totale} & \textbf{119} & \textbf{3} & \textbf{26} & \textbf{148} \\
+\hline
+\end{tabularx}
+\end{table}
 
 \subsection{Test di Integrazione}
-I test di integrazione verificano la corretta comunicazione tra i sottosistemi e i moduli definiti nell'architettura, assicurando che i dati fluiscano correttamente tra Frontend, Backend e servizi AI.
+I test di integrazione verificano la corretta comunicazione tra i sottosistemi e i moduli definiti nell'architettura.
 
 \begin{longtable}{|p{2.2cm}|p{7cm}|p{3.5cm}|}
 	\hline
@@ -374,96 +389,233 @@ I test di integrazione verificano la corretta comunicazione tra i sottosistemi e
 	\hline
 	\endhead
 	
-	\textbf{TI-001} & Verifica scambio dati JSON tra Frontend e Backend (API REST) e gestione codici errore HTTP. & Standalone $\leftrightarrow$ Server \\
+	\textbf{TI-001} & Verifica scambio dati JSON tra Frontend e Backend (API REST). & Standalone $\leftrightarrow$ Server \\
 	\hline
-	\textbf{TI-002} & Verifica invio prompt e ricezione risposta dal servizio LLM esterno (gestione timeout e token). & AI Assistant $\leftrightarrow$ LLM API \\
+	\textbf{TI-002} & Verifica invio prompt e ricezione risposta dal servizio LLM esterno. & AI Assistant $\leftrightarrow$ LLM API \\
 	\hline
-	\textbf{TI-003} & Verifica corretta persistenza dei documenti analizzati e relativo recupero per lo storico. & Co-Pilot $\leftrightarrow$ Database \\
+	\textbf{TI-003} & Verifica persistenza e recupero documenti analizzati. & Co-Pilot $\leftrightarrow$ Database \\
 	\hline
-	\textbf{TI-004} & Verifica aggregazione dati per le dashboard statistiche (query su dataset analizzati). & Database $\leftrightarrow$ Analytics \\
+	\textbf{TI-004} & Verifica aggregazione dati per le dashboard statistiche. & Database $\leftrightarrow$ Analytics \\
 	\hline
-	\textbf{TI-005} & Verifica passaggio del testo estratto (OCR/Parser) al motore di analisi AI. & Parser $\leftrightarrow$ Co-Pilot Logic \\
+	\textbf{TI-005} & Verifica passaggio del testo estratto (OCR) al motore di analisi AI. & Parser $\leftrightarrow$ Co-Pilot Logic \\
 	\hline
+	\caption{Test di Integrazione}
+    \label{tab:test-integrazione}
 \end{longtable}
 
 \subsection{Test di Sistema}
-La seguente tabella dettaglia i test di sistema (System Tests) progettati per verificare la completa copertura dei requisiti funzionali (RF). I codici dei test seguono il formato \textbf{TS-F-XX} (Test Sistema Funzionale).
 
-\begin{longtable}{|p{2.2cm}|p{7cm}|p{3.5cm}|p{2.3cm}|}
-	\hline
-	\rowcolor{primaryblue!30} 
-	\textbf{Codice} & \textbf{Descrizione} & \textbf{Requisiti Coperti} & \textbf{Stato} \\
-	\hline
-	\endhead
-	
-	% --- MODULO 0: AUTH & USER ---
-	\multicolumn{4}{|c|}{\cellcolor{lightgray}\textbf{Modulo 0: App Standalone e Gestione Utenti}} \\
-	\hline
-	\textbf{TS-F-001} & Verifica registrazione utente non autenticato (inserimento dati validi: email, password, anagrafica). & RF-001, RF-002, RF-003, RF-004, RF-005, RF-006, RF-007 & Non Impl. \\
-	\hline
-	\textbf{TS-F-002} & Verifica gestione errori in registrazione (email errata, password debole, utente duplicato). & RF-008, RF-009, RF-010, RF-011, RF-012, RF-013 & Non Impl. \\
-	\hline
-	\textbf{TS-F-003} & Verifica procedura di Login e gestione credenziali errate. & RF-014, RF-015, RF-016 & Non Impl. \\
-	\hline
-	\textbf{TS-F-004} & Verifica visualizzazione dati profilo utente. & RF-017, RF-018, RF-019, RF-020, RF-021, RF-022, RF-023 & Non Impl. \\
-	\hline
-	\textbf{TS-F-005} & Verifica modifica dati profilo e gestione "unsaved changes". & RF-024, RF-025 & Non Impl. \\
-	\hline
-	\textbf{TS-F-006} & Verifica funzionalità Admin (lista utenti, dettagli, cambio ruolo). & RF-026, RF-027, RF-028, RF-029, RF-030, RF-031 & Non Impl. \\
-	\hline
-	\textbf{TS-F-007} & Verifica procedura di Logout. & RF-032 & Non Impl. \\
-	\hline
-	
-	% --- MODULO 1: AI ASSISTANT ---
-	\multicolumn{4}{|c|}{\cellcolor{lightgray}\textbf{Modulo 1: AI Assistant Generativo}} \\
-	\hline
-	\textbf{TS-F-008} & Verifica generazione contenuto testuale (prompt, tono, stile). & RF-033, RF-034, RF-035, RF-036 & Non Impl. \\
-	\hline
-	\textbf{TS-F-009} & Verifica visualizzazione storico generazioni e dettagli entry. & RF-037, RF-038, RF-039, RF-040, RF-041, RF-042, RF-044, RF-045 & Non Impl. \\
-	\hline
-	\textbf{TS-F-010} & Verifica anteprima e modifica contenuto generato. & RF-046, RF-047, RF-048, RF-049, RF-050 & Non Impl. \\
-	\hline
-	\textbf{TS-F-011} & Verifica azioni su contenuto (annulla, rating, scarta, duplica). & RF-051, RF-052, RF-053, RF-057, RF-058 & Non Impl. \\
-	\hline
-	\textbf{TS-F-012} & Verifica persistenza dati (salvataggio nel DB). & RF-059 & Non Impl. \\
-	\hline
-	\textbf{TS-F-013} & Verifica filtri storico e rigenerazione contenuto. & RF-054, RF-055, RF-056 & Non Impl. \\
-	\hline
-	
-	% --- MODULO 2: AI CO-PILOT ---
-	\multicolumn{4}{|c|}{\cellcolor{lightgray}\textbf{Modulo 2: AI Co-Pilot (Consulenti del Lavoro)}} \\
-	\hline
-	\textbf{TS-F-014} & Verifica upload e analisi documento con metadati input. & RF-060, RF-061, RF-062, RF-063, RF-064 & Non Impl. \\
-	\hline
-	\textbf{TS-F-015} & Verifica visualizzazione lista documenti e metadati estratti. & RF-065, RF-066, RF-067, RF-068, RF-069, RF-070, RF-071, RF-072, RF-073, RF-074, RF-075, RF-076 & Non Impl. \\
-	\hline
-	\textbf{TS-F-016} & Verifica Human-in-the-loop (modifica campi e confidenza). & RF-077, RF-078, RF-079, RF-080 & Non Impl. \\
-	\hline
-	\textbf{TS-F-017} & Verifica estrazione dati destinatari (CF, matricola, reparto). & RF-081, RF-082, RF-083, RF-084, RF-085, RF-086, RF-087 & Non Impl. \\
-	\hline
-	\textbf{TS-F-018} & Verifica storico processamento e stati documento. & RF-088, RF-089, RF-090, RF-091, RF-092, RF-093 & Non Impl. \\
-	\hline
-	\textbf{TS-F-019} & Verifica gestione CRUD Template messaggi. & RF-094, RF-095, RF-096, RF-097, RF-098, RF-099, RF-100, RF-101, RF-102, RF-103 & Non Impl. \\
-	\hline
-	\textbf{TS-F-020} & Verifica invio/pianificazione documenti e messaggi. & RF-104, RF-105, RF-106 & Non Impl. \\
-	\hline
-	\textbf{TS-F-021} & Verifica funzionalità di filtro liste (doc/destinatari). & RF-107, RF-108, RF-109, RF-110, RF-111, RF-112 & Non Impl. \\
-	\hline
+\subsubsection{Test di Sistema - Requisiti Funzionali}
+Questa tabella mappa puntualmente ogni requisito funzionale (RF) al test di sistema progettato per verificarlo.
 
-	% --- MODULO 3: ANALYTICS ---
-	\multicolumn{4}{|c|}{\cellcolor{lightgray}\textbf{Modulo 3: Analytics}} \\
-	\hline
-	\textbf{TS-F-022} & Verifica Dashboard KPI Assistant (prompt, rating, usage). & RF-113, RF-114, RF-115, RF-116, RF-117, RF-118 & Non Impl. \\
-	\hline
-	\textbf{TS-F-023} & Verifica Dashboard KPI Co-Pilot (confidenza, manual fix). & RF-119, RF-120, RF-121, RF-122, RF-123 & Non Impl. \\
-	\hline
-	\textbf{TS-F-024} & Verifica filtro temporale dashboard. & RF-124 & Non Impl. \\
-	\hline
+\begin{longtable}{|p{2.5cm}|p{8cm}|p{2.5cm}|p{1.5cm}|}
+\hline
+\rowcolor{primaryblue!30} 
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Riferimento} & \textbf{Stato} \\
+\hline
+\endhead
 
+% --- BLOCCO AUTH & UTENTI ---
+TS-F-001 & Verifica che il sistema permetta all'utente non autenticato di effettuare la registrazione di un nuovo account & RF-1 & NI \\ \hline
+TS-F-002 & Verifica che il sistema permetta all'utente di inserire il proprio indirizzo email in fase di registrazione & RF-2 & NI \\ \hline
+TS-F-003 & Verifica che il sistema permetta all'utente di inserire la propria password in fase di registrazione & RF-3 & NI \\ \hline
+TS-F-004 & Verifica che il sistema permetta all'utente di inserire la conferma della password in fase di registrazione & RF-4 & NI \\ \hline
+TS-F-005 & Verifica che il sistema permetta all'utente di inserire il proprio nome in fase di registrazione & RF-5 & NI \\ \hline
+TS-F-006 & Verifica che il sistema permetta all'utente di inserire il proprio cognome in fase di registrazione & RF-6 & NI \\ \hline
+TS-F-007 & Verifica che il sistema permetta all'utente di confermare la registrazione tramite pulsante dedicato & RF-7 & NI \\ \hline
+TS-F-008 & Verifica che il sistema mostri un messaggio di errore se l'email inserita non è valida & RF-8 & NI \\ \hline
+TS-F-009 & Verifica che il sistema mostri un messaggio di errore se la password non rispetta i requisiti di sicurezza & RF-9 & NI \\ \hline
+TS-F-010 & Verifica che il sistema mostri un messaggio di errore se le password inserite non coincidono & RF-10 & NI \\ \hline
+TS-F-011 & Verifica che il sistema mostri un messaggio di errore se l'email è già associata ad un altro account & RF-11 & NI \\ \hline
+TS-F-012 & Verifica che il sistema mostri un messaggio di successo al termine della registrazione & RF-12 & NI \\ \hline
+TS-F-013 & Verifica che il sistema reindirizzi l'utente alla pagina di login dopo la registrazione & RF-13 & NI \\ \hline
+TS-F-014 & Verifica che il sistema permetta all'utente di effettuare il login inserendo email e password & RF-14 & NI \\ \hline
+TS-F-015 & Verifica che il sistema mostri un errore in caso di credenziali non valide & RF-15 & NI \\ \hline
+TS-F-016 & Verifica che il sistema permetta all'utente autenticato di effettuare il logout & RF-16 & NI \\ \hline
+TS-F-017 & Verifica che il sistema permetta all'utente autenticato di visualizzare il proprio profilo & RF-17 & NI \\ \hline
+TS-F-018 & Verifica che il sistema mostri i dati anagrafici dell'utente nel profilo & RF-18 & NI \\ \hline
+TS-F-019 & Verifica che il sistema permetta all'utente di modificare i propri dati anagrafici & RF-19 & NI \\ \hline
+TS-F-020 & Verifica che il sistema permetta all'utente di modificare la propria password & RF-20 & NI \\ \hline
+TS-F-021 & Verifica che il sistema richieda la vecchia password per impostarne una nuova & RF-21 & NI \\ \hline
+TS-F-022 & Verifica che il sistema permetta all'Amministratore di visualizzare la lista degli utenti registrati & RF-22 & NI \\ \hline
+TS-F-023 & Verifica che il sistema permetta all'Amministratore di visualizzare i dettagli di un utente specifico & RF-23 & NI \\ \hline
+TS-F-024 & Verifica che il sistema permetta all'Amministratore di modificare il ruolo di un utente & RF-24 & NI \\ \hline
+TS-F-025 & Verifica che il sistema permetta all'Amministratore di eliminare un utente & RF-25 & NI \\ \hline
+
+% --- BLOCCO ASSISTANT (AI) ---
+TS-F-026 & Verifica che il sistema permetta all'HR Manager di accedere al modulo Assistant & RF-26 & NI \\ \hline
+TS-F-027 & Verifica che il sistema permetta di inserire un prompt testuale per la generazione di contenuti & RF-27 & NI \\ \hline
+TS-F-028 & Verifica che il sistema permetta di selezionare il tono della risposta (formale, informale, neutro) & RF-28 & NI \\ \hline
+TS-F-029 & Verifica che il sistema permetta di selezionare la lunghezza desiderata del contenuto & RF-29 & NI \\ \hline
+TS-F-030 & Verifica che il sistema permetta di avviare la generazione del contenuto & RF-30 & NI \\ \hline
+TS-F-031 & Verifica che il sistema mostri un indicatore di caricamento durante la generazione & RF-31 & NI \\ \hline
+TS-F-032 & Verifica che il sistema mostri il contenuto generato dall'AI & RF-32 & NI \\ \hline
+TS-F-033 & Verifica che il sistema permetta di copiare il testo generato nella clipboard & RF-33 & NI \\ \hline
+TS-F-034 & Verifica che il sistema permetta di valutare la qualità della risposta (pollice su/giù) & RF-34 & NI \\ \hline
+TS-F-035 & Verifica che il sistema permetta di rigenerare il contenuto se non soddisfacente & RF-35 & NI \\ \hline
+TS-F-036 & Verifica che il sistema salvi automaticamente la cronologia delle generazioni & RF-36 & NI \\ \hline
+TS-F-037 & Verifica che il sistema permetta di visualizzare lo storico delle attività & RF-37 & NI \\ \hline
+TS-F-038 & Verifica che il sistema permetta di filtrare lo storico per data & RF-38 & NI \\ \hline
+TS-F-039 & Verifica che il sistema permetta di cancellare una voce dallo storico & RF-39 & NI \\ \hline
+
+% --- BLOCCO CO-PILOT (DOCUMENTI) ---
+TS-F-040 & Verifica che il sistema permetta all'Operatore di accedere al modulo Co-Pilot & RF-40 & NI \\ \hline
+TS-F-041 & Verifica che il sistema permetta di caricare un file PDF da analizzare & RF-41 & NI \\ \hline
+TS-F-042 & Verifica che il sistema validi il formato del file caricato (solo PDF) & RF-42 & NI \\ \hline
+TS-F-043 & Verifica che il sistema validi la dimensione del file (max 20MB) & RF-43 & NI \\ \hline
+TS-F-044 & Verifica che il sistema avvii l'analisi automatica del documento caricato & RF-44 & NI \\ \hline
+TS-F-045 & Verifica che il sistema estragga i dati chiave dal documento (nominativi, date, importi) & RF-45 & NI \\ \hline
+TS-F-046 & Verifica che il sistema mostri i dati estratti all'utente per la verifica & RF-46 & NI \\ \hline
+TS-F-047 & Verifica che il sistema permetta all'utente di modificare manualmente i dati estratti errati & RF-47 & NI \\ \hline
+TS-F-048 & Verifica che il sistema permetta di confermare i dati validati & RF-48 & NI \\ \hline
+TS-F-049 & Verifica che il sistema salvi il documento e i metadati nel database & RF-49 & NI \\ \hline
+TS-F-050 & Verifica che il sistema permetta di visualizzare la lista dei documenti processati & RF-50 & NI \\ \hline
+TS-F-051 & Verifica che il sistema permetta di scaricare il documento originale & RF-51 & NI \\ \hline
+TS-F-052 & Verifica che il sistema permetta di eliminare un documento processato & RF-52 & NI \\ \hline
+TS-F-053 & Verifica che il sistema permetta di cercare un documento per nome o metadato & RF-53 & NI \\ \hline
+TS-F-054 & Verifica che il sistema permetta di filtrare i documenti per stato di elaborazione & RF-54 & NI \\ \hline
+
+% --- BLOCCO ANALYTICS & ALTRO ---
+TS-F-055 & Verifica che il sistema permetta al Data Analyst di accedere alla Dashboard Analytics & RF-55 & NI \\ \hline
+TS-F-056 & Verifica che il sistema mostri il numero totale di generazioni effettuate (Assistant) & RF-56 & NI \\ \hline
+TS-F-057 & Verifica che il sistema mostri la distribuzione dei rating ricevuti & RF-57 & NI \\ \hline
+TS-F-058 & Verifica che il sistema mostri il numero di documenti processati (Co-Pilot) & RF-58 & NI \\ \hline
+TS-F-059 & Verifica che il sistema mostri la percentuale di confidenza media dell'AI & RF-59 & NI \\ \hline
+TS-F-060 & Verifica che il sistema mostri il tasso di correzione manuale da parte degli operatori & RF-60 & NI \\ \hline
+TS-F-061 & Verifica che il sistema permetta di esportare i dati di reportistica in formato CSV & RF-61 & NI \\ \hline
+TS-F-062 & Verifica che il sistema garantisca la persistenza dei dati tra sessioni diverse & RF-62 & NI \\ \hline
+TS-F-063 & Verifica che il sistema gestisca correttamente i timeout durante le chiamate API & RF-63 & NI \\ \hline
+TS-F-064 & Verifica che il sistema permetta la navigazione intuitiva tra i moduli & RF-64 & NI \\ \hline
+TS-F-065 & Verifica che il sistema supporti la visualizzazione su schermi di diverse dimensioni & RF-65 & NI \\ \hline
+TS-F-066 & Verifica che il sistema gestisca errori di rete imprevisti & RF-66 & NI \\ \hline
+TS-F-067 & Verifica che il sistema permetta l'ordinamento delle tabelle dati & RF-67 & NI \\ \hline
+TS-F-068 & Verifica che il sistema supporti la paginazione per liste lunghe di elementi & RF-68 & NI \\ \hline
+TS-F-069 & Verifica che il sistema permetta la selezione multipla di elementi ove applicabile & RF-69 & NI \\ \hline
+TS-F-070 & Verifica che il sistema mostri notifiche di feedback per ogni azione importante & RF-70 & NI \\ \hline
+TS-F-071 & Verifica che il sistema permetta di annullare l'ultima azione distruttiva (se previsto) & RF-71 & NI \\ \hline
+TS-F-072 & Verifica che il sistema protegga le rotte amministrative da accessi non autorizzati & RF-72 & NI \\ \hline
+TS-F-073 & Verifica che il sistema cripti le password nel database & RF-73 & NI \\ \hline
+TS-F-074 & Verifica che il sistema gestisca correttamente i token di sessione scaduti & RF-74 & NI \\ \hline
+TS-F-075 & Verifica che il sistema permetta il recupero della password (se previsto) & RF-75 & NI \\ \hline
+TS-F-076 & Verifica che il sistema registri i log di sistema per le operazioni critiche & RF-76 & NI \\ \hline
+TS-F-077 & Verifica che il sistema permetta la configurazione dei parametri globali (Admin) & RF-77 & NI \\ \hline
+TS-F-078 & Verifica che il sistema supporti la modalità scura (Dark Mode) & RF-78 & NI \\ \hline
+TS-F-079 & Verifica che il sistema permetta la personalizzazione del profilo utente & RF-79 & NI \\ \hline
+TS-F-080 & Verifica che il sistema gestisca upload multipli di file (Batch Upload) & RF-80 & NI \\ \hline
+TS-F-081 & Verifica che il sistema permetta di visualizzare l'anteprima del PDF caricato & RF-81 & NI \\ \hline
+TS-F-082 & Verifica che il sistema evidenzi i dati estratti direttamente sul PDF (overlay) & RF-82 & NI \\ \hline
+TS-F-083 & Verifica che il sistema permetta lo zoom e la navigazione nel visualizzatore PDF & RF-83 & NI \\ \hline
+TS-F-084 & Verifica che il sistema permetta di ruotare le pagine del PDF se necessario & RF-84 & NI \\ \hline
+TS-F-085 & Verifica che il sistema rilevi documenti corrotti o illeggibili & RF-85 & NI \\ \hline
+TS-F-086 & Verifica che il sistema permetta di assegnare tag o categorie ai documenti & RF-86 & NI \\ \hline
+TS-F-087 & Verifica che il sistema permetta di archiviare documenti vecchi & RF-87 & NI \\ \hline
+TS-F-088 & Verifica che il sistema supporti la ricerca full-text nel contenuto dei documenti & RF-88 & NI \\ \hline
+TS-F-089 & Verifica che il sistema permetta di condividere un documento con altri utenti & RF-89 & NI \\ \hline
+TS-F-090 & Verifica che il sistema gestisca i permessi di visualizzazione sui documenti & RF-90 & NI \\ \hline
+TS-F-091 & Verifica che il sistema permetta di creare template di messaggi predefiniti & RF-91 & NI \\ \hline
+TS-F-092 & Verifica che il sistema permetta di modificare i template esistenti & RF-92 & NI \\ \hline
+TS-F-093 & Verifica che il sistema permetta di eliminare template non più in uso & RF-93 & NI \\ \hline
+TS-F-094 & Verifica che il sistema permetta di utilizzare variabili dinamiche nei template & RF-94 & NI \\ \hline
+TS-F-095 & Verifica che il sistema permetta di inviare email ai destinatari estratti & RF-95 & NI \\ \hline
+TS-F-096 & Verifica che il sistema permetta di pianificare l'invio delle email & RF-96 & NI \\ \hline
+TS-F-097 & Verifica che il sistema mostri lo stato di invio delle email (inviata, fallita) & RF-97 & NI \\ \hline
+TS-F-098 & Verifica che il sistema permetta di allegare il documento processato all'email & RF-98 & NI \\ \hline
+TS-F-099 & Verifica che il sistema permetta di visualizzare l'anteprima dell'email prima dell'invio & RF-99 & NI \\ \hline
+TS-F-100 & Verifica che il sistema gestisca correttamente gli indirizzi email non validi & RF-100 & NI \\ \hline
+TS-F-101 & Verifica che il sistema permetta di configurare il server SMTP per l'invio & RF-101 & NI \\ \hline
+TS-F-102 & Verifica che il sistema mostri notifiche in tempo reale & RF-102 & NI \\ \hline
+TS-F-103 & Verifica che il sistema permetta di segnare le notifiche come lette & RF-103 & NI \\ \hline
+TS-F-104 & Verifica che il sistema permetta di accedere al centro notifiche & RF-104 & NI \\ \hline
+TS-F-105 & Verifica che il sistema permetta di configurare le preferenze di notifica & RF-105 & NI \\ \hline
+TS-F-106 & Verifica che il sistema fornisca tooltips o aiuti contestuali & RF-106 & NI \\ \hline
+TS-F-107 & Verifica che il sistema disponga di una sezione FAQ o guida utente & RF-107 & NI \\ \hline
+TS-F-108 & Verifica che il sistema permetta di contattare il supporto tecnico & RF-108 & NI \\ \hline
+TS-F-109 & Verifica che il sistema mostri la versione attuale del software & RF-109 & NI \\ \hline
+TS-F-110 & Verifica che il sistema permetta il backup dei dati & RF-110 & NI \\ \hline
+TS-F-111 & Verifica che il sistema permetta il ripristino dei dati da backup & RF-111 & NI \\ \hline
+TS-F-112 & Verifica che il sistema gestisca correttamente la concorrenza di più utenti & RF-112 & NI \\ \hline
+TS-F-113 & Verifica che il sistema prevenga la sovrascrittura accidentale di dati & RF-113 & NI \\ \hline
+TS-F-114 & Verifica che il sistema registri l'ultimo accesso dell'utente & RF-114 & NI \\ \hline
+TS-F-115 & Verifica che il sistema permetta di visualizzare i termini di servizio & RF-115 & NI \\ \hline
+TS-F-116 & Verifica che il sistema permetta di visualizzare la privacy policy & RF-116 & NI \\ \hline
+TS-F-117 & Verifica che il sistema sia conforme al GDPR (consenso cookie, ecc.) & RF-117 & NI \\ \hline
+TS-F-118 & Verifica che il sistema permetta all'utente di richiedere la cancellazione dell'account & RF-118 & NI \\ \hline
+TS-F-119 & Verifica che il sistema permetta all'utente di scaricare i propri dati personali & RF-119 & NI \\ \hline
+TS-F-120 & Verifica che il sistema supporti l'autenticazione a due fattori (2FA) - se previsto & RF-120 & NI \\ \hline
+TS-F-121 & Verifica che il sistema blocchi l'account dopo N tentativi di login falliti & RF-121 & NI \\ \hline
+TS-F-122 & Verifica che il sistema richieda password complesse (lunghezza, caratteri speciali) & RF-122 & NI \\ \hline
+TS-F-123 & Verifica che il sistema sanitizzi gli input per prevenire XSS & RF-123 & NI \\ \hline
+TS-F-124 & Verifica che il sistema utilizzi query parametriche per prevenire SQL Injection & RF-124 & NI \\ \hline
+TS-F-125 & Verifica che il sistema gestisca sessioni sicure (HTTPS, Secure Flag) & RF-125 & NI \\ \hline
+TS-F-126 & Verifica che il sistema non esponga dati sensibili negli URL & RF-126 & NI \\ \hline
+TS-F-127 & Verifica che il sistema gestisca correttamente i codici di stato HTTP (200, 404, 500) & RF-127 & NI \\ \hline
+TS-F-128 & Verifica che il sistema mostri pagine di errore user-friendly & RF-128 & NI \\ \hline
+
+\caption{Test di Sistema per Requisiti Funzionali}
+\label{tab:test-sistema-funzionali}
+\end{longtable}
+
+\subsubsection{Test di Sistema - Requisiti Prestazionali}
+\begin{longtable}{|p{2.5cm}|p{8cm}|p{2.5cm}|p{1.5cm}|}
+\hline
+\rowcolor{primaryblue!30} 
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Riferimento} & \textbf{Stato} \\
+\hline
+\endhead
+
+TS-P-001 & Verifica che il sistema generi contenuti testuali tramite AI (Assistant) entro 5 secondi per testi fino a 500 parole & RP-01 & NI \\ \hline
+TS-P-002 & Verifica che il sistema classifichi e partizioni documenti PDF (Co-Pilot) entro 3 secondi per pagina & RP-02 & NI \\ \hline
+TS-P-003 & Verifica che il tempo di risposta dell'interfaccia utente per operazioni standard sia inferiore a 2 secondi & RP-03 & NI \\ \hline
+TS-P-004 & Verifica che il sistema supporti l'upload di file PDF fino a 20 MB & RP-04 & NI \\ \hline
+TS-P-005 & Verifica che la Dashboard di Analytics carichi le statistiche entro 3 secondi per dataset fino a 1000 documenti & RP-05 & NI \\ \hline
+TS-P-006 & Verifica che il sistema garantisca una disponibilità del 99\% durante l'orario lavorativo (8:00-18:00) & RP-06 & NI \\ \hline
+TS-P-007 & Verifica che il sistema sia in grado di processare almeno 50 documenti in parallelo senza degrado prestazionale & RP-07 & NI \\ \hline
+TS-P-008 & Verifica utilizzo risorse CPU sotto carico massimo (Desiderabile) & RP-08 & NI \\ \hline
+
+\caption{Test di Sistema per Requisiti Prestazionali}
+\label{tab:test-sistema-prestazionali}
+\end{longtable}
+
+\subsubsection{Test di Sistema - Requisiti di Qualità}
+\begin{longtable}{|p{2.5cm}|p{8cm}|p{2.5cm}|p{1.5cm}|}
+\hline
+\rowcolor{primaryblue!30} 
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Riferimento} & \textbf{Stato} \\
+\hline
+\endhead
+
+TS-Q-001 & Verifica che sia presente la documentazione tecnica completa (diagrammi e descrizioni Use Case) & RQ-01 & NI \\ \hline
+TS-Q-002 & Verifica che il codice sorgente sia commentato secondo gli standard definiti nelle Norme di Progetto & RQ-02 & NI \\ \hline
+TS-Q-003 & Verifica che sia presente il manuale utente per l'installazione e l'utilizzo del sistema & RQ-03 & NI \\ \hline
+TS-Q-004 & Verifica che il codice superi l'analisi statica senza errori critici (Code Smells) & RQ-04 & NI \\ \hline
+TS-Q-005 & Verifica che l'interfaccia utente sia accessibile secondo le linee guida WCAG 2.1 (livello AA) & RQ-05 & NI \\ \hline
+TS-Q-006 & Verifica che il codice sia coperto da test di unità per almeno l'80\% (Code Coverage) & RQ-06 & NI \\ \hline
+
+\caption{Test di Sistema per Requisiti di Qualità}
+\label{tab:test-sistema-qualita}
+\end{longtable}
+
+\subsubsection{Test di Sistema - Requisiti di Vincolo}
+\begin{longtable}{|p{2.5cm}|p{8cm}|p{2.5cm}|p{1.5cm}|}
+\hline
+\rowcolor{primaryblue!30} 
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Riferimento} & \textbf{Stato} \\
+\hline
+\endhead
+
+TS-V-001 & Verifica che il sistema utilizzi Git come sistema di controllo versione & RV-01 & NI \\ \hline
+TS-V-002 & Verifica che API e Backend siano sviluppati in Ruby on Rails & RV-02 & NI \\ \hline
+TS-V-003 & Verifica che il Frontend sia sviluppato utilizzando il framework React & RV-03 & NI \\ \hline
+TS-V-004 & Verifica che il sistema sia compatibile con i browser Google Chrome e Mozilla Firefox (ultime versioni) & RV-04 & NI \\ \hline
+TS-V-005 & Verifica che l'interfaccia sia responsive e utilizzabile da dispositivi mobili & RV-05 & NI \\ \hline
+TS-V-006 & Verifica che la documentazione del codice sia redatta in lingua inglese (Opzionale) & RV-06 & NI \\ \hline
+
+\caption{Test di Sistema per Requisiti di Vincolo}
+\label{tab:test-sistema-vincolo}
 \end{longtable}
 
 \subsection{Test di Accettazione}
-La seguente tabella descrive i test di accettazione, volti a validare il sistema rispetto agli scenari d'uso (Use Case) previsti.
+I test di accettazione validano il sistema rispetto agli scenari d'uso (Use Case) previsti, assicurando che l'utente possa completare i flussi di lavoro principali.
 
 \begin{longtable}{|p{2.0cm}|p{8.5cm}|p{2.5cm}|p{2.5cm}|}
 	\hline
@@ -472,75 +624,50 @@ La seguente tabella descrive i test di accettazione, volti a validare il sistema
 	\hline
 	\endhead
 	
-	\textbf{TA-001} & L'utente non registrato riesce a creare un account e successivamente ad effettuare l'accesso al sistema standalone. & UC-0A, UC-0B & Non Implementato \\
+	% --- UTENTE GENERICO ---
+	\textbf{TA-001} & Verifica che un utente non registrato possa completare la procedura di registrazione (Happy Path). & UC-0A & Non Impl. \\
 	\hline
-	\textbf{TA-002} & L'utente riesce a gestire il proprio profilo (visualizzazione e modifica) e ad effettuare il logout. & UC-0C, UC-0D, UC-0G & Non Implementato \\
+	\textbf{TA-002} & Verifica che il sistema impedisca la registrazione con dati non validi o email già esistente. & UC-0A (Scenari alternativi) & Non Impl. \\
 	\hline
-	\textbf{TA-003} & L'Amministratore riesce a visualizzare la lista utenti e a modificare i ruoli assegnati. & UC-0E, UC-0F & Non Implementato \\
+	\textbf{TA-003} & Verifica che l'utente possa effettuare il Login e il Logout correttamente. & UC-0B, UC-0G & Non Impl. \\
 	\hline
-	\textbf{TA-004} & L'HR Manager riesce a generare un contenuto AI valido partendo da un prompt, visualizzarlo nello storico e modificarlo. & UC-1A...1F & Non Implementato \\
+	\textbf{TA-004} & Verifica che l'utente possa visualizzare e modificare il proprio profilo e cambiare la password. & UC-0C, UC-0D & Non Impl. \\
 	\hline
-	\textbf{TA-005} & L'HR Manager riesce a salvare un contenuto generato o a scartarlo se non soddisfacente. & UC-1O, UC-1N & Non Implementato \\
-	\hline
-	\textbf{TA-006} & L'Operatore CdL riesce a caricare un documento, analizzarlo con l'AI Co-Pilot e visualizzare i dati estratti. & UC-2A, UC-2B & Non Implementato \\
-	\hline
-	\textbf{TA-007} & L'Operatore CdL riesce a validare manualmente i dati estratti (Human-in-the-loop) modificando destinatari o tipologie errate. & UC-2D, UC-2E, UC-2F & Non Implementato \\
-	\hline
-	\textbf{TA-008} & L'Operatore CdL riesce a creare un messaggio usando un template e ad inviarlo (o pianificarlo) insieme al documento. & UC-2I, UC-2L, UC-2O & Non Implementato \\
-	\hline
-	\textbf{TA-009} & Il Data Analyst riesce a visualizzare le metriche di performance (KPI) sia per il modulo Assistant che per il Co-Pilot filtrando per data. & UC-3A, UC-3B, UC-3C & Non Implementato \\
-	\hline
-
-\end{longtable}
-
-\subsection{Test di Sistema - Prestazionali}
-La seguente tabella descrive i test progettati per verificare i requisiti prestazionali (RP) definiti nell'Analisi dei Requisiti. I codici seguono il formato \textbf{TS-P-XX}.
-
-\begin{longtable}{|p{2.2cm}|p{7cm}|p{3.5cm}|p{2.3cm}|}
-	\hline
-	\rowcolor{primaryblue!30} 
-	\textbf{Codice} & \textbf{Descrizione} & \textbf{Requisiti Coperti} & \textbf{Stato} \\
-	\hline
-	\endhead
 	
-	\textbf{TS-P-001} & Verifica che la generazione di contenuti testuali (Modulo Assistant) avvenga entro 5 secondi per testi fino a 500 parole. & RP-01 & Non Impl. \\
+	% --- AMMINISTRATORE ---
+	\textbf{TA-005} & Verifica che l'Amministratore possa consultare la lista utenti e visualizzare i dettagli di un singolo utente. & UC-0E & Non Impl. \\
 	\hline
-	\textbf{TS-P-002} & Verifica che la classificazione e il partizionamento dei PDF (Modulo Co-Pilot) avvenga entro 3 secondi per pagina. & RP-02 & Non Impl. \\
+	\textbf{TA-006} & Verifica che l'Amministratore possa modificare il ruolo di un utente o eliminarlo. & UC-0F & Non Impl. \\
 	\hline
-	\textbf{TS-P-003} & Verifica che il tempo di risposta dell'interfaccia utente per operazioni standard sia inferiore a 2 secondi. & RP-03 & Non Impl. \\
-	\hline
-	\textbf{TS-P-004} & Verifica il supporto all'upload di file PDF fino a una dimensione massima di 20 MB. & RP-04 & Non Impl. \\
-	\hline
-	\textbf{TS-P-005} & Verifica che la Dashboard di Analytics carichi le statistiche entro 3 secondi (dataset < 1000 doc). & RP-05 & Non Impl. \\
-	\hline
-	\textbf{TS-P-006} & Verifica (tramite monitoraggio o stress test) la disponibilità del sistema del 99\% in orario lavorativo (8:00-18:00). & RP-06 & Non Impl. \\
-	\hline
-	\textbf{TS-P-007} & Verifica la capacità del sistema di processare almeno 50 documenti in parallelo senza degrado delle performance. & RP-07 & Non Impl. \\
-	\hline
-  \textbf{TS-P-008} & Verifica che l'estrazione OCR per documenti scansionati avvenga entro 5 secondi per pagina. & RP-07 & Non Impl. \\
-  \hline
-
-\end{longtable}
-
-\subsection{Test di Sistema - Casi Limite (Boundary)}
-La seguente tabella descrive i test volti a verificare la robustezza del sistema ai limiti operativi definiti nei requisiti prestazionali (RP).
-
-\begin{longtable}{|p{2.2cm}|p{7cm}|p{3.5cm}|p{2.3cm}|}
-	\hline
-	\rowcolor{primaryblue!30} 
-	\textbf{Codice} & \textbf{Descrizione} & \textbf{Riferimento (RP)} & \textbf{Stato} \\
-	\hline
-	\endhead
 	
-	\textbf{TS-B-001} & Verifica il rifiuto controllato di un upload di file PDF superiore a 20 MB (es. 21 MB) con messaggio di errore user-friendly. & RP-04 & Non Impl. \\
+	% --- HR MANAGER (ASSISTANT) ---
+	\textbf{TA-007} & Verifica che l'HR Manager possa configurare una richiesta (Prompt, Tono, Lunghezza) e generare un contenuto. & UC-1A, UC-1B, UC-1C & Non Impl. \\
 	\hline
-	\textbf{TS-B-002} & Verifica il comportamento del sistema con un prompt AI superiore a 500 parole (troncamento automatico o avviso bloccante). & RP-01 & Non Impl. \\
+	\textbf{TA-008} & Verifica che l'HR Manager possa visualizzare, copiare e modificare il testo generato dall'AI. & UC-1D, UC-1E & Non Impl. \\
 	\hline
-	\textbf{TS-B-003} & Verifica gestione upload di file vuoti (0 KB) o file corrotti/non PDF. & RP-04 & Non Impl. \\
+	\textbf{TA-009} & Verifica che l'HR Manager possa valutare (Feedback) o scartare un contenuto generato. & UC-1F, UC-1N & Non Impl. \\
 	\hline
-	\textbf{TS-B-004} & Stress Test: Verifica stabilità del sistema con invio simultaneo di 55 documenti (superiore al limite di 50). & RP-07 & Non Impl. \\
+	\textbf{TA-010} & Verifica il salvataggio automatico nello storico e la possibilità di recuperare generazioni passate. & UC-1O & Non Impl. \\
+	\hline
+	
+	% --- OPERATORE CDL (CO-PILOT) ---
+	\textbf{TA-011} & Verifica che l'Operatore possa caricare un documento PDF e avviare l'analisi automatica. & UC-2A & Non Impl. \\
+	\hline
+	\textbf{TA-012} & Verifica che il sistema estragga correttamente i dati e li mostri all'operatore. & UC-2B & Non Impl. \\
+	\hline
+	\textbf{TA-013} & Verifica lo scenario "Human-in-the-loop": l'operatore corregge manualmente un dato estratto errato e conferma. & UC-2D, UC-2E & Non Impl. \\
+	\hline
+	\textbf{TA-014} & Verifica gestione template: creazione, modifica e utilizzo di un template di messaggio. & UC-2I & Non Impl. \\
+	\hline
+	\textbf{TA-015} & Verifica il flusso di invio: selezione destinatari, associazione documento e invio email (o pianificazione). & UC-2L, UC-2O & Non Impl. \\
+	\hline
+	
+	% --- DATA ANALYST ---
+	\textbf{TA-016} & Verifica che il Data Analyst possa consultare le Dashboard e filtrare le metriche per periodo temporale. & UC-3A, UC-3B & Non Impl. \\
 	\hline
 
+    \caption{Test di Accettazione}
+    \label{tab:test-accettazione}
 \end{longtable}
 
 \section{Cruscotto di Valutazione}
@@ -629,65 +756,5 @@ L'iterazione e l'apprendimento continuo guidano la qualità del nostro lavoro. L
 Il team resta focalizzato sul problem-solving proattivo per mantenere alti gli standard produttivi.
 
 
-\newpage
-\appendix
-\section{Matrice di Tracciamento}
-La seguente tabella associa ogni requisito funzionale (RF) al test di sistema (TS) progettato per verificarlo.
-
-\begin{longtable}{|p{3cm}|p{4cm}|}
-    \hline
-    \rowcolor{primaryblue!30} 
-    \textbf{Requisito} & \textbf{Test di Riferimento} \\
-    \hline
-    \endhead
-    RF-001 ... RF-007 & TS-F-001 \\
-    \hline
-    RF-008 ... RF-013 & TS-F-002 \\
-    \hline
-    RF-014 ... RF-016 & TS-F-003 \\
-    \hline
-    RF-017 ... RF-023 & TS-F-004 \\
-    \hline
-    RF-024, RF-025 & TS-F-005 \\
-    \hline
-    RF-026 ... RF-031 & TS-F-006 \\
-    \hline
-    RF-032 & TS-F-007 \\
-    \hline
-    RF-033 ... RF-036 & TS-F-008 \\
-    \hline
-    RF-037 ... RF-045 & TS-F-009 \\
-    \hline
-    RF-046 ... RF-050 & TS-F-010 \\
-    \hline
-    RF-051 ... RF-058 & TS-F-011 \\
-    \hline
-    RF-059 & TS-F-012 \\
-    \hline
-    RF-054 ... RF-056 & TS-F-013 \\
-    \hline
-    RF-060 ... RF-064 & TS-F-014 \\
-    \hline
-    RF-065 ... RF-076 & TS-F-015 \\
-    \hline
-    RF-077 ... RF-080 & TS-F-016 \\
-    \hline
-    RF-081 ... RF-087 & TS-F-017 \\
-    \hline
-    RF-088 ... RF-093 & TS-F-018 \\
-    \hline
-    RF-094 ... RF-103 & TS-F-019 \\
-    \hline
-    RF-104 ... RF-106 & TS-F-020 \\
-    \hline
-    RF-107 ... RF-112 & TS-F-021 \\
-    \hline
-    RF-113 ... RF-118 & TS-F-022 \\
-    \hline
-    RF-119 ... RF-123 & TS-F-023 \\
-    \hline
-    RF-124 & TS-F-024 \\
-    \hline
-\end{longtable}
 
 \end{document}
