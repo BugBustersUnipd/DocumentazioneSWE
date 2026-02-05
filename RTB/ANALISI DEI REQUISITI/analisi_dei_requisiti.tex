@@ -2123,19 +2123,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Il sistema rimane invariato e mostra un messaggio di errore che indica il problema riscontrato (es. "Formato non supportato", "Dimensioni eccessive")
 \end{enumerate}
 
-\textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{enumerate}
-    \item Il file immagine caricato dall'utente non è valido
-\end{enumerate}
-
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-1D.1 - File immagine non valido
-    \end{itemize}
-\end{itemize}
-
 \vspace{0.5cm}
 
 
@@ -2546,7 +2533,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item ITra le opzioni disponibili nella scelta dei toni per la generazione di un contenuto adesso è presente il nuovo tono inserito
+    \item Tra le opzioni disponibili nella scelta dei toni per la generazione di un contenuto adesso è presente il nuovo tono inserito
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2578,7 +2565,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item ITra le opzioni disponibili nella scelta dei toni per la generazione di un contenuto adesso non si trova più un tono precedentemente inserito
+    \item Tra le opzioni disponibili nella scelta dei toni per la generazione di un contenuto adesso non si trova più un tono precedentemente inserito
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2610,7 +2597,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item ITra le opzioni disponibili nella scelta degli stili per la generazione di un contenuto adesso è presente il nuovo stile inserito
+    \item Tra le opzioni disponibili nella scelta degli stili per la generazione di un contenuto adesso è presente il nuovo stile inserito
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2642,7 +2629,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item ITra le opzioni disponibili nella scelta degli stili per la generazione di un contenuto adesso non si trova più uno stile precedentemente inserito
+    \item Tra le opzioni disponibili nella scelta degli stili per la generazione di un contenuto adesso non si trova più uno stile precedentemente inserito
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3627,9 +3614,9 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item \textit{include}: 
     \begin{itemize}
         \item UC-2B.10 – Visualizzazione codice documento
-        \item UC-2E.3 - Visualizzazione percentuale confidenza
-        \item UC-2E.4 - Visualizzazione appartenenza lista distribuzione
-        \item UC-2E.5 - Visualizzazione stato
+        \item UC-2H.3 - Visualizzazione percentuale confidenza
+        \item UC-2H.4 - Visualizzazione appartenenza lista distribuzione
+        \item UC-2H.5 - Visualizzazione stato
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -3848,7 +3835,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \vspace{0.5cm}
 
 
-\useCase{Elimina template messagio}
+\useCase{Elimina template messaggio}
 
 \begin{figure}[H]
     \centering
@@ -4297,7 +4284,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente si trova nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} storico dell'AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} Generativo
+    \item L'utente si trova nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} storico dell'AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} Generativo
     \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali 
 \end{enumerate}
 
@@ -4942,7 +4929,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \hline
 \autoRF & Il sistema deve permettere di modificare l'immagine associata al contenuto generato. & \hyperref[UC-1D]{UC-1D} & Obbligatorio \\
 \hline
-\autoRF & Il sistema deve permettere di modificare l'immagine associata al contenuto generato con un file non valido. & \hyperref[UC-1D.1]{UC-1D.1} & Obbligatorio \\
+\autoRF & Il sistema deve notificare l'utente quando tenta di caricare un file immagine non valido. & \hyperref[UC-1D.1]{UC-1D.1} & Obbligatorio \\
 \hline
 \autoRF & Il sistema deve permettere di modificare il titolo del contenuto generato. & \hyperref[UC-1E]{UC-1E} & Obbligatorio \\
 \hline
