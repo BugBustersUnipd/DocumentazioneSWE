@@ -1066,34 +1066,52 @@ Le metriche sono suddivise in due categorie principali:
 
         \item \textbf{Planned Value (PV)}: misura il valore del lavoro pianificato fino a una certa data.
         \[ PV = BAC \times \text{Percentuale di pianificazione} \]
+        \textit{Interpretazione}: Risponde alla domanda: <<Quanto lavoro avremmo dovuto completare fino a questa data?>>.
+        \\ \textit{Valore ideale}: per ogni sprint il valore deve essere <= EAC
 
         \item \textbf{Actual Cost (AC)}: misura il costo effettivo sostenuto per il lavoro completato fino a una certa data (che coincide con quella di fine sprint).
 
         \item \textbf{Cost Performance Index (CPI)}: indica l'efficienza dei costi del progetto.
         \[ CPI = \frac{EV}{AC} \]
-        \textit{Interpretazione}: Se $CPI > 1$, il progetto è sotto budget (positivo).
+        \textit{Interpretazione}: Risponde ala domanda: <<Quanto lavoro è stato completato rispetto a quanto è stato speso?>>.\\
+        \\Se $CPI > 1$, il progetto è sotto budget (positivo).
 
         \item \textbf{Schedule Performance Index (SPI)}: indica l'efficienza del tempo del progetto.
         \[ SPI = \frac{EV}{PV} \]
-        \textit{Interpretazione}: Se $SPI > 1$, il progetto è in anticipo rispetto alla pianificazione (positivo).
+        \textit{Interpretazione}: Risponde alla domanda: <<Quanto lavoro è stato effettivamente completato rispetto a quanto pianificato?>>.\\
+        \\Se $SPI > 1$, il progetto è in anticipo rispetto alla pianificazione (positivo).
 
         \item \textbf{Estimated at Completion (EAC)}: stima il costo totale del progetto alla sua conclusione, basandosi sulle prestazioni attuali.
         \[ EAC = \frac{BAC}{CPI} \]
-
+        \textit{Interpretazione}: Risponde alla domanda: <<Quanto costerà il progetto se le attuali prestazioni di costo continuano?>>.\\Valore ideale = BAC
+        
         \item \textbf{Estimate to Complete (ETC)}: stima il costo necessario per completare il lavoro rimanente del progetto.
         \[ ETC = EAC - AC \]
-
+        \textit{Interpretazione}: Risponde alla domanda: <<Quanto costerà completare il progetto?>>.\\Valore ideale <= EAC
+        
         \item \textbf{Time Estimate At Completion (TEAC)}: stima il tempo totale necessario per completare il progetto.
-        \[ TEAC = \frac{\text{Tempo Pianificato}}{SPI} \]
+        \[ TEAC = \frac{\text{Durata Pianificata}}{SPI} \]
         dove $SPI$ (Schedule Performance Index) è $\frac{EV}{PV}$.
+        \textit{Interpretazione}: Risponde alla domanda: <<Quanto tempo ci vorrà per completare il progetto se le attuali prestazioni di tempo continuano?>>.\\Valore ideale <= Durata pianificata.
+
     \end{enumerate}
 }
 \paragraph*{Sviluppo}{
     \begin{enumerate}[label=\textbf{MPC0\arabic*}, leftmargin=4.5em, resume=metriche_processo]
-        \item \textbf{Requirements Stability Index (RSI)}: misura la stabilità dei requisiti durante il ciclo di vita del progetto.
-        \[ RSI = 1 - \frac{\text{Numero di requisiti modificati}}{\text{Numero totale di requisiti}} \]
-        \textit{Interpretazione}: Un valore più alto indica una maggiore stabilità dei requisiti.
-    \end{enumerate}
+    \item \textbf{Requirements Stability Index (RSI)}: misura la stabilità dei requisiti durante il ciclo di vita del progetto.
+    \[
+    RSI = \left( 1 - \frac{N_{agg} + N_{mod} + N_{canc}}{N_{iniz}} \right) \times 100
+    \]
+    dove:
+    \begin{itemize}
+        \item $N_{agg}$ è il numero di nuovi requisiti emersi dopo l’inizio del periodo;
+        \item $N_{mod}$ è il numero di requisiti modificati;
+        \item $N_{canc}$ è il numero di requisiti rimossi;
+        \item $N_{iniz}$ è il numero di requisiti definiti all’inizio del periodo.
+    \end{itemize}
+    \textit{Interpretazione}: un valore più alto indica una maggiore stabilità dei requisiti.
+\end{enumerate}
+
 }
 \subsubsubsection{Processi di supporto}
 \paragraph*{Documentazione}
@@ -1120,7 +1138,7 @@ Le metriche sono suddivise in due categorie principali:
 \paragraph*{Gestione della qualità}{
     \begin{enumerate}[label=\textbf{MPC\arabic*}, leftmargin=4.5em, resume=metriche_processo]
         \item \textbf{Quality metrics satisfied}: misura la percentuale di metriche di qualità soddisfatte rispetto a quelle definite nel piano di qualifica.
-        \[ \text{Quality metrics satisfied} = \frac{\text{Numero di metriche soddisfatte}}{\text{Numero totale di metriche definite}} \times 100\% \]
+        \[ \text{Quality metrics satisfied} = \frac{\text{Numero di metriche soddisfatte}}{\text{Numero totale di metriche}} \times 100\% \]
         \textit{Interpretazione}: Un valore più alto indica una maggiore conformità agli standard di qualità stabiliti.
 
     \end{enumerate}
@@ -1129,7 +1147,7 @@ Le metriche sono suddivise in due categorie principali:
 \paragraph*{Gestione dei processi}{
     \begin{enumerate}[label=\textbf{MPC\arabic*}, leftmargin=4.5em, resume=metriche_processo]
         \item \textbf{Time efficiency}: misura l'efficienza nella gestione del tempo rispetto alla pianificazione.
-        \[ \text{Time efficiency} = \frac{\text{Tempo pianificato}}{\text{Tempo effettivamente impiegato}} \times 100\% \]
+        \[ \text{Time efficiency} = \frac{\text{Ore produttive}}{\text{Ore totali}} \times 100\% \]
         \textit{Interpretazione}: Un valore più alto indica una migliore gestione del tempo e rispetto delle scadenze.
 
     \end{enumerate}
