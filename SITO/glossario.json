@@ -1,6 +1,10 @@
 {
   "terms": [
     {
+      "term": "Actual Cost (AC)",
+      "definition": "Costo effettivamente sostenuto per completare il lavoro svolto in un determinato periodo. Include tutte le spese reali (risorse umane, strumenti) associate alle attività già eseguite e viene utilizzato per valutare l'efficienza economica del progetto."
+    },
+    {
       "term": "Affidabilità (Reliability)",
       "definition": "Capacità di un sistema software di mantenere il proprio livello di prestazioni in condizioni specificate per un determinato periodo di tempo."
     },
@@ -113,6 +117,10 @@
       "definition": "Documento di contabilità che riporta i costi effettivamente sostenuti durante una fase del progetto, confrontandoli con le stime iniziali (preventivo). Viene utilizzato per monitorare l'andamento economico del progetto e per apportare eventuali correzioni nelle fasi successive."
     },
     {
+      "term": "Cost Performance Index (CPI)",
+      "definition": "Indice di efficienza dei costi che misura il rapporto tra il valore del lavoro completato (EV) e il costo effettivamente sostenuto (AC). Calcolato come CPI = EV/AC, un valore superiore a 1 indica che il progetto sta spendendo meno del previsto, mentre un valore inferiore a 1 segnala un sovracosto."
+    },
+    {
       "term": "Cruscotto",
       "definition": "Strumento di monitoraggio che fornisce una visualizzazione in tempo reale degli indicatori chiave di prestazione (KPI) e delle metriche di qualità del progetto. Consente di tracciare lo stato delle attività di verifica e validazione."
     },
@@ -141,6 +149,10 @@
       "definition": "Processo di distribuzione automatizzata dei documenti verso i destinatari finali attraverso diversi canali (es. app, portale, email, PEC)."
     },
     {
+      "term": "Earned Value (EV)",
+      "definition": "Valore del lavoro effettivamente completato in un determinato momento del progetto, espresso in termini monetari. Rappresenta il budget autorizzato per le attività completate e costituisce una metrica fondamentale per valutare l'avanzamento reale del progetto rispetto alla pianificazione iniziale."
+    },
+    {
       "term": "Efficacia",
       "definition": "Misura della capacità di raggiungere gli obiettivi prefissati e produrre i risultati attesi. Un processo o sistema è efficace quando soddisfa i requisiti e le aspettative degli stakeholder, indipendentemente dalle risorse impiegate. Metrica: grado di raggiungimento degli obiettivi (interni ed esterni)."
     },
@@ -155,6 +167,14 @@
     {
       "term": "Error / Errore",
       "definition": "Manifestazione di un fault all'interno del sistema durante la sua esecuzione. È uno stato interno del sistema che può portare a un failure se non gestito. Corrisponde a una discrepanza tra il valore calcolato, osservato o misurato e il valore vero, specificato o teoricamente corretto."
+    },
+    {
+      "term": "Estimate at Completion (EAC)",
+      "definition": "Stima del costo totale finale previsto per il completamento dell'intero progetto, calcolata sulla base delle performance attuali. Viene aggiornata periodicamente considerando i costi già sostenuti e le proiezioni future basate sull'andamento del CPI, permettendo di prevedere eventuali scostamenti dal budget iniziale."
+    },
+    {
+      "term": "Estimate to Complete (ETC)",
+      "definition": "Stima del budget residuo necessario per completare le attività rimanenti del progetto. Rappresenta la differenza tra il costo totale stimato a finire (EAC) e i costi già sostenuti (AC), fornendo una previsione delle risorse economiche ancora necessarie."
     },
     {
       "term": "Front-end",
@@ -191,6 +211,10 @@
     {
       "term": "Implementazione",
       "definition": "Processo di traduzione di un design in codice eseguibile, realizzando le specifiche funzionali e non funzionali."
+    },
+    {
+      "term": "Indice di Gulpease",
+      "definition": "Metrica di leggibilità specifica per la lingua italiana che valuta quanto un testo sia comprensibile. Calcolato considerando la lunghezza delle parole e delle frasi, produce un valore da 0 a 100: valori superiori a 80 indicano testi molto facili, 60-80 testi di media difficoltà, 40-60 testi difficili, sotto 40 testi molto complessi. Utilizzato per garantire che la documentazione sia accessibile a tutti."
     },
     {
       "term": "Interfaccia",
@@ -263,6 +287,10 @@
     {
       "term": "Piano di Qualifica",
       "definition": "Documento che definisce le strategie, le risorse e le attività per garantire la qualità del processo di sviluppo e del prodotto software. Include la definizione degli standard di qualità, le metriche per la misurazione, i processi di verifica e validazione, e le responsabilità del team per il controllo della qualità."
+    },
+    {
+      "term": "Planned Value (PV)",
+      "definition": "Valore pianificato del lavoro che dovrebbe essere stato completato in un dato momento secondo la pianificazione iniziale del progetto. Rappresenta il budget autorizzato allocato per le attività pianificate fino a una determinata data e serve come baseline per confrontare l'avanzamento effettivo."
     },
     {
       "term": "POC (Proof of Concept)",
@@ -339,6 +367,10 @@
     {
       "term": "Repository",
       "definition": "Archivio centrale in cui vengono memorizzati e versionati i file sorgente, la documentazione e le risorse del progetto utilizzando un sistema di controllo versione."
+    },
+    {
+      "term": "Requirements Stability Index (RSI)",
+      "definition": "Indice che misura la stabilità dei requisiti durante il ciclo di vita del progetto, calcolato come rapporto tra i requisiti modificati/aggiunti/eliminati e il numero totale di requisiti. Un valore vicino a 1 indica alta stabilità, mentre valori bassi o negativi segnalano frequenti cambiamenti che possono impattare tempi e costi del progetto."
     },
     {
       "term": "Requisiti di qualità",
@@ -419,6 +451,10 @@
     {
       "term": "Scenario secondario",
       "definition": "Variante di uno scenario che descrive un percorso alternativo o un'eccezione nel caso d'uso, che può verificarsi in condizioni specifiche e che porta a un risultato diverso (ad esempio, un errore o un'alternativa valida)."
+    },
+    {
+      "term": "Schedule Performance Index (SPI)",
+      "definition": "Indice di efficienza temporale che misura il rapporto tra il valore del lavoro completato (EV) e il valore pianificato (PV). Calcolato come SPI = EV/PV, un valore superiore a 1 indica che il progetto è in anticipo sulla pianificazione, mentre un valore inferiore a 1 segnala un ritardo."
     },
     {
       "term": "Scope",
