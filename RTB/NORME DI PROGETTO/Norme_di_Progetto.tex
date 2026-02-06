@@ -1153,6 +1153,71 @@ Le metriche sono suddivise in due categorie principali:
     \end{enumerate}
 }
 \subsubsection{Qualità del Prodotto}
+\subsubsubsection{Adeguatezza funzionale}
+\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, series=metriche_processo]
+    \item \textbf{Requisiti obbligatori soddisfatti}.\\
+    \textit{Valore ideale}: 100
+
+    \item \textbf{Requisiti desiderabili soddisfatti}.\\
+    \textit{Valore ideale}: 100 \textit{(accettato 0)}
+
+    \item \textbf{Requisiti opzionali soddisfatti}.\\
+    \textit{Valore ideale}: 100 \textit{(accettato 0)}
+
+    \item \textbf{AI Acceptance Rate (rating $\geq 3/5$)}.\\
+    \textit{Valore ideale}: $\geq 80\%$ \textit{(accettato $\geq 60\%$)}
+\end{enumerate}
+\subsubsubsection{Affidabilità}
+\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, series=metriche_processo]
+    \item \textbf{Branch Coverage}.\\
+    \textit{Valore di accettazione}: $\geq 70\%$\\
+    \textit{Valore ideale}: $\geq 85\%$
+
+    \item \textbf{Defect Density}.\\
+    \textit{Valore di accettazione}: $\leq 3$ difetti / KLOC\\
+    \textit{Valore ideale}: $\leq 1$ difetto / KLOC
+\end{enumerate}
+\subsubsubsection{Efficienza}
+\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, series=metriche_processo]
+    \item \textbf{UI Response Time (Interfaccia)}.\\
+    \textit{Valore di accettazione}: $\leq 2$ sec\\
+    \textit{Valore ideale}: $\leq 0.5$ sec
+
+    \item \textbf{Core Response Time (AI / Upload)}.\\
+    \textit{Valore di accettazione}: $\leq 5$ sec\\
+    \textit{Valore ideale}: $\leq 3$ sec
+\end{enumerate}
+
+\subsubsubsection{Usabilità}
+\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, series=metriche_processo]
+    \item \textbf{Click Count (Funzioni principali)}. Misura il numero di click necessari per accedere alle funzioni principali.\\
+    \textit{Valore di accettazione}: $\leq 5$ click\\
+    \textit{Valore ideale}: $\leq 3$ click
+
+    \item \textbf{User Error Rate (Errori di validazione)}.\\
+    \textit{Valore di accettazione}: $\leq 10\%$\\
+    \textit{Valore ideale}: $\leq 5\%$
+\end{enumerate}
+\subsubsubsection{Manutenibilità}
+\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, series=metriche_processo]
+    \item \textbf{Blocker Code Smells}. Misura la presenza di "code smells" di tipo blocker, ovvero problemi nel codice che possono causare gravi malfunzionamenti o difficoltà di manutenzione.\\
+    \textit{Valore di accettazione}: 0\\
+    \textit{Valore ideale}: 0
+
+    \item \textbf{Cyclomatic Complexity (per metodo)}. Misura la complessità ciclomatica di un metodo, ovvero il numero di percorsi indipendenti nel codice.\\
+    \textit{Valore di accettazione}: $\leq 15$\\
+    \textit{Valore ideale}: $\leq 10$
+
+    \item \textbf{Comment Intensity}.\\
+    \textit{Valore di accettazione}: $\geq 10\%$\\
+    \textit{Valore ideale}: $\geq 20\%$
+\end{enumerate}
+\subsubsubsection{Portabilità}
+\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, series=metriche_processo]
+    \item \textbf{Supported Browsers (Test passati)}.\\
+    \textit{Valore di accettazione}: 100\% (Desktop)\\
+    \textit{Valore ideale}: 100\% (All devices)
+\end{enumerate}
 
 
 
