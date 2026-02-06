@@ -448,7 +448,6 @@ Si stima inoltre una candidatura\pediceG per la Requirements and Technology Base
 Seguiranno ora le attività previste per la Requirements and Technology Baseline (RTB)\pediceG e la Product Baseline (PB)\pediceG: tali sezioni saranno utili per calendarizzare correttamente quanto realizzare in ogni sprint\pediceG.
 
 \subsection{Attività previste per la Requirements and Technology Baseline (RTB)\pediceG}
-
 {
 % 1. Pulizia template
 \DefTblrTemplate{caption}{default}{}
@@ -459,7 +458,7 @@ Seguiranno ora le attività previste per la Requirements and Technology Baseline
 \DefTblrTemplate{conthead-text}{default}{}
 
 % 2. Ancora per l'indice
-\phantomsection 
+\phantomsection
 
 \begin{longtblr}[
   entry = {Attività previste per la RTB},
@@ -473,70 +472,120 @@ Seguiranno ora le attività previste per la Requirements and Technology Baseline
   % Linea orizzontale sotto l'intestazione
   hline{2} = {primaryblue},
   % Linee orizzontali PARZIALI (solo colonne 2 e 3) all'interno di ogni attività
-  hline{3,4,5} = {2-3}{primaryblue},   % Dentro Analisi dei Requisiti
-  hline{7,8} = {2-3}{primaryblue},     % Dentro Piano di Progetto
-  hline{10} = {2-3}{primaryblue},      % Dentro Piano di Qualifica
-  hline{12,13,14,15} = {2-3}{primaryblue}, % Dentro Norme di Progetto
-  hline{18,19,20} = {2-3}{primaryblue}, % Dentro Realizzazione PoC
+  hline{3,4,5} = {2-3}{primaryblue},     % Dentro Analisi dei Requisiti
+  hline{7,8} = {2-3}{primaryblue},       % Dentro Piano di Progetto
+  hline{10,11,12,13,14,15} = {2-3}{primaryblue}, % Dentro Piano di Qualifica
+  hline{17,18,19,20} = {2-3}{primaryblue}, % Dentro Norme di Progetto
+  hline{23,24,25} = {2-3}{primaryblue},  % Dentro Realizzazione PoC
   % Linee orizzontali COMPLETE tra le attività principali
-  hline{6} = {primaryblue},  % Dopo Analisi dei Requisiti
-  hline{9} = {primaryblue},  % Dopo Piano di Progetto
-  hline{11} = {primaryblue}, % Dopo Piano di Qualifica
-  hline{16} = {primaryblue}, % Dopo Norme di Progetto
-  hline{17} = {primaryblue}, % Dopo Glossario
-  hline{21} = {primaryblue}, % Fine tabella
+  hline{6} = {primaryblue},   % Dopo Analisi dei Requisiti
+  hline{9} = {primaryblue},   % Dopo Piano di Progetto
+  hline{16} = {primaryblue},  % Dopo Piano di Qualifica
+  hline{21} = {primaryblue},  % Dopo Norme di Progetto
+  hline{22} = {primaryblue},  % Prima di Glossario (MANCAVA!)
+  hline{23} = {primaryblue},  % Dopo Glossario (MANCAVA!)
+  hline{26} = {primaryblue},  % Fine tabella
 }
+
 % --- INTESTAZIONE ---
 Attività & Descrizione & Periodo di svolgimento & Stato \\
 
 % --- CONTENUTO ---
-\SetCell[r=4]{c} \textbf{Redazione Analisi dei Requisiti\pediceG} 
-& Introduzione e stesura paragrafi esplicativi del documento & Sprint\pediceG 1 & \SetCell[r=4]{c} IN REDAZIONE \\
-& Individuazione requisiti funzionali\pediceG e non funzionali\pediceG con supporto dell'azienda & Sprint\pediceG 2 & \\
-& Scrittura casi d'uso\pediceG & Sprint\pediceG 3 e 4 & \\
-& Inserimento diagrammi UML\pediceG & Sprint\pediceG 5 & \\
+\SetCell[r=4]{c} \textbf{Redazione Analisi dei Requisiti\pediceG}
+  & Introduzione e stesura paragrafi esplicativi del documento
+  & Sprint\pediceG 1
+  & \SetCell[r=4]{c} Completato per RTB \\
+  & Individuazione requisiti funzionali\pediceG e non funzionali\pediceG con supporto dell'azienda
+  & Sprint\pediceG 2
+  & \\
+  & Scrittura casi d'uso\pediceG
+  & Sprint\pediceG 3 e 4
+  & \\
+  & Inserimento diagrammi UML\pediceG
+  & Sprint\pediceG 5
+  & \\
 
-\SetCell[r=3]{c} \textbf{Redazione Piano di Progetto\pediceG} 
-& Introduzione del documento & Sprint\pediceG 2 & \SetCell[r=3]{c} IN REDAZIONE \\
-& Analisi e gestione dei rischi\pediceG & Tutti gli sprint\pediceG & \\
-& Pianificazione nel lungo e breve periodo & Tutti gli sprint\pediceG & \\
+\SetCell[r=3]{c} \textbf{Redazione Piano di Progetto\pediceG}
+  & Introduzione del documento
+  & Sprint\pediceG 2
+  & \SetCell[r=3]{c} Completato per RTB \\
+  & Analisi e gestione dei rischi\pediceG
+  & Tutti gli sprint\pediceG
+  & \\
+  & Pianificazione nel lungo e breve periodo
+  & Tutti gli sprint\pediceG
+  & \\
 
-\SetCell[r=2]{c} \textbf{Redazione Piano di Qualifica\pediceG} 
-& Prima stesura del documento & Sprint\pediceG  2 & \SetCell[r=2]{c} IN REDAZIONE \\
-& Aggiunta Test\pediceG di Sistema e di Accetazione & Sprint\pediceG 4 & \\
-& Aggiunte sezioni 4 e 5  & Sprint\pediceG 4  & \\
-& Aggiunto contenuto alla sezione 5 & Sprint\pediceG 6 & \\
-& Aggiornamento Test\pediceG, aggiunti test\pediceG di sistema prestazionali, eliminata metrica errori ortografici & Sprint\pediceG 5 & \\
-& Aggiornamento Test\pediceG, aggiunti test\pediceG di sistema Casi limitw e integrazione, cambiato alcune metriche di prodotto\pediceG. Agginta matrice di Tracciamento & Sprint\pediceG 7 & \\
-& Aggiunti grafici metriche, aggiornamento Test\pediceG, rimossa matrice di Tracciamento & Sprint\pediceG 7 & \\
-& Aggiunta descrizione grafici metriche & Sprint \pediceG 7 & \\
-& XXX & XXX & \\
+\SetCell[r=7]{c} \textbf{Redazione Piano di Qualifica\pediceG}
+  & Prima stesura del documento
+  & Sprint\pediceG 2
+  & \SetCell[r=7]{c} Completato per RTB \\
+  & Aggiunta sezioni 4 e 5
+  & Sprint\pediceG 4
+  & \\
+  & Aggiunta Test\pediceG di Sistema e di Accettazione
+  & Sprint\pediceG 4
+  & \\
+  & Aggiornamento Test\pediceG, aggiunti test\pediceG di sistema prestazionali, eliminata metrica errori ortografici
+  & Sprint\pediceG 5
+  & \\
+  & Aggiunto contenuto alla sezione 5
+  & Sprint\pediceG 6
+  & \\
+  & Aggiornamento Test\pediceG, aggiunti test\pediceG di sistema casi limite e integrazione, cambiate alcune metriche di prodotto\pediceG, aggiunta matrice di tracciamento
+  & Sprint\pediceG 7
+  & \\
+  & Aggiunti grafici metriche, aggiornamento Test\pediceG, rimossa matrice di tracciamento, aggiunta descrizione grafici metriche
+  & Sprint\pediceG 7
+  & \\
 
-\SetCell[r=5]{c} \textbf{Redazione Norme di Progetto\pediceG} 
-& Introduzione del documento & Sprint\pediceG 1 & \SetCell[r=5]{c} IN REDAZIONE \\
-& Redazione dei processi primari & Sprint\pediceG 1, 2 e modifiche minime successive & \\
-& Redazione dei processi di supporto & Sprint\pediceG 2 e modifiche successive & \\
-& Redazione dei processi organizzativi & Fine sprint\pediceG 2, inizio sprint\pediceG 3 & \\
-& Redazione sezione Standard di progetto & Sprint\pediceG 3 & \\
+\SetCell[r=5]{c} \textbf{Redazione Norme di Progetto\pediceG}
+  & Introduzione del documento
+  & Sprint\pediceG 1
+  & \SetCell[r=5]{c} Completato per RTB \\
+  & Redazione dei processi primari
+  & Sprint\pediceG 1, 2 e modifiche minime successive
+  & \\
+  & Redazione dei processi di supporto
+  & Sprint\pediceG 2 e modifiche successive
+  & \\
+  & Redazione dei processi organizzativi
+  & Fine sprint\pediceG 2, inizio sprint\pediceG 3
+  & \\
+  & Redazione sezione Standard di progetto
+  & Sprint\pediceG 3
+  & \\
 
-\textbf{Redazione Glossario\pediceG} & Redazione e aggiornamento dei termini & Tutti gli sprint\pediceG & IN REDAZIONE \\
+\textbf{Redazione Glossario\pediceG}
+  & Redazione e aggiornamento dei termini
+  & Tutti gli sprint\pediceG
+  & Completato per RTB \\
 
-\SetCell[r=4]{c} \textbf{Realizzazione PoC\pediceG} 
-& Prima implementazione\pediceG solo con Rails\pediceG & Sprint\pediceG 3 & \SetCell[r=4]{c} {\small IN\\REALIZ-\\ZAZIONE} \\
-& Ridefinizione struttura backend\pediceG-frontend\pediceG aggiungendo Angular\pediceG & Sprint\pediceG 3 & \\
-& Implementazione\pediceG e modifica funzionalità\pediceG backend\pediceG con relativa implmentazione\pediceG in frontend\pediceG & Sprint\pediceG 4 & \\
-& Refactoring del codice & Sprint\pediceG 5 & \\
+\SetCell[r=4]{c} \textbf{Realizzazione PoC\pediceG}
+  & Prima implementazione\pediceG solo con Rails\pediceG
+  & Sprint\pediceG 3
+  & \SetCell[r=4]{c} {\small Completato} \\
+  & Ridefinizione struttura backend\pediceG-frontend\pediceG aggiungendo Angular\pediceG
+  & Sprint\pediceG 3
+  & \\
+  & Implementazione\pediceG e modifica funzionalità\pediceG backend\pediceG con relativa implementazione\pediceG in frontend\pediceG
+  & Sprint\pediceG 4
+  & \\
+  & Refactoring del codice
+  & Sprint\pediceG 5
+  & \\
+
 \end{longtblr}
 
 % 3. Didascalia manuale sotto
 \nopagebreak
 \begin{center}
-  \itshape Tabella \thetable: Attività previste per la Requirements and Technology Baseline (RTB)\pediceG
+\itshape Tabella \thetable: Attività previste per la Requirements and Technology Baseline (RTB)\pediceG
 \end{center}
 
 % 4. Sistemazione contatori
-\addtocounter{table}{-1} 
-\refstepcounter{table} 
+\addtocounter{table}{-1}
+\refstepcounter{table}
 }
 
 \section{Pianificazione a breve termine}
