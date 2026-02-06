@@ -150,6 +150,8 @@ Piano di Qualifica\G del Team BugBusters per il Capitolato C5 proposto da Eggon,
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
+\CurrentVersion & 06/02/2026 & Aggiunta descrizione grafici metriche & Marco Piro & - & - \\
+\hline
 \CurrentVersion & 04/02/2026 & Aggiunti grafici metriche, aggiornamento Test, rimossa matrice di Tracciamento & Marco Piro & - & - \\
 \hline
 \CurrentVersion & 19/01/2026 & Aggiornamento Test, aggiunti test di sistema Casi Limite e integrazione, cambiato alcune metriche di prodotto. Aggiunta matrice di Tracciamento & Marco Piro & - & - \\
@@ -679,66 +681,97 @@ Le misurazioni presenti saranno prese durante lo svolgimento delle attività per
  \begin{figure}[H]
      \centering
      \includegraphics[width=0.9\textwidth]{grafici/MPC01_02.png}
-     \caption{Andamento Earned Value vs Planned Value}
+     \caption{Grafico per periodo di MPC01 e MPC02}
  \end{figure}
+
+ Dal grafico si osserva che l'andamento del Valore Guadagnato (\textit{Earned Value} - EV) segue fedelmente quello del Valore Pianificato (\textit{Planned Value} - PV), con un trend crescente che culmina nel sesto sprint, in corrispondenza del completamento delle attività per la \textit{Requirements and Technology Baseline} (RTB).
+
+
 
 \subsection{MPC03 e MPC07 - Actual cost (AC) e Estimate to complete (ETC)}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{grafici/MPC03_07.png}
-	\caption{Andamento Earned Value vs Planned Value}
+	\caption{Grafico per periodo di MPC03 e MPC07}
 \end{figure}
+L'andamento della metrica MPC03 (\textit{Actual Cost}) mostra una crescita costante dei costi sostenuti, in linea con l'intensificazione delle attività produttive durante la fase di \textit{Requirements and Technology Baseline} (RTB). 
+Tale incremento, culminato nel sesto sprint, rispecchia fedelmente la pianificazione temporale definita nel Piano di Progetto, dove il maggior carico di lavoro (e quindi di spesa) era previsto proprio nelle settimane antecedenti la consegna della candidatura.
+
+Parallelamente, la metrica MPC07 (\textit{Estimate to Complete}) evidenzia una progressiva diminuzione del budget residuo necessario per il completamento del progetto. Questo trend inverso conferma che le risorse sono state consumate in modo coerente con l'avanzamento dei lavori, avvicinando il progetto al traguardo della \textit{Product Baseline} (PB) senza generare extra-costi imprevisti.
 
 \subsection{MPC04 e MP05 - Cost Performance Index (CPI) e Schedule performance Index}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{grafici/MPC04_05.png}
-	\caption{Andamento Earned Value vs Planned Value}
+	\caption{Grafico per periodo di MPC04 e MPC05}
 \end{figure}
+
+L'analisi del \textit{Cost Performance Index} (CPI) mostra un percorso di netta crescita. Il progetto è iniziato con un indice inferiore alle aspettative, a causa delle fisiologiche difficoltà iniziali.
+
+Dopo l'investimento iniziale, il processo produttivo è diventato altamente sostenibile, permettendo di recuperare il budget consumato.
+Parallelamente, lo \textit{Schedule Performance Index} (SPI) si è mantenuto stabile e vicino al valore ideale per tutto il periodo, garantendo il rispetto delle scadenze per la candidatura.
+
+
 
 \subsection{MPC06 - Estimated at completion (EAC)}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{grafici/MPC06.png}
-	\caption{Andamento Earned Value vs Planned Value}
+	\caption{Grafico per periodo di MPC06}
 \end{figure}
+
+L'andamento del costo stimato a finire (Estimated at Completion - EAC) racconta chiaramente il percorso di ottimizzazione intrapreso dal team. Il progetto ha attraversato una fase iniziale critica durante i primi sprint, in cui la stima dei costi finali superava sensibilmente il budget stanziato. Questa proiezione negativa era la diretta conseguenza delle difficoltà  iniziali  che avevano abbassato l'indice di efficienza CPI. Succesivamente si è innescato un trend di recupero costante. 
+
 
 \subsection{MPC08 - Time Estimate At Completion}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{grafici/MPC08.png}
-	\caption{Andamento Earned Value vs Planned Value}
+	\caption{Grafico per periodo di MPC08}
 \end{figure}
+L'andamento della stima temporale a finire (\textit{Time Estimate At Completion}) conferma la solidità della pianificazione iniziale. La proiezione della data di completamento per la fase di \textit{Requirements and Technology Baseline} (RTB) è rimasta sostanzialmente invariata lungo tutto l'arco temporale osservato.
+
+
 
 \subsection{MPC09 - Requirements Stability Index (RSI)}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{grafici/MPC09.png}
-	\caption{Andamento Earned Value vs Planned Value}
+	\caption{Grafico per periodo di MPC09}
 \end{figure}
+L'indice di stabilità dei requisiti (\textit{Requirements Stability Index}) mostra un andamento che riflette fedelmente il ciclo di vita dell'Analisi dei Requisiti.
+Nello Sprint 2 si registra un picco negativo significativo. Tale valore, apparentemente critico, è in realtà indicatore di una intensa attività produttiva. Partendo da un set iniziale di requisiti, il team ha effettuato un'opera di espansione e dettaglio massiccia. Matematicamente, ciò ha portato il numero delle modifiche a superare il numero dei requisiti iniziali, generando l'indice negativo. Superata la fase critica di definizione, l'indice è risalito rapidamente. 
 
 \subsection{MPC10 - Indice di Gulpease}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{grafici/MPC10.png}
-	\caption{Andamento Earned Value vs Planned Value}
+	\caption{Grafico per periodo di MPC10}
 \end{figure}
+In linea generale, il gruppo BugBusters ha posto grande attenzione alla redazione della documentazione: l'obiettivo primario è sempre stato quello di produrre elaborati che fossero non solo corretti tecnicamente, ma anche facilmente fruibili da tutti gli stakeholder.
+Dall'analisi dei dati emerge una disparità nei valori di leggibilità tra le diverse tipologie di documenti, dovuta alla natura intrinseca del loro contenuto.
+I dati sulla leggibilità mostrano una chiara differenza tra i documenti. L'Analisi dei Requisiti supera abbondantemente la soglia ottima grazie alla scelta di usare frasi brevi e semplici, ideali per farsi capire chiaramente dal cliente. Al contrario, il Glossario e le Norme di Progetto rimangono sotto la soglia minima per motivi strutturali: il primo è penalizzato dalla presenza di parole tecniche molto lunghe, mentre le seconde richiedono un linguaggio formale e rigoroso che non può essere semplificato oltre un certo limite senza perdere di precisione.
 
+Il gruppo si impegna comunque, nelle prossime iterazioni, a raffinare ulteriormente la sintassi di tali documenti per migliorarne la leggibilità senza comprometterne il rigore formale.
 
 \subsection{MPC13 - Quality metrics satisfied}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{grafici/MPC13.png}
-	\caption{Andamento Earned Value vs Planned Value}
+	\caption{Grafico per periodo di MPC13}
 \end{figure}
+L'andamento della percentuale di metriche soddisfatte offre una sintesi efficace della maturazione qualitativa del progetto. Il primo sprint ha risentito della bassa efficienza economica iniziale (CPI sotto soglia), mentre nei successivi due sprint è stato l'Indice di Stabilità dei Requisiti (RSI) a mancare l'obiettivo, a causa della necessaria fase di espansione dell'Analisi dei Requisiti.  
+Superata la fase di assestamento, il trend ha mostrato un miglioramento netto. A partire dal quarto sprint, il team ha raggiunto una stabilità su tutti i fronti monitorati (Costi, Tempi, Documentazione e Processi), mantenendo l'indicatore vicino al valore minimo accettabile fino al termine della fase RTB. Questo risultato conferma che le misure correttive adottate sono state risolutive, portando il processo produttivo a un livello di affidabilità ottimale proprio nel momento decisivo della candidatura.
 
 \subsection{MPC14 - Time Efficiency}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{grafici/MPC14.png}
-	\caption{Andamento Earned Value vs Planned Value}
+	\caption{Grafico per periodo di MPC14}
 \end{figure}
-
+L'analisi dell'efficienza temporale mostra un andamento notevolmente stabile. Questa costanza è un segnale positivo: indica che il team è riuscito a mantenere un rapporto equilibrato tra il lavoro produttivo (stesura documenti, sviluppo) e le ore di gestione (riunioni, auto-formazione), senza mai farsi sopraffare dall'overhead organizzativo.
+Le lievi flessioni registrate nella fase centrale (Sprint 4 e 5) sono fisiologiche e riconducibili principalmente al rischio riguardante la sovrapposizione con sessione d'esami e alla necessità di maggiori confronti interni per la riorganizzazione dell'Analisi dei Requisiti.
+Il picco positivo raggiunto nel sesto sprint testimonia la capacità  del gruppo di massimizzare la produttività nelle settimane decisive per la chiusura della candidatura.
 
 
 \section{Iniziative di miglioramento}
