@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.0.6} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.0.8} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -150,11 +150,11 @@ Piano di Qualifica\G del Team BugBusters per il Capitolato C5 proposto da Eggon,
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\CurrentVersion & 06/02/2026 & Aggiunta descrizione grafici metriche & Marco Piro & - & - \\
+\CurrentVersion & 01/02/2026 & Aggiunta descrizione grafici metriche & Marco Piro & - & - \\
 \hline
-\CurrentVersion & 04/02/2026 & Aggiunti grafici metriche, aggiornamento Test, rimossa matrice di Tracciamento & Marco Piro & - & - \\
+0.0.7 & 01/02/2026 & Aggiunti grafici metriche, aggiornamento Test, rimossa matrice di Tracciamento & Marco Piro & - & - \\
 \hline
-\CurrentVersion & 19/01/2026 & Aggiornamento Test, aggiunti test di sistema Casi Limite e integrazione, cambiato alcune metriche di prodotto. Aggiunta matrice di Tracciamento & Marco Piro & - & - \\
+0.0.6 & 19/01/2026 & Aggiornamento Test, aggiunti test di sistema Casi Limite e integrazione, cambiato alcune metriche di prodotto. Aggiunta matrice di Tracciamento & Marco Piro & - & - \\
 \hline
 0.0.5 & 15/01/2026 & Aggiornamento Test, aggiunti test di sistema prestazionali, eliminata metrica errori ortografici & Marco Piro & - & - \\
 \hline
@@ -325,23 +325,25 @@ MPD06 & Defect Density & $\leq 3$ / KLOC & $\leq 1$ / KLOC \\
 \MetricTable{
 MPD07 & UI Response Time (Interfaccia) & $\leq 2$ sec & $\leq 0.5$ sec \\
 \hline
-MPD08 & Core Response Time (AI/Upload) & $\leq 5$ sec & $\leq 3$ sec \\
+MPD08 & Core Response Time (AI/Upload) Prompt & $\leq 5$ sec & $\leq 3$ sec \\
+\hline
+MPD09 & Core Response Time (AI/Upload) Images & $\leq 10$ sec & $\leq 5$ sec \\
 \hline}
 
 \subsubsection{Usabilità}
 \MetricTable{
-MPD09 & Click Count (Funzioni principali) & $\leq 5$ click & $\leq 3$ click \\
+MPD10 & Click Count (Funzioni principali) & $\leq 5$ click & $\leq 3$ click \\
 \hline
-MPD10 & User Error Rate (Errori validazione) & $\leq 10\%$ & $\leq 5\%$ \\
+MPD11 & User Error Rate (Errori validazione) & $\leq 10\%$ & $\leq 5\%$ \\
 \hline}
 
 \subsubsection{Mantenibilità}
 \MetricTable{
-MPD11 & Blocker Code Smells & $0$ & $0$ \\
+MPD12 & Blocker Code Smells & $0$ & $0$ \\
 \hline
-MPD12 & Cyclomatic complexity (per metodo) & $\leq 15$ & $\leq 10$ \\
+MPD13 & Cyclomatic complexity (per metodo) & $\leq 15$ & $\leq 10$ \\
 \hline
-MPD13 & Comment Intensity & $\geq 10\%$ & $\geq 20\%$ \\
+MPD14 & Comment Intensity & $\geq 10\%$ & $\geq 20\%$ \\
 \hline}
 
 \subsubsection{Portabilità}
