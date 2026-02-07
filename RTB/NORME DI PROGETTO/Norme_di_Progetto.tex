@@ -561,8 +561,34 @@ standard di qualità elevati e best practice del settore.
     \item \textbf{Installazione del software}: il fornitore deve predisporre un piano per l’installazione del prodotto software nell’ambiente di destinazione previsto dal contratto. Devono essere definiti e resi disponibili le risorse e le informazioni necessarie all’installazione. Secondo quanto stabilito dal contratto, il fornitore deve supportare il committente nelle attività di configurazione iniziale. Qualora il nuovo software sostituisca un sistema esistente, il fornitore deve supportare l’esercizio in parallelo, se richiesto;
     \item \textbf{Supporto per l'approvazione del software}: il fornitore deve supportare il committente nella revisione e nei test di accettazione del prodotto software. Le attività di accettazione devono tenere conto dei risultati delle revisioni congiunte, degli audit, dei test di qualificazione del software e, se eseguiti, dei test di qualificazione del sistema; 
 \end{itemize}
-
-
+\subsubsection{Analisi Dei Requisiti\G}
+È un attività fondamentale della Requirements and Technology Baseline (RTB) e consiste nella raccolta, analisi e documentazione di tutti i requisiti che il sistema sviluppato dovrà soddisfare.
+Tale attività è documentata nell'apposito documento di Analisi dei Requisiti(TODO inserire link), che servirà poi come riferimento per guidare tutte le fasi successive di progettazione, implementazione e testing del software.
+Nella sezione seguente viene illustrato il sistema di nomenclatura adottato per identificare in modo univoco i casi d'uso.
+\subsubsubsection{Casi d'uso}
+\begin{center}
+\textbf{UC-SezionePrincipale.Secondario}
+\end{center}
+dove:
+\begin{itemize}
+    \item \textbf{UC}: sta per Use Case (Caso d'Uso);
+    \item \textbf{SezionePrincipale}: abbiamo identificato quattro moduli principali identificati da un numero da 0 a 3;
+    \item \textbf{Principale}: è identificato da una lettera dell'alfabeto, e rappresenta un caso d'uso primario non correlato ad altri casi d'uso, se non tramite inclusione;
+    \item \textbf{Secondario}: è identificato da un numero, ed è correlato esclusivamente a un caso d'uso principale;
+\end{itemize}
+Ad esempio, il caso d'uso "UC-1A.1" rappresenta un caso d'uso secondario (1) correlato al caso d'uso principale "UC-1A", che a sua volta è associato alla sezione principale 1 del sistema.
+Ogni caso d'uso viene anche descritto da un nome che lo riassume e da una descrizione dettagliata.
+\subsubsubsection{Requisiti}
+I requisiti vengono individuati dopo aver identificato i casi d'uso, e sono classificati nel modo seguente:
+\begin{center}
+    \textbf{Tipologia-Numero}
+\end{center}
+dove:
+\begin{itemize}
+    \item \textbf{Tipologia}: rappresenta la categoria del requisito, e può essere funzionale (RF), requisiti di qualità (RQ), requisiti di vincolo (RV) o requisiti prestazionali (RP);
+    \item \textbf{Numero}: è un numero progressivo che identifica in modo univoco il requisito all'interno della sua tipologia.
+\end{itemize}
+Ad ogni requisito viene poi associata una descrizione dettagliata, la fonte del requisito(interna, di capitolato, da colloquio con la proponente, o da Use Case), e la priorità (Obbligatorio, Desiderabile, Opzionale).
 \section{Processi di Supporto}
 L'obiettivo dei processi di supporto è fornire le risorse, gli strumenti e le metodologie necessarie per supportare efficacemente i processi primari di sviluppo e fornitura del software.
 I processi di supporto sono essenziali per garantire che il team segua pratiche di lavoro coerenti e sia sempre allineato agli obiettivi che si prefigge di raggiungere. Per esempio la documentazione svolge un ruolo cruciale nel mantenere la tracciabilità delle decisioni, eliminare qualsiasi ambiguità nella comprensione dei requisiti tra i membri del team, e assicurare che tutte le informazioni rilevanti siano facilmente accessibili e aggiornate.
