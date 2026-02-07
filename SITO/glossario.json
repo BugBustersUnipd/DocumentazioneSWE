@@ -85,6 +85,10 @@
       "definition": "Insieme di tecniche, metodi e procedure che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto."
     },
     {
+      "term": "Branch Coverage",
+      "definition": "Metrica di testing che misura la percentuale di rami decisionali (branch) del codice eseguiti durante i test. Ogni struttura condizionale (if-else, switch-case) crea branch multipli e questa metrica verifica che entrambi i percorsi (vero/falso) di ogni condizione siano stati testati almeno una volta. Un valore elevato di branch coverage indica una migliore copertura dei possibili flussi di esecuzione del programma, riducendo il rischio di bug nascosti in percorsi non testati."
+    },
+    {
       "term": "Candidatura",
       "definition": "Processo con cui un gruppo di studenti presenta la propria offerta per aggiudicarsi un capitolato d'appalto nel corso di Ingegneria del Software, proponendo una soluzione che soddisfi i requisiti del proponente."
     },
@@ -105,8 +109,16 @@
       "definition": "File contenenti più documenti retributivi aggregati, da suddividere e assegnare ai singoli destinatari tramite riconoscimento automatico."
     },
     {
+      "term": "Code Coverage",
+      "definition": "Metrica che misura la percentuale di codice sorgente effettivamente eseguito durante l'esecuzione dei test automatizzati. Rappresenta il rapporto tra le linee di codice testate e il totale delle linee di codice del programma, espresso in percentuale. Un elevato code coverage indica che la maggior parte del codice è stata verificata attraverso i test, riducendo la probabilità di bug non rilevati. Tuttavia, un'alta percentuale non garantisce automaticamente la qualità dei test, che devono anche verificare correttamente il comportamento atteso del software."
+    },
+    {
       "term": "Committente",
       "definition": "Soggetto che commissiona il progetto, definendone gli obiettivi, i vincoli e i requisiti, e che recepisce il prodotto finale. Nel contesto del corso di Ingegneria del Software, può essere un'azienda proponente o un docente."
+    },
+    {
+      "term": "Complessità Ciclomatica",
+      "definition": "Metrica software che misura la complessità strutturale di un programma o di un singolo metodo calcolando il numero di percorsi linearmente indipendenti attraverso il codice sorgente. Viene calcolata contando il numero di punti decisionali (if, while, for, case) più uno. Un valore elevato indica codice complesso, difficile da testare, mantenere e comprendere. Valori tipici: 1-10 (semplice), 11-20 (moderatamente complesso), 21-50 (complesso), oltre 50 (non testabile). Viene utilizzata per identificare metodi che necessitano di refactoring per migliorare la manutenibilità."
     },
     {
       "term": "Consulente del Lavoro (CdL)",
