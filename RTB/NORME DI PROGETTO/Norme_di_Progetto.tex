@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.1.5} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.1.6} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -135,7 +135,9 @@ Documento contenente le norme di progetto adottate dal team BugBusters per lo sv
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\rowcolor{secondaryblue!10} \CurrentVersion & 18/1/2026 & Aggiornamento sezione qualità, aggiunti dettagli su metriche di processo & Linor Sadè & - & - \\
+\rowcolor{secondaryblue!10} \CurrentVersion & 19/1/2026 & Terminate metriche finali & Linor Sadè & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.1.5 & 18/1/2026 & Aggiornamento sezione qualità, aggiunti dettagli su metriche di processo & Linor Sadè & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.1.4 & 13/1/2026 & continuo sezione qualità, aggiunti: standard e modelli, principi di qualità del processo, metriche di processo  & Linor Sadè & - & - \\
 \hline
@@ -1194,7 +1196,7 @@ Le metriche sono suddivise in due categorie principali:
     \textit{Valore ideale}: $\geq 80\%$ \textit{(accettato $\geq 60\%$)}
 \end{enumerate}
 \subsubsubsection{Affidabilità}
-\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, series=metriche_processo]
+\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, resume=metriche_processo]
     \item \textbf{Branch Coverage}.\\
     \textit{Valore di accettazione}: $\geq 70\%$\\
     \textit{Valore ideale}: $\geq 85\%$
@@ -1204,43 +1206,49 @@ Le metriche sono suddivise in due categorie principali:
     \textit{Valore ideale}: $\leq 1$ difetto / KLOC
 \end{enumerate}
 \subsubsubsection{Efficienza}
-\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, series=metriche_processo]
+\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, resume=metriche_processo]
     \item \textbf{UI Response Time (Interfaccia)}.\\
     \textit{Valore di accettazione}: $\leq 2$ sec\\
     \textit{Valore ideale}: $\leq 0.5$ sec
 
-    \item \textbf{Core Response Time (AI / Upload)}.\\
+    \item \textbf{Code Response Time - Ai Generativo testo}.\\
     \textit{Valore di accettazione}: $\leq 5$ sec\\
     \textit{Valore ideale}: $\leq 3$ sec
+    \item \textbf{Code Response Time - Ai Co-Pilot immagini}.\\
+    \textit{Valore di accettazione}: $\leq 10$ sec\\
+    \textit{Valore ideale}: $\leq 5$ sec
+    \item[\textbf{MPD10}] \textbf{Code Response Time - Ai Co-Pilot}.\\
+    \textit{Valore di accettazione}: $\leq 10$ sec\\
+    \textit{Valore ideale}: $\leq 5$ sec
 \end{enumerate}
 
 \subsubsubsection{Usabilità}
-\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, series=metriche_processo]
-    \item \textbf{Click Count (Funzioni principali)}. Misura il numero di click necessari per accedere alle funzioni principali.\\
+\begin{enumerate}[label=\textbf{MPD\arabic*}, leftmargin=4.5em]
+    \item[\textbf{MPD11}]  \textbf{Click Count (Funzioni principali)}. Misura il numero di click necessari per accedere alle funzioni principali.\\
     \textit{Valore di accettazione}: $\leq 5$ click\\
     \textit{Valore ideale}: $\leq 3$ click
 
-    \item \textbf{User Error Rate (Errori di validazione)}.\\
+    \item[\textbf{MPD12}] \textbf{User Error Rate (Errori di validazione)}.\\
     \textit{Valore di accettazione}: $\leq 10\%$\\
     \textit{Valore ideale}: $\leq 5\%$
 \end{enumerate}
 \subsubsubsection{Manutenibilità}
-\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, series=metriche_processo]
-    \item \textbf{Blocker Code Smells}. Misura la presenza di "code smells" di tipo blocker, ovvero problemi nel codice che possono causare gravi malfunzionamenti o difficoltà di manutenzione.\\
+\begin{enumerate}[label=\textbf{MPD\arabic*}, leftmargin=4.5em]
+    \item[\textbf{MPD13}] \textbf{Blocker Code Smells}. Misura la presenza di "code smells" di tipo blocker, ovvero problemi nel codice che possono causare gravi malfunzionamenti o difficoltà di manutenzione.\\
     \textit{Valore di accettazione}: 0\\
     \textit{Valore ideale}: 0
 
-    \item \textbf{Cyclomatic Complexity (per metodo)}. Misura la complessità ciclomatica di un metodo, ovvero il numero di percorsi indipendenti nel codice.\\
+    \item[\textbf{MPD14}] \textbf{Cyclomatic Complexity (per metodo)}. Misura la complessità ciclomatica di un metodo, ovvero il numero di percorsi indipendenti nel codice.\\
     \textit{Valore di accettazione}: $\leq 15$\\
     \textit{Valore ideale}: $\leq 10$
 
-    \item \textbf{Comment Intensity}.\\
+    \item[\textbf{MPD15}] \textbf{Comment Intensity}.\\
     \textit{Valore di accettazione}: $\geq 10\%$\\
     \textit{Valore ideale}: $\geq 20\%$
 \end{enumerate}
 \subsubsubsection{Portabilità}
-\begin{enumerate}[label=\textbf{MPD0\arabic*}, leftmargin=4.5em, series=metriche_processo]
-    \item \textbf{Supported Browsers (Test passati)}.\\
+\begin{enumerate}[label=\textbf{MPD\arabic*}, leftmargin=4.5em]
+    \item[\textbf{MPD16}] \textbf{Supported Browsers (Test passati)}.\\
     \textit{Valore di accettazione}: 100\% (Desktop)\\
     \textit{Valore ideale}: 100\% (All devices)
 \end{enumerate}
