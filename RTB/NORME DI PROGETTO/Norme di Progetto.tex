@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.1.7} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.2.0} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -105,10 +105,12 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
-\begin{tabularx}{\linewidth}{@{}lX@{}}
-\textbf{Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
-\textbf{Data ultima modifica}     & 14/1/2026 \\
-\\
+% Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
+	{Stato} & In redazione \\
+	{Verificatore\G} &  Alberto Pignat,Luca Slongo \\
+	{Redattore} & Alberto Autiero \\
+	{Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
 \end{tabularx}
 \end{tcolorbox}
 \end{center}
@@ -134,6 +136,9 @@ Documento contenente le Norme di Progetto\G adottate dal team BugBusters per lo 
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\hline
+\rowcolor{secondaryblue!10} 0.2.0 & 30/01/2025 & Verificato & - &  Alberto Pignat & - \\
+\hline
 \hline
 \rowcolor{secondaryblue!10} \CurrentVersion & 29/01/2026 & Aggiunti ai termini presenti nel Glossario\G la G & Alberto Autiero & - & - \\
 \hline
