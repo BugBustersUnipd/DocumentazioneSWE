@@ -50,7 +50,8 @@
 \keepXColumns
 
 \renewcommand{\sectionmark}[1]{\markright{#1}}
-\renewcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\renewcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}\ }
+
 
 
 % Macro tabella metrica (tabella uniforme, non spezzata e con stile coerente)
@@ -280,7 +281,7 @@ MPC10 & Indice di Gulpease\G del documento & $\geq 60\%$ & $\geq 80\%$ \\
 }
 \subsubsubsection{Verifica\G}
 \MetricTable{
-MPC11 & Code Coverage & $\geq 80\%$ & $100\%$ \\
+MPC11 & Code Coverage\G & $\geq 80\%$ & $100\%$ \\
 \hline
 MPC12 & Test\G Success Rate & $100\%$ & $100\%$ \\
 \hline}
@@ -318,7 +319,7 @@ MPD04 & AI\G Acceptance Rate (Rating $\geq$ 3/5) & $\geq 60\%$ & $\geq 80\%$ \\
 
 \subsubsection{Affidabilità\G}
 \MetricTable{
-MPD05 & Branch Coverage & $\geq 70\%$ & $\geq 85\%$ \\
+MPD05 & Branch Coverage\G & $\geq 70\%$ & $\geq 85\%$ \\
 \hline
 MPD06 & Defect Density & $\leq 3$ / KLOC & $\leq 1$ / KLOC \\
 \hline}
@@ -343,7 +344,7 @@ MPD11 & User Error Rate (Errori validazione\G) & $\leq 10\%$ & $\leq 5\%$ \\
 \MetricTable{
 MPD12 & Blocker Code Smells & $0$ & $0$ \\
 \hline
-MPD13 & Cyclomatic complexity (per metodo) & $\leq 15$ & $\leq 10$ \\
+MPD13 & Cyclomatic complexity\G (per metodo) & $\leq 15$ & $\leq 10$ \\
 \hline
 MPD14 & Comment Intensity & $\geq 10\%$ & $\geq 20\%$ \\
 \hline}
@@ -595,7 +596,7 @@ TS-Q-002 & Verifica\G che il codice sorgente sia commentato secondo gli standard
 TS-Q-003 & Verifica\G che sia presente il manuale utente per l'installazione e l'utilizzo del sistema & RQ-03 & NI \\ \hline
 TS-Q-004 & Verifica\G che il codice superi l'analisi statica senza errori critici (Code Smells) & RQ-04 & NI \\ \hline
 TS-Q-005 & Verifica\G che l'interfaccia\G utente sia accessibile secondo le linee guida WCAG 2.1 (livello AA) & RQ-05 & NI \\ \hline
-TS-Q-006 & Verifica\G che il codice sia coperto da test\G di unità per almeno l'80\% (Code Coverage) & RQ-06 & NI \\ \hline
+TS-Q-006 & Verifica\G che il codice sia coperto da test\G di unità per almeno l'80\% (Code Coverage\G) & RQ-06 & NI \\ \hline
 
 \caption{Test\G di Sistema per Requisiti di Qualità\G}
 \label{tab:test-sistema-qualita}
