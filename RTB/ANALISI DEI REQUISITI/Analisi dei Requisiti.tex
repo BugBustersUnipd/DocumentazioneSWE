@@ -1,5 +1,5 @@
 ﻿\documentclass[a4paper,11pt]{article}
-\newcommand{\CurrentVersion}{0.2.1} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.2.5} % ultima versione, da cambiare ad ogni push significativo
 
 
 \usepackage[utf8]{inputenc}
@@ -81,7 +81,7 @@
 \setcounter{tocdepth}{4}     % Serve per mostrare i sotto-casi nell'indice
 \setcounter{secnumdepth}{4}  
 
-% --- INIZIO DEFINIZIONI TEMPLATE DINAMICO ---
+% --- INIZIO DEFINIZIONI TEMPLATE\TEXTSUBSCRIPT{\SCALEBOX{0.6}{\TEXTBF{G}}} DINAMICO ---
 
 \newcommand{\urlcap}{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf}
 
@@ -126,7 +126,7 @@
     \par\vspace{2pt}%
 }
 
-% --- FINE DEFINIZIONI TEMPLATE DINAMICO ---
+% --- FINE DEFINIZIONI TEMPLATE\TEXTSUBSCRIPT{\SCALEBOX{0.6}{\TEXTBF{G}}} DINAMICO ---
 
 \begin{document}
 
@@ -194,21 +194,21 @@ Questo documento contiene le Norme di Progetto\textsubscript{\scalebox{0.6}{\tex
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & \textbf{\color{white} Approvato} \\
 \hline
 \endhead
-\rowcolor{secondaryblue!10} 0.2.5 & 20/01/2026 & Correzione errori & Alberto Pignat &  & - \\
+\rowcolor{secondaryblue!10} 0.2.5 & 29/01/2026 & Aggiunti ai termini presenti nel Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}} la G & Alberto Autiero &  & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.2.4 & 14/01/2026 & Riscrittura tabella requisiti funzionali & Leonardo Salviato &  & - \\
+\rowcolor{secondaryblue!10} 0.2.4 & 20/01/2026 & Correzione errori & Alberto Pignat &  & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.2.3 & 12/01/2026 & Riscrittura a seguito del colloqui con il professor Cardin & Leonardo Salviato &  & - \\
+\rowcolor{secondaryblue!10} 0.2.3 & 14/01/2026 & Riscrittura tabella requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}} & Leonardo Salviato &  & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.2.2 & 09/01/2026 & Correzioni errori riportati & Leonardo Salviato &  & - \\
+\rowcolor{secondaryblue!10} 0.2.2 & 12/01/2026 & Riscrittura a seguito del colloqui con il professor Cardin & Leonardo Salviato &  & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.2.1 & 06/01/2026 & Aggiunti ai termini presenti nel Glossario la G & Alberto Autiero &  & - \\
+\rowcolor{secondaryblue!10} 0.2.1 & 09/01/2026 & Correzioni errori riportati & Leonardo Salviato &  & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.2.0 & 04/01/2026 & Verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} & - & Luca Slongo & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.1.11 & 04/01/2026 & Inserimento diagrammi Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} sezioni 2 e 3 & Leonardo Salviato & - & - \\
+\rowcolor{secondaryblue!10} 0.1.11 & 04/01/2026 & Inserimento Diagrammi casi d'uso sezioni 2 e 3 & Leonardo Salviato & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.1.10 & 02/01/2026 & Inserimento diagrammi Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} sezioni 0 e 1 & Alberto Autiero & - & - \\
+\rowcolor{secondaryblue!10} 0.1.10 & 02/01/2026 & Inserimento Diagrammi casi d'uso sezioni 0 e 1 & Alberto Autiero & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.1.9 & 29/12/2025 & Correzioni a Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} e a paragrafi nel documento & Leonardo Salviato & - & - \\
 \hline
@@ -281,9 +281,9 @@ assicurando che essa soddisfi pienamente le esigenze del committente\textsubscri
 
 I Requisiti identificati sono classificati nelle seguenti categorie:
 \begin{itemize}
-    \item \textbf{Obbligatori}: necessari e imprescindibili per garantire il corretto funzionamento dell'applicazione standalone;
-    \item \textbf{Desiderabili}: non strettamente necessari, ma capaci di migliorare l'esperienza utente o l'efficienza\textsubscript{\scalebox{0.6}{\textbf{G}}} del sistema;
-    \item \textbf{Opzionali}: funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} aggiuntive utili per estensioni future, in particolare in vista della possibile integrazione con NEXUM.
+    \item \textbf{Obbligatori\textsubscript{\scalebox{0.6}{\textbf{G}}}}: necessari e imprescindibili per garantire il corretto funzionamento dell'applicazione standalone;
+    \item \textbf{Desiderabili\textsubscript{\scalebox{0.6}{\textbf{G}}}}: non strettamente necessari, ma capaci di migliorare l'esperienza utente o l'efficienza\textsubscript{\scalebox{0.6}{\textbf{G}}} del sistema;
+    \item \textbf{Opzionali\textsubscript{\scalebox{0.6}{\textbf{G}}}}: funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} aggiuntive utili per estensioni future, in particolare in vista della possibile integrazione con NEXUM.
 \end{itemize}
 
 Il documento è rivolto ai seguenti destinatari:
@@ -291,30 +291,30 @@ Il documento è rivolto ai seguenti destinatari:
     \item Il \textbf{committente\textsubscript{\scalebox{0.6}{\textbf{G}}}}, che potrà verifica\textsubscript{\scalebox{0.6}{\textbf{G}}}re che i Requisiti siano stati compresi e documentati correttamente;
     \item La \textbf{proponente\textsubscript{\scalebox{0.6}{\textbf{G}}}} (Eggon), che potrà utilizzare questo documento per monitorare l'aderenza del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} alle specifiche concordate.
     \item Il \textbf{team di progettisti e programmatori}, che utilizzerà questa analisi come base per la realizzazione del sistema;
-    \item Il \textbf{team di verifica\textsubscript{\scalebox{0.6}{\textbf{G}}}tori}, che impiegherà il presente documento per definire i casi di test\textsubscript{\scalebox{0.6}{\textbf{G}}} e validare il comportamento del prodotto.
+    \item Il \textbf{team di verifica\textsubscript{\scalebox{0.6}{\textbf{G}}}tori}, che impiegherà il presente documento per definire i casi di test\textsubscript{\scalebox{0.6}{\textbf{G}}} e validare il comportamento del prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}}.
 \end{itemize}
 
 \newpage
 
-\subsection{Prospettiva del prodotto}
+\subsection{Prospettiva del prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 
-Il prodotto che BugBusters intende sviluppare è una versione standalone dei moduli "AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} Generativo" e "AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per i CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}", svincolata dalla piattaforma NEXUM. Tale applicazione costituirà un prototipo funzionale in grado di operare autonomamente e di implementare le principali funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} richieste dal committente\textsubscript{\scalebox{0.6}{\textbf{G}}}, senza dipendere dalla piattaforma esistente.
+Il prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}} che BugBusters intende sviluppare è una versione standalone dei moduli "AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} Generativo" e "AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per i CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}", svincolata dalla piattaforma NEXUM. Tale applicazione costituirà un prototipo funzionale in grado di operare autonomamente e di implementare le principali funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} richieste dal committente\textsubscript{\scalebox{0.6}{\textbf{G}}}, senza dipendere dalla piattaforma esistente.
 
-Tale scelta deriva dalla necessità di rispettare le politiche di privacy e sicurezza dei dati della proponente\textsubscript{\scalebox{0.6}{\textbf{G}}}, le quali risultano incompatibili con la richiesta del committente\textsubscript{\scalebox{0.6}{\textbf{G}}} di rendere il prodotto accessibile al pubblico.
+Tale scelta deriva dalla necessità di rispettare le politiche di privacy e sicurezza\textsubscript{\scalebox{0.6}{\textbf{G}}} dei dati della proponente\textsubscript{\scalebox{0.6}{\textbf{G}}}, le quali risultano incompatibili con la richiesta del committente\textsubscript{\scalebox{0.6}{\textbf{G}}} di rendere il prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}} accessibile al pubblico.
 
 L'app standalone permetterà di testare e consolidare le funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} richieste, offrendo un ambiente controllato che faciliti la sperimentazione e lo sviluppo incrementale. Questa fase costituirà la base per un'eventuale integrazione futura con la piattaforma NEXUM, la quale fornirà un ecosistema HR completo e dotato di servizi quali la messaggistica top-down, la timbratura digitale, la gestione delle anagrafiche e dei ruoli, e la collaborazione con gli studi dei Consulenti del Lavoro (CdL)\textsubscript{\scalebox{0.6}{\textbf{G}}}.
 
 Per questo motivo, l'architettura software prevede l'utilizzo di mock o simulazioni delle componenti NEXUM. Tale approccio garantisce alla proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} una futura e agevole integrazione del sistema, evitando al contempo che il team di sviluppo debba reimplementare funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} già esistenti ma non strettamente necessarie nella fase attuale.
 
-I moduli saranno quindi concepiti in modo modulare per permettere all'applicazione, in un'eventuale integrazione futura con NEXUM, di inserirsi nell'architettura esistente come componente riutilizzabile e scalabile. L'integrazione includerà l'adattamento delle API, l'allineamento della gestione utenti e la centralizzazione dei dati all'interno dell'infrastruttura NEXUM.
+I moduli saranno quindi concepiti in modo modulare per permettere all'applicazione, in un'eventuale integrazione futura con NEXUM, di inserirsi nell'architettura esistente come componente riutilizzabile e scalabile. L'integrazione includerà l'adattamento delle API\textsubscript{\scalebox{0.6}{\textbf{G}}}, l'allineamento della gestione utenti e la centralizzazione dei dati all'interno dell'infrastruttura NEXUM.
 
-\subsection{Funzioni del prodotto}
+\subsection{Funzioni del prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 
-Qui di seguito le funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} del prodotto descritte in breve e divise per i due moduli che andranno sviluppati:
+Qui di seguito le funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} del prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}} descritte in breve e divise per i due moduli che andranno sviluppati:
 
 \textbf{Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} Generativo}
 \begin{itemize}
-    \item \textbf{Generazione di contenuti tramite AI}: 
+    \item \textbf{Generazione di contenuti tramite AI\textsubscript{\scalebox{0.6}{\textbf{G}}}}: 
     generazione di titolo, testo e immagine di copertina a partire da un prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}, 
     con possibilità di selezionare tono e stile.
     \item \textbf{Salvataggio locale}:
@@ -322,16 +322,16 @@ Qui di seguito le funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} del pr
     tramite archivio locale dedicato all'app standalone, indipendente dalla piattaforma NEXUM.
     
     \item \textbf{Sistema di rating}: 
-    valutazione della qualità\textsubscript{\scalebox{0.6}{\textbf{G}}} dei contenuti generati dall'AI, utile per analisi interne e miglioramento continuo.
+    valutazione della qualità\textsubscript{\scalebox{0.6}{\textbf{G}}} dei contenuti generati dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}}, utile per analisi interne e miglioramento continuo.
 
     \item \textbf{Gestione dei prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}}: 
     storico dei prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} utilizzati con possibilità di riutilizzo, duplicazione e ricerca interna.
 
     \item \textbf{Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} standalone}: 
-    visualizzazione e gestione di storico, filtri, ricerca e analisi delle interazioni con l'AI generativa.
+    visualizzazione e gestione di storico, filtri, ricerca e analisi delle interazioni con l'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} generativa.
 
     \item \textbf{Gestione delle immagini}: 
-    possibilità di caricare immagini dall'utente o di generarle tramite AI, con salvataggio locale.
+    possibilità di caricare immagini dall'utente o di generarle tramite AI\textsubscript{\scalebox{0.6}{\textbf{G}}}, con salvataggio locale.
 
 \end{itemize}
 
@@ -344,7 +344,7 @@ Qui di seguito le funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} del pr
     
     \item \textbf{Riconoscimento automatico della tipologia di documento}: 
     classificazione tramite AI (cedolini\textsubscript{\scalebox{0.6}{\textbf{G}}}, CU, comunicazioni, lettere, moduli da firmare, ecc.) 
-    sfruttando modelli OCR e classificatori addestrati.
+    sfruttando modelli OCR\textsubscript{\scalebox{0.6}{\textbf{G}}} e classificatori addestrati.
     
     \item \textbf{Estrazione dei destinatari}: 
     riconoscimento automatico di informazioni contenute nei documenti 
@@ -355,7 +355,7 @@ Qui di seguito le funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} del pr
     in documenti singoli, ognuno associato al proprio destinatario riconosciuto.
     
     \item \textbf{Revisione manuale (Human-in-the-Loop)}: 
-    interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} dedicata per verifica\textsubscript{\scalebox{0.6}{\textbf{G}}}re, correggere o confermare i risultati ottenuti dall'AI 
+    interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} dedicata per verifica\textsubscript{\scalebox{0.6}{\textbf{G}}}re, correggere o confermare i risultati ottenuti dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} 
     in ogni fase (classificazione, destinatari, split).
     
     \item \textbf{Creazione di messaggi e liste di distribuzione}: 
@@ -368,10 +368,10 @@ Qui di seguito le funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} del pr
 \textbf{Altre funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} dell'applicazione:}
 \begin{itemize}
     \item \textbf{Gestione utenti}: 
-    registrazione, autenticazione, gestione del profilo e configurazione dei parametri AI 
+    registrazione, autenticazione, gestione del profilo e configurazione dei parametri AI\textsubscript{\scalebox{0.6}{\textbf{G}}} 
     (per utenti privilegiati come Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} o editor avanzati).
     \item \textbf{Analisi e reportistica}:
-    Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} di monitoraggio delle performance dei moduli AI per consentire valutazioni semplici su efficacia\textsubscript{\scalebox{0.6}{\textbf{G}}} ed efficienza\textsubscript{\scalebox{0.6}{\textbf{G}}} dei moduli. L'applicazione consentirà inoltre
+    Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} di monitoraggio delle performance dei moduli AI\textsubscript{\scalebox{0.6}{\textbf{G}}} per consentire valutazioni semplici su efficacia\textsubscript{\scalebox{0.6}{\textbf{G}}} ed efficienza\textsubscript{\scalebox{0.6}{\textbf{G}}} dei moduli. L'applicazione consentirà inoltre
     la possibilità di rilasciare miglioramenti in seguito ad un intervento umano. 
 \end{itemize}
 
@@ -388,7 +388,7 @@ Gli utilizzatori finali dell'applicazione standalone non appartengono a un'unica
 l'obiettivo è quello di progettare moduli intelligenti e interoperabili per essere in futuro integrati nella piattaforma NEXUM. Tale ecosistema è concepito per rispondere alle esigenze di un ampio spettro di organizzazioni e professionisti nel settore delle risorse umane e della consulenza del lavoro.
 
 In generale, è possibile affermare che gli utenti finali sono coloro che necessitano di uno strumento scalabile, 
-intelligente e semplice da utilizzare per generare contenuti tramite AI e per gestire flussi documentali complessi con il supporto del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+intelligente e semplice da utilizzare per generare contenuti tramite AI\textsubscript{\scalebox{0.6}{\textbf{G}}} e per gestire flussi documentali complessi con il supporto del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}.
 Rientrano in questa categoria:
 
 \begin{itemize}
@@ -404,10 +404,10 @@ Rientrano in questa categoria:
     sia nella versione standalone che nella futura integrazione.
 \end{itemize}
 
-In sintesi, il prodotto è rivolto a organizzazioni di varie dimensioni — in particolare aziende medio-grandi e studi professionali — 
+In sintesi, il prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}} è rivolto a organizzazioni di varie dimensioni — in particolare aziende medio-grandi e studi professionali — 
 che necessitano di strumenti intelligenti per la creazione di contenuti, 
-la gestione automatizzata dei documenti e la collaborazione con gli studi dei Consulenti del Lavoro.
-L'app standalone funge da primo passo verso una piattaforma HR completa, modulare e potenziata dall'AI.
+la gestione automatizzata dei documenti e la collaborazione con gli studi dei Consulenti del Lavoro\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+L'app standalone funge da primo passo verso una piattaforma HR completa, modulare e potenziata dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}}.
 
 
 \subsection{Definizioni, acronimi e abbreviazioni (Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}})}
@@ -439,7 +439,7 @@ rilevanti per il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}.
 \section{Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \subsection{Introduzione}
 I Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} si compongono di un grafico UML e una descrizione testuale che permette di
-comprendere al meglio cosa il prodotto deve fornire. La descrizione testuale, in particolar
+comprendere al meglio cosa il prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}} deve fornire. La descrizione testuale, in particolar
 modo, dovrà contenere le informazioni sotto presenti, salvo i casi in cui lo
 specifico campo non risulti rilevante (ad esempio, un caso d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} che non prevede la
 possibilità di errori non avrà scenari alternativi):
@@ -457,11 +457,11 @@ possibilità di errori non avrà scenari alternativi):
     fare per compiere l'azione descritta dal caso d'uso
     \item \textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}} (scenari alternativi): Descrizione ragionevole degli eventi che possono accadere
     qualora una delle operazioni descritte nello scenario
-    principale non vada a buon fine
+    principale\textsubscript{\scalebox{0.6}{\textbf{G}}} non vada a buon fine
     \item \textbf{Inclusioni}: Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} ulteriori che l'attore\textsubscript{\scalebox{0.6}{\textbf{G}}} deve compiere per realizzare
     il caso d'uso attualmente descritto
     \item \textbf{Estensioni}: Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} ulteriori che possono realizzarsi durante
-    l'esecuzione delle operazioni del caso d'uso principale e rappresentano uno scenario alternativo
+    l'esecuzione delle operazioni del caso d'uso principale e rappresentano uno scenario\textsubscript{\scalebox{0.6}{\textbf{G}}} alternativo
     \item \textbf{Generalizzazioni}: Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}} meno specifici che racchiudono il caso d'uso attualmente descritto
     
 \end{itemize}
@@ -472,7 +472,7 @@ d'uso potrebbe essere incluso da un altro caso d'uso principale.
 \subsection{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 Nella \hyperref[fig:1]{figura~1} sono riportati gli attori considerati in questa analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}.
 
-Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che implementa l'autenticazione e la gestione dei ruoli. Tuttavia tale funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}}, come verrà descritto più avanti, è requisito\textsubscript{\scalebox{0.6}{\textbf{G}}} opzionale, pertanto gli attori devono essere considerati semplice utente se letti in un contesto in cui tale funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} non è implementata. 
+Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che implementa l'autenticazione e la gestione dei ruoli. Tuttavia tale funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}}, come verrà descritto più avanti, è requisito\textsubscript{\scalebox{0.6}{\textbf{G}}} opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}}, pertanto gli attori devono essere considerati semplice utente se letti in un contesto in cui tale funzionalità\textsubscript{\scalebox{0.6}{\textbf{G}}} non è implementata. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{Diagrammi casi d'uso/diagramma_attori.jpg}
@@ -483,11 +483,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item \textbf{Utente}: Rappresenta un utente che utilizza il sistema.
     \item \textbf{Utente non autenticato}: Rappresenta un utente che non ha effettuato l'accesso al sistema.
     \item \textbf{Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}}: Utente con la capacitá di generare post
-    \item \textbf{Data Analyst\textsubscript{\scalebox{0.6}{\textbf{G}}}}: Figura incaricata di monitorare le prestazioni. Accede alle Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} di analisi per consultare le statistiche di utilizzo, i rating di qualità\textsubscript{\scalebox{0.6}{\textbf{G}}} dei contenuti generati e i KPI del riconoscimento documentale.
-    \item \textbf{Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}}}: Gestisce la configurazione tecnica dell'applicazione standalone. Si occupa della creazione degli utenti, della gestione dei ruoli e della configurazione dei parametri globali dell'AI (es. prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} di sistema o soglie di confidenza).
-    \item \textbf{Operatore Studio CdL}: È l'utente principale del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}. Si occupa di caricare i flussi documentali (es. cedolini massivi\textsubscript{\scalebox{0.6}{\textbf{G}}}), supervisionare il riconoscimento automatico (validazione\textsubscript{\scalebox{0.6}{\textbf{G}}} Human-in-the-Loop) e gestire le liste di distribuzione.
-    \item \textbf{AI Post Generator}: Modello AI esterno utilizzato per la creazione di contenuti all'interno del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI-assistant
-    \item \textbf{AI Analyst}: Modello AI esterno utilizzato per l'analisi dei documenti all'interno del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI-Copilot
+    \item \textbf{Data Analyst\textsubscript{\scalebox{0.6}{\textbf{G}}}}: Figura incaricata di monitorare le prestazioni. Accede alle Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} di analisi per consultare le statistiche di utilizzo, i rating di qualità\textsubscript{\scalebox{0.6}{\textbf{G}}} dei contenuti generati e i KPI\textsubscript{\scalebox{0.6}{\textbf{G}}} del riconoscimento documentale.
+    \item \textbf{Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}}}: Gestisce la configurazione tecnica dell'applicazione standalone. Si occupa della creazione degli utenti, della gestione dei ruoli e della configurazione dei parametri globali dell'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} (es. prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} di sistema o soglie di confidenza).
+    \item \textbf{Operatore Studio CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}}: È l'utente principale del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}. Si occupa di caricare i flussi documentali (es. cedolini massivi\textsubscript{\scalebox{0.6}{\textbf{G}}}), supervisionare il riconoscimento automatico (validazione\textsubscript{\scalebox{0.6}{\textbf{G}}} Human-in-the-Loop) e gestire le liste di distribuzione.
+    \item \textbf{AI Post Generator}: Modello AI\textsubscript{\scalebox{0.6}{\textbf{G}}} esterno utilizzato per la creazione di contenuti all'interno del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI\textsubscript{\scalebox{0.6}{\textbf{G}}}-assistant
+    \item \textbf{AI Analyst}: Modello AI\textsubscript{\scalebox{0.6}{\textbf{G}}} esterno utilizzato per l'analisi dei documenti all'interno del Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI-Copilot\textsubscript{\scalebox{0.6}{\textbf{G}}}
 \end{itemize}
 
 
@@ -770,12 +770,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Viene visualizzato un messaggio di errore relativo ai Requisiti di sicurezza della password
+    \item Viene visualizzato un messaggio di errore relativo ai Requisiti di sicurezza\textsubscript{\scalebox{0.6}{\textbf{G}}} della password
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente inserisce una password che non soddisfa i criteri minimi di sicurezza (es. lunghezza minima, caratteri speciali)
+    \item L'utente inserisce una password che non soddisfa i criteri minimi di sicurezza\textsubscript{\scalebox{0.6}{\textbf{G}}} (es. lunghezza minima, caratteri speciali)
     \item Il sistema rileva che la password è troppo debole
 \end{enumerate}
 
@@ -1539,13 +1539,13 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \renewcommand{\UCPrefix}{1}
 
 
-\useCase{Generazione contenuti AI}
+\useCase{Generazione contenuti AI\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1A.jpg}
-    \caption{Diagramma del caso d'uso UC-1A – Generazione contenuti AI}
+    \caption{Diagramma del caso d'uso UC-1A – Generazione contenuti AI\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1605,7 +1605,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente si trova nel modulo di generazione contenuti AI (UC-1A)
+    \item L'utente si trova nel modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di generazione contenuti AI\textsubscript{\scalebox{0.6}{\textbf{G}}} (UC-1A)
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1629,7 +1629,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente si trova nel modulo di generazione contenuti AI (UC-1A)
+    \item L'utente si trova nel modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di generazione contenuti AI\textsubscript{\scalebox{0.6}{\textbf{G}}} (UC-1A)
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1654,7 +1654,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente si trova nel modulo di generazione contenuti AI (UC-1A)
+    \item L'utente si trova nel modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di generazione contenuti AI\textsubscript{\scalebox{0.6}{\textbf{G}}} (UC-1A)
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1829,12 +1829,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Viene visualizzato il risultato della generazione prodotta dall'AI
+    \item Viene visualizzato il risultato della generazione prodotta dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}}
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item Il sistema mostra il risultato prodotto dall'AI in risposta al prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}, mantenendo la formattazione originale se presente
+    \item Il sistema mostra il risultato prodotto dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} in risposta al prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}, mantenendo la formattazione originale se presente
 \end{enumerate}
 
 
@@ -1955,7 +1955,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il sistema AI ha completato l'elaborazione della richiesta
+    \item Il sistema AI\textsubscript{\scalebox{0.6}{\textbf{G}}} ha completato l'elaborazione della richiesta
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1965,7 +1965,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item Il sistema riceve l'output dall'AI e lo renderizza nell'area di visualizzazione principale, permettendo all'utente di leggerlo
+    \item Il sistema riceve l'output dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} e lo renderizza nell'area di visualizzazione principale, permettendo all'utente di leggerlo
 \end{enumerate}
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1989,7 +1989,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il sistema AI ha completato l'elaborazione della richiesta
+    \item Il sistema AI\textsubscript{\scalebox{0.6}{\textbf{G}}} ha completato l'elaborazione della richiesta
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2013,7 +2013,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il sistema AI ha completato l'elaborazione della richiesta
+    \item Il sistema AI\textsubscript{\scalebox{0.6}{\textbf{G}}} ha completato l'elaborazione della richiesta
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2037,7 +2037,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il sistema AI ha completato l'elaborazione della richiesta
+    \item Il sistema AI\textsubscript{\scalebox{0.6}{\textbf{G}}} ha completato l'elaborazione della richiesta
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2083,7 +2083,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item L'utente clicca sull'opzione per cambiare l'immagine (upload o selezione da libreria)
     \item L'utente seleziona un file valido dal proprio dispositivo
-    \item Il sistema sostituisce l'immagine generata dall'AI con quella fornita dall'utente
+    \item Il sistema sostituisce l'immagine generata dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} con quella fornita dall'utente
 \end{enumerate}
 
 \textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2215,7 +2215,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Le modifiche precedenti vengono annullate e il contenuto torna alla versione originale generata dall'AI
+    \item Le modifiche precedenti vengono annullate e il contenuto torna alla versione originale generata dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}}
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2261,7 +2261,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item L'utente richiede di riutilizzare un elemento dello storico
-    \item Il sistema invia direttamente i dati al motore AI per generare un nuovo output senza richiedere modifiche all'utente
+    \item Il sistema invia direttamente i dati al motore AI\textsubscript{\scalebox{0.6}{\textbf{G}}} per generare un nuovo output senza richiedere modifiche all'utente
 \end{enumerate}
 
 
@@ -2379,12 +2379,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\useCase{Rigenera contenuto tramite AI}
+\useCase{Rigenera contenuto tramite AI\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1L.jpg}
-    \caption{Diagramma del caso d'uso UC-1L – Rigenera contenuto tramite AI}
+    \caption{Diagramma del caso d'uso UC-1L – Rigenera contenuto tramite AI\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2411,7 +2411,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item L'utente richiede al sistema di provare nuovamente a generare il contenuto
-    \item Il sistema invia una nuova richiesta all'AI
+    \item Il sistema invia una nuova richiesta all'AI\textsubscript{\scalebox{0.6}{\textbf{G}}}
     \item Il nuovo risultato sovrascrive quello visualizzato in anteprima
 \end{enumerate}
 
@@ -2679,14 +2679,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il documento è stato analizzato tramite l'AI e i dati sono stati inviati al sistema
+    \item Il documento è stato analizzato tramite l'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} e i dati sono stati inviati al sistema
 \end{itemize}
 
 \newpage
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente dalla Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} principale accede al Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per i Consulenti del Lavoro.
+    \item L'utente dalla Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} principale accede al Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per i Consulenti del Lavoro\textsubscript{\scalebox{0.6}{\textbf{G}}}.
     \item L'utente procede a caricare il file che si desidera far analizzare
     \item L'utente inserisce i metadati al file caricato: categoria, mese/anno di competenza, azienda, reparto.
     \item Il file viene analizzato
@@ -2798,7 +2798,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Al file viene associato uno specifico reparto o dipartimento (opzionale)
+    \item Al file viene associato uno specifico reparto o dipartimento (opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}})
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3645,14 +3645,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Viene mostrato un indicatore numerico o visivo dell'affidabilità dei dati estratti.
+    \item Viene mostrato un indicatore numerico o visivo dell'affidabilità\textsubscript{\scalebox{0.6}{\textbf{G}}} dei dati estratti.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item Il sistema recupera il punteggio di confidenza calcolato durante l'importazione.
     \item Il sistema formatta il dato come percentuale.
-    \item Il sistema visualizza il dato, evidenziandolo (es. in rosso) se la confidenza è sotto una soglia di sicurezza, suggerendo un controllo manuale.
+    \item Il sistema visualizza il dato, evidenziandolo (es. in rosso) se la confidenza è sotto una soglia di sicurezza\textsubscript{\scalebox{0.6}{\textbf{G}}}, suggerendo un controllo manuale.
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -3709,12 +3709,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\useCase{Carica template messaggio}
+\useCase{Carica template\textsubscript{\scalebox{0.6}{\textbf{G}}} messaggio}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2I.jpg}
-    \caption{Diagramma del caso d'uso UC-2I – Carica template messaggio}
+    \caption{Diagramma del caso d'uso UC-2I – Carica template\textsubscript{\scalebox{0.6}{\textbf{G}}} messaggio}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3724,18 +3724,18 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente ha selezionato un template dalla lista dei template disponibili
+    \item L'utente ha selezionato un template\textsubscript{\scalebox{0.6}{\textbf{G}}} dalla lista dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} disponibili
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item I dati del template (Oggetto e Corpo del messaggio) vengono trasferiti nei campi di input della pagina di gestione messaggio
+    \item I dati del template\textsubscript{\scalebox{0.6}{\textbf{G}}} (Oggetto e Corpo del messaggio) vengono trasferiti nei campi di input della pagina di gestione messaggio
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente clicca sul pulsante "Carica" o sulla riga del template desiderato.
-    \item Il sistema recupera il contenuto del template (testo e oggetto).
+    \item L'utente clicca sul pulsante "Carica" o sulla riga del template\textsubscript{\scalebox{0.6}{\textbf{G}}} desiderato.
+    \item Il sistema recupera il contenuto del template\textsubscript{\scalebox{0.6}{\textbf{G}}} (testo e oggetto).
     \item Il sistema sovrascrive o compila i campi corrispondenti nell'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} di composizione del messaggio.
     \item L'utente può ora procedere a modificare o inviare il messaggio
 \end{enumerate}
@@ -3803,12 +3803,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\useCase{Salva nuovo template messaggio}
+\useCase{Salva nuovo template\textsubscript{\scalebox{0.6}{\textbf{G}}} messaggio}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2L.jpg}
-    \caption{Diagramma del caso d'uso UC-2L – Salva nuovo template messaggio}
+    \caption{Diagramma del caso d'uso UC-2L – Salva nuovo template\textsubscript{\scalebox{0.6}{\textbf{G}}} messaggio}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3824,26 +3824,26 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il contenuto del messaggio viene salvato nel database dei template personali o globali.
+    \item Il contenuto del messaggio viene salvato nel database dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} personali o globali.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente, soddisfatto del messaggio attuale, clicca sul pulsante "Salva come template".
-    \item Il sistema richiede di assegnare un nome al nuovo template.
+    \item L'utente, soddisfatto del messaggio attuale, clicca sul pulsante "Salva come template\textsubscript{\scalebox{0.6}{\textbf{G}}}".
+    \item Il sistema richiede di assegnare un nome al nuovo template\textsubscript{\scalebox{0.6}{\textbf{G}}}.
     \item L'utente inserisce il nome e conferma.
-    \item Il sistema salva il template rendendolo disponibile per futuri utilizzi (vedi UC-2G).
+    \item Il sistema salva il template\textsubscript{\scalebox{0.6}{\textbf{G}}} rendendolo disponibile per futuri utilizzi (vedi UC-2G).
 \end{enumerate}
 
 \vspace{0.5cm}
 
 
-\useCase{Elimina template messaggio}
+\useCase{Elimina template\textsubscript{\scalebox{0.6}{\textbf{G}}} messaggio}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2M.jpg}
-    \caption{Diagramma del caso d'uso UC-2M – Elimina template messaggio}
+    \caption{Diagramma del caso d'uso UC-2M – Elimina template\textsubscript{\scalebox{0.6}{\textbf{G}}} messaggio}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3853,19 +3853,19 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente visualizza la lista dei template salvati (UC-2G).
-    \item Il template da eliminare è presente in lista.
+    \item L'utente visualizza la lista dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} salvati (UC-2G).
+    \item Il template\textsubscript{\scalebox{0.6}{\textbf{G}}} da eliminare è presente in lista.
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il template viene rimosso definitivamente dal sistema.
-    \item La lista viene aggiornata e non mostra più il template eliminato.
+    \item Il template\textsubscript{\scalebox{0.6}{\textbf{G}}} viene rimosso definitivamente dal sistema.
+    \item La lista viene aggiornata e non mostra più il template\textsubscript{\scalebox{0.6}{\textbf{G}}} eliminato.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente identifica un template obsoleto o errato nella tabella.
+    \item L'utente identifica un template\textsubscript{\scalebox{0.6}{\textbf{G}}} obsoleto o errato nella tabella.
     \item L'utente clicca sull'icona di eliminazione (es. cestino) in corrispondenza della riga.
     \item Il sistema richiede conferma dell'operazione.
     \item L'utente conferma e il sistema cancella il record dal database.
@@ -3876,12 +3876,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 
-\useCase{Visualizzazione lista template}
+\useCase{Visualizzazione lista template\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2N.jpg}
-    \caption{Diagramma del caso d'uso UC-2N – Visualizzazione lista template}
+    \caption{Diagramma del caso d'uso UC-2N – Visualizzazione lista template\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3891,25 +3891,25 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item La lista contiene almeno un template salvato
+    \item La lista contiene almeno un template\textsubscript{\scalebox{0.6}{\textbf{G}}} salvato
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente visualizza la lista di template salvati nel suo insieme
+    \item L'utente visualizza la lista di template\textsubscript{\scalebox{0.6}{\textbf{G}}} salvati nel suo insieme
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente si trova nella sezione di gestione messaggi e vuole utilizzare un template salvato
-    \item L'utente vede l'elenco di tutti i template relativi ai messaggi salvati
+    \item L'utente si trova nella sezione di gestione messaggi e vuole utilizzare un template\textsubscript{\scalebox{0.6}{\textbf{G}}} salvato
+    \item L'utente vede l'elenco di tutti i template\textsubscript{\scalebox{0.6}{\textbf{G}}} relativi ai messaggi salvati
 \end{enumerate}
 
 \textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2N.1 – Visualizzazione elemento da lista template
+        \item UC-2N.1 – Visualizzazione elemento da lista template\textsubscript{\scalebox{0.6}{\textbf{G}}}
     \end{itemize}
 \end{itemize}
 
@@ -3917,7 +3917,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 
-\subUseCase{Visualizzazione elemento da lista template}
+\subUseCase{Visualizzazione elemento da lista template\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -3926,7 +3926,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item è stato salvato almeno un template di messaggio.
+    \item è stato salvato almeno un template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio.
 \end{itemize}
 
 
@@ -3937,7 +3937,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente vuole visualizzare i dettagli di un template salvato.
+    \item L'utente vuole visualizzare i dettagli di un template\textsubscript{\scalebox{0.6}{\textbf{G}}} salvato.
 \end{enumerate}
 
 \textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -3949,9 +3949,9 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{itemize}
     \item \textit{include}: 
     \begin{itemize}
-        \item UC-2N.2 – Visualizzazione oggetto template
-        \item UC-2N.3 – Visualizzazione testo template
-        \item UC-2N.4 – Visualizzazione codice template
+        \item UC-2N.2 – Visualizzazione oggetto template\textsubscript{\scalebox{0.6}{\textbf{G}}}
+        \item UC-2N.3 – Visualizzazione testo template\textsubscript{\scalebox{0.6}{\textbf{G}}}
+        \item UC-2N.4 – Visualizzazione codice template\textsubscript{\scalebox{0.6}{\textbf{G}}}
     \end{itemize}
     \item \textit{extend}: 
     \begin{itemize}
@@ -3960,7 +3960,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{itemize}
 
 
-\subUseCase{Visualizzazione oggetto template}
+\subUseCase{Visualizzazione oggetto template\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -3969,17 +3969,17 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Si sta visualizzando la tabella dei template messaggio
+    \item Si sta visualizzando la tabella dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} messaggio
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Recupero dell'oggetto del messaggio nel template
+    \item Recupero dell'oggetto del messaggio nel template\textsubscript{\scalebox{0.6}{\textbf{G}}}
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item Il sistema recupera l'oggetto del template.
+    \item Il sistema recupera l'oggetto del template\textsubscript{\scalebox{0.6}{\textbf{G}}}.
     \item Il sistema mostra il contenuto nel campo dedicato.
 \end{enumerate}
 
@@ -3994,23 +3994,23 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Si sta visualizzando la tabella dei template messaggio
+    \item Si sta visualizzando la tabella dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} messaggio
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Recupero del testo del messaggio nel template
+    \item Recupero del testo del messaggio nel template\textsubscript{\scalebox{0.6}{\textbf{G}}}
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item Il sistema recupera il testo del template.
+    \item Il sistema recupera il testo del template\textsubscript{\scalebox{0.6}{\textbf{G}}}.
     \item Il sistema mostra il contenuto nel campo dedicato.
 \end{enumerate}
 
 \vspace{0.5cm}
 
-\subUseCase{Visualizzazione codice template}
+\subUseCase{Visualizzazione codice template\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4019,17 +4019,17 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Si sta visualizzando la tabella dei template messaggio
+    \item Si sta visualizzando la tabella dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} messaggio
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Recupero del codice del template
+    \item Recupero del codice del template\textsubscript{\scalebox{0.6}{\textbf{G}}}
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item Il sistema recupera il codice del template.
+    \item Il sistema recupera il codice del template\textsubscript{\scalebox{0.6}{\textbf{G}}}.
     \item Il sistema mostra il contenuto nel campo dedicato.
 \end{enumerate}
 
@@ -4155,7 +4155,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item è stato caricato almeno un documento tramite UC-2A.6.
-    \item L'utente è entrato nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per i CdL dalla Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} principale.
+    \item L'utente è entrato nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per i CdL\textsubscript{\scalebox{0.6}{\textbf{G}}} dalla Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} principale.
     \item L'utente dispone dei permessi necessari per utilizzare il Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}
 \end{itemize}
 
@@ -4446,7 +4446,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item L'utente accede al Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} centralizzato di Analytics.
-    \item Il sistema calcola e mostra una panoramica generale (Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}}) applicando i filtri di data.
+    \item Il sistema calcola e mostra una panoramica generale (\textsubscript{\scalebox{0.6}{\textbf{G}}}) applicando i filtri di data.
     \item Il sistema visualizza i grafici e le tabelle relative alle metriche (confidenza, rating, volumi) per il contesto di default.
 \end{enumerate}
 
@@ -4488,14 +4488,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente visualizza il volume totale di richieste (prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}) inviate all'AI nel periodo selezionato.
+    \item L'utente visualizza il volume totale di richieste (prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}) inviate all'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} nel periodo selezionato.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item Il sistema interroga il database storico filtrando per l'intervallo temporale corrente.
     \item Il sistema conteggia il numero totale di interazioni avviate dagli utenti.
-    \item Il sistema visualizza il dato numerico (KPI) in un widget dedicato della Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} (es. "Totale prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}: 1.250").
+    \item Il sistema visualizza il dato numerico (KPI\textsubscript{\scalebox{0.6}{\textbf{G}}}) in un widget dedicato della Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} (es. "Totale prompt\textsubscript{\scalebox{0.6}{\textbf{G}}}: 1.250").
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -4515,7 +4515,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente visualizza un indicatore della qualità\textsubscript{\scalebox{0.6}{\textbf{G}}} percepita delle risposte dell'AI.
+    \item L'utente visualizza un indicatore della qualità\textsubscript{\scalebox{0.6}{\textbf{G}}} percepita delle risposte dell'AI\textsubscript{\scalebox{0.6}{\textbf{G}}}.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -4547,7 +4547,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item Il sistema conta le occorrenze in cui un utente ha richiesto una nuova versione di un messaggio già generato (evento di "retry").
-    \item Il sistema visualizza il totale delle rigenerazioni, dato utile per capire se la prima risposta dell'AI è spesso insoddisfacente.
+    \item Il sistema visualizza il totale delle rigenerazioni, dato utile per capire se la prima risposta dell'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} è spesso insoddisfacente.
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -4670,7 +4670,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente visualizza il punteggio medio di affidabilità (confidence score) che l'AI ha attribuito alle sue estrazioni nel periodo selezionato.
+    \item L'utente visualizza il punteggio medio di affidabilità\textsubscript{\scalebox{0.6}{\textbf{G}}} (confidence score) che l'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} ha attribuito alle sue estrazioni nel periodo selezionato.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -4696,7 +4696,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente visualizza la frequenza con cui gli operatori umani devono correggere i dati estratti dall'AI.
+    \item L'utente visualizza la frequenza con cui gli operatori umani devono correggere i dati estratti dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}}.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -4722,14 +4722,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente visualizza un indicatore che rappresenta la precisione con cui l'AI associa i dati trovati ai campi corretti del database.
+    \item L'utente visualizza un indicatore che rappresenta la precisione con cui l'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} associa i dati trovati ai campi corretti del database.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item Il sistema valuta la coerenza dei dati (es. verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} se i campi mappati sono stati successivamente spostati o rimossi dall'operatore).
     \item Il sistema calcola un indice di accuratezza strutturale.
-    \item Il sistema visualizza il dato, permettendo di identificare se l'AI sta fallendo nel riconoscere specifici layout o tipologie di documento.
+    \item Il sistema visualizza il dato, permettendo di identificare se l'AI\textsubscript{\scalebox{0.6}{\textbf{G}}} sta fallendo nel riconoscere specifici layout o tipologie di documento.
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -4844,13 +4844,13 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
 \caption{Tabella dei Requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{tab:reqfunzionali}\\
 \hline
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endfirsthead
 
 \multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endhead
 
@@ -4863,269 +4863,269 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \endlastfoot
 
 
-\autoRF & Il sistema deve permettere all'utente non autenticato di effettuare la registrazione di un nuovo account. & \hyperref[UC-0A]{UC-0A} & Opzionale \\
+\autoRF & Il sistema deve permettere all'utente non autenticato di effettuare la registrazione di un nuovo account. & \hyperref[UC-0A]{UC-0A} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire il proprio indirizzo email in fase di registrazione. & \hyperref[UC-0A.1]{UC-0A.1} & Opzionale \\
+\autoRF & Il sistema deve permettere all'utente di inserire il proprio indirizzo email in fase di registrazione. & \hyperref[UC-0A.1]{UC-0A.1} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire una password in fase di registrazione. & \hyperref[UC-0A.2]{UC-0A.2} & Opzionale \\
+\autoRF & Il sistema deve permettere all'utente di inserire una password in fase di registrazione. & \hyperref[UC-0A.2]{UC-0A.2} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire un username in fase di registrazione. & \hyperref[UC-0A.3]{UC-0A.3} & Opzionale \\
+\autoRF & Il sistema deve permettere all'utente di inserire un username in fase di registrazione. & \hyperref[UC-0A.3]{UC-0A.3} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire il proprio nome in fase di registrazione. & \hyperref[UC-0A.4]{UC-0A.4} & Opzionale \\
+\autoRF & Il sistema deve permettere all'utente di inserire il proprio nome in fase di registrazione. & \hyperref[UC-0A.4]{UC-0A.4} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire il proprio cognome in fase di registrazione. & \hyperref[UC-0A.5]{UC-0A.5} & Opzionale \\
+\autoRF & Il sistema deve permettere all'utente di inserire il proprio cognome in fase di registrazione. & \hyperref[UC-0A.5]{UC-0A.5} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire la propria matricola in fase di registrazione. & \hyperref[UC-0A.6]{UC-0A.6} & Opzionale \\
+\autoRF & Il sistema deve permettere all'utente di inserire la propria matricola in fase di registrazione. & \hyperref[UC-0A.6]{UC-0A.6} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare un messaggio di errore se il formato dell'email inserita non è valido. & \hyperref[UC-0A.7]{UC-0A.7} & Opzionale \\
+\autoRF & Il sistema deve visualizzare un messaggio di errore se il formato dell'email inserita non è valido. & \hyperref[UC-0A.7]{UC-0A.7} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare un messaggio di errore se la password non rispetta i criteri di sicurezza. & \hyperref[UC-0A.8]{UC-0A.8} & Opzionale \\
+\autoRF & Il sistema deve visualizzare un messaggio di errore se la password non rispetta i criteri di sicurezza\textsubscript{\scalebox{0.6}{\textbf{G}}}. & \hyperref[UC-0A.8]{UC-0A.8} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve impedire la registrazione se l'email inserita è già associata a un account esistente. & \hyperref[UC-0A.9]{UC-0A.9} & Opzionale \\
+\autoRF & Il sistema deve impedire la registrazione se l'email inserita è già associata a un account esistente. & \hyperref[UC-0A.9]{UC-0A.9} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve impedire la registrazione se lo username inserito è già utilizzato. & \hyperref[UC-0A.10]{UC-0A.10} & Opzionale \\
+\autoRF & Il sistema deve impedire la registrazione se lo username inserito è già utilizzato. & \hyperref[UC-0A.10]{UC-0A.10} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve impedire la registrazione se la matricola inserita è già presente nel sistema. & \hyperref[UC-0A.11]{UC-0A.11} & Opzionale \\
+\autoRF & Il sistema deve impedire la registrazione se la matricola inserita è già presente nel sistema. & \hyperref[UC-0A.11]{UC-0A.11} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare un messaggio di errore se il formato della matricola non è valido. & \hyperref[UC-0A.12]{UC-0A.12} & Opzionale \\
+\autoRF & Il sistema deve visualizzare un messaggio di errore se il formato della matricola non è valido. & \hyperref[UC-0A.12]{UC-0A.12} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente registrato di effettuare il login (autenticazione). & \hyperref[UC-0B]{UC-0B} & Opzionale \\
+\autoRF & Il sistema deve permettere all'utente registrato di effettuare il login (autenticazione). & \hyperref[UC-0B]{UC-0B} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve notificare l'errore in caso di tentativo di login con email non registrata. & \hyperref[UC-0B.1]{UC-0B.1} & Opzionale \\
+\autoRF & Il sistema deve notificare l'errore in caso di tentativo di login con email non registrata. & \hyperref[UC-0B.1]{UC-0B.1} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve notificare l'errore in caso di tentativo di login con password errata. & \hyperref[UC-0B.2]{UC-0B.2} & Opzionale \\
+\autoRF & Il sistema deve notificare l'errore in caso di tentativo di login con password errata. & \hyperref[UC-0B.2]{UC-0B.2} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di visualizzare i dati del proprio profilo. & \hyperref[UC-0C]{UC-0C} & Obbligatorio \\
+\autoRF & Il sistema deve permettere all'utente di visualizzare i dati del proprio profilo. & \hyperref[UC-0C]{UC-0C} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare l'email associata al profilo utente. & \hyperref[UC-0C.1]{UC-0C.1} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare l'email associata al profilo utente. & \hyperref[UC-0C.1]{UC-0C.1} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare (o permettere la gestione del) la password del profilo utente. & \hyperref[UC-0C.2]{UC-0C.2} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare (o permettere la gestione del) la password del profilo utente. & \hyperref[UC-0C.2]{UC-0C.2} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare lo username associato al profilo utente. & \hyperref[UC-0C.3]{UC-0C.3} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare lo username associato al profilo utente. & \hyperref[UC-0C.3]{UC-0C.3} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare il nome associato al profilo utente. & \hyperref[UC-0C.4]{UC-0C.4} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare il nome associato al profilo utente. & \hyperref[UC-0C.4]{UC-0C.4} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare il cognome associato al profilo utente. & \hyperref[UC-0C.5]{UC-0C.5} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare il cognome associato al profilo utente. & \hyperref[UC-0C.5]{UC-0C.5} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare la matricola associata al profilo utente. & \hyperref[UC-0C.6]{UC-0C.6} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare la matricola associata al profilo utente. & \hyperref[UC-0C.6]{UC-0C.6} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di modificare le informazioni del proprio profilo. & \hyperref[UC-0D]{UC-0D} & Opzionale \\
+\autoRF & Il sistema deve permettere all'utente di modificare le informazioni del proprio profilo. & \hyperref[UC-0D]{UC-0D} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve gestire l'uscita dalla modifica profilo senza salvare i cambiamenti. & \hyperref[UC-0D.1]{UC-0D.1} & Opzionale \\
+\autoRF & Il sistema deve gestire l'uscita dalla modifica profilo senza salvare i cambiamenti. & \hyperref[UC-0D.1]{UC-0D.1} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'Amministratore di visualizzare la lista degli utenti registrati. & \hyperref[UC-0E]{UC-0E} & Opzionale \\
+\autoRF & Il sistema deve permettere all'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} di visualizzare la lista degli utenti registrati. & \hyperref[UC-0E]{UC-0E} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere la visualizzazione del dettaglio di un singolo utente dalla lista. & \hyperref[UC-0E.1]{UC-0E.1} & Opzionale \\
+\autoRF & Il sistema deve permettere la visualizzazione del dettaglio di un singolo utente dalla lista. & \hyperref[UC-0E.1]{UC-0E.1} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare il ruolo associato a un utente registrato. & \hyperref[UC-0E.2]{UC-0E.2} & Opzionale \\
+\autoRF & Il sistema deve mostrare il ruolo associato a un utente registrato. & \hyperref[UC-0E.2]{UC-0E.2} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare il nome di un utente registrato. & \hyperref[UC-0E.3]{UC-0E.3} & Opzionale \\
+\autoRF & Il sistema deve mostrare il nome di un utente registrato. & \hyperref[UC-0E.3]{UC-0E.3} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare il cognome di un utente registrato. & \hyperref[UC-0E.4]{UC-0E.4} & Opzionale \\
+\autoRF & Il sistema deve mostrare il cognome di un utente registrato. & \hyperref[UC-0E.4]{UC-0E.4} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'Amministratore di modificare il ruolo di un utente registrato. & \hyperref[UC-0F]{UC-0F}, \hyperref[UC-0F.1]{UC-0F.1} , \href{\urlcap}{capitolato} & Opzionale \\
+\autoRF & Il sistema deve permettere all'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} di modificare il ruolo di un utente registrato. & \hyperref[UC-0F]{UC-0F}, \hyperref[UC-0F.1]{UC-0F.1} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di effettuare il logout (terminare la sessione). & \hyperref[UC-0G]{UC-0G} & Opzionale \\
+\autoRF & Il sistema deve permettere all'utente di effettuare il logout (terminare la sessione). & \hyperref[UC-0G]{UC-0G} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve generare contenuti testuali tramite AI Assistant in base a prompt e parametri. & \hyperref[UC-1A]{UC-1A} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve generare contenuti testuali tramite AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} in base a prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} e parametri. & \hyperref[UC-1A]{UC-1A} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere l'inserimento di un prompt testuale per la generazione. & \hyperref[UC-1A.1]{UC-1A.1} & Obbligatorio \\
+\autoRF & Il sistema deve permettere l'inserimento di un prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} testuale per la generazione. & \hyperref[UC-1A.1]{UC-1A.1} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere la selezione del tono per la generazione del contenuto. & \hyperref[UC-1A.2]{UC-1A.2} & Obbligatorio \\
+\autoRF & Il sistema deve permettere la selezione del tono per la generazione del contenuto. & \hyperref[UC-1A.2]{UC-1A.2} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere la selezione dello stile per la generazione del contenuto. & \hyperref[UC-1A.3]{UC-1A.3} & Obbligatorio \\
+\autoRF & Il sistema deve permettere la selezione dello stile per la generazione del contenuto. & \hyperref[UC-1A.3]{UC-1A.3} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere la visualizzazione dello storico delle generazioni AI. & \hyperref[UC-1B]{UC-1B} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere la visualizzazione dello storico delle generazioni AI\textsubscript{\scalebox{0.6}{\textbf{G}}}. & \hyperref[UC-1B]{UC-1B} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve notificare l'assenza di elementi se lo storico delle generazioni è vuoto. & \hyperref[UC-1B.1]{UC-1B.1} & Obbligatorio \\
+\autoRF & Il sistema deve notificare l'assenza di elementi se lo storico delle generazioni è vuoto. & \hyperref[UC-1B.1]{UC-1B.1} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare i dettagli completi di un elemento selezionato dallo storico. & \hyperref[UC-1B.2]{UC-1B.2} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare i dettagli completi di un elemento selezionato dallo storico. & \hyperref[UC-1B.2]{UC-1B.2} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare lo stile utilizzato per un contenuto nello storico. & \hyperref[UC-1B.3]{UC-1B.3} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare lo stile utilizzato per un contenuto nello storico. & \hyperref[UC-1B.3]{UC-1B.3} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il testo del risultato generato nello storico. & \hyperref[UC-1B.4]{UC-1B.4} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il testo del risultato generato nello storico. & \hyperref[UC-1B.4]{UC-1B.4} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il timestamp (data/ora) della generazione nello storico. & \hyperref[UC-1B.5]{UC-1B.5} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il timestamp (data/ora) della generazione nello storico. & \hyperref[UC-1B.5]{UC-1B.5} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la valutazione assegnata dall'utente al contenuto nello storico. & \hyperref[UC-1B.6]{UC-1B.6} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la valutazione assegnata dall'utente al contenuto nello storico. & \hyperref[UC-1B.6]{UC-1B.6} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il prompt originale utilizzato per un contenuto nello storico. & \hyperref[UC-1B.7]{UC-1B.7} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} originale utilizzato per un contenuto nello storico. & \hyperref[UC-1B.7]{UC-1B.7} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il tono utilizzato per un contenuto nello storico. & \hyperref[UC-1B.8]{UC-1B.8} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il tono utilizzato per un contenuto nello storico. & \hyperref[UC-1B.8]{UC-1B.8} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare un'anteprima del contenuto generato dall'AI. & \hyperref[UC-1C]{UC-1C}, \hyperref[UC-1C.1]{UC-1C.1}, \hyperref[UC-1C.2]{UC-1C.2}, \hyperref[UC-1C.3]{UC-1C.3} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare un'anteprima del contenuto generato dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}}. & \hyperref[UC-1C]{UC-1C}, \hyperref[UC-1C.1]{UC-1C.1}, \hyperref[UC-1C.2]{UC-1C.2}, \hyperref[UC-1C.3]{UC-1C.3} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di modificare l'immagine associata al contenuto generato. & \hyperref[UC-1D]{UC-1D} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di modificare l'immagine associata al contenuto generato. & \hyperref[UC-1D]{UC-1D} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve notificare l'utente quando tenta di caricare un file immagine non valido. & \hyperref[UC-1D.1]{UC-1D.1} & Obbligatorio \\
+\autoRF & Il sistema deve notificare l'utente quando tenta di caricare un file immagine non valido. & \hyperref[UC-1D.1]{UC-1D.1} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di modificare il titolo del contenuto generato. & \hyperref[UC-1E]{UC-1E} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di modificare il titolo del contenuto generato. & \hyperref[UC-1E]{UC-1E} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di modificare il testo del corpo del contenuto generato. & \hyperref[UC-1F]{UC-1F} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di modificare il testo del corpo del contenuto generato. & \hyperref[UC-1F]{UC-1F} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di annullare le modifiche apportate al contenuto generato. & \hyperref[UC-1G]{UC-1G} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di annullare le modifiche apportate al contenuto generato. & \hyperref[UC-1G]{UC-1G} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di riutilizzare i parametri di un contenuto dello storico per una nuova generazione. & \hyperref[UC-1H]{UC-1H} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di riutilizzare i parametri di un contenuto dello storico per una nuova generazione. & \hyperref[UC-1H]{UC-1H} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di duplicare un contenuto dallo storico per modificarne i parametri. & \hyperref[UC-1I]{UC-1I} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di duplicare un contenuto dallo storico per modificarne i parametri. & \hyperref[UC-1I]{UC-1I} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di filtrare la lista delle generazioni nello storico. & \hyperref[UC-1J]{UC-1J} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di filtrare la lista delle generazioni nello storico. & \hyperref[UC-1J]{UC-1J} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la lista dello storico aggiornata in base ai filtri applicati. & \hyperref[UC-1K]{UC-1K} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la lista dello storico aggiornata in base ai filtri applicati. & \hyperref[UC-1K]{UC-1K} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di rigenerare un contenuto tramite AI mantenendo i parametri. & \hyperref[UC-1L]{UC-1L} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di rigenerare un contenuto tramite AI\textsubscript{\scalebox{0.6}{\textbf{G}}} mantenendo i parametri. & \hyperref[UC-1L]{UC-1L} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di valutare (rating) il contenuto generato. & \hyperref[UC-1M]{UC-1M} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere all'utente di valutare (rating) il contenuto generato. & \hyperref[UC-1M]{UC-1M} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di scartare il contenuto generato e pulire l'interfaccia. & \hyperref[UC-1N]{UC-1N} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di scartare il contenuto generato e pulire l'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}}. & \hyperref[UC-1N]{UC-1N} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di salvare il contenuto generato nel database. & \hyperref[UC-1O]{UC-1O} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di salvare il contenuto generato nel database. & \hyperref[UC-1O]{UC-1O} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo tono per la generazione di contenuti & \hyperref[UC-1P]{UC-1P} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo tono per la generazione di contenuti & \hyperref[UC-1P]{UC-1P} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'eliminazione di un tono per la generazione di contenuti & \hyperref[UC-1Q]{UC-1Q} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere all'utente l'eliminazione di un tono per la generazione di contenuti & \hyperref[UC-1Q]{UC-1Q} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo stile per la generazione di contenuti & \hyperref[UC-1R]{UC-1R} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo stile per la generazione di contenuti & \hyperref[UC-1R]{UC-1R} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'eliminazione di uno stile per la generazione di contenuti & \hyperref[UC-1S]{UC-1S} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere all'utente l'eliminazione di uno stile per la generazione di contenuti & \hyperref[UC-1S]{UC-1S} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere l'analisi di documenti tramite il modulo AI Co-Pilot. & \hyperref[UC-2A]{UC-2A} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere l'analisi di documenti tramite il modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}. & \hyperref[UC-2A]{UC-2A} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere l'inserimento/selezione della categoria del documento. & \hyperref[UC-2A.1]{UC-2A.1} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere l'inserimento/selezione della categoria del documento. & \hyperref[UC-2A.1]{UC-2A.1} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere l'inserimento del mese/anno di competenza del documento. & \hyperref[UC-2A.2]{UC-2A.2} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere l'inserimento del mese/anno di competenza del documento. & \hyperref[UC-2A.2]{UC-2A.2} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere l'inserimento dell'azienda associata al documento. & \hyperref[UC-2A.3]{UC-2A.3} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere l'inserimento dell'azienda associata al documento. & \hyperref[UC-2A.3]{UC-2A.3} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere l'inserimento del reparto associato al documento. & \hyperref[UC-2A.4]{UC-2A.4} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere l'inserimento del reparto associato al documento. & \hyperref[UC-2A.4]{UC-2A.4} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere controllare la correttezza del formato del file inserito. & \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere controllare la correttezza del formato del file inserito. & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere controllare che lo stesso file non sia già stato analizzato. & \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere controllare che lo stesso file non sia già stato analizzato. & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere lo split di documenti diversi all'interno dello stesso file. & \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere lo split di documenti diversi all'interno dello stesso file. & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la lista dei documenti analizzati. & \hyperref[UC-2B]{UC-2B}, \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la lista dei documenti analizzati. & \hyperref[UC-2B]{UC-2B}, \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve notificare l'utente se nessun documento è stato riconosciuto dall'analisi. & \hyperref[UC-2B.1]{UC-2B.1} & Obbligatorio \\
+\autoRF & Il sistema deve notificare l'utente se nessun documento è stato riconosciuto dall'analisi. & \hyperref[UC-2B.1]{UC-2B.1} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare i dettagli di un singolo documento dalla lista. & \hyperref[UC-2B.2]{UC-2B.2} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di visualizzare i dettagli di un singolo documento dalla lista. & \hyperref[UC-2B.2]{UC-2B.2} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la competenza (periodo) del documento analizzato. & \hyperref[UC-2B.3]{UC-2B.3} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la competenza (periodo) del documento analizzato. & \hyperref[UC-2B.3]{UC-2B.3} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare l'azienda associata al documento analizzato. & \hyperref[UC-2B.4]{UC-2B.4} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare l'azienda associata al documento analizzato. & \hyperref[UC-2B.4]{UC-2B.4} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la causale del documento analizzato. & \hyperref[UC-2B.5]{UC-2B.5} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la causale del documento analizzato. & \hyperref[UC-2B.5]{UC-2B.5} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la lingua rilevata nel documento. & \hyperref[UC-2B.6]{UC-2B.6} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la lingua rilevata nel documento. & \hyperref[UC-2B.6]{UC-2B.6} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il numero di pagine del documento. & \hyperref[UC-2B.7]{UC-2B.7} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il numero di pagine del documento. & \hyperref[UC-2B.7]{UC-2B.7} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il nome originale del file del documento. & \hyperref[UC-2B.8]{UC-2B.8} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il nome originale del file del documento. & \hyperref[UC-2B.8]{UC-2B.8} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la data di redazione/caricamento del documento. & \hyperref[UC-2B.9]{UC-2B.9} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la data di redazione/caricamento del documento. & \hyperref[UC-2B.9]{UC-2B.9} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il codice identificativo del documento. & \hyperref[UC-2B.10]{UC-2B.10} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il codice identificativo del documento. & \hyperref[UC-2B.10]{UC-2B.10} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la tipologia del documento. & \hyperref[UC-2B.11]{UC-2B.11} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la tipologia del documento. & \hyperref[UC-2B.11]{UC-2B.11} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare l'anteprima visiva del documento analizzato. & \hyperref[UC-2C]{UC-2C} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare l'anteprima visiva del documento analizzato. & \hyperref[UC-2C]{UC-2C} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di modificare il destinatario associato al documento. & \hyperref[UC-2D]{UC-2D}, \href{\urlcap}{capitolato}  & Obbligatorio \\
+\autoRF & Il sistema deve permettere di modificare il destinatario associato al documento. & \hyperref[UC-2D]{UC-2D}, \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}}  & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di modificare la tipologia del documento. & \hyperref[UC-2E]{UC-2E} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di modificare la tipologia del documento. & \hyperref[UC-2E]{UC-2E} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve ricalcolare la percentuale di confidenza dopo modifiche manuali. & \hyperref[UC-2F]{UC-2F} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve ricalcolare la percentuale di confidenza dopo modifiche manuali. & \hyperref[UC-2F]{UC-2F} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la lista delle informazioni sui destinatari estratti. & \hyperref[UC-2G]{UC-2G} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la lista delle informazioni sui destinatari estratti. & \hyperref[UC-2G]{UC-2G} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare i dettagli di un singolo destinatario in lista. & \hyperref[UC-2G.1]{UC-2G.1} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di visualizzare i dettagli di un singolo destinatario in lista. & \hyperref[UC-2G.1]{UC-2G.1} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il codice fiscale del destinatario. & \hyperref[UC-2G.2]{UC-2G.2} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il codice fiscale del destinatario. & \hyperref[UC-2G.2]{UC-2G.2} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la matricola del destinatario. & \hyperref[UC-2G.3]{UC-2G.3} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la matricola del destinatario. & \hyperref[UC-2G.3]{UC-2G.3} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il reparto del destinatario. & \hyperref[UC-2G.4]{UC-2G.4} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il reparto del destinatario. & \hyperref[UC-2G.4]{UC-2G.4} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il nome/cognome del destinatario. & \hyperref[UC-2G.5]{UC-2G.5} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il nome/cognome del destinatario. & \hyperref[UC-2G.5]{UC-2G.5} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve notificare se nessun destinatario è stato riconosciuto. & \hyperref[UC-2G.6]{UC-2G.6} & Obbligatorio \\
+\autoRF & Il sistema deve notificare se nessun destinatario è stato riconosciuto. & \hyperref[UC-2G.6]{UC-2G.6} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare lo storico completo dei documenti processati. & \hyperref[UC-2H]{UC-2H} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare lo storico completo dei documenti processati. & \hyperref[UC-2H]{UC-2H} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve notificare l'assenza di documenti nello storico. & \hyperref[UC-2H.1]{UC-2H.1} & Obbligatorio \\
+\autoRF & Il sistema deve notificare l'assenza di documenti nello storico. & \hyperref[UC-2H.1]{UC-2H.1} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare i dettagli di un elemento nello storico documenti. & \hyperref[UC-2H.2]{UC-2H.2} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare i dettagli di un elemento nello storico documenti. & \hyperref[UC-2H.2]{UC-2H.2} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la percentuale di confidenza dell'analisi nello storico. & \hyperref[UC-2H.3]{UC-2H.3} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la percentuale di confidenza dell'analisi nello storico. & \hyperref[UC-2H.3]{UC-2H.3} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare l'appartenenza alle liste di distribuzione. & \hyperref[UC-2H.4]{UC-2H.4} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare l'appartenenza alle liste di distribuzione. & \hyperref[UC-2H.4]{UC-2H.4} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare lo stato di elaborazione del documento. & \hyperref[UC-2H.5]{UC-2H.5} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare lo stato di elaborazione del documento. & \hyperref[UC-2H.5]{UC-2H.5} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di caricare un template di messaggio esistente. & \hyperref[UC-2I]{UC-2I} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di caricare un template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio esistente. & \hyperref[UC-2I]{UC-2I} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di modificare l'oggetto del messaggio. & \hyperref[UC-2J]{UC-2J} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di modificare l'oggetto del messaggio. & \hyperref[UC-2J]{UC-2J} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di modificare il testo del corpo del messaggio. & \hyperref[UC-2K]{UC-2K} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di modificare il testo del corpo del messaggio. & \hyperref[UC-2K]{UC-2K} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di salvare il messaggio corrente come nuovo template. & \hyperref[UC-2L]{UC-2L} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di salvare il messaggio corrente come nuovo template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & \hyperref[UC-2L]{UC-2L} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di eliminare un template di messaggio. & \hyperref[UC-2M]{UC-2M} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di eliminare un template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio. & \hyperref[UC-2M]{UC-2M} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la lista dei template di messaggio disponibili. & \hyperref[UC-2N]{UC-2N} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di visualizzare la lista dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio disponibili. & \hyperref[UC-2N]{UC-2N} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare un elemento della lista dei template di messaggio disponibili. & \hyperref[UC-2N.1]{UC-2N.1} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di visualizzare un elemento della lista dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio disponibili. & \hyperref[UC-2N.1]{UC-2N.1} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare l'oggetto del template. & \hyperref[UC-2N.2]{UC-2N.2} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di visualizzare l'oggetto del template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & \hyperref[UC-2N.2]{UC-2N.2} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il testo del template. & \hyperref[UC-2N.3]{UC-2N.3} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di visualizzare il testo del template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & \hyperref[UC-2N.3]{UC-2N.3} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il codice del template. & \hyperref[UC-2N.4]{UC-2N.4} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di visualizzare il codice del template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & \hyperref[UC-2N.4]{UC-2N.4} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere l'invio del documento e del messaggio associato. & \hyperref[UC-2O]{UC-2O} , \href{\urlcap}{capitolato} & Facoltativo \\
+\autoRF & Il sistema deve permettere l'invio del documento e del messaggio associato. & \hyperref[UC-2O]{UC-2O} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Facoltativo \\
 \hline
-\autoRF &  Il sistema deve permettere di allegare ulteriore contenuto al messaggio. & \hyperref[UC-2O.1]{UC-2O.1} , \href{\urlcap}{capitolato} & Facoltativo \\
+\autoRF &  Il sistema deve permettere di allegare ulteriore contenuto al messaggio. & \hyperref[UC-2O.1]{UC-2O.1} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Facoltativo \\
 \hline
-\autoRF & Il sistema deve permettere di pianificare l'invio del documento e del messaggio associato. & \hyperref[UC-2O.2]{UC-2O.2} , \href{\urlcap}{capitolato} & Facoltativo \\
+\autoRF & Il sistema deve permettere di pianificare l'invio del documento e del messaggio associato. & \hyperref[UC-2O.2]{UC-2O.2} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Facoltativo \\
 \hline
-\autoRF & Il sistema deve permettere il filtraggio della lista dei documenti analizzati. & \hyperref[UC-2P]{UC-2P} & Obbligatorio \\
+\autoRF & Il sistema deve permettere il filtraggio della lista dei documenti analizzati. & \hyperref[UC-2P]{UC-2P} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare la lista dei documenti aggiornata in base ai filtri. & \hyperref[UC-2Q]{UC-2Q} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare la lista dei documenti aggiornata in base ai filtri. & \hyperref[UC-2Q]{UC-2Q} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere il filtraggio della lista dei destinatari. & \hyperref[UC-2R]{UC-2R} & Obbligatorio \\
+\autoRF & Il sistema deve permettere il filtraggio della lista dei destinatari. & \hyperref[UC-2R]{UC-2R} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare la lista dei destinatari aggiornata in base ai filtri. & \hyperref[UC-2S]{UC-2S} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare la lista dei destinatari aggiornata in base ai filtri. & \hyperref[UC-2S]{UC-2S} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere il filtraggio della lista dello storico documenti. & \hyperref[UC-2T]{UC-2T} & Obbligatorio \\
+\autoRF & Il sistema deve permettere il filtraggio della lista dello storico documenti. & \hyperref[UC-2T]{UC-2T} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve mostrare la lista dello storico documenti aggiornata in base ai filtri. & \hyperref[UC-2U]{UC-2U} & Obbligatorio \\
+\autoRF & Il sistema deve mostrare la lista dello storico documenti aggiornata in base ai filtri. & \hyperref[UC-2U]{UC-2U} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di mostrare l'audit di un documento nello storico. & \hyperref[UC-2V]{UC-2V} , \href{\urlcap}{capitolato}  & Obbligatorio \\
+\autoRF & Il sistema deve permettere di mostrare l'audit di un documento nello storico. & \hyperref[UC-2V]{UC-2V} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}}  & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la dashboard con i dati di analytics per l'AI Assistant. & \hyperref[UC-3A]{UC-3A} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} con i dati di analytics per l'AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}}. & \hyperref[UC-3A]{UC-3A} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il numero totale di prompt generati. & \hyperref[UC-3A.1]{UC-3A.1} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il numero totale di prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati. & \hyperref[UC-3A.1]{UC-3A.1} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il rating medio dei prompt generati. & \hyperref[UC-3A.2]{UC-3A.2} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il rating medio dei prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati. & \hyperref[UC-3A.2]{UC-3A.2} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare il numero di rigenerazioni effettuate. & \hyperref[UC-3A.3]{UC-3A.3} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare il numero di rigenerazioni effettuate. & \hyperref[UC-3A.3]{UC-3A.3} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare le statistiche sui toni più utilizzati. & \hyperref[UC-3A.4]{UC-3A.4} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare le statistiche sui toni più utilizzati. & \hyperref[UC-3A.4]{UC-3A.4} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare le statistiche sugli stili più utilizzati. & \hyperref[UC-3A.5]{UC-3A.5} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare le statistiche sugli stili più utilizzati. & \hyperref[UC-3A.5]{UC-3A.5} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la dashboard con i dati di analytics per l'AI Co-Pilot. & \hyperref[UC-3B]{UC-3B} , \href{\urlcap}{capitolato} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} con i dati di analytics per l'AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}. & \hyperref[UC-3B]{UC-3B} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la confidenza media delle analisi documenti. & \hyperref[UC-3B.1]{UC-3B.1} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la confidenza media delle analisi documenti. & \hyperref[UC-3B.1]{UC-3B.1} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare la percentuale di interventi manuali necessari. & \hyperref[UC-3B.2]{UC-3B.2} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare la percentuale di interventi manuali necessari. & \hyperref[UC-3B.2]{UC-3B.2} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare l'accuratezza del mapping dei dati. & \hyperref[UC-3B.3]{UC-3B.3} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare l'accuratezza del mapping dei dati. & \hyperref[UC-3B.3]{UC-3B.3} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve visualizzare i tempi medi di analisi dei documenti. & \hyperref[UC-3B.4]{UC-3B.4} & Obbligatorio \\
+\autoRF & Il sistema deve visualizzare i tempi medi di analisi dei documenti. & \hyperref[UC-3B.4]{UC-3B.4} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di filtrare i dati di analytics per periodo temporale. & \hyperref[UC-3C]{UC-3C} & Obbligatorio \\
+\autoRF & Il sistema deve permettere di filtrare i dati di analytics per periodo temporale. & \hyperref[UC-3C]{UC-3C} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
 
 
@@ -5133,7 +5133,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 
 
 \subsection{Requisiti di qualità\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-Definiscono gli attributi qualitativi del software che influenzano l'esperienza d'uso e la manutenibilità\textsubscript{\scalebox{0.6}{\textbf{G}}} del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}. Spesso indicati come "attributi di qualità\textsubscript{\scalebox{0.6}{\textbf{G}}}" (es. usabilità, affidabilità, manutenibilità\textsubscript{\scalebox{0.6}{\textbf{G}}}).
+Definiscono gli attributi qualitativi del software che influenzano l'esperienza d'uso e la manutenibilità\textsubscript{\scalebox{0.6}{\textbf{G}}} del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}. Spesso indicati come "attributi di qualità\textsubscript{\scalebox{0.6}{\textbf{G}}}" (es. usabilità, affidabilità\textsubscript{\scalebox{0.6}{\textbf{G}}}, manutenibilità\textsubscript{\scalebox{0.6}{\textbf{G}}}).
 \vspace{0.5cm}
 
 \textbf{Caratteristiche}
@@ -5144,15 +5144,15 @@ Definiscono gli attributi qualitativi del software che influenzano l'esperienza 
 
 \vspace{0.5cm}
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
-\caption{Tabella dei requisiti di qualità}\label{tab:reqqualita}\\
+\caption{Tabella dei requisiti di qualità\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{tab:reqqualita}\\
 \hline
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endfirsthead
 
 \multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endhead
 
@@ -5165,17 +5165,17 @@ Definiscono gli attributi qualitativi del software che influenzano l'esperienza 
 \endlastfoot
 
 
-    RQ-01 & Presentare documento analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} contenente diagrammi e descrizioni Use Case & \href{\urlcap}{capitolato} & Obbligatorio \\
+    RQ-01 & Presentare documento analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} contenente diagrammi e descrizioni Use Case & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RQ-02 & Il way of working\textsubscript{\scalebox{0.6}{\textbf{G}}} descritto in Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} deve essere rispettato & Interna & Obbligatorio \\
+    RQ-02 & Il way of working\textsubscript{\scalebox{0.6}{\textbf{G}}} descritto in Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} deve essere rispettato & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RQ-03 & Il Prodotto deve passare tutti i test\textsubscript{\scalebox{0.6}{\textbf{G}}} con la copertura concordata con la proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato}, Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}} & Obbligatorio \\
+    RQ-03 & Il Prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}} deve passare tutti i test\textsubscript{\scalebox{0.6}{\textbf{G}}} con la copertura concordata con la proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}}, Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RQ-04 & Il codice deve essere documentato secondo le linee guida descritte in Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato}, Interna & Obbligatorio \\
+    RQ-04 & Il codice deve essere documentato secondo le linee guida descritte in Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}}, Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RQ-05 & È necessario versionare il codice con appositi strumenti di controllo versione, compreso di istruzioni di setup & \href{\urlcap}{capitolato} & Obbligatorio \\
+    RQ-05 & È necessario versionare il codice con appositi strumenti di controllo versione, compreso di istruzioni di setup & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RQ-06 & Report finale di integrazione e suggerimenti di evoluzione & \href{\urlcap}{capitolato} & Obbligatorio \\
+    RQ-06 & Report finale di integrazione e suggerimenti di evoluzione & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
 
 \end{longtable}
@@ -5186,7 +5186,7 @@ Rappresentano le limitazioni e le restrizioni entro cui il sistema deve essere s
 
 \textbf{Caratteristiche}
 \begin{enumerate}
-    \item Possono essere di natura tecnologica (hardware, linguaggio), normativa (GDPR) o di business (budget).
+    \item Possono essere di natura tecnologica (hardware, linguaggio), normativa (GDPR\textsubscript{\scalebox{0.6}{\textbf{G}}}) o di business (budget).
     \item Sono mandatori e non negoziabili.
 \end{enumerate}
 
@@ -5194,13 +5194,13 @@ Rappresentano le limitazioni e le restrizioni entro cui il sistema deve essere s
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
 \caption{Tabella dei Requisiti Vincolo}\label{tab:reqvincolo}\\
 \hline
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endfirsthead
 
 \multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endhead
 
@@ -5213,17 +5213,17 @@ Rappresentano le limitazioni e le restrizioni entro cui il sistema deve essere s
 \endlastfoot
 
 
-    RV-01 & Git come sistema di controllo versione & \href{\urlcap}{capitolato} & Obbligatorio \\
+    RV-01 & Git come sistema di controllo versione & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RV-02 & API \& Backend devono essere sviluppati in Ruby on Rails\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato} & Obbligatorio \\
+    RV-02 & API\textsubscript{\scalebox{0.6}{\textbf{G}}} \& Backend devono essere sviluppati in Ruby on Rails\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RV-03 & Il database deve essere PostgreSQL\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato} & Obbligatorio \\
+    RV-03 & Il database deve essere PostgreSQL\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RV-04 & Il frontend deve essere sviluppato in Angular\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato} & Obbligatorio \\
+    RV-04 & Il frontend deve essere sviluppato in Angular\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RV-05 & La gestione dei modelli AI deve essere implementata utilizzando AWS Bedrock\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato} & Obbligatorio \\
+    RV-05 & La gestione dei modelli AI\textsubscript{\scalebox{0.6}{\textbf{G}}} deve essere implementata utilizzando AWS Bedrock\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RV-06 & Eventuali background jobs gestiti con Sidekiq e PWA con Next.js & \href{\urlcap}{capitolato}, trattativa con la proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} & Opzionale \\
+    RV-06 & Eventuali background jobs gestiti con Sidekiq e PWA\textsubscript{\scalebox{0.6}{\textbf{G}}} con Next.js & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}}, trattativa con la proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
 
 \end{longtable}
@@ -5243,13 +5243,13 @@ Specificano i parametri numerici relativi all'efficienza\textsubscript{\scalebox
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
 \caption{Tabella dei Requisiti Prestazionali\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{tab:reqprestazionali}\\
 \hline
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endfirsthead
 
 \multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità} \\
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endhead
 
@@ -5262,24 +5262,23 @@ Specificano i parametri numerici relativi all'efficienza\textsubscript{\scalebox
 \endlastfoot
 
 
-    RP-01 & Il sistema deve generare contenuti testuali tramite AI (Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} Assistant) entro 5 secondi per testi fino a 500 parole & Interna & Obbligatorio \\
+    RP-01 & Il sistema deve generare contenuti testuali tramite AI\textsubscript{\scalebox{0.6}{\textbf{G}}} (Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} Assistant) entro 5 secondi per testi fino a 500 parole & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RP-02 & Il sistema deve classificare e partizionare documenti PDF (Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} Co-Pilot) entro 3 secondi per pagina & Interna & Obbligatorio \\
+    RP-02 & Il sistema deve classificare e partizionare documenti PDF (Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}) entro 3 secondi per pagina & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RP-03 & Il tempo di risposta dell'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} utente per operazioni standard deve essere inferiore a 2 secondi & Interna & Obbligatorio \\
+    RP-03 & Il tempo di risposta dell'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} utente per operazioni standard deve essere inferiore a 2 secondi & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RP-04 & Il sistema deve supportare l'upload di file PDF fino a 20 MB & Interna & Obbligatorio \\
+    RP-04 & Il sistema deve supportare l'upload di file PDF fino a 20 MB & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RP-05 & La Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} di Analytics deve caricare le statistiche entro 3 secondi per dataset fino a 1000 documenti & Interna & Desiderabile \\
+    RP-05 & La Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} di Analytics deve caricare le statistiche entro 3 secondi per dataset fino a 1000 documenti & Interna & Desiderabile\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RP-06 & Il sistema deve garantire una disponibilità del 99\% durante l'orario lavorativo (8:00-18:00) & Interna & Desiderabile \\
+    RP-06 & Il sistema deve garantire una disponibilità del 99\% durante l'orario lavorativo (8:00-18:00) & Interna & Desiderabile\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RP-07 & Il sistema deve essere in grado di processare almeno 50 documenti in parallelo senza degrado delle performance & Interna & Desiderabile \\
+    RP-07 & Il sistema deve essere in grado di processare almeno 50 documenti in parallelo senza degrado delle performance & Interna & Desiderabile\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RP-08 & Il tempo di estrazione OCR per documenti scansionati deve essere inferiore a 5 secondi per pagina & Interna & Obbligatorio \\
+    RP-08 & Il tempo di estrazione OCR\textsubscript{\scalebox{0.6}{\textbf{G}}} per documenti scansionati deve essere inferiore a 5 secondi per pagina & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
 
 \end{longtable}
-
 
 \end{document}
