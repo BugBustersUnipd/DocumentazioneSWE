@@ -409,8 +409,8 @@ TS-F-004 & Verifica\G che il sistema permetta all'utente di inserire l'username 
 TS-F-005 & Verifica\G che il sistema permetta all'utente di inserire il nome durante la registrazione. & RF-5 & NI \\ \hline
 TS-F-006 & Verifica\G che il sistema permetta all'utente di inserire il cognome durante la registrazione. & RF-6 & NI \\ \hline
 TS-F-007 & Verifica\G che il sistema permetta all'utente di inserire la propria matricola durante la registrazione. & RF-7 & NI \\ \hline
-TS-F-008 & Verifica\G che il sistema visualizzi un errore se l'email non è valida. & RF-8 & NI \\ \hline
-TS-F-009 & Verifica\G che il sistema visualizzi un errore se la password non rispetta i criteri di sicurezza\G. & RF-9 & NI \\ \hline
+TS-F-008 & Verifica\G che il sistema permetta la visualizzazione di un errore se l'email non è valida. & RF-8 & NI \\ \hline
+TS-F-009 & Verifica\G che il sistema permetta la visualizzazione di un errore se la password non rispetta i criteri di sicurezza\G. & RF-9 & NI \\ \hline
 TS-F-010 & Verifica\G che il sistema impedisca la registrazione se
 l’email inserita è già associata a un account
 esistente. & RF-10 & NI \\ \hline
@@ -419,7 +419,7 @@ lo username inserito è già utilizzato. & RF-11 & NI \\ \hline
 TS-F-012 & Verifica\G che il sistema impedisca la registrazione
 se la matricola inserita è già presente nel
 sistema. & RF-12 & NI \\ \hline
-TS-F-013 & Verifica\G che il sistema visualizzi un messaggio
+TS-F-013 & Verifica\G che il sistema permetta la visualizzazione di un messaggio
 di errore se il formato della matricola non è
 valido. & RF-13 & NI \\ \hline
 TS-F-014 & Verifica\G che il sistema permetta all'utente di effettuare il login (autenticazione). & RF-14 & NI \\ \hline
@@ -445,7 +445,6 @@ TS-F-025 & Verifica\G che il sistema gestisca l’uscita dal-
 la modifica profilo senza salvare i
 cambiamenti. & RF-25 & NI \\ \hline
 
-% --- ASSISTANT (AI) (RF 26-39) ---
 TS-F-026 & Verifica\G che Il sistema permetta all’Ammini-
 stratore di visualizzare la lista degli utenti
 registrati. & RF-26 & NI \\ \hline
@@ -477,19 +476,19 @@ TS-F-039 & Verifica\G che il sistema mostri i dettagli completi
 di un elemento selezionato dallo storico. & RF-39 & NI \\ \hline
 
 % --- CO-PILOT (DOCUMENTI) (RF 40-54) ---
-TS-F-040 & Verifica\G che Il sistema visualizzi lo stile utilizzato
+TS-F-040 & Verifica\G che il sistema permetta la visualizzazione dello stile utilizzato
 per un contenuto nello storico. & RF-40 & NI \\ \hline
-TS-F-041 & Verifica\G che il sistema visualizzi il testo del
+TS-F-041 & Verifica\G che il sistema permetta la visualizzazione del testo del
 risultato generato nello storico. & RF-41 & NI \\ \hline
-TS-F-042 & Verifica\G che il sistema visualizzi il timestamp
+TS-F-042 & Verifica\G che il sistema permetta la visualizzazione del timestamp
 (data/ora) della generazione nello storico. & RF-42 & NI \\ \hline
-TS-F-043 & Verifica\G che il sistema visualizzi la valutazio-
+TS-F-043 & Verifica\G che il sistema permetta la visualizzazione della valutazio-
 ne assegnata dall’utente al contenuto nello
 storico. & RF-43 & NI \\ \hline
-TS-F-044 & Verifica\G che il sistema visualizzi il prompt\G ori-
+TS-F-044 & Verifica\G che il sistema permetta la visualizzazione del prompt\G ori-
 ginale utilizzato per un contenuto nello
 storico. & RF-44 & NI \\ \hline
-TS-F-045 & Verifica\G che il sistema visualizzi il tono utilizzato
+TS-F-045 & Verifica\G che il sistema permetta la visualizzazione del tono utilizzato
 per un contenuto nello storico. & RF-45 & NI \\ \hline
 TS-F-046 & Verifica\G che il sistema mostri un’anteprima del
 contenuto generato dall’AI\G. & RF-46 & NI \\ \hline
@@ -513,8 +512,7 @@ parametri. & RF-53 & NI \\ \hline
 TS-F-054 & Verifica\G che il sistema permetta di filtrare la lista
 delle generazioni nello storico. & RF-54 & NI \\ \hline
 
-% --- ANALYTICS (RF 55-61) ---
-TS-F-055 & Verifica\G che il sistema visualizzi la lista dello
+TS-F-055 & Verifica\G che il sistema permetta la visualizzazione della lista dello
 storico aggiornata in base ai filtri applicati. & RF-55 & NI \\ \hline
 TS-F-056 & Verifica\G che il sistema permetta di rigenera-
 re un contenuto tramite AI\G mantenendo i
@@ -532,7 +530,6 @@ TS-F-061 & Verifica\G che il sistema permetta all’utente l’eli-
 minazione di un tono per la generazione di
 contenuti & RF-61 & NI \\ \hline
 
-% --- REQUISITI AGGIUNTIVI E DI SUPPORTO (RF 62-132) ---
 TS-F-062 & Verifica\G che il sistema permetta all’utente l’inse-
 rimento di un nuovo stile per la generazione
 di contenuti. & RF-62 & NI \\ \hline
@@ -551,34 +548,34 @@ TS-F-068 & Verifica\G che il sistema permetta l’inserimento del
 reparto associato al documento. & RF-68 & NI \\ \hline
 TS-F-069 & Verifica\G che il sistema permetta di controllare la
 correttezza del formato del file inserito. & RF-69 & NI \\ \hline
-TS-F-070 & Verifica\G che il sistema permetta controllare che lo
+TS-F-070 & Verifica\G che il sistema permetta di controllare che lo
 stesso file non sia già stato analizzato. & RF-70 & NI \\ \hline
 TS-F-071 & Verifica\G che il sistema permetta lo split di do-
 cumenti diversi all’interno dello stesso
 file. & RF-71 & NI \\ \hline
-TS-F-072 & Verifica\G che il sistema visualizzi la lista dei
+TS-F-072 & Verifica\G che il sistema permetta la visualizzazione della lista dei
 documenti analizzati. & RF-72 & NI \\ \hline
 TS-F-073 & Verifica\G che il sistema notifichi l’utente se nessun
 documento è stato riconosciuto dall’analisi. & RF-73 & NI \\ \hline
 TS-F-074 & Verifica\G che il sistema permetta di visualizzare i
 dettagli di un singolo documento dalla lista. & RF-74 & NI \\ \hline
-TS-F-075 & Verifica\G che il sistema visualizzare la competenza
+TS-F-075 & Verifica\G che il sistema permetta la visualizzazione della competenza
 (periodo) del documento analizzato. & RF-75 & NI \\ \hline
-TS-F-076 & Verifica\G che il sistema visualizzi l’azienda
+TS-F-076 & Verifica\G che il sistema permetta la visualizzazione dell’azienda
 associata al documento analizzato. & RF-76 & NI \\ \hline
-TS-F-077 & Verifica\G che il sistema visualizzi la causale del
+TS-F-077 & Verifica\G che il sistema permetta la visualizzazione della causale del
 documento analizzato. & RF-77 & NI \\ \hline
-TS-F-078 & Verifica\G che il sistema visualizzi la lingua rilevata
+TS-F-078 & Verifica\G che il sistema permetta la visualizzazione della lingua rilevata
 nel documento. & RF-78 & NI \\ \hline
-TS-F-079 & Verifica\G che il sistema visualizzi il numero di
+TS-F-079 & Verifica\G che il sistema permetta la visualizzazione del numero di
 pagine del documento. & RF-79 & NI \\ \hline
-TS-F-080 & Verifica\G che il sistema visualizzi il nome originale
+TS-F-080 & Verifica\G che il sistema permetta la visualizzazione del nome originale
 del file del documento. & RF-80 & NI \\ \hline
-TS-F-081 & Verifica\G che il sistema visualizzi la data di
+TS-F-081 & Verifica\G che il sistema permetta la visualizzazione della data di
 redazione/caricamento del documento. & RF-81 & NI \\ \hline
-TS-F-082 & Verifica\G che il sistema visualizzi il codice
+TS-F-082 & Verifica\G che il sistema permetta la visualizzazione del codice
 identificativo del documento. & RF-82 & NI \\ \hline
-TS-F-083 & Verifica\G che il sistema visualizzi la tipologia del
+TS-F-083 & Verifica\G che il sistema permetta la visualizzazione della tipologia del
 documento. & RF-83 & NI \\ \hline
 TS-F-084 & Verifica\G che il sistema mostri l’anteprima visiva
 del documento analizzato. & RF-84 & NI \\ \hline
@@ -588,31 +585,31 @@ TS-F-086 & Verifica\G che il sistema permetta di modificare la
 tipologia del documento. & RF-86 & NI \\ \hline
 TS-F-087 & Verifica\G che il sistema ricalcoli la percentuale di
 confidenza dopo modifiche manuali. & RF-87 & NI \\ \hline
-TS-F-088 & Verifica\G che il sistema visualizzi la lista delle
+TS-F-088 & Verifica\G che il sistema permetta la visualizzazione della lista delle
 informazioni sui destinatari estratti. & RF-88 & NI \\ \hline
-TS-F-089 & Verifica\G che il sistema permetta di visualizzare i
+TS-F-089 & Verifica\G che il sistema permetta la visualizzazione dei
 dettagli di un singolo destinatario in lista. & RF-89 & NI \\ \hline
-TS-F-090 & Verifica\G che il sistema visualizzi il codice fiscale
+TS-F-090 & Verifica\G che il sistema permetta la visualizzazione del codice fiscale
 del destinatario. & RF-90 & NI \\ \hline
-TS-F-091 & Verifica\G che il sistema visualizzi la matricola del
+TS-F-091 & Verifica\G che il sistema permetta la visualizzazione della matricola del
 destinatario. & RF-91 & NI \\ \hline
-TS-F-092 & Verifica\G che il sistema visualizzi il reparto del
+TS-F-092 & Verifica\G che il sistema permetta la visualizzazione del reparto del
 destinatario. & RF-92 & NI \\ \hline
-TS-F-093 & Verifica\G che il sistema visualizzi il
+TS-F-093 & Verifica\G che il sistema permetta la visualizzazione del
 nome/cognome del destinatario. & RF-93 & NI \\ \hline
 TS-F-094 & Verifica\G che il sistema notifichi se nessun
 destinatario è stato riconosciuto. & RF-94 & NI \\ \hline
-TS-F-095 & Verifica\G che il sistema visualizzi lo storico
+TS-F-095 & Verifica\G che il sistema permetta la visualizzazione dello storico
 completo dei documenti processati. & RF-95 & NI \\ \hline
 TS-F-096 & Verifica\G che il sistema notifichi l’assenza di
 documenti nello storico. & RF-96 & NI \\ \hline
-TS-F-097 & Verifica\G che il sistema visualizzi i dettagli di un
+TS-F-097 & Verifica\G che il sistema permetta la visualizzazione dei dettagli di un
 elemento nello storico documenti. & RF-97 & NI \\ \hline
-TS-F-098 & Verifica\G che il sistema visualizzi la percentuale di
+TS-F-098 & Verifica\G che il sistema permetta la visualizzazione della percentuale di
 confidenza dell’analisi nello storico. & RF-98 & NI \\ \hline
-TS-F-099 & Verifica\G che il sistema visualizzi l’appartenenza
+TS-F-099 & Verifica\G che il sistema permetta la visualizzazione dell’appartenenza
 alle liste di distribuzione. & RF-99 & NI \\ \hline
-TS-F-100 & Verifica\G che il sistema visualizzi lo stato di
+TS-F-100 & Verifica\G che il sistema permetta la visualizzazione dello stato di
 elaborazione del documento. & RF-100 & NI \\ \hline
 TS-F-101 & Verifica\G che il sistema permetta di caricare un
 template\G di messaggio esistente. & RF-101 & NI \\ \hline
@@ -656,27 +653,27 @@ TS-F-119 & Verifica\G che il sistema mostri la lista dello storico
 documenti aggiornata in base ai filtri. & RF-119 & NI \\ \hline
 TS-F-120 & Verifica\G che il sistema permetta di mostrare
 l’audit di un documento nello storico. & RF-120 & NI \\ \hline
-TS-F-121 & Verifica\G che il sistema visualizzi la dashboard\G
+TS-F-121 & Verifica\G che il sistema permetta la visualizzazione della dashboard\G
 con i dati di analytics per l’AI\G Assistant. & RF-121 & NI \\ \hline
-TS-F-122 & Verifica\G che il sistema visualizzi il numero totale
+TS-F-122 & Verifica\G che il sistema permetta la visualizzazione del numero totale
 di prompt\G generati. & RF-122 & NI \\ \hline
-TS-F-123 & Verifica\G che il sistema visualizzi il rating medio
+TS-F-123 & Verifica\G che il sistema permetta la visualizzazione del rating medio
 dei prompt\G generati. & RF-123 & NI \\ \hline
-TS-F-124 & Verifica\G che il sistema visualizzi il numero di
+TS-F-124 & Verifica\G che il sistema permetta la visualizzazione del numero di
 rigenerazioni effettuate. & RF-124 & NI \\ \hline
-TS-F-125 & Verifica\G che il sistema visualizzi le statistiche sui
+TS-F-125 & Verifica\G che il sistema permetta la visualizzazione delle statistiche sui
 toni più utilizzati. & RF-125 & NI \\ \hline
-TS-F-126 & Verifica\G che il sistema visualizzi le statistiche
+TS-F-126 & Verifica\G che il sistema permetta la visualizzazione delle statistiche
 sugli stili più utilizzati. & RF-126 & NI \\ \hline
-TS-F-127 & Verifica\G che il sistema visualizzi la dashboard\G
+TS-F-127 & Verifica\G che il sistema permetta la visualizzazione della dashboard\G
 con i dati di analytics per l’AI Co-Pilot\G. & RF-127 & NI \\ \hline
-TS-F-128 & Verifica\G che il sistema visualizzi la confidenza
+TS-F-128 & Verifica\G che il sistema permetta la visualizzazione della confidenza
 media delle analisi documenti. & RF-128 & NI \\ \hline
-TS-F-129 & Verifica\G che il sistema visualizzi la percentuale di
+TS-F-129 & Verifica\G che il sistema permetta la visualizzazione della percentuale di
 interventi manuali necessari. & RF-129 & NI \\ \hline
-TS-F-130 & Verifica\G che il sistema visualizzi l’accuratezza del
+TS-F-130 & Verifica\G che il sistema permetta la visualizzazione dell’accuratezza del
 mapping dei dati. & RF-130 & NI \\ \hline
-TS-F-131 & Verifica\G che il sistema visualizzi i tempi medi di
+TS-F-131 & Verifica\G che il sistema permetta la visualizzazione dei tempi medi di
 analisi dei documenti. & RF-131 & NI \\ \hline
 TS-F-132 & Verifica\G che il sistema permetta di filtrare i dati
 di analytics per periodo temporale. & RF-132 & NI \\ \hline
