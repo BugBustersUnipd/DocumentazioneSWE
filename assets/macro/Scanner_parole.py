@@ -11,6 +11,7 @@ MIGLIORAMENTI:
 - Gestione acronimi: POC (Proof of Concept) → cerca sia "POC" che "Proof of Concept"
 - Gestione traduzioni: Affidabilità (Reliability) → cerca entrambe
 - Pattern regex migliorati per acronimi e termini speciali
+- Supporto per entrambi i formati di TAG: \textsubscript{\scalebox{0.6}{\textbf{G}}} e \G
 """
 
 import tkinter as tk
@@ -21,7 +22,8 @@ import json
 from pathlib import Path
 
 # --------------------------- COSTANTI --------------------------------
-TAG_G = r"\textsubscript{\scalebox{0.6}{\textbf{G}}}"
+TAG_G_FULL = r"\textsubscript{\scalebox{0.6}{\textbf{G}}}"
+TAG_G_SHORT = r"\G"
 
 # ------------------------- FUNZIONI PARSING GLOSSARIO -----------------
 
@@ -186,10 +188,79 @@ def generate_term_variants(term):
     
     return variants
 
+def is_inside_url_or_path(text, start, end):
+    """
+    Verifica se una posizione nel testo deve essere ESCLUSA dall'analisi.
+    Ritorna True se il termine è dentro:
+    - Comandi LaTeX con path (\includegraphics, \input, ecc.)
+    - URL reali
+    - Percorsi assoluti di filesystem
+    """
+    # Espandi il contesto intorno alla posizione trovata
+    context_start = max(0, start - 150)
+    context_end = min(len(text), end + 50)
+    context = text[context_start:context_end]
+    
+    # Posizione relativa nel contesto
+    rel_start = start - context_start
+    rel_end = end - context_start
+    
+    # Controlla se siamo dentro un comando LaTeX con argomento tra graffe
+    # Pattern: \comando{...contenuto...}
+    latex_commands_with_paths = [
+        r'\\includegraphics(?:\[[^\]]*\])?\{[^}]+\}',
+        r'\\input\{[^}]+\}',
+        r'\\include\{[^}]+\}',
+        r'\\graphicspath\{\{[^}]+\}\}',
+        r'\\bibliographystyle\{[^}]+\}',
+        r'\\bibliography\{[^}]+\}',
+    ]
+    
+    for pattern in latex_commands_with_paths:
+        for match in re.finditer(pattern, context):
+            match_start, match_end = match.span()
+            # Se siamo dentro questo comando LaTeX, ESCLUDI
+            if match_start <= rel_start < match_end or match_start < rel_end <= match_end:
+                return True  # ESCLUDI, è dentro un comando LaTeX
+    
+    # Controlla URL VERI (devono essere completi con protocollo o www)
+    url_patterns = [
+        r'https?://[^\s\}]+',     # http:// o https://
+        r'www\.[^\s\}]+',          # www.
+        r'ftp://[^\s\}]+',         # ftp://
+    ]
+    
+    for pattern in url_patterns:
+        for match in re.finditer(pattern, context):
+            match_start, match_end = match.span()
+            if match_start <= rel_start < match_end or match_start < rel_end <= match_end:
+                return True  # È dentro un URL vero, ESCLUDI
+    
+    # Controlla percorsi ASSOLUTI di filesystem (non relativi)
+    # Solo percorsi che iniziano con C:\ o /home/ o /var/ ecc.
+    absolute_path_patterns = [
+        r'[A-Za-z]:\\[^\s\}]+',                    # Windows assoluto: C:\Users\...
+        r'/(?:home|var|usr|opt|etc|tmp)/[^\s\}]+', # Unix assoluto comune
+    ]
+    
+    for pattern in absolute_path_patterns:
+        for match in re.finditer(pattern, context):
+            match_start, match_end = match.span()
+            if match_start <= rel_start < match_end or match_start < rel_end <= match_end:
+                return True  # È dentro un path assoluto vero, ESCLUDI
+    
+    return False  # Non è in nessun contesto da escludere, INCLUDI nell'analisi
+
 def find_occurrences_with_tag(text, term):
     """
     Cerca tutte le occorrenze case-insensitive di un termine e le sue varianti.
     Ritorna lista di tuple: (start, end, lineno, line_text, tag_present, matched_variant)
+    
+    MODIFICATO: 
+    - Ora cerca sia TAG_G_FULL che TAG_G_SHORT
+    - Esclude occorrenze all'interno di URL e percorsi file
+    - Gestisce TAG dopo acronimi: "Requirements and Technology Baseline (RTB)\G" 
+      tagga sia il termine completo che l'acronimo
     """
     results = []
     variants = generate_term_variants(term)
@@ -201,81 +272,144 @@ def find_occurrences_with_tag(text, term):
         if re.match(r'^[A-Z]{2,}$', variant):
             # Per acronimi usa lookahead/lookbehind per evitare match parziali
             # Es: "POC" non deve matchare "EPOCH"
-            pattern = r'(?<![a-zA-Z])' + re.escape(variant) + r'(?![a-zA-Z])'
+            pattern = r'(?<![A-Za-z])' + re.escape(variant) + r'(?![A-Za-z])'
+            flags = 0  # case-sensitive per acronimi
         
-        # 2. Frasi multi-parola
-        elif ' ' in variant:
-            # Per frasi con spazi, assicurati che non ci siano caratteri word prima/dopo
-            pattern = r'(?<!\w)' + re.escape(variant) + r'(?!\w)'
+        # 2. Termini con trattini (es: "Test-Driven Development")
+        elif '-' in variant:
+            # Permetti match anche con spazi invece dei trattini
+            # Es: "Test-Driven" matcha anche "Test Driven"
+            escaped = re.escape(variant).replace(r'\-', r'[\s\-]')
+            pattern = r'\b' + escaped + r'\b'
+            flags = re.IGNORECASE
         
-        # 3. Parole singole normali
+        # 3. Termini normali
         else:
-            # Usa word boundary standard
+            # Match standard con word boundary
             pattern = r'\b' + re.escape(variant) + r'\b'
+            flags = re.IGNORECASE
         
-        # Cerca tutte le occorrenze (case-insensitive)
-        for match in re.finditer(pattern, text, re.IGNORECASE):
-            start = match.start()
-            end = match.end()
+        # Cerca tutte le occorrenze
+        for match in re.finditer(pattern, text, flags):
+            start, end = match.span()
             
-            # Calcola numero di riga
-            lineno = text[:start].count("\n") + 1
-            lines = text.splitlines()
-            line_text = lines[lineno - 1] if 0 <= lineno - 1 < len(lines) else ""
+            # SALTA occorrenze all'interno di URL o percorsi file
+            if is_inside_url_or_path(text, start, end):
+                continue
             
-            # Cerca TAG_G dopo la parola (salta solo spazi bianchi)
-            after_idx = end
-            max_skip = 100
-            skipped = 0
+            # Trova numero di riga e contenuto riga
+            lineno = text[:start].count('\n') + 1
+            line_start = text.rfind('\n', 0, start) + 1
+            line_end = text.find('\n', end)
+            if line_end == -1:
+                line_end = len(text)
+            line_text = text[line_start:line_end].strip()
             
-            while after_idx < len(text) and skipped < max_skip and text[after_idx].isspace():
-                after_idx += 1
-                skipped += 1
+            # Verifica presenza TAG subito dopo il match
+            # MODIFICATO: Cerca ENTRAMBI i formati di TAG come comandi LaTeX
+            after_match = text[end:end+200]
             
-            tag_present = text.startswith(TAG_G, after_idx)
+            # Cerca il TAG corto (\G) - deve essere un comando LaTeX completo
+            # Pattern: \G seguito da qualsiasi carattere NON alfabetico (o fine stringa)
+            # MODIFICATO: Permette anche } e ) prima di \G per gestire \textit{termine}\G e (RTB)\G
+            tag_short_match = re.match(r'[\)\s\}]*\\G(?:[^a-zA-Z]|$)', after_match)
             
-            # Verifica che tra parola e tag ci siano SOLO spazi bianchi
-            if tag_present:
-                text_between = text[end:after_idx]
-                if text_between.strip():  # Se c'è qualcosa oltre agli spazi
-                    tag_present = False
+            # Cerca il TAG completo - escapa le parentesi graffe ma non i backslash
+            tag_full_pattern = r'\\textsubscript\{\\scalebox\{0\.6\}\{\\textbf\{G\}\}\}'
+            tag_full_match = re.match(r'[\)\s\}]*' + tag_full_pattern, after_match)
             
-            results.append((start, end, lineno, line_text.strip(), tag_present, variant))
+            # NUOVO: Gestione TAG dopo acronimo in parentesi
+            # Pattern: "Termine (ACRONIMO)\G" o "Termine (**ACRONIMO**)\G"
+            # Permette spazi, markdown (*, _), } tra termine e acronimo E dentro le parentesi
+            # La } è necessaria per termini in \textit{...} o \textbf{...}
+            acronym_with_tag_pattern = r'[\s\*\_\}]*\([\s\*\_]*[A-Z]{2,}[\s\*\_]*\)[\s\*\_]*\\G(?:[^a-zA-Z]|$)'
+            acronym_tag_match = re.match(acronym_with_tag_pattern, after_match)
+            
+            # Anche con TAG completo dopo acronimo
+            acronym_with_full_tag_pattern = r'[\s\*\_\}]*\([\s\*\_]*[A-Z]{2,}[\s\*\_]*\)[\s\*\_]*' + tag_full_pattern
+            acronym_full_tag_match = re.match(acronym_with_full_tag_pattern, after_match)
+            
+            tag_present = bool(tag_short_match or tag_full_match or 
+                             acronym_tag_match or acronym_full_tag_match)
+            
+            results.append((start, end, lineno, line_text, tag_present, variant))
     
     return results
 
-def analyze_text(text, phrases, progress_callback=None):
+def analyze_text(text, terms, progress_callback=None):
     """
-    Analizza il testo cercando i termini del glossario (versione migliorata).
+    Analizza un testo LaTeX e trova:
+    1. Termini del glossario presenti nel testo ma SENZA TAG G
+    2. Termini del glossario MAI citati nel documento
+    
+    MODIFICATO: 
+    - Ora riconosce sia TAG_G_FULL che TAG_G_SHORT
+    - Gestisce priorità: termini più lunghi/specifici hanno precedenza su quelli più corti
+      (es: "Verbale interno" ha priorità su "Verbale")
+    - Per acronimi (es: "RTB (Requirements and Technology Baseline)"), se una variante
+      ha il TAG, tutte le varianti sono considerate taggate
     """
-    terms_with_missing_tag = {}  # Termini presenti ma senza TAG
-    terms_not_found = []  # Termini non presenti nel documento
+    # Ordina i termini per lunghezza decrescente per dare priorità ai termini più specifici
+    # Es: "Verbale interno" verrà processato prima di "Verbale"
+    sorted_terms = sorted(terms, key=lambda t: len(t), reverse=True)
     
-    total = len(phrases)
+    terms_with_missing_tag = {}  # Termini trovati nel testo senza TAG
+    terms_not_found = []          # Termini mai citati
     
-    for i, phrase in enumerate(phrases):
-        if progress_callback:
+    # Teniamo traccia delle posizioni già coperte da termini più specifici
+    # per evitare che "Verbale" matchi in "Verbale interno\G"
+    covered_positions = set()
+    
+    total = len(sorted_terms)
+    
+    for i, term in enumerate(sorted_terms):
+        if progress_callback and i % 10 == 0:
             progress = (i / total) * 100
-            progress_callback(progress, f"Analisi termine {i+1}/{total}: {phrase[:30]}...")
+            progress_callback(progress, f"Analisi termine {i+1}/{total}...")
         
-        # Usa la funzione migliorata che gestisce varianti
-        occurrences = find_occurrences_with_tag(text, phrase)
+        # Cerca occorrenze del termine e sue varianti
+        occurrences = find_occurrences_with_tag(text, term)
         
-        if not occurrences:
-            # Nessuna occorrenza trovata per questo termine
-            terms_not_found.append(phrase)
+        # Filtra le occorrenze che non sono già coperte da termini più specifici
+        valid_occurrences = []
+        for start, end, lineno, line_text, tag_present, variant in occurrences:
+            # Controlla se questa posizione è già stata coperta
+            position_range = set(range(start, end))
+            if not position_range & covered_positions:  # Nessuna sovrapposizione
+                valid_occurrences.append((start, end, lineno, line_text, tag_present, variant))
+                # Marca queste posizioni come coperte
+                covered_positions.update(position_range)
+        
+        if not valid_occurrences:
+            # Termine mai citato (o tutte le sue occorrenze erano già coperte)
+            if not any(set(range(s, e)) & covered_positions 
+                      for s, e, _, _, _, _ in occurrences):
+                terms_not_found.append(term)
         else:
-            # Filtra solo le occorrenze SENZA TAG
+            # GESTIONE ACRONIMI: Se almeno UNA variante ha il TAG in una occorrenza,
+            # consideriamo TUTTE le occorrenze di TUTTE le varianti come taggate
+            
+            # Raggruppa occorrenze per riga
+            occurrences_by_line = {}
+            for start, end, lineno, line_text, tag_present, variant in valid_occurrences:
+                if lineno not in occurrences_by_line:
+                    occurrences_by_line[lineno] = []
+                occurrences_by_line[lineno].append((start, end, line_text, tag_present, variant))
+            
+            # Per ogni riga, se ALMENO UNA variante ha il TAG, considera tutte taggate
             matches_without_tag = []
+            for lineno, line_occurrences in occurrences_by_line.items():
+                # Controlla se almeno una variante in questa riga ha il TAG
+                has_any_tag = any(tag_present for _, _, _, tag_present, _ in line_occurrences)
+                
+                if not has_any_tag:
+                    # Nessuna variante ha il TAG in questa riga, segnala tutte
+                    for start, end, line_text, tag_present, variant in line_occurrences:
+                        matches_without_tag.append((lineno, line_text, variant))
             
-            for (start, end, lineno, line_text, tag_present, matched_variant) in occurrences:
-                if not tag_present:
-                    matches_without_tag.append((lineno, line_text, matched_variant))
-            
-            # Se ci sono occorrenze senza TAG, registrale
             if matches_without_tag:
-                terms_with_missing_tag[phrase] = {
-                    "count": len(occurrences),
+                terms_with_missing_tag[term] = {
+                    "total_matches": len(valid_occurrences),
                     "matches_without_tag": matches_without_tag
                 }
     
@@ -285,166 +419,144 @@ def analyze_text(text, phrases, progress_callback=None):
     return terms_with_missing_tag, terms_not_found
 
 def find_latex_files(path):
-    """Trova tutti i file .tex/.latex in una directory e sottodirectory"""
+    """Trova tutti i file .tex in un percorso (file o directory)"""
+    if os.path.isfile(path):
+        return [path] if path.endswith('.tex') else []
+    
     latex_files = []
-    path_obj = Path(path)
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if file.endswith('.tex'):
+                latex_files.append(os.path.join(root, file))
     
-    if path_obj.is_file():
-        if path_obj.suffix in ['.tex', '.latex']:
-            latex_files.append(str(path_obj))
-    elif path_obj.is_dir():
-        for ext in ['*.tex', '*.latex']:
-            latex_files.extend([str(f) for f in path_obj.rglob(ext)])
-    
-    return sorted(latex_files)
+    return latex_files
 
-# ----------------------------- GUI -----------------------------------
+# ---------------------------- GUI ------------------------------------
 
 class GlossaryApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("🔍 Scanner Glossario Automatico (Migliorato)")
-        self.root.geometry("1100x750")
-        self.root.minsize(900, 650)
+        self.root.title("Scanner Glossario Automatico v2.1 - Supporto TAG \\G")
+        self.root.geometry("1000x750")
         
-        # Variabili
+        self.terms = []
         self.glossary_path_var = tk.StringVar()
         self.doc_path_var = tk.StringVar()
-        self.analyze_mode_var = tk.StringVar(value="single")  # single o folder
+        
         self.terms_with_missing_tag = None
         self.terms_not_found = None
-        self.terms = []
         
-        self.setup_ui()
+        self.create_widgets()
         
-    def setup_ui(self):
-        """Crea l'interfaccia utente"""
-        main_frame = ttk.Frame(self.root, padding="10")
-        main_frame.pack(fill=tk.BOTH, expand=True)
+    def create_widgets(self):
+        """Crea l'interfaccia grafica"""
         
-        # Header
-        header_frame = ttk.Frame(main_frame)
-        header_frame.pack(fill=tk.X, pady=(0, 10))
+        # ========== FRAME SUPERIORE: Selezione Glossario ==========
+        glossary_frame = ttk.LabelFrame(self.root, text="📚 1. Carica Glossario", padding=10)
+        glossary_frame.pack(fill="x", padx=10, pady=5)
         
-        title_label = tk.Label(header_frame, text="🔍 Scanner Glossario Automatico (v2.0)", 
-                              font=("Arial", 14, "bold"), foreground="#2c3e50")
-        title_label.pack(anchor=tk.W)
-        
-        subtitle_label = tk.Label(header_frame, 
-                                 text="Gestisce acronimi, traduzioni e termini speciali • Case-insensitive",
-                                 font=("Arial", 9), foreground="#7f8c8d")
-        subtitle_label.pack(anchor=tk.W)
-        
-        # Controlli
-        controls_frame = ttk.LabelFrame(main_frame, text="Configurazione", padding="8")
-        controls_frame.pack(fill=tk.X, pady=(0, 10))
-        
-        # Selezione glossario
-        glossary_frame = ttk.Frame(controls_frame)
-        glossary_frame.pack(fill=tk.X, pady=5)
-        
-        ttk.Label(glossary_frame, text="File Glossario:").pack(side=tk.LEFT)
-        
-        self.glossary_entry = ttk.Entry(glossary_frame, textvariable=self.glossary_path_var, width=50)
-        self.glossary_entry.pack(side=tk.LEFT, padx=5, fill=tk.X, expand=True)
-        
+        ttk.Label(glossary_frame, text="File glossario (.tex o .json):").grid(
+            row=0, column=0, sticky="w", padx=5)
+        ttk.Entry(glossary_frame, textvariable=self.glossary_path_var, width=60).grid(
+            row=0, column=1, padx=5)
         ttk.Button(glossary_frame, text="Sfoglia...", 
-                  command=self.choose_glossary).pack(side=tk.LEFT, padx=2)
+                  command=self.browse_glossary).grid(row=0, column=2, padx=5)
         ttk.Button(glossary_frame, text="Carica Termini", 
-                  command=self.load_terms).pack(side=tk.LEFT, padx=2)
+                  command=self.load_glossary).grid(row=0, column=3, padx=5)
         
         # Progress bar per caricamento glossario
-        self.glossary_progress_frame = ttk.Frame(controls_frame)
-        self.glossary_progress_frame.pack(fill=tk.X, pady=2)
+        self.glossary_progress = ttk.Progressbar(glossary_frame, mode='determinate', length=400)
+        self.glossary_progress.grid(row=1, column=0, columnspan=4, pady=5, sticky="ew")
         
-        self.glossary_progress = ttk.Progressbar(
-            self.glossary_progress_frame, mode='determinate', length=400
-        )
-        self.glossary_progress.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=5)
+        self.glossary_progress_label = ttk.Label(glossary_frame, text="")
+        self.glossary_progress_label.grid(row=2, column=0, columnspan=4)
         
-        self.glossary_progress_label = tk.Label(
-            self.glossary_progress_frame, text="", 
-            font=("Arial", 8), foreground="#7f8c8d"
-        )
-        self.glossary_progress_label.pack(side=tk.LEFT, padx=5)
+        # ========== FRAME CENTRALE: Selezione Documento ==========
+        doc_frame = ttk.LabelFrame(self.root, text="📄 2. Seleziona Documento/Cartella", padding=10)
+        doc_frame.pack(fill="x", padx=10, pady=5)
         
-        # Info termini caricati
-        self.terms_info_label = tk.Label(controls_frame, 
-                                        text="Termini caricati: 0",
-                                        font=("Arial", 9), foreground="#27ae60")
-        self.terms_info_label.pack(anchor=tk.W, pady=5)
+        ttk.Label(doc_frame, text="File/Cartella da analizzare:").grid(
+            row=0, column=0, sticky="w", padx=5)
+        ttk.Entry(doc_frame, textvariable=self.doc_path_var, width=60).grid(
+            row=0, column=1, padx=5)
+        ttk.Button(doc_frame, text="File...", 
+                  command=self.browse_file).grid(row=0, column=2, padx=5)
+        ttk.Button(doc_frame, text="Cartella...", 
+                  command=self.browse_folder).grid(row=0, column=3, padx=5)
         
-        # Modalità analisi
-        mode_frame = ttk.Frame(controls_frame)
-        mode_frame.pack(fill=tk.X, pady=5)
+        # ========== FRAME ANALISI ==========
+        analysis_frame = ttk.LabelFrame(self.root, text="🔍 3. Esegui Analisi", padding=10)
+        analysis_frame.pack(fill="x", padx=10, pady=5)
         
-        ttk.Label(mode_frame, text="Modalità:").pack(side=tk.LEFT, padx=(0, 10))
-        
-        ttk.Radiobutton(mode_frame, text="File singolo", 
-                       variable=self.analyze_mode_var, 
-                       value="single",
-                       command=self.update_doc_label).pack(side=tk.LEFT, padx=5)
-        
-        ttk.Radiobutton(mode_frame, text="Cartella (incluse sottocartelle)", 
-                       variable=self.analyze_mode_var, 
-                       value="folder",
-                       command=self.update_doc_label).pack(side=tk.LEFT, padx=5)
-        
-        # Selezione documento/cartella
-        doc_frame = ttk.Frame(controls_frame)
-        doc_frame.pack(fill=tk.X, pady=5)
-        
-        self.doc_label = tk.Label(doc_frame, text="File LaTeX:")
-        self.doc_label.pack(side=tk.LEFT)
-        
-        self.doc_entry = ttk.Entry(doc_frame, textvariable=self.doc_path_var, width=50)
-        self.doc_entry.pack(side=tk.LEFT, padx=5, fill=tk.X, expand=True)
-        
-        ttk.Button(doc_frame, text="Sfoglia...", 
-                  command=self.choose_document).pack(side=tk.LEFT, padx=2)
-        ttk.Button(doc_frame, text="Analizza", 
-                  command=self.run_analysis).pack(side=tk.LEFT, padx=2)
+        ttk.Button(analysis_frame, text="▶ AVVIA ANALISI", 
+                  command=self.run_analysis, 
+                  style="Accent.TButton").pack(pady=5)
         
         # Progress bar per analisi
-        self.analysis_progress_frame = ttk.Frame(controls_frame)
-        self.analysis_progress_frame.pack(fill=tk.X, pady=2)
+        self.analysis_progress = ttk.Progressbar(analysis_frame, mode='determinate', length=600)
+        self.analysis_progress.pack(pady=5, fill="x")
         
-        self.analysis_progress = ttk.Progressbar(
-            self.analysis_progress_frame, mode='determinate', length=400
-        )
-        self.analysis_progress.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=5)
+        self.analysis_progress_label = ttk.Label(analysis_frame, text="")
+        self.analysis_progress_label.pack()
         
-        self.analysis_progress_label = tk.Label(
-            self.analysis_progress_frame, text="", 
-            font=("Arial", 8), foreground="#7f8c8d"
-        )
-        self.analysis_progress_label.pack(side=tk.LEFT, padx=5)
+        # Info box
+        info_text = ("ℹ️ FUNZIONALITÀ:\n"
+                    "• Supporta acronimi: POC (Proof of Concept) → cerca POC e Proof of Concept\n"
+                    "• Supporta traduzioni: Affidabilità (Reliability) → cerca entrambe\n"
+                    "• Riconosce ENTRAMBI i formati di TAG: \\textsubscript{{...}} e \\G\n"
+                    "• Ricerca case-insensitive intelligente\n"
+                    "• Analisi file singoli o cartelle intere")
+        info_label = ttk.Label(analysis_frame, text=info_text, 
+                             background="#e8f4f8", relief="solid", padding=10)
+        info_label.pack(fill="x", pady=5)
         
-        # Risultati
-        results_frame = ttk.LabelFrame(main_frame, text="Risultati", padding="5")
-        results_frame.pack(fill=tk.BOTH, expand=True)
+        # ========== FRAME RISULTATI ==========
+        results_frame = ttk.LabelFrame(self.root, text="📊 4. Risultati", padding=10)
+        results_frame.pack(fill="both", expand=True, padx=10, pady=5)
         
+        # Area testo con scrollbar
         self.results_text = scrolledtext.ScrolledText(
-            results_frame, wrap=tk.WORD, font=("Consolas", 10), 
-            background="#f8f9fa", padx=10, pady=10
+            results_frame, wrap=tk.WORD, width=100, height=20, 
+            font=("Courier", 9))
+        self.results_text.pack(fill="both", expand=True)
+        
+        # Pulsanti azioni
+        buttons_frame = ttk.Frame(results_frame)
+        buttons_frame.pack(fill="x", pady=5)
+        
+        ttk.Button(buttons_frame, text="💾 Esporta Risultati", 
+                  command=self.export_results).pack(side="left", padx=5)
+        ttk.Button(buttons_frame, text="🗑️ Pulisci", 
+                  command=self.clear_results).pack(side="left", padx=5)
+        
+    def browse_glossary(self):
+        """Seleziona il file glossario"""
+        filename = filedialog.askopenfilename(
+            title="Seleziona il file glossario",
+            filetypes=[
+                ("File LaTeX/JSON", "*.tex *.latex *.json"),
+                ("File LaTeX", "*.tex *.latex"),
+                ("File JSON", "*.json"),
+                ("Tutti i file", "*.*")
+            ]
         )
-        self.results_text.pack(fill=tk.BOTH, expand=True)
-        
-        # Footer
-        footer_frame = ttk.Frame(main_frame)
-        footer_frame.pack(fill=tk.X, pady=(10, 0))
-        
-        ttk.Button(footer_frame, text="Esporta Risultati", 
-                  command=self.export_results).pack(side=tk.RIGHT, padx=2)
-        ttk.Button(footer_frame, text="Pulisci", 
-                  command=self.clear_results).pack(side=tk.RIGHT, padx=2)
-    
-    def update_doc_label(self):
-        """Aggiorna l'etichetta in base alla modalità selezionata"""
-        if self.analyze_mode_var.get() == "single":
-            self.doc_label.config(text="File LaTeX:")
-        else:
-            self.doc_label.config(text="Cartella:")
+        if filename:
+            self.glossary_path_var.set(filename)
+            
+    def browse_file(self):
+        """Seleziona un singolo file .tex"""
+        filename = filedialog.askopenfilename(
+            title="Seleziona file LaTeX",
+            filetypes=[("File LaTeX", "*.tex"), ("Tutti i file", "*.*")]
+        )
+        if filename:
+            self.doc_path_var.set(filename)
+            
+    def browse_folder(self):
+        """Seleziona una cartella"""
+        foldername = filedialog.askdirectory(title="Seleziona cartella con file LaTeX")
+        if foldername:
+            self.doc_path_var.set(foldername)
     
     def update_glossary_progress(self, value, message):
         """Aggiorna la progress bar del glossario"""
@@ -457,79 +569,36 @@ class GlossaryApp:
         self.analysis_progress['value'] = value
         self.analysis_progress_label.config(text=message)
         self.root.update_idletasks()
-        
-    def choose_glossary(self):
-        """Seleziona il file glossario"""
-        path = filedialog.askopenfilename(
-            title="Seleziona file Glossario",
-            filetypes=[("File Glossario", "*.tex *.latex *.json"), ("Tutti i file", "*.*")]
-        )
-        if path:
-            self.glossary_path_var.set(path)
             
-    def choose_document(self):
-        """Seleziona il documento o la cartella da analizzare"""
-        if self.analyze_mode_var.get() == "single":
-            path = filedialog.askopenfilename(
-                title="Seleziona documento LaTeX",
-                filetypes=[("File LaTeX", "*.latex *.tex"), ("Tutti i file", "*.*")]
-            )
-        else:
-            path = filedialog.askdirectory(
-                title="Seleziona cartella contenente file LaTeX"
-            )
-        
-        if path:
-            self.doc_path_var.set(path)
-            
-    def load_terms(self):
+    def load_glossary(self):
         """Carica i termini dal glossario"""
-        path = self.glossary_path_var.get().strip()
-        if not path:
+        glossary_path = self.glossary_path_var.get().strip()
+        
+        if not glossary_path:
             messagebox.showwarning("Attenzione", "Seleziona prima un file glossario.")
             return
         
         self.root.config(cursor="watch")
         self.glossary_progress['value'] = 0
-        self.glossary_progress_label.config(text="Inizializzazione...")
         
         try:
-            terms, error = load_glossary_terms(path, self.update_glossary_progress)
+            terms, error = load_glossary_terms(glossary_path, self.update_glossary_progress)
+            
             if error:
                 messagebox.showerror("Errore", error)
-                return
-            
-            self.terms = terms
-            self.terms_info_label.config(
-                text=f"✓ Termini caricati: {len(self.terms)}",
-                foreground="#27ae60"
-            )
-            
-            # Reset progress bar
-            self.glossary_progress['value'] = 0
-            self.glossary_progress_label.config(text="")
-            
-            # Mostra anteprima termini con varianti
-            preview_lines = []
-            for i, term in enumerate(self.terms[:5]):
-                variants = generate_term_variants(term)
-                if len(variants) > 1:
-                    preview_lines.append(f"• {term} → {variants}")
-                else:
-                    preview_lines.append(f"• {term}")
-            
-            preview = "\n".join(preview_lines)
-            if len(self.terms) > 5:
-                preview += f"\n... (+{len(self.terms)-5} altri)"
-            
-            messagebox.showinfo(
-                "Termini Caricati", 
-                f"✓ Caricati {len(self.terms)} termini dal glossario.\n\n"
-                f"Primi termini (con varianti):\n{preview}"
-            )
-            
+                self.terms = []
+            else:
+                self.terms = terms
+                messagebox.showinfo("Successo", 
+                    f"✅ Caricati {len(terms)} termini dal glossario!\n\n"
+                    f"File: {os.path.basename(glossary_path)}\n\n"
+                    f"Supporto TAG:\n"
+                    f"• \\textsubscript{{\\scalebox{{0.6}}{{\\textbf{{G}}}}}}\n"
+                    f"• \\G")
+                
         except Exception as e:
             messagebox.showerror("Errore", f"Errore durante il caricamento:\n{e}")
+            self.terms = []
         finally:
             self.root.config(cursor="")
             self.glossary_progress['value'] = 0
@@ -619,6 +688,7 @@ class GlossaryApp:
         header = (f"📊 ANALISI COMPLETATA\n"
                  f"📚 Termini nel glossario: {len(self.terms)}\n"
                  f"📄 File analizzati: {len(all_files)}\n"
+                 f"🏷️  TAG riconosciuti: \\textsubscript{{...}} e \\G\n"
                  f"{'='*70}\n\n")
         self.results_text.insert(tk.END, header)
         
@@ -710,12 +780,13 @@ class GlossaryApp:
         if filename:
             try:
                 with open(filename, 'w', encoding='utf-8') as f:
-                    f.write("=== SCANNER GLOSSARIO AUTOMATICO - RISULTATI (v2.0) ===\n\n")
+                    f.write("=== SCANNER GLOSSARIO AUTOMATICO - RISULTATI (v2.1) ===\n\n")
                     f.write(f"Termini glossario: {len(self.terms)}\n")
                     f.write(f"File glossario: {self.glossary_path_var.get()}\n\n")
                     f.write("FUNZIONALITÀ:\n")
                     f.write("• Gestione acronimi: POC (Proof of Concept) → cerca POC e Proof of Concept\n")
                     f.write("• Gestione traduzioni: Affidabilità (Reliability) → cerca entrambe\n")
+                    f.write("• Supporto TAG: \\textsubscript{\\scalebox{0.6}{\\textbf{G}}} e \\G\n")
                     f.write("• Ricerca case-insensitive migliorata\n\n")
                     f.write(self.results_text.get("1.0", tk.END))
                     
