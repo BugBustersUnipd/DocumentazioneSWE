@@ -50,7 +50,7 @@
 
 \renewcommand{\sectionmark}[1]{\markright{#1}}
 %\renewcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}\ }
-\renewcommand{\G}{\textsuperscript{\scalebox{0.6}{\textbf{G}}}\xspace}
+\newcommand{\G}{\textsuperscript{\scalebox{0.6}{\textbf{G}}}\xspace}
 
 % Macro tabella metrica (tabella uniforme, non spezzata e con stile coerente)
 \newcommand{\MetricTable}[1]{
@@ -123,7 +123,7 @@
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
   {Stato} & In redazione \\
   {Verificatore\G} &  \\
-  {Redattori} & Luca slongo, Marco Piro \\
+  {Redattori} & Luca Slongo, Marco Piro \\
   {Distribuzione} & BugBusters, Eggon, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
 \end{tabularx}
 \end{tcolorbox}
@@ -148,24 +148,25 @@ Piano di Qualifica\G del Team BugBusters per il Capitolato\G C5 proposto da Eggo
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-0.0.9 & 01/02/2026 & Aggiunti ai termini presenti nel Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}} la G & Alberto Autiero & - & - \\
-
+0.1.0 & 08/02/2026 & Effettuata Verifica\G & - & Marco Favero & - \\
 \hline
-0.0.8 & 01/02/2026 & Aggiunta descrizione grafici metriche & Marco Piro & - & - \\
+0.0.9 & 01/02/2026 & Aggiunti ai termini presenti nel Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}} la G & Luca Slongo & - & - \\
 \hline
-0.0.7 & 04/02/2026 & Aggiunti grafici metriche, aggiornamento Test\G, rimossa matrice di Tracciamento & Marco Piro & - & - \\
+0.0.8 & 01/02/2026 & Aggiunta descrizione grafici metriche & Leonardo Salviato & - & - \\
 \hline
-0.0.6 & 19/01/2026 & Aggiornamento Test\G, aggiunti test\G di sistema Casi Limite e integrazione, cambiato alcune metriche di prodotto\G. Aggiunta matrice di Tracciamento & Marco Piro & - & - \\
+0.0.7 & 04/02/2026 & Aggiunti grafici metriche, aggiornamento Test\G, rimossa matrice di Tracciamento & Leonardo Salviato & - & - \\
 \hline
-0.0.5 & 15/01/2026 & Aggiornamento Test\G, aggiunti test\G di sistema prestazionali, eliminata metrica errori ortografici & Marco Piro & - & - \\
+0.0.6 & 19/01/2026 & Aggiornamento Test\G, aggiunti test\G di sistema Casi Limite e integrazione, cambiato alcune metriche di prodotto\G. Aggiunta matrice di Tracciamento & Linor Sadé & - & - \\
 \hline
-0.0.4 & 11/01/2026 & Aggiunto contenuto alla sezione 5 & Marco Piro & - & - \\
+0.0.5 & 15/01/2026 & Aggiornamento Test\G, aggiunti test\G di sistema prestazionali, eliminata metrica errori ortografici & Linor Sadé & - & - \\
+\hline
+0.0.4 & 11/01/2026 & Aggiunto contenuto alla sezione 5 & Linor Sadé & - & - \\
 \hline
 0.0.3 & 04/01/2026 & Aggiunte sezioni 4 e 5 & Marco Piro & - & - \\
 \hline
 0.0.2 & 29/12/2025 & Aggiunta Test\G di Sistema e di Accettazione & Marco Piro & - & - \\
 \hline
-0.0.1 & 03/12/2025 & Prima stesura del documento & Luca Slongo & - & - \\
+0.0.1 & 03/12/2025 & Prima stesura del documento & Marco Favero & - & - \\
 \hline
 \end{tabularx}
 }
@@ -372,7 +373,7 @@ I test\G di integrazione verificano la corretta comunicazione tra i sottosistemi
   \hline
   \endhead
   
-  \textbf{TI-001} & Verifica\G scambio dati e gestione errori tramite chiamate API\G REST (format JSON). & Frontend\G (Angular\G) $\leftrightarrow$ Backend\G (Ruby on Rails\G) \\
+  \textbf{TI-001} & Verifica\G scambio dati e gestione errori tramite chiamate API\G REST (formato JSON). & Frontend\G (Angular\G) $\leftrightarrow$ Backend\G (Ruby on Rails\G) \\
   \hline
   \textbf{TI-002} & Verifica\G invio del contesto/prompt\G e ricezione dello stream di risposta dal servizio AI\G. & Backend\G (Assistant) $\leftrightarrow$ External LLM\G API\G \\
   \hline
@@ -413,9 +414,9 @@ TS-F-009 & Verifica\G che il sistema visualizzi un errore se la password non ris
 TS-F-010 & Verifica\G che il sistema impedisca la registrazione se
 l’email inserita è già associata a un account
 esistente. & RF-10 & NI \\ \hline
-TS-F-011 & Verifica\G che ll sistema impedisca la registrazione se
+TS-F-011 & Verifica\G che il sistema impedisca la registrazione se
 lo username inserito è già utilizzato. & RF-11 & NI \\ \hline
-TS-F-012 & Verifica\G che ll sistema impedisca la registrazione
+TS-F-012 & Verifica\G che il sistema impedisca la registrazione
 se la matricola inserita è già presente nel
 sistema. & RF-12 & NI \\ \hline
 TS-F-013 & Verifica\G che il sistema visualizzi un messaggio
@@ -456,8 +457,7 @@ TS-F-029 & Verifica\G che il sistema mostri il nome di un
 utente registrato. & RF-29 & NI \\ \hline
 TS-F-030 & Verifica\G che il sistema mostri il cognome di un
 utente registrato. & RF-30 & NI \\ \hline
-TS-F-031 & Verifica\G che il sistema permetta all’Ammini-
-stratore di modificare il ruolo di un utente
+TS-F-031 & Verifica\G che il sistema permetta all'Amministratore di modificare il ruolo di un utente
 registrato. & RF-31 & NI \\ \hline
 TS-F-032 & Verifica\G che il sistema permetta all’utente di
 effettuare il logout (terminare la sessione). & RF-32 & NI \\ \hline
@@ -490,7 +490,7 @@ TS-F-044 & Verifica\G che il sistema visualizzi il prompt\G ori-
 ginale utilizzato per un contenuto nello
 storico. & RF-44 & NI \\ \hline
 TS-F-045 & Verifica\G che il sistema visualizzi il tono utilizzato
-per un contenuto nello storico.. & RF-45 & NI \\ \hline
+per un contenuto nello storico. & RF-45 & NI \\ \hline
 TS-F-046 & Verifica\G che il sistema mostri un’anteprima del
 contenuto generato dall’AI\G. & RF-46 & NI \\ \hline
 TS-F-047 & Verifica\G che il sistema permetta di modificare
@@ -541,8 +541,7 @@ minazione di uno stile per la generazione di
 contenuti. & RF-63 & NI \\ \hline
 TS-F-064 & Verifica\G che il sistema permetta l’analisi di
 documenti tramite il modulo\G AI Co-Pilot\G. & RF-64 & NI \\ \hline
-TS-F-065 & Verifica\G che il sistema permetta l’inseri-
-mento/selezione della categoria del
+TS-F-065 & Verifica\G che il sistema permetta la selezione della categoria del
 documento. & RF-65 & NI \\ \hline
 TS-F-066 & Verifica\G che il sistema permetta l’inserimento del
 mese/anno di competenza del documento. & RF-66 & NI \\ \hline
@@ -550,7 +549,7 @@ TS-F-067 & Verifica\G che il sistema permetta l’inserimento
 dell’azienda associata al documento. & RF-67 & NI \\ \hline
 TS-F-068 & Verifica\G che il sistema permetta l’inserimento del
 reparto associato al documento. & RF-68 & NI \\ \hline
-TS-F-069 & Verifica\G che il sistema permetta controllare la
+TS-F-069 & Verifica\G che il sistema permetta di controllare la
 correttezza del formato del file inserito. & RF-69 & NI \\ \hline
 TS-F-070 & Verifica\G che il sistema permetta controllare che lo
 stesso file non sia già stato analizzato. & RF-70 & NI \\ \hline
@@ -721,15 +720,15 @@ per pagina & RP-08 & NI \\ \hline
 \hline
 \endhead
 
-TS-Q-001 & Verifica\G che sia presente la documentazione dell'analisi dei Requisit\G completa (diagrammi e descrizioni Use Case) & RQ-01 & NI \\ \hline
+TS-Q-001 & Verifica\G che sia presente la documentazione dell'analisi dei Requisiti\G completa (diagrammi e descrizioni Use Case) & RQ-01 & NI \\ \hline
 TS-Q-002 & Verifica\G che il way of working\G sia rispettato secondo gli standard definiti nelle Norme di Progetto\G. & RQ-02 & NI \\ \hline
 TS-Q-003 & Verifica\G che il prodotto\G passi tutti i test\G con la
 copertura concordata con la proponente\G. & RQ-03 & NI \\ \hline
 TS-Q-004 & Verifica\G che il codice sia documentato secon-
 do le linee guida descritte in Norme di
 Progetto\G. & RQ-04 & NI \\ \hline
-TS-Q-005 & Verifica\G che il codice sia versionato con appositi stumenti di controllo versione, compreso di istruzioni di setup. & RQ-05 & NI \\ \hline
-TS-Q-006 & Verifica\G che ci sia il report dinale di integrazione e suggerimenti di evoluzione. & RQ-06 & NI \\ \hline
+TS-Q-005 & Verifica\G che il codice sia versionato con appositi strumenti di controllo versione, compreso di istruzioni di setup. & RQ-05 & NI \\ \hline
+TS-Q-006 & Verifica\G che ci sia il report finale di integrazione e suggerimenti di evoluzione. & RQ-06 & NI \\ \hline
 
 \caption{Test\G di Sistema per Requisiti di Qualità\G}
 \label{tab:test-sistema-qualita}
@@ -836,10 +835,9 @@ sino alla Requirements and Technology Baseline (RTB)\G.
   \includegraphics[width=0.9\textwidth]{grafici/MPC03_07.png}
   \caption{Grafico per periodo di MPC03 e MPC07}
 \end{figure}
-L'andamento della metrica MPC03 (\textit{Actual Cost\G}) mostra una crescita costante dei costi sostenuti, in linea con l'intensificazione delle attività produttive durante la fase di \textit{Requirements and Technology Baseline} (RTB)\G. 
-Tale incremento, culminato nel sesto sprint\G, rispecchia fedelmente la pianificazione temporale definita nel Piano di Progetto\G, dove il maggior carico di lavoro (e quindi di spesa) era previsto proprio nelle settimane antecedenti la consegna della candidatura\G.
+L'andamento della metrica MPC03 (\textit{Actual Cost\G}) mostra una crescita costante dei costi sostenuti, in linea con l'intensificazione delle attività produttive durante la fase di \textit{Requirements and Technology Baseline} (RTB)\G. Tale incremento, culminato nel sesto sprint\G, rispecchia fedelmente la pianificazione temporale definita nel Piano di Progetto\G, dove il maggior carico di lavoro (e quindi di spesa) era previsto proprio nelle settimane antecedenti la consegna della candidatura\G.
 
-Parallelamente, la metrica MPC07 (\textit{Estimate to Complete\G}) evidenzia una progressiva diminuzione del budget residuo necessario per il completamento del progetto\G. Questo trend inverso conferma che le risorse sono state consumate in modo coerente con l'avanzamento dei lavori, avvicinando il progetto\G al traguardo della \textit{Product Baseline} (PB)\G senza generare extra-costi imprevisti.
+Parallelamente, la metrica MPC07 (\textit{Estimate to Complete\G}) evidenzia una progressiva diminuzione del budget residuo necessario per il completamento del progetto\G. Questo trend inverso conferma che le risorse sono state consumate coerentemente con l'avanzamento dei lavori, avvicinando il progetto\G al traguardo della \textit{Product Baseline} (PB)\G senza generare extra-costi imprevisti.
 
 \newpage
 
@@ -864,7 +862,7 @@ Parallelamente, lo \textit{Schedule Performance Index} (SPI)\G si è mantenuto s
   \caption{Grafico per periodo di MPC06}
 \end{figure}
 
-L'andamento del costo stimato a finire (Estimated at Completion - EAC) racconta chiaramente il percorso di ottimizzazione intrapreso dal team. Il progetto\G ha attraversato una fase iniziale critica durante i primi sprint\G, in cui la stima dei costi\G finali superava sensibilmente il budget stanziato. Questa proiezione negativa era la diretta conseguenza delle difficoltà  iniziali  che avevano abbassato l'indice di efficienza\G CPI\G. Succesivamente si è innescato un trend di recupero costante. 
+L'andamento del costo stimato a finire (Estimated at Completion - EAC) racconta chiaramente il percorso di ottimizzazione intrapreso dal team. Il progetto\G ha attraversato una fase iniziale critica durante i primi sprint\G, in cui la stima dei costi\G finali superava sensibilmente il budget stanziato. Questa proiezione negativa era la diretta conseguenza delle difficoltà iniziali che avevano ridotto l'indice di efficienza\G CPI\G. Successivamente si è innescato un trend di recupero costante. 
 
 \newpage
 
@@ -885,7 +883,7 @@ L'andamento della stima temporale a finire (\textit{Time Estimate At Completion\
   \caption{Grafico per periodo di MPC09}
 \end{figure}
 L'indice di stabilità dei requisiti (\textit{Requirements Stability Index\G}) mostra un andamento che riflette fedelmente il ciclo di vita dell'Analisi dei Requisiti\G.
-Nello Sprint\G 2 si registra un picco negativo significativo. Tale valore, apparentemente critico, è in realtà indicatore di una intensa attività produttiva. Partendo da un set iniziale di requisiti, il team ha effettuato un'opera di espansione e dettaglio massiccia. Matematicamente, ciò ha portato il numero delle modifiche a superare il numero dei requisiti iniziali, generando l'indice negativo. Superata la fase critica di definizione, l'indice è risalito rapidamente. 
+Nello Sprint\G 2 si registra un picco negativo significativo. Tale valore, apparentemente critico, è in realtà l'indicatore di una intensa attività produttiva. Partendo da un set iniziale di requisiti, il team ha effettuato un'opera di espansione e dettaglio massiccia. Matematicamente, ciò ha portato il numero delle modifiche a superare il numero dei requisiti iniziali, generando l'indice negativo. Superata la fase critica di definizione, l'indice è risalito rapidamente. 
 
 \newpage
 
