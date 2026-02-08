@@ -1,0 +1,1232 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{colortbl}  % <-- Add this line
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+% hyperref dovrebbe essere caricato quasi per ultimo
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+
+% Configurazione delle didascalie per tabelle
+\captionsetup[table]{
+  position=below,       % Didascalia sotto la tabella
+  labelfont=it,         % "Tabella X:" in italico
+  textfont=it,          % Testo della didascalia in italico
+  justification=centering, % Testo centrato
+  singlelinecheck=false % Forza la centratura anche per didascalie lunghe
+}
+\captionsetup[longtable]{
+  position=below,
+  labelfont=it,
+  textfont=it,
+  justification=centering,
+  singlelinecheck=false
+}
+
+% hyperref dovrebbe essere caricato quasi per ultimo
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\hypersetup{
+    pdfborder={0 0 0}, % Rimuove il bordo sottolineato
+    allbordercolors={1 1 1}, % Bordi bianchi (invisibili)
+}
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+% Comando per il glossario che funziona anche nei segnalibri PDF
+\newcommand{\gloss}{\texorpdfstring{\textsubscript{\scalebox{0.6}{\textbf{G}}}}{G}}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\large\bfseries\color{primaryblue}}
+  {\thesubsection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}
+  \IfFileExists{../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(../../assets/Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.5cm]
+
+  {\Huge\bfseries\color{primaryblue} Piano di Progetto}\\[0.3cm]
+  {\Large\color{secondaryblue} Versione 0.0.2}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+% Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
+	{Stato} & In redazione \\
+	{Responsabile} &  \\
+	{Verificatore} &  \\
+	{Redattori} & Alberto Autiero \\
+	{Distribuzione} & BugBusters, Eggon, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Descrizione}]
+Il Piano di Progetto riporta il riepilogo delle attività effettuate e quelle ancora da svolgere dal team BugBusters.\end{tcolorbox}
+\end{center}
+
+\newpage
+
+% Registro delle Modifiche (pagina 2)
+\section*{Registro delle Modifiche}
+
+\arrayrulecolor{primaryblue}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2cm}|X|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\hline0.0.2 & 03/12/2025 & Continuazione documento& Alberto Autiero & - & - \\
+\hline
+0.0.1 & 01/12/2025 & Prima stesura del documento & Alberto Autiero & - & - \\
+\hline
+\end{tabularx}
+}
+
+\newpage
+
+% Indice cliccabile
+\setcounter{tocdepth}{2} % Mostra fino al livello di sottosezione (2)
+\tableofcontents
+\listoftables
+\listoffigures
+
+\newpage
+\section{Introduzione}
+
+\subsection{Informazioni generali}
+Il Piano di Progetto è un documento che descrive le attività svolte e quelle da svolgere durante la realizzazione del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} di Ingegneria del Software. Riveste un ruolo fondamentale per una corretta pianificazione, poiché confronta i tempi previsti con i tempi effettivamente impiegati per ogni attività e individua i rischi potenziali legati alle attività programmate. Dal momento che una pianificazione dettagliata a lungo termine risulterebbe poco efficace, le attività vengono pianificate di volta in volta: per questo motivo il Piano di Progetto è un documento dinamico, che verrà aggiornato con un approccio incrementale integrando nuove informazioni man mano che il progetto procede.
+
+\subsection{Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+La realizzazione di un sistema software richiede, ancor prima della scrittura del codice, un'attenta fase di confronto, analisi e progettazione. Per supportare il lavoro asincrono del team, tutte le informazioni prodotte durante queste attività vengono opportunamente documentate.
+
+È tuttavia del tutto prevedibile che tali documenti possano contenere termini tecnici o espressioni non immediatamente comprensibili. Per questo motivo è stato redatto un Glossario, che raccoglie e spiega in modo puntuale i termini utilizzati. Il Glossario è soggetto ad aggiornamenti continui ed è consultabile nella sua versione corrente al seguente indirizzo: DA INSERIRE QUANDO VERRà CARICATO SUL SITO.
+
+I termini che dispongono di una definizione nel Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}} saranno contrassegnati nel modo seguente: parola\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+
+\subsection{Fonti}
+
+\subsubsection{Riferimenti normativi}
+\begin{itemize}
+    \item Capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}} d'appalto C5: NEXUM - Eggon \\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf} \\
+    Ultimo Accesso XXX
+    \item Norme di Progetto versione 1.0.0 \\
+    \url{DA AGGIUNGERE APPENA CARICATO SUL SITO} \\
+    Ultimo Accesso XXX
+\end{itemize}
+
+\subsubsection{Riferimenti informativi}
+\begin{itemize}
+    \item I processi di ciclo di vita del software \\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T02.pdf} \\
+    Ultimo Accesso XXX
+    \item Gestione di progetto \\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T04.pdf} \\
+    Ultimo Accesso XXX
+      \item Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}} ver. 1.0.0 \\
+    \url{DA AGGIUNGERE APPENA SI CARICA SUL SITO} \\
+    Ultimo Accesso XXX
+\end{itemize}
+
+\newpage
+
+\section{Analisi e gestione dei rischi\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+
+\subsection{Introduzione}
+Un'analisi e una classificazione efficaci dei possibili rischi legati alle attività da svolgere rappresentano una parte fondamentale nella redazione di un piano di progetto. Una buona analisi consente infatti di prevedere quali attività potrebbero richiedere più tempo del previsto e, di conseguenza, di valutare se il carico di lavoro inserito nel backlog settimanale è appropriato o eccessivo.
+
+Un'adeguata analisi e gestione dei rischi\textsubscript{\scalebox{0.6}{\textbf{G}}} se articola in quattro fasi:
+\begin{itemize}
+\item \textbf{Identificazione}: individuazione dei possibili rischi associati a un'attività, considerando non solo l'ambito progettuale ma anche quello personale;
+\item \textbf{Analisi}: valutazione della probabilità che ciascun rischio si verifichi e dei potenziali impatti sul successo dello sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} e del progetto complessivo;
+\item \textbf{Pianificazione}: definizione delle strategie per ridurre la probabilità di occorrenza dei rischi o, qualora non sia possibile prevenirli, per mitigarne gli effetti negativi;
+\item \textbf{Controllo}: monitoraggio continuo delle attività, volto a rilevare tempestivamente l'insorgere di un rischio e ad applicare le procedure di mitigazione prestabilite.
+\end{itemize}
+
+È ragionevole supporre che, a causa di un'esperienza limitata, le misure di mitigazione adottate possano rivelarsi inizialmente inefficaci. Per questo motivo è fondamentale registrare e analizzare gli errori emersi durante la fase di controllo, al fine di perfezionare progressivamente le strategie utilizzate.
+
+Nel seguito, il gruppo BugBusters illustra i rischi individuati, suddivisi in tre categorie:
+\begin{itemize}
+\item RT: Rischio Tecnologico;
+\item RI: Rischio Individuale;
+\item RG: Rischio Globale.
+\end{itemize}
+
+\subsection{Rischio Tecnologico}
+
+\subsubsection{RT1: Rischio Tecnologico legato alla tecnologia utilizzata}
+\begin{table}[H]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{10cm}|}
+\hline
+\textbf{Codice} & RT1 \\
+\hline
+\textbf{Nome} & Rischio Tecnologico legato alla tecnologia utilizzata \\
+\hline
+\textbf{Descrizione} & Rischio derivante da inesperienza o conoscenza limitata di una tecnologia, un linguaggio o uno strumento specifico necessario per lo sviluppo del progetto. \\
+\hline
+\textbf{Mitigazione} & Prevedere nella pianificazione del tempo l'attività di formazione personale. \\
+\hline
+\textbf{Frequenza probabile} & Alta \\
+\hline
+\textbf{Pericolosità} & Elevata \\
+\hline
+\end{tabular}
+\caption{Informazioni sul rischio RT1}
+\label{tab:rt1}
+\end{table}
+
+\subsubsection{RT2: Rischio Tecnologico legato a errori nel codice}
+\begin{table}[H]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{10cm}|}
+\hline
+\textbf{Codice} & RT2 \\
+\hline
+\textbf{Nome} & Rischio Tecnologico legato a errori nel codice \\
+\hline
+\textbf{Descrizione} & È improbabile che il codice scritto funzioni correttamente al primo tentativo. Inoltre, un codice apparentemente funzionante può rivelare successivamente bug durante test\textsubscript{\scalebox{0.6}{\textbf{G}}} più approfonditi, richiedendo ulteriore tempo per l'analisi e la correzione. \\
+\hline
+\textbf{Mitigazione} & Il programmatore tenta inizialmente di risolvere autonomamente il problema. In caso di difficoltà, chiederà supporto a membri del gruppo più esperti. Per problemi particolarmente gravi, le attività meno urgenti verranno posticipate per dedicare risorse alla risoluzione. \\
+\hline
+\textbf{Frequenza probabile} & Alta \\
+\hline
+\textbf{Pericolosità} & Media \\
+\hline
+\end{tabular}
+\caption{Informazioni sul rischio RT2}
+\label{tab:rt2}
+\end{table}
+
+\subsection{Rischio Individuale}
+
+\subsubsection{RI1: Rischio Individuale derivante dalle altre attività universitarie}
+\begin{table}[H]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{10cm}|}
+\hline
+\textbf{Codice} & RI1 \\
+\hline
+\textbf{Nome} & Rischio Individuale derivante dalle altre attività universitarie \\
+\hline
+\textbf{Descrizione} & I membri del gruppo frequentamp altri corsi di insegnamento oltre a Ingegneria del Software, pertanto è probabile che si verifichino periodi di minore disponibilità\textsubscript{\scalebox{0.6}{\textbf{G}}} dovuti a esami, scadenze di altri progetti o impegni correlati. \\
+\hline
+\textbf{Mitigazione} & Il membro interessato deve comunicare tempestivamente la propria ridotta disponibilità\textsubscript{\scalebox{0.6}{\textbf{G}}}. Gli altri componenti si redistribuiranno il carico di lavoro. Il membro interessato recupererà le attività non appena possibile. \\
+\hline
+\textbf{Frequenza probabile} & Media \\
+\hline
+\textbf{Pericolosità} & Media \\
+\hline
+\end{tabular}
+\caption{Informazioni sul rischio RI1}
+\label{tab:ri1}
+\end{table}
+
+\subsubsection{RI2: Rischio Individuale derivato da improvviso impegno o indisponibilità personale}
+\begin{table}[H]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{10cm}|}
+\hline
+\textbf{Codice} & RI2 \\
+\hline
+\textbf{Nome} & Rischio Individuale derivato da improvviso impegno o indisponibilità personale \\
+\hline
+\textbf{Descrizione} & Un componente del gruppo deve affrontare un impegno imprevisto (personale, familiare, di salute) che ne impedisce temporaneamente la partecipazione attiva al progetto. \\
+\hline
+\textbf{Mitigazione} & Il membro interessato deve comunicare temestivamente l'indisponibilità al resto del gruppo. Le attività assegnate al membro verranno ridistribuite o posticipate. Al termine dell'impedimento, il membro si impegnerà a recuperare il lavoro eventualmente pendente. \\
+\hline
+\textbf{Frequenza probabile} & Media \\
+\hline
+\textbf{Pericolosità} & Media \\
+\hline
+\end{tabular}
+\caption{Informazioni sul rischio RI2}
+\label{tab:ri2}
+\end{table}
+
+\subsection{Rischio Globale}
+
+\subsubsection{RG1: Rischio Globale derivato da forte disaccordo nel gruppo}
+\begin{table}[H]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{10cm}|}
+\hline
+\textbf{Codice} & RG1 \\
+\hline
+\textbf{Nome} & Rischio Globale derivato da forte disaccordo nel gruppo \\
+\hline
+\textbf{Descrizione} & Insorgenza di un contrasto significativo tra i membri del gruppo riguardante una decisione tecnica, metodologica o organizzativa. \\
+\hline
+\textbf{Mitigazione} & Ogni parte illustra le ragioni della propria posizione in un tempo definito. Si procede quindi a una valutazione collettiva per trovare un accordo o, in ultima istanza, a una votazione tramite sondaggio. \\
+\hline
+\textbf{Frequenza probabile} & Bassa \\
+\hline
+\textbf{Pericolosità} & Bassa \\
+\hline
+\end{tabular}
+\caption{Informazioni sul rischio RG1}
+\label{tab:rg1}
+\end{table}
+
+\subsubsection{RG2: Rischio Globale derivato da malcomprensione del capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{table}[H]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{10cm}|}
+\hline
+\textbf{Codice} & RG2 \\
+\hline
+\textbf{Nome} & Rischio Globale derivato da malcomprensione del capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\textbf{Descrizione} & Un prodotto (documentale o software) sviluppato dal gruppo non rispetta le specifiche o i vincoli definiti nel capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}} d'appalto. \\
+\hline
+\textbf{Mitigazione} & Una volta rilevata la discrepanza, il gruppo discuterà il problema nella prima riunione utile per riorganizzare le attività e pianificare le correzioni necessarie, distribuendo il lavoro di rettifica. \\
+\hline
+\textbf{Frequenza probabile} & Media \\
+\hline
+\textbf{Pericolosità} & Media \\
+\hline
+\end{tabular}
+\caption{Informazioni sul rischio RG2}
+\label{tab:rg2}
+\end{table}
+
+\subsubsection{RG3: Rischio Globale derivato da sottostima di attività}
+\begin{table}[H]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{10cm}|}
+\hline
+\textbf{Codice} & RG3 \\
+\hline
+\textbf{Nome} & Rischio Globale derivato da sottostima di attività \\
+\hline
+\textbf{Descrizione} & Un'attività pianificata richiede, per il suo completamento, più tempo di quanto inizialmente preventivato. \\
+\hline
+\textbf{Mitigazione} & I responsabili dell'attività segnalano il potenziale ritardo il prima possibile. Il gruppo valuterà l'opportunità di assegnare risorse aggiuntive all'attività o di posticipare attività secondarie per concentrarsi su quella critica. \\
+\hline
+\textbf{Frequenza probabile} & Alta \\
+\hline
+\textbf{Pericolosità} & Elevata \\
+\hline
+\end{tabular}
+\caption{Informazioni sul rischio RG3}
+\label{tab:rg3}
+\end{table}
+
+\subsubsection{RG4: Rischio Globale derivato da sovrastima di attività}
+\begin{table}[H]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{10cm}|}
+\hline
+\textbf{Codice} & RG4 \\
+\hline
+\textbf{Nome} & Rischio Globale derivato da sovrastima di attività \\
+\hline
+\textbf{Descrizione} & Un'attività pianificata viene completata in un tempo significativamente inferiore a quello preventivato. \\
+\hline
+\textbf{Mitigazione} & I membri che hanno completato in anticipo l'attività ne danno comunicazione al gruppo. Le risorse liberate verranno impiegate per supportare altre attività in ritardo o per iniziare anticipatamente la successiva attività, se fattibile nel tempo residuo. \\
+\hline
+\textbf{Frequenza probabile} & Media \\
+\hline
+\textbf{Pericolosità} & Bassa \\
+\hline
+\end{tabular}
+\caption{Informazioni sul rischio RG4}
+\label{tab:rg4}
+\end{table}
+
+\newpage
+
+\section{Pianificazione nel lungo termine}
+
+Come anticipato nella Dichiarazione degli Impegni, Il gruppo prevede di terminare il progetto entro e non oltre il giorno 21 Marzo 2026 con um budget di spesa fissato a 12790€.
+
+Al momento della candidatura si è teorizzato il seguente prospetto costi:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Ruolo} & \textbf{Costo Orario} & \textbf{Ore} & \textbf{Costo} \\
+\hline
+Responsabile & 30€/h & 56h & 1.680€ \\
+\hline
+Amministratore & 20€/h & 52h & 1.040€ \\
+\hline
+Analista & 25€/h & 56h & 1.400€ \\
+\hline
+Progettista & 25€/h & 147h & 3.675€ \\
+\hline
+Programmatore & 15€/h & 167h & 2.505€ \\
+\hline
+Verificatore & 15€/h & 166h & 2.490€ \\
+\hline
+\textbf{Totale} & & \textbf{644h} & \textbf{12.790€} \\
+\hline
+\end{tabular}
+\caption{Riassunto dei costi previsti derivanti dalle ore assegnate a ciascun ruolo}
+\label{tab:costi-previsti}
+\end{table}
+
+Si stima inoltre una candidatura per la Requirements and Technology Baseline\textsubscript{\scalebox{0.6}{\textbf{G}}} (RTB) entro il 20 Gennaio 2026.
+
+Seguiranno ora le attività previste per la Requirements and Technology Baseline\textsubscript{\scalebox{0.6}{\textbf{G}}} (RTB) e la Product Baseline (PB): tali sezioni saranno utili per correttamente calendarizzare quanto da realizzare per ogni sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+
+\subsection{Attività previste per la Requirements and Technology Baseline\textsubscript{\scalebox{0.6}{\textbf{G}}} (RTB)}
+
+\begin{longtable}{|p{4cm}|p{5cm}|p{3.5cm}|p{2cm}|}
+\hline
+\textbf{Attività} & \textbf{Descrizione} & \textbf{Periodo di svolgimento} & \textbf{Stato} \\
+\hline
+\endfirsthead
+\endfoot
+\hline
+Redazione Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} & Redazione delle seguenti parti: XXX & XXX & IN REDAZIONE \\
+\hline
+Redazione Piano di Progetto & Redazione: introduzione; analisi rischi; pianificazione & Introduzione: sprint 2; Analisi rischi: tutti gli sprint; Pianificazione: tutti gli sprint & IN REDAZIONE \\
+\hline
+Redazione Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}} & XXX &  XXX & IN REDAZIONE \\
+\hline
+Redazione Norme di Progetto & XXX & XXX & IN REDAZIONE \\
+\hline
+Redazione Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}} & Redazione termini & Tutti gli sprint & IN REDAZIONE \\
+\hline
+Realizzazione PoC & XXX & XXX & DA FARE \\
+\hline
+\caption{Attività previste per la Requirements and Technology Baseline\gloss\ (RTB)}%
+\label{tab:attivita-rtb}
+\end{longtable}
+
+\subsection{Attività previste per la Product Baseline (PB)}
+La redazione di questo paragrafo sarà effettuato in seguito al superamento della Requirements and Technology Baseline\textsubscript{\scalebox{0.6}{\textbf{G}}} (RTB).
+
+\newpage
+
+\section{Pianificazione a breve termine}
+
+\subsection{Premessa}
+Il gruppo BugBusters ha adottato una metodologia di sviluppo di tipo Agile\textsubscript{\scalebox{0.6}{\textbf{G}}}. Si è valutato che un ciclo di lavoro di due settimane rappresenti il periodo ottimale per generare incrementi di prodotto tangibili e di valore. Pertanto, lo svolgimento del progetto sarà strutturato in sprint della durata di quattordici giorni.
+
+All'inizio di ogni sprint verranno pianificate le attività per il ciclo successivo. Contestualmente, avverrà la rotazione dei ruoli all'interno del gruppo. Tale rotazione, sebbene programmata all'avvio di ogni iterazione, potrà essere modificata in corso d'opera per rispondere a specifiche esigenze organizzative. L'obiettivo è consentire a ciascun membro di sperimentare ogni ruolo.
+
+Il gruppo, inoltre, si impegna a organizzare colloqui in via telematica o in presenza in modo regolare con il proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} Eggon, programmandole ad ogni colloquio con la proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} oppure durante le riunioni interne del gruppo. Questo approccio garantisce un allineamento continuo con le aspettative del committente\textsubscript{\scalebox{0.6}{\textbf{G}}} e soprattutto permette di validare tempestivamente il lavoro svolto.
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\newpage
+\subsection{Requirements and Technology Baseline\textsubscript{\scalebox{0.6}{\textbf{G}}} (RTB)}
+
+\subsubsection{Sprint 1}
+
+\textbf{Inizio:} 10/11/2025 \\
+\textbf{Fine prevista:} 23/11/2025 \\
+\textbf{Fine reale:} 23/10/2025 \\
+\textbf{Giorni di ritardo:} 0
+
+\noindent\textbf{Informazioni generali e attività da svolgere}\\
+Questo primo periodo ha l'obiettivo principale di risolvere tutti i problemi sorti durante la
+candidatura; successivamente, avverrà la redazione dei documenti necessari per un buon
+inizio dei lavori.\\ \\
+In particolare, le attività previste sono:
+\begin{itemize}
+    \item Aggiornamento del sito web
+    \item Miglioramento del processo di redazione e verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} dei verbali
+    \item Formalizzazione della tabella decisione/azione nei verbali
+    \item Redazione del verbale interno del 06/11/2025
+    \item Redazione del verbale interno del 12/11/2025
+    \item Redazione del verbale interno del 17/11/2025
+    \item Redazione del verbale interno del 19/11/2025
+    \item Redazione del verbale esterno del 12/11/2025
+    \item Prima redazione del glossario\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item Prima redazione dell'Analisi dei requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item Prima redazione delle Norme di Progetto
+    \item Stabilire un incontro con l'azienda proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} Eggon
+\end{itemize}
+
+\noindent\textbf{Rischi attesi}\\
+I componenti del team BugBusters ritengono siano possibili i seguenti rischi:
+\begin{itemize}
+    \item RG2: Rischio Globale derivato da malcomprensione del capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item RI1: Rischio Individuale derivante dalle altre attività universitarie
+\end{itemize}
+
+\noindent\textbf{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\
+Si prospetta l'utilizzo delle seguenti risorse
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & 8 & - & - & - & - & - \\
+\hline
+Marco Favero & - & 4 & - & - & - & - \\
+\hline
+Alberto Pignat & - & - & 8 & - & - & - \\
+\hline
+Marco Piro & - & - & - & - & - & 12 \\
+\hline
+Linor Sadè & - & - & 8 & - & - & - \\
+\hline
+Leonardo Salviato & - & - & 8 & - & - & - \\
+\hline
+Luca Slongo & - & - & 8 & - & - & - \\
+\hline
+\end{tabular}
+\caption{Preventivo\gloss\ per componenti nello Sprint 1}
+\label{tab:preventivo-sprint1}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+  % Pie chart - Responsabile: 12.5% (45°)
+  \draw[fill=blue!60, draw=black, line width=1.5pt] 
+    (0,0) -- (2,0) arc (0:45:2) -- cycle;
+  \node at (22.5:1.2) {\small\bfseries 12.5\%};
+  
+  % Amministratore: 6.25% (22.5° cumulative)
+  \draw[fill=red!60, draw=black, line width=1.5pt] 
+    (0,0) -- (45:2) arc (45:67.5:2) -- cycle;
+  \node[rotate=56.25] at (56.25:1.5) {\small\bfseries 6.25\%};
+  
+  % Analista: 50% (180° cumulative)
+  \draw[fill=orange!60, draw=black, line width=1.5pt] 
+    (0,0) -- (67.5:2) arc (67.5:247.5:2) -- cycle;
+  \node at (157.5:1.2) {\small\bfseries 50\%};
+  
+  % Verificatore: 18.75% (67.5° cumulative to 360°)
+  \draw[fill=green!60, draw=black, line width=1.5pt] 
+    (0,0) -- (247.5:2) arc (247.5:360:2) -- cycle;
+  \node at (303.75:1.2) {\small\bfseries 18.75\%};
+  
+  % Legenda
+  \draw[fill=blue!60, draw=black] (3.5, 1.5) rectangle (3.8, 1.8);
+  \node[anchor=west, font=\small] at (4, 1.65) {Responsabile};
+  
+  \draw[fill=red!60, draw=black] (3.5, 1) rectangle (3.8, 1.3);
+  \node[anchor=west, font=\small] at (4, 1.15) {Amministratore};
+  
+  \draw[fill=orange!60, draw=black] (3.5, 0.5) rectangle (3.8, 0.8);
+  \node[anchor=west, font=\small] at (4, 0.65) {Analista};
+  
+  \draw[fill=green!60, draw=black] (3.5, 0) rectangle (3.8, 0.3);
+  \node[anchor=west, font=\small] at (4, 0.15) {Verificatore};
+\end{tikzpicture}
+\caption{Grafico 1: Sprint 1 - Preventivo}
+\label{fig:grafico-sprint1}
+\end{figure}
+
+\noindent\textbf{Consuntivo}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+\hline
+\end{tabular}
+\caption{Consuntivo per componenti nello Sprint 1}
+\label{tab:consuntivo-sprint1}
+\end{table}
+
+\noindent\textbf{Aggiornamento delle risorse rimanenti}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
+\hline
+Responsabile & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Amministratore & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Analista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Progettista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\hline
+\end{tabular}
+\caption{Variazione nelle risorse disponibili nello Sprint 1}
+\label{tab:risorse-sprint1}
+\end{table}
+
+\noindent\textbf{Rischi incontrati}\\
+RG2: Rischio Globale derivato da malcomprensione del capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}\\
+RI1: Rischio Individuale derivante dalle altre attività universitarie
+
+\noindent\textbf{Retrospettiva}\\
+Il primo sprint si è concentrato sul raggiungimento di due obiettivi principali: redazione dei documenti e l' aggiornamento del sito web con la suddivisione in CANDIDATURA, RTB e DIAPOSITIVE. Inoltre sono state implementate automazioni l'upload automatico dei verbali sul sito. Entrambi i traguardi sono stati conseguiti. 
+
+\subsubsection{Sprint 2}
+
+\textbf{Inizio:} 24/11/2025 \\
+\textbf{Fine prevista:} 08/12/2025 \\
+\textbf{Fine reale:} 08/12/2025 \\
+\textbf{Giorni di ritardo:} 0
+
+\noindent\textbf{Informazioni generali e attività da svolgere}\\
+Questo primo periodo ha l'obiettivo principale di risolvere tutti i problemi sorti durante la
+candidatura; successivamente, avverrà la redazione dei documenti necessari per un buon
+inizio dei lavori.\\
+In particolare, le attività previste sono:
+\begin{itemize}
+    \item Prima redazione del Piano di Progetto
+    \item Incontro con l'azienda proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} Eggon per discutere i requisiti e i Casi d'Uso\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+    \item Redazione del verbale interno del 01/12/2025
+    \item Redazione del verbale esterno del 03/12/2025
+    \item Studio delle tecnologie necessarie
+    \item Continuazione della redazione del Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\noindent\textbf{Rischi attesi}\\
+I componenti del team BugBusters ritengono siano possibili i seguenti rischi:
+\begin{itemize}
+    \item RI1: Rischio Individuale derivante dalle altre attività universitarie
+    \item RT1: Rischio Tecnologico legato alla tecnologia utilizzata
+\end{itemize}
+
+\noindent\textbf{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\
+Si prospetta l'utilizzo delle seguenti risorse
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+\hline
+\end{tabular}
+\caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 2}
+\label{tab:preventivo-sprint2}
+\end{table}
+
+\noindent\textbf{Consuntivo}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+\hline
+\end{tabular}
+\caption{Consuntivo per componenti nello Sprint\gloss\ 2}
+\label{tab:consuntivo-sprint2}
+\end{table}
+
+\noindent\textbf{Aggiornamento delle risorse rimanenti}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
+\hline
+Responsabile & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Amministratore & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Analista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Progettista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\hline
+\end{tabular}
+\caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 2}
+\label{tab:risorse-sprint2}
+\end{table}
+
+\noindent\textbf{Rischi incontrati}\\
+RI1: Rischio Individuale derivante dalle altre attività universitarie\\
+RT1: Rischio Tecnologico legato alla tecnologia utilizzata
+
+\noindent\textbf{Retrospettiva}\\
+L'obiettivo principale del secondo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} è stata l'elaborazione dell'Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}, attività ritenuta prioritaria e base propedeutica per l'intero ciclo di progettazione e sviluppo.
+
+\subsubsection{Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 3}
+
+\textbf{Inizio:} 09/12/2025 \\
+\textbf{Fine prevista:} 22/12/2025 \\
+\textbf{Fine reale:} 22/12/2025 \\
+\textbf{Giorni di ritardo:} 0
+
+\noindent\textbf{Informazioni generali e attività da svolgere}\\
+XXX\\
+In particolare, le attività previste sono:
+\begin{itemize}
+    \item XXX
+    \item XXX
+\end{itemize}
+
+\noindent\textbf{Rischi attesi}\\
+I componenti del team BugBusters ritengono siano possibili i seguenti rischi:
+\begin{itemize}
+    \item XXX
+    \item XXX
+\end{itemize}
+
+\noindent\textbf{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\
+Si prospetta l'utilizzo delle seguenti risorse
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+\hline
+\end{tabular}
+\caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 3}
+\label{tab:preventivo-sprint3}
+\end{table}
+
+\noindent\textbf{Consuntivo}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+\hline
+\end{tabular}
+\caption{Consuntivo per componenti nello Sprint\gloss\ 3}
+\label{tab:consuntivo-sprint3}
+\end{table}
+
+\noindent\textbf{Aggiornamento delle risorse rimanenti}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
+\hline
+Responsabile & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Amministratore & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Analista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Progettista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\hline
+\end{tabular}
+\caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 3}
+\label{tab:risorse-sprint3}
+\end{table}
+
+\noindent\textbf{Rischi incontrati}\\
+XXX
+XXX
+
+\noindent\textbf{Retrospettiva}\\
+XXX
+
+\subsubsection{Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 4}
+
+\textbf{Inizio:} 05/01/2026 \\
+\textbf{Fine prevista:} 19/01/2026]\\
+\textbf{Fine reale:} 19/01/2026\\
+\textbf{Giorni di ritardo:} 0
+
+\noindent\textbf{Informazioni generali e attività da svolgere}\\
+XXX\\
+In particolare, le attività previste sono:
+\begin{itemize}
+    \item XXX
+    \item XXX
+\end{itemize}
+
+\noindent\textbf{Rischi attesi}\\
+I componenti del team BugBusters ritengono siano possibili i seguenti rischi:
+\begin{itemize}
+    \item XXX
+    \item XXX
+\end{itemize}
+
+\noindent\textbf{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\
+Si prospetta l'utilizzo delle seguenti risorse
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+\hline
+\end{tabular}
+\caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 4}
+\label{tab:preventivo-sprint4}
+\end{table}
+
+\noindent\textbf{Consuntivo}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+\hline
+\end{tabular}
+\caption{Consuntivo per componenti nello Sprint\gloss\ 4}
+\label{tab:consuntivo-sprint4}
+\end{table}
+
+\noindent\textbf{Aggiornamento delle risorse rimanenti}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
+\hline
+Responsabile & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Amministratore & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Analista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Progettista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\hline
+\end{tabular}
+\caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 4}
+\label{tab:risorse-sprint4}
+\end{table}
+
+\noindent\textbf{Rischi incontrati}\\
+XXX
+XXX
+
+\noindent\textbf{Retrospettiva}\\
+XXX
+
+\subsubsection{Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 5}
+
+\textbf{Inizio:} 02/02/2026 \\
+\textbf{Fine prevista:} 16/02/2026 \\
+\textbf{Fine reale:} 02/02/2026 \\
+\textbf{Giorni di ritardo:} 0
+
+\noindent\textbf{Informazioni generali e attività da svolgere}\\
+XXX\\
+In particolare, le attività previste sono:
+\begin{itemize}
+    \item XXX
+    \item XXX
+\end{itemize}
+
+\noindent\textbf{Rischi attesi}\\
+I componenti del team BugBusters ritengono siano possibili i seguenti rischi:
+\begin{itemize}
+    \item XXX
+    \item XXX
+\end{itemize}
+
+\noindent\textbf{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\
+Si prospetta l'utilizzo delle seguenti risorse
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+\hline
+\end{tabular}
+\caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 5}
+\label{tab:preventivo-sprint5}
+\end{table}
+
+\noindent\textbf{Consuntivo}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+\hline
+\end{tabular}
+\caption{Consuntivo per componenti nello Sprint\gloss\ 5}
+\label{tab:consuntivo-sprint5}
+\end{table}
+
+\noindent\textbf{Aggiornamento delle risorse rimanenti}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
+\hline
+Responsabile & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Amministratore & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Analista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Progettista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\hline
+\end{tabular}
+\caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 5}
+\label{tab:risorse-sprint5}
+\end{table}
+
+\noindent\textbf{Rischi incontrati}\\
+XXX
+XXX
+
+\noindent\textbf{Retrospettiva}\\
+XXX
+
+\subsubsection{Sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} 6}
+
+\textbf{Inizio:} 02/03/2026 \\
+\textbf{Fine prevista:} 16/03/2026 \\
+\textbf{Fine reale:} 16/03/2026 \\
+\textbf{Giorni di ritardo:} 0
+
+\noindent\textbf{Informazioni generali e attività da svolgere}\\
+XXX\\
+In particolare, le attività previste sono:
+\begin{itemize}
+    \item XXX
+    \item XXX
+\end{itemize}
+
+\noindent\textbf{Rischi attesi}\\
+I componenti del team BugBusters ritengono siano possibili i seguenti rischi:
+\begin{itemize}
+    \item XXX
+    \item XXX
+\end{itemize}
+
+\noindent\textbf{Preventivo\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\
+Si prospetta l'utilizzo delle seguenti risorse
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+\hline
+\end{tabular}
+\caption{Preventivo\gloss\ per componenti nello Sprint\gloss\ 6}
+\label{tab:preventivo-sprint6}
+\end{table}
+
+\noindent\textbf{Consuntivo}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+ & \rotatebox{45}{Responsabile} & \rotatebox{45}{Amministratore} & \rotatebox{45}{Analista} & \rotatebox{45}{Progettista} & \rotatebox{45}{Programmatore} & \rotatebox{45}{Verificatore} \\
+\hline
+Alberto Autiero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Favero & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Alberto Pignat & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Marco Piro & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Linor Sadè & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Leonardo Salviato & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+Luca Slongo & [X] & [X] & [X] & [X] & [X] & [X] \\
+\hline
+\textbf{Totale} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} & \textbf{[X]} \\
+\hline
+\end{tabular}
+\caption{Consuntivo per componenti nello Sprint\gloss\ 6}
+\label{tab:consuntivo-sprint6}
+\end{table}
+
+\noindent\textbf{Aggiornamento delle risorse rimanenti}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+Ruolo & Costo & Ore & Costo & Ore rimanenti & Budget rimanente \\
+\hline
+Responsabile & 30€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Amministratore & 20€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Analista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Progettista & 25€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Programmatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+Verificatore & 15€/h & [X] & [X]€ & [X] & [X]€ \\
+\hline
+\textbf{Totale} & \textbf{-} & \textbf{[X]} & \textbf{[X]€} & \textbf{[X]} & \textbf{[X]€} \\
+\hline
+\end{tabular}
+\caption{Variazione nelle risorse disponibili nello Sprint\gloss\ 6}
+\label{tab:risorse-sprint6}
+\end{table}
+
+\noindent\textbf{Rischi incontrati}\\
+XXX
+XXX
+
+\noindent\textbf{Retrospettiva}\\
+XXX
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
