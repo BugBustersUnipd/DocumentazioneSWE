@@ -1,5 +1,5 @@
 ﻿\documentclass[a4paper,11pt]{article}
-\newcommand{\CurrentVersion}{0.2.5} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{1.0.0} % ultima versione, da cambiare ad ogni push significativo
 
 
 \usepackage[utf8]{inputenc}
@@ -24,7 +24,12 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{ragged2e}
+% Pacchetti necessari per il comando G
+\usepackage{graphicx} % Serve per \scalebox
+\usepackage{xspace}   % Serve per gestire lo spazio dopo la G
 
+% Definizione del comando \G
+\newcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}\xspace}
 
 
 \definecolor{primaryblue}{RGB}{0,102,204}
@@ -146,17 +151,16 @@
 \end{center}
 
 \begin{center}
-\begin{tcolorbox}[colback=gray!10,width=0.8\textwidth,arc=3mm,boxrule=0.5pt]
-\begin{tabular}{ll}
-\textbf{Stato} & In redazione \\
-\textbf{Redattori} & Leonardo Salviato \\
-\textbf{Destinatari} & BugBusters \\
- & Prof. Vardanega Tullio \\
- & Prof. Cardin Riccardo \\
- & Eggon \\
-\end{tabular}
-\end{tcolorbox}
-\end{center}
+    \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+    % Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
+    \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
+        {Stato} & Approvato per RTB\G \\
+        {Verificatore\G} &  Marco Piro \\
+        {Redattore} & Leonardo Salviato \\
+        {Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
+    \end{tabularx}
+    \end{tcolorbox}
+    \end{center}
 
 \vspace{1cm}
 
@@ -165,10 +169,9 @@
 \end{center}
 
 \begin{center}
-\begin{minipage}{0.9\textwidth}
-\small
-Questo documento contiene le Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} seguite dal team \textbf{BugBusters} per il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} C5 proposto dall'azienda Eggon
-\end{minipage}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Questo documento contiene l'Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} seguite dal team \textbf{BugBusters} per il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} C5 proposto dall'azienda Eggon
+\end{tcolorbox}
 \end{center}
 
 
@@ -194,6 +197,8 @@ Questo documento contiene le Norme di Progetto\textsubscript{\scalebox{0.6}{\tex
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & \textbf{\color{white} Approvato} \\
 \hline
 \endhead
+\rowcolor{secondaryblue!10} 1.0.0 & 30/01/2025 & Approvazione documento & - &  & Marco Piro \\
+\hline
 \rowcolor{secondaryblue!10} 0.2.5 & 29/01/2026 & Aggiunti ai termini presenti nel Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}} la G & Alberto Autiero &  & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.2.4 & 20/01/2026 & Correzione errori & Alberto Pignat &  & - \\
@@ -424,7 +429,7 @@ rilevanti per il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}.
 \begin{itemize}
 \item \textbf{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
  d'appalto C5: Nexum - Piattaforma di consulenza e documentazione previdenziale}\\
-\url{https://www.math.unipd.it/~tullio/IS-1/2025/progetto/C5.pdf}
+\url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf}
 \end{itemize}
 
 \subsubsection{Riferimenti informativi}
@@ -4845,12 +4850,13 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
 \caption{Tabella dei Requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{tab:reqfunzionali}\\
 \hline
+\rowcolor{primaryblue!40}
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endfirsthead
-
 \multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
+\rowcolor{primaryblue!40}
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endhead
@@ -5147,12 +5153,14 @@ Definiscono gli attributi qualitativi del software che influenzano l'esperienza 
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
 \caption{Tabella dei requisiti di qualità\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{tab:reqqualita}\\
 \hline
+\rowcolor{primaryblue!40}
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endfirsthead
 
 \multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
+\rowcolor{primaryblue!40}
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endhead
@@ -5195,12 +5203,14 @@ Rappresentano le limitazioni e le restrizioni entro cui il sistema deve essere s
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
 \caption{Tabella dei Requisiti Vincolo}\label{tab:reqvincolo}\\
 \hline
+\rowcolor{primaryblue!40}
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endfirsthead
 
 \multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
+\rowcolor{primaryblue!40}
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endhead
@@ -5244,12 +5254,14 @@ Specificano i parametri numerici relativi all'efficienza\textsubscript{\scalebox
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
 \caption{Tabella dei Requisiti Prestazionali\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{tab:reqprestazionali}\\
 \hline
+\rowcolor{primaryblue!40}
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endfirsthead
 
 \multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
+\rowcolor{primaryblue!40}
 \textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
 \hline
 \endhead
