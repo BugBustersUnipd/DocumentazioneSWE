@@ -1,0 +1,173 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}
+  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Interno\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.3cm]
+  {\Large\color{secondaryblue} 31 gennaio 2026}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}}    & Luca Slongo \\
+\textbf{Verificatore\textsubscript{\scalebox{0.6}{\textbf{G}}}}    &  Marco Piro  \\
+\textbf{Uso}          & Interno \\
+\textbf{Destinatari}  & BugBusters \\
+\textbf{Versione} & 1.0.0\\
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale interno\textsubscript{\scalebox{0.6}{\textbf{G}}} relativo alla riunione del 31 Gennaio 2026, durante la quale sono state decise le prossime attività da svolgere per poter poi candidarsi alla RTB\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Interna
+    \item \textbf{Piattaforma:} Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item \textbf{Data:} 31/01/2026
+    \item \textbf{Orario di inizio:} 15:15
+    \item \textbf{Orario di fine:} 15:45
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+\begin{enumerate}
+    \item \label{itm:revisione_doc} Completamento e revisione finale dei documenti;
+    \item \label{itm:verifica_poc} Verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} del PoC\textsubscript{\scalebox{0.6}{\textbf{G}}};
+\end{enumerate}
+
+
+\newpage
+\section{Svolgimento}
+Qui di seguito i punti discussi con più dettaglio:
+
+\subsection*{\ref{itm:revisione_doc}. Completamento e revisione finale dei documenti} Al fine di candidarsi all RTB\textsubscript{\scalebox{0.6}{\textbf{G}}} il prima possibile, si è discusso brevemente dei documenti da completare e revisionare per poter procedere. 
+Si è deciso di creare delle issue\textsubscript{\scalebox{0.6}{\textbf{G}}} specifiche per ogni documento, in modo da poter assegnare le responsabilità e tenere traccia dei progressi.
+
+
+\subsection*{\ref{itm:verifica_poc}. Verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} del PoC\textsubscript{\scalebox{0.6}{\textbf{G}}}} Prima di procedere con la candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} alla RTB\textsubscript{\scalebox{0.6}{\textbf{G}}}, si è deciso di effettuare una verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} del PoC\textsubscript{\scalebox{0.6}{\textbf{G}}}, in modo da assicurarsi che sia correttamente funzionante e che il codice scritto sia conforme agli standard qualitativi richiesti.
+Tutti i membri del gruppo si occuperanno di questa verifica\textsubscript{\scalebox{0.6}{\textbf{G}}}, ognuno controllerà tutto ciò che riguarda il PoC\textsubscript{\scalebox{0.6}{\textbf{G}}} e non solo le parti specifiche di cui è responsabile\textsubscript{\scalebox{0.6}{\textbf{G}}}, in modo da avere tutti una conoscenza generale del funzionamento totale del sistema.
+
+\section{Tabella delle decisioni e azioni}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/150}{RTB83}  & Verificare Analisi dei Requisiti & Marco Piro \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/167}{RTB84} & Verificare se la guida POC\textsubscript{\scalebox{0.6}{\textbf{G}}} va bene su Linux e MACOS & Marco Piro, Luca Slongo \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/152}{RTB85} & Verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} & Alberto Pignat \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/153}{RTB86}  & Verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} Piano di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} & Marco Favero \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/154}{RTB87}  & Verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}} & Marco Favero \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/155}{RTB88}  & Verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}} & Alberto Pignat \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/156}{RTB89}  & Aggiornare il Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}} e i vari documenti & Alberto Autiero \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/164}{RTB90}  & Aggiungere i documenti al sito ed aggiornare i documenti con i link
+& Linor Sadè \\
+\hline
+
+\end{tabularx}
+\fussy
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
