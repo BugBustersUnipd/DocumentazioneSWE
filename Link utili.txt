@@ -1,7 +1,11 @@
 LISTA CAPITOLATI: https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/Capitolati.html
 
-LINK GITHUB: https://github.com/BugbustersUnipd/DocumentazioneSWE
-
-LINK PER DOMANDE AZIENDE: https://docs.google.com/document/d/1lqCRWY-Q8EjTinMaPSq__ODji1V4l9GCg8GGVjyay-U/edit?tab=t.0
-
 LINK PER DISTRIBUZIONE RUOLI: https://docs.google.com/spreadsheets/d/18kXPN2ZcK66CdVlOeIzSGvkJdKQeo7FUOqmjG_VdmcQ/edit?usp=sharing
+
+LINK PER FIGMA: https://www.figma.com/board/3SoCfGDHIpLIepBSO57rm7/SWE?node-id=0-1&p=f&t=ycnRSJ9Hm36paZl0-0
+
+LINK PER DRAW.IO: https://drive.google.com/file/d/1gewL7mIL-Oo6sgl88N8on5XeTuLLCbIG/view?usp=sharing
+
+LINK PER DRIVE: https://drive.google.com/drive/folders/1OifP9G83BEEZfoFNAi3NUXh9LNIOvUq6?usp=drive_link
+
+LINK PER POC: https://github.com/BugBustersUnipd/PoC

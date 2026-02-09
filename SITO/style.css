@@ -15,6 +15,9 @@
     --border-light: #d9d9d9;
     --focus-outline: #0066cc;
     --hover-bg: #f0f8ff;
+    --card-bg: linear-gradient(180deg, rgba(230, 242, 255, 0.4), rgba(255, 255, 255, 0.9));
+    --card-shadow: 0 4px 12px rgba(0, 102, 204, 0.08);
+    --card-hover-shadow: 0 8px 20px rgba(0, 102, 204, 0.12);
 }
 
 body {
@@ -25,6 +28,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Skip to main content link for screen readers */
@@ -54,16 +58,49 @@ header {
     top: 0;
     z-index: 100;
     border-bottom: 3px solid var(--primary-blue);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-.header-inner {
+/* Header centrato per index.html */
+.header-inner.header-centered {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px 40px;
     gap: 20px;
     max-width: 1400px;
     margin: 0 auto;
+}
+
+/* Header per viewer.html con pulsante a sinistra */
+.header-inner.viewer-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header-inner.viewer-header-inner .back-btn {
+    position: absolute;
+    left: 40px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.header-inner.viewer-header-inner .back-btn:hover {
+    background: #5a6268;
 }
 
 .brand {
@@ -90,151 +127,6 @@ header {
     margin: 4px 0 0 0;
     font-size: 0.9rem;
     color: var(--text-gray);
-}
-
-.main-nav {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.nav-link {
-    background: transparent;
-    color: var(--text-dark);
-    border: none;
-    padding: 12px 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-}
-
-.nav-link:hover {
-    background: var(--hover-bg);
-    color: var(--primary-blue);
-}
-
-.nav-link:focus {
-    outline: 3px solid var(--focus-outline);
-    outline-offset: 2px;
-}
-
-.glossario-link {
-    background: transparent;
-    color: var(--primary-blue);
-    font-weight: 600;
-    border: 2px solid var(--primary-blue);
-}
-
-.glossario-link:hover {
-    background: var(--primary-blue);
-    color: var(--white);
-    border-color: var(--primary-blue);
-}
-
-/* Dropdown Menu - Focus principale */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-toggle {
-    position: relative;
-    background: var(--primary-blue);
-    color: var(--white);
-    font-size: 1.1rem;
-    font-weight: 700;
-    padding: 14px 28px;
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-}
-
-.dropdown-toggle:hover {
-    background: var(--primary-blue-dark);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
-}
-
-.dropdown-arrow {
-    font-size: 0.7em;
-    margin-left: 4px;
-    transition: transform 0.2s ease;
-}
-
-.dropdown.active .dropdown-arrow {
-    transform: rotate(180deg);
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--white);
-    border: 2px solid var(--primary-blue);
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.25);
-    min-width: 220px;
-    margin-top: 8px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.dropdown.active .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-item {
-    display: block;
-    width: 100%;
-    padding: 14px 22px;
-    background: transparent;
-    border: none;
-    text-align: left;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-dark);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border-radius: 6px;
-    margin: 4px;
-}
-
-.dropdown-item:hover {
-    background: var(--secondary-blue);
-    color: var(--primary-blue);
-    font-weight: 600;
-}
-
-.dropdown-item:focus {
-    outline: 2px solid var(--focus-outline);
-    outline-offset: -2px;
-    background: var(--secondary-blue);
-}
-
-.dropdown-item.active {
-    background: var(--primary-blue);
-    color: var(--white);
-    font-weight: 600;
-}
-
-.dropdown-item.active:hover {
-    background: var(--primary-blue-dark);
-}
-
-.nav-tabs {
-    display: flex;
-    gap: 8px;
 }
 
 .tab-btn {
@@ -266,7 +158,6 @@ header {
     color: var(--white);
     border-color: var(--primary-blue);
 }
-
 
 main {
     max-width: 1200px;
@@ -305,6 +196,7 @@ main {
     display: block;
 }
 
+/* Unified card style for all sections */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -312,22 +204,58 @@ main {
     margin: 16px 0 24px 0;
 }
 
-.card {
-    background: linear-gradient(180deg, rgba(230,242,255,0.6), var(--white));
+.card,
+.diapositiva-item,
+.verbali-folder summary,
+.team-member {
+    background: var(--card-bg);
     border: 1px solid var(--border-light);
     padding: 18px;
     border-radius: 12px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition: all 0.3s ease;
+    box-shadow: var(--card-shadow);
 }
 
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0,102,204,0.08);
+/* Limita la larghezza massima delle card per mantenere dimensioni uniformi */
+.cards .card {
+    max-width: 100%;
+    min-width: 0; /* Permette alle card di ridursi sotto minmax */
+    /* Su schermi grandi, limita la larghezza per evitare che le card singole si espandano troppo */
+    width: 100%;
 }
 
-.card h4 {
-    margin: 0 0 8px 0;
+/* Quando c'è una sola card, limita la larghezza massima */
+.cards:has(.card:only-child) .card {
+    max-width: 350px;
+}
+
+.card:hover,
+.diapositiva-item:hover,
+.team-member:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-hover-shadow);
+    border-color: var(--primary-blue-light);
+}
+
+.card h4,
+.diapositiva-item h4,
+.verbali-folder summary,
+.member-name {
+    margin: 0 0 10px 0;
     color: var(--primary-blue);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card p {
+    margin: 0 0 12px 0;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
 }
 
 /* Ensure anchor targets sit nicely under the sticky header */
@@ -337,51 +265,58 @@ section[role="region"] {
 
 /* Styles for verbali collapsible folders using details/summary */
 .verbali-folder {
-    margin: 16px 0 8px 0;
+    margin: 20px 0 10px 0;
     border: 1px solid var(--border-light);
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     background: var(--white);
+    box-shadow: var(--card-shadow);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .verbali-folder summary {
     list-style: none;
-    /* keep space for arrow caret on the left */
-    padding: 14px 18px 14px 44px;
+    padding: 16px 20px 16px 48px;
     cursor: pointer;
     font-weight: 700;
-    color: var(--primary-blue);
-    background: linear-gradient(90deg, rgba(230,242,255,0.6), transparent);
+    background: var(--card-bg);
     border-bottom: 1px solid var(--border-light);
     position: relative;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    font-size: 1.1rem;
 }
 
 .verbali-folder[open] summary {
-    background: linear-gradient(90deg, var(--primary-blue-light), rgba(230,242,255,0.4));
-    color: var(--white);
+    background: var(--card-bg);
+    color: var(--primary-blue);
+    border-bottom: 1px solid var(--border-light);
 }
 
 /* Arrow caret indicator for collapsible folders */
 .verbali-folder summary::before {
     content: "▸"; /* triangular caret */
     position: absolute;
-    left: 14px;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%) rotate(0deg);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     line-height: 1;
     color: var(--primary-blue);
-    transition: transform 0.18s ease, color 0.18s ease;
+    transition: transform 0.2s ease;
 }
 
 .verbali-folder[open] summary::before {
     transform: translateY(-50%) rotate(90deg);
-    color: var(--white);
+    color: var(--primary-blue);
 }
 
 .verbali-folder .doc-list {
-    padding: 10px 18px 18px 18px;
+    padding: 16px 20px;
     margin: 0;
+    background: var(--white);
+    transition: background 0.3s ease;
 }
 
 .verbali-folder .doc-list li a {
@@ -395,6 +330,7 @@ section[role="region"] {
     border-radius: 12px;
     padding: 40px 50px;
     box-shadow: 0 4px 20px rgba(0, 102, 204, 0.08);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .page-title {
@@ -437,7 +373,12 @@ section[role="region"] {
 
 .doc-list li {
     margin: 0;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid rgba(0, 102, 204, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.doc-list li:hover {
+    background-color: var(--hover-bg);
 }
 
 .doc-list li:last-child {
@@ -494,13 +435,14 @@ section[role="region"] {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 10px;
+    padding: 8px 12px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
     line-height: 1;
-    transition: background 0.12s ease, color 0.12s ease, transform 0.08s ease;
+    transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
 .btn-open {
@@ -512,6 +454,7 @@ section[role="region"] {
 .btn-open:hover,
 .btn-open:focus {
     background: var(--hover-bg);
+    transform: translateY(-1px);
 }
 
 .btn-viewer {
@@ -523,6 +466,7 @@ section[role="region"] {
 .btn-viewer:hover,
 .btn-viewer:focus {
     background: var(--primary-blue-dark);
+    transform: translateY(-1px);
 }
 
 /* Chi Siamo Section Styles */
@@ -545,17 +489,13 @@ section[role="region"] {
 }
 
 .team-member {
-    background: var(--secondary-blue);
-    border: 2px solid var(--border-light);
-    border-radius: 12px;
     padding: 25px;
     text-align: center;
-    transition: all 0.2s ease;
+    border: 2px solid var(--border-light);
 }
 
 .team-member:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.15);
     border-color: var(--primary-blue-light);
 }
 
@@ -572,9 +512,6 @@ section[role="region"] {
 }
 
 .member-name {
-    color: var(--primary-blue);
-    font-size: 1.1rem;
-    font-weight: 600;
     margin: 10px 0 5px 0;
 }
 
@@ -597,6 +534,7 @@ section[role="region"] {
     background: var(--hover-bg);
     border-radius: 10px;
     border-left: 4px solid var(--primary-blue);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .contact-info p {
@@ -641,6 +579,344 @@ section[role="region"] {
     outline-offset: 2px;
 }
 
+/* Diapositive vertical list */
+.diapositive-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 16px 0 24px 0;
+}
+
+.diapositiva-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.diapositiva-links .separator {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    opacity: 0.5;
+}
+
+.diapositiva-links a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.diapositiva-links a:hover {
+    background: var(--hover-bg);
+    transform: translateY(-1px);
+}
+
+/* MODIFICA: Rendi il testo "Apri con Viewer" bianco in modalità chiara */
+.diapositiva-links .viewer-link {
+    color: #ffffff; /* Bianco invece di verde */
+    background-color: var(--primary-blue);
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.diapositiva-links .viewer-link:hover {
+    color: #ffffff;
+    background: var(--primary-blue-dark);
+    text-decoration: none;
+}
+
+/* Unified link styles for all sections */
+.card p a,
+.diapositiva-links a,
+.doc-list a,
+.team-member a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.card p a:hover,
+.diapositiva-links a:hover,
+.doc-list a:hover,
+.team-member a:hover {
+    color: var(--primary-blue-dark);
+}
+
+/* MODIFICA: Rendi il testo "Apri con Viewer" nelle card bianco */
+.card p a.viewer-link {
+    color: #ffffff;
+    background-color: var(--primary-blue);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.card p a.viewer-link:hover {
+    color: #ffffff;
+    background: var(--primary-blue-dark);
+}
+
+/* Stili per i bottoni "Apri con viewer" nelle liste */
+.btn-viewer.viewer-link {
+    color: var(--white);
+    text-decoration: none;
+    border-color: var(--primary-blue);
+}
+
+.btn-viewer.viewer-link:hover,
+.btn-viewer.viewer-link:focus {
+    background: var(--primary-blue-dark);
+    color: var(--white);
+    outline: 3px solid var(--focus-outline);
+    outline-offset: 2px;
+}
+
+/* ===== PULSANTE TORNA SU ===== */
+.torna-su-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.torna-su-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.torna-su-btn:hover {
+    background: var(--primary-blue-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.torna-su-btn:active {
+    transform: translateY(-1px);
+}
+
+/* ===== PULSANTE MODALITÀ SCURA/CHIARA ===== */
+.tema-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.tema-toggle-btn:hover {
+    background: var(--primary-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.tema-toggle-btn:active {
+    transform: translateY(0);
+}
+
+.tema-toggle-btn .icon {
+    transition: transform 0.3s ease;
+}
+
+.tema-toggle-btn.dark .icon {
+    transform: rotate(180deg);
+}
+
+/* ===== MODALITÀ SCURA ===== */
+body.dark-theme {
+    --primary-blue: #4a9eff;
+    --primary-blue-dark: #2a7bdf;
+    --primary-blue-light: #6ab2ff;
+    --secondary-blue: #1a2b3c;
+    --white: #1a1a1a;
+    --text-dark: #e0e0e0;
+    --text-gray: #a0a0a0;
+    --border-light: #2d2d2d;
+    --hover-bg: #2a2a2a;
+    --card-bg: linear-gradient(180deg, rgba(74, 158, 255, 0.1), rgba(26, 26, 26, 0.9));
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --card-hover-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme {
+    background: linear-gradient(to bottom, #0f1a2a 0%, #1a1a1a 100%);
+    color: var(--text-dark);
+}
+
+body.dark-theme header {
+    background: #2d2d2d;
+    border-bottom: 3px solid var(--primary-blue);
+}
+
+body.dark-theme .content-box {
+    background: #2d2d2d;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .card,
+body.dark-theme .diapositiva-item,
+body.dark-theme .team-member,
+body.dark-theme .verbali-folder summary {
+    background: linear-gradient(180deg, rgba(74, 158, 255, 0.1), rgba(45, 45, 45, 0.9));
+    border: 1px solid var(--border-light);
+}
+
+body.dark-theme .verbali-folder {
+    background: #2d2d2d;
+    border: 1px solid var(--border-light);
+}
+
+body.dark-theme .verbali-folder .doc-list {
+    background: #2d2d2d;
+}
+
+body.dark-theme .verbali-folder[open] summary {
+    background: linear-gradient(90deg, var(--primary-blue-light), rgba(74, 158, 255, 0.1));
+}
+
+body.dark-theme .doc-list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .doc-list li:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .doc-list a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .contact-info {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--primary-blue);
+}
+
+/* MODIFICA: In modalità scura, mantieni il colore verde per "Apri con viewer" */
+body.dark-theme .diapositiva-links .viewer-link {
+    color: #4cd964;
+    background-color: transparent;
+}
+
+body.dark-theme .diapositiva-links .viewer-link:hover {
+    color: #3ac753;
+    background: rgba(76, 217, 100, 0.1);
+}
+
+body.dark-theme .btn-open {
+    background: transparent;
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+}
+
+body.dark-theme .btn-open:hover {
+    background: rgba(74, 158, 255, 0.1);
+}
+
+body.dark-theme .btn-viewer {
+    background: var(--primary-blue);
+    color: #1a1a1a;
+    border: 1px solid var(--primary-blue);
+}
+
+body.dark-theme .btn-viewer:hover {
+    background: var(--primary-blue-dark);
+}
+
+body.dark-theme .contact-info a {
+    color: var(--primary-blue);
+}
+
+body.dark-theme .tab-btn {
+    color: var(--text-gray);
+    border: 2px solid var(--border-light);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .tab-btn:hover {
+    color: var(--primary-blue);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-blue-light);
+}
+
+body.dark-theme .tab-btn.active {
+    background: var(--primary-blue);
+    color: #1a1a1a;
+    border-color: var(--primary-blue);
+}
+
+body.dark-theme .page-title,
+body.dark-theme .section-title,
+body.dark-theme .brand-text h1 {
+    color: var(--primary-blue);
+}
+
+body.dark-theme .subsection-title {
+    color: var(--text-dark);
+    border-left: 4px solid var(--primary-blue-light);
+}
+
+body.dark-theme .team-intro,
+body.dark-theme .project-description {
+    color: var(--text-dark);
+}
+
+body.dark-theme .member-role {
+    color: var(--text-gray);
+}
+
+body.dark-theme .brand-text p {
+    color: var(--text-gray);
+}
+
+body.dark-theme .header-inner.viewer-header-inner .back-btn {
+    background: #495057;
+    color: #e0e0e0;
+}
+
+body.dark-theme .header-inner.viewer-header-inner .back-btn:hover {
+    background: #5a6268;
+}
+
+/* MODIFICA: In modalità scura, per i link nelle card */
+body.dark-theme .card p a.viewer-link {
+    color: #4cd964;
+    background-color: transparent;
+}
+
+body.dark-theme .card p a.viewer-link:hover {
+    color: #3ac753;
+    background: rgba(76, 217, 100, 0.1);
+}
+
 /* High contrast mode support */
 @media (prefers-contrast: high) {
     :root {
@@ -659,31 +935,19 @@ section[role="region"] {
     }
 }
 
+/* Responsive styles */
 @media (max-width: 768px) {
-    .header-inner {
+    .header-inner.header-centered,
+    .header-inner.viewer-header-inner {
         flex-direction: column;
         padding: 20px;
         gap: 15px;
     }
     
-    .main-nav {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .nav-link {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-    
-    .dropdown-menu {
-        left: 50%;
-        transform: translateX(-50%) translateY(-10px);
-    }
-    
-    .dropdown.active .dropdown-menu {
-        transform: translateX(-50%) translateY(0);
+    .header-inner.viewer-header-inner .back-btn {
+        position: static;
+        align-self: flex-start;
+        margin-bottom: 10px;
     }
     
     .tab-content {
@@ -735,10 +999,28 @@ section[role="region"] {
     .team-member {
         padding: 20px;
     }
+    
+    /* Pulsanti responsive */
+    .torna-su-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    
+    .tema-toggle-btn {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 480px) {
-    .header-inner {
+    .header-inner.header-centered,
+    .header-inner.viewer-header-inner {
         padding: 15px;
     }
     
@@ -756,11 +1038,6 @@ section[role="region"] {
     
     .page-title {
         font-size: 1.4rem;
-    }
-    
-    .nav-link {
-        padding: 8px 12px;
-        font-size: 0.85rem;
     }
     
     .team-grid {
@@ -782,23 +1059,44 @@ section[role="region"] {
         padding: 10px 12px;
         font-size: 0.95rem;
     }
+    
+    /* Pulsanti responsive */
+    .torna-su-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    .tema-toggle-btn {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
 }
 
 /* PDF Viewer Link Styles */
 .viewer-link {
-    color: #28a745;
+    color: #ffffff; /* MODIFICA: Bianco invece di verde */
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9em;
+    background-color: var(--primary-blue);
+    padding: 4px 8px;
+    border-radius: 4px;
 }
 
 .viewer-link:hover {
-    color: #218838;
-    text-decoration: underline;
+    color: #ffffff;
+    background-color: var(--primary-blue-dark);
+    text-decoration: none;
 }
 
 .viewer-link:focus {
-    outline: 2px solid #28a745;
+    outline: 2px solid var(--focus-outline);
     outline-offset: 2px;
 }
 
@@ -817,6 +1115,17 @@ section[role="region"] {
     outline-offset: 2px;
 }
 
+/* MODIFICA: In modalità scura, ripristina il colore verde per .viewer-link */
+body.dark-theme .viewer-link {
+    color: #4cd964;
+    background-color: transparent;
+}
+
+body.dark-theme .viewer-link:hover {
+    color: #3ac753;
+    background-color: rgba(76, 217, 100, 0.1);
+}
+
 /* Hide viewer links on mobile devices since iframe viewer doesn't work on mobile */
 @media screen and (max-width: 767px) {
     .viewer-link {
@@ -824,4 +1133,9 @@ section[role="region"] {
         visibility: hidden !important;
         pointer-events: none !important;
     }
+    
+    .diapositiva-links .separator {
+        display: none;
+    }
 }
+

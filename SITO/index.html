@@ -14,7 +14,7 @@
     <a href="#main-content" class="skip-to-main">Salta al contenuto principale</a>
     
     <header role="banner">
-        <div class="header-inner">
+        <div class="header-inner header-centered">
             <div class="brand">
                 <!-- Use correct capitalization to match repository file name on case-sensitive hosts -->
                 <img src="assets/Logo.jpg" alt="Logo BugBusters" class="logo">
@@ -23,49 +23,11 @@
                     <p>Ingegneria del Software — Anno 2025/2026</p>
                 </div>
             </div>
-
-            <nav class="main-nav" role="navigation" aria-label="Navigazione principale">
-                <a href="RTB/GLOSSARIO/Glossario.pdf" 
-                   class="nav-link glossario-link" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   aria-label="Apri il Glossario">
-                    📖 Glossario
-                </a>
-
-                <div class="dropdown">
-                    <a class="nav-link dropdown-toggle" 
-                            href="#candidatura"
-                            id="documentazione-menu">
-                        📁 Documentazione
-                        <span class="dropdown-arrow" aria-hidden="true">▼</span>
-                    </a>
-                    <div class="dropdown-menu" role="menu" aria-labelledby="documentazione-menu">
-                        <a class="dropdown-item active" 
-                                href="#candidatura"
-                                data-doc="candidatura">
-                            Candidatura
-                        </a>
-                        <a class="dropdown-item" 
-                                href="#candidatura"
-                                data-doc="diapositive">
-                            Diapositive
-                        </a>
-                        <a class="dropdown-item" 
-                                href="#candidatura"
-                                data-doc="rtb">
-                            RTB
-                        </a>
-                    </div>
-                </div>
-
-                <a class="nav-link" href="#chi-siamo" aria-label="Informazioni sul gruppo">👥 Chi siamo?</a>
-            </nav>
         </div>
     </header>
 
     <main id="main-content" role="main">
-        <!-- DOCUMENTAZIONE section: contains internal switch between Documentazione and Diapositive -->
+        <!-- DOCUMENTAZIONE section: contiene switch interno tra Candidatura, Diapositive e RTB -->
         <section id="candidatura" class="section documentation" role="region" aria-label="Documentazione" tabindex="0">
             <div class="content-box">
                 <h2 class="page-title">Documentazione</h2>
@@ -81,19 +43,11 @@
                         <h3 class="section-title">Candidatura</h3>
                         <div class="cards">
                             <div class="card">
-                                <h4>Aggiudicazione appalto</h4>
-                                <p>Documento ufficiale di aggiudicazione.</p>
-                                <p>
-                                    <a href="CANDIDATURA/AGGIUDICAZIONE/Aggiudicazione appalto.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=CANDIDATURA/AGGIUDICAZIONE/Aggiudicazione%20appalto.pdf&title=Aggiudicazione%20appalto" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
-                            </div>
-                            <div class="card">
                                 <h4>Candidatura progetto</h4>
                                 <p>Versione finale della candidatura.</p>
                                 <p>
                                     <a href="CANDIDATURA/CANDIDATURA PROGETTO/Candidatura progetto.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=CANDIDATURA/CANDIDATURA%20PROGETTO/Candidatura%20progetto.pdf&title=Candidatura%20progetto" class="viewer-link">👁️ Apri con Viewer</a>
+                                    <a href="viewer.html?pdf=CANDIDATURA/CANDIDATURA%20PROGETTO/Candidatura%20progetto.pdf&title=Candidatura%20progetto&section=candidatura" class="viewer-link">Apri con Viewer</a>
                                 </p>
                             </div>
                             <div class="card">
@@ -101,7 +55,7 @@
                                 <p>Dichiarazione di impegno del team.</p>
                                 <p>
                                     <a href="CANDIDATURA/DICHIARAZIONE IMPEGNI/Dichiarazione impegni.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=CANDIDATURA/DICHIARAZIONE%20IMPEGNI/Dichiarazione%20impegni.pdf&title=Dichiarazione%20impegni" class="viewer-link">👁️ Apri con Viewer</a>
+                                    <a href="viewer.html?pdf=CANDIDATURA/DICHIARAZIONE%20IMPEGNI/Dichiarazione%20impegni.pdf&title=Dichiarazione%20impegni&section=candidatura" class="viewer-link">Apri con Viewer</a>
                                 </p>
                             </div>
                             <div class="card">
@@ -109,69 +63,69 @@
                                 <p>Report sulla scelta dei capitolati.</p>
                                 <p>
                                     <a href="CANDIDATURA/SCELTA CAPITOLATO/Resoconto_capitolati.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=CANDIDATURA/SCELTA%20CAPITOLATO/Resoconto_capitolati.pdf&title=Valutazione%20capitolati" class="viewer-link">👁️ Apri con Viewer</a>
+                                    <a href="viewer.html?pdf=CANDIDATURA/SCELTA%20CAPITOLATO/Resoconto_capitolati.pdf&title=Valutazione%20capitolati&section=candidatura" class="viewer-link">Apri con Viewer</a>
                                 </p>
                             </div>
                         </div>
 
-                        <details class="verbali-folder">
+                        <details class="verbali-folder" id="verbali-esterni-candidatura">
                             <summary class="subsection-title">Verbali Esterni</summary>
                             <ul class="doc-list verbali" aria-label="Verbali esterni">
                                 <li>
                                     <a class="file-link" href="CANDIDATURA/VERBALI/Esterni/VE_24-10-2025 [M31]/VE_24-10-2025[M31].pdf" target="_blank" rel="noopener noreferrer">VE 24 ottobre 2025 - M31</a>
                                     <a class="btn btn-open" href="CANDIDATURA/VERBALI/Esterni/VE_24-10-2025 [M31]/VE_24-10-2025[M31].pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_24-10-2025%20[M31]/VE_24-10-2025[M31].pdf&title=VE%2024%20ottobre%202025%20-%20M31">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_24-10-2025%20[M31]/VE_24-10-2025[M31].pdf&title=VE%2024%20ottobre%202025%20-%20M31&section=candidatura">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="CANDIDATURA/VERBALI/Esterni/VE_24-10-25 [Eggon]/VE_24-10-25[Eggon].pdf" target="_blank" rel="noopener noreferrer">VE 24 ottobre 2025 - Eggon</a>
                                     <a class="btn btn-open" href="CANDIDATURA/VERBALI/Esterni/VE_24-10-25 [Eggon]/VE_24-10-25[Eggon].pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_24-10-25%20[Eggon]/VE_24-10-25[Eggon].pdf&title=VE%2024%20ottobre%202025%20-%20Eggon">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_24-10-25%20[Eggon]/VE_24-10-25[Eggon].pdf&title=VE%2024%20ottobre%202025%20-%20Eggon&section=candidatura">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="CANDIDATURA/VERBALI/Esterni/VE_22_10_2025 [Miriade]/VE_22-10-2025[Miriade].pdf" target="_blank" rel="noopener noreferrer">VE 22 ottobre 2025 - Miriade</a>
                                     <a class="btn btn-open" href="CANDIDATURA/VERBALI/Esterni/VE_22_10_2025 [Miriade]/VE_22-10-2025[Miriade].pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_22_10_2025%20[Miriade]/VE_22-10-2025[Miriade].pdf&title=VE%2022%20ottobre%202025%20-%20Miriade">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_22_10_2025%20[Miriade]/VE_22-10-2025[Miriade].pdf&title=VE%2022%20ottobre%202025%20-%20Miriade&section=candidatura">Apri con viewer</a>
                                 </li>
                             </ul>
                         </details>
 
-                        <details class="verbali-folder">
+                        <details class="verbali-folder" id="verbali-interni-candidatura">
                             <summary class="subsection-title">Verbali Interni</summary>
                             <ul class="doc-list verbali" aria-label="Verbali interni">
                                 <li>
                                     <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_29-10-25/VI_29-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 29 ottobre 2025</a>
                                     <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_29-10-25/VI_29-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_29-10-25/VI_29-10-25.pdf&title=VI%2029%20ottobre%202025">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_29-10-25/VI_29-10-25.pdf&title=VI%2029%20ottobre%202025&section=candidatura">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_26-10-25/VI_26-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 26 ottobre 2025</a>
                                     <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_26-10-25/VI_26-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_26-10-25/VI_26-10-25.pdf&title=VI%2026%20ottobre%202025">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_26-10-25/VI_26-10-25.pdf&title=VI%2026%20ottobre%202025&section=candidatura">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_24-10-25/VI_24-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 24 ottobre 2025</a>
                                     <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_24-10-25/VI_24-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_24-10-25/VI_24-10-25.pdf&title=VI%2024%20ottobre%202025">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_24-10-25/VI_24-10-25.pdf&title=VI%2024%20ottobre%202025&section=candidatura">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_22-10-25/VI_22-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 22 ottobre 2025</a>
                                     <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_22-10-25/VI_22-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_22-10-25/VI_22-10-25.pdf&title=VI%2022%20ottobre%202025">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_22-10-25/VI_22-10-25.pdf&title=VI%2022%20ottobre%202025&section=candidatura">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_20-10-25/VI_20-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 20 ottobre 2025</a>
                                     <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_20-10-25/VI_20-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_20-10-25/VI_20-10-25.pdf&title=VI%2020%20ottobre%202025">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_20-10-25/VI_20-10-25.pdf&title=VI%2020%20ottobre%202025&section=candidatura">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_18-10-25/VI_18-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 18 ottobre 2025</a>
                                     <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_18-10-25/VI_18-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_18-10-25/VI_18-10-25.pdf&title=VI%2018%20ottobre%202025">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_18-10-25/VI_18-10-25.pdf&title=VI%2018%20ottobre%202025&section=candidatura">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_16-10-25/VI_16-10-25.pdf" target="_blank" rel="noopener noreferrer">VI 16 ottobre 2025</a>
                                     <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_16-10-25/VI_16-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_16-10-25/VI_16-10-25.pdf&title=VI%2016%20ottobre%202025">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_16-10-25/VI_16-10-25.pdf&title=VI%2016%20ottobre%202025&section=candidatura">Apri con viewer</a>
                                 </li>
                             </ul>
                         </details>
@@ -179,103 +133,176 @@
 
                     <div id="panel-diapositive" class="doc-panel" role="tabpanel" aria-hidden="true">
                         <h3 class="section-title">Diapositive</h3>
-                        <div class="cards">
-                            <div class="card">
-                                <h4>Diario di Bordo - 01 dicembre 2025</h4>
-                                <p>Diapositiva di report.</p>
-                                <p>
-                                    <a href="DIARIO DI BORDO/DB-01-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-01-12-25.pdf&title=Diario%20di%20Bordo%20-%2001%20dicembre%202025" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
+                        
+                        <details class="verbali-folder" id="diapositive-rtb">
+                            <summary class="subsection-title">RTB</summary>
+                            <div class="diapositive-vertical">
+                                <div class="diapositiva-item">
+                                    <h4>Diario di Bordo - 26 gennaio 2026</h4>
+                                    <div class="diapositiva-links">
+                                        <a href="DIARIO DI BORDO/DB-26-01-26.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                        <span class="separator">|</span>
+                                        <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-26-01-26.pdf&title=Diario%20di%20Bordo%20-%2026%20gennaio%202026&section=diapositive" class="viewer-link">Apri con Viewer</a>
+                                    </div>
+                                </div>
+                                <div class="diapositiva-item">
+                                    <h4>Diario di Bordo - 08 gennaio 2026</h4>
+                                    <div class="diapositiva-links">
+                                        <a href="DIARIO DI BORDO/DB-08-01-26.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                        <span class="separator">|</span>
+                                        <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-08-01-26.pdf&title=Diario%20di%20Bordo%20-%2008%20gennaio%202026&section=diapositive" class="viewer-link">Apri con Viewer</a>
+                                    </div>
+                                </div>
+                                <div class="diapositiva-item">
+                                    <h4>Diario di Bordo - 15 dicembre 2025</h4>
+                                    <div class="diapositiva-links">
+                                        <a href="DIARIO DI BORDO/DB-15-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                        <span class="separator">|</span>
+                                        <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-15-12-25.pdf&title=Diario%20di%20Bordo%20-%2015%20dicembre%202025&section=diapositive" class="viewer-link">Apri con Viewer</a>
+                                    </div>
+                                </div>
+                                <div class="diapositiva-item">
+                                    <h4>Diario di Bordo - 01 dicembre 2025</h4>
+                                    <div class="diapositiva-links">
+                                        <a href="DIARIO DI BORDO/DB-01-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                        <span class="separator">|</span>
+                                        <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-01-12-25.pdf&title=Diario%20di%20Bordo%20-%2001%20dicembre%202025&section=diapositive" class="viewer-link">Apri con Viewer</a>
+                                    </div>
+                                </div>
+                                <div class="diapositiva-item">
+                                    <h4>Diario di Bordo - 24 novembre 2025</h4>
+                                    <div class="diapositiva-links">
+                                        <a href="DIARIO DI BORDO/DB-24-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                        <span class="separator">|</span>
+                                        <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-24-11-25.pdf&title=Diario%20di%20Bordo%20-%2024%20novembre%202025&section=diapositive" class="viewer-link">Apri con Viewer</a>
+                                    </div>
+                                </div>
+                                <div class="diapositiva-item">
+                                    <h4>Diario di Bordo - 17 novembre 2025</h4>
+                                    <div class="diapositiva-links">
+                                        <a href="DIARIO DI BORDO/DB-17-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                        <span class="separator">|</span>
+                                        <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-17-11-25.pdf&title=Diario%20di%20Bordo%20-%2017%20novembre%202025&section=diapositive" class="viewer-link">Apri con Viewer</a>
+                                    </div>
+                                </div>
+                                <div class="diapositiva-item">
+                                    <h4>Diario di Bordo - 10 novembre 2025</h4>
+                                    <div class="diapositiva-links">
+                                        <a href="DIARIO DI BORDO/DB-10-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                        <span class="separator">|</span>
+                                        <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-10-11-25.pdf&title=Diario%20di%20Bordo%20-%2010%20novembre%202025&section=diapositive" class="viewer-link">Apri con Viewer</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </details>
 
-                        <div class="cards">
-                            <div class="card">
-                                <h4>Diario di Bordo - 24 novembre 2025</h4>
-                                <p>Diapositiva di report.</p>
-                                <p>
-                                    <a href="DIARIO DI BORDO/DB-24-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-24-11-25.pdf&title=Diario%20di%20Bordo%20-%2024%20novembre%202025" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
+                        <details class="verbali-folder" id="diapositive-candidatura">
+                            <summary class="subsection-title">Candidatura</summary>
+                            <div class="diapositive-vertical">
+                                <div class="diapositiva-item">
+                                    <h4>Diario di Bordo - 27 ottobre 2025</h4>
+                                    <div class="diapositiva-links">
+                                        <a href="DIARIO DI BORDO/DB-27-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a>
+                                        <span class="separator">|</span>
+                                        <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-27-10-25.pdf&title=Diario%20di%20Bordo%20-%2027%20ottobre%202025&section=diapositive" class="viewer-link">Apri con Viewer</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="cards">
-                            <div class="card">
-                                <h4>Diario di Bordo - 17 novembre 2025</h4>
-                                <p>Diapositiva di report.</p>
-                                <p>
-                                    <a href="DIARIO DI BORDO/DB-17-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-17-11-25.pdf&title=Diario%20di%20Bordo%20-%2017%20novembre%202025" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="cards">
-                            <div class="card">
-                                <h4>Diario di Bordo - 10 novembre 2025</h4>
-                                <p>Diapositiva di report.</p>
-                                <p>
-                                    <a href="DIARIO DI BORDO/DB-10-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-10-11-25.pdf&title=Diario%20di%20Bordo%20-%2010%20novembre%202025" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="cards">
-                            <div class="card">
-                                <h4>Diario di Bordo - 27 ottobre 2025</h4>
-                                <p>Diapositiva di report.</p>
-                                <p>
-                                    <a href="DIARIO DI BORDO/DB-27-10-25.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=DIARIO%20DI%20BORDO/DB-27-10-25.pdf&title=Diario%20di%20Bordo%20-%2027%20ottobre%202025" class="viewer-link">👁️ Apri con Viewer</a>
-                                </p>
-                            </div>
-                        </div>
+                        </details>
                     </div>
                     
-                    <div id="panel-rtb" class="doc-panel" role="tabpanel" aria-hidden="true">
-                        <h3 class="section-title">RTB</h3>
+                            <div id="panel-rtb" class="doc-panel" role="tabpanel" aria-hidden="true">
+                          <h3 class="section-title">RTB</h3>
+    
+                        <!-- Card Proof of Concept -->
+                        <div class="cards">
+                            <div class="card">
+                                <h4>Proof of Concept (POC)</h4>
+                                <p>Repository GitHub del Proof of Concept NEXUM.</p>
+                                <p>
+                                    <a href="https://github.com/BugBustersUnipd/PoC/archive/refs/heads/master.zip" target="_blank" rel="noopener noreferrer">Scarica Repository (ZIP)</a>
+                                </p>
+                            </div>
+                        </div>
                         
-                        <details class="verbali-folder">
+                        <details class="verbali-folder" id="verbali-esterni-rtb">
                             <summary class="subsection-title">Verbali RTB - Esterni</summary>
                             <ul class="doc-list verbali" aria-label="Verbali RTB esterni">
                                 <li>
+                                     <a class="file-link" href="RTB/VERBALI/ESTERNI/VE_07-01-26/VE_07-01-26.pdf" target="_blank" rel="noopener noreferrer">VE 7 gennaio 2026</a>
+                                     <a class="btn btn-open" href="RTB/VERBALI/ESTERNI/VE_07-01-26/VE_07-01-26.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                     <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/ESTERNI/VE_07-01-26/VE_07-01-26.pdf&title=VE%207%20gennaio%202026%20RTB&section=rtb">Apri con viewer</a>
+                                </li>
+                                <li>
+                                     <a class="file-link" href="RTB/VERBALI/ESTERNI/VE_17-12-25/VE_17-12-25.pdf" target="_blank" rel="noopener noreferrer">VE 17 dicembre 2025</a>
+                                     <a class="btn btn-open" href="RTB/VERBALI/ESTERNI/VE_17-12-25/VE_17-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                     <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/ESTERNI/VE_17-12-25/VE_17-12-25.pdf&title=VE%2017%20dicembre%202025%20RTB&section=rtb">Apri con viewer</a>
+                                </li>
+                                <li>
+                                     <a class="file-link" href="RTB/VERBALI/ESTERNI/VE_03-12-25/VE_03-12-25.pdf" target="_blank" rel="noopener noreferrer">VE 3 dicembre 2025</a>
+                                     <a class="btn btn-open" href="RTB/VERBALI/ESTERNI/VE_03-12-25/VE_03-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                     <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/ESTERNI/VE_03-12-25/VE_03-12-25.pdf&title=VE%203%20dicembre%202025%20RTB&section=rtb">Apri con viewer</a>
+                                </li>
+                                <li>
                                     <a class="file-link" href="RTB/VERBALI/ESTERNI/VE_19-11-25/VE_19-11-25.pdf" target="_blank" rel="noopener noreferrer">VE 19 novembre 2025</a>
                                     <a class="btn btn-open" href="RTB/VERBALI/ESTERNI/VE_19-11-25/VE_19-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/ESTERNI/VE_19-11-25/VE_19-11-25.pdf&title=VE%2019-11-2025%20RTB">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/ESTERNI/VE_19-11-25/VE_19-11-25.pdf&title=VE%2019-11-2025%20RTB&section=rtb">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="RTB/VERBALI/ESTERNI/VE_12-11-25/VE_12-11-25.pdf" target="_blank" rel="noopener noreferrer">VE 12 novembre 2025</a>
                                     <a class="btn btn-open" href="RTB/VERBALI/ESTERNI/VE_12-11-25/VE_12-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/ESTERNI/VE_12-11-25/VE_12-11-25.pdf&title=VE%2012-11-2025%20RTB">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/ESTERNI/VE_12-11-25/VE_12-11-25.pdf&title=VE%2012-11-2025%20RTB&section=rtb">Apri con viewer</a>
                                 </li>
                             </ul>
                         </details>
                         
-                        <details class="verbali-folder">
+                        <details class="verbali-folder" id="verbali-interni-rtb">
                             <summary class="subsection-title">Verbali RTB - Interni</summary>
                             <ul class="doc-list verbali" aria-label="Verbali RTB interni">
                                 <li>
+                                    <a class="file-link" href="RTB/VERBALI/INTERNI/VI_15-01-26/VI_15-01-26.pdf" target="_blank" rel="noopener noreferrer">VI 15 gennaio 2026</a>
+                                    <a class="btn btn-open" href="RTB/VERBALI/INTERNI/VI_15-01-26/VI_15-01-26.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_15-01-26/VI_15-01-26.pdf&title=VI%2015%20gennaio%202026%20RTB&section=rtb">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="RTB/VERBALI/INTERNI/VI_12-01-26/VI_12-01-26.pdf" target="_blank" rel="noopener noreferrer">VI 12 gennaio 2026</a>
+                                    <a class="btn btn-open" href="RTB/VERBALI/INTERNI/VI_12-01-26/VI_12-01-26.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_12-01-26/VI_12-01-26.pdf&title=VI%2012%20gennaio%202026%20RTB&section=rtb">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="RTB/VERBALI/INTERNI/VI_05-01-26/VI_05-01-26.pdf" target="_blank" rel="noopener noreferrer">VI 5 gennaio 2026</a>
+                                    <a class="btn btn-open" href="RTB/VERBALI/INTERNI/VI_05-01-26/VI_05-01-26.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_05-01-26/VI_05-01-26.pdf&title=VI%205%20gennaio%202026%20RTB&section=rtb">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="RTB/VERBALI/INTERNI/VI_23-12-25/VI_23-12-25.pdf" target="_blank" rel="noopener noreferrer">VI 23 dicembre 2025</a>
+                                    <a class="btn btn-open" href="RTB/VERBALI/INTERNI/VI_23-12-25/VI_23-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_23-12-25/VI_23-12-25.pdf&title=VI%2023-12-2025%20RTB&section=rtb">Apri con viewer</a>
+                                </li>
+                                <li>
+                                     <a class="file-link" href="RTB/VERBALI/INTERNI/VI_11-12-25/VI_11-12-25.pdf" target="_blank" rel="noopener noreferrer">VI 11 dicembre 2025</a>
+                                     <a class="btn btn-open" href="RTB/VERBALI/INTERNI/VI_11-12-25/VI_11-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                     <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_11-12-25/VI_11-12-25.pdf&title=VI%2011-12-2025%20RTB&section=rtb">Apri con viewer</a>
+                                </li>
+                                <li>
                                     <a class="file-link" href="RTB/VERBALI/INTERNI/VI_01-12-25/VI_01-12-25.pdf" target="_blank" rel="noopener noreferrer">VI 1 dicembre 2025</a>
                                     <a class="btn btn-open" href="RTB/VERBALI/INTERNI/VI_01-12-25/VI_01-12-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_01-12-25/VI_01-12-25.pdf&title=VI%2001-12-2025%20RTB">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_01-12-25/VI_01-12-25.pdf&title=VI%2001-12-2025%20RTB&section=rtb">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="RTB/VERBALI/INTERNI/VI_17-11-25/VI_17-11-25.pdf" target="_blank" rel="noopener noreferrer">VI 17 novembre 2025</a>
                                     <a class="btn btn-open" href="RTB/VERBALI/INTERNI/VI_17-11-25/VI_17-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_17-11-25/VI_17-11-25.pdf&title=VI%2017-11-2025%20RTB">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_17-11-25/VI_17-11-25.pdf&title=VI%2017-11-2025%20RTB&section=rtb">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="RTB/VERBALI/INTERNI/VI_12-11-25/VI_12-11-25.pdf" target="_blank" rel="noopener noreferrer">VI 12 novembre 2025</a>
                                     <a class="btn btn-open" href="RTB/VERBALI/INTERNI/VI_12-11-25/VI_12-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_12-11-25/VI_12-11-25.pdf&title=VI%2012-11-2025%20RTB">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_12-11-25/VI_12-11-25.pdf&title=VI%2012-11-2025%20RTB&section=rtb">Apri con viewer</a>
                                 </li>
                                 <li>
                                     <a class="file-link" href="RTB/VERBALI/INTERNI/VI_06-11-25/VI_06-11-25.pdf" target="_blank" rel="noopener noreferrer">VI 6 novembre 2025</a>
                                     <a class="btn btn-open" href="RTB/VERBALI/INTERNI/VI_06-11-25/VI_06-11-25.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_06-11-25/VI_06-11-25.pdf&title=VI%2006-11-2025%20RTB">Apri con viewer</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=RTB/VERBALI/INTERNI/VI_06-11-25/VI_06-11-25.pdf&title=VI%2006-11-2025%20RTB&section=rtb">Apri con viewer</a>
                                 </li>
                             </ul>
                         </details>
@@ -286,78 +313,95 @@
 
         <!-- CHI SIAMO: rimane visibile sotto la documentazione -->
         <section id="chi-siamo" class="section" role="region" aria-label="Chi siamo" tabindex="0">
-            <div class="content-box">
-                <h2 class="page-title">Chi siamo?</h2>
-                
-                <div class="team-info">
-                    <p class="team-intro">
-                        Siamo <strong>BugBusters</strong>, un gruppo di studenti del corso di Ingegneria del Software 
-                        dell'Università degli Studi di Padova.
-                    </p>
-					<p class="team-intro">
-                        Anno accademico 2025/2026.
-                    </p>
+    <div class="content-box">
+        <h2 class="page-title">Chi siamo?</h2>
+        
+        <div class="team-info">
+            <p class="team-intro">
+                Siamo il <strong>Gruppo 4 – BugBusters</strong>, un team di studenti di 
+                <strong>Ingegneria del Software</strong> presso l'<strong>Università degli Studi di Padova</strong>.
+            </p>
+            <p class="team-intro">
+                Nell'anno accademico <strong>2025/2026</strong>, ci siamo uniti per affrontare una sfida concreta nel mondo dello 
+                sviluppo software, applicando metodologie agili, best practice di progettazione e tecnologie moderne.
+            </p>
 
-                    <h3 class="section-title">Il nostro team</h3>
                     <div class="team-grid">
                         <a href="https://github.com/Alberto472217">
                             <div class="team-member">
-                                <div class="member-icon"><img src="assets/fotoprofilo/albertoautiero.png" alt=""></div>
+                                <div class="member-icon"><img src="assets/fotoprofilo/albertoautiero.png" alt="Alberto Autiero"></div>
                                 <h4 class="member-name">Alberto Autiero</h4>
                             </div>
                         </a>
 
                         <a href="https://github.com/Faverooo">
                             <div class="team-member">
-                                <div class="member-icon"><img src="assets/fotoprofilo/marcofavero.jpeg" alt=""></div>
+                                <div class="member-icon"><img src="assets/fotoprofilo/marcofavero.jpeg" alt="Marco Favero"></div>
                                 <h4 class="member-name">Marco Favero</h4>
                             </div>
                         </a>
 
                         <a href="https://github.com/Albero04">
                             <div class="team-member">
-                                <div class="member-icon"><img src="assets/fotoprofilo/albertopignat.png" alt=""></div>
+                                <div class="member-icon"><img src="assets/fotoprofilo/albertopignat.png" alt="Alberto Pignat"></div>
                                 <h4 class="member-name">Alberto Pignat</h4>
                             </div>
                         </a>
 
                         <a href="https://github.com/Marcopirocs">
                             <div class="team-member">
-                                <div class="member-icon"><img src="assets/fotoprofilo/marcopiro.png" alt=""></div>
+                                <div class="member-icon"><img src="assets/fotoprofilo/marcopiro.png" alt="Marco Piro"></div>
                                 <h4 class="member-name">Marco Piro</h4>
                             </div>
                         </a>
                         
                         <a href="https://github.com/lindorlinor">
                             <div class="team-member">
-                                <div class="member-icon"><img src="assets/fotoprofilo/linorsadè.jpeg" alt=""></div>
+                                <div class="member-icon"><img src="assets/fotoprofilo/linorsadè.jpeg" alt="Linor Sadè"></div>
                                 <h4 class="member-name">Linor Sadè</h4>
                             </div>
                         </a>
                         
                         <a href="https://github.com/Leonard758">
                             <div class="team-member">
-                                <div class="member-icon"><img src="assets/fotoprofilo/leonardosalviato.png" alt=""></div>
+                                <div class="member-icon"><img src="assets/fotoprofilo/leonardosalviato.png" alt="Leonardo Salviato"></div>
                                 <h4 class="member-name">Leonardo Salviato</h4>
                             </div>
                         </a>
 
                         <a href="https://github.com/LukeSlongo">
                             <div class="team-member">
-                                <div class="member-icon"><img src="assets/fotoprofilo/lucaslongo.png" alt=""></div>
+                                <div class="member-icon"><img src="assets/fotoprofilo/lucaslongo.png" alt="Luca Slongo"></div>
                                 <h4 class="member-name">Luca Slongo</h4>
                             </div>
                         </a>
-                        
                     </div>
 
-                    <h3 class="section-title">Il progetto</h3>
-                    <p class="project-description">
-                        Il nostro progetto si focalizza sullo sviluppo di <strong>Nexum</strong>, una piattaforma innovativa 
-                        proposta dall'azienda <strong>Eggon</strong>. 
-                        Attraverso questo sito mettiamo a disposizione tutta la documentazione prodotta 
-                        durante le varie fasi del progetto universitario di Ingegneria del Software.
+  <h3 class="section-title">Il progetto</h3>
+            <div class="project-description">
+                <p>Il nostro progetto si concentra sullo sviluppo di <strong>Nexum</strong>, una piattaforma innovativa 
+                proposta dall'azienda <strong>Eggon</strong> per la gestione HR (Human Resources) e la 
+                comunicazione interna nelle piccole e medie imprese.</p><br>
+                
+                <p>Il progetto prevede la progettazione e realizzazione di due moduli basati sull'<strong>Intelligenza Artificiale</strong>:</p><br>
+                
+                <p>
+                    <strong>AI Assistant Generativo</strong>: per la creazione automatica di contenuti aziendali 
+                    coerenti con tono e stile definiti dall'utente.
                     </p>
+                     <p>
+                    <strong>AI Co-Pilot per Consulenti del Lavoro</strong>: per l'automazione della gestione, 
+                    riconoscimento e distribuzione documentale.
+                </p><br>
+                
+                <p>Questo sito funge da <strong>hub documentale</strong> del nostro progetto. Qui raccogliamo, organizziamo 
+                e rendiamo accessibile tutta la <strong>documentazione</strong> prodotta durante le fasi del progetto 
+                universitario: dalla <strong>Candidatura</strong>, alla <strong>Requirements and Technology Baseline (RTB)</strong> 
+                e infine alla <strong>Product Baseline (PB)</strong>.</p>
+                
+                <p>Ogni documento testimonia il nostro impegno, la collaborazione e l'evoluzione delle competenze 
+                tecniche e metodologiche acquisite lungo il progetto.</p>
+            </div>
 
                     <div class="contact-info">
                         <h3 class="section-title">Contatti</h3>
@@ -368,6 +412,16 @@
             </div>
         </section>
     </main>
+
+    <!-- Pulsante Torna su -->
+    <button class="torna-su-btn" id="tornaSuBtn" aria-label="Torna all'inizio della pagina">
+        ↑
+    </button>
+
+    <!-- Pulsante Toggle Modalità Scura/Chiara -->
+    <button class="tema-toggle-btn" id="temaToggleBtn" aria-label="Cambia tema scuro/chiaro">
+        <span class="icon">🌙</span>
+    </button>
 
     <script src="script.js"></script>
 </body>

@@ -1,0 +1,178 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+
+\input{../../../../assets/macro/macro-verbali.tex}
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}
+\IfFileExists{../../../../assets/Logo.jpg}{%
+  \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg}
+  \\[0.8cm]
+}{%
+  \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+}
+
+{\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+{\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+{\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+{\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+{\small Laurea in Informatica}\\[0.2cm]
+{\small Corso: Ingegneria del Software}\\[0.2cm]
+{\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+{\Huge\bfseries\color{primaryblue} Verbale Interno\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.3cm]
+{\Large\color{secondaryblue} 23 dicembre 2025}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}}   & Marco Piro \\
+\textbf{Verificatore\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Luca Slongo \\
+\textbf{Uso}         & Interno \\
+\textbf{Destinatari} & BugBusters \\
+\textbf{Versione}    & 1.0.0\\
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale interno\textsubscript{\scalebox{0.6}{\textbf{G}}} del gruppo di progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} dedicato all'allineamento sulla redazione del POC\textsubscript{\scalebox{0.6}{\textbf{G}}}, dei documenti e alla pianificazione delle prossime attività operative.
+
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+\item \textbf{Tipo riunione:} interna
+\item \textbf{Piattaforma:} Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\item \textbf{Data:} 23/12/2025
+\item \textbf{Orario di inizio:} 9:30
+\item \textbf{Orario di fine:} 10:45
+\item \textbf{Presenti:}
+  \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+    \item Alberto Autiero
+    \item Marco Favero
+    \item Alberto Pignat
+    \item Marco Piro
+    \item Linor Sadè
+    \item Leonardo Salviato
+    \item Luca Slongo
+  \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+\item \label{itm:riunione} Aggiornamento tecnico sul POC\textsubscript{\scalebox{0.6}{\textbf{G}}}: focus su Front-end\textsubscript{\scalebox{0.6}{\textbf{G}}} e Back-end\textsubscript{\scalebox{0.6}{\textbf{G}}};
+\item \label{itm:divisione ruoli} Divisione dei compiti a cui adempiere in vista della riunione successiva;
+\end{enumerate}
+
+\newpage
+
+\section{Svolgimento}
+
+\subsection*{\ref{itm:riunione}. Aggiornamento tecnico sul POC\textsubscript{\scalebox{0.6}{\textbf{G}}}: focus su Front-end\textsubscript{\scalebox{0.6}{\textbf{G}}} e Back-end\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+
+Durante la riunione i membri del gruppo hanno discusso lo stato di avanzamento del POC\textsubscript{\scalebox{0.6}{\textbf{G}}}, con particolare attenzione alle componenti di Front-end\textsubscript{\scalebox{0.6}{\textbf{G}}} e Back-end\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+Sono stati condivisi i progressi fatti finora e alcuni dubbi tecnici su alcuni dettagli della struttura.
+
+\subsection*{\ref{itm:divisione ruoli}. Inizio nuovo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\label{par:ruoli}
+
+Poichè è iniziato un nuovo sprint\textsubscript{\scalebox{0.6}{\textbf{G}}} sono stati assegnati nuovi ruoli ad ogni membro del
+team, sono stati assegnati successivamente nuovi compiti ad ognuno.
+
+
+\section{Tabella delle decisioni e azioni}
+
+\setlength{\extrarowheight}{2pt}
+\renewcommand{\arraystretch}{1.5}
+\arrayrulecolor{primaryblue}
+
+\sloppy
+\begin{tabularx}{\textwidth}{
+  |>{\raggedright\arraybackslash}p{3cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+\hline
+\rowcolor{secondaryblue!10}
+RTB37 \label{RTB37} & Avanzamento Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} . & Linor Sadè\\
+\hline
+\rowcolor{secondaryblue!10}
+RTB38 \label{RTB38} & Avanzamento Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Marco Favero \\
+\hline
+\rowcolor{secondaryblue!10}
+RTB39 \label{RTB39} & Verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} dei documenti (incluso Piano di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}). & Luca Slongo \\
+\hline
+\rowcolor{secondaryblue!10}
+RTB40 \label{RTB40} & Stesura Verbale\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Marco Piro \\
+\hline
+\rowcolor{secondaryblue!10}
+RTB41 \label{RTB41} & Rifinitura del glossario\textsubscript{\scalebox{0.6}{\textbf{G}}} e avanzamento Piano di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Alberto Autiero \\
+\hline
+\rowcolor{secondaryblue!10}
+RTB42 \label{RTB42} & Avanzamento POC\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Leonardo Salviato, Alberto Pignat  \\
+\hline
+\rowcolor{secondaryblue!10}
+RTB43 \label{RTB43} & Registrazione delle ore di lavoro. & Tutti\\
+\hline
+\end{tabularx}
+\fussy
+
+\vfill
+
+\begin{center}
+{\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
