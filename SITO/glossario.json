@@ -1,6 +1,10 @@
 {
   "terms": [
     {
+      "term": "Actual Cost (AC)",
+      "definition": "Costo effettivamente sostenuto per completare il lavoro svolto in un determinato periodo. Include tutte le spese reali (risorse umane, strumenti) associate alle attività già eseguite e viene utilizzato per valutare l'efficienza economica del progetto."
+    },
+    {
       "term": "Affidabilità (Reliability)",
       "definition": "Capacità di un sistema software di mantenere il proprio livello di prestazioni in condizioni specificate per un determinato periodo di tempo."
     },
@@ -49,6 +53,14 @@
       "definition": "Processo formale attraverso il quale un documento o una funzionalità viene accettata e considerata completa dopo aver superato le verifiche e validazioni necessarie."
     },
     {
+      "term": "Attore",
+      "definition": "Ruolo svolto da un utente, un sistema o un'entità esterna che interagisce con il sistema software scambiando informazioni. Un attore rappresenta una classe di utenti piuttosto che un individuo specifico."
+    },
+    {
+      "term": "Attore secondario",
+      "definition": "Attore che non avvia il caso d'uso, ma che deve essere consultato o informato dal sistema affinché l'obiettivo dell'attore primario sia raggiunto. Fornisce servizi, dati o riceve notifiche dal sistema."
+    },
+    {
       "term": "AWS (Amazon Web Services)",
       "definition": "Piattaforma di cloud computing che offre servizi di calcolo, storage, database e altre funzionalità per supportare lo sviluppo e il deployment di applicazioni."
     },
@@ -73,6 +85,10 @@
       "definition": "Insieme di tecniche, metodi e procedure che sono state riconosciute come le più efficaci ed efficienti per raggiungere un obiettivo specifico in un determinato contesto."
     },
     {
+      "term": "Branch Coverage",
+      "definition": "Metrica di testing che misura la percentuale di rami decisionali (branch) del codice eseguiti durante i test. Ogni struttura condizionale (if-else, switch-case) crea branch multipli e questa metrica verifica che entrambi i percorsi (vero/falso) di ogni condizione siano stati testati almeno una volta. Un valore elevato di branch coverage indica una migliore copertura dei possibili flussi di esecuzione del programma, riducendo il rischio di bug nascosti in percorsi non testati."
+    },
+    {
       "term": "Candidatura",
       "definition": "Processo con cui un gruppo di studenti presenta la propria offerta per aggiudicarsi un capitolato d'appalto nel corso di Ingegneria del Software, proponendo una soluzione che soddisfi i requisiti del proponente."
     },
@@ -93,8 +109,16 @@
       "definition": "File contenenti più documenti retributivi aggregati, da suddividere e assegnare ai singoli destinatari tramite riconoscimento automatico."
     },
     {
+      "term": "Code Coverage",
+      "definition": "Metrica che misura la percentuale di codice sorgente effettivamente eseguito durante l'esecuzione dei test automatizzati. Rappresenta il rapporto tra le linee di codice testate e il totale delle linee di codice del programma, espresso in percentuale. Un elevato code coverage indica che la maggior parte del codice è stata verificata attraverso i test, riducendo la probabilità di bug non rilevati. Tuttavia, un'alta percentuale non garantisce automaticamente la qualità dei test, che devono anche verificare correttamente il comportamento atteso del software."
+    },
+    {
       "term": "Committente",
       "definition": "Soggetto che commissiona il progetto, definendone gli obiettivi, i vincoli e i requisiti, e che recepisce il prodotto finale. Nel contesto del corso di Ingegneria del Software, può essere un'azienda proponente o un docente."
+    },
+    {
+      "term": "Complessità Ciclomatica (Cyclomatic Complexity)",
+      "definition": "Metrica software che misura la complessità strutturale di un programma o di un singolo metodo calcolando il numero di percorsi linearmente indipendenti attraverso il codice sorgente. Viene calcolata contando il numero di punti decisionali (if, while, for, case) più uno. Un valore elevato indica codice complesso, difficile da testare, mantenere e comprendere. Valori tipici: 1-10 (semplice), 11-20 (moderatamente complesso), 21-50 (complesso), oltre 50 (non testabile). Viene utilizzata per identificare metodi che necessitano di refactoring per migliorare la manutenibilità."
     },
     {
       "term": "Consulente del Lavoro (CdL)",
@@ -103,6 +127,10 @@
     {
       "term": "Consuntivo",
       "definition": "Documento di contabilità che riporta i costi effettivamente sostenuti durante una fase del progetto, confrontandoli con le stime iniziali (preventivo). Viene utilizzato per monitorare l'andamento economico del progetto e per apportare eventuali correzioni nelle fasi successive."
+    },
+    {
+      "term": "Cost Performance Index (CPI)",
+      "definition": "Indice di efficienza dei costi che misura il rapporto tra il valore del lavoro completato (EV) e il costo effettivamente sostenuto (AC). Calcolato come CPI = EV/AC, un valore superiore a 1 indica che il progetto sta spendendo meno del previsto, mentre un valore inferiore a 1 segnala un sovracosto."
     },
     {
       "term": "Cruscotto",
@@ -133,6 +161,10 @@
       "definition": "Processo di distribuzione automatizzata dei documenti verso i destinatari finali attraverso diversi canali (es. app, portale, email, PEC)."
     },
     {
+      "term": "Earned Value (EV)",
+      "definition": "Valore del lavoro effettivamente completato in un determinato momento del progetto, espresso in termini monetari. Rappresenta il budget autorizzato per le attività completate e costituisce una metrica fondamentale per valutare l'avanzamento reale del progetto rispetto alla pianificazione iniziale."
+    },
+    {
       "term": "Efficacia",
       "definition": "Misura della capacità di raggiungere gli obiettivi prefissati e produrre i risultati attesi. Un processo o sistema è efficace quando soddisfa i requisiti e le aspettative degli stakeholder, indipendentemente dalle risorse impiegate. Metrica: grado di raggiungimento degli obiettivi (interni ed esterni)."
     },
@@ -147,6 +179,14 @@
     {
       "term": "Error / Errore",
       "definition": "Manifestazione di un fault all'interno del sistema durante la sua esecuzione. È uno stato interno del sistema che può portare a un failure se non gestito. Corrisponde a una discrepanza tra il valore calcolato, osservato o misurato e il valore vero, specificato o teoricamente corretto."
+    },
+    {
+      "term": "Estimate at Completion (EAC)",
+      "definition": "Stima del costo totale finale previsto per il completamento dell'intero progetto, calcolata sulla base delle performance attuali. Viene aggiornata periodicamente considerando i costi già sostenuti e le proiezioni future basate sull'andamento del CPI, permettendo di prevedere eventuali scostamenti dal budget iniziale."
+    },
+    {
+      "term": "Estimate to Complete (ETC)",
+      "definition": "Stima del budget residuo necessario per completare le attività rimanenti del progetto. Rappresenta la differenza tra il costo totale stimato a finire (EAC) e i costi già sostenuti (AC), fornendo una previsione delle risorse economiche ancora necessarie."
     },
     {
       "term": "Front-end",
@@ -183,6 +223,10 @@
     {
       "term": "Implementazione",
       "definition": "Processo di traduzione di un design in codice eseguibile, realizzando le specifiche funzionali e non funzionali."
+    },
+    {
+      "term": "Indice di Gulpease",
+      "definition": "Metrica di leggibilità specifica per la lingua italiana che valuta quanto un testo sia comprensibile. Calcolato considerando la lunghezza delle parole e delle frasi, produce un valore da 0 a 100: valori superiori a 80 indicano testi molto facili, 60-80 testi di media difficoltà, 40-60 testi difficili, sotto 40 testi molto complessi. Utilizzato per garantire che la documentazione sia accessibile a tutti."
     },
     {
       "term": "Interfaccia",
@@ -257,16 +301,32 @@
       "definition": "Documento che definisce le strategie, le risorse e le attività per garantire la qualità del processo di sviluppo e del prodotto software. Include la definizione degli standard di qualità, le metriche per la misurazione, i processi di verifica e validazione, e le responsabilità del team per il controllo della qualità."
     },
     {
+      "term": "Planned Value (PV)",
+      "definition": "Valore pianificato del lavoro che dovrebbe essere stato completato in un dato momento secondo la pianificazione iniziale del progetto. Rappresenta il budget autorizzato allocato per le attività pianificate fino a una determinata data e serve come baseline per confrontare l'avanzamento effettivo."
+    },
+    {
       "term": "POC (Proof of Concept)",
       "definition": "Realizzazione preliminare e limitata di un'idea o di un concetto, finalizzata a verificarne la fattibilità tecnica, l'adeguatezza rispetto ai requisiti o la validità di un'architettura proposta. Un POC viene solitamente sviluppato con risorse minime per valutare rapidamente se un approccio o una tecnologia siano promettenti prima di impegnare risorse significative in uno sviluppo completo."
+    },
+    {
+      "term": "Postcondizioni",
+      "definition": "Condizioni che devono essere vere dopo l'esecuzione di un caso d'uso o di una funzionalità del sistema. Descrivono lo stato del sistema e dell'ambiente al termine del caso d'uso, inclusi gli effetti collaterali e i risultati prodotti."
     },
     {
       "term": "PostgreSQL",
       "definition": "Sistema di gestione di database relazionale open-source e avanzato, noto per la sua affidabilità, robustezza e conformità agli standard SQL. È ampiamente utilizzato in applicazioni web e sistemi enterprise per la sua scalabilità e flessibilità."
     },
     {
+      "term": "Precondizioni",
+      "definition": "Stato in cui devono trovarsi il sistema e l'ambiente circostante affinché un caso d'uso possa essere avviato con successo. Se le precondizioni non sono soddisfatte, il caso d'uso non viene eseguito."
+    },
+    {
       "term": "Preventivo",
       "definition": "Documento di pianificazione che stima i costi e le risorse necessarie per lo svolgimento del progetto, basato sulle attività pianificate e sulle risorse disponibili."
+    },
+    {
+      "term": "Priorità (Obbligatorio/Desiderabile/Opzionale)",
+      "definition": "Classificazione dei requisiti in base alla loro importanza per il progetto. I requisiti obbligatori devono essere soddisfatti affinché il sistema sia considerato accettabile, i desiderabili sono importanti ma non essenziali, e gli opzionali possono essere tralasciati senza compromettere le funzionalità fondamentali."
     },
     {
       "term": "Probabilità",
@@ -319,6 +379,30 @@
     {
       "term": "Repository",
       "definition": "Archivio centrale in cui vengono memorizzati e versionati i file sorgente, la documentazione e le risorse del progetto utilizzando un sistema di controllo versione."
+    },
+    {
+      "term": "Requirements Stability Index (RSI)",
+      "definition": "Indice che misura la stabilità dei requisiti durante il ciclo di vita del progetto, calcolato come rapporto tra i requisiti modificati/aggiunti/eliminati e il numero totale di requisiti. Un valore vicino a 1 indica alta stabilità, mentre valori bassi o negativi segnalano frequenti cambiamenti che possono impattare tempi e costi del progetto."
+    },
+    {
+      "term": "Requisiti di qualità",
+      "definition": "Sottoinsieme dei requisiti non funzionali che specificano gli attributi di qualità del prodotto software, come manutenibilità, affidabilità, usabilità, efficienza, portabilità e sicurezza. Definiscono i criteri qualitativi che il sistema deve soddisfare per essere considerato accettabile dagli stakeholder."
+    },
+    {
+      "term": "Requisiti di vincolo",
+      "definition": "Requisiti che impongono limitazioni o condizioni specifiche allo sviluppo del sistema, derivanti da fattori tecnologici, organizzativi, legali o di altro tipo. Esempi includono l'uso di specifiche tecnologie, conformità a standard, interfacce obbligate, vincoli temporali o di budget. A differenza dei requisiti funzionali e non funzionali, che definiscono cosa il sistema deve fare o come deve comportarsi, i requisiti di vincolo definiscono i limiti entro cui il sistema deve essere sviluppato."
+    },
+    {
+      "term": "Requisiti funzionali",
+      "definition": "Requisiti che descrivono le funzionalità specifiche che il sistema deve essere in grado di eseguire. Definiscono il comportamento del sistema a fronte di specifici input, specificando cosa il sistema deve fare senza entrare nel merito di come viene implementato."
+    },
+    {
+      "term": "Requisiti non funzionali",
+      "definition": "Requisiti che definiscono gli attributi di qualità, i vincoli e le proprietà sistemiche (come affidabilità, sicurezza, manutenibilità, efficienza). Non descrivono \"cosa\" fa il sistema, ma \"come\" deve comportarsi o quali standard deve rispettare."
+    },
+    {
+      "term": "Requisiti prestazionali",
+      "definition": "Sottocategoria dei requisiti non funzionali focalizzata sulle metriche di efficienza del sistema. Definiscono vincoli quantitativi su tempi di risposta, throughput, latenza e utilizzo delle risorse hardware/software in condizioni di carico specificate."
     },
     {
       "term": "Requisito",
@@ -375,6 +459,14 @@
     {
       "term": "Scenario principale",
       "definition": "Sequenza di interazioni tra l'attore principale e il sistema che descrive il percorso di successo del caso d'uso, dove l'obiettivo viene raggiunto senza intoppi o condizioni eccezionali. Rappresenta il flusso ideale e più frequente di esecuzione."
+    },
+    {
+      "term": "Scenario secondario",
+      "definition": "Variante di uno scenario che descrive un percorso alternativo o un'eccezione nel caso d'uso, che può verificarsi in condizioni specifiche e che porta a un risultato diverso (ad esempio, un errore o un'alternativa valida)."
+    },
+    {
+      "term": "Schedule Performance Index (SPI)",
+      "definition": "Indice di efficienza temporale che misura il rapporto tra il valore del lavoro completato (EV) e il valore pianificato (PV). Calcolato come SPI = EV/PV, un valore superiore a 1 indica che il progetto è in anticipo sulla pianificazione, mentre un valore inferiore a 1 segnala un ritardo."
     },
     {
       "term": "Scope",
@@ -439,10 +531,6 @@
     {
       "term": "Verifica",
       "definition": "Processo sistematico che determina se i prodotti di lavoro (documenti, codice, componenti) soddisfano i requisiti e le specifiche definite per loro. Risponde alla domanda \"Stiamo costruendo il prodotto nel modo giusto?\" e include attività come revisioni, ispezioni e test."
-    },
-    {
-      "term": "Verifica vs. Validazione",
-      "definition": "La verifica è il processo di valutazione dei prodotti di lavoro di un progetto per accertare che soddisfino i requisiti specificati e le condizioni imposte all'inizio dello sviluppo. Risponde alla domanda \"Stiamo costruendo il prodotto nel modo giusto?\". La validazione, invece, accerta che il prodotto finale soddisfi le effettive esigenze del cliente e gli obiettivi di business. Risponde alla domanda \"Stiamo costruendo il prodotto giusto?\". In sintesi, la verifica si concentra sulla correttezza del processo di sviluppo, mentre la validazione sulla correttezza del prodotto finale."
     },
     {
       "term": "Verificatore",
