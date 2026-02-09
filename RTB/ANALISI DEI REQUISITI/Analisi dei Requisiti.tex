@@ -10,6 +10,7 @@
 \usepackage{booktabs}
 \usepackage{setspace}
 \usepackage{titlesec}
+\usepackage{grffile}
 \usepackage{float}
 \usepackage[table]{xcolor}
 \usepackage{tabularx}
@@ -136,18 +137,23 @@
 \begin{document}
 
 \begin{center}
-  \thispagestyle{empty}
-  \IfFileExists{../../assets/Logo.jpg}{%
-    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../assets/Logo.jpg} \\[0.8cm]
-  }{%
-    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
-  }
-  {\LARGE\bfseries BugBusters}\\[0.8cm]
-  
-  \rule{\textwidth}{0.5pt}\\[0.5cm]
-  {\Large\bfseries Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.3cm]
-  {\large Versione \CurrentVersion}\\[0.5cm]
-  \rule{\textwidth}{0.5pt}\\[0.8cm]
+ \thispagestyle{empty}
+ \IfFileExists{../../assets/Logo.jpg}{%
+  \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../assets/Logo.jpg} \\[0.8cm]
+ }{%
+  \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+ }
+ {\Large\bfseries BugBusters}\\[0.3cm]
+ {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+ {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+ {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+ {\small Laurea in Informatica}\\[0.2cm]
+ {\small Corso: Ingegneria del Software}\\[0.2cm]
+ {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+ {\Huge\bfseries\color{primaryblue} Norme di Progetto\G}\\[0.8cm]
+ {\Large\color{secondaryblue}Versione \CurrentVersion}\\[0.8cm]
 \end{center}
 
 \begin{center}
@@ -155,18 +161,14 @@
     % Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
     \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
         {Stato} & Approvato per RTB\G \\
-        {Redattori} & Leonardo Salviato, Linor Sadè, Alberto Autiero, Alberto Pignat, Marco Favero, Marco Piro, Luca Slongo \\
-        {Verificatore\G} &  Marco Piro \\
+        {Redattori\G} & Leonardo Salviato, Linor Sadè, Alberto Autiero, Alberto Pignat, Marco Favero, Marco Piro, Luca Slongo \\
+        {Verificatori\G} &  Marco Piro, Luca Slongo \\
         {Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
     \end{tabularx}
     \end{tcolorbox}
     \end{center}
 
 \vspace{1cm}
-
-\begin{center}
-\textbf{Descrizione}
-\end{center}
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
