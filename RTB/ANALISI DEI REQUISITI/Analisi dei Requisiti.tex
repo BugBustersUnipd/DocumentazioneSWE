@@ -172,7 +172,7 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
-Questo documento contiene l'Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} seguite dal team \textbf{BugBusters} per il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} C5 proposto dall'azienda Eggon
+Questo documento contiene l'Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\textbf{G}}} eseguita dal team \textbf{BugBusters} per il progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} C5 proposto dall'azienda Eggon
 \end{tcolorbox}
 \end{center}
 
@@ -209,7 +209,7 @@ Questo documento contiene l'Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\
 \hline
 \rowcolor{secondaryblue!10} 0.2.3 & 14/01/2026 & Riscrittura tabella requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}} & Leonardo Salviato & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.2.2 & 12/01/2026 & Riscrittura a seguito del colloqui con il professor Cardin & Leonardo Salviato & - & - \\
+\rowcolor{secondaryblue!10} 0.2.2 & 12/01/2026 & Riscrittura a seguito del colloquio con il professor Cardin & Leonardo Salviato & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.2.1 & 09/01/2026 & Correzioni errori riportati & Leonardo Salviato & - & - \\
 \hline
@@ -227,7 +227,7 @@ Questo documento contiene l'Analisi dei Requisiti\textsubscript{\scalebox{0.6}{\
 \hline
 \rowcolor{secondaryblue!10} 0.1.6 & 21/12/2025 & Correzione attori, precondizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}, postcondizioni\textsubscript{\scalebox{0.6}{\textbf{G}}} & Leonardo Salviato & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.1.5 & 19/12/2025 & Scritta sezione 3, rimozione trigger, finita tabella requisisti funzionali & Marco Piro & - & - \\
+\rowcolor{secondaryblue!10} 0.1.5 & 19/12/2025 & Scritta sezione 3, rimozione trigger, finita tabella requisiti funzionali & Marco Piro & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.1.4 & 16/12/2025 & Correzione errori, aggiunta index e sistemata visualizzazione tabelle nei Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}, sistemazione indicizzazione & Leonardo Salviato & - & - \\
 \hline
@@ -1722,6 +1722,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \begin{itemize}
         \item UC-1B.1 – Nessun prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} salvato
     \end{itemize}
+    \item \textit{generalizzazione}: 
+    \begin{itemize}
+        \item UC-1K – Visualizzazione lista elementi storico filtrata
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
@@ -2345,11 +2349,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Visualizzazione lista elementi storico filtrata}
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1K.jpg}
-%     \caption{Diagramma del caso d'uso UC-1K – Visualizzazione lista elementi storico filtrata}
-% \end{figure}
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1K.jpg}
+     \caption{Diagramma del caso d'uso UC-1K – Visualizzazione lista elementi storico filtrata}
+ \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -2373,18 +2377,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} parziale, tono, stile, data)
 \end{enumerate}
 
-
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    % \item \textit{include}: 
-    % \begin{itemize}
-    %     \item UC-1B.2 – Visualizzazione informazioni elemento
-    % \end{itemize}
-    \item \textit{generalizzazione}: 
-    \begin{itemize}
-        \item UC-1B – Visualizzazione lista elementi storico
-    \end{itemize}
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -2858,6 +2850,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-2B.1 – Nessun documento riconosciuto
+    \end{itemize}
+    \newpage
+    \item \textit{generalizzazione}: 
+    \begin{itemize}
+        \item UC-2Q – Visualizzazione lista documenti filtrata
     \end{itemize}
 \end{itemize}
 
@@ -3334,6 +3331,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \begin{itemize}
         \item UC-2G.6 – Nessun destinatario riconosciuto
     \end{itemize}
+    \item \textit{generalizzazione}: 
+    \begin{itemize}
+        \item UC-2S – Visualizzazione lista destinatari filtrata
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
@@ -3559,6 +3560,10 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item \textit{extend}: 
     \begin{itemize}
         \item UC-2H.1 – Documenti assenti
+    \end{itemize}
+    \item \textit{generalizzazione}: 
+    \begin{itemize}
+        \item UC-2U – Visualizzazione lista storico documenti filtrata
     \end{itemize}
 \end{itemize}
 
@@ -4189,11 +4194,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Visualizzazione lista documenti filtrata}
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2Q.jpg}
-%     \caption{Diagramma del caso d'uso UC-2Q – Visualizzazione lista documenti filtrata}
-% \end{figure}
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.6\textwidth]{Diagrammi casi d'uso/UC2Q.jpg}
+     \caption{Diagramma del caso d'uso UC-2Q – Visualizzazione lista documenti filtrata}
+ \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4217,18 +4222,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali (prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} parziale, tono, stile, data)
 \end{enumerate}
 
-
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    % \item \textit{include}: 
-    % \begin{itemize}
-    %     \item UC-2B.2 – Visualizzazione elemento da lista documenti
-    % \end{itemize}
-    \item \textit{generalizzazione}: 
-    \begin{itemize}
-        \item UC-2B – Visualizzazione lista documenti analisi
-    \end{itemize}
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -4273,11 +4266,11 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Visualizzazione lista destinatari filtrata}
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2S.jpg}
-%     \caption{Diagramma del caso d'uso UC-2S – Visualizzazione lista destinatari filtrata}
-% \end{figure}
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.6\textwidth]{Diagrammi casi d'uso/UC2S.jpg}
+     \caption{Diagramma del caso d'uso UC-2S – Visualizzazione lista destinatari filtrata}
+ \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -4301,17 +4294,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente vede l'elenco di tutti gli elementi salvati con i relativi dati principali 
 \end{enumerate}
 
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    % \item \textit{include}: 
-    % \begin{itemize}
-    %     \item UC-2G.1 – Visualizzazione elemento da lista destinatari
-    % \end{itemize}
-    \item \textit{generalizzazione}: 
-    \begin{itemize}
-        \item UC-2G – Visualizzazione lista informazioni destinatari analisi
-    \end{itemize}
-\end{itemize}
 
 \vspace{0.5cm}
 
@@ -4356,6 +4338,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \useCase{Visualizzazione lista storico documenti filtrata}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2U.jpg}
+    \caption{Diagramma del caso d'uso UC-2U – Visualizzazione lista storico documenti filtrata}
+\end{figure}
+
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
@@ -4376,14 +4364,6 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item L'utente si trova nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} storico dell'AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}
     \item L'utente vede l'elenco filtrato di tutti gli elementi relativi a tutte le analisi
 \end{enumerate}
-
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item \textit{generalizzazione}: 
-    \begin{itemize}
-        \item UC-2H – Visualizzazione lista storico documenti
-    \end{itemize}
-\end{itemize}
 
 \vspace{0.5cm}
 
