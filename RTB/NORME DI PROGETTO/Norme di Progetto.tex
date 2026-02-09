@@ -222,8 +222,9 @@ garantendo un flusso informativo coerente, tracciabile e adattabile alle esigenz
 Il nostro progetto\G mira alla creazione di un'applicazione stand-alone\G (rispetto all'applicazione Nexum già esistente) che implementa un modulo\G di AI\G assistant generativo per la scrittura di comunicazioni e l'AI Co-Pilot\G{} per
 i Cdl\G. In particolare quest'ultimo deve essere in grado di riconoscere i documenti caricati dagli utenti, estrarne le informazioni rilevanti, capire
 la tipologia, destinatari e consegnarli in modo massivo. \\
-Per ulteriori informazioni sul progetto\G si rimanda all'Analisi dei Requisiti\G al link (AGGIUNGERE LINK). %TODO
+Per ulteriori informazioni sul progetto\G si rimanda all'Analisi dei Requisiti\G al link \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}.
 Il nostro obiettivo è realizzare questo progetto\G entro il 21 marzo 2026 con un budget di 12.790 euro.
+
 
 
 \subsection{Glossario\G}
@@ -322,13 +323,11 @@ tempestività nelle azioni correttive.
 
 \subsubsection{Documentazione Prodotta}\label{Documentazione Prodotta}
 Durante la fase di fornitura, il team BugBusters produce e mantiene aggiornata la seguente documentazione:
-AGGIUNGERE I LINK DEI DOCUMENTI QUI SOTTO.
 \begin{itemize}
-    % TODO da aggiungere i link ai documenti una volta resi pubblici (prima della consegna finale)
-    \item \href{http:\\localhost}{Glossario\G}
-    \item \href{http:\\localhost}{Analisi dei Requisiti\G}
-    \item \href{http:\\localhost}{Piano di Progetto\G}
-    \item \href{http:\\localhost}{Piano di Qualifica\G}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}{Glossario\G}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20PROGETTO/Piano%20di%20progetto.pdf}{Piano di Progetto\G}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}
 \end{itemize}
 
 \subsubsubsection{Glossario\G}
@@ -784,8 +783,7 @@ La verifica\G agisce su singoli segmenti di sviluppo, accertando che l'esecuzion
 In questa prospettiva, un'attività di verifica\G è il controllo che il prodotto\G ottenuto al termine di una fase sia congruente con il semilavorato avuto come punto di partenza di quella fase.\\
 Il team BugBusters si è principalmente occupato della verifica\G relativa alla documentazione, controllando la correttezza grammaticale, sintattica e la correttezza del contenuto di ogni documento.\\
 Relativamente alle verifiche sul codice, sarà un argomento che verrà trattato più in dettaglio dopo il raggiungimento della \textit{Requirements and Technology Baseline}\G{}.\\
-In ogni caso tutte le informazioni relative alla verifica\G, verranno riportate nel Piano di Qualifica\G (INSERIRE LINK FUTURO E SEZIONE CORRISPONENTE). %TODO
-Il processo di verifica\G{} verrà realizzata in due modi: tramite Analisi Statica e Analisi Dinamica.
+In ogni caso tutte le informazioni relative alla verifica\G, verranno riportate nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}. 
 \subsubsubsection{Analisi Statica}
 L'analisi statica non richiede l'esecuzione dell'oggetto di cui si fa la verifica\G{}, ciò permette di applicarla già prima della fine della codifica.\\
 Può essere eseguita mediante \textbf{metodi formali} (ad esempio prove matematiche) o mediante \textbf{metodi di lettura}.
@@ -811,11 +809,11 @@ Le principali tipologie di Test\G{} sono:
     \item \textbf{Test\G di Sistema}\G{};
 \end{itemize}
 % TODO
-I test\G eseguiti da BugBusters reperibili nella sezione 3 Metodi di Testing del Piano di Qualifica\G (INSERIRE LINK Piano di Qualifica\G E IN CASO AGGIORNARE NOME) sono descritti nella seguente maniera:
+I test\G eseguiti da BugBusters reperibili nella sezione 3 Metodi di testing del \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G} sono descritti nella seguente maniera:
 \begin{itemize}
     \item \textbf{Codice}: un codice univoco che garantisce la traccibilità del test\G (quindi la sua identificazione univoca);
     \item \textbf{Descrizione}: una breve descrizione dell'obiettivo del test\G;
-    \item \textbf{Requisito\G}: codice univoco del requisito\G a cui il test\G fa riferimento. Tale codice è reperibile nell'Analisi dei Requisiti\G nella sezione 3.1 Requisiti\G funzionali\G (INSERIRE LINK Analisi dei Requisiti\G E IN CASO AGGIORNARE NOME); %TODO
+    \item \textbf{Requisito\G}: codice univoco del requisito\G a cui il test\G fa riferimento. Tale codice è reperibile nell'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G} nella sezione 3.1 Requisiti\G funzionali\G;
     \item \textbf{Stato}: lo stato del test\G, che può essere:
     \begin{itemize}
         \item \textbf{Non Implementato}: il test\G non è ancora stato implementato;
@@ -847,11 +845,10 @@ I \textbf{Test\G di sistema}\G{} verificano il comportamento dell'intero softwar
 \subsubsection{Validazione\G}
 La \textbf{validazione\G} è un processo per confermare in modo definitivo che le caratteristiche del software siano conformi ai bisogni dell'utente finale e all'uso previsto, risponde alla domanda: <<Did i build the right system?>>
 \subsubsubsection{Processo di Validazione\G}
-BugBusters ha raccolto tutte le richieste di \textbf{Eggon} e le ha raccolte nell'Analisi dei Requisiti\G{} (LINK DA INSERIRE QUANDO Analisi dei Requisiti\G è PRONTA), in modo tale da poter tracciare correttamente i requisiti\G e da poter eseguire i test\G di accettazione{} per controllare che quanto sviluppato corrisponda alle richieste di \textbf{Eggon}.
+BugBusters ha raccolto tutte le richieste di \textbf{Eggon} e le ha documentate nell'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}, in modo tale da poter tracciare correttamente i requisiti\G e da poter eseguire i test\G di accettazione per controllare che quanto sviluppato corrisponda alle richieste di \textbf{Eggon}.
 
-I risultati della validazione\G verranno riportati nel documento di Piano di Qualifica\G nella sezione Test\G di accettazione (LINK DA INSERIRE QUANDO Piano di Qualifica\G è PRONTO).\\\\
-%TODO
-Si fa notare che al momento della condivisione di questo documento al pubblico, il team BugBusters avrà solamente raggiunto l'RTB\G, per questo motivo lo stato dei test\G sara "In Attesa". Al raggiungimento della PB\G, questa sezione verrà aggiornata con i risultati dei test\G. (MODIFICARE EVENTUALMENTE VALORE DI STATO/ESITO) 
+I risultati della validazione\G verranno riportati nel documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G} nella sezione Test\G di accettazione.\\\\
+Si fa notare che al momento della condivisione di questo documento al pubblico, il team BugBusters avrà solamente raggiunto l'RTB\G, per questo motivo lo stato dei test\G sara "Non implementato". Al raggiungimento della PB\G, questa sezione verrà aggiornata con i risultati dei test\G.
 
 \section{Processi Organizzativi}
 
