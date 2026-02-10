@@ -599,12 +599,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo vuota
+    \item Il sistema non conosce l'email inserita
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo contenente l'email inserita
+    \item Il sistema registra l'email inserita
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -623,12 +623,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo vuota
+    \item Il sistema non ha una password inserita associata all'email inserita
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo contenente la password inserita
+    \item Il sistema registra la password inserita associata all'email inserita
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -648,12 +648,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo vuota
+    \item Il sistema non ha uno username inserito associato all'email o alla matricola
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo contenente l'username inserito
+    \item Il sistema registra lo username inserito associato all'email o alla matricola
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -672,12 +672,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo vuota
+    \item Il sistema non ha un nome inserito associato all'email o alla matricola
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo contenente il nome inserito
+    \item Il sistema registra il nome inserito associato all'email o alla matricola
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -698,12 +698,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo vuota
+    \item Il sistema non ha un cognome inserito associato all'email o alla matricola
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo contenente il cognome inserito
+    \item Il sistema registra il cognome inserito associato all'email o alla matricola
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -723,12 +723,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo vuota
+    \item Il sistema non ha una matricola inserita associata all'email
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Casella di testo contenente la matricola inserita
+    \item Il sistema registra la matricola inserita associata all'email
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -1006,6 +1006,58 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 \vspace{0.5cm}
+
+\subUseCase{Inserimento email autenticazione}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Utente
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'indirizzo email inserito è già associato ad un account esistente
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'indirizzo email viene accettato come valido per il processo di autenticazione
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un indirizzo email formalmente valido e presente nel sistema
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\newpage
+
+\subUseCase{Inserimento password autenticazione}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Utente
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item La password inserita corrisponde a quella salvata nel sistema per l'email fornita
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item La password inserita viene accettata come valida per il processo di autenticazione
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce una password corretta associata all'email fornita
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\newpage
 
 
 
@@ -4880,7 +4932,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \hline
 \autoRF & Il sistema deve permettere di visualizzare un messaggio di errore se il formato della matricola non è valido. & \hyperref[UC-0A.12]{UC-0A.12} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente registrato di effettuare il login (autenticazione). & \hyperref[UC-0B]{UC-0B} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente registrato di effettuare il login (autenticazione). & \hyperref[UC-0B]{UC-0B} , \hyperref[UC-0B.3]{UC-0B.3} , \hyperref[UC-0B.4]{UC-0B.4} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
 \autoRF & Il sistema deve notificare l'errore in caso di tentativo di login con email non registrata. & \hyperref[UC-0B.1]{UC-0B.1} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
