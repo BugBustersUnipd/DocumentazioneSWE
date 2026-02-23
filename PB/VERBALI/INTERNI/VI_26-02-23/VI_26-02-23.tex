@@ -1,0 +1,196 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}
+  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Interno\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.3cm]
+  {\Large\color{secondaryblue} 23 febbraio 2026}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}}    & Marco Favero \\
+\textbf{Verificatore\textsubscript{\scalebox{0.6}{\textbf{G}}}}    &  Linor Sadè  \\
+\textbf{Uso}          & Interno \\
+\textbf{Destinatari}  & BugBusters \\
+\textbf{Versione} & 0.0.1\\
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale interno relativo alla riunione del 23 febbraio 2026, durante la quale sono state decise le 
+prossime attività da svolgere per correggere i documenti che hanno presentato criticità durante le revisioni RTB e per organizzare il lavoro futuro.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Interna
+    \item \textbf{Piattaforma:} Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item \textbf{Data:} 23/02/2026
+    \item \textbf{Orario di inizio:} 15:00
+    \item \textbf{Orario di fine:} 16:00
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+\begin{enumerate}
+    \item\label{itm:revisione_doc} Lettura e analisi del documento ``Esito RTB'' per analizzare le problematiche emerse e decidere le 
+    azioni da intraprendere per risolverle;
+    \item\label{itm:decisioni_future} Discussione su come procedere con il progetto e pianificazione delle attività future.
+\end{enumerate}
+
+
+\newpage
+\section{Svolgimento}
+Qui di seguito i punti discussi con più dettaglio:
+
+\subsection*{\ref{itm:revisione_doc}. Lettura e analisi del documento ``Esito RTB''} 
+
+Durante la riunione è stata effettuata una revisione dei punti citati nel documento ``Esito RTB'', 
+analizzando le problematiche emerse e definendo le azioni correttive da intraprendere.
+
+In particolare, sono stati discussi i seguenti aspetti:
+\begin{itemize}
+  \item collegamento tracciabile tra decisioni dei verbali e azioni nel TODO di progetto;
+  \item revisione delle Norme di Progetto per rafforzare la gerarchia processo{\textendash}attività{\textendash}procedure{\textendash}strumenti e renderne più operativa l'applicazione;
+  \item aggiornamento dell'Analisi dei Requisiti con particolare attenzione ai requisiti non funzionali;
+  \item revisione del Piano di Qualifica per migliorare l'interpretazione delle metriche e inserire indicatori quantitativi sulla campagna di test;
+  \item uniformità redazionale nei documenti (formato date e uso coerente delle maiuscole);
+  \item miglioramento del ciclo di pianificazione nel Piano di Progetto: consuntivo, retrospettiva, misure correttive, aggiornamento dei rischi e nuova pianificazione;
+  \item separazione più chiara tra repository di lavoro e vista di consultazione, con maggiore attenzione alla fruibilità dei contenuti;
+  \item adozione sistematica della coppia \textit{azione-verifica} per ogni attività, registrando gli avanzamenti solo dopo esito positivo della verifica;
+  \item gestione del ciclo di miglioramento continuo (PDCA) tramite tracciamento nei verbali e misurazione degli effetti nel Piano di Qualifica.
+\end{itemize}
+
+\subsection*{\ref{itm:decisioni_future}. Pianificazione delle attività future}
+Durante la riunione è stato deciso di approfondire la struttura e le modalità di redazione dei documenti ``Specifica Tecnica'' e ``Manuale Utente''.\\
+È stato inoltre pianificato di avviare le correzioni dei documenti che hanno ricevuto feedback durante le revisioni RTB, al fine di risolvere le criticità emerse e elevare la qualità complessiva della documentazione.\\
+Il gruppo si impegna a dedicare il massimo sforzo al progetto durante questo periodo accademico, caratterizzato dall'assenza di altre attività curricolari 
+concorrenti, con l'obiettivo di rispettare la pianificazione concordata e soddisfare pienamente le aspettative del corso.\\
+Infine, è stato avviato un contatto con il team di sviluppo di Eggon per coordinare una riunione congiunta e allinearsi sulle strategie di avanzamento del progetto.\\
+
+
+\section{Tabella delle decisioni e azioni}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/175}{PB01}  & Uniformare i nomi dei documenti con formato data AAAAMMGG & Luca Slongo \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/176}{PB02} & Cambiare ordine informazioni nel PdP & Alberto Autiero \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/177}{PB03}  & Revisione del Piano di Qualifica: obiettivi di qualità, metriche e riallocazione dei contenuti non pertinenti & Marco Piro, Alberto Pignat \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/178}{PB04} & Cambiare link in lettera candidatura RTB & Marco Piro \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/179}{PB05} & Aggiornamento e correzione AdR & Leonardo Salviato, Marco Favero \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/180}{PB06} & Mockup applicazione MVP & Linor Sadè \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/181}{PB07} & Stesura Verbale & Marco Favero \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/182}{PB08} & Prima stesura / informarsi su Manuale Utente & Luca Slongo \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/183}{PB09} & Prima stesura / informarsi su Specifica Tecnica & Alberto Pignat \\
+\hline
+
+
+\end{tabularx}
+\fussy
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
