@@ -11,6 +11,7 @@
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{grffile}
+\usepackage{alphalph}
 \usepackage{float}
 \usepackage[table]{xcolor}
 \usepackage{tabularx}
@@ -92,7 +93,7 @@
 \newcommand{\urlcap}{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf}
 
 \newcounter{usecase}[subsection]
-\renewcommand{\theusecase}{\Alph{usecase}}
+\renewcommand{\theusecase}{\AlphAlph{\value{usecase}}}
 
 \newcounter{subusecase}[usecase]
 
@@ -957,7 +958,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\subUseCase{Email non registrata}
+\subUseCase{Errore autenticazione}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
@@ -966,7 +967,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'email inserita nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di accesso non è presente nel database del sistema
+    \item L'email inserita nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} di accesso non è presente nel database del sistema o la password assegnata alla mail non é corretta
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -976,33 +977,8 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente tenta di effettuare il login inserendo un indirizzo email non associato ad alcun account
-    \item Il sistema verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} l'esistenza dell'email e non trova corrispondenze
-\end{enumerate}
-
-\vspace{0.5cm}
-
-\subUseCase{Password errata}
-
-\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item Utente
-\end{itemize}
-
-\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item L'email inserita è corretta, ma la password non corrisponde a quella salvata nel sistema
-\end{itemize}
-
-\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item Viene visualizzato un messaggio di errore relativo alle credenziali non valide
-\end{itemize}
-
-\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{enumerate}
-    \item L'utente inserisce la propria email (corretta) e una password errata
-    \item Il sistema verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} la corrispondenza delle credenziali e rileva l'errore
+    \item L'utente tenta di effettuare il login inserendo un indirizzo email non associato ad alcun account o inserendo una password non associata all'email inserita
+    \item Il sistema verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} l'esistenza dell'email e non trova corrispondenze o l'errore nella password
 \end{enumerate}
 
 \vspace{0.5cm}
@@ -1258,16 +1234,14 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\useCase{Modifica informazioni profilo utente}
+\useCase{Logout}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0D.jpg}
-    \caption{Diagramma del caso d'uso UC-0D – Modifica informazioni profilo utente}
+    \includegraphics[width=0.5\textwidth]{Diagrammi casi d'uso/UC0D.jpg}
+    \caption{Diagramma del caso d'uso UC-0D – Logout}
 \end{figure}
 
-\newpage
-
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
     \item Utente
@@ -1275,57 +1249,22 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente si trova nella pagina di modifica profilo
-    \item L'utente conferma le modifiche
+    \item L'utente ha una sessione attiva nel sistema.
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente ha cambiato i dati del proprio profilo
-    \item I dati vengono salvati nel sistema
+    \item Non esiste più una sessione attiva associata all'utente sul dispositivo corrente.
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente cambia i dati del proprio profilo
-\end{enumerate}
-
-\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item \textit{extend}: 
-    \begin{itemize}
-        \item UC-0D.1 - Uscita senza salvare modifiche profilo utente
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.5cm}
-
-\subUseCase{Uscita senza salvare modifiche profilo utente}
-
-\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item Utente
-\end{itemize}
-
-\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item L'utente si trova nella pagina di modifica profilo
-\end{itemize}
-
-\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item L'utente viene reindirizzato alla pagina precedente o alla home senza che alcuna modifica venga applicata al database
-\end{itemize}
-
-\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{enumerate}
-    \item L'utente decide di annullare l'operazione di modifica
-    \item Il sistema scarta le modifiche pendenti nei campi di testo e chiude la schermata
+    \item L'utente seleziona l'opzione di logout (ad esempio dal menu della Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}}).
+    \item Il sistema invalida la sessione corrente associata all'utente (es. rimozione token di sessione).
+    \item Il sistema reindirizza l'utente alla schermata di login o alla schermata iniziale pubblica.
 \end{enumerate}
 
 \vspace{0.5cm}
-
-
 
 \useCase{Visualizzazione lista utenti registrati}
 
@@ -1418,6 +1357,139 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{itemize}
 
 \vspace{0.5cm}
+
+\useCase{Modifica username}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0G.jpg}
+    \caption{Diagramma del caso d'uso UC-0G – Modifica username}
+\end{figure}
+
+\newpage
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Utente
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica profilo
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente cambia username nel proprio profilo
+    \item I dati vengono salvati nel sistema
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente cambia username nel proprio profilo
+\end{enumerate}
+
+\vspace{0.5cm}
+
+
+\useCase{Modifica email}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0H.jpg}
+    \caption{Diagramma del caso d'uso UC-0H – Modifica email}
+\end{figure}
+
+\newpage
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Utente
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica profilo
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente cambia email nel proprio profilo
+    \item I dati vengono salvati nel sistema
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente cambia email nel proprio profilo
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\useCase{Modifica password}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC0I.jpg}
+    \caption{Diagramma del caso d'uso UC-0I – Modifica password}
+\end{figure}
+
+\newpage
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Utente
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova nella pagina di modifica profilo
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente cambia password nel proprio profilo
+    \item I dati vengono salvati nel sistema
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente cambia password nel proprio profilo
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\useCase{Annulla modifiche profilo utente}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC0J.jpg}
+    \caption{Diagramma del caso d'uso UC-0J – Annulla modifiche profilo utente}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Utente
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Delle modifiche sono state apportate alle informazioni del profilo
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Le modifiche precedenti vengono annullate e il profilo torna alla versione originale
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente decide di non applicare le modifiche correnti
+    \item Il sistema ripristina lo stato del contenuto a quello precedente l'apertura della sezione dedicata alle modifiche del profilo
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
 
 \newpage
 
@@ -1560,37 +1632,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 
-\useCase{Logout}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Diagrammi casi d'uso/UC0G.jpg}
-    \caption{Diagramma del caso d'uso UC-0G – Logout}
-\end{figure}
-
-\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item Utente
-\end{itemize}
-
-\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item L'utente ha una sessione attiva nel sistema.
-\end{itemize}
-
-\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{itemize}
-    \item Non esiste più una sessione attiva associata all'utente sul dispositivo corrente.
-\end{itemize}
-
-\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{enumerate}
-    \item L'utente seleziona l'opzione di logout (ad esempio dal menu della Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}}).
-    \item Il sistema invalida la sessione corrente associata all'utente (es. rimozione token di sessione).
-    \item Il sistema reindirizza l'utente alla schermata di login o alla schermata iniziale pubblica.
-\end{enumerate}
-
-\vspace{0.5cm}
 
 
 
@@ -2336,7 +2378,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1I.jpg}
+    \includegraphics[width=1\textwidth]{Diagrammi casi d'uso/UC1I.jpg}
     \caption{Diagramma del caso d'uso UC-1I – Duplica contenuto salvato nello storico}
 \end{figure}
 
@@ -2359,19 +2401,104 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
     \item L'utente clicca sul comando "Duplica" associato ad un elemento dello storico
-    \item Il sistema reindirizza l'utente alla pagina di creazione, pre-popolando i campi con i valori recuperati dallo storico
+    \item Il sistema reindirizza l'utente alla pagina di creazione, pre-popolando i campi con i valori recuperati dallo storico (prompt, tono, stile)
     \item L'utente può ora modificare il prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} o i parametri prima di generare
 \end{enumerate}
+
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-1I.1 - Duplica prompt
+        \item UC-1I.2 - Duplica tono
+        \item UC-1I.3 - Duplica stile
+    \end{itemize}
+\end{itemize}
 
 
 \vspace{0.5cm}
 
-\useCase{Filtraggio lista generazioni storico}
+\subUseCase{Duplica prompt}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Utente
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Un elemento é stato selezionato
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Il campo viene compilato con il prompt dell'elemento
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente seleziona un elemento
+    \item Il campo per la generazione viene riempito con il prompt dell'elemento selezionato
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subUseCase{Duplica tono}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Utente
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Un elemento é stato selezionato
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Il campo viene compilato con il tono dell'elemento
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente seleziona un elemento
+    \item Il campo per la generazione viene riempito con il tono dell'elemento selezionato
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subUseCase{Duplica stile}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Utente
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Un elemento é stato selezionato
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Il campo viene compilato con il stile dell'elemento
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente seleziona un elemento
+    \item Il campo per la generazione viene riempito con il stile dell'elemento selezionato
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\useCase{Filtraggio lista generazioni storico per stile}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1J.jpg}
-    \caption{Diagramma del caso d'uso UC-1J – Filtraggio lista generazioni storico}
+    \caption{Diagramma del caso d'uso UC-1J – Filtraggio lista generazioni storico per stile}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -2387,12 +2514,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Viene applicato un filtro alla lista delle generazioni dello storico
+    \item Viene applicato un filtro tramite la categoria "stile" alla lista delle generazioni dello storico
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente inserisce un testo chiave (es. parte del prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} o data) nella barra di ricerca
+    \item L'utente inserisce un testo chiave (stile) alla barra di ricerca
     \item Il sistema filtra gli elementi dello storico in tempo reale
 \end{enumerate}
 
@@ -2492,12 +2619,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Il feedback dell'utente viene registrato e associato al contenuto nello storico
+    \item Il feedback dell'utente (una valutazione da 1 a cinque) viene registrato e associato al contenuto nello storico
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente esprime un giudizio sulla qualità\textsubscript{\scalebox{0.6}{\textbf{G}}} del contenuto (es. pollice in su/giù o stelle)
+    \item L'utente esprime un giudizio sulla qualità\textsubscript{\scalebox{0.6}{\textbf{G}}} del contenuto assegnando una valutazione da 1 a cinque
     \item Il sistema salva la valutazione
 \end{enumerate}
 
@@ -2697,6 +2824,139 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 
 \vspace{0.5cm}
+
+\useCase{Filtraggio lista generazioni storico per timestamp}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1T.jpg}
+    \caption{Diagramma del caso d'uso UC-1T – Filtraggio lista generazioni storico per timestamp}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item Lo storico ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Viene applicato un filtro tramite la categoria "timestamp" alla lista delle generazioni dello storico
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un testo chiave (timestamp) alla barra di ricerca
+    \item Il sistema filtra gli elementi dello storico in tempo reale
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Filtraggio lista generazioni storico per valutazione}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1U.jpg}
+    \caption{Diagramma del caso d'uso UC-1U – Filtraggio lista generazioni storico per valutazione}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item Lo storico ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Viene applicato un filtro tramite la categoria "valutazione" alla lista delle generazioni dello storico
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un testo chiave (valutazione) alla barra di ricerca
+    \item Il sistema filtra gli elementi dello storico in tempo reale
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Filtraggio lista generazioni storico per tono}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1V.jpg}
+    \caption{Diagramma del caso d'uso UC-1V – Filtraggio lista generazioni storico per tono}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item Lo storico ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Viene applicato un filtro tramite la categoria "tono" alla lista delle generazioni dello storico
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un testo chiave (tono) alla barra di ricerca
+    \item Il sistema filtra gli elementi dello storico in tempo reale
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Filtraggio lista generazioni storico per prompt}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC1W.jpg}
+    \caption{Diagramma del caso d'uso UC-1W – Filtraggio lista generazioni storico per prompt}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente si trova all'interno della sezione dedicata allo storico
+    \item Lo storico ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Viene applicato un filtro tramite la categoria "prompt" alla lista delle generazioni dello storico
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un testo chiave (prompt) alla barra di ricerca
+    \item Il sistema filtra gli elementi dello storico in tempo reale
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
 
 \newpage
 
@@ -3247,7 +3507,7 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2D.jpg}
+    \includegraphics[width=0.9\textwidth]{Diagrammi casi d'uso/UC2D.jpg}
     \caption{Diagramma del caso d'uso UC-2D – Modifica destinatario documento}
 \end{figure}
 
@@ -3271,10 +3531,71 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \begin{enumerate}
     \item L'utente nota che il destinatario assegnato automaticamente o precedentemente è errato o mancante.
     \item L'utente attiva il campo di modifica del destinatario.
-    \item L'utente ricerca e seleziona il destinatario corretto dall'anagrafica.
+    \item L'utente ricerca e seleziona il destinatario corretto dall'anagrafica (identificato da email o matricola).
     \item Il sistema aggiorna il campo visualizzato con il nuovo valore.
 \end{enumerate}
 
+\textbf{Relazioni con altri Casi d'uso\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item \textit{include}: 
+    \begin{itemize}
+        \item UC-2D.1 – Inserimento email destinatario documento
+        \item UC-2D.2 – Inserimento matricola destinatario documento
+    \end{itemize}
+\end{itemize}
+
+
+\vspace{0.5cm}
+
+\subUseCase{Inserimento email destinatario documento}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item La lista dei destinatari contiene almeno un elemento
+    \item Si ha a disposizione l'email del destinatario corretto
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Il nuovo destinatario è identificato dall'email
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'operatore CdL inserisce l'email del destinatario corretto
+    \item Il sistema assegna come nuovo destinatario il possessore dell'email inserita
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subUseCase{Inserimento matricola destinatario documento}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item La lista dei destinatari contiene almeno un elemento
+    \item Si ha a disposizione la matricola del destinatario corretto
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Il nuovo destinatario è identificato dalla matricola
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'operatore CdL inserisce la matricola del destinatario corretto
+    \item Il sistema assegna come nuovo destinatario il possessore della matricola inserita
+\end{enumerate}
 
 \vspace{0.5cm}
 
@@ -4205,12 +4526,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\useCase{Filtraggio documenti analisi}
+\useCase{Filtraggio lista documenti analisi per tipologia documento}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2P.jpg}
-    \caption{Diagramma del caso d'uso UC-2P – Filtraggio documenti analisi}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2P.jpg}
+    \caption{Diagramma del caso d'uso UC-2P – Filtraggio lista documenti analisi per tipologia documento}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -4218,30 +4539,25 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
 \end{itemize}
 
-
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item è stato caricato almeno un documento tramite UC-2A.6.
-    \item L'utente è entrato nel Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}} per i CdL\textsubscript{\scalebox{0.6}{\textbf{G}}} dalla Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} principale.
-    \item L'utente dispone dei permessi necessari per utilizzare il Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item L'utente visualizza la lista contenente i documenti analizzati
+    \item Lo lista ha almeno un elemento
 \end{itemize}
-
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente può visualizzare le informazioni riguardanti gli elementi concordanti con il filtro
+    \item Viene applicato un filtro tramite la categoria "tipologia" alla lista dei documenti
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
-    \item Il sistema mostra l'elenco dei documenti caricati, con le relative informazioni (tipologia, competenza, azienda, causale, lingua, numero pagine, nome originale).
+    \item L'utente inserisce un testo chiave (tipologia) alla barra di ricerca
+    \item Il sistema filtra gli elementi della lista in tempo reale
 \end{enumerate}
 
-\textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{enumerate}
-    \item Il sistema non riconosce alcun documento caricato.
-\end{enumerate}
+
+\vspace{0.5cm}
 
 
 \useCase{Visualizzazione lista documenti filtrata}
@@ -4277,12 +4593,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\useCase{Filtraggio destinatari analisi}
+\useCase{Filtraggio lista destinatari analisi per matricola}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2R.jpg}
-    \caption{Diagramma del caso d'uso UC-2R – Filtraggio destinatari analisi}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2R.jpg}
+    \caption{Diagramma del caso d'uso UC-2R – Filtraggio lista destinatari analisi per matricola}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -4290,30 +4606,25 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
     \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
 \end{itemize}
 
-
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item Si è nella pagina lista documenti (UC-2B)
-    \item La lista dei destinatari contiene almeno un elemento
+    \item L'utente visualizza la lista contenente i destinatari per i documenti analizzati
+    \item Lo lista ha almeno un elemento
 \end{itemize}
-
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item L'utente ha filtrato la lista dei destinatari in base ai criteri selezionati.
+    \item Viene applicato un filtro tramite la categoria "matricola" alla lista dei destinatari per i documenti analizzati
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente dopo aver caricato uno o più documenti accede alla sezione "Lista documenti".
-    \item Il sistema mostra l'elenco dei documenti caricati, con le relative informazioni.
-    \item L'utente applica filtri specifici per visualizzare solo i destinatari di interesse (es. per nome, codice fiscale, reparto).
+    \item L'utente inserisce un testo chiave (matricola) alla barra di ricerca
+    \item Il sistema filtra gli elementi della lista in tempo reale
 \end{enumerate}
 
-\textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{enumerate}
-    \item Il sistema non riconosce alcun destinatario.
-\end{enumerate}
+
+\vspace{0.5cm}
 
 
 \useCase{Visualizzazione lista destinatari filtrata}
@@ -4349,12 +4660,12 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \vspace{0.5cm}
 
-\useCase{Filtraggio documenti storico}
+\useCase{Filtraggio lista documenti storico per lista distribuzione}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Diagrammi casi d'uso/UC2T.jpg}
-    \caption{Diagramma del caso d'uso UC-2T – Filtraggio documenti storico}
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2T.jpg}
+    \caption{Diagramma del caso d'uso UC-2T – Filtraggio lista documenti analisi per lista distribuzione}
 \end{figure}
 
 \textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
@@ -4364,25 +4675,19 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 
 \textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item La lista dei documenti è visualizzata e popolata.
+    \item L'utente visualizza la lista contenente i documenti nello storico analizzati
+    \item Lo lista ha almeno un elemento
 \end{itemize}
 
 \textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{itemize}
-    \item La ricerca è stata eseguita in base ai criteri selezionati.
+    \item Viene applicato un filtro tramite la categoria "lista distribuzione" alla lista dei documenti nello storico
 \end{itemize}
 
 \textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 \begin{enumerate}
-    \item L'utente desidera restringere la ricerca (es. per data, per tipologia o per stato invio).
-    \item L'utente utilizza la barra di ricerca o i filtri laterali.
-    \item Il sistema aggiorna la vista in tempo reale o dopo la conferma, nascondendo i documenti non pertinenti.
-\end{enumerate}
-
-\textbf{Scenario secondario\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-\begin{enumerate}
-    \item L'utente rimuove i filtri.
-    \item Il sistema ripristina la visualizzazione completa dello storico.
+    \item L'utente inserisce un testo chiave (lista distribuzione) alla barra di ricerca
+    \item Il sistema filtra gli elementi della lista in tempo reale
 \end{enumerate}
 
 
@@ -4452,6 +4757,206 @@ Si fa presente che alcuni attori hanno senso nel contesto dell'applicazione che 
 \end{enumerate}
 
 \vspace{0.5cm}
+
+\useCase{Filtraggio lista documenti analisi per competenza}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2W.jpg}
+    \caption{Diagramma del caso d'uso UC-2W – Filtraggio lista documenti analisi per competenza documento}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente visualizza la lista contenente i documenti analizzati
+    \item Lo lista ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Viene applicato un filtro tramite la categoria "competenza" alla lista dei documenti
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un testo chiave (competenza) alla barra di ricerca
+    \item Il sistema filtra gli elementi della lista in tempo reale
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Filtraggio lista documenti analisi per documento originale}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2X.jpg}
+    \caption{Diagramma del caso d'uso UC-2X – Filtraggio lista documenti analisi per documento originale}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente visualizza la lista contenente i documenti analizzati
+    \item Lo lista ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Viene applicato un filtro tramite la categoria "documento originale" alla lista dei documenti
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un testo chiave (documento originale) alla barra di ricerca
+    \item Il sistema filtra gli elementi della lista in tempo reale
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Filtraggio lista destinatari analisi per reparto}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2Y.jpg}
+    \caption{Diagramma del caso d'uso UC-2Y – Filtraggio lista destinatari analisi per reparto}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente visualizza la lista contenente i destinatari per i documenti analizzati
+    \item Lo lista ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Viene applicato un filtro tramite la categoria "reparto" alla lista dei destinatari per i documenti analizzati
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un testo chiave (reparto) alla barra di ricerca
+    \item Il sistema filtra gli elementi della lista in tempo reale
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Filtraggio lista destinatari analisi per codice documento}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2Z.jpg}
+    \caption{Diagramma del caso d'uso UC-2Z – Filtraggio lista destinatari analisi per codice documento}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente visualizza la lista contenente i destinatari per i documenti analizzati
+    \item Lo lista ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Viene applicato un filtro tramite la categoria "codice documento" alla lista dei destinatari per i documenti analizzati
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un testo chiave (codice documento) alla barra di ricerca
+    \item Il sistema filtra gli elementi della lista in tempo reale
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Filtraggio lista documenti storico per confidenza}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2AA.jpg}
+    \caption{Diagramma del caso d'uso UC-2AA – Filtraggio lista documenti analisi per confidenza}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente visualizza la lista contenente i documenti nello storico analizzati
+    \item Lo lista ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Viene applicato un filtro tramite la categoria "confidenza" alla lista dei documenti nello storico
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un testo chiave (confidenza) alla barra di ricerca
+    \item Il sistema filtra gli elementi della lista in tempo reale
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+\useCase{Filtraggio lista documenti storico per stato}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Diagrammi casi d'uso/UC2AB.jpg}
+    \caption{Diagramma del caso d'uso UC-2AB – Filtraggio lista documenti analisi per stato}
+\end{figure}
+
+\textbf{Attori\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Operatore CdL\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{itemize}
+
+\textbf{Pre-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item L'utente visualizza la lista contenente i documenti nello storico analizzati
+    \item Lo lista ha almeno un elemento
+\end{itemize}
+
+\textbf{Post-condizioni\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{itemize}
+    \item Viene applicato un filtro tramite la categoria "stato" alla lista dei documenti nello storico
+\end{itemize}
+
+\textbf{Scenario principale\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+\begin{enumerate}
+    \item L'utente inserisce un testo chiave (stato) alla barra di ricerca
+    \item Il sistema filtra gli elementi della lista in tempo reale
+\end{enumerate}
+
+
+\vspace{0.5cm}
+
+
 
 \newpage
 
@@ -4934,9 +5439,9 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \hline
 \autoRF & Il sistema deve permettere all'utente registrato di effettuare il login (autenticazione). & \hyperref[UC-0B]{UC-0B} , \hyperref[UC-0B.3]{UC-0B.3} , \hyperref[UC-0B.4]{UC-0B.4} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve notificare l'errore in caso di tentativo di login con email non registrata. & \hyperref[UC-0B.1]{UC-0B.1} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve notificare l'errore in caso di tentativo di login con email non registrata o password associata all'email errata. & \hyperref[UC-0B.1]{UC-0B.1} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve notificare l'errore in caso di tentativo di login con password errata. & \hyperref[UC-0B.2]{UC-0B.2} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve consentire all'utente di poter inserire i dati necessari al login. & \hyperref[UC-0B.2]{UC-0B.2} , \hyperref[UC-0B.3]{UC-0B.3} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
 \autoRF & Il sistema deve permettere all'utente di visualizzare i dati del proprio profilo. & \hyperref[UC-0C]{UC-0C} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
@@ -4952,7 +5457,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \hline
 \autoRF & Il sistema deve mostrare la matricola associata al profilo utente. & \hyperref[UC-0C.6]{UC-0C.6} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di modificare le informazioni del proprio profilo. & \hyperref[UC-0D]{UC-0D} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di effettuare il logout terminando la sessione. & \hyperref[UC-0D]{UC-0D} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
 \autoRF & Il sistema deve gestire l'uscita dalla modifica profilo senza salvare i cambiamenti. & \hyperref[UC-0D.1]{UC-0D.1} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
@@ -4968,7 +5473,7 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \hline
 \autoRF & Il sistema deve permettere all'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} di modificare il ruolo di un utente registrato. & \hyperref[UC-0F]{UC-0F}, \hyperref[UC-0F.1]{UC-0F.1} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di effettuare il logout (terminare la sessione). & \hyperref[UC-0G]{UC-0G} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di effettuare il logout (terminare la sessione). & \hyperref[UC-0G]{UC-0G} , \hyperref[UC-0H]{UC-0H} , \hyperref[UC-0I]{UC-0I} , \hyperref[UC-0J]{UC-0J} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
 \autoRF & Il sistema deve generare contenuti testuali tramite AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} in base a prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} e parametri. & \hyperref[UC-1A]{UC-1A} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
@@ -5010,9 +5515,9 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \hline
 \autoRF & Il sistema deve permettere di riutilizzare i parametri di un contenuto dello storico per una nuova generazione. & \hyperref[UC-1H]{UC-1H} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di duplicare un contenuto dallo storico per modificarne i parametri. & \hyperref[UC-1I]{UC-1I} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di duplicare un contenuto dallo storico per modificarne i parametri. & \hyperref[UC-1I]{UC-1I} , \hyperref[UC-1I.1]{UC-1I.1} , \hyperref[UC-1I.2]{UC-1I.2} , \hyperref[UC-1I.3]{UC-1I.3} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere di filtrare la lista delle generazioni nello storico. & \hyperref[UC-1J]{UC-1J} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di filtrare la lista delle generazioni nello storico. & \hyperref[UC-1J]{UC-1J} , \hyperref[UC-1T]{UC-1T} , \hyperref[UC-1U]{UC-1U} ,\hyperref[UC-1V]{UC-1V} ,\hyperref[UC-1W]{UC-1W} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
 \autoRF & Il sistema deve permettere di visualizzare la lista dello storico aggiornata in base ai filtri applicati. & \hyperref[UC-1K]{UC-1K} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
@@ -5132,15 +5637,15 @@ Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappre
 \hline
 \autoRF & Il sistema deve permettere di pianificare l'invio del documento e del messaggio associato. & \hyperref[UC-2O.2]{UC-2O.2} , \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere il filtraggio della lista dei documenti analizzati. & \hyperref[UC-2P]{UC-2P} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere il filtraggio della lista dei documenti analizzati. & \hyperref[UC-2P]{UC-2P} , \hyperref[UC-2W]{UC-2W}, \hyperref[UC-2X]{UC-2X} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
 \autoRF & Il sistema deve mostrare la lista dei documenti aggiornata in base ai filtri. & \hyperref[UC-2Q]{UC-2Q} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere il filtraggio della lista dei destinatari. & \hyperref[UC-2R]{UC-2R} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere il filtraggio della lista dei destinatari. & \hyperref[UC-2R]{UC-2R} , \hyperref[UC-2Y]{UC-2Y} , \hyperref[UC-2Z]{UC-2Z} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
 \autoRF & Il sistema deve mostrare la lista dei destinatari aggiornata in base ai filtri. & \hyperref[UC-2S]{UC-2S} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere il filtraggio della lista dello storico documenti. & \hyperref[UC-2T]{UC-2T} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere il filtraggio della lista dello storico documenti. & \hyperref[UC-2T]{UC-2T} , \hyperref[UC-2AA]{UC-2AA} , \hyperref[UC-2AB]{UC-2AB} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
 \autoRF & Il sistema deve mostrare la lista dello storico documenti aggiornata in base ai filtri. & \hyperref[UC-2U]{UC-2U} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
@@ -5329,5 +5834,335 @@ Specificano i parametri numerici relativi all'efficienza\textsubscript{\scalebox
     \hline
 
 \end{longtable}
+
+
+
+
+
+
+\subsection{Tabella tracciamento}
+Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappresentano il "cosa" il sistema deve fare in risposta a determinati input o situazioni.
+\vspace{0.5cm}
+
+
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+
+
+
+\newcounter{rfaCounter}
+
+\newcommand{\autoRFa}{%
+  \stepcounter{rfaCounter}% Incrementa il contatore
+  RF-%
+  \ifnum\value{rfaCounter}<100 0\fi % Aggiunge uno 0 se < 100
+  \ifnum\value{rfaCounter}<10 0\fi  % Aggiunge un altro 0 se < 10
+  \arabic{rfaCounter}% Stampa il numero
+}
+
+\setcounter{rfaCounter}{0}
+
+\begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
+\caption{Tabella di tracciamento dei Requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{tab:reqfunzionali}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Codice} & \textbf{Casi d'uso associati} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\hline
+\endhead
+
+\hline
+\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\autoRFa & \hyperref[UC-0A]{UC-0A} \\
+\hline
+\autoRFa & \hyperref[UC-0A.1]{UC-0A.1} \\
+\hline
+\autoRFa & \hyperref[UC-0A.2]{UC-0A.2} \\
+\hline
+\autoRFa & \hyperref[UC-0A.3]{UC-0A.3} \\
+\hline
+\autoRFa & \hyperref[UC-0A.4]{UC-0A.4} \\
+\hline
+\autoRFa & \hyperref[UC-0A.5]{UC-0A.5} \\
+\hline
+\autoRFa & \hyperref[UC-0A.6]{UC-0A.6} \\
+\hline
+\autoRFa & \hyperref[UC-0A.7]{UC-0A.7} \\
+\hline
+\autoRFa & \hyperref[UC-0A.8]{UC-0A.8} \\
+\hline
+\autoRFa & \hyperref[UC-0A.9]{UC-0A.9} \\
+\hline
+\autoRFa & \hyperref[UC-0A.10]{UC-0A.10} \\
+\hline
+\autoRFa & \hyperref[UC-0A.11]{UC-0A.11} \\
+\hline
+\autoRFa & \hyperref[UC-0A.12]{UC-0A.12} \\
+\hline
+\autoRFa & \hyperref[UC-0B]{UC-0B} , \hyperref[UC-0B.3]{UC-0B.3} , \hyperref[UC-0B.4]{UC-0B.4} \\
+\hline
+\autoRFa & \hyperref[UC-0B.1]{UC-0B.1} \\
+\hline
+\autoRFa & \hyperref[UC-0B.2]{UC-0B.2} , \hyperref[UC-0B.3]{UC-0B.3} \\
+\hline
+\autoRFa & \hyperref[UC-0C]{UC-0C} \\
+\hline
+\autoRFa & \hyperref[UC-0C.1]{UC-0C.1} \\
+\hline
+\autoRFa & \hyperref[UC-0C.2]{UC-0C.2} \\
+\hline
+\autoRFa & \hyperref[UC-0C.3]{UC-0C.3} \\
+\hline
+\autoRFa & \hyperref[UC-0C.4]{UC-0C.4} \\
+\hline
+\autoRFa & \hyperref[UC-0C.5]{UC-0C.5} \\
+\hline
+\autoRFa & \hyperref[UC-0C.6]{UC-0C.6} \\
+\hline
+\autoRFa & \hyperref[UC-0D]{UC-0D} \\
+\hline
+\autoRFa & \hyperref[UC-0D.1]{UC-0D.1} \\
+\hline
+\autoRFa & \hyperref[UC-0E]{UC-0E} \\
+\hline
+\autoRFa & \hyperref[UC-0E.1]{UC-0E.1} \\
+\hline
+\autoRFa & \hyperref[UC-0E.2]{UC-0E.2} \\
+\hline
+\autoRFa & \hyperref[UC-0E.3]{UC-0E.3} \\
+\hline
+\autoRFa & \hyperref[UC-0E.4]{UC-0E.4} \\
+\hline
+\autoRFa & \hyperref[UC-0F]{UC-0F}, \hyperref[UC-0F.1]{UC-0F.1} \\
+\hline
+\autoRFa & \hyperref[UC-0G]{UC-0G} , \hyperref[UC-0H]{UC-0H} , \hyperref[UC-0I]{UC-0I} , \hyperref[UC-0J]{UC-0J} \\
+\hline
+\autoRFa & \hyperref[UC-1A]{UC-1A} \\
+\hline
+\autoRFa & \hyperref[UC-1A.1]{UC-1A.1} \\
+\hline
+\autoRFa & \hyperref[UC-1A.2]{UC-1A.2} \\
+\hline
+\autoRFa & \hyperref[UC-1A.3]{UC-1A.3} \\
+\hline
+\autoRFa & \hyperref[UC-1B]{UC-1B} \\
+\hline
+\autoRFa & \hyperref[UC-1B.1]{UC-1B.1} \\
+\hline
+\autoRFa & \hyperref[UC-1B.2]{UC-1B.2} \\
+\hline
+\autoRFa & \hyperref[UC-1B.3]{UC-1B.3} \\
+\hline
+\autoRFa & \hyperref[UC-1B.4]{UC-1B.4} \\
+\hline
+\autoRFa & \hyperref[UC-1B.5]{UC-1B.5} \\
+\hline
+\autoRFa & \hyperref[UC-1B.6]{UC-1B.6} \\
+\hline
+\autoRFa & \hyperref[UC-1B.7]{UC-1B.7} \\
+\hline
+\autoRFa & \hyperref[UC-1B.8]{UC-1B.8} \\
+\hline
+\autoRFa & \hyperref[UC-1C]{UC-1C}, \hyperref[UC-1C.1]{UC-1C.1}, \hyperref[UC-1C.2]{UC-1C.2}, \hyperref[UC-1C.3]{UC-1C.3} \\
+\hline
+\autoRFa & \hyperref[UC-1D]{UC-1D} \\
+\hline
+\autoRFa & \hyperref[UC-1D.1]{UC-1D.1} \\
+\hline
+\autoRFa & \hyperref[UC-1E]{UC-1E} \\
+\hline
+\autoRFa & \hyperref[UC-1F]{UC-1F} \\
+\hline
+\autoRFa & \hyperref[UC-1G]{UC-1G} \\
+\hline
+\autoRFa & \hyperref[UC-1H]{UC-1H} \\
+\hline
+\autoRFa & \hyperref[UC-1I]{UC-1I} , \hyperref[UC-1I.1]{UC-1I.1} , \hyperref[UC-1I.2]{UC-1I.2} , \hyperref[UC-1I.3]{UC-1I.3} \\
+\hline
+\autoRFa & \hyperref[UC-1J]{UC-1J} , \hyperref[UC-1T]{UC-1T} , \hyperref[UC-1U]{UC-1U} ,\hyperref[UC-1V]{UC-1V} ,\hyperref[UC-1W]{UC-1W} \\
+\hline
+\autoRFa & \hyperref[UC-1K]{UC-1K} \\
+\hline
+\autoRFa & \hyperref[UC-1L]{UC-1L} \\
+\hline
+\autoRFa & \hyperref[UC-1M]{UC-1M} \\
+\hline
+\autoRFa & \hyperref[UC-1N]{UC-1N} \\
+\hline
+\autoRFa & \hyperref[UC-1O]{UC-1O} \\
+\hline
+\autoRFa & \hyperref[UC-1P]{UC-1P} \\
+\hline
+\autoRFa & \hyperref[UC-1Q]{UC-1Q} \\
+\hline
+\autoRFa & \hyperref[UC-1R]{UC-1R} \\
+\hline
+\autoRFa & \hyperref[UC-1S]{UC-1S} \\
+\hline
+\autoRFa & \hyperref[UC-2A]{UC-2A} \\
+\hline
+\autoRFa & \hyperref[UC-2A.1]{UC-2A.1} \\
+\hline
+\autoRFa & \hyperref[UC-2A.2]{UC-2A.2} \\
+\hline
+\autoRFa & \hyperref[UC-2A.3]{UC-2A.3} \\
+\hline
+\autoRFa & \hyperref[UC-2A.4]{UC-2A.4} \\
+\hline
+\autoRFa & \hyperref[UC-2A]{UC-2A} \\
+\hline
+\autoRFa & \hyperref[UC-2A]{UC-2A} \\
+\hline
+\autoRFa & \hyperref[UC-2A]{UC-2A} \\
+\hline
+\autoRFa & \hyperref[UC-2B]{UC-2B} \\
+\hline
+\autoRFa & \hyperref[UC-2B.1]{UC-2B.1} \\
+\hline
+\autoRFa & \hyperref[UC-2B.2]{UC-2B.2} \\
+\hline
+\autoRFa & \hyperref[UC-2B.3]{UC-2B.3} \\
+\hline
+\autoRFa & \hyperref[UC-2B.4]{UC-2B.4} \\
+\hline
+\autoRFa & \hyperref[UC-2B.5]{UC-2B.5} \\
+\hline
+\autoRFa & \hyperref[UC-2B.6]{UC-2B.6} \\
+\hline
+\autoRFa & \hyperref[UC-2B.7]{UC-2B.7} \\
+\hline
+\autoRFa & \hyperref[UC-2B.8]{UC-2B.8} \\
+\hline
+\autoRFa & \hyperref[UC-2B.9]{UC-2B.9} \\
+\hline
+\autoRFa & \hyperref[UC-2B.10]{UC-2B.10} \\
+\hline
+\autoRFa & \hyperref[UC-2B.11]{UC-2B.11} \\
+\hline
+\autoRFa & \hyperref[UC-2C]{UC-2C} \\
+\hline
+\autoRFa & \hyperref[UC-2D]{UC-2D} \\
+\hline
+\autoRFa & \hyperref[UC-2E]{UC-2E} \\
+\hline
+\autoRFa & \hyperref[UC-2F]{UC-2F} \\
+\hline
+\autoRFa & \hyperref[UC-2G]{UC-2G} \\
+\hline
+\autoRFa & \hyperref[UC-2G.1]{UC-2G.1} \\
+\hline
+\autoRFa & \hyperref[UC-2G.2]{UC-2G.2} \\
+\hline
+\autoRFa & \hyperref[UC-2G.3]{UC-2G.3} \\
+\hline
+\autoRFa & \hyperref[UC-2G.4]{UC-2G.4} \\
+\hline
+\autoRFa & \hyperref[UC-2G.5]{UC-2G.5} \\
+\hline
+\autoRFa & \hyperref[UC-2G.6]{UC-2G.6} \\
+\hline
+\autoRFa & \hyperref[UC-2H]{UC-2H} \\
+\hline
+\autoRFa & \hyperref[UC-2H.1]{UC-2H.1} \\
+\hline
+\autoRFa & \hyperref[UC-2H.2]{UC-2H.2} \\
+\hline
+\autoRFa & \hyperref[UC-2H.3]{UC-2H.3} \\
+\hline
+\autoRFa & \hyperref[UC-2H.4]{UC-2H.4} \\
+\hline
+\autoRFa & \hyperref[UC-2H.5]{UC-2H.5} \\
+\hline
+\autoRFa & \hyperref[UC-2I]{UC-2I} \\
+\hline
+\autoRFa & \hyperref[UC-2J]{UC-2J} \\
+\hline
+\autoRFa & \hyperref[UC-2K]{UC-2K} \\
+\hline
+\autoRFa & \hyperref[UC-2L]{UC-2L} \\
+\hline
+\autoRFa & \hyperref[UC-2M]{UC-2M} \\
+\hline
+\autoRFa & \hyperref[UC-2N]{UC-2N} \\
+\hline
+\autoRFa & \hyperref[UC-2N.1]{UC-2N.1} \\
+\hline
+\autoRFa & \hyperref[UC-2N.2]{UC-2N.2} \\
+\hline
+\autoRFa & \hyperref[UC-2N.3]{UC-2N.3} \\
+\hline
+\autoRFa & \hyperref[UC-2N.4]{UC-2N.4} \\
+\hline
+\autoRFa & \hyperref[UC-2O]{UC-2O} \\
+\hline
+\autoRFa & \hyperref[UC-2O.1]{UC-2O.1} \\
+\hline
+\autoRFa & \hyperref[UC-2O.2]{UC-2O.2} \\
+\hline
+\autoRFa & \hyperref[UC-2P]{UC-2P} , \hyperref[UC-2W]{UC-2W}, \hyperref[UC-2X]{UC-2X} \\
+\hline
+\autoRFa & \hyperref[UC-2Q]{UC-2Q} \\
+\hline
+\autoRFa & \hyperref[UC-2R]{UC-2R} , \hyperref[UC-2Y]{UC-2Y} , \hyperref[UC-2Z]{UC-2Z} \\
+\hline
+\autoRFa & \hyperref[UC-2S]{UC-2S} \\
+\hline
+\autoRFa & \hyperref[UC-2T]{UC-2T} , \hyperref[UC-2AA]{UC-2AA} , \hyperref[UC-2AB]{UC-2AB} \\
+\hline
+\autoRFa & \hyperref[UC-2U]{UC-2U} \\
+\hline
+\autoRFa & \hyperref[UC-2V]{UC-2V}  \\
+\hline
+\autoRFa & \hyperref[UC-3A]{UC-3A} \\
+\hline
+\autoRFa & \hyperref[UC-3A.1]{UC-3A.1} \\
+\hline
+\autoRFa & \hyperref[UC-3A.2]{UC-3A.2} \\
+\hline
+\autoRFa & \hyperref[UC-3A.3]{UC-3A.3} \\
+\hline
+\autoRFa & \hyperref[UC-3A.4]{UC-3A.4} \\
+\hline
+\autoRFa & \hyperref[UC-3A.5]{UC-3A.5} \\
+\hline
+\autoRFa & \hyperref[UC-3B]{UC-3B} \\
+\hline
+\autoRFa & \hyperref[UC-3B.1]{UC-3B.1} \\
+\hline
+\autoRFa & \hyperref[UC-3B.2]{UC-3B.2} \\
+\hline
+\autoRFa & \hyperref[UC-3B.3]{UC-3B.3} \\
+\hline
+\autoRFa & \hyperref[UC-3B.4]{UC-3B.4} \\
+\hline
+\autoRFa & \hyperref[UC-3C]{UC-3C} \\
+\hline
+
+\end{longtable}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
