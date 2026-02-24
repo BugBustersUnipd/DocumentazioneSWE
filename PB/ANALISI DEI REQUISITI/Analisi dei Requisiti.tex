@@ -5719,13 +5719,13 @@ Definiscono gli attributi qualitativi del software che influenzano l'esperienza 
     \hline
     RQ-02 & Il way of working\textsubscript{\scalebox{0.6}{\textbf{G}}} descritto in Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} deve essere rispettato & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RQ-03 & Il Prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}} deve passare tutti i test\textsubscript{\scalebox{0.6}{\textbf{G}}} con la copertura concordata con la proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}}, Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+    RQ-03 & Il Prodotto\textsubscript{\scalebox{0.6}{\textbf{G}}} deve passare tutti i test\textsubscript{\scalebox{0.6}{\textbf{G}}} con la copertura concordata con la proponente\textsubscript{\scalebox{0.6}{\textbf{G}}}, equivalente all'80\% & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}}, Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
     RQ-04 & Il codice deve essere documentato secondo le linee guida descritte in Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}}, Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RQ-05 & È necessario versionare il codice con appositi strumenti di controllo versione, compreso di istruzioni di setup & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+    RQ-05 & È necessario versionare il codice tramite un sistema di controllo versione (Git) & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RQ-06 & Report finale di integrazione e suggerimenti di evoluzione & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+    RQ-06 & Manuale utente per il prodotto sviluppato & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
 
 \end{longtable}
@@ -5771,74 +5771,20 @@ Rappresentano le limitazioni e le restrizioni entro cui il sistema deve essere s
     \hline
     RV-03 & Il database deve essere PostgreSQL\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RV-04 & Il frontend deve essere sviluppato in Angular\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+    RV-04 & Il frontend deve essere sviluppato in Angular\textsubscript{\scalebox{0.6}{\textbf{G}}} (v21) & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
     RV-05 & La gestione dei modelli AI\textsubscript{\scalebox{0.6}{\textbf{G}}} deve essere implementata utilizzando AWS Bedrock\textsubscript{\scalebox{0.6}{\textbf{G}}} & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}} & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
     RV-06 & Eventuali background jobs gestiti con Sidekiq e PWA\textsubscript{\scalebox{0.6}{\textbf{G}}} con Next.js & \href{\urlcap}{capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}}, trattativa con la proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-
-\end{longtable}
-
-
-\subsection{Requisiti Prestazionali\textsubscript{\scalebox{0.6}{\textbf{G}}}}
-Specificano i parametri numerici relativi all'efficienza\textsubscript{\scalebox{0.6}{\textbf{G}}} del sistema. Sebbene siano tecnicamente un sottoinsieme della qualità\textsubscript{\scalebox{0.6}{\textbf{G}}}, vengono trattati separatamente per la loro criticità e misurabilità quantitativa.
-\vspace{0.5cm}
-
-\textbf{Caratteristiche}
-\begin{enumerate}
-    \item Definiscono limiti su tempi di risposta, throughput e utilizzo delle risorse.
-    \item Sono sempre espressi con valori numerici e soglie precise.
-\end{enumerate}
-
-\vspace{0.5cm}
-\begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wFonti}|L{\wPrio}|}
-\caption{Tabella dei Requisiti Prestazionali\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{tab:reqprestazionali}\\
-\hline
-\rowcolor{primaryblue!40}
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
-\hline
-\endfirsthead
-
-\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
-\hline
-\rowcolor{primaryblue!40}
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Fonti} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
-\hline
-\endhead
-
-\hline
-\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
-\hline
-\endfoot
-
-\hline
-\endlastfoot
-
-
-    RP-01 & Il sistema deve generare contenuti testuali tramite AI\textsubscript{\scalebox{0.6}{\textbf{G}}} (Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} Assistant) entro 5 secondi per testi fino a 500 parole & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+    RV-07 & Requisiti minimi di sistema: RAM 2GB, Spazio 20 GB SSD, CPU 1-2 vCPU  & trattativa con la proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RP-02 & Il sistema deve classificare e partizionare documenti PDF (Modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}) entro 3 secondi per pagina & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+    RV-08 & Requisiti minimi utente: Desktop 4GB, Mobile 2GB, Rete 3G stabile  & trattativa con la proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
-    RP-03 & Il tempo di risposta dell'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}} utente per operazioni standard deve essere inferiore a 2 secondi & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
-    \hline
-    RP-04 & Il sistema deve supportare l'upload di file PDF fino a 20 MB & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
-    \hline
-    RP-05 & La Dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} di Analytics deve caricare le statistiche entro 3 secondi per dataset fino a 1000 documenti & Interna & Desiderabile\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
-    \hline
-    RP-06 & Il sistema deve garantire una disponibilità del 99\% durante l'orario lavorativo (8:00-18:00) & Interna & Desiderabile\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
-    \hline
-    RP-07 & Il sistema deve essere in grado di processare almeno 50 documenti in parallelo senza degrado delle performance & Interna & Desiderabile\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
-    \hline
-    RP-08 & Il tempo di estrazione OCR\textsubscript{\scalebox{0.6}{\textbf{G}}} per documenti scansionati deve essere inferiore a 5 secondi per pagina & Interna & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+    RV-09 & I browser supportati devono essere Chrome, Safari, Edge e Firefox & trattativa con la proponente\textsubscript{\scalebox{0.6}{\textbf{G}}} & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
     \hline
 
 \end{longtable}
-
-
-
-
-
 
 \subsection{Tabella tracciamento}
 Descrivono i servizi specifici e le funzioni che il sistema deve fornire. Rappresentano il "cosa" il sistema deve fare in risposta a determinati input o situazioni.
