@@ -428,14 +428,13 @@ di errore se il formato della matricola non è
 valido. & RF-13 & NI \\ \hline
 TS-F-014 & Verifica\G che il sistema permetta all'utente di effettuare il login (autenticazione). & RF-14 & NI \\ \hline
 TS-F-015 & Verifica\G che il sistema notifichi l’errore in caso di
-tentativo di login con email non registrata. & RF-15 & NI \\ \hline
-TS-F-016 & Verifica\G che il sistema notifichi l’errore in caso di
-tentativo di login con password errata. & RF-16 & NI \\ \hline
+tentativo di login con email non registrata o password associata all'email errata. & RF-15 & NI \\ \hline
+TS-F-016 & Verifica\G che il sistema consenta all'utente di poter inserire i dati necessari al login. & RF-16 & NI \\ \hline
 TS-F-017 & Verifica\G che il sistema permetta all'utente di visualizzare i dati del proprio profilo. & RF-17 & NI \\ \hline
 TS-F-018 & Verifica\G che il sistema mostri l’email associata al
 profilo utente. & RF-18 & NI \\ \hline
 TS-F-019 & Verifica\G che il sistema mostri (o permetta la
-gestione della) password del profilo utente. & RF-19 & NI \\ \hline
+gestione) della password del profilo utente. & RF-19 & NI \\ \hline
 TS-F-020 & Verifica\G che il sistema mostri lo username
 associato al profilo utente. & RF-20 & NI \\ \hline
 TS-F-021 & Verifica\G che il sistema mostri il nome associato
@@ -444,9 +443,8 @@ TS-F-022 & Verifica\G che il sistema mostri il cognome associato
 al profilo utente. & RF-22 & NI \\ \hline
 TS-F-023 & Verifica\G che il sistema mostri la matricola associata
 al profilo utente. & RF-23 & NI \\ \hline
-TS-F-024 & Verifica\G che il sistema permetta all'utente di modificare le informazioni del proprio profilo. & RF-24 & NI \\ \hline
-TS-F-025 & Verifica\G che il sistema gestisca l’uscita dal-
-la modifica profilo senza salvare i
+TS-F-024 & Verifica\G che il sistema permetta all'utente di effettuare il logout terminando la sessione. & RF-24 & NI \\ \hline
+TS-F-025 & Verifica\G che il sistema gestisca l’uscita dalla modifica profilo senza salvare i
 cambiamenti. & RF-25 & NI \\ \hline
 
 TS-F-026 & Verifica\G che il sistema permetta all'Ammini-
@@ -486,11 +484,9 @@ TS-F-041 & Verifica\G che il sistema permetta la visualizzazione del testo del
 risultato generato nello storico. & RF-41 & NI \\ \hline
 TS-F-042 & Verifica\G che il sistema permetta la visualizzazione del timestamp
 (data/ora) della generazione nello storico. & RF-42 & NI \\ \hline
-TS-F-043 & Verifica\G che il sistema permetta la visualizzazione della valutazio-
-ne assegnata dall’utente al contenuto nello
+TS-F-043 & Verifica\G che il sistema permetta la visualizzazione della valutazione assegnata dall’utente al contenuto nello
 storico. & RF-43 & NI \\ \hline
-TS-F-044 & Verifica\G che il sistema permetta la visualizzazione del prompt\G ori-
-ginale utilizzato per un contenuto nello
+TS-F-044 & Verifica\G che il sistema permetta la visualizzazione del prompt\G originale utilizzato per un contenuto nello
 storico. & RF-44 & NI \\ \hline
 TS-F-045 & Verifica\G che il sistema permetta la visualizzazione del tono utilizzato
 per un contenuto nello storico. & RF-45 & NI \\ \hline
@@ -498,8 +494,7 @@ TS-F-046 & Verifica\G che il sistema mostri un’anteprima del
 contenuto generato dall’AI\G. & RF-46 & NI \\ \hline
 TS-F-047 & Verifica\G che il sistema permetta di modificare
 l’immagine associata al contenuto generato. & RF-47 & NI \\ \hline
-TS-F-048 & Verifica\G che il sistema notifichi l’utente quan-
-do tenta di caricare un file immagine non
+TS-F-048 & Verifica\G che il sistema notifichi l’utente quando tenta di caricare un file immagine non
 valido. & RF-48 & NI \\ \hline
 TS-F-049 & Verifica\G che il sistema permetta di modificare il
 titolo del contenuto generato. & RF-49 & NI \\ \hline
@@ -518,8 +513,7 @@ delle generazioni nello storico. & RF-54 & NI \\ \hline
 
 TS-F-055 & Verifica\G che il sistema permetta la visualizzazione della lista dello
 storico aggiornata in base ai filtri applicati. & RF-55 & NI \\ \hline
-TS-F-056 & Verifica\G che il sistema permetta di rigenera-
-re un contenuto tramite AI\G mantenendo i
+TS-F-056 & Verifica\G che il sistema permetta di rigenerare un contenuto tramite AI\G mantenendo i
 parametri. & RF-56 & NI \\ \hline
 TS-F-057 & Verifica\G che il sistema permetta all’utente di
 valutare (rating) il contenuto generato. & RF-57 & NI \\ \hline
@@ -640,8 +634,7 @@ TS-F-111 & Verifica\G che il sistema permetta l’invio del
 documento e del messaggio associato. & RF-111 & NI \\ \hline
 TS-F-112 & Verifica\G che il sistema permetta di allegare
 ulteriore contenuto al messaggio. & RF-112 & NI \\ \hline
-TS-F-113 & Verifica\G che il sistema permetta di pianifica-
-re l’invio del documento e del messaggio
+TS-F-113 & Verifica\G che il sistema permetta di pianificare l’invio del documento e del messaggio
 associato. & RF-113 & NI \\ \hline
 TS-F-114 & Verifica\G che il sistema permetta il filtraggio della
 lista dei documenti analizzati. & RF-114 & NI \\ \hline
@@ -688,30 +681,6 @@ di analytics per periodo temporale. & RF-132 & NI \\ \hline
 
 
 
-\newpage
-
-\subsubsection{Test\G di Sistema - Requisiti Prestazionali\G}
-\begin{longtable}{|p{2.5cm}|p{8cm}|p{2.5cm}|p{1.5cm}|}
-\hline
-\rowcolor{primaryblue!30} 
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Riferimento} & \textbf{Stato} \\
-\hline
-\endhead
-
-TS-P-001 & Verifica\G che il sistema generi contenuti testuali tramite AI\G (Assistant) entro 5 secondi per testi fino a 500 parole & RP-01 & NI \\ \hline
-TS-P-002 & Verifica\G che il sistema classifichi e partizioni documenti PDF (Co-Pilot) entro 3 secondi per pagina & RP-02 & NI \\ \hline
-TS-P-003 & Verifica\G che il tempo di risposta dell'interfaccia\G utente per operazioni standard sia inferiore a 2 secondi & RP-03 & NI \\ \hline
-TS-P-004 & Verifica\G che il sistema supporti l'upload di file PDF fino a 20 MB & RP-04 & NI \\ \hline
-TS-P-005 & Verifica\G che la Dashboard\G di Analytics carichi le statistiche entro 3 secondi per dataset fino a 1000 documenti & RP-05 & NI \\ \hline
-TS-P-006 & Verifica\G che il sistema garantisca una disponibilità del 99\% durante l'orario lavorativo (8:00-18:00) & RP-06 & NI \\ \hline
-TS-P-007 & Verifica\G che il sistema sia in grado di processare almeno 50 documenti in parallelo senza degrado prestazionale & RP-07 & NI \\ \hline
-TS-P-008 & Verifica\G che il tempo di estrazione OCR\G per documenti
-scansionati sia inferiore a 5 secondi
-per pagina & RP-08 & NI \\ \hline
-
-\caption{Test\G di Sistema per Requisiti Prestazionali\G}
-\label{tab:test-sistema-prestazionali}
-\end{longtable}
 
 \subsubsection{Test\G di Sistema - Requisiti di Qualità\G}
 \begin{longtable}{|p{2.5cm}|p{8cm}|p{2.5cm}|p{1.5cm}|}
@@ -725,11 +694,10 @@ TS-Q-001 & Verifica\G che sia presente la documentazione dell'analisi dei Requis
 TS-Q-002 & Verifica\G che il way of working\G sia rispettato secondo gli standard definiti nelle Norme di Progetto\G. & RQ-02 & NI \\ \hline
 TS-Q-003 & Verifica\G che il prodotto\G passi tutti i test\G con la
 copertura concordata con la proponente\G. & RQ-03 & NI \\ \hline
-TS-Q-004 & Verifica\G che il codice sia documentato secon-
-do le linee guida descritte in Norme di
+TS-Q-004 & Verifica\G che il codice sia documentato secondo le linee guida descritte in Norme di
 Progetto\G. & RQ-04 & NI \\ \hline
 TS-Q-005 & Verifica\G che il codice sia versionato con appositi strumenti di controllo versione, comprensivo di istruzioni di setup. & RQ-05 & NI \\ \hline
-TS-Q-006 & Verifica\G che ci sia il report finale di integrazione e suggerimenti di evoluzione. & RQ-06 & NI \\ \hline
+TS-Q-006 & Verifica\G che ci sia il manuale utente. & RQ-06 & NI \\ \hline
 
 \caption{Test\G di Sistema per Requisiti di Qualità\G}
 \label{tab:test-sistema-qualita}
@@ -752,7 +720,13 @@ TS-V-004 & Verifica\G che il Frontend sia sviluppato utilizzando il framework An
 TS-V-005 & Verifica\G che la gestione dei modelli AI\G sia
 implementata utilizzando AWS Bedrock\G. & RV-05 & NI \\ \hline
 TS-V-006 & Verifica\G che eventuali background jobs siano gestiti con
-Sidekiq e PWA\G con Next.js. & RV-06 & NI \\ \hline
+Sidekiq e PWA\G con Next.js. & RV-06 & NI \\ 
+\hline
+TS-V-007 & Verifica\G che i requisiti minimi di sistema siano rispettati: RAM 2GB,
+Spazio 20 GB SSD, CPU 1-2 vCPU. & RV-07 & NI \\ \hline
+TS-V-008 & Verifica\G che i requisiti minimi dell'utente siano rispettati: Desktop 4GB,
+Mobile 2GB, Rete 3G stabile. & RV-08 & NI \\ \hline
+TS-V-009 & Verifica\G che i browser supportati siano Chrome, Safari, Edge e Firefox. & RV-09 & NI \\ \hline
 
 \caption{Test\G di Sistema per Requisiti di Vincolo\G}
 \label{tab:test-sistema-vincolo}
