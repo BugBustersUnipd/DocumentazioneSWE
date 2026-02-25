@@ -1,0 +1,291 @@
+\documentclass[a4paper,11pt]{article}
+   
+\newcommand{\CurrentVersion}{0.0.1} % ultima versione, da cambiare ad ogni push significativo
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{needspace}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[titles]{tocloft}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{xspace}
+% Macro
+\input{../../assets/macro/macro-verbali.tex}
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+ {\Large\bfseries\color{primaryblue}}
+ {\thesection}{1em}{}
+
+\titleformat{\subsection}
+ {\large\bfseries\color{primaryblue}} % Sottosezione: colore secondaryblue
+ {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+ {\normalsize\bfseries\color{secondaryblue}} % Sotto-sottosezione: colore secondaryblue
+ {\thesubsubsection}{1em}{}
+
+% per il footer con il numero di pagina
+\usepackage{fancyhdr}
+\usepackage{lastpage} % per ottenere il numero dell'ultima pagina da mettere nel footer
+
+\usepackage{ltablex} %per far andare a capo le tabelle
+\keepXColumns
+
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}\ }
+
+% Macro tabella metrica (tabella uniforme, non spezzata e con stile coerente)
+\newcommand{\MetricTable}[1]{
+  \Needspace{10\baselineskip}% evita spezzamenti sgradevoli
+  \begin{table}[H]
+  \centering
+  \arrayrulecolor{primaryblue}
+  \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{2.5cm}|X|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3cm}|}
+  \hline
+  \rowcolor{primaryblue!40}
+      \textbf{\color{white} Metrica} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Valore accettazione} & \textbf{\color{white} Valore ideale} \\
+  \hline
+  \ignorespaces
+  #1
+  \end{tabularx}
+  \end{table}
+}
+
+
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+%configurazione per il footer
+\pagestyle{fancy}
+\fancyhf{} % pulisce tutti i campi del header e footer
+
+% Header: sinistra e destra
+\fancyhead[L]{Gruppo 4 - BugBusters} % sinistra
+\fancyhead[R]{Specifica Tecnica\G}   % destra
+
+\fancyfoot[L]{ \thepage\ di \pageref{LastPage}} %definisce il formato del footer
+\fancyfoot[R]{ \nouppercase{\rightmark}} % nome della sezione
+
+
+\renewcommand{\headrulewidth}{0pt} % rimuove la linea dell'header
+\renewcommand{\footrulewidth}{0pt} % se vuoi anche togliere eventuale linea del footer
+
+% abilitare numerazione e TOC fino al livello "paragraph" (subsubsubsection)
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+% formattazione del nuovo livello per avere aspetto coerente
+\titleformat{\paragraph}[block]{\normalsize\bfseries\color{secondaryblue}}{\theparagraph}{1em}{}
+% alias comodo per usare "subsubsubsection"
+\newcommand{\subsubsubsection}{\paragraph}
+
+\begin{center}
+  \IfFileExists{../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(../../assets/Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.5cm]
+
+  {\Huge\bfseries\color{primaryblue} Specifia Tecnica\G}\\[0.3cm]
+  {\Large\color{secondaryblue} Versione \CurrentVersion}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+% Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
+  {Stato} & In Redazione \\
+  {Redattori\G} & Alberto Pignat \\
+  {Verificatori\G} &  \\
+  {Distribuzione} & BugBusters, Eggon, Prof. Tullio Vardanega, Prof. Riccardo Cardin\\
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Descrizione}]
+Documento dove viene spiegata in dettaglio la struttura architetturale, le tecnologie utilizzate e le API esposte del prodotto software.\end{tcolorbox}
+\end{center}
+
+\newpage
+
+% Registro delle Modifiche (pagina 2)
+\section*{Registro delle Modifiche}
+
+\arrayrulecolor{primaryblue}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2cm}|X|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\rowcolor{secondaryblue!10}0.0.1 & 24/02/2026 & Prima stesura del documento & Alberto Pignat & - & - \\
+\hline
+\end{tabularx}
+}
+
+\newpage
+
+% Indice cliccabile
+\setcounter{tocdepth}{3} % Mostra fino al livello di sottosezione (2)
+\tableofcontents
+\listoftables
+\listoffigures
+
+\newpage
+\section{Introduzione}
+Il documento ha come scopo la descrizione dettagliata dell'architettura del sistema, delle tecnologie utilizzate e delle API esposte. Viene inoltre fornita una panoramica dei requisiti funzionali soddisfatti dal prodotto software.
+\subsection{Glossario}
+Il glossario\G raccoglie e definisce i termini, gli acronimi e le abbreviazioni 
+impiegati nel documento e nel progetto\G Nexum. L'obiettivo è fornire definizioni univoche per ridurre 
+ambiguità, garantire coerenza terminologica tra i membri del team e facilitare l'onboarding di nuovi partecipanti. \\
+Per i termini tecnici e specifici utilizzati in questo documento, si fa riferimento al glossario\G disponibile al 
+seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}{link}.
+Per maggiore usabilità e facilitá di consultazione, il glossario\G è accessibile anche aprendo dal nostro sito web i vari documenti con il viewer
+pdf da noi sviluppato.
+\subsubsection{Riferimenti normativi}
+\begin{itemize}
+\item \textbf{Capitolato\G
+ d'appalto C5: Nexum - Piattaforma di consulenza e documentazione previdenziale}\\
+\url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf}
+\end{itemize}
+
+\section{Tecnologie}
+Questa sezione descrive le tecnologie utilizzate nello sviluppo del prodotto software, inclusi i linguaggi, i framework, le librerie e gli strumenti di sviluppo adottati dal team.
+\subsection{Linguaggi}
+TODO METTERE TABELLA CON  NOME DESCRIZIONE  E VERSIONE
+\begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
+\caption{Tabella dei Linguaggi}\label{tab:linguaggi}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+% Inserire qui le righe della tabella dei linguaggi
+Typescript & Linguaggio di programmazione basato su JavaScript che aggiunge la tipizzazione statica &  \\
+\hline
+HTML & Linguaggio di markup usato per creare pagine web &  \\
+\hline
+CSS & Linguaggio usato per definire lo stile delle pagine web  &  \\
+\hline
+Ruby & Linguaggio di programmazione orientato agli oggetti &  \\
+\hline
+SQL & Linguaggio per la gestione e manipolazione di database relazionali &  \\
+\end{longtable}
+\subsection{Framework}
+TODO METTERE TABELLA CON  NOME DESCRIZIONE  E VERSIONE
+\begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
+\caption{Tabella dei Framework}\label{tab:framework}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+% Inserire qui le righe della tabella dei linguaggi
+Angular & Framework open source per la creazione e sviluppo di single page applications. & v21 \\
+\hline
+Ruby on Rails & Framework open source server side per applicazioni web &  \\
+\end{longtable}
+\subsection{Librerie}
+TODO METTERE TABELLA CON  NOME DESCRIZIONE  E VERSIONE 
+\subsection{Strumenti di Sviluppo}
+TODO METTERE TABELLA CON  NOME DESCRIZIONE  E VERSIONE
+\begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
+\caption{Tabella degli Strumenti di Sviluppo}\label{tab:strumenti_sviluppo}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+% Inserire qui le righe della tabella dei linguaggi
+Visual Studio Code & IDE open source per lo sviluppo software sviluppato da Microsoft &  \\
+\hline
+Docker & Piattaforma che permette di creare, distribuire e eseguire applicazioni in container &   \\
+\hline
+PostGreSQL & Database relazionale open source &  \\
+\hline
+pgAdmin & Strumento grafico per amministrare e gestire database PostGreSQL &  \\
+\end{longtable}
+
+\section{API}
+\section{Architettura del Sistema}
+\subsection{Architettura Logica}
+\subsection{Architettura di Deployement}
+\subsection{Design Pattern}
+\subsection{Backend}
+\subsection{Frontend}
+\subsection{Database}
+\section{Requisiti Funzionali Soddisfatti}
+\end{document}
