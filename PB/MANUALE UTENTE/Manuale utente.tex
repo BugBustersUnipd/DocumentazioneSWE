@@ -1,0 +1,235 @@
+\documentclass[a4paper,11pt]{article}
+   
+\newcommand{\CurrentVersion}{0.0.1} % ultima versione, da cambiare ad ogni push significativo
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[titles]{tocloft}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{amsmath}
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+ {\Large\bfseries\color{primaryblue}}
+ {\thesection}{1em}{}
+
+\titleformat{\subsection}
+ {\large\bfseries\color{primaryblue}} % Sottosezione: colore secondaryblue
+ {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+ {\normalsize\bfseries\color{secondaryblue}} % Sotto-sottosezione: colore secondaryblue
+ {\thesubsubsection}{1em}{}
+
+% per il footer con il numero di pagina
+\usepackage{fancyhdr}
+\usepackage{lastpage} % per ottenere il numero dell'ultima pagina da mettere nel footer
+
+
+\usepackage{ltablex} %per far andare a capo le tabelle
+\keepXColumns
+
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\newcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+
+
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+%configurazione per il footer
+\pagestyle{fancy}
+\fancyhf{} % pulisce tutti i campi del header e footer
+
+% Header: sinistra e destra
+\fancyhead[L]{Gruppo 4 - BugBusters} % sinistra
+\fancyhead[R]{Manuale utente\G}   % destra
+
+\fancyfoot[L]{ \thepage\ di \pageref{LastPage}} %definisce il formato del footer
+\fancyfoot[R]{ \nouppercase{\rightmark}} % nome della sezione
+
+
+\renewcommand{\headrulewidth}{0pt} % rimuove la linea dell'header
+\renewcommand{\footrulewidth}{0pt} % se vuoi anche togliere eventuale linea del footer
+
+% abilitare numerazione e TOC fino al livello "paragraph" (subsubsubsection)
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+% formattazione del nuovo livello per avere aspetto coerente
+\titleformat{\paragraph}[block]{\normalsize\bfseries\color{secondaryblue}}{\theparagraph}{1em}{}
+% alias comodo per usare "subsubsubsection"
+\newcommand{\subsubsubsection}{\paragraph}
+
+\begin{center}
+ \thispagestyle{empty}
+ \IfFileExists{../../assets/Logo.jpg}{%
+  \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../assets/Logo.jpg} \\[0.8cm]
+ }{%
+  \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+ }
+ {\Large\bfseries BugBusters}\\[0.3cm]
+ {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+ {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+ {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+ {\small Laurea in Informatica}\\[0.2cm]
+ {\small Corso: Ingegneria del Software}\\[0.2cm]
+ {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+ {\Huge\bfseries\color{primaryblue} Manuale utente}\\[0.8cm]
+ {\Large\color{secondaryblue}Versione \CurrentVersion}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+% Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
+	{Stato} & In redazione \\
+    {Redattori\G} & Luca Slongo \\
+	{Verificatori\G} &  - \\
+	{Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Documento contenente le Norme di Progetto\G adottate dal team BugBusters per lo sviluppo del progetto\G Nexum proposto dall'azienda Eggon. Il documento include metodologie di lavoro, standard di codifica, processi di sviluppo e gestione del progetto\G.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\section*{Registro delle modifiche}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+\arrayrulecolor{primaryblue}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2cm}|X|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.1 & 24/02/2026 & Prima stesura & Luca Slongo & - & - \\
+\hline
+\end{tabularx}
+}
+
+
+\newpage
+\tableofcontents
+
+\newpage
+
+\section{Introduzione}
+
+\subsection{Scopo del documento}
+Il documento "Manuale utente" ha lo scopo di fornire agli utenti finali una guida completa e dettagliata sull'utilizzo dei Moduli AI Assistant generativo e AI Copilot per i consulenti del lavoro. 
+Esso include informazioni su come installare, configurare e utilizzare le funzionalità principali della piattaforma, nonché indicazioni per la risoluzione di eventuali problemi comuni. 
+L'obiettivo è garantire che gli utenti possano sfruttare appieno le potenzialità di Nexum per migliorare la comunicazione interna e la revisione e analisi di documenti all'interno delle loro organizzazioni.
+
+
+\subsection{Scopo del prodotto\G}
+Nexum è una piattaforma che supporta la gestione delle comunicazioni interne, la raccolta di feedback e la timbratura digitale del personale.
+Il sistema consente di inviare comunicazioni ai dipendenti con tracciamento delle letture, creare e distribuire survey personalizzati e monitorarne i risultati tramite dashboard aggiornate in tempo reale. 
+Inoltre, permette di effettuare la timbratura tramite badge o dispositivi mobili, applicando automaticamente le regole di controllo e aggregazione delle ore lavorate.
+
+Le anagrafiche centralizzate, integrate con ruoli e permessi, consentono una gestione controllata degli accessi e garantiscono la coerenza delle informazioni tra i diversi moduli della piattaforma.
+
+Questo manuale si occupa di un’applicazione stand-alone che in futuro verrà integrata con Nexum, che introduce funzionalità di assistente AI generativo per supportare l’utente nella scrittura di comunicazioni e un AI Co-Pilot dedicato ai Consulenti del Lavoro (CdL).
+Questo modulo consente di caricare documenti, riconoscerne automaticamente la tipologia, estrarre le informazioni rilevanti e gestirne l’invio ai destinatari in modo massivo.
+
+Per ulteriori dettagli sulle funzionalità e sul contesto del progetto, si rimanda alla documentazione di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti}.
+
+
+
+\subsection{Glossario\G}
+Il glossario\G raccoglie e definisce i termini, gli acronimi e le abbreviazioni 
+impiegati nel documento e nel progetto\G Nexum. L'obiettivo è fornire definizioni univoche per ridurre 
+ambiguità, garantire coerenza terminologica tra i membri del team e facilitare l'onboarding di nuovi partecipanti. \\
+Per i termini tecnici e specifici utilizzati in questo documento, si fa riferimento al glossario\G disponibile al 
+seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}{link}.
+Per maggiore usabilità e facilitá di consultazione, il glossario\G è accessibile anche aprendo dal nostro \href{https://bugbustersunipd.github.io/DocumentazioneSWE/}{sito web} i vari documenti con il viewer
+pdf da noi sviluppato.
+
+\subsubsection{Riferimenti normativi}
+\begin{itemize}
+\item \textbf{Capitolato\G
+ d'appalto C5: Nexum - Piattaforma di consulenza e documentazione previdenziale}\\
+\url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf}
+\item \textbf{Norme di Progetto\G:}\\
+\url{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/NORME%20DI%20PROGETTO/Norme%20di%20Progetto.pdf}
+\end{itemize}
+
+\subsubsection{Riferimenti informativi}
+\begin{itemize}
+    \item \textbf{Glossario\G{}:}\\
+\url{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}
+    \item \textbf{Analisi dei Requisiti\G{}:}\\
+\url{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}
+    \item \textbf{Sito web del progetto:}\\
+\url{https://bugbustersunipd.github.io/DocumentazioneSWE/}
+\end{itemize}
+
+\newpage
+
+\section{Requisiti}
+Per poter utilizzare correttamente il prodotto\G, è necessario soddisfare alcuni requisiti minimi. 
+Questi requisiti garantiscono che la piattaforma funzioni in modo efficiente e senza problemi, offrendo un'esperienza utente ottimale.
+
+
+\subsection{Requisiti hardware}
+Trattandosi di un'applicazione web, Nexum è accessibile da qualsiasi dispositivo dotato di un browser moderno e connesso a Internet.
+Tuttavia, per garantire prestazioni ottimali, si consiglia di utilizzare un computer con le seguenti specifiche minime:
+\begin{itemize}
+    \item Processore: Intel Core i3 o equivalente
+    \item RAM: 4 GB
+    \item Spazio su disco: almeno 500 MB di spazio libero
+    \item Connessione Internet: banda larga con velocità minima di 10 Mbps
+\end{itemize}
+
+
+\subsection{Requisiti software}
+Come già detto constatato precendentemente Nexum è una piattaforma web-based, quindi non richiede l'installazione di software specifici sul dispositivo dell'utente. 
+Tuttavia, è necessario utilizzare un browser web aggiornato per garantire la compatibilità e la sicurezza (ininfluente il tipo di sistema operativo utilizzato).
+I browser consigliati includono: (le versioni sono veramente sparate a cazzo)
+\begin{itemize}
+    \item Google Chrome (versione 80 o superiore)
+    \item Mozilla Firefox (versione 75 o superiore)
+    \item Microsoft Edge (versione 80 o superiore)
+    \item Safari (versione 13 o superiore)
+\end{itemize}
+
+
+\section{Installazione}
+
+\section{Istruzioni per l'uso}
+
+\end{document}
