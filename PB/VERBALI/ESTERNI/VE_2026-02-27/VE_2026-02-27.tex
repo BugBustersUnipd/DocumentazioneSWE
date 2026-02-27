@@ -1,0 +1,198 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Esterno\G{}}\\[0.3cm]
+  {\Large\color{secondaryblue} 27 febbraio 2026}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Redattore\G}    & Marco Favero \\
+\textbf{Verificatore\G{}}    & Linor Sadè \\
+\textbf{Uso}          & Esterno \\
+\textbf{Destinatari}  & Prof. Tullio Vardanega, Prof. Riccardo Cardin, Eggon, BugBusters\\
+\textbf{Versione} & 1.0.0\\
+
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Questo verbale documenta la riunione esterna del 27 febbraio 2026 con Nexum, durante la quale sono stati discussi aspetti tecnici, architetturali e strategici del progetto. 
+Il team ha presentato i mock-up dell'applicazione con funzionalità di ricerca avanzata, generazione personalizzata tramite AICopilot e gestione documentale. 
+Sono stati affrontati argomenti riguardanti le scelte tecnologiche, la strategia di sviluppo e fatte ulteriori domande sulla modellazione dell'applicazione.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Esterna
+    \item \textbf{Piattaforma:} Google Meet
+    \item \textbf{Data:} 27/02/2026
+    \item \textbf{Orario di inizio:} 15:00
+    \item \textbf{Orario di fine:} 15:45
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+    \item \textbf{Assenti:} 
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+    \item Nessuno
+    \end{itemize}
+    \item \textbf{Presenti Esterni:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+      \item Gianpaolo Ferrarin
+      \item Luca Iuzzolino
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+
+\begin{enumerate}
+    \item \label{itm:mockup} Presentazione e revisione dei mock-up dell'applicazione.
+    \item \label{itm:arch} Scelte tecnologiche e architettura del progetto.
+    \item \label{itm:dev} Strategia di sviluppo e modellazione del database.
+\end{enumerate}
+
+\newpage
+\section{Svolgimento}
+
+\subsection*{\ref{itm:mockup}. Presentazione e revisione dei mock-up dell'applicazione}
+
+Il team ha presentato i mock-up dell'applicazione standalone con le seguenti funzionalità:
+\begin{itemize}
+    \item \textbf{Interfaccia AIAssistant:} Ricerca avanzata con impostazione tono, stile e prompt; visualizzazione risultati con storico; 
+    ricerca testuale su tutti i campi; editor modificabile per correzioni post-generazione.
+    \item \textbf{Gestione documenti AICopilot:} Upload di PDF, CSV, JPEG con metadati; suddivisione documenti per destinatario con 
+    stato validazione; preview, modifica estratti e gestione template invio.
+\end{itemize}
+
+\subsection*{\ref{itm:arch}. Scelte tecnologiche e architettura del progetto}
+
+Si è parlato di architettura modulare con API Ruby on Rails in modalità API-only e 
+front-end separato (Angular). Inoltre si è discusso dell'uso di docker, sconsigliato per la complessità,
+e della possibilità di simulazione dei servizi Bucket S3 e gestione mail tramite Mailpit e MiniO.
+Inoltre Luca Iuzzolino ha suggerito di seguire le best practice di ogni linguaggio, evitando di forzare pattern 
+architetturali non nativi.
+
+
+\subsection*{\ref{itm:dev}. Strategia di sviluppo e modellazione del database}
+Ci è stato consigliato il seguente approccio:
+\begin{itemize}
+    \item \textbf{Priorità:} Partire dalla modellazione del database come base strutturale.
+    \item \textbf{Approccio iterativo:} Prototipazione rapida per testare funzionalità chiave, seguita da raffinazione e documentazione continua.
+    \item \textbf{Servizi specializzati:} Sperimentare soluzioni per container di iniezione dipendenze e separazione logiche (OCR, generazione immagini), bilanciando complessità e benefici.
+\end{itemize}
+
+
+
+\section{Tabella delle decisioni e azioni}
+\renewcommand{\arraystretch}{1.5} 
+
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+\hline
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/187}{PB10}\label{PB10}}{Stesura del verbale}{Marco Favero} 
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/188}{PB11}\label{PB11}}{Verifica del verbale}{Linor Sadè} 
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/189}{PB12}\label{PB12}}{Creazione ER del DB e studio architettura}{Alberto Autiero, Marco Favero, Leonardo Salviato, Luca Slongo}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/190}{PB13}\label{PB13}}{Inizio prototipazione frontend}{Alberto Pignat, Marco Piro, Linor Sadè} 
+
+\end{tabularx}
+\fussy
+
+
+\section{Esito Riunione}
+Sono stati discussi tutti i punti all'ordine del giorno. La riunione ha confermato le scelte tecnologiche e fornito orientamenti chiari sulla strategia di sviluppo, con enfasi sulla modellazione dati come punto di partenza.\\
+Si ringraziano Nexum e i rappresentanti Gianpaolo Ferrarin e Luca per la disponibilità e il supporto dimostrato.
+\newpage 
+
+
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
