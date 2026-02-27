@@ -253,6 +253,10 @@
       "definition": "Modello di linguaggio di grandi dimensioni addestrato su vasti corpus di testo, in grado di generare, comprendere e elaborare linguaggio naturale in modo sofisticato."
     },
     {
+      "term": "Manuale Utente",
+      "definition": "Documento tecnico che descrive le funzionalità del prodotto software dal punto di vista dell'utente finale, fornendo istruzioni dettagliate sull'installazione, la configurazione e l'utilizzo del sistema. Ha lo scopo di guidare l'utente nell'uso corretto del prodotto, illustrando le operazioni disponibili, i flussi di lavoro e le soluzioni ai problemi più comuni."
+    },
+    {
       "term": "Manutenibilità",
       "definition": "Capacità di un prodotto software di essere modificato per correggere errori, migliorare le prestazioni o adattarsi a un ambiente in cambiamento. La manutenibilità è uno degli attributi di qualità del software e influenza il costo del ciclo di vita del prodotto."
     },
@@ -263,6 +267,10 @@
     {
       "term": "Milestone",
       "definition": "Data di calendario che fissa un punto di avanzamento atteso nel tempo di progetto, definendo obiettivi specifici e misurabili da raggiungere. Il raggiungimento di una milestone è dimostrato dalla realizzazione di una baseline approvata. Le milestone devono essere SMART: Specifiche (obiettivi chiari), Misurabili (risultati verificabili), Achievable (realisticamente raggiungibili), Rilevanti (significative per il progetto e gli stakeholder), Time-bound (con scadenza definita). Vengono identificate procedendo a ritroso dalla milestone finale verso l'inizio del progetto, determinando le attività e le risorse necessarie per ogni periodo."
+    },
+    {
+      "term": "Minimum Viable Product (MVP)",
+      "definition": "Versione minimale ma funzionante di un prodotto software che include solo le funzionalità essenziali necessarie per soddisfare i requisiti fondamentali e consentire una prima valutazione da parte del committente o degli utenti. L'MVP permette di verificare le ipotesi di base del progetto, raccogliere feedback reali e ridurre il rischio di sviluppare funzionalità non necessarie, seguendo un approccio iterativo e incrementale."
     },
     {
       "term": "Mitigazione",
@@ -479,6 +487,10 @@
     {
       "term": "Sicurezza",
       "definition": "Insieme di caratteristiche e meccanismi che proteggono il sistema da accessi non autorizzati, garantiscono la riservatezza, l'integrità e la disponibilità dei dati, e prevengono attacchi e vulnerabilità."
+    },
+    {
+      "term": "Specifica Tecnica",
+      "definition": "Documento che descrive l'architettura del sistema software e le scelte progettuali adottate per soddisfare i requisiti definiti nell'Analisi dei Requisiti. Definisce la struttura dei componenti, le loro interazioni, i pattern architetturali utilizzati, le tecnologie impiegate e i criteri di qualità perseguiti. Costituisce il riferimento tecnico per le attività di codifica e verifica, e rappresenta il principale deliverable della fase di progettazione (Product Baseline) nel ciclo di vita del progetto."
     },
     {
       "term": "Sprint",
