@@ -26,6 +26,7 @@ jobs:
             CANDIDATURA
             DIARIO DI BORDO
             RTB
+            PB
             NORME DI PROGETTO
             assets
         run: |
