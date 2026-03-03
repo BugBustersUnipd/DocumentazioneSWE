@@ -49,6 +49,16 @@
 \newcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 
 
+\newcommand{\immagine}[4][0.8\textwidth]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#1]{#2}
+        \caption{#3}
+        \label{#4}
+    \end{figure}
+}
+
+
 
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
@@ -231,5 +241,179 @@ I browser consigliati includono: (le versioni sono veramente sparate a cazzo)
 \section{Installazione}
 
 \section{Istruzioni per l'uso}
+
+\subsection{Dashboard}
+La dashboard è il punto di accesso ai moduli dell'applicazione. Da qui, gli utenti possono navigare tra le diverse funzionalità, visualizzare notifiche e accedere rapidamente 
+alle varie sezioni. Nel contesto della nostra applicazione stand-alone, la dashboard funge da hub centrale per accedere sia all'AI-assistant generativo che all'AI Co-Pilot dedicato ai Consulenti del Lavoro (CdL).
+
+\immagine[1\textwidth]{immagini/0_Dashboard.png}{Dashboard}{fig:Dashboard}
+
+\subsubsection{Barra laterale}
+Per permettere la navigazione tra i moduli, è presente una barra laterale che consente di accedere rapidamente alle sezioni principali dell'applicazione.
+
+\immagine[0.3\textwidth]{immagini/0_BarraLaterale.png}{BarraLaterale}{fig:BarraLaterale}
+
+\subsection{AI-assistant generativo}
+Il modulo di AI-assistant generativo è progettato per supportare gli utenti nella creazione di comunicazioni interne.
+
+\subsubsection{Generazione di contenuti}
+La generazione dei contenuti avviene tramite l'inserimento di un prompt, la scelta di un tono e la scelta di uno stile da parte dell'utente. 
+L'assistente Ai utilizza queste informazioni per generare un post formato da titolo, testo e immagione.
+
+\immagine[1\textwidth]{immagini/1_GeneratoreDiContenuti.png}{GeneratoreDiContenuti}{fig:GeneratoreDiContenuti}
+
+\subsubsubsection{Menù di scelta del tono}
+Nel menù di scelta del tono, l'utente può cercare e selezionare tra diverse opzioni di tono (formale, informale, amichevole, professionale, ecc.). 
+Inoltre ha anche la possibilità di inserire un tono personalizzato, specificando le caratteristiche desiderate (ad esempio, "tono motivazionale con un tocco di umorismo").
+Oltre all'inserimento di un tono personalizzato, è presente anche un'opzione che consente all'utente di eliminare un tono reputato obsoleto o non soddisfacente.
+
+\immagine[0.5\textwidth]{immagini/1_MenuTono.png}{MenuTono}{fig:MenuTono}
+
+
+\subsubsubsection{Menù di scelta dello stile}
+Nel menù di scelta dello stile, l'utente può cercare e selezionare tra diversi stili di scrittura (conciso, dettagliato, persuasivo, ecc.).
+Anche in questo caso, è possibile inserire uno stile personalizzato, indicando le preferenze specifiche (ad esempio, "stile narrativo con esempi concreti").
+Oltre all'inserimento di uno stile personalizzato, è presente anche un'opzione che consente all'utente di eliminare uno stile reputato obsoleto o non soddisfacente.
+
+\immagine[0.5\textwidth]{immagini/1_MenuStile.png}{MenuStile}{fig:MenuStile}
+
+
+\subsubsubsection{Casella di testo per inserimento del prompt}
+La casella di testo per l'inserimento del prompt consente all'utente di fornire indicazioni specifiche su ciò che desidera comunicare.
+Il prompt può includere informazioni chiave, obiettivi della comunicazione o qualsiasi dettaglio che l'utente ritiene importante per guidare la generazione del contenuto da parte dell'assistente AI.
+
+\immagine[1\textwidth]{immagini/1_CasellaInserimentoPrompt.png}{CasellaPrompt}{fig:CasellaPrompt}
+
+\subsubsubsection{Tasto di generazione}
+Dopo aver compilato i campi necessari (prompt, tono e stile), l'utente può cliccare sul tasto di generazione per avviare il processo di creazione del contenuto.
+
+\immagine[0.4\textwidth]{immagini/1_TastoGenerazioneContenuto.png}{TastoGenerazione}{fig:TastoGenerazione}
+
+
+\subsubsection{Anteprima del post generato}
+A seguito della generazione, viene visualizzata un'anteprima del post generato, che potrà essere modificato o confermato dall'utente prima di essere pubblicato o salvato. Inoltre l'utente 
+dovrà anche valutare la qualità del contenuto generato.
+
+\immagine[1\textwidth]{immagini/1_AnteprimaGenerazione.png}{AnteprimaGenerazione}{fig:AnteprimaGenerazione}
+
+\subsubsubsection{immagine generata}
+L'immagine generata viene mostrata come primo elemento dell'anteprima del post, fornendo un supporto visivo che arricchisce il contenuto testuale e rende la comunicazione più accattivante e coinvolgente per i destinatari.  
+
+\immagine[1\textwidth]{immagini/1_ImmagineGenerazione.png}{ImmagineGenerazione}{fig:ImmagineGenerazione}
+
+
+\subsubsubsection{titolo generato}
+All'interno dell'anteprima del post, il titolo generato viene visualizzato in modo prominente, evidenziando l'argomento principale della comunicazione ai destinatari.
+
+\immagine[0.8\textwidth]{immagini/1_TitoloGenerazione.png}{TitoloGenerazione}{fig:TitoloGenerazione}
+
+
+\subsubsubsection{testo generato}
+Il testo viene mostrato sotto l'immagine e il titolo, fornendo il corpo principale della comunicazione che l'utente ha richiesto all'assistente AI di generare.
+
+\immagine[1\textwidth]{immagini/1_TestoGenerazione.png}{TestoGenerazione}{fig:TestoGenerazione}
+
+
+\subsubsubsection{valutazione del post generato}
+Dopo aver visualizzato l'anteprima del post generato, l'utente ha la possibilità di valutare la qualità del contenuto attraverso un sistema basato su un punteggio da 1 a 5 stelle.
+
+\immagine[0.4\textwidth]{immagini/1_Valutazione.png}{Valutazione}{fig:Valutazione}
+
+
+\subsubsubsection{panoramica parametri di generazione}
+Per avere poter associare più facilmente il risultato generato ai parametri di generazione, è presente una sezione che mostra in modo chiaro e sintetico i parametri utilizzati per la generazione del contenuto (il tono, lo stile e il prompt inserito dall'utente).
+
+\immagine[1\textwidth]{immagini/1_PanoramicaParametri.png}{PanoramicaParametri}{fig:PanoramicaParametri}
+
+\subsubsubsection{tasto accesso modalità modifica}
+Per attivare le funzionalità di modifica del post generato, è presente un tasto che consente all'utente di accedere alla modalità di modifica, dove potrà apportare le modifiche desiderate al titolo, al testo e all'immagine generati.
+
+\immagine[0.4\textwidth]{immagini/1_TastoModalitaModifica.png}{TastoModalitaModifica}{fig:TastoModalitaModifica}
+
+\subsubsubsection{Operazioni di gestione del risultato generato}
+A seguito della generazione del contenuto, l'utente ha la possibilità di gestire il risultato; scartandolo se non soddisfacente (questa funzione comporta la valutaione minima), rigenerandolo per provare a ottenere un risultato migliore o salvandolo se soddisfatto con quello che ha ottenuto.
+
+\immagine[0.6\textwidth]{immagini/1_OperazioniGenerazione.png}{OperazioniGenerazione}{fig:OperazioniGenerazione}
+
+
+\subsubsection{Modifica delle generazioni}
+Entrando nella modalità di modifica, l'utente può apportare modifiche al titolo, al testo e all'immagine generati, personalizzando ulteriormente il contenuto per adattarlo meglio alle proprie esigenze comunicative.
+
+\immagine[1\textwidth]{immagini/1_ModalitaModificaGenerazione.png}{ModalitaModificaGenerazione}{fig:ModalitaModificaGenerazione}
+
+\subsubsubsection{Modifica immagine generata}
+Nella modalità di modifica, l'utente ha la possibilità di sostituire l'immagine
+
+\immagine[0.6\textwidth]{immagini/1_ModificaImmagine.png}{ModificaImmagine}{fig:ModificaImmagine}
+
+\subsubsubsection{Modifica titolo generato}
+Nella modalità di modifica, l'utente ha la possibilità di modificare il titolo generato, adattandolo meglio al contesto comunicativo desiderato.
+
+\immagine[0.8\textwidth]{immagini/1_ModificaTitolo.png}{ModificaTitolo}{fig:ModificaTitolo}
+
+
+\subsubsubsection{Modifica testo generato}
+Nella modalità di modifica, l'utente ha la possibilità di modificare il testo generato, personalizzandolo ulteriormente per renderlo più efficace e adatto alle proprie esigenze comunicative.
+
+\immagine[0.8\textwidth]{immagini/1_ModificaTesto.png}{ModificaTesto}{fig:ModificaTesto}
+
+
+\subsubsubsection{Salvataggio o annullamento modifiche alla generazione}
+La modifica può essere salvata per aggiornare il post generato con le modifiche apportate, oppure annullata per tornare alla versione originale del contenuto generato.
+
+\immagine[0.8\textwidth]{immagini/1_GestioneModifiche.png}{GestioneModifiche}{fig:GestioneModifiche}
+
+
+\subsection{Storico delle generazioni}
+Lo storico delle generazioni consente all'utente di visualizzare tutte le generazioni precedenti, con la possibilità di accedere ai dettagli di ciascuna generazione, come i parametri utilizzati, la valutazione e le eventuali modifiche apportate.
+
+\subsubsection{Consulatazione storico delle generazioni}
+Lo storico delle generazioni è una sezione composta da una tabella contenente le generazioni e vari sistemi di input che permettono di effettuare operazioni su questa tabella con fini di gestione o di analisi.
+
+\subsubsubsection{Filtraggio e ricerca nello storico}
+All'interno dello storico delle generazioni, è presente una funzionalità di filtraggio e ricerca che consente all'utente di trovare facilmente specifiche generazioni passate in base a criteri come data, valutazione, parole chiave, tono o stile utilizzato.
+
+\subsubsubsection{Visualizzazione tabella generazioni}
+Le generazioni passate vengono visualizzate in una tabella che mostra informazioni chiave come la data di creazione, il titolo del post generato, il tono e lo stile utilizzati, la valutazione assegnata, il testo genearato e il prompt utilizzato.
+
+\subsubsubsection{Azioni su generazioni passate}
+Per ogni generazione passata visualizzata nella tabella, l'utente ha la possibilità di eseguire azioni come riutilizzare, duplicare o eliminarela generazione dallo storico.
+Riutilizzare una generazione consiste nell'effettiva generazione di un nuovo post con gli stessi campi, mentre la duplicazione riempie i campi permettendo di apportare modifiche prima di effettuare la nuova generazione.
+
+\subsubsubsection{Scorrimento tabella storico}
+Utilizzando frecce a fondo tabella l'utente può scorrere tra le pagine dello storico delle generazioni, visualizzando un numero limitato di generazioni per pagina per facilitare la consultazione e la gestione dello storico.
+
+
+
+\subsection{AI Co-Pilot per i Consulenti del Lavoro}
+L'AI Co-Pilot dedicato ai Consulenti del Lavoro (CdL) è progettato per supportare i professionisti nella gestione e nell'analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
+
+\subsubsection{Analisi documenti}
+Il modulo di analisi dei documenti consente ai CdL di caricare documenti in vari formati (PDF, Word, ecc.) e di riconoscerne automaticamente la tipologia (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.).
+Per effettuare un'analisi é necessario inserire il file che si ha intenzione di analizzare ed eventualmente dati conosciuti, facilitando così il processo di riconoscimento e estrazione delle informazioni rilevanti.
+
+\subsubsection{Visualizzazione risultati analisi documenti}
+Dopo l'analisi, i risultati vengono visualizzati in modo chiaro e organizzato, evidenziando le informazioni estratte dal documento e fornendo un quadro completo del contenuto analizzato.
+Questa visualizzazione consente al CdL di comprendere rapidamente le informazioni chiave del documento e di prendere decisioni informate su come procedere con la gestione del documento stesso.
+
+\subsubsection{Riconoscimento destinatari con creazione liste di invio}
+Il sistema è in grado di riconoscere automaticamente i destinatari associati al documento analizzato, creando liste di invio basate sulle informazioni estratte.
+Questa funzionalità semplifica il processo di invio dei documenti, consentendo al CdL di selezionare facilmente i destinatari appropriati e di gestire le comunicazioni in modo più efficiente.
+
+\subsubsection{Visualizzazione anteprima e correzione documenti}
+A seguito dell'analisi, il sistema estrae le informazioni rilevanti dal documento e le presenta in modo chiaro e organizzato, consentendo al CdL di verificare l'accuratezza dei dati estratti e di apportare eventuali correzioni o integrazioni prima di procedere con l'invio del documento ai destinatari.
+
+\subsubsection{Invio documenti}
+Quando si ritiene che il documento sia pronto per essere inviato (con una confidenza adeguata), l'utente può procedere con la creazione di un messaggio, l'eventuale inserimento di allegati ed infine l'invio del documento ai destinatari.
+
+\subsection{Storico documenti}
+L'utente ha a disposizione uno storico dei documenti analizzati, visualizzandone i dettagli e il loro stato.
+
+\subsubsection{Consultazione storico documenti}
+Lo storico dei documenti consente al CdL di visualizzare tutte le analisi documentali precedenti, con la possibilità di accedere ai dettagli di ciascun documento, come la data di analisi, la tipologia del documento, i destinatari riconosciuti, le informazioni estratte e lo stato dell'invio.
+
+
+\subsection{Analytics e monitoraggio trasversale}
+
 
 \end{document}
