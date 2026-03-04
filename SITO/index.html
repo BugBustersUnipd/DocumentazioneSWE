@@ -27,112 +27,20 @@
     </header>
 
     <main id="main-content" role="main">
-        <!-- DOCUMENTAZIONE section: contiene switch interno tra Candidatura, Diapositive e RTB -->
+        <!-- DOCUMENTAZIONE section: contiene switch interno tra Diapositive, Candidatura, RTB, PB -->
         <section id="candidatura" class="section documentation" role="region" aria-label="Documentazione" tabindex="0">
             <div class="content-box">
                 <h2 class="page-title">Documentazione</h2>
 
                 <div class="doc-controls" role="tablist" aria-label="Seleziona tipo documento">
-                    <button class="tab-btn doc-toggle active" data-show="candidatura" role="tab" aria-selected="true">Candidatura</button>
-                    <button class="tab-btn doc-toggle" data-show="diapositive" role="tab" aria-selected="false">Diapositive</button>
+                    <button class="tab-btn doc-toggle active" data-show="diapositive" role="tab" aria-selected="true">Diapositive</button>
+                    <button class="tab-btn doc-toggle" data-show="candidatura" role="tab" aria-selected="false">Candidatura</button>
                     <button class="tab-btn doc-toggle" data-show="rtb" role="tab" aria-selected="false">RTB</button>
                     <button class="tab-btn doc-toggle" data-show="pb" role="tab" aria-selected="false">PB</button>
                 </div>
 
                 <div class="doc-panels">
-                    <div id="panel-candidatura" class="doc-panel active" role="tabpanel">
-                        <h3 class="section-title">Candidatura</h3>
-                        <div class="cards">
-                            <div class="card">
-                                <h4>Candidatura progetto</h4>
-                                <p>Versione finale della candidatura.</p>
-                                <p>
-                                    <a href="CANDIDATURA/CANDIDATURA PROGETTO/Candidatura progetto.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=CANDIDATURA/CANDIDATURA%20PROGETTO/Candidatura%20progetto.pdf&title=Candidatura%20progetto&section=candidatura" class="viewer-link">Apri con Viewer</a>
-                                </p>
-                            </div>
-                            <div class="card">
-                                <h4>Dichiarazione impegni</h4>
-                                <p>Dichiarazione di impegno del team.</p>
-                                <p>
-                                    <a href="CANDIDATURA/DICHIARAZIONE IMPEGNI/Dichiarazione impegni.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=CANDIDATURA/DICHIARAZIONE%20IMPEGNI/Dichiarazione%20impegni.pdf&title=Dichiarazione%20impegni&section=candidatura" class="viewer-link">Apri con Viewer</a>
-                                </p>
-                            </div>
-                            <div class="card">
-                                <h4>Valutazione capitolati</h4>
-                                <p>Report sulla scelta dei capitolati.</p>
-                                <p>
-                                    <a href="CANDIDATURA/SCELTA CAPITOLATO/Resoconto_capitolati.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
-                                    <a href="viewer.html?pdf=CANDIDATURA/SCELTA%20CAPITOLATO/Resoconto_capitolati.pdf&title=Valutazione%20capitolati&section=candidatura" class="viewer-link">Apri con Viewer</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <details class="verbali-folder" id="verbali-esterni-candidatura">
-                            <summary class="subsection-title">Verbali Esterni</summary>
-                            <ul class="doc-list verbali" aria-label="Verbali esterni">
-                                <li>
-                                    <a class="file-link" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-24 [M31]/VE_2025-10-24[M31].pdf" target="_blank" rel="noopener noreferrer">VE 24 ottobre 2025 - M31</a>
-                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-24 [M31]/VE_2025-10-24[M31].pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_2025-10-24%20[M31]/VE_2025-10-24[M31].pdf&title=VE%2024%20ottobre%202025%20-%20M31&section=candidatura">Apri con viewer</a>
-                                </li>
-                                <li>
-                                    <a class="file-link" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-24 [Eggon]/VE_2025-10-24[Eggon].pdf" target="_blank" rel="noopener noreferrer">VE 24 ottobre 2025 - Eggon</a>
-                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-24 [Eggon]/VE_2025-10-24[Eggon].pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_2025-10-24%20[Eggon]/VE_2025-10-24[Eggon].pdf&title=VE%2024%20ottobre%202025%20-%20Eggon&section=candidatura">Apri con viewer</a>
-                                </li>
-                                <li>
-                                    <a class="file-link" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-22 [Miriade]/VE_2025-10-22[Miriade].pdf" target="_blank" rel="noopener noreferrer">VE 22 ottobre 2025 - Miriade</a>
-                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-22 [Miriade]/VE_2025-10-22[Miriade].pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_2025-10-22%20[Miriade]/VE_2025-10-22[Miriade].pdf&title=VE%2022%20ottobre%202025%20-%20Miriade&section=candidatura">Apri con viewer</a>
-                                </li>
-                            </ul>
-                        </details>
-
-                        <details class="verbali-folder" id="verbali-interni-candidatura">
-                            <summary class="subsection-title">Verbali Interni</summary>
-                            <ul class="doc-list verbali" aria-label="Verbali interni">
-                                <li>
-                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-29/VI_2025-10-29.pdf" target="_blank" rel="noopener noreferrer">VI 29 ottobre 2025</a>
-                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-29/VI_2025-10-29.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-29/VI_2025-10-29.pdf&title=VI%2029%20ottobre%202025&section=candidatura">Apri con viewer</a>
-                                </li>
-                                <li>
-                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-26/VI_2025-10-26.pdf" target="_blank" rel="noopener noreferrer">VI 26 ottobre 2025</a>
-                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-26/VI_2025-10-26.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-26/VI_2025-10-26.pdf&title=VI%2026%20ottobre%202025&section=candidatura">Apri con viewer</a>
-                                </li>
-                                <li>
-                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-24/VI_2025-10-24.pdf" target="_blank" rel="noopener noreferrer">VI 24 ottobre 2025</a>
-                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-24/VI_2025-10-24.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-24/VI_2025-10-24.pdf&title=VI%2024%20ottobre%202025&section=candidatura">Apri con viewer</a>
-                                </li>
-                                <li>
-                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-22/VI_2025-10-22.pdf" target="_blank" rel="noopener noreferrer">VI 22 ottobre 2025</a>
-                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-22/VI_2025-10-22.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-22/VI_2025-10-22.pdf&title=VI%2022%20ottobre%202025&section=candidatura">Apri con viewer</a>
-                                </li>
-                                <li>
-                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-20/VI_2025-10-20.pdf" target="_blank" rel="noopener noreferrer">VI 20 ottobre 2025</a>
-                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-20/VI_2025-10-20.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-20/VI_2025-10-20.pdf&title=VI%2020%20ottobre%202025&section=candidatura">Apri con viewer</a>
-                                </li>
-                                <li>
-                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-18/VI_2025-10-18.pdf" target="_blank" rel="noopener noreferrer">VI 18 ottobre 2025</a>
-                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-18/VI_2025-10-18.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-18/VI_2025-10-18.pdf&title=VI%2018%20ottobre%202025&section=candidatura">Apri con viewer</a>
-                                </li>
-                                <li>
-                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-16/VI_2025-10-16.pdf" target="_blank" rel="noopener noreferrer">VI 16 ottobre 2025</a>
-                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-16/VI_2025-10-16.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
-                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-16/VI_2025-10-16.pdf&title=VI%2016%20ottobre%202025&section=candidatura">Apri con viewer</a>
-                                </li>
-                            </ul>
-                        </details>
-                    </div>
-
-                    <div id="panel-diapositive" class="doc-panel" role="tabpanel" aria-hidden="true">
+                    <div id="panel-diapositive" class="doc-panel active" role="tabpanel">
                         <h3 class="section-title">Diapositive</h3>
                         
                         <details class="verbali-folder" id="diapositive-pb">
@@ -239,6 +147,98 @@
                                     </div>
                                 </div>
                             </div>
+                        </details>
+                    </div>
+
+                    <div id="panel-candidatura" class="doc-panel" role="tabpanel" aria-hidden="true">
+                        <h3 class="section-title">Candidatura</h3>
+                        <div class="cards">
+                            <div class="card">
+                                <h4>Candidatura progetto</h4>
+                                <p>Versione finale della candidatura.</p>
+                                <p>
+                                    <a href="CANDIDATURA/CANDIDATURA PROGETTO/Candidatura progetto.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
+                                    <a href="viewer.html?pdf=CANDIDATURA/CANDIDATURA%20PROGETTO/Candidatura%20progetto.pdf&title=Candidatura%20progetto&section=candidatura" class="viewer-link">Apri con Viewer</a>
+                                </p>
+                            </div>
+                            <div class="card">
+                                <h4>Dichiarazione impegni</h4>
+                                <p>Dichiarazione di impegno del team.</p>
+                                <p>
+                                    <a href="CANDIDATURA/DICHIARAZIONE IMPEGNI/Dichiarazione impegni.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
+                                    <a href="viewer.html?pdf=CANDIDATURA/DICHIARAZIONE%20IMPEGNI/Dichiarazione%20impegni.pdf&title=Dichiarazione%20impegni&section=candidatura" class="viewer-link">Apri con Viewer</a>
+                                </p>
+                            </div>
+                            <div class="card">
+                                <h4>Valutazione capitolati</h4>
+                                <p>Report sulla scelta dei capitolati.</p>
+                                <p>
+                                    <a href="CANDIDATURA/SCELTA CAPITOLATO/Resoconto_capitolati.pdf" target="_blank" rel="noopener noreferrer">Apri PDF</a> | 
+                                    <a href="viewer.html?pdf=CANDIDATURA/SCELTA%20CAPITOLATO/Resoconto_capitolati.pdf&title=Valutazione%20capitolati&section=candidatura" class="viewer-link">Apri con Viewer</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <details class="verbali-folder" id="verbali-esterni-candidatura">
+                            <summary class="subsection-title">Verbali Esterni</summary>
+                            <ul class="doc-list verbali" aria-label="Verbali esterni">
+                                <li>
+                                    <a class="file-link" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-24 [M31]/VE_2025-10-24[M31].pdf" target="_blank" rel="noopener noreferrer">VE 24 ottobre 2025 - M31</a>
+                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-24 [M31]/VE_2025-10-24[M31].pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_2025-10-24%20[M31]/VE_2025-10-24[M31].pdf&title=VE%2024%20ottobre%202025%20-%20M31&section=candidatura">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-24 [Eggon]/VE_2025-10-24[Eggon].pdf" target="_blank" rel="noopener noreferrer">VE 24 ottobre 2025 - Eggon</a>
+                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-24 [Eggon]/VE_2025-10-24[Eggon].pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_2025-10-24%20[Eggon]/VE_2025-10-24[Eggon].pdf&title=VE%2024%20ottobre%202025%20-%20Eggon&section=candidatura">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-22 [Miriade]/VE_2025-10-22[Miriade].pdf" target="_blank" rel="noopener noreferrer">VE 22 ottobre 2025 - Miriade</a>
+                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Esterni/VE_2025-10-22 [Miriade]/VE_2025-10-22[Miriade].pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Esterni/VE_2025-10-22%20[Miriade]/VE_2025-10-22[Miriade].pdf&title=VE%2022%20ottobre%202025%20-%20Miriade&section=candidatura">Apri con viewer</a>
+                                </li>
+                            </ul>
+                        </details>
+
+                        <details class="verbali-folder" id="verbali-interni-candidatura">
+                            <summary class="subsection-title">Verbali Interni</summary>
+                            <ul class="doc-list verbali" aria-label="Verbali interni">
+                                <li>
+                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-29/VI_2025-10-29.pdf" target="_blank" rel="noopener noreferrer">VI 29 ottobre 2025</a>
+                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-29/VI_2025-10-29.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-29/VI_2025-10-29.pdf&title=VI%2029%20ottobre%202025&section=candidatura">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-26/VI_2025-10-26.pdf" target="_blank" rel="noopener noreferrer">VI 26 ottobre 2025</a>
+                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-26/VI_2025-10-26.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-26/VI_2025-10-26.pdf&title=VI%2026%20ottobre%202025&section=candidatura">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-24/VI_2025-10-24.pdf" target="_blank" rel="noopener noreferrer">VI 24 ottobre 2025</a>
+                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-24/VI_2025-10-24.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-24/VI_2025-10-24.pdf&title=VI%2024%20ottobre%202025&section=candidatura">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-22/VI_2025-10-22.pdf" target="_blank" rel="noopener noreferrer">VI 22 ottobre 2025</a>
+                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-22/VI_2025-10-22.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-22/VI_2025-10-22.pdf&title=VI%2022%20ottobre%202025&section=candidatura">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-20/VI_2025-10-20.pdf" target="_blank" rel="noopener noreferrer">VI 20 ottobre 2025</a>
+                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-20/VI_2025-10-20.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-20/VI_2025-10-20.pdf&title=VI%2020%20ottobre%202025&section=candidatura">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-18/VI_2025-10-18.pdf" target="_blank" rel="noopener noreferrer">VI 18 ottobre 2025</a>
+                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-18/VI_2025-10-18.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-18/VI_2025-10-18.pdf&title=VI%2018%20ottobre%202025&section=candidatura">Apri con viewer</a>
+                                </li>
+                                <li>
+                                    <a class="file-link" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-16/VI_2025-10-16.pdf" target="_blank" rel="noopener noreferrer">VI 16 ottobre 2025</a>
+                                    <a class="btn btn-open" href="CANDIDATURA/VERBALI/Interni/VI_2025-10-16/VI_2025-10-16.pdf" target="_blank" rel="noopener noreferrer">Apri</a>
+                                    <a class="btn btn-viewer viewer-link" href="viewer.html?pdf=CANDIDATURA/VERBALI/Interni/VI_2025-10-16/VI_2025-10-16.pdf&title=VI%2016%20ottobre%202025&section=candidatura">Apri con viewer</a>
+                                </li>
+                            </ul>
                         </details>
                     </div>
                     
