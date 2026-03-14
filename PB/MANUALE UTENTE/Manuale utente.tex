@@ -392,19 +392,98 @@ L'AI Co-Pilot dedicato ai Consulenti del Lavoro (CdL) è progettato per supporta
 Il modulo di analisi dei documenti consente ai CdL di caricare documenti in vari formati (PDF, Word, ecc.) e di riconoscerne automaticamente la tipologia (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.).
 Per effettuare un'analisi é necessario inserire il file che si ha intenzione di analizzare ed eventualmente dati conosciuti, facilitando così il processo di riconoscimento e estrazione delle informazioni rilevanti.
 
+\subsubsubsection{Caricamento documento}
+Tramite questa funzione, l'utente può selezionare e caricare uno o più documenti all'interno del sistema. L'infrastruttura verifica l'integrità e la validità del formato del file per prepararlo all'analisi tramite intelligenza artificiale.
+
+\subsubsubsection{Inserimento dati conosciuti}
+Per guidare il modello di AI e aumentare la precisione dell'estrazione (confidence), l'utente ha la facoltà di inserire manualmente alcuni metadati ancor prima di lanciare l'analisi. Tra questi figurano la selezione della categoria documentale, l'inserimento dell'azienda cliente, l'indicazione del mese/anno di competenza e lo specifico reparto aziendale.
+
+
 \subsubsection{Visualizzazione risultati analisi documenti}
 Dopo l'analisi, i risultati vengono visualizzati in modo chiaro e organizzato, evidenziando le informazioni estratte dal documento e fornendo un quadro completo del contenuto analizzato.
 Questa visualizzazione consente al CdL di comprendere rapidamente le informazioni chiave del documento e di prendere decisioni informate su come procedere con la gestione del documento stesso.
+
+\subsubsubsection{Visualizzazione risultati analisi documenti}
+Il sistema presenta l'elenco dei documenti analizzati in formato tabellare. Per ogni elemento, vengono esposti i dati di sintesi estratti dall'AI, quali l'azienda, il periodo di competenza, la tipologia del file, la lingua, il numero di pagine e l'identificativo originale, permettendo un controllo rapido del flusso elaborato.
+
+\subsubsubsection{Visualizzazione stato analisi documenti}
+Questa funzionalità permette all'utente di monitorare l'avanzamento e la fase del ciclo di vita in cui si trova il documento. Attraverso etichette testuali o indicatori visivi (es. "Da validare", "Pronto per l'invio", "Inviato", "Errore"), è possibile comprendere immediatamente se il documento necessita di intervento umano o se l'elaborazione è andata a buon fine.
+
+\subsubsubsection{Applicazione filtro di ricerca su documenti}
+Per agevolare la gestione di archivi voluminosi, il sistema mette a disposizione uno strumento di filtraggio dinamico. L'utente può raffinare la lista dei risultati applicando filtri per tipologia documentale, mese/anno di competenza, livello di confidenza dell'AI, documento originale o stato di elaborazione.
+
+\subsubsubsection{Modifica del risultato dell'analisi documenti}
+In ottica "Human-in-the-loop", se l'AI dovesse classificare un documento in modo impreciso o associare dati non corretti, l'operatore può intervenire manualmente per modificare la tipologia del documento o correggerne gli attributi. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza.
+
+\subsubsubsection{Eliminazione del risultato dell'analisi documenti}
+Qualora un documento sia stato caricato per errore, risulti duplicato o non debba più far parte del flusso di invio, l'utente può rimuovere il documento e i relativi risultati dell'analisi dal database e dall'interfaccia corrente.
+
 
 \subsubsection{Riconoscimento destinatari con creazione liste di invio}
 Il sistema è in grado di riconoscere automaticamente i destinatari associati al documento analizzato, creando liste di invio basate sulle informazioni estratte.
 Questa funzionalità semplifica il processo di invio dei documenti, consentendo al CdL di selezionare facilmente i destinatari appropriati e di gestire le comunicazioni in modo più efficiente.
 
+\subsubsubsection{Visualizzazione risultati analisi destinatari}
+Il sistema mostra, a seguito dell'analisi documentale (e dell'eventuale split dei documenti massivi), l'elenco dei destinatari individuati. I dati mostrati includono nome, cognome, codice fiscale, numero di matricola e reparto di afferenza, garantendo la verifica dell'identità.
+
+\subsubsubsection{Visualizzazione stato analisi destinatari}
+Permette di visualizzare se i dati anagrafici estratti dall'AI per ciascun destinatario sono considerati affidabili, se necessitano di validazione manuale o se non è stato possibile riconoscere alcun destinatario, richiedendo così l'attenzione dell'operatore.
+
+\subsubsubsection{Applicazione filtro di ricerca su destinatari}
+Per rintracciare rapidamente i destinatari all'interno di invii massivi, l'utente può utilizzare barre di ricerca e filtri mirati. La lista può essere filtrata per numero di matricola, per reparto aziendale o in base allo specifico codice del documento associato.
+
+\subsubsubsection{Modifica del risultato dell'analisi destinatari}
+Nel caso l'algoritmo associ un destinatario errato a un documento o non riesca a dedurlo, l'operatore può intervenire per cercare e selezionare il destinatario corretto. L'associazione può avvenire tramite l'inserimento manuale dell'indirizzo email o del numero di matricola.
+
+\subsubsubsection{Eliminazione del risultato dell'analisi destinatari}
+Garantisce la possibilità di dissociare un destinatario da un documento o di rimuoverlo dalla lista di distribuzione creata, evitando che riceva comunicazioni non di sua competenza.
+
+
 \subsubsection{Visualizzazione anteprima e correzione documenti}
 A seguito dell'analisi, il sistema estrae le informazioni rilevanti dal documento e le presenta in modo chiaro e organizzato, consentendo al CdL di verificare l'accuratezza dei dati estratti e di apportare eventuali correzioni o integrazioni prima di procedere con l'invio del documento ai destinatari.
 
+\subsubsubsection{Visualizzazione anteprima documento}
+Il sistema mostra a schermo l'anteprima visiva del file sorgente (es. il PDF o l'immagine caricata). Questa funzione è essenziale per consentire all'operatore di leggere il documento originale e confrontarlo direttamente e in tempo reale con le estrazioni effettuate dall'AI.
+
+\subsubsubsection{Visualizzazione informazioni documento}
+In una sezione adiacente all'anteprima, il sistema raccoglie tutti i metadati specifici del singolo file, quali il codice univoco interno, la data di caricamento e redazione, la causale individuata e il grado di affidabilità dell'estrazione (confidence score).
+
+\subsubsubsection{Visualizzazione destinatari documento}
+Visualizza nel dettaglio i soggetti a cui il singolo documento in anteprima è indirizzato. In presenza di liste lunghe, questa sezione può presentare un riepilogo rapido e mostrare l'appartenenza a specifiche liste di distribuzione.
+
+\subsubsubsection{Visualizzazione dettagli analisi}
+Permette di consultare le metriche tecniche del processo elaborativo eseguito dall'AI, evidenziando le criticità (es. confidenza del dato inferiore alla soglia di sicurezza) e consultando l'audit log, che riporta cronologicamente tutte le modifiche e i cambi di stato del documento nel tempo.
+
+\subsubsubsection{Esecuzione operazioni su documento}
+Fornisce i comandi d'azione diretti sul singolo file in fase di revisione. L'utente può confermare (validare) le estrazioni dell'AI, correggere campi di testo, scaricare il documento originale o procedere alla sua eliminazione in caso di anomalie insormontabili.
+
+\subsubsubsection{Esecuzione operazioni su destinatari}
+Consente le modifiche mirate alle anagrafiche dei soggetti associati al documento visualizzato in anteprima, facilitando l'operazione di sgancio o aggiornamento manuale del destinatario finale.
+
+
 \subsubsection{Invio documenti}
 Quando si ritiene che il documento sia pronto per essere inviato (con una confidenza adeguata), l'utente può procedere con la creazione di un messaggio, l'eventuale inserimento di allegati ed infine l'invio del documento ai destinatari.
+
+\subsubsubsection{Scrittura messaggio}
+Questa funzionalità mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata ai destinatari. L'utente può valorizzare manualmente il campo "Oggetto" e inserire il corpo testuale desiderato.
+
+\subsubsubsection{Inserimento allegati}
+Oltre al documento primario processato (es. la busta paga o la certificazione), il sistema permette l'upload e l'aggiunta di ulteriori file (es. moduli informativi o comunicazioni aziendali) che verranno spediti congiuntamente al messaggio.
+
+\subsubsubsection{Applicazione template}
+Per ottimizzare i tempi, l'utente può decidere di non scrivere il messaggio da zero, bensì caricare un modello (template) precostituito. Questo andrà a sovrascrivere o precompilare i campi dell'oggetto e del corpo del messaggio con formule testuali standard.
+
+\subsubsubsection{Operazioni su template esistenti}
+L'utente ha accesso a una gestione completa dei modelli di comunicazione: può visualizzare la lista dei template salvati, creare un nuovo template a partire dal messaggio che sta scrivendo, oltre a modificare e cancellare definitivamente quelli divenuti obsoleti.
+
+\subsubsubsection{Programmazione invio documento}
+Se non vi è urgenza o si desidera sincronizzare l'inoltro dei documenti con specifiche scadenze aziendali, il sistema permette di schedulare l'operazione. Tramite un apposito selettore (date/time picker), l'utente definisce l'esatta data e ora di invio, e lo stato passerà a "Pianificato".
+
+\subsubsubsection{Invio immediato documento}
+Terminata la verifica e la preparazione della comunicazione, questa funzionalità fa partire istantaneamente il processo di spedizione verso tutti i destinatari associati al documento, fornendo all'utente un feedback visivo a conferma del successo dell'operazione.
+
+
+
 
 \subsection{Storico documenti}
 L'utente ha a disposizione uno storico dei documenti analizzati, visualizzandone i dettagli e il loro stato.
@@ -414,6 +493,45 @@ Lo storico dei documenti consente al CdL di visualizzare tutte le analisi docume
 
 
 \subsection{Analytics e monitoraggio trasversale}
+L'utente ha a disposizione una sezione dedicata all'analytics e al monitoraggio trasversale, che consente di visualizzare metriche e statistiche relative all'utilizzo dell'AI-assistant generativo e dell'AI Co-Pilot per i Consulenti del Lavoro (CdL), fornendo insights utili per valutare l'efficacia delle funzionalità offerte dalla piattaforma e per identificare eventuali aree di miglioramento.
+
+\subsubsection{Analytics e monitoraggio trasversale per l'AI-assistant generativo}
+L'utente ha la possibilità di accedere a una sezione dedicata all'AI-assistant generativo, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni dell'assistente AI, consentendo di valutare l'efficacia delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
+Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità e garantire un'esperienza utente sempre più soddisfacente.
+
+\subsubsubsection{Numero di generazioni effettuate}
+Questa metrica permette all'utente di visualizzare il volume totale di richieste, o prompt, inviate all'AI nel periodo temporale selezionato. Il sistema interroga il database storico e conteggia il numero totale di interazioni avviate, mostrando il dato numerico all'interno della dashboard.
+
+\subsubsubsection{Valutazione media delle generazioni}
+Tramite questo indicatore, l'utente può valutare la qualità percepita delle risposte fornite dall'AI Assistant. Il sistema aggrega i feedback ricevuti (tramite stelle) e calcola la media aritmetica dei voti, mostrando un valore che permette di comprendere il livello di soddisfazione dell'utenza.
+
+\subsubsubsection{Numero di rigenerazioni per prompt}
+Questa statistica mostra quante volte è stata utilizzata dagli utenti la funzione "Rigenera risposta". Il sistema conta le occorrenze in cui viene richiesta una nuova versione di un messaggio già generato: si tratta di un dato utile per capire se la prima risposta dell'AI risulta spesso insoddisfacente.
+
+\subsubsubsection{Utilizzo toni e stili}
+Questa sezione evidenzia le preferenze degli utenti riguardo ai formati e ai registri di comunicazione. Il sistema raggruppa i prompt generati in base agli attributi "Tono" (es. Formale, Empatico) e "Stile" (es. Sintetico, Dettagliato), calcolandone la frequenza di utilizzo. I dati vengono visualizzati tramite grafici o classifiche che mettono in risalto i toni e gli stili più richiesti.
+
+\subsubsubsection{Filtraggio per periodo temporale AI-assistant generativo}
+L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI-assistant generativo in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle generazioni e delle preferenze degli utenti in periodi specifici, facilitando così l'identificazione di trend o variazioni significative nel tempo.
+
+\subsubsection{Analytics e monitoraggio trasversale per l'AI Co-Pilot per i Consulenti del Lavoro}
+L'utente ha la possibilità di accedere a una sezione dedicata all'AI Co-Pilot per i Consulenti del Lavoro, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni del Co-Pilot, consentendo di valutare l'efficacia delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
+Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità e garantire un'esperienza utente sempre più soddisfacente.
+
+\subsubsubsection{Percentuale confidenza media}
+Questa metrica mostra il punteggio medio di affidabilità (confidence score) che l'AI ha attribuito alle proprie estrazioni di dati nel periodo selezionato. Il sistema calcola la media (pesata o aritmetica) dei punteggi associati a tutti i documenti elaborati, indicando inoltre se tale valore è in linea, superiore o inferiore rispetto ai trend storici.
+
+\subsubsubsection{Percentuale intervento umano per correzione}
+Questo indicatore visualizza la frequenza con cui gli operatori umani ("Human-in-the-loop") devono intervenire per correggere i dati estratti dall'AI prima del salvataggio. Analizzando i log di audit, il sistema confronta il numero di documenti che hanno subito modifiche manuali con il volume totale dei documenti processati, esprimendo il risultato in percentuale.
+
+\subsubsubsection{Accuratezza mapping}
+Questa statistica rappresenta la precisione con cui l'AI associa i dati individuati nei documenti ai campi corretti all'interno del database. Il sistema valuta la coerenza dei dati e calcola un indice di accuratezza strutturale, permettendo di identificare se l'AI sta fallendo nel riconoscere specifiche tipologie di documento o determinati layout.
+
+\subsubsubsection{Tempo medio di analisi documenti}
+Questa metrica indica il tempo medio impiegato dal sistema per processare ed elaborare un documento. Il calcolo viene effettuato basandosi sui timestamp di inizio (upload) e di fine (disponibilità dei dati), restituendo un valore fondamentale per monitorare le performance dell'infrastruttura e la latenza del servizio.
+
+\subsubsubsection{Filtraggio per periodo temporale AI Co-Pilot}
+L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI Co-Pilot in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle analisi.
 
 
 \end{document}
