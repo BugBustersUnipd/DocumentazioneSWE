@@ -21,6 +21,9 @@
 \usepackage[titles]{tocloft}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref}
 \usepackage{xspace}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{colortbl}
 % Macro
 \input{../../assets/macro/macro-verbali.tex}
 
@@ -67,6 +70,8 @@
   \end{tabularx}
   \end{table}
 }
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 
 
@@ -280,12 +285,408 @@ pgAdmin & Strumento grafico per amministrare e gestire database PostGreSQL &  \\
 \end{longtable}
 
 \section{API}
-\section{Architettura del Sistema}
+
+
+
+\section{Architettura del Sistema (Layered Architecture)}
+
 \subsection{Architettura Logica}
-\subsection{Architettura di Deployement}
+Il sistema è stato progettato seguendo un pattern architetturale di tipo Layered (a livelli). Questa separazione garantisce un alto grado di disaccoppiamento, facilitando la manuntenzione, i test e la scalabilità del sistema. L'architettura logica si divide in quattro livelli principali:
+
+\subsubsection{Livello di Presentazione (Presentation Layer)}
+Sviluppato in Angular (Single Page Application), è responsabile dell'interfaccia utente e dell'interazione con l'utente finale. Comunica con il backend tramite API RESTful.
+\begin{itemize}
+  \item Riceve gli input dell'utente (es. caricamento documenti, richieste di generazione testo)
+  \item Comunica con il backend per inviare richieste e ricevere risposte.
+  \item Gestisce il routing lato client e la renderizzazione reattiva dei dati.
+\end{itemize}
+
+\subsubsection{Livello applicativo e di Business Logic (Application Layer)}
+Sviluppato in Ruby on Rails (API-only). Rappresenta il cuore del sistema e si struttura internamente in ulteriori sotto-livelli:
+\begin{itemize}
+  \item \textbf{Controller}: gestisce le richieste HTTP, orchestrando le operazioni necessarie per soddisfarle.
+  \item \textbf{Service}: contiene la logica di business specifica, come l'integrazione con i modelli di intelligenza artificiale, la gestione dei documenti e la logica di elaborazione.
+  \item \textbf{Model}: rappresenta le entità del dominio (es. Utente, Documento, Sessione) e gestisce la persistenza dei dati.
+\end{itemize}
+
+\subsubsection{Livello di Accesso ai Dati (Data Access Layer)}
+Gestito dal modulo ActiveRecord di Ruby on Rails (ORM), si occupa della comunicazione con il database PostgreSQL. Fornisce un'interfaccia per eseguire operazioni CRUD (Create, Read, Update, Delete) sui dati persistenti traducendo le operazioni in query SQL sicure e ottimizzate, prevenendo vulnerabilità come le SQL Injection.
+
+\subsubsection{Livello Dati (Data Layer)}
+Costituito dal Database Relazionale (RDBMS) PostgreSQL. Ha la responsabilità di memorizzare in modo persistente tutte le informazioni necessarie al funzionamento del sistema, inclusi dati degli utenti, documenti caricati, sessioni di interazione e log delle attività.
+
+
+
+\subsection{Architettura di Deployement (Monolite Containerizzato)}
+Sebbene logicamente il sistema sia diviso in Frontend e Backend (decoupled), dal punto di vista del rilascio in produzione si è optato per un approccio Monolitico basato su Container.
+Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come un'unica entità logica su un singolo nodo ospite (Server/Macchina Virtuale), garantendo un ambiente isolato, riproducibile e coerente dalla fase di sviluppo fino alla produzione. L'orchestrazione locale è affidata a Docker Compose.
+
+\begin{itemize}
+  \item \textbf{Docker Host (Server Node)}: L'infrastruttura hardware o virtuale principale che ospita il motore Docker. Al suo interno risiede una Rete Virtuale Privata (Docker Network) che permette ai container di comunicare tra loro in totale sicurezza, senza esporre porte non necessarie all'esterno.
+  \item \textbf{Container Frontend (Web Server)}: Un container dedicato all'esecuzione dell'applicativo Angular. Nelle richieste esterne, questo nodo funge da punto di ingresso per gli utenti, servendo i file statici della Single Page Application.
+  \item \textbf{Container Backend (Application Server)}: Un container isolato basato su immagine Ruby che esegue il server web di Rails. È esposto internamente per ricevere le chiamate API dal frontend e processare la logica di business.
+  \item \textbf{Container Database (Database Server)}: Un container basato sull'immagine ufficiale di PostgreSQL. Persiste i dati fisicamente scrivendoli su un Docker Volume esterno al container stesso, garantendo che i dati del sistema non vadano persi in caso di riavvio o aggiornamento del container.
+\end{itemize}
+
+
 \subsection{Design Pattern}
+
+
+
 \subsection{Backend}
+
+
+
 \subsection{Frontend}
+
+
+
 \subsection{Database}
+
+
+
 \section{Requisiti Funzionali Soddisfatti}
+Il periodo di analisi dei requisiti ha portato all'identificazione di un set di requisiti funzionali che il prodotto software deve soddisfare. 
+Di seguito viene fornita una panoramica dei principali requisiti implementati nel sistema, con riferimento alle sezioni del documento dove sono descritti in dettaglio.
+I requisiti funzionali si dividono in obbligatori, desiderabili e opzionali, a seconda della loro importanza e priorità per il progetto.
+In particolare sono stati identificati 132 requisiti funzionali, di cui 97 obbligatori, 0 desiderabili e 35 opzionali.
+I requisiti obbligatori hanno come focus l'implementazione dei tre moduli principali del sistema, ovvero il modulo di analisi documenti, il modulo di generazione testo e il modulo di raccolta dati, che rappresentano le funzionalità core del prodotto software.
+Ciascuna di queste aree non era presente all'interno dell'applicativo Nexum quindi i rappresentanti dell'azienda (Eggon) hanno ritenuto fondamentale implementare queste funzionalità per soddisfare le esigenze degli utenti finali e garantire il successo del progetto.
+I requisiti opzionali, invece, si concentrano su funzionalità come la gestione delle utenze e la distribuzione dei documenti, che invece sono già presenti all'interno dell'applicativo Nexum e quindi non rappresentano un elemento di differenziazione significativo per il prodotto software che stiamo sviluppando.
+
+\subsection{Completamento requisiti}
+\begin{itemize}
+  \item \textbf{Requisiti Obbligatori}: 97 requisiti funzionali implementati, con focus sui moduli di analisi documenti, generazione testo e raccolta dati.
+  \item \textbf{Requisiti Desiderabili}: 0 requisiti desiderabili identificati.
+  \item \textbf{Requisiti Opzionali}: (da definire) requisiti opzionali implementati, principalmente relativi alla gestione utenze e distribuzione documenti.
+\end{itemize}
+
+\subsection{Tabella di tracciamento dei requisiti}
+
+% ============================================================
+% PREAMBOLO NECESSARIO (da includere nel tuo documento .tex)
+% ============================================================
+% \usepackage{longtable}
+% \usepackage{array}
+% \usepackage{xcolor}
+% \usepackage{colortbl}
+% \usepackage{graphicx}
+% \usepackage{hyperref}
+% \definecolor{primaryblue}{RGB}{0, 102, 204}
+% \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+% ============================================================
+
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+
+\newcommand{\wCod}{2.2cm}
+\newcommand{\wStato}{2.6cm}
+\newcommand{\wPrio}{2.8cm}
+\newcommand{\wDesc}{%
+  \dimexpr\textwidth-\wCod-\wStato-\wPrio-6\tabcolsep-5\arrayrulewidth\relax
+}
+
+\newcounter{rfCounter}
+
+\newcommand{\autoRF}{%
+  \stepcounter{rfCounter}%
+  RF-%
+  \ifnum\value{rfCounter}<100 0\fi
+  \ifnum\value{rfCounter}<10 0\fi
+  \arabic{rfCounter}%
+}
+
+\setcounter{rfCounter}{0}
+
+\begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wStato}|L{\wPrio}|}
+\caption{Tabella dei Requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{tab:reqfunzionali}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Stato} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Stato} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+
+\autoRF & Il sistema deve permettere all'utente non autenticato di effettuare la registrazione di un nuovo account. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente di inserire il proprio indirizzo email in fase di registrazione. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente di inserire una password in fase di registrazione. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente di inserire un username in fase di registrazione. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente di inserire il proprio nome in fase di registrazione. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente di inserire il proprio cognome in fase di registrazione. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente di inserire la propria matricola in fase di registrazione. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare un messaggio di errore se il formato dell'email inserita non è valido. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare un messaggio di errore se la password non rispetta i criteri di sicurezza\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve impedire la registrazione se l'email inserita è già associata a un account esistente. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve impedire la registrazione se lo username inserito è già utilizzato. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve impedire la registrazione se la matricola inserita è già presente nel sistema. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare un messaggio di errore se il formato della matricola non è valido. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente registrato di effettuare il login (autenticazione). & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve notificare l'errore in caso di tentativo di login con email non registrata o password associata all'email errata. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve consentire all'utente di poter inserire i dati necessari al login. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente di visualizzare i dati del proprio profilo. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare l'email associata al profilo utente. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare (o permettere la gestione del) la password del profilo utente. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare lo username associato al profilo utente. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare il nome associato al profilo utente. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare il cognome associato al profilo utente. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare la matricola associata al profilo utente. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente di effettuare il logout terminando la sessione. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve gestire l'uscita dalla modifica profilo senza salvare i cambiamenti. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} di visualizzare la lista degli utenti registrati. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere la visualizzazione del dettaglio di un singolo utente dalla lista. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare il ruolo associato a un utente registrato. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare il nome di un utente registrato. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare il cognome di un utente registrato. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} di modificare il ruolo di un utente registrato. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente di effettuare il logout (terminare la sessione). & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve generare contenuti testuali tramite AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} in base a prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} e parametri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere l'inserimento di un prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} testuale per la generazione. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere la selezione del tono per la generazione del contenuto. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere la selezione dello stile per la generazione del contenuto. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere la visualizzazione dello storico delle generazioni AI\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve notificare l'assenza di elementi se lo storico delle generazioni è vuoto. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare i dettagli completi di un elemento selezionato dallo storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare lo stile utilizzato per un contenuto nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il testo del risultato generato nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il timestamp (data/ora) della generazione nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la valutazione assegnata dall'utente al contenuto nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} originale utilizzato per un contenuto nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il tono utilizzato per un contenuto nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare un'anteprima del contenuto generato dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di modificare l'immagine associata al contenuto generato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve notificare l'utente quando tenta di caricare un file immagine non valido. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di modificare il titolo del contenuto generato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di modificare il testo del corpo del contenuto generato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di annullare le modifiche apportate al contenuto generato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di riutilizzare i parametri di un contenuto dello storico per una nuova generazione. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di duplicare un contenuto dallo storico per modificarne i parametri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di filtrare la lista delle generazioni nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la lista dello storico aggiornata in base ai filtri applicati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di rigenerare un contenuto tramite AI\textsubscript{\scalebox{0.6}{\textbf{G}}} mantenendo i parametri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente di valutare (rating) il contenuto generato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di scartare il contenuto generato e pulire l'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di salvare il contenuto generato nel database. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo tono per la generazione di contenuti & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente l'eliminazione di un tono per la generazione di contenuti & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo stile per la generazione di contenuti & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere all'utente l'eliminazione di uno stile per la generazione di contenuti & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere l'analisi di documenti tramite il modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere l'inserimento/selezione della categoria del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere l'inserimento del mese/anno di competenza del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere l'inserimento dell'azienda associata al documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere l'inserimento del reparto associato al documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere controllare la correttezza del formato del file inserito. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere controllare che lo stesso file non sia già stato analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere lo split di documenti diversi all'interno dello stesso file. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la lista dei documenti analizzati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve notificare l'utente se nessun documento è stato riconosciuto dall'analisi. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare i dettagli di un singolo documento dalla lista. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la competenza (periodo) del documento analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare l'azienda associata al documento analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la causale del documento analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la lingua rilevata nel documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il numero di pagine del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il nome originale del file del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la data di redazione/caricamento del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il codice identificativo del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la tipologia del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare l'anteprima visiva del documento analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di modificare il destinatario associato al documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di modificare la tipologia del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve ricalcolare la percentuale di confidenza dopo modifiche manuali. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la lista delle informazioni sui destinatari estratti. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare i dettagli di un singolo destinatario in lista. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il codice fiscale del destinatario. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la matricola del destinatario. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il reparto del destinatario. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il nome/cognome del destinatario. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve notificare se nessun destinatario è stato riconosciuto. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare lo storico completo dei documenti processati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve notificare l'assenza di documenti nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare i dettagli di un elemento nello storico documenti. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la percentuale di confidenza dell'analisi nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare l'appartenenza alle liste di distribuzione. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare lo stato di elaborazione del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di caricare un template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio esistente. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di modificare l'oggetto del messaggio. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di modificare il testo del corpo del messaggio. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di salvare il messaggio corrente come nuovo template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di eliminare un template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la lista dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio disponibili. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare un elemento della lista dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio disponibili. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare l'oggetto del template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il testo del template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il codice del template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere l'invio del documento e del messaggio associato. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di allegare ulteriore contenuto al messaggio. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di pianificare l'invio del documento e del messaggio associato. & Implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere il filtraggio della lista dei documenti analizzati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare la lista dei documenti aggiornata in base ai filtri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere il filtraggio della lista dei destinatari. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare la lista dei destinatari aggiornata in base ai filtri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere il filtraggio della lista dello storico documenti. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve mostrare la lista dello storico documenti aggiornata in base ai filtri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di mostrare l'audit di un documento nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} con i dati di analytics per l'AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il numero totale di prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il rating medio dei prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare il numero di rigenerazioni effettuate. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare le statistiche sui toni più utilizzati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare le statistiche sugli stili più utilizzati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} con i dati di analytics per l'AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la confidenza media delle analisi documenti. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare la percentuale di interventi manuali necessari. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare l'accuratezza del mapping dei dati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di visualizzare i tempi medi di analisi dei documenti. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+\autoRF & Il sistema deve permettere di filtrare i dati di analytics per periodo temporale. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\hline
+
+
+\end{longtable}
+
 \end{document}
