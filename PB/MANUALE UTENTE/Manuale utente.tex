@@ -227,8 +227,7 @@ Tuttavia, per garantire prestazioni ottimali, si consiglia di utilizzare un comp
 
 
 \subsection{Requisiti software}
-Come già detto constatato precendentemente Nexum è una piattaforma web-based, quindi non richiede l'installazione di software specifici sul dispositivo dell'utente. 
-Tuttavia, è necessario utilizzare un browser web aggiornato per garantire la compatibilità e la sicurezza (ininfluente il tipo di sistema operativo utilizzato).
+Per poter eseguire correttamente l'applicazione è necessario utilizzare un browser web aggiornato per garantire la compatibilità e la sicurezza (ininfluente il tipo di sistema operativo utilizzato).
 I browser consigliati includono: (le versioni sono veramente sparate a cazzo)
 \begin{itemize}
     \item Google Chrome (versione 80 o superiore)
@@ -237,8 +236,46 @@ I browser consigliati includono: (le versioni sono veramente sparate a cazzo)
     \item Safari (versione 13 o superiore)
 \end{itemize}
 
+Inoltre è necessario l'utilizzo di Docker per eseguire l'applicazione in un ambiente isolato e controllato, garantendo la compatibilità tra le diverse piattaforme e semplificando il processo di installazione e configurazione.
+\begin{itemize}
+    \item Versione minima di Docker: 19.03 con utilizzo di Docker Desktop 4.0.0
+    \item Versione consigliata di Docker: 24 o superiore con utilizzo di Docker Desktop 4.3.0 o superiore
+\end{itemize}
+
 
 \section{Installazione}
+Con il seguente procedimento è possibile installare e configurare l'applicazione stand-alone che introduce 
+funzionalità di assistente AI generativo per supportare l’utente nella scrittura di comunicazioni e un AI Co-Pilot dedicato ai Consulenti del Lavoro (CdL).
+Per un corretto funzionamento è necessario seguire ogni passaggio nell'ordine riportato.
+Per motivi di sicurezza le API-key cambiano costantemente, quindi per poter ususfruire correttamente dei moduli è necessario disporre di API-key aggiornate.
+
+\subsection{Clonare la repository}
+All'interno del proprio dispositivo:
+\begin{itemize}
+    \item Aprire il terminale e posizionarsi nella directory in cui si desidera clonare la repository.
+    \item Eseguire il comando: \texttt{git clone <URL della repository>}
+\end{itemize}
+
+In questo modo si otterrà una copia locale del progetto\G, che potrà essere eseguita e modificata secondo le proprie esigenze.
+
+\subsection{Configurare file env per le API-key di AWS}
+Per poter utilizzare le funzionalità di AI generativa e di analisi documentale, è necessario configurare le API-key di AWS all'interno del file \texttt{.env} presente nella directory del progetto\G.
+\begin{itemize}
+    \item Aprire il file \texttt{.env} con un editor di testo.
+    \item Inserire le API-key di AWS nei campi corrispondenti, seguendo il formato specificato nel file.
+\end{itemize}
+Assicurarsi di salvare le modifiche al file \texttt{ .env} prima di procedere con l'esecuzione dell'applicazione.
+
+\subsection{Inizializzazione applicazione tramite Docker}
+Per avviare l'applicazione, è necessario utilizzare Docker per creare e gestire i container necessari al funzionamento della piattaforma.
+\begin{itemize}
+    \item Per costruire l'ambiente, eseguire il comando \texttt{docker-compose up}, che scarica l'immagine di Ruby e installa tutte le gemme necessarie definite nel tuo Gemfile.
+    \item Successivamente per costruire e popolare il database si utilizza il comando \texttt{docker compose run --rm web rails db:create db:migrate db:seed}, che esegue le migrazioni del database per creare le tabelle necessarie.
+    \item Infine per avviare l'applicazione, eseguire il comando \texttt{docker compose up}, che avvia il server all'indirizzo \texttt{http://localhost:3000} e rende disponibile l'interfaccia utente all'indirizzo \texttt{http://localhost:4200}.
+\end{itemize}
+
+
+
 
 \section{Istruzioni per l'uso}
 
