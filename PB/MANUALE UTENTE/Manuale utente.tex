@@ -571,4 +571,21 @@ Questa metrica indica il tempo medio impiegato dal sistema per processare ed ela
 L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI Co-Pilot in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle analisi.
 
 
+\section{Test}
+Per garantire la qualità e l'affidabilità del prodotto, è stato implementato un processo di testing completo che include test unitari, test di integrazione e test end-to-end.
+Il processo di testing è stato eseguito in diverse fasi del ciclo di sviluppo, consentendo di identificare e risolvere tempestivamente eventuali bug o problemi di funzionalità.
+
+\subsection{Test Backend}
+Il focus dei test backend è stato principalmente sulla verifica della corretta implementazione delle funzionalità, sulla gestione degli errori e sulla sicurezza dell'applicazione. Sono stati eseguiti test unitari per verificare il funzionamento di singole componenti e test di integrazione per assicurare che le diverse parti del sistema interagiscano correttamente tra loro.
+Per generare e avviare i test backend, è stato utilizzato il framework di testing integrato in Ruby on Rails, che consente di scrivere test in modo semplice e intuitivo. I test sono stati organizzati in diverse categorie.
+
+\subsubsection{Test unità}
+Per avviare i test unitari bisogna utilizzare il comando \texttt{docker compose run --rm web rails test:units}, che esegue tutti i test unitari presenti nella directory \texttt{test/unit} del progetto.
+
+\subsubsection{Test integrazione}
+Per avviare i test di integrazione bisogna utilizzare il comando \texttt{docker compose run --rm web rails test:integration}, che esegue tutti i test di integrazione presenti nella directory \texttt{test/integration} del progetto.
+
+\subsection{Test Frontend}
+
+
 \end{document}
