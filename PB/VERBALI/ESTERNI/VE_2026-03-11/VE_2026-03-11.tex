@@ -65,11 +65,11 @@
 \begin{center}
 \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
 \begin{tabularx}{\linewidth}{@{}lX@{}}
-\textbf{Redattore\G}    & Luca Slongo \\
+\textbf{Redattore\G{}}    & Luca Slongo \\
 \textbf{Verificatore\G{}}    & Marco Favero \\
 \textbf{Uso}          & Esterno \\
 \textbf{Destinatari}  & Prof. Tullio Vardanega, Prof. Riccardo Cardin, Eggon, BugBusters\\
-\textbf{Versione} & 0.0.1\\
+\textbf{Versione} & 1.0.0\\
 
 \end{tabularx}
 \end{tcolorbox}
@@ -79,7 +79,7 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
-Verbale\G della riunione esterna del 11 marzo 2026 con Eggon, durante la quale sono stati discussi aspetti tecnici e strategici del progetto\G, con particolare attenzione alle scelte tecnologiche per l'elaborazione dei documenti, l'architettura del sistema e le funzionalità\G da implementare.
+Verbale\G{} della riunione esterna del 11 marzo 2026 con Eggon, durante la quale sono stati discussi aspetti tecnici e strategici del progetto\G, con particolare attenzione alle scelte tecnologiche per l'elaborazione dei documenti, l'architettura del sistema e le funzionalità\G{} da implementare.
 \end{tcolorbox}
 \end{center}
 
@@ -92,7 +92,7 @@ Verbale\G della riunione esterna del 11 marzo 2026 con Eggon, durante la quale s
 
 \begin{itemize}
     \item \textbf{Tipo riunione:} Esterna
-    \item \textbf{Piattaforma:} Google Meet\G
+    \item \textbf{Piattaforma:} Google Meet\G{}
     \item \textbf{Data:} 11/03/2026
     \item \textbf{Orario di inizio:} 15:10
     \item \textbf{Orario di fine:} 15:35
@@ -120,27 +120,26 @@ Verbale\G della riunione esterna del 11 marzo 2026 con Eggon, durante la quale s
 \section{Ordine del giorno}
 
 \begin{enumerate}
-    \item \label{itm:AI} Discussione sull'utilizzo dei servizi AWS\G per l'elaborazione dei documenti.
-    \item \label{itm:arch} Uso di docker e utilizzo e versione di .
-    \item \label{itm:dev} Chiarimenti sulle funzionalità\G da implementare con più importanza.
+    \item \label{itm:AI} Discussione sull'utilizzo dei servizi AWS\G{} per l'elaborazione dei documenti.
+    \item \label{itm:arch} Uso di docker e versione di PrimeNG.
+    \item \label{itm:dev} Chiarimenti sulle funzionalità\G{} da implementare con più importanza.
 \end{enumerate}
 
 \newpage
 \section{Svolgimento}
 
-\subsection*{\ref{itm:AI}. Discussione sull'utilizzo dei servizi AWS\G per l'elaborazione dei documenti}
+\subsection*{\ref{itm:AI}. Discussione sull'utilizzo dei servizi AWS\G{} per l'elaborazione dei documenti}
 Il team ha presentato le scelte tecnologiche per l'elaborazione dei documenti, optando per una combinazione di AWS Textract e NovaLite invece di AWS Comprehend.
 
-\subsection*{\ref{itm:arch}. Uso di docker e utilizzo e versione di PrimeNG}
+\subsection*{\ref{itm:arch}. Uso di docker e versione di PrimeNG}
 
-Si è discusso dell'implementazione\G di un sistema asincrono per l'elaborazione dei documenti, valutando l'uso di Redis o Sidekiq rispetto a soluzioni native di Rails, e con docker si può gestire facilmente l'ambiente di sviluppo.
-Abbiamo chiesto se dobbiamo usare anche noi l'editor che viene usato in Nexum (che ha un costo) o possiamo avvalerci di uno messo a disposizione da PrimeNG (una libreria con componenti UI già pronte). Ci hanno risposto che va benissimo se utilizziamo quello di PrimeNG.
-A seguito di ciò, abbiamo fatto notare che l'ultima versione di PrimeNG (21) non è completamente retrocompatibile con le vecchie e abbiamo chiesto se andasse bene dal momento che abbiamo notato che loro usano la 17. 
-Ci hanno detto che va benissimo e si occuperanno loro di fare l'integrazione sistemando queste incongruenze.
+Si è discusso dell'implementazione\G{} di un sistema asincrono per l'elaborazione dei documenti, valutando l'utilizzo di Redis o Sidekiq rispetto alle soluzioni native offerte da Rails. Inoltre, è stato evidenziato che tramite Docker è possibile gestire facilmente l'ambiente di sviluppo.\\
+Abbiamo poi chiesto se fosse necessario utilizzare anche noi l'editor impiegato in Nexum, che è a pagamento, oppure se fosse possibile adottare quello messo a disposizione da PrimeNG, una libreria che offre componenti di interfaccia già pronti all'uso. Ci è stato risposto che possiamo tranquillamente utilizzare l'editor fornito da PrimeNG.\\
+Successivamente abbiamo fatto presente che l'ultima versione di PrimeNG (21) non è completamente retrocompatibile con le versioni precedenti e abbiamo chiesto conferma, dato che abbiamo notato che nel loro progetto viene utilizzata la versione 17. Ci è stato comunicato che non ci sono problemi: si occuperanno loro dell'integrazione, gestendo eventuali incongruenze tra le versioni.\\
 
-\subsection*{\ref{itm:dev}. Chiarimenti sulle funzionalità\G da implementare con più importanza}
-Il team ha riscontrato alcune difficoltà nella progettazione di alcune funzionalità\G che non sono richieste come la gestione utenti, 
-l'azienda ha chiarito il fatto che il punto chiave del progetto\G è lo sviluppo delle funzioni AI\G, quindi non è importante dedicare tempo alla progettazione e implementazione\G di questa funzionalità\G.
+\subsection*{\ref{itm:dev}. Chiarimenti sulle funzionalità\G{} da implementare con più importanza}
+Il team ha riscontrato alcune difficoltà nella progettazione di alcune funzionalità\G{} che non sono richieste come la gestione utenti, 
+l'azienda ha chiarito il fatto che il punto chiave del progetto\G{} è lo sviluppo delle funzioni AI\G{}, quindi non è importante dedicare tempo alla progettazione e implementazione\G{} di questa funzionalità\G{}.
 
 
 
@@ -159,16 +158,16 @@ l'azienda ha chiarito il fatto che il punto chiave del progetto\G è lo sviluppo
 \rowcolor{primaryblue!40}
 \textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
 \hline
-\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/208}{PB14}\label{PB14}}{Stesura del verbale\G}{Luca Slongo} 
-\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/209}{PB15}\label{PB15}}{Verifica\G del verbale\G}{Marco Favero} 
-\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/210}{PB16}\label{PB16}}{Implementazione\G docker}{Leonardo Salviato, Luca Slongo, Marco Favero}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/208}{PB14}\label{PB14}}{Stesura del verbale\G{}}{Luca Slongo} 
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/209}{PB15}\label{PB15}}{Verifica\G{} del verbale\G{}}{Marco Favero} 
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/210}{PB16}\label{PB16}}{Implementazione\G{} docker}{Leonardo Salviato, Luca Slongo, Marco Favero}
 
 \end{tabularx}
 \fussy
 
 
 \section{Esito Riunione}
-Sono stati discussi tutti i punti all'ordine del giorno. La riunione ha confermato le scelte tecnologiche per l'elaborazione dei documenti, ha chiarito l'uso di docker e la versione di PrimeNG da utilizzare, e ha definito le priorità per lo sviluppo delle funzionalità\G, focalizzandosi sulle funzioni AI\G.
+Sono stati discussi tutti i punti all'ordine del giorno. La riunione ha confermato le scelte tecnologiche per l'elaborazione dei documenti, ha chiarito l'uso di docker e la versione di PrimeNG da utilizzare, e ha definito le priorità per lo sviluppo delle funzionalità\G{}, focalizzandosi sulle funzioni AI\G{}.
 
 % SEZIONE FIRMA E DATA SOSTITUITA CON L'IMMAGINE
 \vspace{1.5cm}
