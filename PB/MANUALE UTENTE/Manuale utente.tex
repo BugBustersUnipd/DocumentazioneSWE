@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.0.1} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.1.0} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -118,8 +118,8 @@
 % Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
 	{Stato} & In redazione \\
-    {Redattori\G} & Luca Slongo \\
-	{Verificatori\G} &  - \\
+    {Redattori\G} & Luca Slongo, Leonardo Salviato \\
+	{Verificatori\G} &  Alberto Autiero \\
 	{Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
 \end{tabularx}
 \end{tcolorbox}
@@ -129,7 +129,7 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
-Documento contenente le Norme di Progetto\G adottate dal team BugBusters per lo sviluppo del progetto\G Nexum proposto dall'azienda Eggon. Il documento include metodologie di lavoro, standard di codifica, processi di sviluppo e gestione del progetto\G.
+Documento rivolto agli utenti finali della piattaforma Nexum, sviluppata dal team BugBusters per l'azienda Eggon. Il manuale fornisce una guida completa all'installazione, alla configurazione e all'utilizzo dei moduli AI-assistant generativo e AI Co-Pilot per i Consulenti del Lavoro, includendo istruzioni operative e indicazioni per la risoluzione dei problemi più comuni.
 \end{tcolorbox}
 \end{center}
 
@@ -146,6 +146,16 @@ Documento contenente le Norme di Progetto\G adottate dal team BugBusters per lo 
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\hline
+\rowcolor{secondaryblue!10} 0.1.0 & 17/03/2026 & Verifica documento & - & Alberto Autiero & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.5 & 17/03/2026 & Inizio stesura sezione test & Leonardo Salviato & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.4 & 16/03/2026 & Inizio stesura sezione installazione & Leonardo Salviato & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.3 & 14/03/2026 & Fine stesura sezione istruzioni per l'uso & Leonardo Salviato & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.2 & 03/03/2026 & Inizio stesura sezione istruzioni per l'uso & Leonardo Salviato & - & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.0.1 & 24/02/2026 & Prima stesura & Luca Slongo & - & - \\
 \hline
@@ -188,7 +198,9 @@ Per i termini tecnici e specifici utilizzati in questo documento, si fa riferime
 seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}{link}.
 Per maggiore usabilità e facilitá di consultazione, il glossario\G è accessibile anche aprendo dal nostro \href{https://bugbustersunipd.github.io/DocumentazioneSWE/}{sito web} i vari documenti con il viewer
 pdf da noi sviluppato.
-
+ 
+\subsection{Riferimenti}
+ 
 \subsubsection{Riferimenti normativi}
 \begin{itemize}
 \item \textbf{Capitolato\G
@@ -197,7 +209,7 @@ pdf da noi sviluppato.
 \item \textbf{Norme di Progetto\G:}\\
 \url{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/NORME%20DI%20PROGETTO/Norme%20di%20Progetto.pdf}
 \end{itemize}
-
+ 
 \subsubsection{Riferimenti informativi}
 \begin{itemize}
     \item \textbf{Glossario\G{}:}\\
@@ -228,12 +240,12 @@ Tuttavia, per garantire prestazioni ottimali, si consiglia di utilizzare un comp
 
 \subsection{Requisiti software}
 Per poter eseguire correttamente l'applicazione è necessario utilizzare un browser web aggiornato per garantire la compatibilità e la sicurezza (ininfluente il tipo di sistema operativo utilizzato).
-I browser consigliati includono: (le versioni sono veramente sparate a cazzo)
+I browser consigliati includono:
 \begin{itemize}
-    \item Google Chrome (versione 80 o superiore)
-    \item Mozilla Firefox (versione 75 o superiore)
-    \item Microsoft Edge (versione 80 o superiore)
-    \item Safari (versione 13 o superiore)
+    \item Google Chrome (versione 120 o superiore)
+    \item Mozilla Firefox (versione 115 o superiore)
+    \item Microsoft Edge (versione 120 o superiore)
+    \item Safari (versione 17 o superiore)
 \end{itemize}
 
 Inoltre è necessario l'utilizzo di Docker per eseguire l'applicazione in un ambiente isolato e controllato, garantendo la compatibilità tra le diverse piattaforme e semplificando il processo di installazione e configurazione.
@@ -247,7 +259,7 @@ Inoltre è necessario l'utilizzo di Docker per eseguire l'applicazione in un amb
 Con il seguente procedimento è possibile installare e configurare l'applicazione stand-alone che introduce 
 funzionalità di assistente AI generativo per supportare l’utente nella scrittura di comunicazioni e un AI Co-Pilot dedicato ai Consulenti del Lavoro (CdL).
 Per un corretto funzionamento è necessario seguire ogni passaggio nell'ordine riportato.
-Per motivi di sicurezza le API-key cambiano costantemente, quindi per poter ususfruire correttamente dei moduli è necessario disporre di API-key aggiornate.
+Per motivi di sicurezza le API-key cambiano costantemente, quindi per poter usufruire correttamente dei moduli è necessario disporre di API-key aggiornate.
 
 \subsection{Clonare la repository}
 All'interno del proprio dispositivo:
@@ -264,12 +276,12 @@ Per poter utilizzare le funzionalità di AI generativa e di analisi documentale,
     \item Aprire il file \texttt{.env} con un editor di testo.
     \item Inserire le API-key di AWS nei campi corrispondenti, seguendo il formato specificato nel file.
 \end{itemize}
-Assicurarsi di salvare le modifiche al file \texttt{ .env} prima di procedere con l'esecuzione dell'applicazione.
+Assicurarsi di salvare le modifiche al file \texttt{.env} prima di procedere con l'esecuzione dell'applicazione.
 
 \subsection{Inizializzazione applicazione tramite Docker}
 Per avviare l'applicazione, è necessario utilizzare Docker per creare e gestire i container necessari al funzionamento della piattaforma.
 \begin{itemize}
-    \item Per costruire l'ambiente, eseguire il comando \texttt{docker-compose up}, che scarica l'immagine di Ruby e installa tutte le gemme necessarie definite nel tuo Gemfile.
+    \item Per costruire l'ambiente, eseguire il comando \texttt{docker-compose up}, che scarica l'immagine di Ruby e installa tutte le gemme necessarie definite nel Gemfile del progetto.
     \item Successivamente per costruire e popolare il database si utilizza il comando \texttt{docker compose run --rm web rails db:create db:migrate db:seed}, che esegue le migrazioni del database per creare le tabelle necessarie.
     \item Infine per avviare l'applicazione, eseguire il comando \texttt{docker compose up}, che avvia il server all'indirizzo \texttt{http://localhost:3000} e rende disponibile l'interfaccia utente all'indirizzo \texttt{http://localhost:4200}.
 \end{itemize}
@@ -295,7 +307,7 @@ Il modulo di AI-assistant generativo è progettato per supportare gli utenti nel
 
 \subsubsection{Generazione di contenuti}
 La generazione dei contenuti avviene tramite l'inserimento di un prompt, la scelta di un tono e la scelta di uno stile da parte dell'utente. 
-L'assistente Ai utilizza queste informazioni per generare un post formato da titolo, testo e immagione.
+L'assistente Ai utilizza queste informazioni per generare un post formato da titolo, testo e immagine.
 
 \immagine[1\textwidth]{immagini/1_GeneratoreDiContenuti.png}{GeneratoreDiContenuti}{fig:GeneratoreDiContenuti}
 
@@ -333,42 +345,42 @@ dovrà anche valutare la qualità del contenuto generato.
 
 \immagine[1\textwidth]{immagini/1_AnteprimaGenerazione.png}{AnteprimaGenerazione}{fig:AnteprimaGenerazione}
 
-\subsubsubsection{immagine generata}
+\subsubsubsection{Immagine generata}
 L'immagine generata viene mostrata come primo elemento dell'anteprima del post, fornendo un supporto visivo che arricchisce il contenuto testuale e rende la comunicazione più accattivante e coinvolgente per i destinatari.  
 
 \immagine[1\textwidth]{immagini/1_ImmagineGenerazione.png}{ImmagineGenerazione}{fig:ImmagineGenerazione}
 
 
-\subsubsubsection{titolo generato}
+\subsubsubsection{Titolo generato}
 All'interno dell'anteprima del post, il titolo generato viene visualizzato in modo prominente, evidenziando l'argomento principale della comunicazione ai destinatari.
 
 \immagine[0.8\textwidth]{immagini/1_TitoloGenerazione.png}{TitoloGenerazione}{fig:TitoloGenerazione}
 
 
-\subsubsubsection{testo generato}
+\subsubsubsection{Testo generato}
 Il testo viene mostrato sotto l'immagine e il titolo, fornendo il corpo principale della comunicazione che l'utente ha richiesto all'assistente AI di generare.
 
 \immagine[1\textwidth]{immagini/1_TestoGenerazione.png}{TestoGenerazione}{fig:TestoGenerazione}
 
 
-\subsubsubsection{valutazione del post generato}
+\subsubsubsection{Valutazione del post generato}
 Dopo aver visualizzato l'anteprima del post generato, l'utente ha la possibilità di valutare la qualità del contenuto attraverso un sistema basato su un punteggio da 1 a 5 stelle.
 
 \immagine[0.4\textwidth]{immagini/1_Valutazione.png}{Valutazione}{fig:Valutazione}
 
 
-\subsubsubsection{panoramica parametri di generazione}
-Per avere poter associare più facilmente il risultato generato ai parametri di generazione, è presente una sezione che mostra in modo chiaro e sintetico i parametri utilizzati per la generazione del contenuto (il tono, lo stile e il prompt inserito dall'utente).
+\subsubsubsection{Panoramica parametri di generazione}
+Per poter associare più facilmente il risultato generato ai parametri di generazione, è presente una sezione che mostra in modo chiaro e sintetico i parametri utilizzati per la generazione del contenuto (il tono, lo stile e il prompt inserito dall'utente).
 
 \immagine[1\textwidth]{immagini/1_PanoramicaParametri.png}{PanoramicaParametri}{fig:PanoramicaParametri}
 
-\subsubsubsection{tasto accesso modalità modifica}
+\subsubsubsection{Tasto accesso modalità modifica}
 Per attivare le funzionalità di modifica del post generato, è presente un tasto che consente all'utente di accedere alla modalità di modifica, dove potrà apportare le modifiche desiderate al titolo, al testo e all'immagine generati.
 
 \immagine[0.4\textwidth]{immagini/1_TastoModalitaModifica.png}{TastoModalitaModifica}{fig:TastoModalitaModifica}
 
 \subsubsubsection{Operazioni di gestione del risultato generato}
-A seguito della generazione del contenuto, l'utente ha la possibilità di gestire il risultato; scartandolo se non soddisfacente (questa funzione comporta la valutaione minima), rigenerandolo per provare a ottenere un risultato migliore o salvandolo se soddisfatto con quello che ha ottenuto.
+A seguito della generazione del contenuto, l'utente ha la possibilità di gestire il risultato; scartandolo se non soddisfacente (questa funzione comporta la valutazione minima), rigenerandolo per provare a ottenere un risultato migliore o salvandolo se soddisfatto con quello che ha ottenuto.
 
 \immagine[0.6\textwidth]{immagini/1_OperazioniGenerazione.png}{OperazioniGenerazione}{fig:OperazioniGenerazione}
 
@@ -379,7 +391,7 @@ Entrando nella modalità di modifica, l'utente può apportare modifiche al titol
 \immagine[1\textwidth]{immagini/1_ModalitaModificaGenerazione.png}{ModalitaModificaGenerazione}{fig:ModalitaModificaGenerazione}
 
 \subsubsubsection{Modifica immagine generata}
-Nella modalità di modifica, l'utente ha la possibilità di sostituire l'immagine
+Nella modalità di modifica, l'utente ha la possibilità di sostituire l'immagine generata dall'AI con una nuova, avviando una rigenerazione sulla base dei parametri originali o di un prompt aggiornato.
 
 \immagine[0.6\textwidth]{immagini/1_ModificaImmagine.png}{ModificaImmagine}{fig:ModificaImmagine}
 
@@ -404,17 +416,17 @@ La modifica può essere salvata per aggiornare il post generato con le modifiche
 \subsection{Storico delle generazioni}
 Lo storico delle generazioni consente all'utente di visualizzare tutte le generazioni precedenti, con la possibilità di accedere ai dettagli di ciascuna generazione, come i parametri utilizzati, la valutazione e le eventuali modifiche apportate.
 
-\subsubsection{Consulatazione storico delle generazioni}
+\subsubsection{Consultazione storico delle generazioni}
 Lo storico delle generazioni è una sezione composta da una tabella contenente le generazioni e vari sistemi di input che permettono di effettuare operazioni su questa tabella con fini di gestione o di analisi.
 
 \subsubsubsection{Filtraggio e ricerca nello storico}
 All'interno dello storico delle generazioni, è presente una funzionalità di filtraggio e ricerca che consente all'utente di trovare facilmente specifiche generazioni passate in base a criteri come data, valutazione, parole chiave, tono o stile utilizzato.
 
 \subsubsubsection{Visualizzazione tabella generazioni}
-Le generazioni passate vengono visualizzate in una tabella che mostra informazioni chiave come la data di creazione, il titolo del post generato, il tono e lo stile utilizzati, la valutazione assegnata, il testo genearato e il prompt utilizzato.
+Le generazioni passate vengono visualizzate in una tabella che mostra informazioni chiave come la data di creazione, il titolo del post generato, il tono e lo stile utilizzati, la valutazione assegnata, il testo generato e il prompt utilizzato.
 
 \subsubsubsection{Azioni su generazioni passate}
-Per ogni generazione passata visualizzata nella tabella, l'utente ha la possibilità di eseguire azioni come riutilizzare, duplicare o eliminarela generazione dallo storico.
+Per ogni generazione passata visualizzata nella tabella, l'utente ha la possibilità di eseguire azioni come riutilizzare, duplicare o eliminare la generazione dallo storico.
 Riutilizzare una generazione consiste nell'effettiva generazione di un nuovo post con gli stessi campi, mentre la duplicazione riempie i campi permettendo di apportare modifiche prima di effettuare la nuova generazione.
 
 \subsubsubsection{Scorrimento tabella storico}
@@ -439,8 +451,8 @@ Per guidare il modello di AI e aumentare la precisione dell'estrazione (confiden
 \subsubsection{Visualizzazione risultati analisi documenti}
 Dopo l'analisi, i risultati vengono visualizzati in modo chiaro e organizzato, evidenziando le informazioni estratte dal documento e fornendo un quadro completo del contenuto analizzato.
 Questa visualizzazione consente al CdL di comprendere rapidamente le informazioni chiave del documento e di prendere decisioni informate su come procedere con la gestione del documento stesso.
-
-\subsubsubsection{Visualizzazione risultati analisi documenti}
+ 
+\subsubsubsection{Visualizzazione tabella riepilogativa documenti analizzati}
 Il sistema presenta l'elenco dei documenti analizzati in formato tabellare. Per ogni elemento, vengono esposti i dati di sintesi estratti dall'AI, quali l'azienda, il periodo di competenza, la tipologia del file, la lingua, il numero di pagine e l'identificativo originale, permettendo un controllo rapido del flusso elaborato.
 
 \subsubsubsection{Visualizzazione stato analisi documenti}
@@ -570,7 +582,6 @@ Questa metrica indica il tempo medio impiegato dal sistema per processare ed ela
 \subsubsubsection{Filtraggio per periodo temporale AI Co-Pilot}
 L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI Co-Pilot in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle analisi.
 
-
 \section{Test}
 Per garantire la qualità e l'affidabilità del prodotto, è stato implementato un processo di testing completo che include test unitari, test di integrazione e test end-to-end.
 Il processo di testing è stato eseguito in diverse fasi del ciclo di sviluppo, consentendo di identificare e risolvere tempestivamente eventuali bug o problemi di funzionalità.
@@ -579,13 +590,12 @@ Il processo di testing è stato eseguito in diverse fasi del ciclo di sviluppo, 
 Il focus dei test backend è stato principalmente sulla verifica della corretta implementazione delle funzionalità, sulla gestione degli errori e sulla sicurezza dell'applicazione. Sono stati eseguiti test unitari per verificare il funzionamento di singole componenti e test di integrazione per assicurare che le diverse parti del sistema interagiscano correttamente tra loro.
 Per generare e avviare i test backend, è stato utilizzato il framework di testing integrato in Ruby on Rails, che consente di scrivere test in modo semplice e intuitivo. I test sono stati organizzati in diverse categorie.
 
-\subsubsection{Test unità}
+\subsubsection{Test di unità}
 Per avviare i test unitari bisogna utilizzare il comando \texttt{docker compose run --rm web rails test:units}, che esegue tutti i test unitari presenti nella directory \texttt{test/unit} del progetto.
-
-\subsubsection{Test integrazione}
+ 
+\subsubsection{Test di integrazione}
 Per avviare i test di integrazione bisogna utilizzare il comando \texttt{docker compose run --rm web rails test:integration}, che esegue tutti i test di integrazione presenti nella directory \texttt{test/integration} del progetto.
 
 \subsection{Test Frontend}
-
 
 \end{document}
