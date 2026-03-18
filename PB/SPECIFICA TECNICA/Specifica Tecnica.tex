@@ -288,9 +288,9 @@ pgAdmin & Strumento grafico per amministrare e gestire database PostGreSQL &  \\
 
 
 
-\section{Architettura del Sistema (Layered Architecture)}
+\section{Architettura del Sistema}
 
-\subsection{Architettura Logica}
+\subsection{Architettura Logica (Layered Architecture)}
 Il sistema è stato progettato seguendo un pattern architetturale di tipo Layered (a livelli). Questa separazione garantisce un alto grado di disaccoppiamento, facilitando la manuntenzione, i test e la scalabilità del sistema. L'architettura logica si divide in quattro livelli principali:
 
 \subsubsection{Livello di Presentazione (Presentation Layer)}
@@ -328,16 +328,49 @@ Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come u
   \item \textbf{Container Database (Database Server)}: Un container basato sull'immagine ufficiale di PostgreSQL. Persiste i dati fisicamente scrivendoli su un Docker Volume esterno al container stesso, garantendo che i dati del sistema non vadano persi in caso di riavvio o aggiornamento del container.
 \end{itemize}
 
+\subsection{Descrizione architettura (Backend)}
+
+\subsubsection{Modulo AI Assistant}
+
+\subsubsection{Modulo AI CoPilot}
+
+\subsubsection{Modulo Data analisi}
+Il modulo \textit{Data analisi} espone i componenti fondamentali per l'estrazione, il calcolo e l'esposizione delle metriche di utilizzo e delle statistiche relative alle due funzionalità principali del sistema: l'AI Co-Pilot per i documenti e l'AI-assistant generativo. Il modulo segue un'architettura a livelli, separando la gestione delle richieste (Controller), la logica di business e calcolo (Service) e l'interazione con il database (Data Manager).
+
+\subsubsubsection{AICopilotDataAnalystController}
+Classe di tipo Controller responsabile dell'esposizione degli endpoint API relativi alle statistiche dell'AI Co-Pilot. Gestisce le richieste HTTP provenienti dal front-end, validando i parametri di input (es. i filtri temporali). Delega la complessa logica di calcolo delle metriche (come confidenza media e accuratezza) al livello di servizio sottostante, per poi impacchettare i risultati in un formato standard (es. JSON) da restituire al client.
+
+\subsubsubsection{AIGeneratorDataAnalystController}
+Classe di tipo Controller che gestisce l'interfaccia API per le analytics dell'AI-assistant generativo. Riceve e processa le richieste relative ai dati di generazione (prompt effettuati, rigenerazioni, feedback degli utenti). Come il suo omologo per il Co-Pilot, funge da punto di ingresso per le richieste, interfacciandosi con i servizi di computazione per elaborare i dati e restituire le risposte al client in base ai parametri temporali specificati.
+
+\subsubsubsection{ComputationService}
+Interfaccia o classe base astratta che definisce il contratto standard per i servizi di calcolo delle metriche di analytics. Fornisce i metodi comuni e le firme necessarie per l'elaborazione dei dati grezzi, garantendo uniformità e polimorfismo tra i diversi servizi di computazione implementati nel modulo.
+
+\subsubsubsection{AiCopilotComputationService}
+Classe concreta che implementa la logica di business per l'elaborazione delle metriche specifiche dell'AI Co-Pilot. Riceve i dati grezzi dal livello dati e applica gli algoritmi necessari per calcolare indicatori chiave quali: la percentuale di confidenza media delle estrazioni, la frequenza dell'intervento umano per le correzioni, l'accuratezza strutturale del mapping dei dati e i tempi medi di elaborazione dei documenti.
+
+\subsubsubsection{AiGeneratorComputationService}
+Classe concreta contenente la logica di business per la generazione delle statistiche relative all'AI-assistant. Si occupa di aggregare e calcolare le metriche di utilizzo dell'assistente, tra cui il volume totale delle generazioni, la valutazione media fornita dagli utenti, il tasso di rigenerazione dei prompt e la distribuzione percentuale dell'utilizzo dei vari toni e stili di comunicazione.
+
+\subsubsubsection{AnalysesDataManager}
+Interfaccia o classe base per il livello di persistenza (Data Access Object / Repository) dedicato alle analytics. Definisce le operazioni comuni per l'interrogazione del database al fine di estrarre lo storico delle interazioni, i log di sistema e i metadati senza esporre la complessità delle query SQL (o ORM) ai livelli superiori.
+
+\subsubsubsection{AiCopilotAnalysesDataManager}
+Implementazione specifica del Data Manager responsabile del recupero dei dati storici legati al modulo AI Co-Pilot. Interroga le tabelle del database pertinenti (es. storico dei documenti caricati, audit log delle modifiche manuali, timestamp di elaborazione) estraendo dataset filtrati che verranno poi passati al \textit{AiCopilotComputationService} per le elaborazioni statistiche.
+
+\subsubsubsection{AiGeneratorAnalysesDataManager}
+Implementazione specifica del Data Manager per il recupero dei dati relativi all'AI-assistant generativo. Si occupa di eseguire query sul database per estrarre lo storico dei prompt inviati, i parametri utilizzati (tono e stile), i feedback registrati (rating) e i conteggi delle richieste di rigenerazione, fornendo il set di dati grezzi al \textit{AiGeneratorComputationService}.
+
+\subsection{Descrizione architettura (Frontend)}
+
+
+
+
+
+
 
 \subsection{Design Pattern}
 
-
-
-\subsection{Backend}
-
-
-
-\subsection{Frontend}
 
 
 
