@@ -121,6 +121,10 @@
       "definition": "Metrica software che misura la complessità strutturale di un programma o di un singolo metodo calcolando il numero di percorsi linearmente indipendenti attraverso il codice sorgente. Viene calcolata contando il numero di punti decisionali (if, while, for, case) più uno. Un valore elevato indica codice complesso, difficile da testare, mantenere e comprendere. Valori tipici: 1-10 (semplice), 11-20 (moderatamente complesso), 21-50 (complesso), oltre 50 (non testabile). Viene utilizzata per identificare metodi che necessitano di refactoring per migliorare la manutenibilità."
     },
     {
+      "term": "Confidence score (Percentuale di confidenza)",
+      "definition": "Valore percentuale prodotto dal modulo AI Co-Pilot che indica il grado di affidabilità con cui il sistema ha classificato un documento e identificato i relativi destinatari. Un valore elevato indica che l'estrazione automatica è considerata corretta e non richiede intervento umano; un valore al di sotto della soglia prestabilita segnala invece la necessità di una revisione manuale da parte dell'operatore."
+    },
+    {
       "term": "Consulente del Lavoro (CdL)",
       "definition": "Professionista che assiste aziende e lavoratori nella gestione degli adempimenti amministrativi, previdenziali, assistenziali e fiscali relativi al rapporto di lavoro."
     },
@@ -159,6 +163,10 @@
     {
       "term": "Dispatch",
       "definition": "Processo di distribuzione automatizzata dei documenti verso i destinatari finali attraverso diversi canali (es. app, portale, email, PEC)."
+    },
+    {
+      "term": "Docker",
+      "definition": "Piattaforma open-source che consente di creare, distribuire ed eseguire applicazioni all'interno di container, ovvero ambienti isolati e leggeri che includono tutto il necessario per l'esecuzione del software (codice, dipendenze, configurazioni). Garantisce che l'applicazione si comporti in modo identico indipendentemente dall'ambiente sottostante, eliminando il problema del \"funziona solo sulla mia macchina\". Nel progetto è utilizzato per containerizzare i tre componenti principali del sistema (frontend, backend e database), orchestrandoli tramite Docker Compose, che permette di avviarli tutti con un unico comando e di gestirne la comunicazione tramite una rete virtuale privata."
     },
     {
       "term": "Earned Value (EV)",
@@ -523,6 +531,10 @@
     {
       "term": "Tracciabilità",
       "definition": "Capacità di ricostruire la storia completa di un documento o processo attraverso registrazioni dettagliate (audit trail), dal caricamento all'invio alla lettura, garantendo conformità e accountability."
+    },
+    {
+      "term": "TypeScript",
+      "definition": "Linguaggio di programmazione open-source sviluppato da Microsoft, basato su JavaScript e progettato per aggiungere la tipizzazione statica opzionale al codice. Grazie al controllo dei tipi in fase di compilazione, consente di individuare molti errori prima dell’esecuzione, migliorando la manutenibilità, la robustezza e la scalabilità delle applicazioni, soprattutto in progetti di grandi dimensioni."
     },
     {
       "term": "Validazione",
