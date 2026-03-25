@@ -183,9 +183,11 @@ pdf da noi sviluppato.
 \end{itemize}
 
 \section{Tecnologie}
-Questa sezione descrive le tecnologie utilizzate nello sviluppo del prodotto software, inclusi i linguaggi, i framework, le librerie e gli strumenti di sviluppo adottati dal team.
+Il presente capitolo illustra lo stack tecnologico adottato per la progettazione e la realizzazione del prodotto software. Le scelte implementative sono state guidate dalla necessità di sviluppare un'architettura solida, garantendo al contempo elevati standard di scalabilità, manutenibilità e sicurezza del sistema. Nelle sottosezioni seguenti verranno passati in rassegna i linguaggi di programmazione, i framework, le librerie e gli strumenti di supporto operativi impiegati dal team, evidenziando il ruolo specifico di ciascun elemento all'interno del ciclo di vita del progetto.
+
 \subsection{Linguaggi}
-TODO METTERE TABELLA CON  NOME DESCRIZIONE  E VERSIONE
+Questa sezione descrive i linguaggi di programmazione, di markup e di interrogazione fondamentali utilizzati per la stesura del codice sorgente. La selezione comprende sia gli standard consolidati per la strutturazione e stilizzazione dell'interfaccia utente (Frontend), sia i linguaggi orientati agli oggetti scelti per implementare la logica applicativa (Backend), fino ad arrivare agli strumenti dichiarativi per la gestione delle basi di dati. La Tabella \ref{tab:linguaggi} riassume i linguaggi adottati, specificandone la versione di riferimento e il relativo ambito di utilizzo.
+
 \begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
 \caption{Tabella dei Linguaggi}\label{tab:linguaggi}\\
 \hline
@@ -209,18 +211,21 @@ TODO METTERE TABELLA CON  NOME DESCRIZIONE  E VERSIONE
 \hline
 \endlastfoot
 % Inserire qui le righe della tabella dei linguaggi
-Typescript & Linguaggio di programmazione basato su JavaScript che aggiunge la tipizzazione statica &  \\
+Typescript & Linguaggio di programmazione basato su JavaScript che aggiunge la tipizzazione statica & 6.0 \\
 \hline
-HTML & Linguaggio di markup usato per creare pagine web &  \\
+HTML & Linguaggio di markup usato per creare pagine web & 5 \\
 \hline
-CSS & Linguaggio usato per definire lo stile delle pagine web  &  \\
+CSS & Linguaggio usato per definire lo stile delle pagine web  & 3 \\
 \hline
-Ruby & Linguaggio di programmazione orientato agli oggetti &  \\
+Ruby & Linguaggio di programmazione orientato agli oggetti &  3.3.1 \\
 \hline
-SQL & Linguaggio per la gestione e manipolazione di database relazionali &  \\
+SQL & Linguaggio per la gestione e manipolazione di database relazionali & SQL:2023 \\
 \end{longtable}
+
+
 \subsection{Framework}
-TODO METTERE TABELLA CON  NOME DESCRIZIONE  E VERSIONE
+In questa sezione vengono presentati i framework adottati per costituire l'impalcatura architetturale del prodotto software. La scelta si è orientata verso soluzioni moderne e ampiamente supportate dalla community, capaci di garantire una netta separazione tra la logica di presentazione e le regole di business. Nello specifico, la Tabella \ref{tab:framework} illustra le infrastrutture cardine impiegate per lo sviluppo della Single Page Application lato client e per la realizzazione delle API lato server.
+
 \begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
 \caption{Tabella dei Framework}\label{tab:framework}\\
 \hline
@@ -243,15 +248,46 @@ TODO METTERE TABELLA CON  NOME DESCRIZIONE  E VERSIONE
 
 \hline
 \endlastfoot
-% Inserire qui le righe della tabella dei linguaggi
-Angular & Framework open source per la creazione e sviluppo di single page applications. & v21 \\
+% Inserire qui le righe della tabella dei framework
+Angular & Framework open source per la creazione e sviluppo di single page applications & 21 \\
 \hline
-Ruby on Rails & Framework open source server side per applicazioni web &  \\
+Ruby on Rails & Framework open source server side per applicazioni web & 8.1 \\
 \end{longtable}
+
+
 \subsection{Librerie}
-TODO METTERE TABELLA CON  NOME DESCRIZIONE  E VERSIONE 
+Oltre alle tecnologie di base, lo sviluppo del sistema ha richiesto l'integrazione di pacchetti e librerie di terze parti. Queste componenti si sono rivelate essenziali per estendere le funzionalità native dei framework, ottimizzare i tempi di sviluppo e risolvere specifiche problematiche di dominio in modo standardizzato, affidabile e sicuro. La Tabella \ref{tab:librerie} elenca le principali dipendenze esterne introdotte all'interno degli ambienti Node.js e Ruby.
+
+\begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
+\caption{Tabella delle Librerie}\label{tab:librerie}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+% Inserire qui le righe della tabella delle librerie
+Nome Libreria & Descrizione della libreria & 1.0.0 \\
+\end{longtable}
+
+
 \subsection{Strumenti di Sviluppo}
-TODO METTERE TABELLA CON  NOME DESCRIZIONE  E VERSIONE
+L'efficienza, la solidità e la riproducibilità dell'intero ciclo di vita del software sono state assicurate attraverso l'impiego di una serie di strumenti operativi e di orchestrazione avanzati. Questa categoria, dettagliata nella Tabella \ref{tab:strumenti_sviluppo}, comprende gli ambienti di sviluppo integrati (IDE), i sistemi di containerizzazione volti a uniformare gli ambienti tra i vari membri del team, e le piattaforme per la modellazione e l'amministrazione della persistenza dei dati.
+
 \begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
 \caption{Tabella degli Strumenti di Sviluppo}\label{tab:strumenti_sviluppo}\\
 \hline
@@ -274,14 +310,14 @@ TODO METTERE TABELLA CON  NOME DESCRIZIONE  E VERSIONE
 
 \hline
 \endlastfoot
-% Inserire qui le righe della tabella dei linguaggi
-Visual Studio Code & IDE open source per lo sviluppo software sviluppato da Microsoft &  \\
+% Inserire qui le righe della tabella degli strumenti di sviluppo
+Visual Studio Code & IDE open source per lo sviluppo software sviluppato da Microsoft & 1.113 \\
 \hline
-Docker & Piattaforma che permette di creare, distribuire e eseguire applicazioni in container &   \\
+Docker & Piattaforma che permette di creare, distribuire e eseguire applicazioni in container & 29.3.0 \\
 \hline
-PostGreSQL & Database relazionale open source &  \\
+PostgreSQL & Database relazionale open source & 18.2 \\
 \hline
-pgAdmin & Strumento grafico per amministrare e gestire database PostGreSQL &  \\
+pgAdmin & Strumento grafico per amministrare e gestire database PostgreSQL & 9.13 \\
 \end{longtable}
 
 \section{API}
@@ -335,31 +371,151 @@ Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come u
 \subsubsection{Modulo AI CoPilot}
 
 \subsubsection{Modulo Data analisi}
-Il modulo \textit{Data analisi} espone i componenti fondamentali per l'estrazione, il calcolo e l'esposizione delle metriche di utilizzo e delle statistiche relative alle due funzionalità principali del sistema: l'AI Co-Pilot per i documenti e l'AI-assistant generativo. Il modulo segue un'architettura a livelli, separando la gestione delle richieste (Controller), la logica di business e calcolo (Service) e l'interazione con il database (Data Manager).
+Il modulo \textit{Data analisi} espone i componenti fondamentali per l'estrazione, il calcolo e l'esposizione delle
+ metriche di utilizzo e delle statistiche relative alle due funzionalità principali del sistema: l'AI Co-Pilot per
+  i documenti e l'AI-assistant generativo. Il modulo segue un'architettura a livelli, separando la gestione delle richieste (Controller),
+   la logica di business e calcolo (Service) e l'interazione con il database (Data Manager).
 
 \subsubsubsection{AICopilotDataAnalystController}
-Classe di tipo Controller responsabile dell'esposizione degli endpoint API relativi alle statistiche dell'AI Co-Pilot. Gestisce le richieste HTTP provenienti dal front-end, validando i parametri di input (es. i filtri temporali). Delega la complessa logica di calcolo delle metriche (come confidenza media e accuratezza) al livello di servizio sottostante, per poi impacchettare i risultati in un formato standard (es. JSON) da restituire al client.
+Classe di tipo Controller responsabile dell'esposizione degli endpoint API relativi alle statistiche dell'AI Co-Pilot. 
+Gestisce le richieste HTTP provenienti dal front-end, validando i parametri di input (es. i filtri temporali). 
+Delega la complessa logica di calcolo delle metriche (come confidenza media e accuratezza) al livello di servizio sottostante, 
+per poi impacchettare i risultati in un formato standard (es. JSON) da restituire al client.\\ 
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item +index():Json
+\end{itemize}
+
 
 \subsubsubsection{AIGeneratorDataAnalystController}
-Classe di tipo Controller che gestisce l'interfaccia API per le analytics dell'AI-assistant generativo. Riceve e processa le richieste relative ai dati di generazione (prompt effettuati, rigenerazioni, feedback degli utenti). Come il suo omologo per il Co-Pilot, funge da punto di ingresso per le richieste, interfacciandosi con i servizi di computazione per elaborare i dati e restituire le risposte al client in base ai parametri temporali specificati.
+Classe di tipo Controller che gestisce l'interfaccia API per le analytics dell'AI-assistant generativo. Riceve e processa le richieste relative ai dati di generazione 
+(prompt effettuati, rigenerazioni, feedback degli utenti). Come il suo omologo per il Co-Pilot, funge da punto di ingresso per le richieste, interfacciandosi con i servizi di 
+computazione per elaborare i dati e restituire le risposte al client in base ai parametri temporali specificati.\\
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item +index():Json
+\end{itemize}
 
 \subsubsubsection{ComputationService}
-Interfaccia o classe base astratta che definisce il contratto standard per i servizi di calcolo delle metriche di analytics. Fornisce i metodi comuni e le firme necessarie per l'elaborazione dei dati grezzi, garantendo uniformità e polimorfismo tra i diversi servizi di computazione implementati nel modulo.
+Interfaccia o classe base astratta che definisce il contratto standard per i servizi di calcolo delle metriche di analytics. 
+Fornisce i metodi comuni e le firme necessarie per l'elaborazione dei dati grezzi, garantendo uniformità e polimorfismo tra i diversi servizi di computazione implementati nel modulo.\\
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item startDate: Date
+    \item endDate: Date
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(data:hash)
+    \item retrieveAllInformation():hash
+\end{itemize}
 
 \subsubsubsection{AiCopilotComputationService}
-Classe concreta che implementa la logica di business per l'elaborazione delle metriche specifiche dell'AI Co-Pilot. Riceve i dati grezzi dal livello dati e applica gli algoritmi necessari per calcolare indicatori chiave quali: la percentuale di confidenza media delle estrazioni, la frequenza dell'intervento umano per le correzioni, l'accuratezza strutturale del mapping dei dati e i tempi medi di elaborazione dei documenti.
+Classe concreta che implementa la logica di business per l'elaborazione delle metriche specifiche dell'AI Co-Pilot. 
+Riceve i dati grezzi dal livello dati e applica gli algoritmi necessari per calcolare indicatori chiave quali: 
+la percentuale di confidenza media delle estrazioni, la frequenza dell'intervento umano per le correzioni, l'accuratezza strutturale del mapping dei dati e i tempi medi di elaborazione dei documenti.\\
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item retrieveAllInformation():hash
+    \item retrievePromptAmount(): int
+    \item retrieveAverageRatePrompt(): int
+    \item retrieveAverageRegenerationAmount(): int
+    \item retrieveToneUsage():hash
+    \item retrieveStyleUsage():hash
+\end{itemize}
 
 \subsubsubsection{AiGeneratorComputationService}
-Classe concreta contenente la logica di business per la generazione delle statistiche relative all'AI-assistant. Si occupa di aggregare e calcolare le metriche di utilizzo dell'assistente, tra cui il volume totale delle generazioni, la valutazione media fornita dagli utenti, il tasso di rigenerazione dei prompt e la distribuzione percentuale dell'utilizzo dei vari toni e stili di comunicazione.
+Classe concreta contenente la logica di business per la generazione delle statistiche relative all'AI-assistant. 
+Si occupa di aggregare e calcolare le metriche di utilizzo dell'assistente, tra cui il volume totale delle generazioni, 
+la valutazione media fornita dagli utenti, il tasso di rigenerazione dei prompt e la distribuzione percentuale dell'utilizzo dei vari toni e stili di comunicazione.\\
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item retrieveAllInformation(): hash
+    \item retrieveAverageConfidenceValue(): int
+    \item retrieveHumanInterventionValue(): int
+    \item retrieveMappingAccuracy(): int
+    \item retrieveAverageTimeAnalyses(): float
+\end{itemize}
 
 \subsubsubsection{AnalysesDataManager}
-Interfaccia o classe base per il livello di persistenza (Data Access Object / Repository) dedicato alle analytics. Definisce le operazioni comuni per l'interrogazione del database al fine di estrarre lo storico delle interazioni, i log di sistema e i metadati senza esporre la complessità delle query SQL (o ORM) ai livelli superiori.
+Interfaccia o classe base per il livello di persistenza (Data Access Object / Repository) dedicato alle analytics. 
+Definisce le operazioni comuni per l'interrogazione del database al fine di estrarre lo storico delle interazioni, 
+i log di sistema e i metadati senza esporre la complessità delle query SQL (o ORM) ai livelli superiori.\\
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item startDate: Date
+    \item endDate: Date
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(startDate: Date, endDate: Date)
+
+\end{itemize}
 
 \subsubsubsection{AiCopilotAnalysesDataManager}
-Implementazione specifica del Data Manager responsabile del recupero dei dati storici legati al modulo AI Co-Pilot. Interroga le tabelle del database pertinenti (es. storico dei documenti caricati, audit log delle modifiche manuali, timestamp di elaborazione) estraendo dataset filtrati che verranno poi passati al \textit{AiCopilotComputationService} per le elaborazioni statistiche.
+Implementazione specifica del Data Manager responsabile del recupero dei dati storici legati al modulo AI Co-Pilot. Interroga le tabelle del database pertinenti 
+(es. storico dei documenti caricati, audit log delle modifiche manuali, timestamp di elaborazione) estraendo dataset filtrati che verranno 
+poi passati al \textit{AiCopilotComputationService} per le elaborazioni statistiche.\\
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item retrievePromptAmountQuery(): int
+    \item retrieveAverageRatePromptQuery(): int
+    \item retrieveAverageRegenerationAmountQuery(): int
+    \item retrieveToneUsageQuery():hash
+    \item retrieveStyleUsageQuery():hash
+\end{itemize}
 
 \subsubsubsection{AiGeneratorAnalysesDataManager}
-Implementazione specifica del Data Manager per il recupero dei dati relativi all'AI-assistant generativo. Si occupa di eseguire query sul database per estrarre lo storico dei prompt inviati, i parametri utilizzati (tono e stile), i feedback registrati (rating) e i conteggi delle richieste di rigenerazione, fornendo il set di dati grezzi al \textit{AiGeneratorComputationService}.
+Implementazione specifica del Data Manager per il recupero dei dati relativi all'AI-assistant generativo. 
+Si occupa di eseguire query sul database per estrarre lo storico dei prompt inviati, i parametri utilizzati (tono e stile), 
+i feedback registrati (rating) e i conteggi delle richieste di rigenerazione, fornendo il set di dati grezzi al \textit{AiGeneratorComputationService}.\\
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item retrieveAverageConfidenceValueQuery(): int
+    \item retrieveHumanInterventionValueQuery(): int
+    \item retrieveMappingAccuracyQuery(): int
+    \item retrieveAverageTimeAnalysesQuery(): float
+\end{itemize}
 
 \subsection{Descrizione architettura (Frontend)}
 
@@ -380,7 +536,7 @@ Implementazione specifica del Data Manager per il recupero dei dati relativi all
 
 \section{Requisiti Funzionali Soddisfatti}
 Il periodo di analisi dei requisiti ha portato all'identificazione di un set di requisiti funzionali che il prodotto software deve soddisfare. 
-Di seguito viene fornita una panoramica dei principali requisiti implementati nel sistema, con riferimento alle sezioni del documento dove sono descritti in dettaglio.
+Di seguito viene fornita una panoramica dei principali requisiti soddisfatti nel sistema, con riferimento alle sezioni del documento dove sono descritti in dettaglio.
 I requisiti funzionali si dividono in obbligatori, desiderabili e opzionali, a seconda della loro importanza e priorità per il progetto.
 In particolare sono stati identificati 132 requisiti funzionali, di cui 97 obbligatori, 0 desiderabili e 35 opzionali.
 I requisiti obbligatori hanno come focus l'implementazione dei tre moduli principali del sistema, ovvero il modulo di analisi documenti, il modulo di generazione testo e il modulo di raccolta dati, che rappresentano le funzionalità core del prodotto software.
@@ -389,9 +545,9 @@ I requisiti opzionali, invece, si concentrano su funzionalità come la gestione 
 
 \subsection{Completamento requisiti}
 \begin{itemize}
-  \item \textbf{Requisiti Obbligatori}: 97 requisiti funzionali implementati, con focus sui moduli di analisi documenti, generazione testo e raccolta dati.
+  \item \textbf{Requisiti Obbligatori}: 97 requisiti funzionali soddisfatti, con focus sui moduli di analisi documenti, generazione testo e raccolta dati.
   \item \textbf{Requisiti Desiderabili}: 0 requisiti desiderabili identificati.
-  \item \textbf{Requisiti Opzionali}: (da definire) requisiti opzionali implementati, principalmente relativi alla gestione utenze e distribuzione documenti.
+  \item \textbf{Requisiti Opzionali}: (da definire) requisiti opzionali soddisfatti, principalmente relativi alla gestione utenze e distribuzione documenti.
 \end{itemize}
 
 \subsection{Tabella di tracciamento dei requisiti}
