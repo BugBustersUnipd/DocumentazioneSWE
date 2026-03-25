@@ -1,0 +1,178 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}
+  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Interno\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.3cm]
+  {\Large\color{secondaryblue} 24 marzo 2026}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}}    & Alberto Pignat \\
+\textbf{Verificatore\textsubscript{\scalebox{0.6}{\textbf{G}}}}    &  Marco Favero  \\
+\textbf{Uso}          & Interno \\
+\textbf{Destinatari}  & BugBusters \\
+\textbf{Versione} & 1.0.0\\
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Verbale interno\textsubscript{\scalebox{0.6}{\textbf{G}}} relativo alla riunione del 24 marzo 2026, durante la quale il gruppo si è allineato con la progettazione della parte backend e frontend, discusse le API necessarie, e pianificate le azioni future per avanzare con lo sviluppo del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}. 
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Interna
+    \item \textbf{Piattaforma:} Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item \textbf{Data:} 24/03/2026
+    \item \textbf{Orario di inizio:} 10:30
+    \item \textbf{Orario di fine:} 11:10
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+\begin{enumerate}
+    \item\label{itm:revisione_progettazione} Revisione della progettazione del backend e frontend, in modo tale da allinearsi sulle API necessarie per il frontend.
+    \item\label{itm:discussione_requisiti} Discussione riguardante il requisito opzionale di invio.
+    \item \label{itm:decisioni_future} Pianificazione delle attività future, con assegnazione dei compiti per la stesura dei documenti e sviluppo del progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+\end{enumerate}
+
+
+\newpage
+\section{Svolgimento}
+Qui di seguito i punti discussi con più dettaglio:
+
+\subsection*{\ref{itm:revisione_progettazione}. Revisione della progettazione del backend e frontend}
+I membri del gruppo hanno discusso ed esaminato la progettazione attuale del backend e frontend, per comprendere lo stato di avanzamento e identificare eventuali modifiche necessarie. È stato discusso un documento redatto dai membri del gruppo che stanno progettando il backend, che descrive dettagliatamente le API esposte.
+
+\subsection*{\ref{itm:discussione_requisiti}. Discussione riguardante il requisito opzionale di invio}
+Il gruppo ha discusso il requisito opzionale di invio, valutando la sua fattibilità e l'impatto sul progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}. Sono state considerate le risorse disponibili e le tempistiche per decidere se includere o meno questo requisito nella fase attuale di sviluppo.
+
+\subsection*{\ref{itm:decisioni_future}. Pianificazione delle attività future}
+Il gruppo ha pianificato le attività future, in particolare, va portata a termine la progettazione del backend e frontend. Si inizia anche con la parte di codifica e si continua con la stesura dei documenti necessari.
+
+
+\section{Tabella delle decisioni e azioni}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/213}{PB17}  & Stesura verbale interno & Alberto Pignat \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/214}{PB18} & Verifica verbale interno & Marco Favero  \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/215}{PB19}  & Continuazione e terminazione progettazione backend & Leonardo Salviato, Marco Favero, Luca Slongo, Alberto Autiero\\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/216}{PB20} & Continuazione e terminazione progettazione frontend & Marco Piro, Linor Sadè, Alberto Pignat \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/217}{PB21} & Aggiornamento PdP e glossario & Alberto Autiero  \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/218}{PB22} & Continuazione stesura Manuale Utente & Leonardo Salviato  \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/219}{PB23} & Inizio Codifica Backend & Marco Favero, Leonardo Salviato, Alberto Autiero, Luca Slongo \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/220}{PB24} & Inizio Codifica Frontend & Marco Piro, Linor Sadè, Alberto Pignat \\
+\hline
+
+
+
+\end{tabularx}
+\fussy
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
