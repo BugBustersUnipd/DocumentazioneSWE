@@ -1362,11 +1362,171 @@ i feedback registrati (rating) e i conteggi delle richieste di rigenerazione, fo
 
 
 \subsection{Design Pattern}
+La progettazione e lo sviluppo del sistema si sono avvalsi di consolidati design 
+pattern, sia applicati esplicitamente durante la stesura della logica di dominio, 
+sia ereditati intrinsecamente dal framework Ruby on Rails. L'adozione di tali 
+paradigmi ha garantito modularità, manutenibilità e un'elevata testabilità 
+dell'intero applicativo.
+
+\subsubsection{Pattern implementati}
+
+\subsubsubsection{Adapter}
+Il pattern strutturale Adapter è stato impiegato per standardizzare l'interfaccia 
+di comunicazione con i servizi esterni, in particolare per l'integrazione con i 
+provider di Intelligenza Artificiale (AI). Creando un livello di astrazione 
+(wrapper) attorno alle API di terze parti, il sistema isola la logica di business 
+dalle specifiche di implementazione della libreria esterna. Ciò garantisce un 
+basso accoppiamento: in caso di migrazione verso un differente fornitore di 
+servizi AI, sarà sufficiente implementare un nuovo Adapter senza dover alterare i 
+moduli core dell'applicativo (es. i \textit{ComputationService}).
+
+\subsubsubsection{Dependency Injection}
+Al fine di favorire l'inversione del controllo (IoC) e massimizzare la testabilità, 
+è stato adottato il pattern Dependency Injection (DI). Invece di istanziare 
+rigidamente le dipendenze all'interno delle classi (come ad esempio le classi di 
+logica o i gestori di dati), le istanze necessarie vengono iniettate dall'esterno. Nel contesto di questo progetto, la DI si è rivelata cruciale durante la stesura degli unit test e dei test di integrazione, permettendo di sostituire agilmente i componenti reali con oggetti \textit{Mock} o dati di simulazione (es. nei \textit{DataManager}), garantendo test deterministici e isolati.
+
+\subsubsubsection{Factory}
+Il pattern creazionale Factory è stato implementato per incapsulare e 
+centralizzare la logica di istanziazione di oggetti complessi. All'interno del 
+dominio applicativo, viene sfruttato per delegare a una classe fabbrica la 
+responsabilità di restituire la corretta implementazione di un servizio o di un 
+gestore (come i vari \textit{AnalysesDataManager}) in base al contesto operativo 
+o ai parametri di input forniti a runtime. Questo approccio aderisce al principio 
+Open/Closed, facilitando l'estensione del sistema con nuove varianti di 
+elaborazione senza modificare il codice client esistente.
+
+\subsubsection{Pattern framework}
+
+\subsubsubsection{Model-View-Controller (MVC)}
+L'architettura dell'intero applicativo è fondata sul pattern architetturale MVC, 
+paradigma cardine imposto da Ruby on Rails. Esso divide le responsabilità in tre 
+componenti separati: il \textit{Model} gestisce la logica dei dati e le regole di 
+business; la \textit{View} (che in questo ecosistema esposto via API funge da 
+serializzatore JSON) gestisce la presentazione; il \textit{Controller} orchestra 
+il flusso informativo, ricevendo le richieste HTTP, interrogando i modelli e 
+restituendo la risposta formattata. Questa rigorosa separazione (Separation of 
+Concerns) garantisce un codice pulito e navigabile.
+
+\subsubsubsection{Active Record}
+Per l'interazione con il database relazionale (PostgreSQL), il framework utilizza 
+nativamente l'omonimo pattern architetturale Active Record, formalizzato da 
+Martin Fowler. Ogni classe Modello del sistema (es. \textit{ExtractedDocument}, 
+\textit{User}, \textit{Company}) mappa in modo speculare una tabella del database, e ogni singola istanza dell'oggetto rappresenta una tupla. Questo pattern nasconde completamente la complessità delle query SQL sottostanti, fornendo un'interfaccia orientata agli oggetti fluida per le operazioni CRUD, le aggregazioni e la gestione delle chiavi esterne e delle relazioni (\textit{belongs\_to}, \textit{has\_many}).
+
+\subsubsubsection{Observer (tramite Callbacks)}
+Ruby on Rails implementa concettualmente il pattern comportamentale Observer 
+attraverso il proprio ecosistema di \textit{Callbacks} legate al ciclo di vita 
+dei modelli. Il sistema consente di "agganciare" (iscrivere) specifici metodi che 
+restano in ascolto dei cambiamenti di stato degli oggetti 
+(es. \textit{before\_save}, \textit{after\_create}). Nel progetto, questo 
+meccanismo implicito viene utilizzato dal framework per gestire automaticamente 
+l'aggiornamento dei timestamp (\textit{created\_at}, \textit{updated\_at}) e può 
+essere esteso per validazioni complesse o per innescare processi asincroni 
+(come l'avvio delle code di elaborazione) nel momento esatto in cui un documento 
+viene persistito nel database.
+
+
 
 
 
 
 \subsection{Database}
+
+\subsubsection{Schema ER}
+
+\subsubsection{Schema RS}
+
+\subsubsection{Descrizione tabelle}
+
+\subsubsubsection{User}
+Costituisce l'entità anagrafica principale del sistema e gestisce l'accesso 
+all'applicativo. Memorizza i dati personali dell'utente 
+(codice fiscale, nome, cognome) e le credenziali di autenticazione (username, 
+email, password). In un'architettura API-only, questa tabella è il punto di 
+riferimento per l'emissione e la convalida dei token di sicurezza.
+
+\subsubsubsection{Company}
+Rappresenta l'organizzazione, l'azienda cliente o la divisione aziendale 
+all'interno del sistema. Funge da aggregatore principale a cui vengono associati 
+sia i dipendenti sia i parametri di personalizzazione per la generazione dei 
+contenuti (toni e stili).
+
+\subsubsubsection{Employee}
+Funge da tabella di raccordo (join table con attributi) per mappare la relazione 
+molti-a-molti tra \textit{User} e \textit{Company}. Permette di contestualizzare 
+un utente all'interno di una specifica azienda, assegnandogli un dipartimento di 
+competenza (\textit{Department}).
+
+\subsubsubsection{Tones}
+Tabella di dizionario dedicata al modulo AI Generator. Definisce le direttive sul 
+"tono di voce" (es. Professionale, Amichevole) da fornire in input ai modelli 
+generativi. Ogni tono è vincolato a una specifica azienda (\textit{CompanyId}), 
+garantendo una personalizzazione della generazione isolata per ogni tenant.
+
+\subsubsubsection{Style}
+Simile all'entità \textit{Tones}, questa tabella definisce gli stili di scrittura 
+o formattazione (es. Conciso, Dettagliato). Anche in questo caso, la relazione 
+con \textit{Company} permette di compartimentare i preset stilistici a livello 
+aziendale.
+
+\subsubsubsection{GeneratedDatum}
+È l'entità centrale del modulo AI Generator. Traccia in modo esaustivo ogni 
+interazione con il modello di intelligenza artificiale, persistendo l'input 
+(\textit{Prompt}), l'output testuale (\textit{TextResult}) o visivo 
+(\textit{ImgPath}, \textit{Seed}, \textit{Height}, \textit{Width}), le 
+performance (\textit{GenerationTime}) e il feedback utente (\textit{Rating}). 
+Presenta una chiave esterna autoreferenziale (\textit{Versione}) cruciale per 
+il tracciamento delle rigenerazioni successive di uno stesso contenuto base.
+
+\subsubsubsection{Post}
+Entità destinata a rappresentare l'utilizzo finale di un contenuto generato dal 
+sistema. Collega direttamente un output testuale e/o grafico approvato 
+proveniente da \textit{GeneratedDatum} alle logiche di pubblicazione o 
+schedulazione esterne, memorizzandone titolo, corpo del testo e data di 
+effettivo utilizzo.
+
+\subsubsubsection{UploadedDocument}
+Rappresenta il punto di ingresso dei file fisici nel modulo AI Copilot. Oltre a 
+mantenere i riferimenti di archiviazione (\textit{StoragePath}, 
+\textit{OriginalFilename}, \textit{Checksum}), traccia gli eventuali interventi 
+umani di forzatura dei dati (\textit{OverrideCompany}, \textit{OverrideDepartment}),
+ permettendo di misurare l'affidabilità del sistema automatico.
+
+\subsubsubsection{ExtractedDocument}
+Consolida i dati di business estrapolati dall'intelligenza artificiale a partire 
+dal file originario (\textit{UploadedDocument}). Memorizza le metriche di 
+affidabilità dell'estrazione (\textit{Confidence}), i tempi di elaborazione e 
+mappa il risultato all'entità di business corretta (\textit{MatchedEmployeeId}).
+
+\subsubsubsection{ProcessingRun}
+Entità deputata alla gestione dell'elaborazione asincrona (Background Jobs). 
+Mappa un'esecuzione di sistema (batch o singola) per il processamento dei 
+documenti caricati, esponendo lo stato globale dell'operazione (\textit{Status}, 
+\textit{CompletedAt}, \textit{JobId}) e conteggiando i volumi elaborati 
+(\textit{TotalDocuments}, \textit{ProcessedDocuments}).
+
+\subsubsubsection{ProcessingItem}
+Gestisce la granularità delle operazioni asincrone. Ogni \textit{ProcessingRun} 
+è suddiviso in molteplici \textit{ProcessingItem}, permettendo al sistema di 
+tracciare in dettaglio lo stato di avanzamento (\textit{Status}, 
+\textit{Sequence}) e i potenziali errori (\textit{ErrorMessage}) a livello di 
+singolo documento o operazione isolata.
+
+\subsubsubsection{Template}
+Archivio dei modelli standard precompilati. Contiene strutture di testo 
+riutilizzabili per formattare gli output di sistema o le comunicazioni in uscita 
+in modo omogeneo e standardizzato.
+
+\subsubsubsection{Sending}
+Log di tracciamento per le comunicazioni in uscita. Questa entità collega in 
+modo relazionale un destinatario (\textit{RecipientId}, mappato verso 
+\textit{User}), il contenuto estrapolato dal sistema (\textit{ExtractedDocument}) 
+e l'eventuale formato utilizzato (\textit{Template}), registrando l'effettivo 
+payload della comunicazione (\textit{Subject}, \textit{Body}) e il timestamp di 
+invio (\textit{SentAt}).
+
+
 
 
 
