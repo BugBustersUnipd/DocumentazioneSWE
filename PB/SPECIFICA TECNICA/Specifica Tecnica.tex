@@ -152,7 +152,7 @@ Documento dove viene spiegata in dettaglio la struttura architetturale, le tecno
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
-\rowcolor{secondaryblue!10}0.1.0 & 30/03/2026 & Verifica del documento & - & Alberto Autiero- & - \\
+\rowcolor{secondaryblue!10}0.1.0 & 30/03/2026 & Verifica del documento & - & Alberto Autiero & - \\
 \hline
 \rowcolor{secondaryblue!10}0.0.5 & 27/03/2026 & Prima stesura paragrafo Database e continuazione paragrafo Design Pattern & Leonardo Salviato & - & - \\
 \hline
@@ -667,8 +667,8 @@ di file generici che non richiedono processi di splitting complessi
 
 \textbf{Attributi} 
 \begin{itemize}
-    \item upload_manager:UploadManager
-    \item generic_file_processing_job_class:Class
+    \item upload_manager: UploadManager
+    \item generic_file_processing_job_class: Class
     \item file_storage: FileStorage
 \end{itemize}
 
@@ -833,10 +833,10 @@ l'associazione più probabile.
     \item unmatched_result(fallback_text: String, best_match*: Hash): RecipientResolutionResult
     \item empty_result(): RecipientResolutionResult
     \item candidate_employees(normalized_term: String): Employee[]
-    \item score_candidate(employee: Employee, normalized_term: String) Hash
-    \item normalize(value: String) String
-    \item fuzzy_token_score(term_tokens: String[], name_tokens: String[]) Float
-    \item jaro_winkler(s1: String, s2: String) Float
+    \item score_candidate(employee: Employee, normalized_term: String): Hash
+    \item normalize(value: String): String
+    \item fuzzy_token_score(term_tokens: String[], name_tokens: String[]): Float
+    \item jaro_winkler(s1: String, s2: String): Float
     \item dice_coefficient(a: String, b: String): Float
     \item bigrams(text: String): String[]
 \end{itemize}
@@ -914,7 +914,7 @@ inversione delle dipendenze.
 \begin{itemize}
     \item initialize(aws_region*: String, broadcaster*: ActionCable::Server::Base, ocr_service_class*: Class, data_extractor_class*: Class, recipient_resolver_class*: Class, pdf_splitter_class*: Class, image_processor_class*: Class, csv_processor_class*: Class confidence_calculator_class*: Class, extracted_metadata_builder_class*: Class, notifier_class*: Class, llm_service_class*: Class, split_run_repository_class*: Class, data_item_repository_class*: Class, file_storage_class*: Class, upload_manager_class*: Class, page_range_pdf_service_class*: Class, db_manager_class*: Class, textract_client*: Aws::Textract::Client, bedrock_client*: Aws::BedrockRuntime::Client): void
     \item ocr_service(): DocumentOCRService
-    \item data_extractor(): DocumentDatatExtractorService
+    \item data_extractor(): DocumentDataExtractorService
     \item recipient_resolver(): DocumentRecipientResolverService
     \item pdf_splitter(pdf: String): PdfSplitter
     \item image_processor(): ImageProcessor
@@ -1558,19 +1558,6 @@ I requisiti opzionali, invece, si concentrano su funzionalità come la gestione 
 
 \subsection{Tabella di tracciamento dei requisiti}
 
-% ============================================================
-% PREAMBOLO NECESSARIO (da includere nel tuo documento .tex)
-% ============================================================
-% \usepackage{longtable}
-% \usepackage{array}
-% \usepackage{xcolor}
-% \usepackage{colortbl}
-% \usepackage{graphicx}
-% \usepackage{hyperref}
-% \definecolor{primaryblue}{RGB}{0, 102, 204}
-% \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-% ============================================================
-
 \renewcommand{\arraystretch}{1.2}
 \setlength{\tabcolsep}{4pt}
 
@@ -1752,9 +1739,9 @@ I requisiti opzionali, invece, si concentrano su funzionalità come la gestione 
 \hline
 \autoRF & Il sistema deve permettere l'inserimento del reparto associato al documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere controllare la correttezza del formato del file inserito. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di controllare la correttezza del formato del file inserito. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
-\autoRF & Il sistema deve permettere controllare che lo stesso file non sia già stato analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di controllare che lo stesso file non sia già stato analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
 \autoRF & Il sistema deve permettere lo split di documenti diversi all'interno dello stesso file. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
 \hline
