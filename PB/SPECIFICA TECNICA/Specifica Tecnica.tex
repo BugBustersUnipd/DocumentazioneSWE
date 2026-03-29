@@ -332,7 +332,291 @@ pgAdmin & Strumento grafico per amministrare e gestire database PostgreSQL & 9.1
 \end{longtable}
 
 \section{API}
+Il sistema espone un set di API RESTful che consentono l'interazione tra il frontend e il backend, 
+nonché l'integrazione con eventuali servizi esterni. Le API sono progettate per essere intuitive, sicure e 
+performanti, seguendo le best practice del settore per la progettazione di interfacce di programmazione. 
+Di seguito viene fornita una panoramica delle principali API esposte dal sistema, suddivise per funzionalità e endpoint.
 
+\subsection{Document Management API}
+\begin{longtable}{|p{4cm}|p{2cm}|p{7cm}|}
+\caption{Document Management API}\label{tab:document_management_api}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+/documents/split & POST & Upload PDF, avvia splitting + estrazione \\
+\hline
+/documents/process\_file & POST & Upload CSV/immagine \\
+\hline
+/documents/uploads & GET & Lista documenti caricati \\
+\hline
+/documents/uploads/ :id/extracted & GET & Pagine estratte di un documento \\
+\hline
+/documents/uploads/ :id/file & GET & Download file originale \\
+\hline
+/documents/extracted/ :id & GET & Dettaglio documento estratto \\
+\hline
+/documents/extracted/ :id/pdf & GET & Download range pagine come PDF \\
+\hline
+/documents/extracted/ :id/metadata & PATCH & Aggiorna metadati estratti \\
+\hline
+/documents/extracted/ :id/validate & PATCH & Valida documento \\
+\hline
+/documents/extracted/ :id/reassign\_range & PATCH & Riassegna range pagine estratto \\
+\hline
+/documents/uploads/ :id/retry & POST & Riprova processing run fallito \\
+\hline
+/documents/extracted/ :id/retry & POST & Riprova estrazione fallita \\
+\hline
+\end{longtable}
+
+\subsection{Lookups API}
+\begin{longtable}{|p{4cm}|p{2cm}|p{7cm}|}
+\caption{Lookups API}\label{tab:lookups_api}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+/lookups/companies & GET & Nomi aziende \\
+\hline
+/lookups/users & GET & Nomi dipendenti \\
+\hline
+\end{longtable}
+
+
+\subsection{Sendings API}
+\begin{longtable}{|p{4cm}|p{2cm}|p{7cm}|}
+\caption{Sendings API}\label{tab:sendings_api}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+/sendings & GET & Lista invii effettuati \\
+\hline
+/sendings & POST & Crea un invio (documento → destinatario) \\
+\hline
+\end{longtable}
+
+
+
+\subsection{Templates API}
+\begin{longtable}{|p{4cm}|p{2cm}|p{7cm}|}
+\caption{Templates API}\label{tab:templates_api}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+/templates & GET & Lista template disponibili \\
+\hline
+/templates/ :id & GET & Dettaglio template \\
+\hline
+/templates & POST & Crea nuovo template \\
+\hline
+\end{longtable}
+
+
+
+\subsection{Tones \& Styles API}
+\begin{longtable}{|p{3.5cm}|p{1.8cm}|p{6.5cm}|}
+\caption{Tones \& Styles API}\label{tab:tones_styles_api}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} \textendash\ continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{|r|}{{Continua nella prossima pagina\ldots}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+/tones & GET & Lista toni disponibili \\
+\hline
+/tones & POST & Crea tono \\
+\hline
+/tones/:id & DELETE & Elimina tono \\
+\hline
+/styles & GET & Lista stili disponibili \\
+\hline
+/styles & POST & Crea stile \\
+\hline
+/styles/:id & DELETE & Elimina stile \\
+\hline
+\end{longtable}
+
+\subsection{Posts API}
+\begin{longtable}{|p{3.5cm}|p{1.8cm}|p{6.5cm}|}
+\caption{Posts API}\label{tab:posts_api}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} \textendash\ continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{|r|}{{Continua nella prossima pagina\ldots}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+/posts & GET & Lista post generati \\
+\hline
+/posts & POST & Crea post \\
+\hline
+/posts/:id & DELETE & Elimina post \\
+\hline
+\end{longtable}
+
+\subsection{Generated Data API}
+\begin{longtable}{|p{4cm}|p{2cm}|p{7cm}|}
+\caption{Generated Data API}\label{tab:generated_data_api}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+/generated\_data & POST & Crea contenuto AI (asincrono) \\
+\hline
+/generated\_data/:id & GET & Stato e contenuto generazione \\
+\hline
+/generated\_data/:id/rating & PATCH & Valuta contenuto generato \\
+\hline
+/generated\_data/:id & DELETE & Elimina generazione \\
+\hline
+\end{longtable}
+
+\subsection{Analytics API}
+\begin{longtable}{|p{4cm}|p{2cm}|p{7cm}|}
+\caption{Analytics API}\label{tab:analytics_api}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\hline
+\rowcolor{primaryblue!40}
+\textbf{Endpoint} & \textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{|r|}{{Continua nella prossima pagina...}}\\
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+/ai\_copilot\_data\_analyst & GET & Dati analisi CoPilot \\
+\hline
+/ai\_generator\_data\_analyst & GET & Dati analisi Generator \\
+\hline
+\end{longtable}
 
 
 \section{Architettura del Sistema}
