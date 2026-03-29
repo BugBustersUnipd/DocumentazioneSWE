@@ -710,16 +710,87 @@ Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come u
 \caption{Architettura di Deployment}
 \end{figure}
 
-\subsection{Descrizione architettura (Backend)}
+\section{Descrizione architettura (Backend)}
 
-\subsubsection{Modulo AI Assistant}
+\subsection{Modulo AI Assistant}
 
-\subsubsection{Modulo AI CoPilot}
+\subsection{Modulo AI CoPilot}
 Il modulo AI CoPilot è la componente del sistema dedicata al supporto dei Consulenti del 
 Lavoro (CdL) nella gestione e revisione documentale automatizzata. 
 L’obiettivo principale è l’efficientamento del workflow operativo attraverso l’impiego di 
 modelli di intelligenza artificiale per l’estrazione di metadati e il riconoscimento 
 anagrafico.
+
+I diagrammi riportati di seguito rappresentano diagrammi delle classi parziali del blocco OCR,
+utili a mostrare i componenti principali senza appesantire la lettura con l'intero grafo delle
+dipendenze.
+
+Il primo diagramma mostra \textit{AIDocumentsController}, ossia il controller che gestisce tutto il
+flusso legato allo split, all'analisi documentale e alle eventuali modifiche manuali (ad esempio
+validazioni e riassegnazioni). Il controller delega la logica ai servizi applicativi e conclude
+l'orchestrazione con l'avvio dei job, che innescano asincronamente i flussi rappresentati dagli
+altri tre diagrammi delle classi parziali. Tutte le dipendenze sono iniettate tramite il container
+di sistema per massimizzare il disaccoppiamento; il dettaglio completo dell'iniezione non è
+rappresentato nei diagrammi per ragioni di comodità e chiarezza, ma rimane evidente dall'uso
+costante di componenti iniettati.
+
+\subsubsection{Diagrammi classi parziali del blocco OCR}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/OCR/documentController.png}
+\caption{Diagramma classi parziale -- Document Controller}
+\end{figure}
+Il diagramma mostra il controller di ingresso del modulo OCR: riceve le richieste HTTP,
+valida i parametri e delega l'esecuzione ai servizi applicativi, fino all'avvio dei job asincroni.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/OCR/Split.png}
+\caption{Diagramma classi parziale -- Flusso di split PDF}
+\end{figure}
+Questo diagramma rappresenta il flusso asincrono di splitting dei PDF, dalla preparazione
+del file alla suddivisione in item di elaborazione e al dispatch delle estrazioni.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/OCR/Pdf.png}
+\caption{Diagramma classi parziale -- Flusso di estrazione da PDF}
+\end{figure}
+Il diagramma evidenzia la catena di elaborazione dei documenti PDF estratti, con orchestrazione
+dei servizi OCR/LLM, persistenza dei metadati e aggiornamento dello stato dei processing item.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/OCR/GenericFile.png}
+\caption{Diagramma classi parziale -- Flusso file generici}
+\end{figure}
+Questo diagramma mostra il percorso dedicato ai file non PDF (ad esempio immagini o CSV),
+con inizializzazione specifica, job asincrono dedicato e normalizzazione del risultato.
+
+\subsubsection{Diagrammi di sequenza del blocco OCR}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/Sequenza/SequenzaGeneric.png}
+\caption{Diagramma di sequenza -- Flusso Generic File}
+\end{figure}
+Il diagramma descrive la sequenza operativa per i file generici, attualmente immagini e csv: richiesta al controller,
+inizializzazione del processing dedicato, accodamento job e aggiornamento asincrono dello stato.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/Sequenza/SequenzaOCR.png}
+\caption{Diagramma di sequenza -- Flusso PDF/OCR}
+\end{figure}
+Il diagramma mostra il flusso PDF con OCR: upload e split, orchestrazione dei servizi di
+estrazione, invocazione dei job asincroni e persistenza progressiva dei risultati estratti.
+Il flusso è separato dal percorso dei file generici, evidenziando la specificità del processo di splitting e dell'estrazione basata su pagine.
+
+
+
+
+
 
 \subsubsubsection{AIDocumentsController}
 \begin{figure}[H]
