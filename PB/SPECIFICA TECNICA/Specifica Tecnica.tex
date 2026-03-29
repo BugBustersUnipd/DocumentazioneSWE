@@ -801,7 +801,7 @@ Il flusso è separato dal percorso dei file generici, evidenziando la specificit
 \subsubsubsection{AIDocumentsController}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/AiDocumentController.jpg}
+\includegraphics[width=0.8\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/AiDocumentController.jpg}
 \end{figure}
 Classe di tipo Controller che espone gli endpoint per la gestione del ciclo di vita dei 
 documenti nel modulo AI CoPilot. Coordina le richieste HTTP provenienti 
@@ -825,6 +825,8 @@ la validazione dei dati estratti e la riassegnazione manuale dei range di pagine
     \item reassign_range(id: int, page_range*: String, page_start*: int, page_end*: int): void
     \item update_metadata(id: int, metadata_updates: Hash): void
     \item validate_extracted(id: int): Json
+    \item retry_processing(): Json
+    \item retry_extracted(): Json
     \item process_file(file: UploadedFile, category*: String, company*: String, department*: String, competence_period*: String): void
     \item parse_range_params(): [int ,int]
     \item int_or_nil(value: Object): int | nil
@@ -1131,16 +1133,37 @@ in tempo reale dell'interfaccia.
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(notifier: ActionCableNotifier | nil, file_storage: FileStorage | nil, generic_file_repository: DataItemRepository | nil, image_processor_factory: Proc, csv_processor_factory: Proc)
+    \item initialize(notifier: ActionCableNotifier | nil, file_storage: FileStorage | nil, generic_file_repository: DataItemRepository | nil, file_processor: CsvProcessor | ImageProcessor, confidence_calculator_factory: Proc)
     \item call(file_path: String, job_id: String, uploaded_document_id: int, file_kind: String, category*: String, override_company*: String, override_department*: String, competence_period*: String): void
     \item apply_user_overlays(llm_metadata: Hash, llm_confidence: Hash, overlays: Hash): [Hash,Hash]
-    \item process_csv(file_path: String, uploaded_document: UploadedDocument, run: ProcessingRun, overlays: Hash): Hash[]
-    \item process_image(file_path: String, uploaded_document: UploadedDocument, run: ProcessingRun, overlays: Hash): Hash[]
-    \item build_image_processor(): ImageProcessor
-    \item build_csv_processor(): CsvProcessor
+    \item process_file(file_path: String, uploaded_document: UploadedDocument, run: ProcessingRun, overlays: Hash): Hash[]
+    \item persist_item(uploaded_document: UploadedDocument, run: ProcessingRun, metadata: Hash, confidence: Hash, result: Hash, ocr_lines: String[]): [ExtractedDocument, ProcessingItem]
     \item build_success_payload(filename: String, recipient: String, extracted_document_data: Hash, extracted_confidence: Hash, matched_recipient: Hash|nil, extracted_document_id: int, document_index: int, total_documents: int, ocr_text*: String): Hash
     \item build_error_payload(message: String, filename*: String, extracted_document_id*: int): Hash
     \item format_employee(employee*: Employee): Hash|nil
+\end{itemize}
+
+\subsubsubsection{CSVProcessor}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/CSVProcessor.jpg}
+\end{figure}
+Servizio specializzato nell'estrazione di dati da file CSV.
+Implementa logiche di parsing e normalizzazione specifiche per questo formato, 
+estraendo i metadati strutturati e preparando i dati per la valutazione della 
+confidence da parte dell'LLM.  
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item data_extractor: DataExtractor
+    \item recipient_resolver: RecipientResolver
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(data_extractor: DataExtractor, recipient_resolver: RecipientResolver)
+    \item parse(file_path: String): Hash[]
+    \item call(file_path: String, container: Container): Hash{ocr_text: String, metadata: Hash, confidence: Hash, recipient: String | nil, employee: Employee | nil}[]
 \end{itemize}
 
 \subsubsubsection{ConfidenceCalculator}
@@ -1507,6 +1530,7 @@ risultato JSON e la normalizzazione dei campi estratti prima del salvataggio.
     \item normalize_field(value: Object): String | nil
     \item normalize_confidence(value: Numeric): Float
     \item empty_document_data(): Hash
+    \item expired_credentials_error?(error: StandardError): Bool
 \end{itemize}
 
 \subsubsubsection{OCR}
@@ -1533,6 +1557,8 @@ analizzando i layout per fornire un input coerente all'intelligenza artificiale 
     \item extract_line_items(page: CombinePDF::Page) Hash[]
     \item extract_line_blocks(document_bytes: Byte[]) Hash
     \item extract_layout_blocks(blocks: TextractBlock[]) String
+    \item expired_credentials_error(service: Symbol, error: StandardError): Exception
+    \item expired_credentials_error?(error: StandardError): Bool
 \end{itemize}
 
 \subsubsubsection{PdfSplitter}
@@ -1597,11 +1623,24 @@ e il parsing delle risposte JSON.
 
 
 
-\subsubsection{Modulo Data analisi}
+\subsection{Modulo Data analisi}
 Il modulo \textit{Data analisi} espone i componenti fondamentali per l'estrazione, il calcolo e l'esposizione delle
 metriche di utilizzo e delle statistiche relative alle due funzionalità principali del sistema: l'AI Co-Pilot per
 i documenti e l'AI-assistant generativo. Il modulo segue un'architettura a livelli, separando la gestione delle richieste (Controller),
 la logica di business e calcolo (Service) e l'interazione con il database (Data Manager).
+
+\subsubsection{Diagramma delle classi blocco modulo Data analisi}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAnalisi/BloccoModuloDataAnalisi.jpg}
+\end{figure}
+
+Questo diagramma illustra le classi principali del modulo di Data Analisi, evidenziando le loro responsabilità e le relazioni tra di esse.
+Lo scopo di questo modulo è fornire un'interfaccia coerente per l'estrazione e la 
+presentazione delle metriche chiave, consentendo al front-end di visualizzare 
+dashboard informative sull'utilizzo e le performance dell'AI Co-Pilot e 
+dell'AI-assistant generativo.
 
 \subsubsubsection{AICopilotDataAnalystController}
 \begin{figure}[H]
@@ -1775,7 +1814,137 @@ i feedback registrati (rating) e i conteggi delle richieste di rigenerazione, fo
     \item retrieve_average_time_analyses_query(): float
 \end{itemize}
 
-\subsection{Descrizione architettura (Frontend)}
+\subsection{Classi condivise}
+Questa sezione include classi che, pur non appartenendo a un modulo specifico, 
+forniscono funzionalità trasversali utilizzate sia dal modulo di AI Co-Pilot 
+che da quello di AI-assistant generativo.
+
+\subsubsection{Diagramma delle classi blocco modulo Classi condivise}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiCondivise/ClassiCondiviseBlocco.jpg}
+\end{figure}
+
+
+\subsubsubsection{SendingsController}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ClassiCondivise/SendingsController.jpg}
+\end{figure}
+
+Questa classe di tipo Controller gestisce le richieste HTTP relative alla creazione e gestione delle "sendings", ovvero le comunicazioni inviate ai destinatari in seguito all'estrazione dei dati.
+Fornisce endpoint per visualizzare le sendings esistenti e per crearne di nuove, delegando la logica di business alla classe \textit{CreateSending}. 
+Inoltre, include metodi di utilità per formattare i parametri di invio e rappresentare le sendings in un formato adatto alla risposta JSON.\\
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item index(): Json
+    \item create(extracted_document_id: int, recipient_id: int, sent_at: String, subject*: String, body*: String, template_id*: int): Json
+    \item sending_params(params: Hash): Hash
+    \item sending_representation(s: Sending): Hash
+\end{itemize}
+
+\subsubsubsection{CreateSending}
+
+Questa classe di tipo Command incapsula la logica necessaria per creare una nuova sending.
+Si occupa di validare i parametri di input, costruire l'oggetto Sending da salvare nel database e gestire eventuali errori durante il processo di creazione.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ClassiCondivise/CreateSending.jpg}
+\end{figure}
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item extracted_document_id: int
+    \item recipient_id: int
+    \item sent_at: DateTime
+    \item subject: String
+    \item body: String
+    \item template_id: int
+    \item result: Hash
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(extracted_document_id: int, recipient_id: int, sent_at: DateTime, subject*: String, body*: String, template_id*: int): void
+    \item call(): CreateSending
+    \item success?(): Boolean
+    \item validate_inputs(): void
+    \item build_sending(): Sending
+    \item save_sending(sending: Sending): Boolean
+\end{itemize}
+
+\subsubsubsection{LookupsController}
+
+Questa classe di tipo Controller fornisce endpoint API per recuperare dati di riferimento condivisi, come la lista delle aziende e degli utenti associati a ciascuna azienda.
+Questi dati sono utilizzati sia dal modulo di AI Co-Pilot che da quello di AI-assistant generativo per popolare dropdown, assegnare responsabilità o filtrare le informazioni visualizzate. Il controller delega la logica di recupero dei dati a classi di servizio dedicate (es. \textit{UsersFetcher} e \textit{CompaniesFetcher}).\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ClassiCondivise/LookupsController.jpg}
+\end{figure}
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item companies(): Json
+    \item users(company*: String): Json
+\end{itemize}
+
+\subsubsubsection{UsersFetcher}
+
+Questa classe di tipo Service Object è responsabile del recupero degli utenti associati a una specifica azienda.
+Fornisce un'interfaccia semplice per ottenere la lista degli employee da un database o da un servizio esterno, filtrando per azienda. Viene utilizzata principalmente dal \textit{LookupsController} per popolare le dropdown di selezione degli utenti nel front-end.\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ClassiCondivise/UsersFetcher.jpg}
+\end{figure}
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item call(company*: String): Employee
+\end{itemize}
+
+\subsubsubsection{CompaniesFetcher}
+
+Questa classe di tipo Service Object è responsabile del recupero della lista delle aziende disponibili.
+Fornisce un'interfaccia semplice per ottenere l'elenco delle aziende da un database o da un servizio esterno, restituendo i dati in un formato adatto alla serializzazione JSON. Viene utilizzata principalmente dal \textit{LookupsController} per popolare le dropdown di selezione delle aziende nel front-end.\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ClassiCondivise/CompaniesFetcher.jpg}
+\end{figure}
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item call(): Hash
+\end{itemize}
+
+
+\section{Descrizione architettura (Frontend)}
 
 
 
