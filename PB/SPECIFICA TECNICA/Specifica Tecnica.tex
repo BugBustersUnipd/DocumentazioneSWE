@@ -25,6 +25,10 @@
 \usepackage{array}
 \usepackage{colortbl}
 \usepackage{underscore}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\small, breaklines=true, frame=single, columns=flexible}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\pattern}[1]{\textit{#1}}
 % Macro
 \input{../../assets/macro/macro-verbali.tex}
 
@@ -384,6 +388,8 @@ Di seguito viene fornita una panoramica delle principali API esposte dal sistema
 /documents/uploads/ :id/retry & POST & Riprova processing run fallito \\
 \hline
 /documents/extracted/ :id/retry & POST & Riprova estrazione fallita \\
+\hline
+/documents/uploads/ :id & DELETE & Elimina documento caricato \\
 \hline
 \end{longtable}
 
@@ -1777,74 +1783,974 @@ i feedback registrati (rating) e i conteggi delle richieste di rigenerazione, fo
 
 
 
-\subsection{Design Pattern}
-La progettazione e lo sviluppo del sistema si sono avvalsi di consolidati design 
-pattern, sia applicati esplicitamente durante la stesura della logica di dominio, 
-sia ereditati intrinsecamente dal framework Ruby on Rails. L'adozione di tali 
-paradigmi ha garantito modularità, manutenibilità e un'elevata testabilità 
-dell'intero applicativo.
-
-\subsubsection{Pattern implementati}
-
-\subsubsubsection{Adapter}
-Il pattern strutturale Adapter è stato impiegato per standardizzare l'interfaccia 
-di comunicazione con i servizi esterni, in particolare per l'integrazione con i 
-provider di Intelligenza Artificiale (AI). Creando un livello di astrazione 
-(wrapper) attorno alle API di terze parti, il sistema isola la logica di business 
-dalle specifiche di implementazione della libreria esterna. Ciò garantisce un 
-basso accoppiamento: in caso di migrazione verso un differente fornitore di 
-servizi AI, sarà sufficiente implementare un nuovo Adapter senza dover alterare i 
-moduli core dell'applicativo (es. i \textit{ComputationService}).
-
-\subsubsubsection{Dependency Injection}
-Al fine di favorire l'inversione del controllo (IoC) e massimizzare la testabilità, 
-è stato adottato il pattern Dependency Injection (DI). Invece di istanziare 
-rigidamente le dipendenze all'interno delle classi (come ad esempio le classi di 
-logica o i gestori di dati), le istanze necessarie vengono iniettate dall'esterno. Nel contesto di questo progetto, la DI si è rivelata cruciale durante la stesura degli unit test e dei test di integrazione, permettendo di sostituire agilmente i componenti reali con oggetti \textit{Mock} o dati di simulazione (es. nei \textit{DataManager}), garantendo test deterministici e isolati.
-
-\subsubsubsection{Factory}
-Il pattern creazionale Factory è stato implementato per incapsulare e 
-centralizzare la logica di istanziazione di oggetti complessi. All'interno del 
-dominio applicativo, viene sfruttato per delegare a una classe fabbrica la 
-responsabilità di restituire la corretta implementazione di un servizio o di un 
-gestore (come i vari \textit{AnalysesDataManager}) in base al contesto operativo 
-o ai parametri di input forniti a runtime. Questo approccio aderisce al principio 
-Open/Closed, facilitando l'estensione del sistema con nuove varianti di 
-elaborazione senza modificare il codice client esistente.
-
-\subsubsection{Pattern framework}
-
-\subsubsubsection{Model-View-Controller (MVC)}
-L'architettura dell'intero applicativo è fondata sul pattern architetturale MVC, 
-paradigma cardine imposto da Ruby on Rails. Esso divide le responsabilità in tre 
-componenti separati: il \textit{Model} gestisce la logica dei dati e le regole di 
-business; la \textit{View} (che in questo ecosistema esposto via API funge da 
-serializzatore JSON) gestisce la presentazione; il \textit{Controller} orchestra 
-il flusso informativo, ricevendo le richieste HTTP, interrogando i modelli e 
-restituendo la risposta formattata. Questa rigorosa separazione (Separation of 
-Concerns) garantisce un codice pulito e navigabile.
-
-\subsubsubsection{Active Record}
-Per l'interazione con il database relazionale (PostgreSQL), il framework utilizza 
-nativamente l'omonimo pattern architetturale Active Record, formalizzato da 
-Martin Fowler. Ogni classe Modello del sistema (es. \textit{ExtractedDocument}, 
-\textit{User}, \textit{Company}) mappa in modo speculare una tabella del database, e ogni singola istanza dell'oggetto rappresenta una tupla. Questo pattern nasconde completamente la complessità delle query SQL sottostanti, fornendo un'interfaccia orientata agli oggetti fluida per le operazioni CRUD, le aggregazioni e la gestione delle chiavi esterne e delle relazioni (\textit{belongs\_to}, \textit{has\_many}).
-
-\subsubsubsection{Observer (tramite Callbacks)}
-Ruby on Rails implementa concettualmente il pattern comportamentale Observer 
-attraverso il proprio ecosistema di \textit{Callbacks} legate al ciclo di vita 
-dei modelli. Il sistema consente di "agganciare" (iscrivere) specifici metodi che 
-restano in ascolto dei cambiamenti di stato degli oggetti 
-(es. \textit{before\_save}, \textit{after\_create}). Nel progetto, questo 
-meccanismo implicito viene utilizzato dal framework per gestire automaticamente 
-l'aggiornamento dei timestamp (\textit{created\_at}, \textit{updated\_at}) e può 
-essere esteso per validazioni complesse o per innescare processi asincroni 
-(come l'avvio delle code di elaborazione) nel momento esatto in cui un documento 
-viene persistito nel database.
 
 
+% ============================================================
+\section{Design Pattern}
+% ============================================================
 
+La progettazione e lo sviluppo del sistema si sono avvalsi di consolidati design
+pattern, sia implementati esplicitamente nella logica di dominio, sia ereditati
+intrinsecamente dal framework Ruby on Rails. L'adozione di tali paradigmi ha
+garantito modularità, manutenibilità ed elevata testabilità dell'intero
+applicativo.
 
+Il backend è strutturato attorno a un'architettura a servizi stratificata:
+i \textit{Controller} gestiscono il routing HTTP; i \textit{Command} incapsulano
+le operazioni di business; i \textit{Service Object} orchestrano pipeline
+complesse; i \textit{Repository} astraggono la persistenza; il \textit{Container}
+governa l'iniezione delle dipendenze. I componenti \textit{Job} delegano
+l'elaborazione pesante a code asincrone notificando il frontend in tempo reale
+tramite ActionCable.
+
+\bigskip
+
+\noindent La tabella~\ref{tab:pattern_riepilogo} riassume tutti i pattern
+documentati in questa sezione.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{lllX}
+\toprule
+\textbf{Pattern} & \textbf{Categoria} & \textbf{GoF / POEAA} & \textbf{Dove applicato} \\
+\midrule
+Service Object      & Comportamentale & ---      & \code{ProcessDataItem}, \code{ProcessSplitRun}, \code{ProcessGenericFile}, \code{AIGeneratorService} \\
+Command             & Comportamentale & GoF      & \code{InitializeProcessing}, \code{InitializeFileProcessing}, \code{ReassignExtractedRange} \\
+Repository          & Architetturale  & POEAA    & \code{DataItemRepository}, \code{SplitRunRepository} \\
+Container / DI      & Creazionale     & ---      & \code{DocumentProcessing::Container}, \code{AiGeneratorContainer} \\
+Strategy            & Comportamentale & GoF      & \code{file\_processor} (CSV / Image) \\
+Adapter             & Strutturale     & GoF      & \code{UploadManager}, \code{SetterFactory} \\
+Factory Method      & Creazionale     & GoF      & Metodi factory nel Container \\
+Presenter           & Strutturale     & ---      & \code{ExtractedDocumentPresenter} \\
+Serializer          & Strutturale     & ---      & \code{PostSerializer}, \code{ToneSerializer}, \code{StyleSerializer} \\
+Observer            & Comportamentale & GoF      & \code{ActionCableNotifier}, \code{AiJobOrchestrator} \\
+Active Record       & Architetturale  & POEAA    & Tutti i modelli Rails \\
+MVC                 & Architetturale  & ---      & Intera applicazione Rails \\
+\bottomrule
+\end{tabularx}
+\caption{Riepilogo dei design pattern adottati}
+\label{tab:pattern_riepilogo}
+\end{table}
+
+% ============================================================
+\subsection{Pattern implementati esplicitamente}
+% ============================================================
+
+\subsubsection{Service Object}
+
+\textit{Intent: Incapsulare un'operazione di business complessa in una classe dedicata con
+un'unica responsabilità, esponendo un'interfaccia uniforme \code{call(\ldots)}.}
+
+Il pattern \pattern{Service Object} costituisce l'ossatura della logica
+applicativa. Ogni servizio ha una responsabilità precisa e non porta stato
+persistente tra invocazioni distinte.
+
+\paragraph{ProcessDataItem}
+Orchestratore centrale della pipeline OCR: coordina riconoscimento ottico dei
+caratteri, estrazione dati tramite LLM, calcolo della confidenza, risoluzione
+del destinatario e persistenza del risultato.
+
+\begin{lstlisting}[caption={ProcessDataItem -- struttura del metodo \code{call}}]
+# app/services/document_processing/process_data_item.rb
+module DocumentProcessing
+  class ProcessDataItem
+    def initialize(
+      ocr_service:, data_extractor:, recipient_resolver:,
+      confidence_calculator_factory:, data_item_repository:,
+      notifier:, metadata_builder:, file_storage:
+    )
+      @ocr_service                 = ocr_service
+      @data_extractor              = data_extractor
+      @recipient_resolver          = recipient_resolver
+      @confidence_calculator_factory = confidence_calculator_factory
+      @data_item_repository        = data_item_repository
+      @notifier                    = notifier
+      @metadata_builder            = metadata_builder
+      @file_storage                = file_storage
+    end
+
+    def call(file_path:, job_id:, processing_item_id: nil,
+             extracted_document_id: nil)
+      item     = @data_item_repository.find_processing_item(processing_item_id)
+      document = @data_item_repository.find_extracted_document(extracted_document_id)
+
+      return if @data_item_repository.terminal_item?(item)
+
+      @data_item_repository.mark_item_in_progress!(item)
+
+      # 1. OCR
+      ocr_result = @ocr_service.extract_text(file_path)
+      # 2. Estrazione strutturata via LLM
+      extracted  = @data_extractor.extract(ocr_result.text)
+      # 3. Confidenza
+      confidence = @confidence_calculator_factory.call(
+        ocr_lines: ocr_result.lines, llm_result: extracted
+      ).global_confidence
+      # 4. Risoluzione destinatario
+      resolution = @recipient_resolver.resolve(extracted.recipient)
+      # 5. Persistenza e notifica
+      @data_item_repository.mark_item_done!(item: item, resolution: resolution)
+      @notifier.broadcast(job_id, { event: "document_processed", ... })
+    rescue StandardError => e
+      @data_item_repository.mark_item_failed(item: item, error_message: e.message)
+      @notifier.broadcast(job_id, { event: "error", message: e.message })
+    ensure
+      @file_storage.delete(file_path) if @file_storage.exist?(file_path)
+    end
+  end
+end
+\end{lstlisting}
+
+\paragraph{ProcessSplitRun}
+Gestisce la fase di splitting di un PDF: divide il documento in sotto-PDF,
+crea i record \code{ProcessingItem} / \code{ExtractedDocument} associati
+e accoda un job \code{DataExtractionJob} per ciascuna porzione.
+
+\paragraph{ProcessGenericFile}
+Gestisce file non-PDF (CSV, immagini) tramite il pattern Strategy
+(si veda la sezione \ref{sec:strategy}): seleziona il processore appropriato
+in base al \code{file\_kind} e applica gli override utente con confidenza 1.0.
+
+% ------------------------------------------------------------------
+\subsubsection{Command}
+% ------------------------------------------------------------------
+
+\textit{Intent (GoF): Incapsulare una richiesta come oggetto, parametrizzare i client con operazioni
+diverse e supportare operazioni reversibili o accodabili.}
+
+I Command centralizzano le operazioni di business esposte dai Controller,
+restituendo sempre un hash di risultato strutturato e isolando la gestione
+degli errori dalla presentazione HTTP.
+
+\begin{lstlisting}[caption={InitializeProcessing -- validazione e avvio pipeline}]
+# app/services/document_processing/commands/initialize_processing.rb
+module DocumentProcessing
+  module Commands
+    class InitializeProcessing
+      def initialize(upload_manager:, file_storage:,
+                     data_item_repository:, job_class: PdfSplitJob)
+        @upload_manager      = upload_manager
+        @file_storage        = file_storage
+        @data_item_repository = data_item_repository
+        @job_class           = job_class
+      end
+
+      def call(file:, category: nil, company: nil,
+               department: nil, competence_period: nil, employee: nil)
+        checksum     = @upload_manager.compute_checksum(file)
+        existing     = UploadedDocument.find_by(checksum: checksum)
+        return already_exists_result(existing) if existing
+
+        storage_path = @upload_manager.persist_source_pdf(file)
+        uploaded_doc = UploadedDocument.create!(
+          original_filename:   file.original_filename,
+          storage_path:        storage_path,
+          checksum:            checksum,
+          file_kind:           "pdf",
+          override_company:    company,
+          override_department: department
+        )
+        run = ProcessingRun.create!(
+          job_id: SecureRandom.uuid, status: "queued",
+          uploaded_document: uploaded_doc
+        )
+        @job_class.perform_later(storage_path, run.job_id)
+
+        { status: "queued", job_id: run.job_id,
+          uploaded_document_id: uploaded_doc.id, message: "Avviato" }
+      rescue UploadManager::ValidationError => e
+        { ok: false, error: :validation, message: e.message }
+      rescue UploadManager::PersistenceError
+        { ok: false, error: :persistence, message: "Errore nel salvataggio" }
+      end
+    end
+  end
+end
+\end{lstlisting}
+
+\begin{lstlisting}[caption={ReassignExtractedRange -- riprocessamento con nuovo range}]
+# app/services/document_processing/commands/reassign_extracted_range.rb
+def call(extracted_document_id:, page_start:, page_end:)
+  doc = ExtractedDocument.find(extracted_document_id)
+
+  unless page_start.is_a?(Integer) && page_end.is_a?(Integer) &&
+         page_start > 0 && page_end >= page_start &&
+         page_end <= doc.uploaded_document.page_count
+    return { ok: false, error: :validation,
+             message: "Range pagine non valido" }
+  end
+
+  temp_path = @page_range_pdf_service.build_temp_pdf(
+    page_start: page_start, page_end: page_end
+  )
+  doc.update!(status: "queued", page_start: page_start, page_end: page_end)
+  DataExtractionJob.perform_later(temp_path, {
+    job_id: doc.uploaded_document.processing_runs.last.job_id,
+    extracted_document_id: doc.id
+  })
+  { ok: true, extracted_document_id: doc.id,
+    page_start: page_start, page_end: page_end,
+    message: "Riassegnazione completata" }
+end
+\end{lstlisting}
+
+I tre Command del sistema sono riepilogati in tabella~\ref{tab:commands}.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Command} & \textbf{Responsabilità} & \textbf{Job accodato} \\
+\midrule
+\code{InitializeProcessing}     & Valida PDF, crea \code{UploadedDocument} e \code{ProcessingRun} & \code{PdfSplitJob} \\
+\code{InitializeFileProcessing} & Valida CSV/immagine, crea record & \code{GenericFileProcessingJob} \\
+\code{ReassignExtractedRange}   & Aggiorna range pagine, riaccoda estrazione & \code{DataExtractionJob} \\
+\bottomrule
+\end{tabularx}
+\caption{Command e rispettivi job accodati}
+\label{tab:commands}
+\end{table}
+
+% ------------------------------------------------------------------
+\subsubsection{Repository}
+% ------------------------------------------------------------------
+
+\textit{Intent (POEAA -- Fowler): Mediare tra il dominio e il livello di mapping dati usando un'interfaccia
+simile a una collezione per accedere agli oggetti del dominio.}
+
+I Repository centralizzano tutte le transizioni di stato e le query di
+persistenza, isolando il resto dell'applicazione da ActiveRecord. L'accesso
+diretto ai modelli avviene \emph{esclusivamente} attraverso queste classi.
+
+\begin{lstlisting}[caption={DataItemRepository -- transizioni di stato con pessimistic locking}]
+# app/services/document_processing/persistence/data_item_repository.rb
+module DocumentProcessing
+  module Persistence
+    class DataItemRepository
+
+      # Trova un ProcessingItem per id
+      def find_processing_item(id)
+        ProcessingItem.find(id)
+      end
+
+      # Transizione atomica in_progress (lock pessimistico)
+      def mark_item_in_progress!(item)
+        item.with_lock do
+          item.reload
+          return if item.done? || item.failed?
+          item.update!(status: "in_progress")
+        end
+      end
+
+      # Transizione done con aggiornamento employee
+      def mark_item_done!(item:, resolution:)
+        item.with_lock do
+          item.update!(status: "done")
+          if resolution.matched?
+            item.extracted_document
+                .update!(matched_employee: resolution.employee)
+          end
+        end
+      end
+
+      # Aggiorna il progresso del ProcessingRun
+      def update_progress!(run)
+        run.with_lock do
+          total = run.processing_items.count
+          done  = run.processing_items.where(status: %w[done failed]).count
+          pct   = total.positive? ? (done.to_f / total * 100).round : 0
+          run.update!(progress_percentage: pct)
+          run.update!(status: "completed") if done == total
+        end
+      end
+
+      def transaction(&block)
+        ApplicationRecord.transaction(&block)
+      end
+    end
+  end
+end
+\end{lstlisting}
+
+Il \pattern{Pessimistic Locking} (\code{with\_lock}) è fondamentale per
+garantire la correttezza delle transizioni di stato quando più job elaborano
+documenti in parallelo: senza lock, due worker potrebbero leggere lo stesso
+stato \code{queued} e procedere simultaneamente.
+
+\begin{lstlisting}[caption={SplitRunRepository -- creazione artefatti di splitting}]
+# app/services/document_processing/persistence/split_run_repository.rb
+def create_split_artifacts!(run:, split_results:)
+  split_results.each_with_index do |result, idx|
+    extracted = ExtractedDocument.create!(
+      uploaded_document: run.uploaded_document,
+      sequence:   idx + 1,
+      page_start: result[:page_start],
+      page_end:   result[:page_end],
+      status:     "queued"
+    )
+    ProcessingItem.create!(
+      processing_run:    run,
+      extracted_document: extracted,
+      sequence:          idx + 1,
+      status:            "queued"
+    )
+  end
+end
+\end{lstlisting}
+
+% ------------------------------------------------------------------
+\subsubsection{Container e Dependency Injection}
+% ------------------------------------------------------------------
+
+\textit{Intent: Centralizzare la creazione e la composizione delle dipendenze in un oggetto
+dedicato (IoC Container), permettendo ai client di ricevere le
+dipendenze senza istanziarle direttamente.}
+
+\paragraph{DocumentProcessing::Container}
+Il Container è il cuore dell'architettura: gestisce l'intero grafo di
+dipendenze del modulo OCR, inizializzando i servizi con lazy memoization
+e supportando l'override di qualsiasi componente per i test.
+
+\begin{lstlisting}[caption={DocumentProcessing::Container -- composizione delle dipendenze}]
+# app/services/document_processing/container.rb
+module DocumentProcessing
+  class Container
+    def initialize(
+      ocr_service_class:        DocumentProcessing::OcrService,
+      data_extractor_class:     DocumentProcessing::DataExtractor,
+      pdf_splitter_class:       DocumentProcessing::PdfSplitter,
+      job_class:                PdfSplitJob,
+      notifier_class:           DocumentProcessing::ActionCableNotifier,
+      **overrides
+    )
+      @ocr_service_class    = ocr_service_class
+      @data_extractor_class = data_extractor_class
+      @pdf_splitter_class   = pdf_splitter_class
+      @job_class            = job_class
+      @notifier_class       = notifier_class
+      @overrides            = overrides
+    end
+
+    # Memoizzazione lazy: il client Textract viene creato
+    # solo al primo accesso
+    def ocr_service
+      @ocr_service ||= @ocr_service_class.new(
+        client: Aws::Textract::Client.new(region: aws_region)
+      )
+    end
+
+    # Factory Method: seleziona il processore corretto per tipo file
+    def file_processor(file_kind)
+      case file_kind.to_s
+      when "csv"   then csv_processor
+      when "image" then image_processor
+      else raise ArgumentError, "file_kind non supportato: #{file_kind}"
+      end
+    end
+
+    # Composizione complessa: process_data_item_service aggrega
+    # 8 dipendenze diverse
+    def process_data_item_service
+      @process_data_item_service ||= ProcessDataItem.new(
+        ocr_service:                 ocr_service,
+        data_extractor:              data_extractor,
+        recipient_resolver:          recipient_resolver,
+        confidence_calculator_factory: method(:confidence_calculator),
+        data_item_repository:        data_item_repository,
+        notifier:                    notifier,
+        metadata_builder:            metadata_builder,
+        file_storage:                file_storage
+      )
+    end
+
+    def initialize_processing_command
+      Commands::InitializeProcessing.new(
+        upload_manager:       upload_manager,
+        file_storage:         file_storage,
+        data_item_repository: data_item_repository,
+        job_class:            @job_class
+      )
+    end
+
+    private
+
+    def aws_region
+      ENV.fetch("AWS_REGION", "eu-west-1")
+    end
+  end
+end
+\end{lstlisting}
+
+Questo approccio consente di testare qualsiasi servizio sostituendo una
+singola dipendenza tramite override del costruttore, senza modificare il
+codice di produzione:
+
+\begin{lstlisting}[caption={Utilizzo del Container nei test -- override delle dipendenze}]
+# test/controllers/documents_controller_test.rb
+def fake_container(overrides = {})
+  init_cmd = fake_command(
+    overrides.fetch(:init_result,
+      { status: "queued", job_id: "j1", uploaded_document_id: 1 })
+  )
+  Object.new.tap do |c|
+    c.define_singleton_method(:initialize_processing_command) { init_cmd }
+    c.define_singleton_method(:file_storage) {
+      overrides.fetch(:file_storage, DocumentProcessing::Persistence::FileStorage.new)
+    }
+    c.define_singleton_method(:db_manager) {
+      overrides.fetch(:db_manager, real_db_manager)
+    }
+  end
+end
+
+# Nel test: il Container reale viene sostituito con il fake
+stub_new(DocumentProcessing::Container, fake_container) do
+  post split_documents_path, params: { pdf: "dummy" }
+end
+\end{lstlisting}
+
+\paragraph{AiGenerator::AiGeneratorContainer}
+Container analogo per il modulo di generazione AI: gestisce i servizi
+Bedrock per testo e immagini, il data manager e la factory dei parametri.
+
+\begin{lstlisting}[caption={AiGeneratorContainer -- servizi Bedrock con configurazione da ENV}]
+# app/services/ai_generator/ai_generator_container.rb
+module AiGenerator
+  class AiGeneratorContainer
+    def aiGeneratorService
+      @aiGeneratorService ||= AIGeneratorService.new(
+        textGenerator:      textGenerator,
+        imgGenerator:       imgGenerator,
+        setterFactory:      setterFactory,
+        aiGeneratorDataManager: aiGeneratorDataManager,
+        validationService:  AiGeneratorValidationService.new
+      )
+    end
+
+    private
+
+    def textGenerator
+      @textGenerator ||= TextGeneratorService.new(
+        client: Aws::BedrockRuntime::Client.new(region: bedrock_region)
+      )
+    end
+
+    def imgGenerator
+      @imgGenerator ||= ImageGeneratorService.new(
+        client: Aws::BedrockRuntime::Client.new(region: bedrock_region)
+      )
+    end
+
+    def bedrock_region
+      ENV.fetch("BEDROCK_REGION", "us-east-1")
+    end
+  end
+end
+\end{lstlisting}
+
+% ------------------------------------------------------------------
+\subsubsection{Strategy}
+\label{sec:strategy}
+% ------------------------------------------------------------------
+
+\textit{Intent (GoF): Definire una famiglia di algoritmi, incapsulare ciascuno e renderli
+intercambiabili. Lo Strategy permette di variare l'algoritmo
+indipendentemente dai client che lo utilizzano.}
+
+Il metodo \code{file\_processor} del Container implementa la selezione
+dinamica della strategia di elaborazione in base al tipo di file:
+
+\begin{lstlisting}[caption={Strategy -- selezione del processore per tipo file}]
+# In DocumentProcessing::Container
+def file_processor(file_kind)
+  case file_kind.to_s
+  when "csv"   then csv_processor   # Strategia CSV
+  when "image" then image_processor # Strategia immagine
+  else raise ArgumentError, "file_kind non supportato: #{file_kind}"
+  end
+end
+
+def csv_processor
+  @csv_processor ||= CsvProcessor.new(
+    recipient_resolver: recipient_resolver,
+    metadata_builder:   metadata_builder
+  )
+end
+
+def image_processor
+  @image_processor ||= ImageProcessor.new(
+    ocr_service:        ocr_service,
+    data_extractor:     data_extractor,
+    recipient_resolver: recipient_resolver
+  )
+end
+\end{lstlisting}
+
+Entrambi i processori condividono la stessa interfaccia \code{call(file\_path)}
+e restituiscono un hash uniforme con \code{metadata}, \code{confidence},
+\code{recipient} e \code{ocr\_text}. Il chiamante (\code{ProcessGenericFile})
+non conosce quale strategia stia usando:
+
+\begin{lstlisting}[caption={ProcessGenericFile -- polimorfismo tramite Strategy}]
+# Il servizio riceve il processore dal Container: non conosce
+# se e' CSV o immagine
+def call(file_path:, job_id:, uploaded_document_id:, ...)
+  uploaded = UploadedDocument.find(uploaded_document_id)
+  # file_processor e' gia' la strategia corretta
+  result = @file_processor.call(file_path)
+
+  # Override utente: confidenza 1.0 (certezza massima)
+  result[:metadata].merge!(override_company: override_company) if override_company
+  create_extracted_document(uploaded, result, ...)
+end
+\end{lstlisting}
+
+% ------------------------------------------------------------------
+\subsubsection{Adapter}
+% ------------------------------------------------------------------
+
+\textit{Intent (GoF): Convertire l'interfaccia di una classe in un'altra interfaccia attesa dai
+client, permettendo la collaborazione tra classi con interfacce incompatibili.}
+
+\paragraph{UploadManager}
+Adatta le operazioni di I/O sui file (salvataggio, validazione, checksum)
+a un'interfaccia uniforme indipendente dal tipo di file e dal backend
+di storage sottostante.
+
+\begin{lstlisting}[caption={UploadManager -- interfaccia unificata per tipi file diversi}]
+# app/services/document_processing/upload_manager.rb
+module DocumentProcessing
+  class UploadManager
+    MAX_PDF_SIZE     = 50.megabytes
+    MAX_GENERIC_SIZE = 20.megabytes
+
+    ALLOWED_PDF_CONTENT_TYPES = %w[
+      application/pdf application/x-pdf
+      application/acrobat application/vnd.pdf
+    ].freeze
+
+    # Interfaccia unificata: il chiamante non gestisce
+    # la logica di validazione specifica per tipo
+    def persist_source_pdf(file)
+      validate_pdf!(file)
+      save_to_storage(file, "storage/uploads/source_documents")
+    end
+
+    def persist_supported_source_file(file)
+      kind = detect_upload_kind(file)
+      validate_generic!(file, kind)
+      save_to_storage(file, "storage/uploads/source_documents")
+    end
+
+    def compute_checksum(file)
+      Digest::SHA256.file(file.tempfile.path).hexdigest
+    end
+
+    def detect_upload_kind(file)
+      ext = File.extname(file.original_filename).downcase
+      return "csv"   if ext == ".csv"
+      return "image" if %w[.jpg .jpeg .png].include?(ext)
+      "unknown"
+    end
+
+    private
+
+    def validate_pdf!(file)
+      raise ValidationError, "Estensione non valida" unless
+        File.extname(file.original_filename).downcase == ".pdf"
+      raise ValidationError, "File troppo grande (max 50MB)" if
+        file.size > MAX_PDF_SIZE
+      raise ValidationError, "Firma PDF non valida" unless
+        File.read(file.tempfile.path, 4) == "%PDF"
+    end
+  end
+end
+\end{lstlisting}
+
+\paragraph{SetterFactory}
+Adapter-Factory che crea il parametrizzatore corretto per testo o immagine
+nell'ambito della generazione AI:
+
+\begin{lstlisting}[caption={SetterFactory -- adattamento parametri per tipo generazione}]
+# app/services/ai_generator/setter_factory.rb
+module AiGenerator
+  class SetterFactory
+    def create_text_setter(params_data)
+      TextParamsSetterService.new(params_data)
+    end
+
+    def create_image_setter(params_data)
+      ImageParamsSetterService.new(params_data)
+    end
+  end
+end
+\end{lstlisting}
+
+% ------------------------------------------------------------------
+\subsubsection{Factory Method}
+% ------------------------------------------------------------------
+
+\textit{Intent (GoF): Definire un'interfaccia per la creazione di un oggetto, lasciando alle
+sottoclassi (o ai metodi specializzati) la decisione su quale classe
+istanziare.}
+
+I metodi del Container agiscono come Factory Method: centralizzano la
+logica di costruzione di oggetti complessi e le loro dipendenze. Il chiamante
+invoca il metodo senza conoscere la classe concreta istanziata:
+
+\begin{lstlisting}[caption={Factory Method nel Container -- costruzione lazy con memoization}]
+# Il Controller ottiene il Command senza conoscere come e' costruito
+def initialize_processing_command    # <- Factory Method
+  Commands::InitializeProcessing.new(
+    upload_manager:       upload_manager,   # altra factory
+    file_storage:         file_storage,
+    data_item_repository: data_item_repository,
+    job_class:            @job_class
+  )
+end
+
+# Chiamata nel Controller: nessuna dipendenza diretta
+def split
+  result = initialize_processing_command.call(
+    file:     params[:pdf],
+    company:  params[:company],
+    category: params[:category]
+  )
+  render json: result
+end
+\end{lstlisting}
+
+% ------------------------------------------------------------------
+\subsubsection{Presenter e Serializer}
+% ------------------------------------------------------------------
+
+\textit{Intent: Separare la logica di presentazione/formattazione dal modello dati,
+producendo rappresentazioni JSON coerenti e disaccoppiate dai dettagli
+di persistenza.}
+
+\paragraph{ExtractedDocumentPresenter}
+Trasforma un record \code{ExtractedDocument} (con le sue relazioni) nella
+struttura JSON restituita dall'API, generando anche l'URL di download del PDF:
+
+\begin{lstlisting}[caption={ExtractedDocumentPresenter -- trasformazione modello in JSON}]
+# app/services/document_processing/presenters/extracted_document_presenter.rb
+module DocumentProcessing
+  module Presenters
+    class ExtractedDocumentPresenter
+      include Rails.application.routes.url_helpers
+
+      def initialize(extracted_document)
+        @doc = extracted_document
+      end
+
+      def as_json(*)
+        {
+          id:                   @doc.id,
+          uploaded_document_id: @doc.uploaded_document_id,
+          sequence:             @doc.sequence,
+          status:               @doc.status,
+          page_start:           @doc.page_start,
+          page_end:             @doc.page_end,
+          metadata:             @doc.metadata,
+          recipient:            @doc.recipient,
+          confidence:           @doc.confidence,
+          matched_employee:     employee_json,
+          error_message:        @doc.error_message,
+          processed_at:         @doc.processed_at,
+          process_time_seconds: @doc.process_time_seconds,
+          pdf_download_url:     pdf_url
+        }
+      end
+
+      private
+
+      def employee_json
+        return nil unless @doc.matched_employee
+        e = @doc.matched_employee
+        {
+          id:            e.id,
+          name:          e.name,
+          email:         e.email,
+          employee_code: e.username
+        }
+      end
+
+      def pdf_url
+        extracted_pdf_document_path(id: @doc.id)
+      end
+    end
+  end
+end
+\end{lstlisting}
+
+\paragraph{Serializer per collezioni}
+I Serializer producono la struttura JSON delle collezioni REST con
+chiavi camelCase coerenti con il frontend:
+
+\begin{lstlisting}[caption={PostSerializer -- serializzazione con join eagerly loaded}]
+# app/serializers/post_serializer.rb
+module PostSerializer
+  def self.serialize_collection(posts)
+    {
+      posts: posts.map do |post|
+        gd = post.generated_datum
+        {
+          id:             post.id,
+          title:          post.title,
+          PostText:       post.body_text,
+          imgPath:        post.img_path,
+          dateTime:       post.date_time,
+          generatedDatumId: post.generated_datum_id,
+          toneId:         gd&.tone_id,
+          toneName:       gd&.tone&.name,
+          styleId:        gd&.style_id,
+          styleName:      gd&.style&.name,
+          companyId:      gd&.company_id,
+          companyName:    gd&.company&.name,
+          rating:         gd&.rating
+        }
+      end
+    }
+  end
+end
+\end{lstlisting}
+
+% ------------------------------------------------------------------
+\subsubsection{Observer (ActionCable Notifier)}
+% ------------------------------------------------------------------
+
+\textit{Intent (GoF): Definire una dipendenza uno-a-molti tra oggetti in modo che, quando un
+oggetto cambia stato, tutti i dipendenti vengano notificati e aggiornati
+automaticamente.}
+
+\paragraph{ActionCableNotifier}
+Broadcaster WebSocket che funge da Subject: notifica il frontend in tempo
+reale a ogni cambiamento di stato del pipeline di elaborazione:
+
+\begin{lstlisting}[caption={ActionCableNotifier -- broadcast di eventi sul canale dedicato}]
+# app/services/document_processing/action_cable_notifier.rb
+module DocumentProcessing
+  class ActionCableNotifier
+    # Ogni job di elaborazione ha il proprio canale isolato
+    def broadcast(job_id, data)
+      ActionCable.server.broadcast(
+        "document_processing:#{job_id}",
+        data
+      )
+    end
+  end
+end
+
+# Esempio di eventi trasmessi:
+# { event: "split_completed",       total_documents: 5 }
+# { event: "document_processed",    sequence: 2, status: "done" }
+# { event: "processing_completed",  processed: 5 }
+# { event: "error",                 message: "OCR fallita" }
+\end{lstlisting}
+
+\paragraph{AiJobOrchestrator}
+Orchestratore degli stati del job AI: coordina creazione, avvio, completamento
+e fallimento della generazione, notificando il frontend sul canale
+\code{generation\_channel}:
+
+\begin{lstlisting}[caption={AiJobOrchestrator -- ciclo di vita del job di generazione}]
+# app/services/ai_generator/ai_job_orchestrator.rb
+module AiGenerator
+  class AiJobOrchestrator
+    def orchestrate(params)
+      datum = GeneratedDatum.create!(params.merge(status: "queued"))
+      AiGeneratorJob.perform_later(datum.id)
+      datum
+    end
+
+    def signal_process_start(generation_id)
+      ActionCable.server.broadcast("generation_channel",
+        { status: "processing", generationId: generation_id })
+    end
+
+    def complete(generation_id)
+      datum = GeneratedDatum.find(generation_id)
+      ActionCable.server.broadcast("generation_channel", {
+        status:       "completed",
+        generationId: generation_id,
+        imageUrl:     rails_blob_url(datum.generated_image),
+        title:        datum.title,
+        bodyText:     datum.body_text
+      })
+    end
+
+    def signal_failure(generation_id, error_message)
+      ActionCable.server.broadcast("generation_channel",
+        { status: "failed", generationId: generation_id,
+          error: error_message })
+    end
+  end
+end
+\end{lstlisting}
+
+% ============================================================
+\subsection{Pattern ereditati dal framework}
+% ============================================================
+
+\subsubsection{Model-View-Controller (MVC)}
+
+L'architettura dell'intera applicazione è fondata sul pattern MVC imposto
+da Ruby on Rails:
+
+\begin{itemize}[noitemsep]
+  \item \textbf{Model}: gestisce la logica dei dati, le validazioni e le
+        associazioni tra entità (es. \code{ExtractedDocument},
+        \code{UploadedDocument}, \code{Company}).
+  \item \textbf{View}: in questo ecosistema API-only, la view è rappresentata
+        dai \textit{Serializer} e \textit{Presenter} che producono JSON.
+  \item \textbf{Controller}: orchestra il flusso, validando i parametri HTTP
+        e delegando ai Command o ai Service Object la logica di business.
+\end{itemize}
+
+\begin{lstlisting}[caption={DocumentsController -- Controller MVC che delega ai Command}]
+# app/controllers/documents_controller.rb
+class DocumentsController < ActionController::Base
+  skip_before_action :verify_authenticity_token
+
+  # POST /documents/split
+  def split
+    result = initialize_processing_command.call(
+      file:             params[:pdf],
+      company:          params[:company],
+      category:         params[:category],
+      competence_period: params[:competence_period]
+    )
+    if result.is_a?(Hash) && result[:ok] == false
+      return render_error(result[:message])
+    end
+    render json: {
+      status:              result[:status],
+      job_id:              result[:job_id],
+      uploaded_document_id: result[:uploaded_document_id]
+    }
+  rescue StandardError => e
+    render_error("Errore: #{e.message}")
+  end
+
+  # DELETE /documents/uploads/:id
+  def destroy_upload
+    uploaded = UploadedDocument.find(params[:id])
+    file_storage.delete(uploaded.storage_path) if
+      file_storage.exist?(uploaded.storage_path)
+    uploaded.destroy!   # cascade -> ExtractedDocument rimossi
+    render json: { status: "ok", message: "Documento eliminato" }
+  rescue ActiveRecord::RecordNotFound
+    render json: { status: "error",
+                   message: "Documento sorgente non trovato" },
+           status: :not_found
+  end
+
+  private
+
+  # Factory Method: il Container costruisce il Command
+  def initialize_processing_command
+    document_processing_container.initialize_processing_command
+  end
+
+  def document_processing_container
+    @document_processing_container ||= DocumentProcessing::Container.new
+  end
+end
+\end{lstlisting}
+
+\subsubsection{Active Record}
+
+Ogni classe Modello mappa una tabella del database (pattern \pattern{Active
+Record} di Martin Fowler), nascondendo la complessità SQL e fornendo
+un'interfaccia orientata agli oggetti per operazioni CRUD, relazioni e
+validazioni:
+
+\begin{lstlisting}[caption={Modelli principali -- associazioni, validazioni e predicate methods}]
+# app/models/uploaded_document.rb
+class UploadedDocument < ApplicationRecord
+  has_many :extracted_documents, dependent: :destroy  # cascade delete
+  belongs_to :employee, optional: true
+
+  validates :original_filename, :storage_path, :checksum, presence: true
+  validates :checksum,   uniqueness: true
+  validates :file_kind,  inclusion: { in: %w[pdf csv image] }, allow_nil: true
+end
+
+# app/models/extracted_document.rb
+class ExtractedDocument < ApplicationRecord
+  belongs_to :uploaded_document
+  belongs_to :matched_employee, class_name: "User", optional: true
+
+  STATUSES = %w[queued in_progress done failed sent validated].freeze
+
+  validates :sequence, :page_start, :page_end, presence: true
+  validates :status, inclusion: { in: STATUSES }, allow_nil: true
+  validate  :end_page_must_be_after_start
+
+  # Predicate methods per leggibilita'
+  def done?      = status == "done"
+  def failed?    = status == "failed"
+  def validated? = status == "validated"
+
+  private
+  def end_page_must_be_after_start
+    return if page_start.blank? || page_end.blank?
+    errors.add(:page_end, "deve essere >= page_start") if page_end < page_start
+  end
+end
+
+# app/models/employee.rb
+class Employee < ApplicationRecord
+  belongs_to :user
+  belongs_to :company
+end
+
+# app/models/company.rb
+class Company < ApplicationRecord
+  has_many :tones,          dependent: :destroy
+  has_many :styles,         dependent: :destroy
+  has_many :generated_data, dependent: :destroy
+  validates :description, length: { maximum: 500 }
+end
+\end{lstlisting}
+
+Le associazioni \code{dependent: :destroy} implementano implicitamente la
+gestione delle chiavi esterne a livello applicativo: la cancellazione di un
+\code{UploadedDocument} propaga automaticamente la rimozione di tutti gli
+\code{ExtractedDocument} collegati.
+
+\subsubsection{Observer tramite Callbacks}
+
+Rails implementa il pattern Observer attraverso il meccanismo dei
+\textit{callbacks} legati al ciclo di vita dei modelli. Nel progetto,
+il framework gestisce automaticamente i timestamp \code{created\_at} e
+\code{updated\_at} ad ogni operazione di persistenza. Il pattern è
+esteso esplicitamente per il modello \code{ProcessingRun}:
+
+\begin{lstlisting}[caption={Callback Rails -- aggiornamento automatico dello stato}]
+# app/models/processing_run.rb
+class ProcessingRun < ApplicationRecord
+  belongs_to :uploaded_document, optional: true
+  has_many :processing_items, dependent: :destroy
+
+  STATUSES = %w[queued splitting processing completed failed].freeze
+
+  validates :job_id, presence: true, uniqueness: true
+  validates :status, inclusion: { in: STATUSES }
+
+  # Callback: aggiorna started_at al primo avvio
+  before_save :set_started_at, if: -> { status_changed? && status == "processing" }
+
+  private
+  def set_started_at
+    self.started_at ||= Time.current
+  end
+end
+\end{lstlisting}
 
 
 \subsection{Database}
