@@ -619,10 +619,37 @@ Di seguito viene fornita una panoramica delle principali API esposte dal sistema
 \end{longtable}
 
 
-\section{Architettura del Sistema}
 
-\subsection{Architettura Logica (Layered Architecture)}
-Il sistema è stato progettato seguendo un pattern architetturale di tipo Layered (a livelli). Questa separazione garantisce un alto grado di disaccoppiamento, facilitando la manuntenzione, i test e la scalabilità del sistema. L'architettura logica si divide in quattro livelli principali:
+\section{Architettura del Sistema}
+Il sistema è stato documentato seguendo un approccio top-down basato sul modello C4, partendo dal contesto generale fino ad arrivare al dettaglio dei componenti interni e all'infrastruttura di rilascio.
+
+\subsection{Contesto di Sistema (C4 Level 1)}
+Il diagramma di contesto illustra le interazioni di altissimo livello tra l'utente finale e i sistemi esterni.
+La Piattaforma MVP si posiziona al centro, fornendo all'Operatore funzionalità di caricamento documenti, 
+validazione estrazioni e generazione contenuti tramite browser (via HTTPS e WebSocket). Per l'elaborazione dei dati, 
+il sistema si integra con l'ecosistema cloud di Amazon Web Services, delegando l'estrazione ottica dei caratteri 
+(OCR) ad AWS Textract e l'inferenza di intelligenza artificiale ad AWS Bedrock.
+
+\begin{figure}[H] \centering \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/C4/level1.png} \caption{System Context Diagram} \end{figure}
+
+\subsection{Architettura Applicativa (C4 Level 2 - Container)}
+Scendendo al livello applicativo, il sistema si divide nei suoi container logici principali.
+Il frontend è costituito da una Single Page Application (SPA) sviluppata in Angular 21. 
+Il backend è un'API sviluppata in Ruby on Rails 8, servita tramite Puma. 
+Per garantire fluidità all'utente, le operazioni pesanti (come l'OCR e l'invocazione degli LLM) sono gestite 
+in modo asincrono tramite Solid Queue Workers. 
+Il livello di persistenza è unificato su PostgreSQL 16 (Solid Stack), che funge non solo da database primario, ma anche da 
+gestore per le code, cache e backend per le connessioni WebSocket (ActionCable).
+
+\begin{figure}[H] \centering \includegraphics[width=0.8\textwidth]{ImmaginiSpecificaTecnica/C4/level2.png} \caption{Container Diagram} \end{figure}
+
+
+\subsection{Architettura Logica Interna (Layered Architecture)}
+Il sistema è stato progettato seguendo un pattern architetturale di tipo Layered (a livelli). Questa separazione garantisce 
+un alto grado di disaccoppiamento, facilitando la manuntenzione, i test e la scalabilità del sistema. 
+Inoltre, lavorando in ruby on rails, è stato possibile sfruttare le convenzioni del framework per implementare in modo 
+naturale i vari livelli, senza andare a forzare l'introduzione di ulteriori astrazioni o pattern complessi e contro il linguaggio stesso.
+L'architettura logica si divide in quattro livelli principali:
 
 \subsubsection{Livello di Presentazione (Presentation Layer)}
 Sviluppato in Angular (Single Page Application), è responsabile dell'interfaccia utente e dell'interazione con l'utente finale. Comunica con il backend tramite API RESTful.
@@ -647,9 +674,27 @@ Gestito dal modulo ActiveRecord di Ruby on Rails (ORM), si occupa della comunica
 Costituito dal Database Relazionale (RDBMS) PostgreSQL. Ha la responsabilità di memorizzare in modo persistente tutte le informazioni necessarie al funzionamento del sistema, inclusi dati degli utenti, documenti caricati, sessioni di interazione e log delle attività.
 
 
+\subsection{Dettaglio dei Componenti (C4 Level 3)}
+I principi dell'architettura Layered appena descritti trovano applicazione pratica nell'organizzazione interna dei macro-moduli del backend Rails. Di seguito si illustra il dettaglio (Livello 3) dei tre domini principali del sistema:
 
-\subsection{Architettura di Deployement (Monolite Containerizzato)}
-Sebbene logicamente il sistema sia diviso in Frontend e Backend (decoupled), dal punto di vista del rilascio in produzione si è optato per un approccio Monolitico basato su Container.
+\subsubsection{Modulo OCR ed Estrazione Dati:}
+Questo modulo gestisce il caricamento dei file, lo splitting asincrono dei PDF e l'orchestrazione con AWS Textract e Bedrock. Si nota la netta separazione tra il livello HTTP (Controllers), i Commands per l'accodamento dei job, gli Orchestratori e i Domain Services (Adapter per le API esterne e logica di validazione).
+\begin{figure}[H] \centering \includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/C4/level3OCR.png} \caption{Component Diagram – Document Processing} \end{figure}
+
+
+\subsubsection{Modulo Generazione Contenuti:}
+Gestisce la pipeline di generazione multimodale (testo e immagini). Il controller delega immediatamente l'esecuzione a un job asincrono (AIGeneratorJob), il quale coordina i servizi di generazione testuale (Bedrock) e visiva, salvando infine i record generati tramite i Data Manager.
+\begin{figure}[H] \centering \includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/C4/level3Generator.png} \caption{Component Diagram – AI Generation} \end{figure}
+
+
+\subsubsection{Modulo Analisi e Reportistica (Data Analyst):}
+Questo componente si occupa dell'aggregazione dei dati per le dashboard. L'architettura fa uso del pattern Template Method nei \textit{Computation Services} e demanda l'esecuzione delle query aggregate (es. calcolo della confidence media o dei tempi di elaborazione) a specifici \textit{Data Managers}.
+\begin{figure}[H] \centering \includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/C4/level3Analyst.png} \caption{Component Diagram – Data Analysis} \end{figure}
+
+
+
+\subsection{Architettura di Deployment (Monolite containerizzato)}
+Sebbene logicamente il sistema sia diviso in Frontend e Backend (decoupled), dal punto di vista del rilascio in produzione si è optato per un approccio monolitico basato su container.
 Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come un'unica entità logica su un singolo nodo ospite (Server/Macchina Virtuale), garantendo un ambiente isolato, riproducibile e coerente dalla fase di sviluppo fino alla produzione. L'orchestrazione locale è affidata a Docker Compose.
 
 \begin{itemize}
@@ -658,6 +703,12 @@ Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come u
   \item \textbf{Container Backend (Application Server)}: Un container isolato basato su immagine Ruby che esegue il server web di Rails. È esposto internamente per ricevere le chiamate API dal frontend e processare la logica di business.
   \item \textbf{Container Database (Database Server)}: Un container basato sull'immagine ufficiale di PostgreSQL. Persiste i dati fisicamente scrivendoli su un Docker Volume esterno al container stesso, garantendo che i dati del sistema non vadano persi in caso di riavvio o aggiornamento del container.
 \end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/deploy.png}
+\caption{Architettura di Deployment}
+\end{figure}
 
 \subsection{Descrizione architettura (Backend)}
 
