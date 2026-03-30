@@ -2016,11 +2016,13 @@ MVC                 & Architetturale  & ---      & Intera applicazione Rails \\
 \subsubsection{Service Object}
 
 \textit{Intent: Incapsulare un'operazione di business complessa in una classe dedicata con
-un'unica responsabilità, esponendo un'interfaccia uniforme \code{call(\ldots)}.}
+un'unica responsabilità, esponendo un'interfaccia uniforme \code{call(\ldots)}, o, in alternativa, un set di metodi pubblici che rappresentano le fasi dell'operazione.}
 
 Il pattern \pattern{Service Object} costituisce l'ossatura della logica
 applicativa. Ogni servizio ha una responsabilità precisa e non porta stato
-persistente tra invocazioni distinte.
+persistente tra invocazioni distinte. \\
+
+Esempi:
 
 \paragraph{ProcessDataItem}
 Orchestratore centrale della pipeline OCR: coordina riconoscimento ottico dei
@@ -2198,8 +2200,14 @@ I tre Command del sistema sono riepilogati in tabella~\ref{tab:commands}.
 simile a una collezione per accedere agli oggetti del dominio.}
 
 I Repository centralizzano tutte le transizioni di stato e le query di
-persistenza, isolando il resto dell'applicazione da ActiveRecord. L'accesso
-diretto ai modelli avviene \emph{esclusivamente} attraverso queste classi.
+persistenza, isolando il resto dell'applicazione da ActiveRecord. 
+Rails ha uno degli ORM piú completi sul mercato e per query semplici è possibile utilizzare direttamente i modelli, 
+in quanto le operazioni sono native e non ha senso introdurre un ulteriore livello di astrazione che non aggiunge valore.
+Tuttavia, per operazioni più complesse (es. transizioni di stato con lock, query aggregate) è consigliabile incapsulare 
+la logica in un Repository dedicato, evitando duplicazioni e garantendo la correttagestione della concorrenza, 
+permettendo di separare nettamente la logica di dominio dalla persistenza. \\
+
+
 
 \begin{lstlisting}[caption={DataItemRepository -- transizioni di stato con pessimistic locking}]
 # app/services/document_processing/persistence/data_item_repository.rb
@@ -2481,87 +2489,6 @@ def call(file_path:, job_id:, uploaded_document_id:, ...)
   # Override utente: confidenza 1.0 (certezza massima)
   result[:metadata].merge!(override_company: override_company) if override_company
   create_extracted_document(uploaded, result, ...)
-end
-\end{lstlisting}
-
-% ------------------------------------------------------------------
-\subsubsection{Adapter}
-% ------------------------------------------------------------------
-
-\textit{Intent (GoF): Convertire l'interfaccia di una classe in un'altra interfaccia attesa dai
-client, permettendo la collaborazione tra classi con interfacce incompatibili.}
-
-\paragraph{UploadManager}
-Adatta le operazioni di I/O sui file (salvataggio, validazione, checksum)
-a un'interfaccia uniforme indipendente dal tipo di file e dal backend
-di storage sottostante.
-
-\begin{lstlisting}[caption={UploadManager -- interfaccia unificata per tipi file diversi}]
-# app/services/document_processing/upload_manager.rb
-module DocumentProcessing
-  class UploadManager
-    MAX_PDF_SIZE     = 50.megabytes
-    MAX_GENERIC_SIZE = 20.megabytes
-
-    ALLOWED_PDF_CONTENT_TYPES = %w[
-      application/pdf application/x-pdf
-      application/acrobat application/vnd.pdf
-    ].freeze
-
-    # Interfaccia unificata: il chiamante non gestisce
-    # la logica di validazione specifica per tipo
-    def persist_source_pdf(file)
-      validate_pdf!(file)
-      save_to_storage(file, "storage/uploads/source_documents")
-    end
-
-    def persist_supported_source_file(file)
-      kind = detect_upload_kind(file)
-      validate_generic!(file, kind)
-      save_to_storage(file, "storage/uploads/source_documents")
-    end
-
-    def compute_checksum(file)
-      Digest::SHA256.file(file.tempfile.path).hexdigest
-    end
-
-    def detect_upload_kind(file)
-      ext = File.extname(file.original_filename).downcase
-      return "csv"   if ext == ".csv"
-      return "image" if %w[.jpg .jpeg .png].include?(ext)
-      "unknown"
-    end
-
-    private
-
-    def validate_pdf!(file)
-      raise ValidationError, "Estensione non valida" unless
-        File.extname(file.original_filename).downcase == ".pdf"
-      raise ValidationError, "File troppo grande (max 50MB)" if
-        file.size > MAX_PDF_SIZE
-      raise ValidationError, "Firma PDF non valida" unless
-        File.read(file.tempfile.path, 4) == "%PDF"
-    end
-  end
-end
-\end{lstlisting}
-
-\paragraph{SetterFactory}
-Adapter-Factory che crea il parametrizzatore corretto per testo o immagine
-nell'ambito della generazione AI:
-
-\begin{lstlisting}[caption={SetterFactory -- adattamento parametri per tipo generazione}]
-# app/services/ai_generator/setter_factory.rb
-module AiGenerator
-  class SetterFactory
-    def create_text_setter(params_data)
-      TextParamsSetterService.new(params_data)
-    end
-
-    def create_image_setter(params_data)
-      ImageParamsSetterService.new(params_data)
-    end
-  end
 end
 \end{lstlisting}
 
