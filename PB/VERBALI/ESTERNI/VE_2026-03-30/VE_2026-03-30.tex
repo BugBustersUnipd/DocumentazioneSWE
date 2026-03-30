@@ -90,9 +90,9 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
-Il presente verbale documenta la riunione esterna del 30 marzo 2026 con i referenti di Eggon, durante la quale il team ha illustrato lo stato di avanzamento dello sviluppo del progetto. 
-L'azienda ha espresso parere positivo e ha formalmente approvato il prodotto realizzato. Sono stati mostrati il modulo di generazione post (AIAssistant) e
-il modulo di estrazione e classificazione documenti (AICopilot), con le relative funzionalità\G di interfaccia\G.
+Il presente verbale\G documenta la riunione esterna del 30 marzo 2026 con i referenti di Eggon, durante la quale il team ha illustrato lo stato di avanzamento dello sviluppo del progetto\G. 
+L'azienda ha espresso parere positivo e ha formalmente approvato il prodotto\G realizzato. Sono stati mostrati il modulo\G di generazione post (AI Assistant) e
+il modulo\G di estrazione e classificazione documenti (AI Copilot), con le relative funzionalità\G di interfaccia\G.
 Si è discusso delle scelte tecnologiche adottate, in particolare dei modelli di intelligenza artificiale utilizzati,
 e sono stati concordati i prossimi passi riguardanti la documentazione tecnica.
 \end{tcolorbox}
@@ -134,8 +134,8 @@ e sono stati concordati i prossimi passi riguardanti la documentazione tecnica.
 \section{Ordine del giorno}
 
 \begin{enumerate}
-    \item \label{itm:gen} Dimostrazione del modulo di generazione post (AI Assistant).
-    \item \label{itm:ext} Dimostrazione del modulo di estrazione e classificazione documenti (AI Copilot).
+    \item \label{itm:gen} Dimostrazione del modulo\G di generazione post (AI\G Assistant).
+    \item \label{itm:ext} Dimostrazione del modulo\G di estrazione e classificazione documenti (AI Copilot\G).
     \item \label{itm:tech} Scelte tecnologiche: modelli di intelligenza artificiale adottati.
     \item \label{itm:next} Prossimi passi e documentazione tecnica.
 \end{enumerate}
@@ -143,7 +143,7 @@ e sono stati concordati i prossimi passi riguardanti la documentazione tecnica.
 \newpage
 \section{Svolgimento}
 
-\subsection*{\ref{itm:gen}. Dimostrazione del modulo di generazione post (AI Assistant)}
+\subsection*{\ref{itm:gen}. Dimostrazione del modulo\G di generazione post (AI\G Assistant)}
 
 Il team ha illustrato il funzionamento del generatore di post. Le aziende vengono gestite tramite database\G. Per ciascuna azienda è possibile definire uno stile e un tono comunicativo personalizzato. L'utente può inserire un prompt\G e avviare la generazione, ottenendo un post accompagnato da un'immagine. Sono state mostrate le seguenti funzionalità\G:
 
@@ -160,10 +160,10 @@ Il team ha illustrato il funzionamento del generatore di post. Le aziende vengon
     immediate. È possibile filtrare i dati per periodo.
 \end{itemize}
 
-\subsection*{\ref{itm:ext}. Dimostrazione del modulo di estrazione e classificazione documenti (AI Copilot)}
+\subsection*{\ref{itm:ext}. Dimostrazione del modulo\G di estrazione e classificazione documenti (AI Copilot\G)}
 
 Il team ha illustrato il flusso di elaborazione dei documenti caricati nel sistema. Il
-modulo è compatibile con PDF\G, CSV e file immagine (PNG, JPEG). Il processo si articola
+modulo\G è compatibile con PDF\G, CSV e file immagine (PNG, JPEG). Il processo si articola
 nelle seguenti fasi:
 
 \begin{itemize}
@@ -171,8 +171,8 @@ nelle seguenti fasi:
     univoco a ciascun segmento (composto da padre e figlio) e avvia l'analisi tramite
     modello di intelligenza artificiale. I campi estratti includono: destinatario, reparto,
     azienda e categoria.
-    \item \textbf{Confidenza e intervento umano:} Per ogni campo estratto viene calcolata
-    una percentuale di confidenza. In assenza di un match nel database\G, il campo viene
+    \item \textbf{Confidenza\G e intervento umano:} Per ogni campo estratto viene calcolata
+    una percentuale di confidenza\G. In assenza di un match nel database\G, il campo viene
     comunque mostrato con l'indicazione di nessun match. L'utente può correggere manualmente
     i campi estratti (Human in the Loop\G); ogni modifica fa ripartire l'analisi del documento.
     \item \textbf{Invio e programmazione:} Il documento può essere inviato immediatamente
@@ -182,7 +182,7 @@ nelle seguenti fasi:
     questo viene automaticamente riconosciuto e mostrato all'utente.
     \item \textbf{Eliminazione:} L'eliminazione di un documento rimuove sia il documento padre
     che tutti i figli associati.
-    \item \textbf{Dashboard:} La dashboard\G riporta la percentuale di confidenza media dei
+    \item \textbf{Dashboard:} La dashboard\G riporta la percentuale di confidenza\G media dei
     documenti analizzati e il numero di interventi manuali effettuati sulla categoria.
 \end{itemize}
 
@@ -194,23 +194,23 @@ Il team ha illustrato le scelte sui modelli di intelligenza artificiale utilizza
     \item \textbf{Generazione immagini:} È stato mantenuto il modello Canvas (versione 1),
     ritenuto conveniente in termini di costo rispetto alle alternative multimodali di recente
     introduzione.
-    \item \textbf{Generazione testo:} Dopo una fase di valutazione dei modelli AWS Nova (Lite
+    \item \textbf{Generazione testo:} Dopo una fase di valutazione dei modelli AWS\G Nova (Lite
     V1 e Pro V1), il team ha adottato Nova Lite V2, rilasciato a fine 2025. Questo modello
     offre prestazioni superiori rispetto al Pro della generazione precedente con un costo
     inferiore di circa il 40--45\%. Il modello rispetta meglio i prompt\G e restituisce il
     testo già formattato. È impiegato anche nella fase di splitting e analisi OCR\G dei documenti.
 \end{itemize}
 
-I referenti di Eggon hanno espresso pieno apprezzamento per il prodotto realizzato, 
+I referenti di Eggon hanno espresso pieno apprezzamento per il prodotto\G realizzato, 
 approvandolo formalmente e lodando l’ottimo lavoro svolto dal team.
 
 \vspace{1.0cm}
-\noindent\textbf{\Large Firma per approvazione MVP}\\[0.4cm]
+\noindent\textbf{\Large Firma per approvazione\G MVP\G}\\[0.4cm]
 \underline{\hspace{8cm}}
 
 \subsection*{\ref{itm:next}. Prossimi passi e documentazione tecnica}
 
-Il team sta ultimando i documenti di Specifica Tecnica\G e Manuale Utente\G. Una volta conclusi, è stato concordato di condividerli con i referenti di Eggon non appena disponibili, per poi organizzare un incontro dedicato alla loro revisione. Contestualmente, il team intende candidarsi formalmente per il raggiungimento della Product Baseline (PB) con i docenti.
+Il team sta ultimando i documenti di Specifica Tecnica\G e Manuale Utente\G. Una volta conclusi, è stato concordato di condividerli con i referenti di Eggon non appena disponibili, per poi organizzare un incontro dedicato alla loro revisione. Contestualmente, il team intende candidarsi formalmente per il raggiungimento della Product Baseline (PB)\G con i docenti.
 
 \section{Tabella delle decisioni e azioni}
 \renewcommand{\arraystretch}{1.5}
@@ -229,9 +229,9 @@ Il team sta ultimando i documenti di Specifica Tecnica\G e Manuale Utente\G. Una
 \hline
 \DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/224}{PB25}}{Stesura del verbale\G}{Alberto Autiero}
 \DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/225}{PB26}}{Verifica\G del verbale\G}{Alberto Pignat}
-\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/226}{PB27}}{Portare a conclusione la documentazione propedeutica alla candidatura della Baseline PB}{Marco Favero, Linor Sadè, Leonardo Salviato}
-\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/227}{PB28}}{Concludere la redazione del Piano di Qualifica e i test per la parte front-end dell'MVP}{Marco Piro}
-\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/228}{PB29}}{Concludere la parte dei test per il back-end}{Luca Slongo}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/226}{PB27}}{Portare a conclusione la documentazione propedeutica alla candidatura\G della Baseline PB\G}{Marco Favero, Linor Sadè, Leonardo Salviato}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/227}{PB28}}{Concludere la redazione del Piano di Qualifica\G e i test\G per la parte front-end\G dell'MVP\G}{Marco Piro}
+\DecisionRow{\href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/228}{PB29}}{Concludere la parte dei test\G per il back-end\G}{Luca Slongo}
 \end{tabularx}
 \fussy
 
@@ -239,7 +239,7 @@ Il team sta ultimando i documenti di Specifica Tecnica\G e Manuale Utente\G. Una
 
 Tutti i punti all'ordine del giorno sono stati discussi con esito positivo. 
 
-Il gruppo BugBusters, preso atto dell'approvazione, procederà con la stesura della documentazione tecnica mancante e si candiderà ufficialmente per il raggiungimento della Product Baseline (PB) con i docenti.
+Il gruppo BugBusters, preso atto dell'approvazione\G, procederà con la stesura della documentazione tecnica mancante e si candiderà ufficialmente per il raggiungimento della Product Baseline (PB)\G con i docenti.
 
 Si ringraziano Gianpaolo Ferrarin e Luca Iuzzolino per la disponibilità e il supporto.
 
