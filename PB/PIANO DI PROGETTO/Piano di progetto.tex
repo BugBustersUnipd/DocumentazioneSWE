@@ -618,53 +618,41 @@ Attività & Descrizione & Periodo di svolgimento & Stato \\
   label = {tab:attivita-pb},
 ]{
   colspec = {|Q[c,m,3.0cm]|Q[l,m,4.8cm]|Q[l,m,3.2cm]|Q[c,m,2.8cm]|},
-  vlines   = {primaryblue},
-  row{1}   = {font=\bfseries},
+  vlines  = {primaryblue},
+  row{1}  = {font=\bfseries},
   hline{1,2} = {primaryblue},
-  % Correzione AdR (righe 2-8)
-  hline{3,4,5,6,7,8} = {2-3}{primaryblue},
-  hline{9} = {primaryblue},
-  % Correzione NdP (righe 9-13)
-  hline{10,11,12,13} = {2-3}{primaryblue},
-  hline{14} = {primaryblue},
-  % Piano di Qualifica (riga 14): singola, nessuna hline interna
-  hline{15} = {primaryblue},
-  % Piano di Progetto (righe 15-16)
-  hline{16} = {2-3}{primaryblue},
-  hline{17} = {primaryblue},
-  % Glossario (riga 17): singola, nessuna hline interna
-  hline{18} = {primaryblue},
-  % Specifica Tecnica (righe 18-21)
-  hline{19,20,21} = {2-3}{primaryblue},
-  hline{22} = {primaryblue},
-  % Manuale Utente (righe 22-24)
-  hline{23,24} = {2-3}{primaryblue},
-  hline{25} = {primaryblue},
-  % MVP (righe 25-28)
-  hline{26,27,28} = {2-3}{primaryblue},
-  hline{29} = {primaryblue},
+  % AdR (riga 2)
+  hline{3} = {primaryblue},
+  % NdP (riga 3)
+  hline{4} = {primaryblue},
+  % PdQ (riga 4)
+  hline{5} = {primaryblue},
+  % Piano di Progetto (righe 5-6)
+  hline{6} = {2-3}{primaryblue},
+  hline{7} = {primaryblue},
+  % Glossario (riga 7)
+  hline{8} = {primaryblue},
+  % Specifica Tecnica (righe 8-11)
+  hline{9,10,11} = {2-3}{primaryblue},
+  hline{12} = {primaryblue},
+  % Manuale Utente (righe 12-14)
+  hline{13,14,15} = {2-3}{primaryblue},
+  hline{16} = {primaryblue},
+  % MVP (righe 15-18)
+  hline{17,18,19} = {2-3}{primaryblue},
+  hline{20} = {primaryblue},
 }
  
 Attività & Descrizione & Periodo di svolgimento & Stato \\
  
-\SetCell[r=7]{c} \textbf{Correzione Analisi dei Requisiti\pediceG}
-  & & & \SetCell[r=7]{c} IN REDAZIONE \\
-  & & & \\
-  & & & \\
-  & & & \\
-  & & & \\
-  & & & \\
-  & & & \\
+\textbf{Correzione Analisi dei Requisiti\pediceG}
+  & Miglioramento precisione descrizione e correzione errori nei casi d'uso, rimozione requisiti prestazionali, aggiunta tabella di tracciamento, aggiunte versioni mancanti nei requisiti di vincolo  & Sprint 8 & Completato per PB \\
  
-\SetCell[r=5]{c} \textbf{Correzione Norme di Progetto\pediceG}
-  & & & \SetCell[r=5]{c} IN REDAZIONE \\
-  & & & \\
-  & & & \\
-  & & & \\
-  & & & \\
+\textbf{Correzione Norme di Progetto\pediceG}
+  & Nessuna correzione necessaria& Sprint 8 & Completato per PB \\
  
 \textbf{Correzione Piano di Qualifica\pediceG}
-  & & & IN REDAZIONE \\
+  & Rimossa sezione "valutazioni per il miglioramento" in quanto irrilevante a livello di informazioni fornite e riscrittura commenti esplicativi dei grafici mostrati& Sprint 8 & Completato per PB \\
  
 \SetCell[r=2]{c} \textbf{Correzione ed ampliamento del Piano di Progetto\pediceG}
   & Adeguamento del documento alle indicazioni ricevute dal Prof.\ Vardanega in sede di valutazione RTB\pediceG. & Sprint\pediceG 8 & \SetCell[r=2]{c} {\small IN REDAZIONE} \\
@@ -674,21 +662,22 @@ Attività & Descrizione & Periodo di svolgimento & Stato \\
   & Ampliamento del Glossario\pediceG con l'aggiunta di nuovi termini & Tutti gli sprint\pediceG & {\small IN REDAZIONE} \\
  
 \SetCell[r=4]{c} \textbf{Redazione del documento di Specifica Tecnica\pediceG}
-  & & & \SetCell[r=4]{c} IN REDAZIONE \\
-  & & & \\
-  & & & \\
-  & & & \\
+  & Scrittura struttura del documento & Sprint 9 & \SetCell[r=4]{c} IN REDAZIONE \\
+  & Inizio scrittura dei paragrafi: Requisiti, Architettura e Design Pattern & Sprint 10 & \\
+  & Inizio scrittura dei paragrafi: Database, Tecnologie e Linguaggi & Sprint 11 & \\
+  & Completamento del documento & Sprint 12 & \\
  
-\SetCell[r=3]{c} \textbf{Redazione del Manuale Utente\pediceG}
-  & & & \SetCell[r=3]{c} IN REDAZIONE \\
-  & & & \\
-  & & & \\
+\SetCell[r=4]{c} \textbf{Redazione del Manuale Utente\pediceG}
+  & Scrittura struttura del documento & Sprint 9 & \SetCell[r=4]{c} IN REDAZIONE \\
+  & Inizio scrittura del paragrafo: Istruzioni per l'uso & Sprint 10 & \\
+  & Inizio scrittura dei paragrafi: Istruzioni installazione e Avvio dei test & Sprint 11 & \\
+  & Completamento del documento & Sprint 12 & \\
  
 \SetCell[r=4]{c} \textbf{Realizzazione del Minimum Viable Product (MVP)\pediceG}
-  & & & \SetCell[r=4]{c} {\small IN SVILUPPO} \\
-  & & &\\
-  & & & \\
-  & & & \\
+  & Inizio progettazione struttura di frontend (Grafica e API) e backend (DB e Diagramma classi)& Sprint 8 & \SetCell[r=4]{c} { Completato per PB} \\
+  & Scrittura del codice & Sprint 9 & \\
+  & Scrittura del codice & Sprint 10 & \\
+  & Completamento del MVP tramite unione di frontend e backend & Sprint 11 & \\
  
 \end{longtblr}
  
