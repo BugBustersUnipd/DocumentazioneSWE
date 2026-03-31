@@ -2707,11 +2707,23 @@ da Ruby on Rails:
   \item \textbf{Model}: gestisce la logica dei dati, le validazioni e le
         associazioni tra entità (es. \code{ExtractedDocument},
         \code{UploadedDocument}, \code{Company}).
-  \item \textbf{View}: in questo ecosistema API-only, la view è rappresentata
-        dai \textit{Serializer} e \textit{Presenter} che producono JSON.
+  \item \textbf{View}: in questo ecosistema API-only, la view è rappresentata da un risultato JSON serializzato.
   \item \textbf{Controller}: orchestra il flusso, validando i parametri HTTP
         e delegando ai Command o ai Service Object la logica di business.
 \end{itemize}
+
+Non si tratta del tradizionale approccio MVC basato su template HTML generati lato server — in questo caso, infatti, la 
+“view” è rappresentata da dati in formato JSON — ma la struttura di base rimane comunque riconoscibile. I controller continuano a 
+svolgere il ruolo di intermediari tra le richieste HTTP e la logica applicativa, che è incapsulata nei servizi e nei modelli.\\
+Ci troviamo però di fronte a un approccio più moderno, caratterizzato da una netta separazione tra backend e frontend. Il backend si limita a 
+esporre API RESTful, senza occuparsi del rendering o della presentazione dei dati. Questo consente di ottenere un’architettura più modulare, 
+scalabile e manutenibile.\\
+Il rendering viene invece delegato ad Angular, che gestisce la visualizzazione lato client (client-side rendering), evitando di sovraccaricare 
+il server. Questo si differenzia dal classico MVC, in cui il rendering avviene lato server (server-side rendering).\\
+
+Questo modello dunque rappresenta oggi uno standard per applicazioni sviluppate con Ruby on Rails e offre diversi vantaggi: maggiore scalabilità, 
+flessibilità nella scelta del frontend, interfacce più reattive grazie al paradigma delle Single Page Application (SPA), distribuzione del 
+carico sul client e possibilità di riutilizzare il backend per applicazioni mobile o integrazioni con servizi di terze parti.
 
 \begin{lstlisting}[caption={DocumentsController -- Controller MVC che delega ai Command}]
 # app/controllers/documents_controller.rb
