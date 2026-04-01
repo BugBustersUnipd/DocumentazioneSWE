@@ -773,526 +773,526 @@ Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come u
 
 \section{Descrizione architettura (Backend)}
 
-\subsection{Modulo AI Assistant}
-Il modulo AI Assistant è la componente del sistema dedicata alla generazione di contenuti testuali e visivi tramite modelli di intelligenza artificiale.
-Il suo obiettivo è fornire agli utenti uno strumento potente e intuitivo per creare post personalizzati, arricchendo l'esperienza utente con funzionalità avanzate di generazione automatica di contenuti. 
-Il modulo si integra con i servizi di AI (AWS Bedrock) per estrarre il massimo valore dalle capacità di generazione testuale e visiva, offrendo un'interfaccia semplice per la creazione di contenuti complessi e personalizzati, supportando al contempo la gestione e la valutazione dei risultati generati.
-Nei diagrammi seguenti sono rappresentati i componenti del modulo, divisi per controller, evidenziando i componenti principali e le loro interazioni.
-
-Il controller più imporante del modulo è \textit{AIGeneratorController}, che espone gli endpoint per la creazione e gestione dei contenuti generati. 
-Il controller delega la logica di business a un job asincrono \textit{(AIGeneratorJob)}, che si occupa di orchestrare le chiamate ai servizi di generazione testuale e visiva, gestire la persistenza dei risultati e aggiornare lo stato delle generazioni in corso.
-
-\subsubsection{Diagrammi classi parziali del modulo AI Assistant}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{}
-\caption{Diagramma classi parziale -- AIGeneratorController}
-\end{figure}
-Il diagramma mostra il controller di ingresso del modulo: riceve le richieste HTTP,
-valida i parametri e delega l'esecuzione al job asincrono. Tramite l'utilizzo di un container di dipendenza, il controller inietta i servizi necessari per la generazione, mantenendo un alto grado di disaccoppiamento e testabilità.
-I vari services gestiscono la logica di interazione con i modelli di intelligenza artificiale, la persistenza dei dati e l'aggiornamento dello stato delle generazioni.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{}
-\caption{Diagramma classi parziale -- TonesController}
-\end{figure}
-Il diagramma mostra il controller dedicato alla gestione dei toni di generazione. 
-Espone endpoint per la creazione, eliminazione e recupero dei toni disponibili, delegando la logica di business al servizio specifico che si occupa della persistenza e della validazione dei dati: \textit{ToneSerializer}.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{}
-\caption{Diagramma classi parziale -- StylesController}
-\end{figure}
-Il diagramma mostra il controller dedicato alla gestione dei stili di generazione. 
-Il funzionamento è analogo a quello del controller dei toni, delegando la logica di business al servizio specifico \textit{StyleSerializer}.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{}
-\caption{Diagramma classi parziale -- PostsController}
-\end{figure}
-Il diagramma mostra il controller dedicato alla pubblicazione di post. 
-Anche qui il funzionamento di base è analogo a quello del controller dei toni, fatto utilizzando \textit{PostsSerializer}, 
-ma utilizza anche \textit{PostCreatorService} per gestire la logica di creazione dei post, con la sua logica specifica di validazione.
-
-
-\subsubsubsection{AIGeneratorController}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe di tipo Controller che espone gli endpoint per la generazione dei contenuti nel modulo AI Assistant. 
-Gestisce le operazioni CRUD sulle generazioni, espone un endpoint per rigenerare i contenuti e un endpoint per valutare i risultati generati.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item create(params: Hash): Json
-    \item regenerate(id: int): Json
-    \item show(id: int): Json
-    \item rating(id: int, rating: int): Json
-    \item destroy(id: int): Json
-    \item generation_params(): Hash
-\end{itemize}
-
-\subsubsubsection{AIJobOrchestrator}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe orchestratrice che gestisce la logica di esecuzione dei job di generazione dei contenuti.
-Si occupa di coordinare le chiamate ai servizi di generazione testuale e visiva, gestire la persistenza dei risultati e aggiornare lo stato delle generazioni in corso.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item orchestrate(params: Hash): int
-    \item signal_process_started(generationId: int): void
-    \item signal_failure(generation_id: int, error: string): void
-    \item complete(generationId: int): void
-    \item ensure_active_configuration(params: Hash): bool
-\end{itemize}
-
-\subsubsubsection{ActionCable}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe nativa di rails per la gestione delle connessioni WebSocket. 
-Nel contesto del modulo AI Assistant, viene utilizzata per inviare aggiornamenti in tempo reale al frontend riguardo lo stato delle generazioni in corso, permettendo un'esperienza utente più fluida e interattiva.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item broadcast(channel: string, message: Json): void
-\end{itemize}
-
-
-\subsubsubsection{AIGeneratorJob}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe di tipo Job asincrono che si occupa di eseguire la logica di generazione dei contenuti in background.
-Viene invocata dal \textit{AIJobOrchestrator} quando viene richiesta la creazione o rigenerazione di un contenuto, e si occupa di orchestrare le chiamate ai servizi di generazione testuale e visiva.
-
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item perform(generationId: int): void
-\end{itemize}
-
-\subsubsubsection{AIGeneratorContainer}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Container che si occupa di gestire le dipendenze necessarie per l'esecuzione dei job di generazione dei contenuti.
-Viene utilizzato per iniettare i servizi necessari all'esecuzione dei job all'interno di \textit{AIGeneratorService}, mantenendo un alto grado di disaccoppiamento e testabilità,
-ritornando alla chiamata del job i servizi necessari per l'esecuzione della logica di generazione.
-
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item aiGeneratorService
-    \item imageGeneratorService
-    \item setterFactory
-    \item textGeneratorService
-    \item aiGeneratorDataManager
-    \item textResponseValidator
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item initialize(): void
-    \item aiGeneratorService(): AIGeneratorService
-    \item imageGeneratorService(): ImageGeneratorService
-    \item setterFactory(): SetterFactory
-    \item textGeneratorService(): TextGeneratorService
-    \item aiGeneratorDataManager(): AIGeneratorDataManager
-    \item textResponseValidator(): TextResponseValidator
-\end{itemize}
-
-\subsubsubsection{AIGeneratorService}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe orchestratrice che gestisce la logica di esecuzione dei job di generazione dei contenuti.
-Si occupa di coordinare le chiamate ai servizi di generazione testuale e visiva, gestire la persistenza dei risultati e aggiornare lo stato delle generazioni in corso.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item imgGenerator
-    \item textGenerator
-    \item aiGeneratorDataManager
-    \item textResponseValidator
-    \item setterFactory
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item initialize(imgGenerator: ImageGeneratorService, textGenerator: TextGeneratorService, aiGeneratorDataManager: AIGeneratorDataManager, textResponseValidator: TextResponseValidator, setterFactory: SetterFactory): void
-    \item createContent(generationId: int): int
-    \item createText(textSetter: TextParamsSetterService, userPrompt: string): string
-    \item createImage(imageSetter: ImageParamsSetterService, textResult: string): Hash
-    \item validateSetters(textSetter: TextParamsSetterService, imageSetter: ImageParamsSetterService): bool
-    \item prefixed_errors(prefix: string, errors: string[]): string[]
-\end{itemize}
-
-\subsubsubsection{AIGeneratorDataManager}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe di tipo Data Manager che si occupa della gestione dei dati relativi alle generazioni dei contenuti.
-Si occupa di salvare i risultati generati, aggiornare lo stato delle generazioni in corso e fornire un'interfaccia per recuperare i dati delle generazioni quando necessario.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item fetchCompanyDescription(companyId: int): string
-    \item fetchToneDescription(toneId: int): string
-    \item fetchStyleDescription(styleId: int): string
-    \item fetchGenerationData(generationId: int): GeneratedDatum
-    \item saveContent(generationId: int, responseData: Hash): int
-\end{itemize}
-
-\subsubsubsection{SetterFactory}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe di tipo Factory che si occupa di creare i setter per i parametri di generazione dei contenuti.
-Viene utilizzata per creare i setter specifici per i parametri di testo e immagine, in base alle esigenze della generazione richiesta.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item createTextSetter(params: Hash): TextParamsSetterService
-    \item createImageSetter(params: Hash): ImageParamsSetterService
-\end{itemize}
-
-\subsubsubsection{TextParamsSetterService}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe Service che si occupa di impostare i parametri di generazione per i contenuti testuali.
-Viene utilizzata per impostare i parametri specifici per la generazione di testo,come il tono, lo stile e la descrizione dell'azienda, in base alle esigenze della generazione richiesta.
-
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item prompt: string
-    \item toneDescription: string
-    \item styleDescription: string
-    \item companyName: string
-    \item companyDescription: string
-    \item errors: string[]
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item initialize(params: Hash): void
-    \item valid(): bool
-    \item buildSystemPrompt(): string
-    \item getData(): Hash
-\end{itemize}
-
-\subsubsubsection{ImageParamsSetterService}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe Service che si occupa di impostare i parametri di generazione per i contenuti immagine.
-Viene utilizzata per impostare i parametri specifici per la generazione di immagini, in base alle esigenze della generazione richiesta, 
-utilizzando anche la risposta della generazione testuale per ulteriori dettagli.
-
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item prompt: string
-    \item width: int
-    \item height: int
-    \item seed: string
-    \item errors: string[]
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item initialize(params: Hash): void
-    \item valid(): bool
-    \item buildImagePrompt(aiTextGeneratorResponse: string): Json
-    \item getData(): Hash
-\end{itemize}
-
-\subsubsubsection{TextGeneratorService}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe service che si occupa di gestire la logica di generazione dei contenuti testuali.
-Si occupa di interagire con il servizio di generazione testuale (AWS Bedrock) per generare i contenuti richiesti, utilizzando i parametri impostati dal \textit{TextParamsSetterService}.
-
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item region: string
-    \item client: Aws::BedrockRuntime::Client
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item initialize(region: string): void
-    \item generateText(user_prompt: string, system_prompt: string): string
-    \item invokeBedrock(modelId: string, user_prompt: string, system_prompt: string, max_tokens: int, temperature: float): AWS::BedrockRuntime::Types::ConverseResponse
-    \item expired_credentials_error?(error: string): string
-    \item expired_credentials_error(error: StandardError, service: Symbol): string
-\end{itemize}
-
-
-\subsubsubsection{ImageGeneratorService}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe service che si occupa di gestire la logica di generazione dei contenuti immagine.
-Si occupa di interagire con il servizio di generazione immagini (AWS Bedrock) per generare i contenuti richiesti, utilizzando i parametri impostati dal \textit{ImageParamsSetterService}.
-
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item region: string
-    \item client: Aws::BedrockRuntime::Client
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item initialize(region: string): void
-    \item generateImg(user_prompt: string, system_prompt: string): string
-    \item invokeNovaCanvas(modelId: string, image_prompt_json: Json): AWS::BedrockRuntime::Types::InvokeModelResponse
-    \item extract_image_data(response: AWS::BedrockRuntime::Types::InvokeModelResponse): String
-    \item expired_credentials_error?(error: string): string
-    \item expired_credentials_error(error: StandardError, service: Symbol): string
-\end{itemize}
-
-
-\subsubsubsection{TextResponseValidator}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe Service che si occupa di validare la risposta della generazione testuale.
-Si occupa di verificare che la risposta della generazione testuale sia valida e che lo split del titolo dal contenuto sia avvenuto correttamente, 
-restituendo eventuali errori riscontrati durante la validazione.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item BLOCKED_RESPONSES: string[]
-    \item TITLE_PREFIXES: string[]
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item parse(text_result: string, generationId: intx): Hash
-    \item blocked_response_message(text_result: string): string
-    \item split_title_and_content(text_result: string, generationId: int): Hash
-    \item sanitize_title(raw: string): string
-\end{itemize}
-
-\subsubsubsection{GeneratedDatumSerializer}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe serializer che si occupa di serializzare i dati delle generazioni dei contenuti.
-Viene utilizzata per serializzare i dati delle generazioni in un formato adatto per essere inviato al frontend, 
-gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item serialize_collection(generated_data: GeneratedDatum[]): Json
-    \item image_path(generation:int): string
-    \item serialize(generation: int): Json
-\end{itemize}
-
-
-\subsubsubsection{StylesController}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Controller dedicato alla gestione degli stili di generazione dei contenuti.
-Espone endpoint per la creazione, eliminazione e recupero degli stili disponibili.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item index(): Json
-    \item create(params: Hash): Json
-    \item destroy(id: int): Json
-    \item style_params(): Hash
-\end{itemize}
-
-\subsubsubsection{StylesSerializer}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe serializer che si occupa di serializzare i dati degli stili di generazione dei contenuti.
-Viene utilizzata per serializzare i dati degli stili in un formato adatto per essere inviato al frontend, 
-gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item serialize_collection(styles: Style[]): Json
-\end{itemize}
-
-
-\subsubsubsection{TonesController}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Controller dedicato alla gestione dei toni di generazione dei contenuti.
-Espone endpoint per la creazione, eliminazione e recupero dei toni disponibili.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item index(): Json
-    \item create(params: Hash): Json
-    \item destroy(id: int): Json
-    \item tone_params(): Hash
-\end{itemize}
-
-\subsubsubsection{TonesSerializer}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe serializer che si occupa di serializzare i dati dei toni di generazione dei contenuti.
-Viene utilizzata per serializzare i dati dei toni in un formato adatto per essere inviato al frontend, 
-gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item serialize_collection(tones: Tone[]): Json
-\end{itemize}
-
-
-\subsubsubsection{PostsController}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Controller dedicato alla gestione dei post generati.
-Espone endpoint per la creazione, eliminazione e recupero dei post disponibili, 
-delegando la logica di business alla combinazione di \textit{PostsSerializer} per la serializzazione dei dati e \textit{PostCreatorService} per la logica di creazione dei post, con la sua logica specifica di validazione.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item index(): Json
-    \item create(params: Hash): Json
-    \item destroy(id: int): Json
-    \item post_params(): Hash
-\end{itemize}
-
-\subsubsubsection{PostsSerializer}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe serializer che si occupa di serializzare i dati dei post generati.
-Viene utilizzata per serializzare i dati dei post in un formato adatto per essere inviato al frontend, 
-gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item serialize_collection(posts: Post[]): Json
-\end{itemize}
-
-\subsubsubsection{PostCreatorService}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{}
-\end{figure}
-Classe service che si occupa della creazione dei post.
-Viene utilizzata per gestire la logica di creazione dei post, inclusa la validazione e la persistenza dei dati.
-Il servizio si assicura che i dati forniti siano validi e completi prima di creare un nuovo post, restituendo eventuali errori riscontrati durante la validazione.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item create_post(params: Hash): Post
-    \item invalid_post(error: string): string
-\end{itemize}
+% \subsection{Modulo AI Assistant}
+% Il modulo AI Assistant è la componente del sistema dedicata alla generazione di contenuti testuali e visivi tramite modelli di intelligenza artificiale.
+% Il suo obiettivo è fornire agli utenti uno strumento potente e intuitivo per creare post personalizzati, arricchendo l'esperienza utente con funzionalità avanzate di generazione automatica di contenuti. 
+% Il modulo si integra con i servizi di AI (AWS Bedrock) per estrarre il massimo valore dalle capacità di generazione testuale e visiva, offrendo un'interfaccia semplice per la creazione di contenuti complessi e personalizzati, supportando al contempo la gestione e la valutazione dei risultati generati.
+% Nei diagrammi seguenti sono rappresentati i componenti del modulo, divisi per controller, evidenziando i componenti principali e le loro interazioni.
+
+% Il controller più imporante del modulo è \textit{AIGeneratorController}, che espone gli endpoint per la creazione e gestione dei contenuti generati. 
+% Il controller delega la logica di business a un job asincrono \textit{(AIGeneratorJob)}, che si occupa di orchestrare le chiamate ai servizi di generazione testuale e visiva, gestire la persistenza dei risultati e aggiornare lo stato delle generazioni in corso.
+
+% \subsubsection{Diagrammi classi parziali del modulo AI Assistant}
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=1\textwidth]{}
+% \caption{Diagramma classi parziale -- AIGeneratorController}
+% \end{figure}
+% Il diagramma mostra il controller di ingresso del modulo: riceve le richieste HTTP,
+% valida i parametri e delega l'esecuzione al job asincrono. Tramite l'utilizzo di un container di dipendenza, il controller inietta i servizi necessari per la generazione, mantenendo un alto grado di disaccoppiamento e testabilità.
+% I vari services gestiscono la logica di interazione con i modelli di intelligenza artificiale, la persistenza dei dati e l'aggiornamento dello stato delle generazioni.
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=1\textwidth]{}
+% \caption{Diagramma classi parziale -- TonesController}
+% \end{figure}
+% Il diagramma mostra il controller dedicato alla gestione dei toni di generazione. 
+% Espone endpoint per la creazione, eliminazione e recupero dei toni disponibili, delegando la logica di business al servizio specifico che si occupa della persistenza e della validazione dei dati: \textit{ToneSerializer}.
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=1\textwidth]{}
+% \caption{Diagramma classi parziale -- StylesController}
+% \end{figure}
+% Il diagramma mostra il controller dedicato alla gestione dei stili di generazione. 
+% Il funzionamento è analogo a quello del controller dei toni, delegando la logica di business al servizio specifico \textit{StyleSerializer}.
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=1\textwidth]{}
+% \caption{Diagramma classi parziale -- PostsController}
+% \end{figure}
+% Il diagramma mostra il controller dedicato alla pubblicazione di post. 
+% Anche qui il funzionamento di base è analogo a quello del controller dei toni, fatto utilizzando \textit{PostsSerializer}, 
+% ma utilizza anche \textit{PostCreatorService} per gestire la logica di creazione dei post, con la sua logica specifica di validazione.
+
+
+% \subsubsubsection{AIGeneratorController}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe di tipo Controller che espone gli endpoint per la generazione dei contenuti nel modulo AI Assistant. 
+% Gestisce le operazioni CRUD sulle generazioni, espone un endpoint per rigenerare i contenuti e un endpoint per valutare i risultati generati.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item create(params: Hash): Json
+%     \item regenerate(id: int): Json
+%     \item show(id: int): Json
+%     \item rating(id: int, rating: int): Json
+%     \item destroy(id: int): Json
+%     \item generation_params(): Hash
+% \end{itemize}
+
+% \subsubsubsection{AIJobOrchestrator}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe orchestratrice che gestisce la logica di esecuzione dei job di generazione dei contenuti.
+% Si occupa di coordinare le chiamate ai servizi di generazione testuale e visiva, gestire la persistenza dei risultati e aggiornare lo stato delle generazioni in corso.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item orchestrate(params: Hash): int
+%     \item signal_process_started(generationId: int): void
+%     \item signal_failure(generation_id: int, error: string): void
+%     \item complete(generationId: int): void
+%     \item ensure_active_configuration(params: Hash): bool
+% \end{itemize}
+
+% \subsubsubsection{ActionCable}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe nativa di rails per la gestione delle connessioni WebSocket. 
+% Nel contesto del modulo AI Assistant, viene utilizzata per inviare aggiornamenti in tempo reale al frontend riguardo lo stato delle generazioni in corso, permettendo un'esperienza utente più fluida e interattiva.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item broadcast(channel: string, message: Json): void
+% \end{itemize}
+
+
+% \subsubsubsection{AIGeneratorJob}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe di tipo Job asincrono che si occupa di eseguire la logica di generazione dei contenuti in background.
+% Viene invocata dal \textit{AIJobOrchestrator} quando viene richiesta la creazione o rigenerazione di un contenuto, e si occupa di orchestrare le chiamate ai servizi di generazione testuale e visiva.
+
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item perform(generationId: int): void
+% \end{itemize}
+
+% \subsubsubsection{AIGeneratorContainer}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Container che si occupa di gestire le dipendenze necessarie per l'esecuzione dei job di generazione dei contenuti.
+% Viene utilizzato per iniettare i servizi necessari all'esecuzione dei job all'interno di \textit{AIGeneratorService}, mantenendo un alto grado di disaccoppiamento e testabilità,
+% ritornando alla chiamata del job i servizi necessari per l'esecuzione della logica di generazione.
+
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item aiGeneratorService
+%     \item imageGeneratorService
+%     \item setterFactory
+%     \item textGeneratorService
+%     \item aiGeneratorDataManager
+%     \item textResponseValidator
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item initialize(): void
+%     \item aiGeneratorService(): AIGeneratorService
+%     \item imageGeneratorService(): ImageGeneratorService
+%     \item setterFactory(): SetterFactory
+%     \item textGeneratorService(): TextGeneratorService
+%     \item aiGeneratorDataManager(): AIGeneratorDataManager
+%     \item textResponseValidator(): TextResponseValidator
+% \end{itemize}
+
+% \subsubsubsection{AIGeneratorService}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe orchestratrice che gestisce la logica di esecuzione dei job di generazione dei contenuti.
+% Si occupa di coordinare le chiamate ai servizi di generazione testuale e visiva, gestire la persistenza dei risultati e aggiornare lo stato delle generazioni in corso.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item imgGenerator
+%     \item textGenerator
+%     \item aiGeneratorDataManager
+%     \item textResponseValidator
+%     \item setterFactory
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item initialize(imgGenerator: ImageGeneratorService, textGenerator: TextGeneratorService, aiGeneratorDataManager: AIGeneratorDataManager, textResponseValidator: TextResponseValidator, setterFactory: SetterFactory): void
+%     \item createContent(generationId: int): int
+%     \item createText(textSetter: TextParamsSetterService, userPrompt: string): string
+%     \item createImage(imageSetter: ImageParamsSetterService, textResult: string): Hash
+%     \item validateSetters(textSetter: TextParamsSetterService, imageSetter: ImageParamsSetterService): bool
+%     \item prefixed_errors(prefix: string, errors: string[]): string[]
+% \end{itemize}
+
+% \subsubsubsection{AIGeneratorDataManager}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe di tipo Data Manager che si occupa della gestione dei dati relativi alle generazioni dei contenuti.
+% Si occupa di salvare i risultati generati, aggiornare lo stato delle generazioni in corso e fornire un'interfaccia per recuperare i dati delle generazioni quando necessario.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item fetchCompanyDescription(companyId: int): string
+%     \item fetchToneDescription(toneId: int): string
+%     \item fetchStyleDescription(styleId: int): string
+%     \item fetchGenerationData(generationId: int): GeneratedDatum
+%     \item saveContent(generationId: int, responseData: Hash): int
+% \end{itemize}
+
+% \subsubsubsection{SetterFactory}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe di tipo Factory che si occupa di creare i setter per i parametri di generazione dei contenuti.
+% Viene utilizzata per creare i setter specifici per i parametri di testo e immagine, in base alle esigenze della generazione richiesta.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item createTextSetter(params: Hash): TextParamsSetterService
+%     \item createImageSetter(params: Hash): ImageParamsSetterService
+% \end{itemize}
+
+% \subsubsubsection{TextParamsSetterService}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe Service che si occupa di impostare i parametri di generazione per i contenuti testuali.
+% Viene utilizzata per impostare i parametri specifici per la generazione di testo,come il tono, lo stile e la descrizione dell'azienda, in base alle esigenze della generazione richiesta.
+
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item prompt: string
+%     \item toneDescription: string
+%     \item styleDescription: string
+%     \item companyName: string
+%     \item companyDescription: string
+%     \item errors: string[]
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item initialize(params: Hash): void
+%     \item valid(): bool
+%     \item buildSystemPrompt(): string
+%     \item getData(): Hash
+% \end{itemize}
+
+% \subsubsubsection{ImageParamsSetterService}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe Service che si occupa di impostare i parametri di generazione per i contenuti immagine.
+% Viene utilizzata per impostare i parametri specifici per la generazione di immagini, in base alle esigenze della generazione richiesta, 
+% utilizzando anche la risposta della generazione testuale per ulteriori dettagli.
+
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item prompt: string
+%     \item width: int
+%     \item height: int
+%     \item seed: string
+%     \item errors: string[]
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item initialize(params: Hash): void
+%     \item valid(): bool
+%     \item buildImagePrompt(aiTextGeneratorResponse: string): Json
+%     \item getData(): Hash
+% \end{itemize}
+
+% \subsubsubsection{TextGeneratorService}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe service che si occupa di gestire la logica di generazione dei contenuti testuali.
+% Si occupa di interagire con il servizio di generazione testuale (AWS Bedrock) per generare i contenuti richiesti, utilizzando i parametri impostati dal \textit{TextParamsSetterService}.
+
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item region: string
+%     \item client: Aws::BedrockRuntime::Client
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item initialize(region: string): void
+%     \item generateText(user_prompt: string, system_prompt: string): string
+%     \item invokeBedrock(modelId: string, user_prompt: string, system_prompt: string, max_tokens: int, temperature: float): AWS::BedrockRuntime::Types::ConverseResponse
+%     \item expired_credentials_error?(error: string): string
+%     \item expired_credentials_error(error: StandardError, service: Symbol): string
+% \end{itemize}
+
+
+% \subsubsubsection{ImageGeneratorService}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe service che si occupa di gestire la logica di generazione dei contenuti immagine.
+% Si occupa di interagire con il servizio di generazione immagini (AWS Bedrock) per generare i contenuti richiesti, utilizzando i parametri impostati dal \textit{ImageParamsSetterService}.
+
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item region: string
+%     \item client: Aws::BedrockRuntime::Client
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item initialize(region: string): void
+%     \item generateImg(user_prompt: string, system_prompt: string): string
+%     \item invokeNovaCanvas(modelId: string, image_prompt_json: Json): AWS::BedrockRuntime::Types::InvokeModelResponse
+%     \item extract_image_data(response: AWS::BedrockRuntime::Types::InvokeModelResponse): String
+%     \item expired_credentials_error?(error: string): string
+%     \item expired_credentials_error(error: StandardError, service: Symbol): string
+% \end{itemize}
+
+
+% \subsubsubsection{TextResponseValidator}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe Service che si occupa di validare la risposta della generazione testuale.
+% Si occupa di verificare che la risposta della generazione testuale sia valida e che lo split del titolo dal contenuto sia avvenuto correttamente, 
+% restituendo eventuali errori riscontrati durante la validazione.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item BLOCKED_RESPONSES: string[]
+%     \item TITLE_PREFIXES: string[]
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item parse(text_result: string, generationId: intx): Hash
+%     \item blocked_response_message(text_result: string): string
+%     \item split_title_and_content(text_result: string, generationId: int): Hash
+%     \item sanitize_title(raw: string): string
+% \end{itemize}
+
+% \subsubsubsection{GeneratedDatumSerializer}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe serializer che si occupa di serializzare i dati delle generazioni dei contenuti.
+% Viene utilizzata per serializzare i dati delle generazioni in un formato adatto per essere inviato al frontend, 
+% gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item serialize_collection(generated_data: GeneratedDatum[]): Json
+%     \item image_path(generation:int): string
+%     \item serialize(generation: int): Json
+% \end{itemize}
+
+
+% \subsubsubsection{StylesController}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Controller dedicato alla gestione degli stili di generazione dei contenuti.
+% Espone endpoint per la creazione, eliminazione e recupero degli stili disponibili.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item index(): Json
+%     \item create(params: Hash): Json
+%     \item destroy(id: int): Json
+%     \item style_params(): Hash
+% \end{itemize}
+
+% \subsubsubsection{StylesSerializer}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe serializer che si occupa di serializzare i dati degli stili di generazione dei contenuti.
+% Viene utilizzata per serializzare i dati degli stili in un formato adatto per essere inviato al frontend, 
+% gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item serialize_collection(styles: Style[]): Json
+% \end{itemize}
+
+
+% \subsubsubsection{TonesController}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Controller dedicato alla gestione dei toni di generazione dei contenuti.
+% Espone endpoint per la creazione, eliminazione e recupero dei toni disponibili.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item index(): Json
+%     \item create(params: Hash): Json
+%     \item destroy(id: int): Json
+%     \item tone_params(): Hash
+% \end{itemize}
+
+% \subsubsubsection{TonesSerializer}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe serializer che si occupa di serializzare i dati dei toni di generazione dei contenuti.
+% Viene utilizzata per serializzare i dati dei toni in un formato adatto per essere inviato al frontend, 
+% gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item serialize_collection(tones: Tone[]): Json
+% \end{itemize}
+
+
+% \subsubsubsection{PostsController}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Controller dedicato alla gestione dei post generati.
+% Espone endpoint per la creazione, eliminazione e recupero dei post disponibili, 
+% delegando la logica di business alla combinazione di \textit{PostsSerializer} per la serializzazione dei dati e \textit{PostCreatorService} per la logica di creazione dei post, con la sua logica specifica di validazione.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item index(): Json
+%     \item create(params: Hash): Json
+%     \item destroy(id: int): Json
+%     \item post_params(): Hash
+% \end{itemize}
+
+% \subsubsubsection{PostsSerializer}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe serializer che si occupa di serializzare i dati dei post generati.
+% Viene utilizzata per serializzare i dati dei post in un formato adatto per essere inviato al frontend, 
+% gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item serialize_collection(posts: Post[]): Json
+% \end{itemize}
+
+% \subsubsubsection{PostCreatorService}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{}
+% \end{figure}
+% Classe service che si occupa della creazione dei post.
+% Viene utilizzata per gestire la logica di creazione dei post, inclusa la validazione e la persistenza dei dati.
+% Il servizio si assicura che i dati forniti siano validi e completi prima di creare un nuovo post, restituendo eventuali errori riscontrati durante la validazione.
+
+% \textbf{Attributi} 
+% \begin{itemize}
+%     \item Nessuno
+% \end{itemize}
+
+% \textbf{Metodi} 
+% \begin{itemize}
+%     \item create_post(params: Hash): Post
+%     \item invalid_post(error: string): string
+% \end{itemize}
 
 
 
@@ -1411,7 +1411,6 @@ la validazione dei dati estratti e la riassegnazione manuale dei range di pagine
     \item page_range_pdf_service(source_pdf_path: String): DocumentProcessing::PageRangePdf
     \item initialize_processing_command(): Object
     \item initialize_file_processing_command(): Object
-    \item enqueue_single_data_extraction_command(): Object
     \item reassign_extracted_range_command(): Object
     \item extracted_document_presenter(document: ExtractedDocument): Object
     \item db_manager(): DbManager
@@ -1419,6 +1418,28 @@ la validazione dei dati estratti e la riassegnazione manuale dei range di pagine
     \item content_type_for_uploaded(uploaded_document): String
 
 \end{itemize}
+
+
+\subsubsubsection{ExtractedDocumentPresenter }
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ExtractedDocumentPresenter .jpg}
+\end{figure}
+Classe di tipo Presenter (Serializer) responsabile della trasformazione dei dati di un documento estratto in una struttura JSON ottimizzata per la presentazione lato frontend. Incapsula la logica di formattazione dei metadati, includendo la normalizzazione dei dati anagrafici del dipendente associato e la generazione di URL per il download del PDF estratto.
+
+\textbf{Attributi} 
+\begin{itemize}
+  \item document: ExtractedDocument
+  \item url_helpers: Module
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(document: ExtractedDocument, url_helpers*: Module): void
+    \item as_json(*): Hash
+    \item format_employee(employee*: Employee): Hash
+\end{itemize}
+
 
 \subsubsubsection{DbManager}
 \begin{figure}[H]
@@ -1439,7 +1460,7 @@ l'associazione dei destinatari.
 \textbf{Metodi} 
 \begin{itemize}
     \item initialize(data_item_repository*: DataItemRepository, recipient_resolver*: RecipientResolver): void
-    \item uploaded_documents_list(): Hash{id: int, original_filename: String, page_count: int, file_kind: String, created_at: DateTime}[]
+    \item uploaded_documents_list(): Hash \{id: int, original_filename: String, page_count: int, file_kind: String, created_at: DateTime\} []
     \item update_extracted_metadata(extracted_document_id: int, metadata_updates: Hash): ExtractedDocument
 \end{itemize}
 
@@ -1584,27 +1605,6 @@ Servizio centralizzato per la validazione e la persistenza dei file in ingresso.
     \item sanitized_original_filename(name: String): String
 \end{itemize}
 
-\subsubsubsection{EnqueueSingleDataExtraction}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ProcessDataItem.jpg}
-\end{figure}
-Comando delegato all'inserimento in coda di un job di estrazione dati per un singolo documento. 
-Fa da ponte tra l'avvenuto caricamento del file e l'inizio dell'elaborazione tramite 
-intelligenza artificiale.
-
-\textbf{Attributi} 
-\begin{itemize}
-    \item upload_manager: UploadManager
-    \item data_extraction_job_class: Class
-\end{itemize}
-
-\textbf{Metodi} 
-\begin{itemize}
-    \item initialize(upload_manager*: Class, data_extraction_job_class*: Class)
-    \item call(file: UploadedFile): Hash
-\end{itemize}
-
 \subsubsubsection{ExtractedDocumentPresenter}
 \begin{figure}[H]
 \centering
@@ -1667,6 +1667,7 @@ di file generici che non richiedono processi di splitting complessi
 \begin{itemize}
     \item initialize(upload_manager: UploadManager, generic_file_processing_job_class: Class, file_storage: FileStorage)
     \item call(file: UploadedFile, category*: String, company*: String, department*: String, competence_period*: String): Hash
+    \item compute_checksum(file: UploadedFile): String
     \item cleanup_failed_source_file(path:String):void
 \end{itemize}
 
@@ -1702,22 +1703,22 @@ in tempo reale dell'interfaccia.
 \textbf{Attributi} 
 \begin{itemize}
     \item notifier: ActionCableNotifier | nil
-    \item file_storage: FileStorage | nil
-    \item generic_file_repository: DataItemRepository | nil
-    \item image_processor_factory: Proc
-    \item csv_processor_factory: Proc
+      \item file_storage: FileStorage | nil
+      \item generic_file_repository: DataItemRepository | nil
+      \item file_processor: CsvProcessor | ImageProcessor
+      \item confidence_calculator_factory: Proc
 \end{itemize}
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(notifier: ActionCableNotifier | nil, file_storage: FileStorage | nil, generic_file_repository: DataItemRepository | nil, file_processor: CsvProcessor | ImageProcessor, confidence_calculator_factory: Proc)
-    \item call(file_path: String, job_id: String, uploaded_document_id: int, file_kind: String, category*: String, override_company*: String, override_department*: String, competence_period*: String): void
-    \item apply_user_overlays(llm_metadata: Hash, llm_confidence: Hash, overlays: Hash): [Hash,Hash]
-    \item process_file(file_path: String, uploaded_document: UploadedDocument, run: ProcessingRun, overlays: Hash): Hash[]
-    \item persist_item(uploaded_document: UploadedDocument, run: ProcessingRun, metadata: Hash, confidence: Hash, result: Hash, ocr_lines: String[]): [ExtractedDocument, ProcessingItem]
-    \item build_success_payload(filename: String, recipient: String, extracted_document_data: Hash, extracted_confidence: Hash, matched_recipient: Hash|nil, extracted_document_id: int, document_index: int, total_documents: int, ocr_text*: String): Hash
-    \item build_error_payload(message: String, filename*: String, extracted_document_id*: int): Hash
-    \item format_employee(employee*: Employee): Hash|nil
+    \item initialize(notifier: ActionCableNotifier | nil, file_storage: FileStorage | nil, generic_file_repository: DataItemRepository | nil, file_processor: CsvProcessor | ImageProcessor, confidence_calculator_factory: Proc): void
+      \item call(file_path: String, job_id: String, uploaded_document_id: int, file_kind: String, category*: String, override_company*: String, override_department*: String, competence_period*: String): void
+      \item apply_user_overlays(llm_metadata: Hash, llm_confidence: Hash, overlays: Hash): [Hash,Hash]
+      \item process_file(file_path: String, uploaded_document: UploadedDocument, run: ProcessingRun, overlays: Hash): Hash[]
+      \item persist_item(uploaded_document: UploadedDocument, run: ProcessingRun, metadata: Hash, confidence: Hash, result: Hash, ocr_lines: String[]): [ExtractedDocument, ProcessingItem]
+      \item build_success_payload(filename: String, recipient: String, extracted_document_data: Hash, extracted_confidence: Hash, matched_recipient: Hash|nil, extracted_document_id: int, document_index: int, total_documents: int, ocr_text*: String): Hash
+      \item build_error_payload(message: String, filename*: String, extracted_document_id*: int): Hash
+      \item format_employee(employee*: Employee): Hash|nil
 \end{itemize}
 
 \subsubsubsection{CSVProcessor}
@@ -1740,7 +1741,7 @@ confidence da parte dell'LLM.
 \begin{itemize}
     \item initialize(data_extractor: DataExtractor, recipient_resolver: RecipientResolver)
     \item parse(file_path: String): Hash[]
-    \item call(file_path: String, container: Container): Hash{ocr_text: String, metadata: Hash, confidence: Hash, recipient: String | nil, employee: Employee | nil}[]
+    \item call(file_path: String, container: Container): Hash\{ocr_text: String, metadata: Hash, confidence: Hash, recipient: String | nil, employee: Employee | nil\}[]
 \end{itemize}
 
 \subsubsubsection{ConfidenceCalculator}
@@ -1756,7 +1757,7 @@ a campi specifici (es. destinatari, date).
 
 \textbf{Attributi} 
 \begin{itemize}
-    \item ocr_lines: Hash{text: String, confidence: Float | nil}[]
+    \item ocr_lines: Hash\{text: String, confidence: Float | nil\}[]
     \item recipient_names: String[]
     \item metadata: Hash
     \item llm_confidence: Hash
@@ -1766,12 +1767,12 @@ a campi specifici (es. destinatari, date).
 \textbf{Metodi} 
 \begin{itemize}
     \item initialize(ocr_lines: Hash[], recipient_names: String[], metadata*: Hash, llm_confidence*: Hash, uploaded_document*: UploadedDocument): void
-    \item global_confidence(): Hash{recipient: Float, date: Float, company: Float, department: Float, type: Float, reason: Float, competence: Float}
+    \item global_confidence(): Hash\{recipient: Float, date: Float, company: Float, department: Float, type: Float, reason: Float, competence: Float\}
     \item llm_confidence_value(key: Symbol): Float
-    \item textract_confidence(): Hash{recipient: Float, date: Float, company: Float, department: Float, reason: Float, competence: Float}
+    \item textract_confidence(): Hash\{recipient: Float, date: Float, company: Float, department: Float, reason: Float, competence: Float\}
     \item apply_override_confidence(global: Hash): Hash
     \item merge_confidence(llm_value: Numeric, textract_value: Numeric): Float
-    \item confidence_for_values(lines: Hash{text: String, confidence: Float | nil}[], values: String | nil[]): Float
+    \item confidence_for_values(lines: Hash\{text: String, confidence: Float | nil\}[], values: String | nil[]): Float
     \item normalize_match_key(value: Object): String | nil
     \item date_candidates(value: String): String[]
 \end{itemize}
@@ -1795,7 +1796,7 @@ di estrazione per identificare i metadati strutturati e i destinatari.
 \textbf{Metodi} 
 \begin{itemize}
     \item initialize(ocr_service: Ocr, data_extractor: DataExtractor, recipient_resolver: RecipientResolver)
-    \item extract(file_path: String): Hash{ocr_text: String, metadata: Hash, confidence: Hash}
+    \item call(file_path: String): Hash\{ocr_text: String, metadata: Hash, confidence: Hash\}
 \end{itemize}
 
 \subsubsubsection{RecipientResolutionResult}
@@ -1824,7 +1825,7 @@ eventuali testi di fallback e il punteggio di accuratezza del match.
 \subsubsubsection{RecipientResolver}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/RecipientResolutionResult.jpg}
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/RecipientResolver.jpg}
 \end{figure}
 Motore di risoluzione anagrafica che associa i nomi estratti dal testo ai record reali dei 
 dipendenti[cite: 855, 860]. Impiega algoritmi di string matching avanzati 
@@ -1879,7 +1880,6 @@ del processo.
 \begin{itemize}
     \item initialize(data_item_repository: DataItemRepository, notifier: ActionCableNotifier, file_storage: FileStorage, ocr_service: Ocr, data_extractor: DataExtractor, recipient_resolver: RecipientResolver, confidence_calculator_factory: Proc, extracted_metadata_builder_factory: Proc)
     \item call(file_path: String, job_id*: String, processing_item_id*: int, extracted_document_id*: int): void
-    \item notifier(): DocumentProcessing::ActionCableNotifier
     \item resolve_extracted_document(extracted_document_id*: int, item*: Object): ExtractedDocument | nil
     \item update_extracted_document_success(extracted_document: ExtractedDocument, resolution: Object, metadata: Hash, recipient: String | nil, global_confidence: Float, process_duration_seconds: Float): void
     \item increment_progress(run: Object, job_id*: String): void
@@ -1924,33 +1924,30 @@ inversione delle dipendenze.
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(aws_region*: String, broadcaster*: ActionCable::Server::Base, ocr_service_class*: Class, data_extractor_class*: Class, recipient_resolver_class*: Class, pdf_splitter_class*: Class, image_processor_class*: Class, csv_processor_class*: Class confidence_calculator_class*: Class, extracted_metadata_builder_class*: Class, notifier_class*: Class, llm_service_class*: Class, split_run_repository_class*: Class, data_item_repository_class*: Class, file_storage_class*: Class, upload_manager_class*: Class, page_range_pdf_service_class*: Class, db_manager_class*: Class, textract_client*: Aws::Textract::Client, bedrock_client*: Aws::BedrockRuntime::Client): void
-    \item ocr_service(): DocumentOCRService
-    \item data_extractor(): DocumentDataExtractorService
-    \item recipient_resolver(): DocumentRecipientResolverService
-    \item pdf_splitter(pdf: String): PdfSplitter
-    \item image_processor(): ImageProcessor
-    \item csv_processor(): CsvProcessor
-    \item confidence_calculator(**kwargs): ConfidenceCalculator
-    \item extracted_metadata_builder(**kwargs): ExtractedMetadataBuilder
-    \item notifier(): ActionCableNotifier
-    \item split_run_repository(): SplitRunRepository
-    \item data_item_repository(): DataItemRepository
-    \item file_storage(): FileStorage
-    \item upload_manager(): UploadManager
-    \item page_range_pdf_service_class(): PageRangePdf
-    \item db_manager(): DbManager
-    \item process_data_item_service(): ProcessDataItem
-    \item process_split_run_service(): ProcessSplitRun
-    \item process_generic_file_service(): ProcessGenericFile
-    \item initialize_processing_command(): InitializeProcessing
-    \item initialize_file_processing_command(): InitializeFileProcessing
-    \item enqueue_single_data_extraction_command(): EnqueueSingleDataExtraction
-    \item reassign_extracted_range_command(): ReassignExtractedRange
-    \item broadcast(job_id: String, data: Hash): void
-    \item textract_client(): Aws::Textract::Client
-    \item bedrock_client(): Aws::BedrockRuntime::Client
-    \item llm_service(): LlmService
+    \item initialize(aws_region*: String, broadcaster*: ActionCable::Server::Base, ocr_service_class*: Class, data_extractor_class*: Class, recipient_resolver_class*: Class, pdf_splitter_class*: Class, image_processor_class*: Class, csv_processor_class*: Class, confidence_calculator_class*: Class, extracted_metadata_builder_class*: Class, notifier_class*: Class, llm_service_class*: Class, split_run_repository_class*: Class, data_item_repository_class*: Class, file_storage_class*: Class, upload_manager_class*: Class, page_range_pdf_service_class*: Class, db_manager_class*: Class, textract_client*: Aws::Textract::Client, bedrock_client*: Aws::BedrockRuntime::Client): void
+      \item ocr_service(): DocumentOCRService
+      \item data_extractor(): DocumentDataExtractorService
+      \item recipient_resolver(): DocumentRecipientResolverService
+      \item pdf_splitter(pdf: String): PdfSplitter
+      \item image_processor(): ImageProcessor
+      \item csv_processor(): CsvProcessor
+      \item confidence_calculator(**kwargs): ConfidenceCalculator
+      \item extracted_metadata_builder(**kwargs): ExtractedMetadataBuilder
+      \item notifier(): ActionCableNotifier
+      \item split_run_repository(): SplitRunRepository
+      \item data_item_repository(): DataItemRepository
+      \item file_storage(): FileStorage
+      \item upload_manager(): UploadManager
+      \item page_range_pdf_service_class(): PageRangePdf
+      \item db_manager(): DbManager
+      \item process_data_item_service(): ProcessDataItem
+      \item process_split_run_service(): ProcessSplitRun
+      \item file_processor(file_kind: String): CsvProcessor | ImageProcessor
+      \item process_generic_file_service(): ProcessGenericFile
+      \item initialize_processing_command(): InitializeProcessing
+      \item initialize_file_processing_command(): InitializeFileProcessing
+      \item reassign_extracted_range_command(): ReassignExtractedRange
+      \item broadcast(job_id: String, data: Hash): void
 \end{itemize}
 
 \subsubsubsection{ProcessSplitRun}
@@ -1975,7 +1972,7 @@ avvia la messa in coda per l'estrazione asincrona dei dati.
 \begin{itemize}
     \item initialize(split_run_repository: SplitRunRepository, notifier: ActionCableNotifier, file_storage: FileStorage, pdf_splitter_factory: Proc, data_extraction_job_class: Class)
     \item call(file_path: String, job_id: String): void
-    \item create_processing_items_and_enqueue(split_results: Array<Hash>, run: SplitRun): void
+    \item create_processing_items_and_enqueue(split_results: Hash[], run: SplitRun): void
     \item cleanup_source_pdf(file_path: String, run: SplitRun): void
 \end{itemize}
 
@@ -2088,7 +2085,7 @@ database.
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/DataExtractor.jpg}
 \end{figure}
 Servizio delegato all'interfacciamento con il modello LLM per estrapolare metadati 
-strutturati dal testo grezzo[cite: 1022, 1030]. Include logiche per la pulizia del 
+strutturati dal testo grezzo. Include logiche per la pulizia del 
 risultato JSON e la normalizzazione dei campi estratti prima del salvataggio.
 
 \textbf{Attributi} 
