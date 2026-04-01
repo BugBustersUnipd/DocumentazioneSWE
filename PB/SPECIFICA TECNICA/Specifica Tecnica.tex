@@ -277,7 +277,7 @@ Ruby on Rails & Framework open source server side per applicazioni web & 8.1 \\
 \subsection{Librerie}
 Oltre alle tecnologie di base, lo sviluppo del sistema ha richiesto l'integrazione di pacchetti e librerie di terze parti. Queste componenti si sono rivelate essenziali per estendere le funzionalità native dei framework, ottimizzare i tempi di sviluppo e risolvere specifiche problematiche di dominio in modo standardizzato, affidabile e sicuro. La Tabella \ref{tab:librerie} elenca le principali dipendenze esterne introdotte all'interno degli ambienti Node.js e Ruby.
 
-\begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
+\begin{longtable}{|p{3.5cm}|p{8.5cm}|p{3cm}|}
 \caption{Tabella delle Librerie}\label{tab:librerie}\\
 \hline
 \rowcolor{primaryblue!40}
@@ -285,7 +285,7 @@ Oltre alle tecnologie di base, lo sviluppo del sistema ha richiesto l'integrazio
 \hline
 \endfirsthead
 
-\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
 \rowcolor{primaryblue!40}
 \textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
@@ -293,14 +293,61 @@ Oltre alle tecnologie di base, lo sviluppo del sistema ha richiesto l'integrazio
 \endhead
 
 \hline
-\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
+\multicolumn{3}{|r|}{{Continua nella prossima pagina...}}\\
 \hline
 \endfoot
 
 \hline
 \endlastfoot
+
 % Inserire qui le righe della tabella delle librerie
-Nome Libreria & Descrizione della libreria & 1.0.0 \\
+rails & Framework web full-stack per Ruby. & 8.1.2.1 \\
+\hline
+pg & Adattatore PostgreSQL per Active Record. & 1.1 \\
+\hline
+puma & Server web concorrente, veloce e multi-thread per Ruby. & 5.0.0 \\
+\hline
+tzinfo-data & Dati sui fusi orari necessari per i sistemi Windows e JRuby. & 1.2026.1 \\
+\hline
+solid\_cache & Backend basato su database per Rails.cache. & 1.0.10 \\
+\hline
+solid\_queue & Backend basato su database per Active Job. & 1.4.0 \\
+\hline
+solid\_cable & Backend basato su database per Action Cable. & 3.0.12 \\
+\hline
+bootsnap & Ottimizza e riduce i tempi di avvio dell'applicazione tramite caching. & 1.23.0 \\
+\hline
+kamal & Strumento per il deploy di applicazioni web ovunque tramite container Docker. & 2.11.0 \\
+\hline
+thruster & Proxy HTTP per accelerare Puma con caching degli asset e compressione. & 0.1.20 \\
+\hline
+image\_processing & Fornisce metodi helper per la gestione e la trasformazione delle immagini. & 1.2.0 \\
+\hline
+rack-cors & Middleware per la gestione delle richieste CORS (Cross-Origin Resource Sharing). & 3.0.0 \\
+\hline
+combine\_pdf & Libreria per unire, formattare o manipolare file PDF. & 1.0.31 \\
+\hline
+csv & Fornisce un'interfaccia standard per leggere e scrivere file CSV. & 3.3.5 \\
+\hline
+aws-sdk-textract & Client AWS SDK ufficiale per il servizio OCR Amazon Textract. & 1.90.0 \\
+\hline
+aws-sdk-bedrockruntime & Client AWS SDK ufficiale per interagire con i modelli LLM di Amazon Bedrock. & 1.74.0 \\
+\hline
+simplecov & Strumento per l'analisi della copertura del codice durante i test. & 0.22.0 \\
+\hline
+minitest & Suite completa e leggera per il testing (TDD, BDD, benchmarking). & 6.0.3 \\
+\hline
+minitest-mock & Estensione per Minitest dedicata al mocking di oggetti nei test. & 5.27.0 \\
+\hline
+mocha & Libreria ampiamente utilizzata per il mocking e lo stubbing nei test. & 3.1.0 \\
+\hline
+debug & Strumento standard per il debugging delle applicazioni Ruby. & 1.11.1 \\
+\hline
+bundler-audit & Scanner per rilevare vulnerabilità di sicurezza note nelle gemme installate. & 0.9.3 \\
+\hline
+brakeman & Scanner di analisi statica per rilevare vulnerabilità di sicurezza in app Rails. & 8.0.4 \\
+\hline
+rubocop-rails-omakase & Configurazione standard ufficiale (stile Omakase) per RuboCop in Rails. & 1.1.0 \\
 \end{longtable}
 
 
@@ -330,11 +377,11 @@ L'efficienza, la solidità e la riproducibilità dell'intero ciclo di vita del s
 \hline
 \endlastfoot
 % Inserire qui le righe della tabella degli strumenti di sviluppo
-Visual Studio Code & IDE open source per lo sviluppo software sviluppato da Microsoft & 1.113 \\
+Visual Studio Code & IDE open source per lo sviluppo software sviluppato da Microsoft & 1.114 \\
 \hline
-Docker & Piattaforma che permette di creare, distribuire e eseguire applicazioni in container & 29.3.0 \\
+Docker & Piattaforma che permette di creare, distribuire e eseguire applicazioni in container & 29.3.1 \\
 \hline
-PostgreSQL & Database relazionale open source & 18.2 \\
+PostgreSQL & Database relazionale open source & 18.3 \\
 \hline
 pgAdmin & Strumento grafico per amministrare e gestire database PostgreSQL & 9.13 \\
 \end{longtable}
