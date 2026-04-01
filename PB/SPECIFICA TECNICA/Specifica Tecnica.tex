@@ -156,6 +156,8 @@ Documento dove viene spiegata in dettaglio la struttura architetturale, le tecno
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\rowcolor{secondaryblue!10}0.1.3 & 01/04/2026 & Aggiunta parte di modulo AI Assistant & Luca Slongo & - & - \\
+\hline
 \rowcolor{secondaryblue!10}0.1.2 & 31/03/2026 & Prima stesura parte front-end & Leonardo Salviato & - & - \\
 \hline
 \rowcolor{secondaryblue!10}0.1.1 & 31/03/2026 & Continuazione paragrafo Pattern e aggiunta diagrammi & Marco Favero & - & - \\
@@ -772,6 +774,528 @@ Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come u
 \section{Descrizione architettura (Backend)}
 
 \subsection{Modulo AI Assistant}
+Il modulo AI Assistant è la componente del sistema dedicata alla generazione di contenuti testuali e visivi tramite modelli di intelligenza artificiale.
+Il suo obiettivo è fornire agli utenti uno strumento potente e intuitivo per creare post personalizzati, arricchendo l'esperienza utente con funzionalità avanzate di generazione automatica di contenuti. 
+Il modulo si integra con i servizi di AI (AWS Bedrock) per estrarre il massimo valore dalle capacità di generazione testuale e visiva, offrendo un'interfaccia semplice per la creazione di contenuti complessi e personalizzati, supportando al contempo la gestione e la valutazione dei risultati generati.
+Nei diagrammi seguenti sono rappresentati i componenti del modulo, divisi per controller, evidenziando i componenti principali e le loro interazioni.
+
+Il controller più imporante del modulo è \textit{AIGeneratorController}, che espone gli endpoint per la creazione e gestione dei contenuti generati. 
+Il controller delega la logica di business a un job asincrono \textit{(AIGeneratorJob)}, che si occupa di orchestrare le chiamate ai servizi di generazione testuale e visiva, gestire la persistenza dei risultati e aggiornare lo stato delle generazioni in corso.
+
+\subsubsection{Diagrammi classi parziali del modulo AI Assistant}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{}
+\caption{Diagramma classi parziale -- AIGeneratorController}
+\end{figure}
+Il diagramma mostra il controller di ingresso del modulo: riceve le richieste HTTP,
+valida i parametri e delega l'esecuzione al job asincrono. Tramite l'utilizzo di un container di dipendenza, il controller inietta i servizi necessari per la generazione, mantenendo un alto grado di disaccoppiamento e testabilità.
+I vari services gestiscono la logica di interazione con i modelli di intelligenza artificiale, la persistenza dei dati e l'aggiornamento dello stato delle generazioni.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{}
+\caption{Diagramma classi parziale -- TonesController}
+\end{figure}
+Il diagramma mostra il controller dedicato alla gestione dei toni di generazione. 
+Espone endpoint per la creazione, eliminazione e recupero dei toni disponibili, delegando la logica di business al servizio specifico che si occupa della persistenza e della validazione dei dati: \textit{ToneSerializer}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{}
+\caption{Diagramma classi parziale -- StylesController}
+\end{figure}
+Il diagramma mostra il controller dedicato alla gestione dei stili di generazione. 
+Il funzionamento è analogo a quello del controller dei toni, delegando la logica di business al servizio specifico \textit{StyleSerializer}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{}
+\caption{Diagramma classi parziale -- PostsController}
+\end{figure}
+Il diagramma mostra il controller dedicato alla pubblicazione di post. 
+Anche qui il funzionamento di base è analogo a quello del controller dei toni, fatto utilizzando \textit{PostsSerializer}, 
+ma utilizza anche \textit{PostCreatorService} per gestire la logica di creazione dei post, con la sua logica specifica di validazione.
+
+
+\subsubsubsection{AIGeneratorController}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe di tipo Controller che espone gli endpoint per la generazione dei contenuti nel modulo AI Assistant. 
+Gestisce le operazioni CRUD sulle generazioni, espone un endpoint per rigenerare i contenuti e un endpoint per valutare i risultati generati.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item create(params: Hash): Json
+    \item regenerate(id: int): Json
+    \item show(id: int): Json
+    \item rating(id: int, rating: int): Json
+    \item destroy(id: int): Json
+    \item generation_params(): Hash
+\end{itemize}
+
+\subsubsubsection{AIJobOrchestrator}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe orchestratrice che gestisce la logica di esecuzione dei job di generazione dei contenuti.
+Si occupa di coordinare le chiamate ai servizi di generazione testuale e visiva, gestire la persistenza dei risultati e aggiornare lo stato delle generazioni in corso.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item orchestrate(params: Hash): int
+    \item signal_process_started(generationId: int): void
+    \item signal_failure(generation_id: int, error: string): void
+    \item complete(generationId: int): void
+    \item ensure_active_configuration(params: Hash): bool
+\end{itemize}
+
+\subsubsubsection{ActionCable}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe nativa di rails per la gestione delle connessioni WebSocket. 
+Nel contesto del modulo AI Assistant, viene utilizzata per inviare aggiornamenti in tempo reale al frontend riguardo lo stato delle generazioni in corso, permettendo un'esperienza utente più fluida e interattiva.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item broadcast(channel: string, message: Json): void
+\end{itemize}
+
+
+\subsubsubsection{AIGeneratorJob}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe di tipo Job asincrono che si occupa di eseguire la logica di generazione dei contenuti in background.
+Viene invocata dal \textit{AIJobOrchestrator} quando viene richiesta la creazione o rigenerazione di un contenuto, e si occupa di orchestrare le chiamate ai servizi di generazione testuale e visiva.
+
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item perform(generationId: int): void
+\end{itemize}
+
+\subsubsubsection{AIGeneratorContainer}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Container che si occupa di gestire le dipendenze necessarie per l'esecuzione dei job di generazione dei contenuti.
+Viene utilizzato per iniettare i servizi necessari all'esecuzione dei job all'interno di \textit{AIGeneratorService}, mantenendo un alto grado di disaccoppiamento e testabilità,
+ritornando alla chiamata del job i servizi necessari per l'esecuzione della logica di generazione.
+
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item aiGeneratorService
+    \item imageGeneratorService
+    \item setterFactory
+    \item textGeneratorService
+    \item aiGeneratorDataManager
+    \item textResponseValidator
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(): void
+    \item aiGeneratorService(): AIGeneratorService
+    \item imageGeneratorService(): ImageGeneratorService
+    \item setterFactory(): SetterFactory
+    \item textGeneratorService(): TextGeneratorService
+    \item aiGeneratorDataManager(): AIGeneratorDataManager
+    \item textResponseValidator(): TextResponseValidator
+\end{itemize}
+
+\subsubsubsection{AIGeneratorService}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe orchestratrice che gestisce la logica di esecuzione dei job di generazione dei contenuti.
+Si occupa di coordinare le chiamate ai servizi di generazione testuale e visiva, gestire la persistenza dei risultati e aggiornare lo stato delle generazioni in corso.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item imgGenerator
+    \item textGenerator
+    \item aiGeneratorDataManager
+    \item textResponseValidator
+    \item setterFactory
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(imgGenerator: ImageGeneratorService, textGenerator: TextGeneratorService, aiGeneratorDataManager: AIGeneratorDataManager, textResponseValidator: TextResponseValidator, setterFactory: SetterFactory): void
+    \item createContent(generationId: int): int
+    \item createText(textSetter: TextParamsSetterService, userPrompt: string): string
+    \item createImage(imageSetter: ImageParamsSetterService, textResult: string): Hash
+    \item validateSetters(textSetter: TextParamsSetterService, imageSetter: ImageParamsSetterService): bool
+    \item prefixed_errors(prefix: string, errors: string[]): string[]
+\end{itemize}
+
+\subsubsubsection{AIGeneratorDataManager}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe di tipo Data Manager che si occupa della gestione dei dati relativi alle generazioni dei contenuti.
+Si occupa di salvare i risultati generati, aggiornare lo stato delle generazioni in corso e fornire un'interfaccia per recuperare i dati delle generazioni quando necessario.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item fetchCompanyDescription(companyId: int): string
+    \item fetchToneDescription(toneId: int): string
+    \item fetchStyleDescription(styleId: int): string
+    \item fetchGenerationData(generationId: int): GeneratedDatum
+    \item saveContent(generationId: int, responseData: Hash): int
+\end{itemize}
+
+\subsubsubsection{SetterFactory}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe di tipo Factory che si occupa di creare i setter per i parametri di generazione dei contenuti.
+Viene utilizzata per creare i setter specifici per i parametri di testo e immagine, in base alle esigenze della generazione richiesta.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item createTextSetter(params: Hash): TextParamsSetterService
+    \item createImageSetter(params: Hash): ImageParamsSetterService
+\end{itemize}
+
+\subsubsubsection{TextParamsSetterService}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe Service che si occupa di impostare i parametri di generazione per i contenuti testuali.
+Viene utilizzata per impostare i parametri specifici per la generazione di testo,come il tono, lo stile e la descrizione dell'azienda, in base alle esigenze della generazione richiesta.
+
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item prompt: string
+    \item toneDescription: string
+    \item styleDescription: string
+    \item companyName: string
+    \item companyDescription: string
+    \item errors: string[]
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(params: Hash): void
+    \item valid(): bool
+    \item buildSystemPrompt(): string
+    \item getData(): Hash
+\end{itemize}
+
+\subsubsubsection{ImageParamsSetterService}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe Service che si occupa di impostare i parametri di generazione per i contenuti immagine.
+Viene utilizzata per impostare i parametri specifici per la generazione di immagini, in base alle esigenze della generazione richiesta, 
+utilizzando anche la risposta della generazione testuale per ulteriori dettagli.
+
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item prompt: string
+    \item width: int
+    \item height: int
+    \item seed: string
+    \item errors: string[]
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(params: Hash): void
+    \item valid(): bool
+    \item buildImagePrompt(aiTextGeneratorResponse: string): Json
+    \item getData(): Hash
+\end{itemize}
+
+\subsubsubsection{TextGeneratorService}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe service che si occupa di gestire la logica di generazione dei contenuti testuali.
+Si occupa di interagire con il servizio di generazione testuale (AWS Bedrock) per generare i contenuti richiesti, utilizzando i parametri impostati dal \textit{TextParamsSetterService}.
+
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item region: string
+    \item client: Aws::BedrockRuntime::Client
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(region: string): void
+    \item generateText(user_prompt: string, system_prompt: string): string
+    \item invokeBedrock(modelId: string, user_prompt: string, system_prompt: string, max_tokens: int, temperature: float): AWS::BedrockRuntime::Types::ConverseResponse
+    \item expired_credentials_error?(error: string): string
+    \item expired_credentials_error(error: StandardError, service: Symbol): string
+\end{itemize}
+
+
+\subsubsubsection{ImageGeneratorService}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe service che si occupa di gestire la logica di generazione dei contenuti immagine.
+Si occupa di interagire con il servizio di generazione immagini (AWS Bedrock) per generare i contenuti richiesti, utilizzando i parametri impostati dal \textit{ImageParamsSetterService}.
+
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item region: string
+    \item client: Aws::BedrockRuntime::Client
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(region: string): void
+    \item generateImg(user_prompt: string, system_prompt: string): string
+    \item invokeNovaCanvas(modelId: string, image_prompt_json: Json): AWS::BedrockRuntime::Types::InvokeModelResponse
+    \item extract_image_data(response: AWS::BedrockRuntime::Types::InvokeModelResponse): String
+    \item expired_credentials_error?(error: string): string
+    \item expired_credentials_error(error: StandardError, service: Symbol): string
+\end{itemize}
+
+
+\subsubsubsection{TextResponseValidator}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe Service che si occupa di validare la risposta della generazione testuale.
+Si occupa di verificare che la risposta della generazione testuale sia valida e che lo split del titolo dal contenuto sia avvenuto correttamente, 
+restituendo eventuali errori riscontrati durante la validazione.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item BLOCKED_RESPONSES: string[]
+    \item TITLE_PREFIXES: string[]
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item parse(text_result: string, generationId: intx): Hash
+    \item blocked_response_message(text_result: string): string
+    \item split_title_and_content(text_result: string, generationId: int): Hash
+    \item sanitize_title(raw: string): string
+\end{itemize}
+
+\subsubsubsection{GeneratedDatumSerializer}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe serializer che si occupa di serializzare i dati delle generazioni dei contenuti.
+Viene utilizzata per serializzare i dati delle generazioni in un formato adatto per essere inviato al frontend, 
+gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item serialize_collection(generated_data: GeneratedDatum[]): Json
+    \item image_path(generation:int): string
+    \item serialize(generation: int): Json
+\end{itemize}
+
+
+\subsubsubsection{StylesController}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Controller dedicato alla gestione degli stili di generazione dei contenuti.
+Espone endpoint per la creazione, eliminazione e recupero degli stili disponibili.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item index(): Json
+    \item create(params: Hash): Json
+    \item destroy(id: int): Json
+    \item style_params(): Hash
+\end{itemize}
+
+\subsubsubsection{StylesSerializer}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe serializer che si occupa di serializzare i dati degli stili di generazione dei contenuti.
+Viene utilizzata per serializzare i dati degli stili in un formato adatto per essere inviato al frontend, 
+gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item serialize_collection(styles: Style[]): Json
+\end{itemize}
+
+
+\subsubsubsection{TonesController}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Controller dedicato alla gestione dei toni di generazione dei contenuti.
+Espone endpoint per la creazione, eliminazione e recupero dei toni disponibili.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item index(): Json
+    \item create(params: Hash): Json
+    \item destroy(id: int): Json
+    \item tone_params(): Hash
+\end{itemize}
+
+\subsubsubsection{TonesSerializer}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe serializer che si occupa di serializzare i dati dei toni di generazione dei contenuti.
+Viene utilizzata per serializzare i dati dei toni in un formato adatto per essere inviato al frontend, 
+gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item serialize_collection(tones: Tone[]): Json
+\end{itemize}
+
+
+\subsubsubsection{PostsController}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Controller dedicato alla gestione dei post generati.
+Espone endpoint per la creazione, eliminazione e recupero dei post disponibili, 
+delegando la logica di business alla combinazione di \textit{PostsSerializer} per la serializzazione dei dati e \textit{PostCreatorService} per la logica di creazione dei post, con la sua logica specifica di validazione.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item index(): Json
+    \item create(params: Hash): Json
+    \item destroy(id: int): Json
+    \item post_params(): Hash
+\end{itemize}
+
+\subsubsubsection{PostsSerializer}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe serializer che si occupa di serializzare i dati dei post generati.
+Viene utilizzata per serializzare i dati dei post in un formato adatto per essere inviato al frontend, 
+gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item serialize_collection(posts: Post[]): Json
+\end{itemize}
+
+\subsubsubsection{PostCreatorService}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{}
+\end{figure}
+Classe service che si occupa della creazione dei post.
+Viene utilizzata per gestire la logica di creazione dei post, inclusa la validazione e la persistenza dei dati.
+Il servizio si assicura che i dati forniti siano validi e completi prima di creare un nuovo post, restituendo eventuali errori riscontrati durante la validazione.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item create_post(params: Hash): Post
+    \item invalid_post(error: string): string
+\end{itemize}
+
+
+
 
 \subsection{Modulo AI CoPilot}
 Il modulo AI CoPilot è la componente del sistema dedicata al supporto dei Consulenti del 
