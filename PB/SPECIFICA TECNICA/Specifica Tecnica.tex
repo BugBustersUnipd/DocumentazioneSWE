@@ -2684,7 +2684,7 @@ Nota: nel diagramma UML è rappresentata come una classe astratta per coerenza c
     \item fetchCompanies(): void
   \end{itemize}
 
-  \item CRUD dei toni e degli stili: crea, aggiorna in memoria e rimuove elementi selezionabili.
+  \item Gestione dei toni e degli stili: creazione e rimozione.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item newTone(name: string, code: string, companyId: number): void
     \item newStyle(name: string, code: string, companyId: number): void
@@ -2724,11 +2724,182 @@ DA FARE %todo
 \includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/AiAnalyticsService.png}
 \end{figure}
 DA FARE %todo
+\subsection{Adapter: Serializzazione/deserializzazione dei dati}
+Benchè in Typescript è semplice convertire dati strutturati json in interfacce, le classi sono state utilizzate per non dipendere dalla struttura esatta dei dati restituiti dal backend e conformali alle esigenze del frontend. \\
+Inoltre questi serializer fungono da punto centrale per la gestione di eventuali trasformazioni, normalizzazioni o arricchimenti dei dati, rispettando il principio di single responsibility e mantenendo il codice dei servizi di comunicazione più pulito e focalizzato sulla logica di comunicazione piuttosto che sulla manipolazione dei dati.
+\subsubsection{AiAssistantSerializer}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/serializer-aiAssistant.png}
+\end{figure}
+Questa classe funge da adapter per la serializzazione e deserializzazione dei dati relativi al modulo dell'Ai Assistant Generativo.
+È responsabile di convertire i dati ricevuti dal backend (in formato JSON) in valori di tipo ResultAiAssistant, Tone, Style o Company.\\
+\textbf{Attributi}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item Serializzazione richieste verso backend.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item serializeCreatePostRequest(result: ResultAiAssistant): { generated_datum_id: number | null; title: string; body_text: string; img_path: string | null; date_time: Date; }
+\item serializeRequireGenerationRequest(prompt: string, tone: Tone, style: Style, company: Company): { generation_datum: { prompt: string; company_id: number; style_id: number; tone_id: number } }
+\item serializeNewToneRequest(name: string, code: string, companyId: number): { tone: { name: string; description: string; company_id: number } }
+\item serializeNewStyleRequest(name: string, code: string, companyId: number): { style: { name: string; description: string; company_id: number } }
+\end{itemize}
+
+\item Deserializzazione risposte backend.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item deserializeCreatePostResponseId(payload: any): number
+\item deserializeGenerationStartResponse(payload: any): number
+\item deserializeTonesResponse(payload: any): Tone[]
+\item deserializeStylesResponse(payload: any): Style[]
+\item deserializeToneItem(payload: any): Tone
+\item deserializeStyleItem(payload: any): Style
+\item deserializeCompaniesResponse(payload: any): Company[]
+\item deserializeCompanyItem(payload: any): Company
+\item deserializePostsResponse(payload: any): ResultAiAssistant[]
+\item deserializePostItem(payload: any): ResultAiAssistant
+\end{itemize}
+
+\item Metodi di supporto e validazione interna (privati).
+\begin{itemize}[noitemsep, topsep=0pt]
+\item isRecord(value: unknown): value is Record<string, unknown>
+\item asString(value: unknown, fallback = ''): string
+\item asNumber(value: unknown, fallback = 0): number
+\item asBoolean(value: unknown, defaultValue: boolean): boolean
+\item asDate(value: unknown): Date
+\item asNullableNumber(value: unknown): number | null
+\item asNullableString(value: unknown): string | null
+\item deserializeNamedCollection(payload: any, key: 'tones' | 'styles'): Array<Tone | Style>
+\item deserializeNamedItem(payload: any): Tone | Style
+\end{itemize}
+\end{itemize}
+
+\subsubsubsection{AiCopilotSerializer}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/serializer-aiAssistant.png}
+\end{figure}
+DA FARE %todo
+
 \subsection{Micro componenti UI}
+\subsubsection{Button}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{ImmaginiSpecificaTecnica/Frontend/button-component.png}
+\end{figure}
+Componente UI riutilizzabile che rappresenta un pulsante con etichetta e icona personalizzabili.
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Proprietà di input: configurano aspetto e comportamento del pulsante dal componente padre.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item label: string
+    \item icon: string
+    \item disabled: boolean
+    \item fluid: boolean
+    \item class: string
+  \end{itemize}
+
+  \item Proprietà di output: espone l'evento emesso dal pulsante verso il componente padre.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item action: EventEmitter<void>
+  \end{itemize}
+\end{itemize}
+\subsubsection{Menutendina}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/menu-tendina.png}
+\end{figure}
+Componente UI che rappresenta un menu a tendina con ricerca e pulsante per aggiungere opzioni. Viene utilizzato per gestire le scelte di toni, stili le aziende o i template.\\
+\textbf{Attributi}
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Proprietà di input: definiscono i dati mostrati e il comportamento del menu a tendina.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item options: \{ id: number; name: string \}[] | null | undefined \\
+    Elenco delle opzioni selezionabili visualizzate nel menu.
+
+    \item label: string \\
+    Etichetta testuale mostrata sopra la select.
+
+    \item selected: any \\
+    Valore attualmente selezionato nel menu.
+
+    \item placeholder: string \\
+    Testo mostrato quando nessuna opzione è stata selezionata.
+
+    \item addButtonLabel: string \\
+    Etichetta del pulsante usato per aggiungere una nuova opzione.
+
+    \item showAddNew: boolean \\
+    Abilita o nasconde il pulsante per inserire una nuova opzione.
+
+    \item showRemove: boolean \\
+    Abilita o nasconde il pulsante per rimuovere un'opzione.
+
+    \item disabled: boolean \\
+    Disabilita il menu rendendolo non modificabile e non interagibile.
+  \end{itemize}
+
+  \item Proprietà di output: comunicano al componente padre le azioni eseguite dall'utente.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item selectedChange: EventEmitter<any> \\
+    Notifica al componente padre quando cambia l'opzione selezionata.
+
+    \item addNew: EventEmitter<void> \\
+    Segnala la richiesta di creazione di una nuova opzione.
+
+    \item remove: EventEmitter<number> \\
+    Segnala la richiesta di eliminazione di un'opzione, passando il suo identificativo.
+  \end{itemize}
+\end{itemize}
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+
+  \item Gestione inserimento e rimozione opzione: emette l'evento di richiesta creazione o eliminazione elemento.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item emitAddNew(): void
+    \item emitRemove(optionId: number): void
+  \end{itemize}
+\end{itemize}
+\subsubsection{Prompt}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{ImmaginiSpecificaTecnica/Frontend/prompt-component.png}
+\end{figure}
+Componente UI che rappresenta un'area di testo per l'inserimento del prompt da inviare all'assistente AI, con funzionalità di invio tramite pulsante o tasto
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Proprietà di input: definiscono il contenuto e il comportamento del campo di testo.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item prompt: string \\
+    Contiene il testo del prompt inserito o visualizzato nel campo.
+
+    \item autoResize: boolean \\
+    Abilita o disabilita il ridimensionamento automatico dell'area di testo.
+
+    \item label: string \\
+    Etichetta testuale mostrata sopra il campo di input.
+
+    \item value: string \\
+    Valore corrente associato al contenuto del campo.
+
+    \item placeholder: string \\
+    Testo mostrato quando il campo è vuoto.
+
+    \item disabled: boolean \\
+    Disabilita il campo rendendolo non modificabile e non focalizzabile.s
+  \end{itemize}
+
+  \item Proprietà di output: comunicano al componente padre le modifiche del testo inserito.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item promptChange: EventEmitter<string> \\
+    Emette il nuovo valore del prompt quando il contenuto del campo cambia.
+  \end{itemize}
+\end{itemize}
+
 
 \subsection{Macro componenti UI (pagine)}
 
-\subsection{Altri servizi di utilità}
 
 
 
