@@ -271,7 +271,7 @@ All'interno del proprio dispositivo:
 In questo modo si otterrà una copia locale del progetto\G, che potrà essere eseguita e modificata secondo le proprie esigenze.
 
 \subsection{Configurare file env per le API-key di AWS}
-Per poter utilizzare le funzionalità di AI generativa e di analisi documentale, è necessario configurare le API-key di AWS all'interno del file \texttt{.env} presente nella directory del progetto\G.
+Per poter utilizzare le funzionalità di AI generativa e di analisi documentale, è necessario configurare le API-key di AWS all'interno di un file \texttt{.env} la struttura deve essere uguale a quella del file \texttt{.env.example} presente nella directory del progetto\G.
 \begin{itemize}
     \item Aprire il file \texttt{.env} con un editor di testo.
     \item Inserire le API-key di AWS nei campi corrispondenti, seguendo il formato specificato nel file.
@@ -281,12 +281,10 @@ Assicurarsi di salvare le modifiche al file \texttt{.env} prima di procedere con
 \subsection{Inizializzazione applicazione tramite Docker}
 Per avviare l'applicazione, è necessario utilizzare Docker per creare e gestire i container necessari al funzionamento della piattaforma.
 \begin{itemize}
-    \item Per costruire l'ambiente, eseguire il comando \texttt{docker-compose up}, che scarica l'immagine di Ruby e installa tutte le gemme necessarie definite nel Gemfile del progetto.
-    \item Successivamente per costruire e popolare il database si utilizza il comando \texttt{docker compose run --rm web rails db:create db:migrate db:seed}, che esegue le migrazioni del database per creare le tabelle necessarie.
+    \item Per costruire l'ambiente, eseguire il comando \texttt{docker-compose build}, che scarica l'immagine di Ruby e installa tutte le gemme necessarie definite nel Gemfile del progetto.
+    \item Successivamente per costruire e popolare il database si utilizza il comando \texttt{docker compose run --rm web rails db:setup}, che esegue le migrazioni del database per creare le tabelle necessarie e popolare il database con i dati iniziali.
     \item Infine per avviare l'applicazione, eseguire il comando \texttt{docker compose up}, che avvia il server all'indirizzo \texttt{http://localhost:3000} e rende disponibile l'interfaccia utente all'indirizzo \texttt{http://localhost:4200}.
 \end{itemize}
-
-
 
 
 \section{Istruzioni per l'uso}
@@ -588,13 +586,12 @@ Il processo di testing è stato eseguito in diverse fasi del ciclo di sviluppo, 
 
 \subsection{Test Backend}
 Il focus dei test backend è stato principalmente sulla verifica della corretta implementazione delle funzionalità, sulla gestione degli errori e sulla sicurezza dell'applicazione. Sono stati eseguiti test unitari per verificare il funzionamento di singole componenti e test di integrazione per assicurare che le diverse parti del sistema interagiscano correttamente tra loro.
-Per generare e avviare i test backend, è stato utilizzato il framework di testing integrato in Ruby on Rails, che consente di scrivere test in modo semplice e intuitivo. I test sono stati organizzati in diverse categorie.
+Per generare e avviare i test backend, è stato utilizzato il framework di testing integrato in Ruby on Rails, che consente di scrivere test in modo semplice e intuitivo.
 
-\subsubsection{Test di unità}
-Per avviare i test unitari bisogna utilizzare il comando \texttt{docker compose run --rm web rails test:units}, che esegue tutti i test unitari presenti nella directory \texttt{test/unit} del progetto.
- 
-\subsubsection{Test di integrazione}
-Per avviare i test di integrazione bisogna utilizzare il comando \texttt{docker compose run --rm web rails test:integration}, che esegue tutti i test di integrazione presenti nella directory \texttt{test/integration} del progetto.
+\subsubsection{Esecuzione test}
+Se l'installazione e l'avvio dell'applicazione sono stati completati con successo, è possibile eseguire i test per verificare che tutte le funzionalità siano operative e che non ci siano errori.
+Per avviare i test è necessario eseguire il comando \texttt{docker compose run --rm backend rails test} in un altro terminale (non necessita di essere in esecuzione).
+
 
 \subsection{Test Frontend}
 
