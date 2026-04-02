@@ -3087,6 +3087,73 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
     Rimuove tag HTML, entità HTML e normalizza gli spazi dal testo fornito.
   \end{itemize}
 \end{itemize}
+\subsubsection{AddDialog}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/add-dialog-component.png}
+\end{figure}
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Proprietà di input: configurano lo stato e il tipo di dialog.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item visible: boolean \\
+    Abilita o disabilita la visualizzazione del dialog.
+
+    \item type: AddDialogType \\
+    Specifica il tipo di elemento da aggiungere: tone, style, template o company.
+  \end{itemize}
+
+  \item Proprietà di output: comunicano al componente padre le azioni del dialog.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item visibleChange: EventEmitter<boolean> \\
+    Notifica il componente padre quando il dialog viene chiuso.
+
+    \item saveRequested: EventEmitter<AddDialogSaveData> \\
+    Emette i dati inseriti (nome, descrizione e tipo) quando viene richiesto il salvataggio.
+  \end{itemize}
+
+  \item Proprietà interne: mantengono lo stato del form all'interno del dialog.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item name: string \\
+    Nome dell'elemento inserito nel campo di input.
+
+    \item description: string \\
+    Descrizione dell'elemento inserita nel campo di input.
+
+    \item submitted: boolean \\
+    Flag che traccia se il form è stato inviato, usato per la visualizzazione degli errori di validazione.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Proprietà calcolate: determinano dinamicamente il titolo e l'etichetta del dialog in base al tipo.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item get dialogTitle(): string \\
+    Ritorna il titolo del dialog personalizzato secondo il tipo di elemento.
+
+    \item get saveLabel(): string \\
+    Ritorna l'etichetta del pulsante di salvataggio personalizzata secondo il tipo di elemento.
+  \end{itemize}
+
+  \item Gestione chiusura dialog: chiude il dialog e resetta il form interno.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item close(): void \\
+    Nasconde il dialog, notifica il componente padre e resetta i dati del form.
+  \end{itemize}
+
+  \item Gestione salvataggio: valida e salva i dati inseriti.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item save(): void \\
+    Valida l'input, normalizza i dati (trim), emette l'evento di salvataggio verso il padre e chiude il dialog.
+  \end{itemize}
+
+  \item Supporto interno: resetta lo stato del form.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item resetForm(): void \\
+    Reimposta i campi del form e il flag di invio a valori iniziali.
+  \end{itemize}
+\end{itemize}
 \subsection{Macro componenti UI (pagine)}
 
 
