@@ -3154,14 +3154,66 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
     Reimposta i campi del form e il flag di invio a valori iniziali.
   \end{itemize}
 \end{itemize}
+\subsubsubsection{InputComponent}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/input-component.png}
+\end{figure}
+
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Proprietà di input: configurano l'aspetto e il comportamento del campo di input.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item editable: boolean \\
+    Abilita o disabilita la modificabilità del campo.
+
+    \item label: string \\
+    Etichetta testuale mostrata sopra il campo.
+
+    \item value: string | number | undefined \\
+    Valore corrente contenuto nel campo.
+
+    \item placeholder: string \\
+    Testo mostrato quando il campo è vuoto.
+
+    \item type: string \\
+    Tipo di input HTML: text, number, email, password, ecc.
+
+    \item min: number \\
+    Valore minimo accettato (rilevante per input di tipo numero).
+
+    \item max: number \\
+    Valore massimo accettato (rilevante per input di tipo numero).
+
+    \item id: string \\
+    Identificativo univoco del campo HTML.
+
+    \item disabled: boolean \\
+    Disabilita il campo rendendolo non modificabile e non focalizzabile.
+
+    \item class: string \\
+    Classi CSS aggiuntive da applicare al componente.
+  \end{itemize}
+
+  \item Proprietà di output: comunicano al componente padre le modifiche del valore.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item valueChange: EventEmitter<string | number | undefined> \\
+    Emette il nuovo valore quando il contenuto del campo cambia.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Gestione modifica valore: notifica il componente padre delle variazioni.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item onValueChange(value: string | number | undefined): void \\
+    Emette il nuovo valore verso il componente padre quando il campo viene modificato.
+  \end{itemize}
+\end{itemize}
+
+
+
 \subsection{Macro componenti UI (pagine)}
-
-
-
-
-
-
-
 
 % ============================================================
 \section{Design Pattern}
