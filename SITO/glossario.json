@@ -121,6 +121,10 @@
       "definition": "Metrica software che misura la complessità strutturale di un programma o di un singolo metodo calcolando il numero di percorsi linearmente indipendenti attraverso il codice sorgente. Viene calcolata contando il numero di punti decisionali (if, while, for, case) più uno. Un valore elevato indica codice complesso, difficile da testare, mantenere e comprendere. Valori tipici: 1-10 (semplice), 11-20 (moderatamente complesso), 21-50 (complesso), oltre 50 (non testabile). Viene utilizzata per identificare metodi che necessitano di refactoring per migliorare la manutenibilità."
     },
     {
+      "term": "Confidence score (Percentuale di confidenza)",
+      "definition": "Valore percentuale prodotto dal modulo AI Co-Pilot che indica il grado di affidabilità con cui il sistema ha classificato un documento e identificato i relativi destinatari. Un valore elevato indica che l'estrazione automatica è considerata corretta e non richiede intervento umano; un valore al di sotto della soglia prestabilita segnala invece la necessità di una revisione manuale da parte dell'operatore."
+    },
+    {
       "term": "Consulente del Lavoro (CdL)",
       "definition": "Professionista che assiste aziende e lavoratori nella gestione degli adempimenti amministrativi, previdenziali, assistenziali e fiscali relativi al rapporto di lavoro."
     },
@@ -159,6 +163,10 @@
     {
       "term": "Dispatch",
       "definition": "Processo di distribuzione automatizzata dei documenti verso i destinatari finali attraverso diversi canali (es. app, portale, email, PEC)."
+    },
+    {
+      "term": "Docker",
+      "definition": "Piattaforma open-source che consente di creare, distribuire ed eseguire applicazioni all'interno di container, ovvero ambienti isolati e leggeri che includono tutto il necessario per l'esecuzione del software (codice, dipendenze, configurazioni). Garantisce che l'applicazione si comporti in modo identico indipendentemente dall'ambiente sottostante, eliminando il problema del \"funziona solo sulla mia macchina\". Nel progetto è utilizzato per containerizzare i tre componenti principali del sistema (frontend, backend e database), orchestrandoli tramite Docker Compose, che permette di avviarli tutti con un unico comando e di gestirne la comunicazione tramite una rete virtuale privata."
     },
     {
       "term": "Earned Value (EV)",
@@ -214,7 +222,7 @@
     },
     {
       "term": "Google Meet",
-      "definition": "Piattaforma di videoconferenza sviluppata da Google che consente meeting virtuali, condivisione dello schermo e chat. Utilizzata dal gruppo per le riunioni di coordinamento e le presentazioni."
+      "definition": "Piattaforma di videoconferenza sviluppata da Google che consente riunioni virtuali, condivisione dello schermo e chat. Utilizzata dal gruppo per le riunioni di coordinamento e le presentazioni."
     },
     {
       "term": "Human in the loop",
@@ -241,7 +249,7 @@
       "definition": "Indicatore chiave di performance che misura l'efficacia di un processo, un'attività o un'organizzazione nel raggiungere i propri obiettivi."
     },
     {
-      "term": "Latex",
+      "term": "LaTeX",
       "definition": "Sistema di composizione tipografica utilizzato per la produzione di documentazione tecnica e scientifica di alta qualità, particolarmente adatto per documenti complessi con formule matematiche."
     },
     {
@@ -251,6 +259,10 @@
     {
       "term": "LLM (Large Language Model)",
       "definition": "Modello di linguaggio di grandi dimensioni addestrato su vasti corpus di testo, in grado di generare, comprendere e elaborare linguaggio naturale in modo sofisticato."
+    },
+    {
+      "term": "Manuale Utente",
+      "definition": "Documento tecnico che descrive le funzionalità del prodotto software dal punto di vista dell'utente finale, fornendo istruzioni dettagliate sull'installazione, la configurazione e l'utilizzo del sistema. Ha lo scopo di guidare l'utente nell'uso corretto del prodotto, illustrando le operazioni disponibili, i flussi di lavoro e le soluzioni ai problemi più comuni."
     },
     {
       "term": "Manutenibilità",
@@ -263,6 +275,10 @@
     {
       "term": "Milestone",
       "definition": "Data di calendario che fissa un punto di avanzamento atteso nel tempo di progetto, definendo obiettivi specifici e misurabili da raggiungere. Il raggiungimento di una milestone è dimostrato dalla realizzazione di una baseline approvata. Le milestone devono essere SMART: Specifiche (obiettivi chiari), Misurabili (risultati verificabili), Achievable (realisticamente raggiungibili), Rilevanti (significative per il progetto e gli stakeholder), Time-bound (con scadenza definita). Vengono identificate procedendo a ritroso dalla milestone finale verso l'inizio del progetto, determinando le attività e le risorse necessarie per ogni periodo."
+    },
+    {
+      "term": "Minimum Viable Product (MVP)",
+      "definition": "Versione minimale ma funzionante di un prodotto software che include solo le funzionalità essenziali necessarie per soddisfare i requisiti fondamentali e consentire una prima valutazione da parte del committente o degli utenti. L'MVP permette di verificare le ipotesi di base del progetto, raccogliere feedback reali e ridurre il rischio di sviluppare funzionalità non necessarie, seguendo un approccio iterativo e incrementale."
     },
     {
       "term": "Mitigazione",
@@ -282,7 +298,7 @@
     },
     {
       "term": "OCR (Optical Character Recognition)",
-      "definition": "Tecnologia che converte immagini di testo scritto o stampato in testo digitale machine-readable."
+      "definition": "Tecnologia che converte immagini di testo scritto o stampato in testo digitale leggibile automaticamente."
     },
     {
       "term": "PB (Product Baseline)",
@@ -342,7 +358,7 @@
     },
     {
       "term": "Progetto",
-      "definition": "Insieme di attività che devono raggiungere obiettivi specifici a partire da date specificate, con un inizio e una fine fissate in calendario, disponendo di risorse limitate (persone, tempo, denaro, strumenti) e consumando risorse nel loro svolgersi."
+      "definition": "Insieme di attività che mirano a raggiungere obiettivi specifici entro date definite, con un inizio e una fine fissati in calendario, disponendo di risorse limitate (persone, tempo, denaro, strumenti) e consumando risorse durante il loro svolgimento."
     },
     {
       "term": "Programmatore",
@@ -362,7 +378,7 @@
     },
     {
       "term": "Qualità",
-      "definition": "Insieme delle caratteristiche di un prodotto software che gli conferiscono la capacità di soddisfare le esigenze espresse e implicite degli stakeholder. La qualità del software si misura in base a attributi interni (visibili agli sviluppatori) ed esterni (visibili agli utenti)."
+      "definition": "Insieme delle caratteristiche di un prodotto software che gli conferiscono la capacità di soddisfare le esigenze espresse e implicite degli stakeholder. La qualità del software si misura in base ad attributi interni (visibili agli sviluppatori) ed esterni (visibili agli utenti)."
     },
     {
       "term": "Rating System",
@@ -470,7 +486,7 @@
     },
     {
       "term": "Scope",
-      "definition": "Ambito di un progetto, che definisce i confini, i deliverables, gli obiettivi e i compiti che sono inclusi nel progetto."
+      "definition": "Ambito di un progetto che definisce i confini, i deliverable, gli obiettivi e i compiti inclusi nel progetto."
     },
     {
       "term": "SCRUM",
@@ -479,6 +495,14 @@
     {
       "term": "Sicurezza",
       "definition": "Insieme di caratteristiche e meccanismi che proteggono il sistema da accessi non autorizzati, garantiscono la riservatezza, l'integrità e la disponibilità dei dati, e prevengono attacchi e vulnerabilità."
+    },
+    {
+      "term": "Specifica Tecnica",
+      "definition": "Documento che descrive l'architettura del sistema software e le scelte progettuali adottate per soddisfare i requisiti definiti nell'Analisi dei Requisiti. Definisce la struttura dei componenti, le loro interazioni, i pattern architetturali utilizzati, le tecnologie impiegate e i criteri di qualità perseguiti. Costituisce il riferimento tecnico per le attività di codifica e verifica, e rappresenta il principale deliverable della fase di progettazione (Product Baseline) nel ciclo di vita del progetto."
+    },
+    {
+      "term": "Splitting",
+      "definition": "Processo di suddivisione. Nel nostro progetto si fa riferimento a una suddivisione automatica di un file contenente più documenti aggregati (es. cedolini massivi, buste paga multiple, fatture raggruppate) in singoli documenti distinti, ciascuno associato al proprio destinatario. Viene realizzato tramite tecniche di intelligenza artificiale, riconoscimento di marcatori o analisi del layout. In questo progetto, la suddivisione (splitting) fa parte del modulo AI Co-Pilot per l'automazione della gestione documentale dei Consulenti del Lavoro."
     },
     {
       "term": "Sprint",
@@ -513,6 +537,10 @@
       "definition": "Capacità di ricostruire la storia completa di un documento o processo attraverso registrazioni dettagliate (audit trail), dal caricamento all'invio alla lettura, garantendo conformità e accountability."
     },
     {
+      "term": "TypeScript",
+      "definition": "Linguaggio di programmazione open-source sviluppato da Microsoft, basato su JavaScript e progettato per aggiungere la tipizzazione statica opzionale al codice. Grazie al controllo dei tipi in fase di compilazione, consente di individuare molti errori prima dell’esecuzione, migliorando la manutenibilità, la robustezza e la scalabilità delle applicazioni, soprattutto in progetti di grandi dimensioni."
+    },
+    {
       "term": "Validazione",
       "definition": "Processo che accerta che il prodotto software sviluppato soddisfi le effettive esigenze del cliente e gli obiettivi di business per i quali è stato realizzato. Risponde alla domanda \"Stiamo costruendo il prodotto giusto?\" e viene tipicamente effettuata attraverso test di accettazione con il cliente."
     },
@@ -530,15 +558,15 @@
     },
     {
       "term": "Verifica",
-      "definition": "Processo sistematico che determina se i prodotti di lavoro (documenti, codice, componenti) soddisfano i requisiti e le specifiche definite per loro. Risponde alla domanda \"Stiamo costruendo il prodotto nel modo giusto?\" e include attività come revisioni, ispezioni e test."
+      "definition": "Processo sistematico che determina se i prodotti di lavoro (documenti, codice, componenti) soddisfino i requisiti e le specifiche definite per loro. Risponde alla domanda \"Stiamo costruendo il prodotto nel modo giusto?\" e include attività come revisioni, ispezioni e test."
     },
     {
       "term": "Verificatore",
-      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettano gli standard di qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
+      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettino gli standard di qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
     },
     {
-      "term": "Versionamento/versioning",
-      "definition": "Sistema per gestire le diverse versioni di file, codice sorgente o documenti, permettendo di tracciare le modifiche, collaborare in team e revertire a versioni precedenti."
+      "term": "Versionamento (versioning)",
+      "definition": "Sistema per gestire le diverse versioni di file, codice sorgente o documenti, permettendo di tracciare le modifiche, collaborare in team e ripristinare versioni precedenti."
     },
     {
       "term": "Way of Working",
@@ -546,7 +574,7 @@
     },
     {
       "term": "Workflow",
-      "definition": "Sequenza di attività che definiscono un processo di business, dove compiti, informazioni o documenti passano da un partecipante all'altro secondo regole prestabilite. \\end{document}"
+      "definition": "Sequenza di attività che definiscono un processo di business, in cui compiti, informazioni o documenti passano da un partecipante all'altro secondo regole prestabilite. \\end{document}"
     }
   ]
 }
