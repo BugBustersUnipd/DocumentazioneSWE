@@ -3710,9 +3710,9 @@ end
 \end{lstlisting}
 
 
-\subsection{Database}
+\section{Database}
 
-\subsubsection{Schema ER}
+\subsection{Schema ER}
 
 \begin{figure}[H]
 \centering
@@ -3720,7 +3720,7 @@ end
 \caption{Schema ER}
 \end{figure}
 
-\subsubsection{Schema RS}
+\subsection{Schema RS}
 
 \begin{figure}[H]
 \centering
@@ -3728,7 +3728,7 @@ end
 \caption{Schema RS}
 \end{figure}
 
-\subsubsection{Schema ERD (Entity-Relationship Diagram)}
+\subsection{Schema ERD (Entity-Relationship Diagram)}
 
 \begin{figure}[H]
 \centering
@@ -3744,9 +3744,9 @@ end
 
 
 
-\subsubsection{Descrizione tabelle}
+\subsection{Descrizione tabelle}
 
-\subsubsubsection{User}
+\subsubsection{User}
 Costituisce l'entità anagrafica principale del sistema e gestisce l'accesso 
 all'applicativo. Memorizza i dati personali dell'utente 
 (codice fiscale, nome, cognome) e le credenziali di autenticazione (username, 
@@ -3759,7 +3759,7 @@ riferimento per l'emissione e la convalida dei token di sicurezza.
 \caption{Tabella User}
 \end{figure}
 
-\subsubsubsection{Company}
+\subsubsection{Company}
 Rappresenta l'organizzazione, l'azienda cliente o la divisione aziendale 
 all'interno del sistema. Funge da aggregatore principale a cui vengono associati 
 sia i dipendenti sia i parametri di personalizzazione per la generazione dei 
@@ -3771,7 +3771,7 @@ contenuti (toni e stili).
 \caption{Tabella Company}
 \end{figure}
 
-\subsubsubsection{Employee}
+\subsubsection{Employee}
 Funge da tabella di raccordo (join table con attributi) per mappare la relazione 
 molti-a-molti tra \textit{User} e \textit{Company}. Permette di contestualizzare 
 un utente all'interno di una specifica azienda, assegnandogli un dipartimento di 
@@ -3783,7 +3783,7 @@ competenza (\textit{Department}).
 \caption{Tabella Employee}
 \end{figure}
 
-\subsubsubsection{Tones}
+\subsubsection{Tones}
 Tabella di dizionario dedicata al modulo AI Generator. Definisce le direttive sul 
 "tono di voce" (es. Professionale, Amichevole) da fornire in input ai modelli 
 generativi. Ogni tono è vincolato a una specifica azienda (\textit{CompanyId}), 
@@ -3795,7 +3795,7 @@ garantendo una personalizzazione della generazione isolata per ogni tenant.
 \caption{Tabella Tones}
 \end{figure}
 
-\subsubsubsection{Style}
+\subsubsection{Style}
 Simile all'entità \textit{Tones}, questa tabella definisce gli stili di scrittura 
 o formattazione (es. Conciso, Dettagliato). Anche in questo caso, la relazione 
 con \textit{Company} permette di compartimentare i preset stilistici a livello 
@@ -3807,7 +3807,7 @@ aziendale.
 \caption{Tabella Style}
 \end{figure}
 
-\subsubsubsection{GeneratedDatum}
+\subsubsection{GeneratedDatum}
 È l'entità centrale del modulo AI Generator. Traccia in modo esaustivo ogni 
 interazione con il modello di intelligenza artificiale, persistendo l'input 
 (\textit{Prompt}), l'output testuale (\textit{TextResult}) o visivo 
@@ -3822,7 +3822,7 @@ il tracciamento delle rigenerazioni successive di uno stesso contenuto base.
 \caption{Tabella GeneratedDatum}
 \end{figure}
 
-\subsubsubsection{Post}
+\subsubsection{Post}
 Entità destinata a rappresentare l'utilizzo finale di un contenuto generato dal 
 sistema. Collega direttamente un output testuale e/o grafico approvato 
 proveniente da \textit{GeneratedDatum} alle logiche di pubblicazione o 
@@ -3835,7 +3835,7 @@ effettivo utilizzo.
 \caption{Tabella Post}
 \end{figure}
 
-\subsubsubsection{UploadedDocument}
+\subsubsection{UploadedDocument}
 Rappresenta il punto di ingresso dei file fisici nel modulo AI Copilot. Oltre a 
 mantenere i riferimenti di archiviazione (\textit{StoragePath}, 
 \textit{OriginalFilename}, \textit{Checksum}), traccia gli eventuali interventi 
@@ -3848,7 +3848,7 @@ umani di forzatura dei dati (\textit{OverrideCompany}, \textit{OverrideDepartmen
 \caption{Tabella UploadedDocument}
 \end{figure}
 
-\subsubsubsection{ExtractedDocument}
+\subsubsection{ExtractedDocument}
 Consolida i dati di business estrapolati dall'intelligenza artificiale a partire 
 dal file originario (\textit{UploadedDocument}). Memorizza le metriche di 
 affidabilità dell'estrazione (\textit{Confidence}), i tempi di elaborazione e 
@@ -3860,7 +3860,7 @@ mappa il risultato all'entità di business corretta (\textit{MatchedEmployeeId})
 \caption{Tabella ExtractedDocument}
 \end{figure}
 
-\subsubsubsection{ProcessingRun}
+\subsubsection{ProcessingRun}
 Entità deputata alla gestione dell'elaborazione asincrona (Background Jobs). 
 Mappa un'esecuzione di sistema (batch o singola) per il processamento dei 
 documenti caricati, esponendo lo stato globale dell'operazione (\textit{Status}, 
@@ -3873,7 +3873,7 @@ documenti caricati, esponendo lo stato globale dell'operazione (\textit{Status},
 \caption{Tabella ProcessingRun}
 \end{figure}
 
-\subsubsubsection{ProcessingItem}
+\subsubsection{ProcessingItem}
 Gestisce la granularità delle operazioni asincrone. Ogni \textit{ProcessingRun} 
 è suddiviso in molteplici \textit{ProcessingItem}, permettendo al sistema di 
 tracciare in dettaglio lo stato di avanzamento (\textit{Status}, 
@@ -3886,7 +3886,7 @@ singolo documento o operazione isolata.
 \caption{Tabella ProcessingItem}
 \end{figure}
 
-\subsubsubsection{Template}
+\subsubsection{Template}
 Archivio dei modelli standard precompilati. Contiene strutture di testo 
 riutilizzabili per formattare gli output di sistema o le comunicazioni in uscita 
 in modo omogeneo e standardizzato.
@@ -3897,7 +3897,7 @@ in modo omogeneo e standardizzato.
 \caption{Tabella Template}
 \end{figure}
 
-\subsubsubsection{Sending}
+\subsubsection{Sending}
 Log di tracciamento per le comunicazioni in uscita. Questa entità collega in 
 modo relazionale un destinatario (\textit{RecipientId}, mappato verso 
 \textit{User}), il contenuto estrapolato dal sistema (\textit{ExtractedDocument}) 
