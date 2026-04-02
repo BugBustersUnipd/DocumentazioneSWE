@@ -222,7 +222,7 @@
     },
     {
       "term": "Google Meet",
-      "definition": "Piattaforma di videoconferenza sviluppata da Google che consente meeting virtuali, condivisione dello schermo e chat. Utilizzata dal gruppo per le riunioni di coordinamento e le presentazioni."
+      "definition": "Piattaforma di videoconferenza sviluppata da Google che consente riunioni virtuali, condivisione dello schermo e chat. Utilizzata dal gruppo per le riunioni di coordinamento e le presentazioni."
     },
     {
       "term": "Human in the loop",
@@ -249,7 +249,7 @@
       "definition": "Indicatore chiave di performance che misura l'efficacia di un processo, un'attività o un'organizzazione nel raggiungere i propri obiettivi."
     },
     {
-      "term": "Latex",
+      "term": "LaTeX",
       "definition": "Sistema di composizione tipografica utilizzato per la produzione di documentazione tecnica e scientifica di alta qualità, particolarmente adatto per documenti complessi con formule matematiche."
     },
     {
@@ -298,7 +298,7 @@
     },
     {
       "term": "OCR (Optical Character Recognition)",
-      "definition": "Tecnologia che converte immagini di testo scritto o stampato in testo digitale machine-readable."
+      "definition": "Tecnologia che converte immagini di testo scritto o stampato in testo digitale leggibile automaticamente."
     },
     {
       "term": "PB (Product Baseline)",
@@ -358,7 +358,7 @@
     },
     {
       "term": "Progetto",
-      "definition": "Insieme di attività che devono raggiungere obiettivi specifici a partire da date specificate, con un inizio e una fine fissate in calendario, disponendo di risorse limitate (persone, tempo, denaro, strumenti) e consumando risorse nel loro svolgersi."
+      "definition": "Insieme di attività che mirano a raggiungere obiettivi specifici entro date definite, con un inizio e una fine fissati in calendario, disponendo di risorse limitate (persone, tempo, denaro, strumenti) e consumando risorse durante il loro svolgimento."
     },
     {
       "term": "Programmatore",
@@ -486,7 +486,7 @@
     },
     {
       "term": "Scope",
-      "definition": "Ambito di un progetto, che definisce i confini, i deliverables, gli obiettivi e i compiti che sono inclusi nel progetto."
+      "definition": "Ambito di un progetto che definisce i confini, i deliverable, gli obiettivi e i compiti inclusi nel progetto."
     },
     {
       "term": "SCRUM",
@@ -554,15 +554,15 @@
     },
     {
       "term": "Verifica",
-      "definition": "Processo sistematico che determina se i prodotti di lavoro (documenti, codice, componenti) soddisfano i requisiti e le specifiche definite per loro. Risponde alla domanda \"Stiamo costruendo il prodotto nel modo giusto?\" e include attività come revisioni, ispezioni e test."
+      "definition": "Processo sistematico che determina se i prodotti di lavoro (documenti, codice, componenti) soddisfino i requisiti e le specifiche definite per loro. Risponde alla domanda \"Stiamo costruendo il prodotto nel modo giusto?\" e include attività come revisioni, ispezioni e test."
     },
     {
       "term": "Verificatore",
-      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettano gli standard di qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
+      "definition": "Membro del team responsabile di controllare che documenti, codice e altri prodotti di lavoro rispettino gli standard di qualità definiti, le norme di progetto e siano privi di errori, incoerenze o ambiguità."
     },
     {
-      "term": "Versionamento/versioning",
-      "definition": "Sistema per gestire le diverse versioni di file, codice sorgente o documenti, permettendo di tracciare le modifiche, collaborare in team e revertire a versioni precedenti."
+      "term": "Versionamento (versioning)",
+      "definition": "Sistema per gestire le diverse versioni di file, codice sorgente o documenti, permettendo di tracciare le modifiche, collaborare in team e ripristinare versioni precedenti."
     },
     {
       "term": "Way of Working",
@@ -570,7 +570,7 @@
     },
     {
       "term": "Workflow",
-      "definition": "Sequenza di attività che definiscono un processo di business, dove compiti, informazioni o documenti passano da un partecipante all'altro secondo regole prestabilite. \\end{document}"
+      "definition": "Sequenza di attività che definiscono un processo di business, in cui compiti, informazioni o documenti passano da un partecipante all'altro secondo regole prestabilite."
     }
   ]
 }
