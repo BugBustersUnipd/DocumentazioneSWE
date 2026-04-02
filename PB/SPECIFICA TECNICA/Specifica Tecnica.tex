@@ -3020,6 +3020,73 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
     Aggiorna il titolo interno e notifica il componente padre della modifica.
   \end{itemize}
 \end{itemize}
+\subsubsection{Tables}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/tables-component.png}
+\end{figure}
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Proprietà di input: configurano dati e comportamento della tabella.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item risultatoFiltrato: any[] \\
+    Array dei dati filtrati da visualizzare nelle righe della tabella.
+
+    \item columns: any[] \\
+    Definisce la struttura e le colonne della tabella.
+
+    \item items: MenuItem[] \\
+    Elenco delle voci di menu contestuale disponibili per ogni riga.
+
+    \item class: string \\
+    Classi CSS aggiuntive da applicare al componente tabella.
+  \end{itemize}
+
+  \item Proprietà di output: comunicano al componente padre le interazioni sulla tabella.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item titleClick: EventEmitter<any> \\
+    Emette la riga quando l'utente clicca sul titolo.
+
+    \item menuAction: EventEmitter<\{ row: any; item: MenuItem \}> \\
+    Emette la riga e la voce di menu selezionata quando viene eseguita un'azione dal menu contestuale.
+
+    \item rowRemoved: EventEmitter<any> \\
+    Emette la riga eliminata quando viene selezionata l'azione di rimozione (retrocompatibilità).
+  \end{itemize}
+
+  \item Proprietà interne: mantengono lo stato locale del componente.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item rowMenuItems: MenuItem[] \\
+    Voci di menu associate alla riga attualmente selezionata, sincronizzate con le condizioni della riga.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Gestione clic sulla tabella: notificano al componente padre le interazioni dell'utente.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item onTitleClick(row: any): void \\
+    Emette la riga quando viene cliccato il titolo.
+  \end{itemize}
+
+  \item Gestione menu contestuale: sincronizzano le voci del menu con lo stato della riga.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item openRowMenu(menu: \{ toggle: (event: Event) => void \}, event: Event, row: any): void \\
+    Prepara le voci di menu per la riga selezionata applicando le condizioni di visibilità e apre il menu.
+
+    \item bindMenuItemToRow(item: MenuItem, row: any): MenuItem \\
+    Associa una voce di menu a una riga, gestendo visibilità condizionale e comandi personalizzati.
+  \end{itemize}
+
+  \item Estrazione e normalizzazione testo: preparano il testo delle celle eliminando formattazione HTML.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item getPlainCellText(row: any, col: any): string \\
+    Estrae il valore testuale di una cella eliminando i tag HTML.
+
+    \item stripHtmlTags(value: unknown): string \\
+    Rimuove tag HTML, entità HTML e normalizza gli spazi dal testo fornito.
+  \end{itemize}
+\end{itemize}
 \subsection{Macro componenti UI (pagine)}
 
 
