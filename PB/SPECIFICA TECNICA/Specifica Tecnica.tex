@@ -2896,8 +2896,130 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
     Emette il nuovo valore del prompt quando il contenuto del campo cambia.
   \end{itemize}
 \end{itemize}
+\subsubsection{Filters}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/filters-component.png}
+\end{figure}
 
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Proprietà di input: definiscono il tipo di filtro e i dati associati.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item TypeOfFilter: FilterType \\
+    Specifica il tipo di filtro da visualizzare: dateRange, text, number o searchbar.
 
+    \item DatepickerLabel: string \\
+    Etichetta del filtro per selezione data.
+
+    \item dates: Date[] | undefined \\
+    Array di date selezionate dal componente datepicker.
+
+    \item TextFilterLabel: string \\
+    Etichetta del filtro per selezione testuale.
+
+    \item textOptions: string[] \\
+    Elenco delle opzioni testuali disponibili per il filtro.
+
+    \item selectedTextOption: number | undefined | string \\
+    Opzione testuale attualmente selezionata.
+
+    \item searchvalue: string \\
+    Valore attuale inserito nel campo di ricerca.
+  \end{itemize}
+
+  \item Proprietà di output: comunicano al componente padre i cambiamenti dei filtri.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item datesChange: EventEmitter<Date[]> \\
+    Emette l'array di date quando cambia la selezione nel datepicker.
+
+    \item selectedTextOptionChange: EventEmitter<number | string> \\
+    Emette l'opzione testuale selezionata quando cambia la scelta.
+
+    \item searchvalueChange: EventEmitter<string> \\
+    Emette il valore di ricerca quando cambia il contenuto della searchbar.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Gestione cambiamenti filtri: notificano al componente padre le modifiche dei valori immesse dall'utente.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item onSearchChange(): void \\
+    Emette il valore corrente della ricerca quando cambia il contenuto della searchbar.
+
+    \item onTextOptionChange(): void \\
+    Emette l'opzione testuale selezionata quando cambia la scelta.
+
+    \item onDateSelect(): void \\
+    Emette l'array di date selezionate quando cambia la selezione nel datepicker.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{ImageTitle}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/image-title-component.png}
+\end{figure}
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Proprietà di input: configurano l'aspetto e il comportamento del componente immagine con titolo.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item hidden: boolean \\
+    Nasconde o visualizza il componente.
+
+    \item imageUrl: string \\
+    URL dell'immagine da visualizzare.
+
+    \item caption: string \\
+    Didascalia testuale associata all'immagine.
+
+    \item altText: string \\
+    Testo alternativo mostrato se l'immagine non carica.
+
+    \item editable: boolean \\
+    Abilita la modalità di modifica per titolo e immagine.
+
+    \item imageTitle: string \\
+    Titolo dell'immagine visualizzato e modificabile.
+
+    \item loading: boolean \\
+    Mostra uno spinner di caricamento durante l'upload.
+  \end{itemize}
+
+  \item Proprietà di output: comunicano al componente padre i cambiamenti di titolo e immagine.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item imageTitleChange: EventEmitter<string> \\
+    Emette il nuovo titolo quando cambia il valore inserito.
+
+    \item imageChange: EventEmitter<File> \\
+    Emette il file immagine selezionato quando viene caricato un nuovo file.
+  \end{itemize}
+
+  \item Proprietà interne: mantengono lo stato locale del componente.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item title: string \\
+    Titolo sull'immagine sincronizzato con l'input imageTitle.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Gestione ciclo di vita: sincronizza i cambiamenti degli input con lo stato interno.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item ngOnChanges(changes: SimpleChanges): void \\
+    Aggiorna il titolo interno quando cambia l'input imageTitle.
+  \end{itemize}
+
+  \item Gestione modifica immagine e titolo: notificano al componente padre le variazioni.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item onImageChange(event: any): void \\
+    Estrae il file dall'evento di upload e lo emette verso il componente padre.
+
+    \item onTitleChange(value: string): void \\
+    Aggiorna il titolo interno e notifica il componente padre della modifica.
+  \end{itemize}
+\end{itemize}
 \subsection{Macro componenti UI (pagine)}
 
 
