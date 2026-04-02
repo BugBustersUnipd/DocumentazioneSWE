@@ -1307,8 +1307,8 @@ Il servizio si assicura che i dati forniti siano validi e completi prima di crea
 \subsection{Modulo AI CoPilot}
 Il modulo AI CoPilot è la componente del sistema dedicata al supporto dei Consulenti del 
 Lavoro (CdL) nella gestione e revisione documentale automatizzata. 
-L’obiettivo principale è l’efficientamento del workflow operativo attraverso l’impiego di 
-modelli di intelligenza artificiale per l’estrazione di metadati e il riconoscimento 
+L'obiettivo principale è l'efficientamento del workflow operativo attraverso l'impiego di 
+modelli di intelligenza artificiale per l'estrazione di metadati e il riconoscimento 
 anagrafico.
 
 I diagrammi riportati di seguito rappresentano diagrammi delle classi parziali del blocco OCR,
@@ -2526,8 +2526,209 @@ Fornisce un'interfaccia semplice per ottenere l'elenco delle aziende da un datab
 
 
 \section{Descrizione architettura (Frontend)}
+L'architettura frontend è organizzata in modo modulare, separando i componenti UI dai servizi di comunicazione con il backend e dagli altri servizi di utilità. \\\\
+Per semplicità e manutenibilità i dati principali (risultati di generazione, risultati di estrazione e riconoscimento) sono modellati tramite \textit{interface}. Un chiaro vantaggio di raccogliere i dati in queste strutture è il passaggio di oggetti semplici e leggeri tra i componenti e la manutenibilità del codice: se in futuro si volessero aggiungere campi o modificare la struttura dei dati, basterebbe aggiornare l'interfaccia senza dover modificare il passaggio dei dati tra i componenti.
+L'uso di interface invece di classi è una scelta consapevole. Innanzitutto, le interface scompaiono completamente durante la compilazione a JavaScript, risparmiando spazio e accelerando il download e il parsing iniziale. \\
+In secondo luogo, i modelli del progetto contengono esclusivamente dati puri senza alcuna logica di business, validazione o comportamento: una classe aggiungerebbe solo complessità inutile e overhead di istanziazione. Questa scelta riflette una chiara separazione delle responsabilità: i modelli rimangono semplici contenitori di dati, mentre la validazione e la trasformazione rimangono delegate ai servizi e serializer appropriati.
+\subsection{Definizione dei modelli dati}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{ImmaginiSpecificaTecnica/Frontend/ResultHierarchy.png}
+\end{figure}
+\subsubsection{Result}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.2\textwidth]{ImmaginiSpecificaTecnica/Frontend/Result.png}
+\end{figure}
+\textit{Interface} che rappresenta un singolo risultato di estrazione o generazione, definisce il campio \textit{id} comune a tutti i risultati.
 
+\textbf{Campi}
+\begin{itemize}
+    \item id: number | null - Identificatore univoco del risultato, può essere null in caso di risultati non ancora persistiti o generati.
+\end{itemize}
 
+\begin{center}
+Nota: nel diagramma UML è rappresentata come una classe astratta per coerenza con la notazione del modello, ma nel codice TypeScript viene implementata come interface, perché per natura del linguaggio e per le esigenze del progetto è sufficiente definire la struttura dei dati senza introdurre una classe reale o comportamento astratto.
+\end{center}
+\subsubsection{ResultAiAssistant}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{ImmaginiSpecificaTecnica/Frontend/ResultAiAssistant.png}
+\end{figure}
+\textit{Interface} che estende \textit{Result} e rappresenta un risultato generato dall'assistente AI.\\\\
+\textbf{Campi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item id: number | null - Identificatore univoco del post ereditato da Result, può essere null se la generazione non è un post.
+  \item title: string - Titolo o breve descrizione del risultato generato.
+  \item content: string - Contenuto completo del risultato generato dall'assistente AI.
+  \item imagePath: string | null - Percorso dell'immagine associata al risultato, se presente.
+  \item tone: Tone - Tono utilizzato per generare il risultato (es. formale, amichevole, tecnico).
+  \item style: Style - Stile di scrittura utilizzato per il risultato (es. procedurale, dettagliato, narrativo).
+  \item company: Company - Azienda associata al risultato.
+  \item data: Date - Data e ora in cui il risultato è stato generato.
+  \item prompt: string - Prompt di input utilizzato per generare il risultato.
+  \item evaluation: number - Valutazione numerica fornita dall'utente per il risultato (es. da 1 a 5 stelle).
+  \item generatedDatumId: number | null - Identifica l'id di un risultato che non è necessariamente un post.
+\end{itemize}
+\begin{center}
+Nota: nel diagramma UML è rappresentata come una classe astratta per coerenza con la notazione del modello, ma nel codice TypeScript viene implementata come interface, perché per natura del linguaggio e per le esigenze del progetto è sufficiente definire la struttura dei dati senza introdurre una classe reale o comportamento astratto.
+\end{center}
+\subsubsection{ResultAiCopilot}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{ImmaginiSpecificaTecnica/Frontend/ResultSplit.png}
+\end{figure}
+\textit{Interface} che estende \textit{Result} e rappresenta un risultato di estrazione dati da un documento.\\\\
+\textbf{Campi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item DA FARE %todo
+\end{itemize}
+
+\subsubsection{ResultSplit}
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/Frontend/ResultAiCopilot.png}
+\end{figure}
+\textit{Interface} che estende \textit{Result} e rappresenta un risultato di divisione di un documento in più parti.\\\\
+\textbf{Campi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item DA FARE %todo
+\end{itemize}
+\subsubsection{Altre strutture di supporto}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/options.interface.png}
+\end{figure}
+\textit{Interface} usate per lo stesso motivo dei result, e in particolare per modellare le opzioni di toni, stili, aziende e template.\\
+\textbf{Campi presenti nelle opzioni}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item id: number - Identificatore univoco dell'opzione.
+  \item name: string - Nome visualizzato dell'opzione.
+  \item isActive: boolean - Indica se l'opzione è attiva o è stata eliminata. Presente per permettere all'utente di visualizzare anche le opzioni eliminate.
+  \item content: string - Contenuto associato all'opzione, se necessario (es. messaggio del template).
+\end{itemize}
+\textit{Enum} usato per definire gli stati che i documenti processati possono assumere.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.2\textwidth]{ImmaginiSpecificaTecnica/Frontend/document.states.png}
+\end{figure}
+
+\subsection{Servizi di comunicazione con il backend}
+\subsubsection{AiAssistantService}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/AiAssistantService.drawio.png}
+\end{figure}
+È il servizio frontend che centralizza l'integrazione con l'assistente AI: gestisce invio di richieste al backend e ricezione delle risposte (incluse eventuali informazioni di stato/errore). Utilizza il wrapper HttpClient di Angular per la comunicazione HTTP mentre usa le API native dei browser per la comunicazione websocket.\\\\
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Comunicazione con backend: gestisce la serializzazione dei dati e l'invio delle richieste HTTP verso il backend.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item serializer: AiAssistantSerializer
+    \item http: HttpClient
+  \end{itemize}
+  \item Observable delle opzioni readonly: espongono al frontend gli aggiornamenti delle opzioni selezionabili, raggruppando tutte le varianti di tono, stile e azienda.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item tones\$: Observable<Tone[]>
+    \item allTones\$: Observable<Tone[]>
+    \item styles\$: Observable<Style[]>
+    \item allStyles\$: Observable<Style[]>
+    \item companies\$: Observable<Company[]>
+  \end{itemize}
+  \item Subject delle opzioni: mantengono lo stato interno delle opzioni prima della loro esposizione tramite gli observable corrispondenti.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item tonesSubject: BehaviorSubject<Tone[]>
+    \item allTonesSubject: BehaviorSubject<Tone[]>
+    \item stylesSubject: BehaviorSubject<Style[]>
+    \item allStylesSubject: BehaviorSubject<Style[]>
+    \item companiesSubject: BehaviorSubject<Company[]>
+  \end{itemize}
+  \item Stato del risultato corrente: conserva e pubblica il risultato generato dall'assistente AI attualmente visualizzato.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item resultSubject: BehaviorSubject<ResultAiAssistant>
+    \item result\$: Observable<ResultAiAssistant>
+  \end{itemize}
+  \item Stato degli errori di generazione: conserva e pubblica l'ultimo errore verificatosi durante la generazione del risultato.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item generationErrorSubject: BehaviorSubject<string | null>
+    \item currentGenerationError\$: Observable<string | null>
+  \end{itemize}
+  \item Cronologia dei risultati: mantiene l'elenco dei risultati già generati e lo rende disponibile ai componenti sottoscritti.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item resultsHistorySubject: BehaviorSubject<ResultAiAssistant[]>
+    \item resultsHistory\$: Observable<ResultAiAssistant[]>
+  \end{itemize}
+\end{itemize}
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Gestione degli errori: normalizza e pubblica i messaggi di errore provenienti da HTTP e WebSocket.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item extractErrorMessage(error: any): string
+    \item extractRealtimeFailureMessage(payload: any): string
+    \item notifyGenerationError(message: string): void
+    \item clearGenerationError(): void
+  \end{itemize}
+
+  \item Gestione dello stato corrente: aggiorna il risultato AI attualmente visualizzato.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item setCurrentResult(result: ResultAiAssistant | null): void
+    \item buildPendingResult(prompt: string, tone: Tone, style: Style, company: Company): ResultAiAssistant
+  \end{itemize}
+
+  \item Recupero delle opzioni: carica da backend toni, stili e aziende disponibili.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item fetchAllTones(): void
+    \item fetchAllStyles(): void
+    \item fetchTonesByCompany(company: number, is_active?: boolean): void
+    \item fetchStylesByCompany(company: number, is_active?: boolean): void
+    \item fetchCompanies(): void
+  \end{itemize}
+
+  \item CRUD dei toni e degli stili: crea, aggiorna in memoria e rimuove elementi selezionabili.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item newTone(name: string, code: string, companyId: number): void
+    \item newStyle(name: string, code: string, companyId: number): void
+    \item removeTone(id: number): void
+    \item removeStyle(id: number): void
+  \end{itemize}
+
+  \item Generazione AI: avvia e gestisce il flusso di generazione/rigenerazione del contenuto.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item reuse(tone: Tone, style: Style, company: Company, prompt: string): void
+    \item requireGeneration(prompt: string, tone: Tone, style: Style, company: Company): void
+    \item regenerateCurrent(): void
+    \item subscribeToGenerationChannel(generationId: number): void
+  \end{itemize}
+
+  \item Gestione post e storico: salva, elimina e recupera i risultati generati.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item createCurrentPost(): void
+    \item deletePost(id: number): void
+    \item fetchResultsHistory(): void
+  \end{itemize}
+
+  \item Valutazione del risultato: invia la valutazione del contenuto generato al backend.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item setEvaluation(id: number | null, evaluation: number): void
+  \end{itemize}
+\end{itemize}
+\subsubsubsection{AiCopilotService}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/AiCopilotService.png}
+\end{figure}
+DA FARE %todo
+\subsubsubsection{AiAnalyticsService}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/AiAnalyticsService.png}
+\end{figure}
+DA FARE %todo
+\subsection{Micro componenti UI}
+
+\subsection{Macro componenti UI (pagine)}
+
+\subsection{Altri servizi di utilità}
 
 
 
@@ -3290,7 +3491,7 @@ Non si tratta del tradizionale approccio MVC basato su template HTML generati la
 “view” è rappresentata da dati in formato JSON — ma la struttura di base rimane comunque riconoscibile. I controller continuano a 
 svolgere il ruolo di intermediari tra le richieste HTTP e la logica applicativa, che è incapsulata nei servizi e nei modelli.\\
 Ci troviamo però di fronte a un approccio più moderno, caratterizzato da una netta separazione tra backend e frontend. Il backend si limita a 
-esporre API RESTful, senza occuparsi del rendering o della presentazione dei dati. Questo consente di ottenere un’architettura più modulare, 
+esporre API RESTful, senza occuparsi del rendering o della presentazione dei dati. Questo consente di ottenere un'architettura più modulare, 
 scalabile e manutenibile.\\
 Il rendering viene invece delegato ad Angular, che gestisce la visualizzazione lato client (client-side rendering), evitando di sovraccaricare 
 il server. Questo si differenzia dal classico MVC, in cui il rendering avviene lato server (server-side rendering).\\
