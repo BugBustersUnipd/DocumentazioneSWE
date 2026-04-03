@@ -3634,6 +3634,271 @@ Componente UI che rappresenta un dialog per la selezione di un dipendente dalla 
   \item saveDialog(): void 
   Se è presente una selezione valida, costruisce il payload \texttt{SelectEmployeeDialogResult} e chiude il dialog restituendolo al chiamante.
 \end{itemize}
+\subsubsection{PageRangeInput}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/page-range-input-component.drawio.png}
+\end{figure}
+Componente UI che rappresenta un campo di input per l'inserimento di un intervallo di pagine, con validazione e parsing del formato "start-end".
+\textbf{Attributi}
+
+\begin{itemize}
+\item Proprietà di input: configurano l'editabilità e i limiti dell'intervallo pagine.
+\begin{itemize}
+\item editable: boolean (Input) \
+Indica se i campi dell'intervallo pagine possono essere modificati dall'utente.
+  \item page\_start: number \textbar{} undefined (Input) \\
+  Rappresenta la pagina iniziale dell'intervallo selezionato.
+
+  \item page\_end: number \textbar{} undefined (Input) \\
+  Rappresenta la pagina finale dell'intervallo selezionato.
+
+  \item page\_min: number (Input) \\
+  Definisce il valore minimo consentito per le pagine selezionabili.
+
+  \item page\_max: number (Input) \\
+  Definisce il valore massimo consentito per le pagine selezionabili.
+\end{itemize}
+\item Proprietà di output: comunicano al componente padre le variazioni dell'intervallo.
+\begin{itemize}
+\item pageStartChange: EventEmitter<number \textbar{} undefined> (Output) \
+Emette il nuovo valore della pagina iniziale quando viene modificata.
+  \item pageEndChange: EventEmitter<number \textbar{} undefined> (Output) \\
+  Emette il nuovo valore della pagina finale quando viene modificata.
+\end{itemize}
+\item Proprietà interne: il componente non definisce campi interni persistenti aggiuntivi.
+
+\item Proprietà calcolate interne:
+\begin{itemize}
+\item pageEndMin: number (Getter interno) \
+Calcola dinamicamente il valore minimo ammesso per la pagina finale in base a page_min e page_start.
+\end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+
+\begin{itemize}
+\item onPageStartChange(value: string \textbar{} number \textbar{} undefined): void \
+Normalizza e aggiorna la pagina iniziale; se necessario riallinea la pagina finale per garantire coerenza dell'intervallo.
+
+\item onPageEndChange(value: string \textbar{} number \textbar{} undefined): void \
+Normalizza e aggiorna la pagina finale, impedendo che sia minore della pagina iniziale.
+
+\item get pageEndMin(): number \
+Restituisce il minimo consentito per page_end considerando il vincolo del limite inferiore e la pagina iniziale corrente.
+
+\item private toNumber(value: string \textbar{} number \textbar{} undefined): number \textbar{} undefined \
+Converte un valore eterogeneo in numero, restituendo undefined in caso di input vuoto o non valido.
+\end{itemize}
+\subsubsection{StatusPill}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/status-pill-component.drawio.png}
+\end{figure}
+Componente UI che rappresenta una "pillola" di stato, visualizzando un'etichetta testuale con uno stile che varia in base al contenuto.
+\textbf{Attributi}
+
+\begin{itemize}
+\item Proprietà di input: configurano lo stato visualizzato dal componente.
+\begin{itemize}
+\item state: string (Input) \
+Definisce lo stato testuale da rappresentare nella pillola di stato.
+\end{itemize}
+
+\item Proprietà di output: il componente non espone proprietà decorate con \texttt{@Output()}.
+
+\item Proprietà interne: il componente non definisce campi interni persistenti aggiuntivi.
+\end{itemize}
+\subsubsection{ExtractedEmployeeInfo}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/extracted-employee-info-component.png}
+\end{figure}
+\textbf{Attributi}
+
+\begin{itemize}
+  \item Proprietà di input: configurano i dati mostrati nella tabella delle informazioni dipendente estratte.
+    \begin{itemize}
+      \item rows: ExtractedEmployeeInfoRow[] (Input) \
+      Elenco delle righe con i dati estratti e di matching del dipendente.
+    \end{itemize}
+
+  \item Proprietà di output: comunicano al componente padre le azioni richieste dall'utente.
+    \begin{itemize}
+      \item editRequested: EventEmitter<void> (Output) \
+      Notifica la richiesta di apertura/modifica dei dati estratti.
+      \item rowRemoved: EventEmitter<number> (Output) \\
+      Emette l'indice della riga che l'utente richiede di rimuovere.
+    \end{itemize}
+  \item Proprietà interne: il componente non definisce campi interni persistenti aggiuntivi.
+  \end{itemize}
+
+\textbf{Metodi}
+
+\begin{itemize}
+  \item requestEdit(): void \
+  Emette l'evento \texttt{editRequested} per segnalare al componente padre la volontà di modificare i dati.
+
+  \item requestRowRemoval(rowIndex: number): void \
+  Emette l'indice della riga da rimuovere tramite \texttt{rowRemoved}.
+\end{itemize}
+
+\textbf{ExtractedEmployeeInfoRow (interfaccia di supporto)}
+
+\textbf{Attributi}
+
+\begin{itemize}
+  \item Tipo dati di supporto: non è un componente Angular, ma un'interfaccia TypeScript usata da \texttt{ExtractedEmployeeInfo}.
+  \begin{itemize}
+    \item name: string \
+    Nome normalizzato del dipendente associato alla riga.
+    \item rawName: string \\
+    Nome originale estratto prima della normalizzazione.
+
+    \item hasMatch: boolean \\
+    Indica se è stata trovata una corrispondenza valida con un dipendente noto.
+
+    \item recipientConfidence: number \textbar{} null \\
+    Livello di confidenza dell'estrazione del destinatario; nullo se non disponibile.
+
+    \item employeeCode: string \\
+    Codice identificativo del dipendente.
+
+    \item email: string \\
+    Indirizzo email associato al dipendente.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{OtherExtractDocuments}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/other-extract-documents.png}
+\end{figure}
+Componente UI che rappresenta gli altri documenti estratti oltre quello corrente, dallo stesso file originale splittato.
+\textbf{OtherExtractDocuments}
+
+\textbf{Attributi}
+
+\begin{itemize}
+\item Proprietà di input: configurano i dati mostrati nella tabella dei documenti estratti.
+\begin{itemize}
+\item rows: OtherExtractDocumentRow[] (Input) \
+Elenco delle righe da visualizzare, ciascuna contenente identificativo, nominativo destinatario e confidenza.
+\end{itemize}
+
+\item Proprietà di output: comunicano al componente padre le azioni utente sulle righe.
+\begin{itemize}
+\item rowRemoved: EventEmitter<number> (Output) \
+Emette l'identificativo della riga che l'utente richiede di rimuovere.
+\end{itemize}
+
+\item Proprietà interne: il componente non definisce campi interni persistenti aggiuntivi.
+\end{itemize}
+
+\textbf{Metodi}
+
+\begin{itemize}
+\item requestRowRemoval(rowId: number): void \
+Inoltra verso l'esterno la richiesta di rimozione di una riga emettendo il relativo identificativo tramite \texttt{rowRemoved}.
+\end{itemize}
+
+\textbf{OtherExtractDocumentsRow (definito nel file come OtherExtractDocumentRow)}
+
+\textbf{Attributi}
+
+\begin{itemize}
+\item Tipo dati di supporto: non è un componente Angular, ma un'interfaccia TypeScript usata da \texttt{OtherExtractDocuments}.
+\begin{itemize}
+\item id: number \textbar{} null \
+Identificativo univoco della riga; può essere nullo quando il record non è ancora persistito o identificato.
+  \item recipientName: string \\
+  Nome del destinatario associato al documento estratto.
+
+  \item confidence: number \\
+  Valore numerico di confidenza dell'estrazione associata alla riga.
+\end{itemize}
+\end{itemize}
+\subsubsection{SendDocumentDialog}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/send-document-dialog-component.drawio.png}
+\end{figure}
+Componente UI che rappresenta un dialog per la conferma dell'invio di un documento. Mostra un campo di testo per inserire un messaggio personalizzato o la selezione di un template per un messaggio predefinito. Inoltre mostra la possibilità di inviare il messaggio immediatamente o programmarlo a orari prestabiliti. Infine il pulsante di invio.
+textbf{Attributi}
+
+\begin{itemize}
+\item Proprietà di input: configurano i dati opzionali passati al componente.
+\begin{itemize}
+\item options: any[] (Input) \
+Collezione generica di opzioni configurabili ricevute dal componente padre.
+\end{itemize}
+
+\item Proprietà di output: il componente non espone proprietà decorate con \texttt{@Output()}.
+
+\item Proprietà interne: gestiscono stato locale, dialog e integrazione con i servizi.
+\begin{itemize}
+\item ref: DynamicDialogRef (Proprietà interna, pubblica) \
+Riferimento al dialog corrente, usato per chiudere la finestra con o senza payload.
+  \item config: DynamicDialogConfig (Proprietà interna, pubblica) \
+  Configurazione del dialog, usata per leggere i dati passati in apertura.
+
+  \item aiService: AiCoPilotService (Proprietà interna, privata) \
+  Servizio applicativo usato per la creazione di nuovi template.
+
+  \item addDialogVisible: boolean (Proprietà interna) \
+  Indica se il dialog secondario di aggiunta è visibile.
+
+  \item addDialogType: AddDialogType (Proprietà interna) \
+  Specifica il tipo di dialog secondario da aprire (es. template/tone).
+
+  \item templates\$: Observable<TemplateOption[]> \textbar{} undefined (Proprietà interna) \
+  Stream dei template disponibili da mostrare nella selezione.
+
+  \item selectedTemplate: TemplateOption \textbar{} null (Proprietà interna) \
+  Template attualmente selezionato dall'utente.
+
+  \item \_messaggio: string (Proprietà interna, privata) \
+  Buffer interno del testo messaggio, usato dagli accessor della proprietà messaggio.
+
+  \item timeOptions: any[] (Proprietà interna) \
+  Elenco delle opzioni temporali disponibili per la pianificazione dell'invio.
+
+  \item selectedTime: \{ name: string; value: string \} (Proprietà interna) \
+  Opzione temporale attualmente selezionata per l'invio.
+\end{itemize}
+\item Proprietà calcolate interne:
+\begin{itemize}
+\item messaggio: string (Accessor get/set) \
+Espone il contenuto del messaggio: in lettura usa \texttt{_messaggio} oppure il contenuto del template selezionato; in scrittura aggiorna \texttt{_messaggio}.
+\end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}
+\item get messaggio(): string \
+Restituisce il testo del messaggio privilegiando il valore inserito manualmente, con fallback al contenuto del template selezionato.
+
+\item set messaggio(value: string): void \
+Aggiorna il contenuto interno del messaggio.
+
+\item onTemplateSelected(template: TemplateOption \textbar{} null): void \
+Aggiorna il template selezionato e sincronizza il messaggio con il contenuto del template scelto.
+
+\item ngOnInit(): void \
+Inizializza il componente leggendo dallo stato del dialog lo stream dei template disponibili.
+
+\item openAddDialog(type: AddDialogType): void \
+Imposta il tipo di dialog secondario da aprire e ne abilita la visualizzazione.
+
+\item handleAddSave(event: AddDialogSaveData): void \
+Gestisce il salvataggio dal dialog secondario e, se il tipo è template, invoca il servizio per crearne uno nuovo.
+
+\item closeDialog(): void \
+Chiude il dialog senza restituire dati di conferma.
+
+\item confirmDialog(): void \
+Costruisce il payload \texttt{SendDocumentData} con messaggio, orario, allegati e template selezionato, quindi chiude il dialog restituendolo.
+\end{itemize}
 \subsection{Macro componenti UI (pagine)}
 
 % ============================================================
