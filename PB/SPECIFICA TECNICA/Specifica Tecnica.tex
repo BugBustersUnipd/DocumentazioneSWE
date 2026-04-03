@@ -2581,8 +2581,17 @@ Nota: nel diagramma UML è rappresentata come una classe astratta per coerenza c
 \textit{Interface} che estende \textit{Result} e rappresenta un risultato di estrazione dati da un documento.\\\\
 \textbf{Campi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item DA FARE %todo
+\item id: number | null - Identificatore univoco ereditato da Result; può essere null nelle fasi iniziali o in assenza di persistenza.
+\item name: string - Nome logico del documento padre caricato.
+\item ResultSplit: ResultSplit[] - Collezione dei documenti estratti/segmentati associati al documento padre.
+\item pages: number - Numero totale di pagine del documento padre.
+\item state: DocumentState - Stato complessivo del documento padre nel flusso di elaborazione.
 \end{itemize}
+
+\begin{center}
+Nota: nel diagramma UML può essere rappresentata come entità di dominio, ma nel codice TypeScript è implementata come interface, in modo da descrivere solo la struttura dati senza introdurre comportamento applicativo.
+\end{center}
+
 
 \subsubsection{ResultSplit}
 \begin{figure}[H]
@@ -2592,8 +2601,28 @@ Nota: nel diagramma UML è rappresentata come una classe astratta per coerenza c
 \textit{Interface} che estende \textit{Result} e rappresenta un risultato di divisione di un documento in più parti.\\\\
 \textbf{Campi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item DA FARE %todo
+\item id: number | null - Identificatore univoco ereditato da Result per il documento estratto.
+\item name: string - Nome del documento estratto mostrato in interfaccia.
+\item state: State - Stato corrente del documento estratto nel workflow operativo.
+\item confidence: number - Confidenza complessiva dell’estrazione/analisi.
+\item fieldConfidences: Record<string, number> - Confidenze puntuali per singolo campo estratto.
+\item recipient: RecipientInfo - Informazioni del destinatario associato (id, nome normalizzato, nome raw, email, codice).
+\item time_Analysis: number - Tempo impiegato per l’analisi del documento estratto.
+\item page_start: number - Pagina iniziale dell’intervallo analizzato.
+\item page_end: number - Pagina finale dell’intervallo analizzato.
+\item company: string - Azienda associata al documento.
+\item department: string - Reparto associato al documento.
+\item reason: string - Causale/motivazione estratta dal contenuto.
+\item month_year: string - Competenza temporale (mese/anno) associata al documento.
+\item category: string - Categoria documentale assegnata.
+\item data: Date - Data di creazione del record estratto.
+\item data_interna: Date - Data interna al documento, se disponibile.
+\item parentId: number - Identificatore del documento padre (uploaded document) da cui deriva l’estratto.
 \end{itemize}
+
+\begin{center}
+Nota: anche questa entità è modellata come interface TypeScript; rappresenta un contratto dati usato da service e componenti senza comportamento interno.
+\end{center}
 \subsubsection{Altre strutture di supporto}
 \begin{figure}[H]
 \centering
