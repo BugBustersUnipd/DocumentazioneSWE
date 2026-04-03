@@ -3126,7 +3126,7 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
 \subsubsection{AddDialog}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/add-dialog-component-dep.png}
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/add-dialog-component.drawio.png}
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
@@ -3293,7 +3293,80 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
     Se non è in loading, aggiorna editorText ed emette textChange con il nuovo contenuto.
   \end{itemize}
 \end{itemize}
+\subsubsubsection{MonthYearComponent}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/month-year-component.drawio.png}
+\end{figure}
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Proprietà di input: configurano l'etichetta e il testo segnaposto del selettore mese/anno.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item label: string \\
+    Etichetta visualizzata sopra il controllo.
 
+    \item placeholder: string \\
+    Testo mostrato quando non è stato ancora selezionato alcun mese/anno.
+  \end{itemize}
+
+  \item Proprietà di output: comunicano al componente padre il valore selezionato.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item monthYearChange: EventEmitter<string> \\
+    Emette il mese/anno selezionato nel formato YYYY-MM.
+  \end{itemize}
+
+  \item Proprietà interne: mantengono lo stato locale del selettore.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item selectedMonthYear: Date | null \\
+    Valore data selezionato nel datepicker, usato per ricavare mese e anno.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Gestione selezione mese/anno: converte la data scelta nel formato richiesto e la emette al padre.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item onMonthYearChange(): void \\
+    Legge selectedMonthYear, estrae mese e anno e li emette come stringa nel formato YYYY-MM; se non c'è alcun valore selezionato, emette una stringa vuota.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{DateRangePicker}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/date-range-picker-component.png}
+\end{figure}
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item Proprietà di input: configurano l'etichetta e il testo segnaposto del selettore mese/anno.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item label: string \\
+Etichetta visualizzata sopra il controllo.
+\item placeholder: string \\
+Testo mostrato quando non è stato ancora selezionato alcun mese/anno.
+\end{itemize}
+
+\item Proprietà di output: comunicano al componente padre il valore selezionato.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item monthYearChange: EventEmitter<string> \\
+Emette il mese/anno selezionato nel formato YYYY-MM.
+\end{itemize}
+
+\item Proprietà interne: mantengono lo stato locale del selettore.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item selectedMonthYear: Date | null \\
+Valore data selezionato nel datepicker, usato per ricavare mese e anno.
+\end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item Gestione selezione mese/anno: converte la data scelta nel formato richiesto e la emette al padre.
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item onMonthYearChange(): void \\
+  Legge selectedMonthYear, estrae mese e anno e li emette come stringa nel formato YYYY-MM; se non c'è alcun valore selezionato, emette una stringa vuota.
+\end{itemize}
+\end{itemize}
 \subsection{Macro componenti UI (pagine)}
 
 % ============================================================
