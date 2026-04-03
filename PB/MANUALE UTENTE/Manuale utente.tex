@@ -449,25 +449,36 @@ L'AI Co-Pilot dedicato ai Consulenti del Lavoro (CdL) è progettato per supporta
 Il modulo di analisi dei documenti consente ai CdL di caricare documenti in vari formati (PDF, Word, ecc.) e di riconoscerne automaticamente la tipologia (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.).
 Per effettuare un'analisi è necessario inserire il file che si ha intenzione di analizzare ed eventualmente dati conosciuti, facilitando così il processo di riconoscimento e estrazione delle informazioni rilevanti.
 
+\immagine[1\textwidth]{immagini/2_Analisi.png}{Analisi documenti}{fig:AnalisiDocumenti}
+
 \subsubsubsection{Caricamento documento}
 Tramite questa funzione, l'utente può selezionare e caricare uno o più documenti all'interno del sistema. L'infrastruttura verifica l'integrità e la validità del formato del file per prepararlo all'analisi tramite intelligenza artificiale.
+\immagine[1\textwidth]{immagini/2_Caricamento.png}{Analisi documenti}{fig:CaricamentoDocumenti}
+
 
 \subsubsubsection{Inserimento dati conosciuti}
 Per guidare il modello di AI e aumentare la precisione dell'estrazione (confidence), l'utente ha la facoltà di inserire manualmente alcuni metadati ancor prima di lanciare l'analisi. Tra questi figurano la selezione della categoria documentale, l'inserimento dell'azienda cliente, l'indicazione del mese/anno di competenza e lo specifico reparto aziendale.
+
+\immagine[1\textwidth]{immagini/2_DatiConosciuti.png}{Inserimento dati conosciuti}{fig:DatiConosciuti}
 
 
 \subsubsection{Visualizzazione risultati analisi documenti}
 Dopo l'analisi, i risultati vengono visualizzati in modo chiaro e organizzato, evidenziando le informazioni estratte dal documento e fornendo un quadro completo del contenuto analizzato.
 Questa visualizzazione consente al CdL di comprendere rapidamente le informazioni chiave del documento e di prendere decisioni informate su come procedere con la gestione del documento stesso.
+
+\immagine[1\textwidth]{immagini/2_RisultatoAnalisi.png}{Visualizzazione risultati analisi documenti}{fig:RisultatoAnalisi}
  
+
 \subsubsubsection{Visualizzazione tabella riepilogativa documenti analizzati}
 Il sistema presenta l'elenco dei documenti analizzati in formato tabellare. Per ogni elemento, vengono esposti i dati di sintesi estratti dall'AI, quali l'azienda, il periodo di competenza, la tipologia del file, la lingua, il numero di pagine e l'identificativo originale, permettendo un controllo rapido del flusso elaborato.
 
-\subsubsubsection{Visualizzazione stato analisi documenti}
-Questa funzionalità permette all'utente di monitorare l'avanzamento e la fase del ciclo di vita in cui si trova il documento. Attraverso etichette testuali o indicatori visivi (es. "Da validare", "Pronto per l'invio", "Inviato", "Errore"), è possibile comprendere immediatamente se il documento necessita di intervento umano o se l'elaborazione è andata a buon fine.
+\immagine[1\textwidth]{immagini/2_RiconoscimentDocumenti.png}{Tabella riepilogativa documenti analizzati}{fig:RiconoscimentoDocumenti}
+
 
 \subsubsubsection{Applicazione filtro di ricerca su documenti}
 Per agevolare la gestione di archivi voluminosi, il sistema mette a disposizione uno strumento di filtraggio dinamico. L'utente può raffinare la lista dei risultati applicando filtri per tipologia documentale, mese/anno di competenza, livello di confidenza dell'AI, documento originale o stato di elaborazione.
+
+\immagine[1\textwidth]{immagini/2_Filtro.png}{Filtro ricerca documenti}{fig:FiltroDocumenti}
 
 \subsubsubsection{Modifica del risultato dell'analisi documenti}
 In ottica "Human-in-the-loop", se l'AI dovesse classificare un documento in modo impreciso o associare dati non corretti, l'operatore può intervenire manualmente per modificare la tipologia del documento o correggerne gli attributi. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza.
@@ -475,57 +486,48 @@ In ottica "Human-in-the-loop", se l'AI dovesse classificare un documento in modo
 \subsubsubsection{Eliminazione del risultato dell'analisi documenti}
 Qualora un documento sia stato caricato per errore, risulti duplicato o non debba più far parte del flusso di invio, l'utente può rimuovere il documento e i relativi risultati dell'analisi dal database e dall'interfaccia corrente.
 
-
-\subsubsection{Riconoscimento destinatari con creazione liste di invio}
-Il sistema è in grado di riconoscere automaticamente i destinatari associati al documento analizzato, creando liste di invio basate sulle informazioni estratte.
-Questa funzionalità semplifica il processo di invio dei documenti, consentendo al CdL di selezionare facilmente i destinatari appropriati e di gestire le comunicazioni in modo più efficiente.
-
-\subsubsubsection{Visualizzazione risultati analisi destinatari}
-Il sistema mostra, a seguito dell'analisi documentale (e dell'eventuale split dei documenti massivi), l'elenco dei destinatari individuati. I dati mostrati includono nome, cognome, codice fiscale, numero di matricola e reparto di afferenza, garantendo la verifica dell'identità.
-
-\subsubsubsection{Visualizzazione stato analisi destinatari}
-Permette di visualizzare se i dati anagrafici estratti dall'AI per ciascun destinatario sono considerati affidabili, se necessitano di validazione manuale o se non è stato possibile riconoscere alcun destinatario, richiedendo così l'attenzione dell'operatore.
-
-\subsubsubsection{Applicazione filtro di ricerca su destinatari}
-Per rintracciare rapidamente i destinatari all'interno di invii massivi, l'utente può utilizzare barre di ricerca e filtri mirati. La lista può essere filtrata per numero di matricola, per reparto aziendale o in base allo specifico codice del documento associato.
-
-\subsubsubsection{Modifica del risultato dell'analisi destinatari}
-Nel caso l'algoritmo associ un destinatario errato a un documento o non riesca a dedurlo, l'operatore può intervenire per cercare e selezionare il destinatario corretto. L'associazione può avvenire tramite l'inserimento manuale dell'indirizzo email o del numero di matricola.
-
-\subsubsubsection{Eliminazione del risultato dell'analisi destinatari}
-Garantisce la possibilità di dissociare un destinatario da un documento o di rimuoverlo dalla lista di distribuzione creata, evitando che riceva comunicazioni non di sua competenza.
+\immagine[0.4\textwidth]{immagini/2_ModificaElimina.png}{Modifica ed eliminazione risultati analisi documenti}{fig:ModificaEliminaDocumenti}
 
 
-\subsubsection{Visualizzazione anteprima e correzione documenti}
+
+\subsubsection{Visualizzazione e correzione documenti}
 A seguito dell'analisi, il sistema estrae le informazioni rilevanti dal documento e le presenta in modo chiaro e organizzato, consentendo al CdL di verificare l'accuratezza dei dati estratti e di apportare eventuali correzioni o integrazioni prima di procedere con l'invio del documento ai destinatari.
 
-\subsubsubsection{Visualizzazione anteprima documento}
-Il sistema mostra a schermo l'anteprima visiva del file sorgente (es. il PDF o l'immagine caricata). Questa funzione è essenziale per consentire all'operatore di leggere il documento originale e confrontarlo direttamente e in tempo reale con le estrazioni effettuate dall'AI.
+\immagine[1\textwidth]{immagini/2_DocumentoEstratto.png}{Dettagli analisi documento}{fig:DocumentoEstratto}
+
 
 \subsubsubsection{Visualizzazione informazioni documento}
 In una sezione adiacente all'anteprima, il sistema raccoglie tutti i metadati specifici del singolo file, quali il codice univoco interno, la data di caricamento e redazione, la causale individuata e il grado di affidabilità dell'estrazione (confidence score).
 
+\immagine[0.5\textwidth]{immagini/2_ModificaInfo.png}{Visualizzazione informazioni documento}{fig:ModificaInfoDocumento}
+
 \subsubsubsection{Visualizzazione destinatari documento}
 Visualizza nel dettaglio i soggetti a cui il singolo documento in anteprima è indirizzato. In presenza di liste lunghe, questa sezione può presentare un riepilogo rapido e mostrare l'appartenenza a specifiche liste di distribuzione.
+\immagine[0.8\textwidth]{immagini/2_Destinatario.png}{Visualizzazione destinatari documento}{fig:DestinatariDocumento}
+
 
 \subsubsubsection{Visualizzazione dettagli analisi}
 Permette di consultare le metriche tecniche del processo elaborativo eseguito dall'AI, evidenziando le criticità (es. confidenza del dato inferiore alla soglia di sicurezza) e consultando l'audit log, che riporta cronologicamente tutte le modifiche e i cambi di stato del documento nel tempo.
 
-\subsubsubsection{Esecuzione operazioni su documento}
-Fornisce i comandi d'azione diretti sul singolo file in fase di revisione. L'utente può confermare (validare) le estrazioni dell'AI, correggere campi di testo, scaricare il documento originale o procedere alla sua eliminazione in caso di anomalie insormontabili.
 
-\subsubsubsection{Esecuzione operazioni su destinatari}
-Consente le modifiche mirate alle anagrafiche dei soggetti associati al documento visualizzato in anteprima, facilitando l'operazione di sgancio o aggiornamento manuale del destinatario finale.
+\subsubsubsection{Modifica del risultato dell'analisi destinatari}
+Nel caso l'algoritmo associ un destinatario errato a un documento o non riesca a dedurlo, l'operatore può intervenire per cercare e selezionare il destinatario corretto. L'associazione può avvenire tramite l'inserimento manuale dell'indirizzo email o del numero di matricola.
+
+\immagine[0.6\textwidth]{immagini/2_ModificaDestinatario.png}{Modifica risultato analisi destinatari}{fig:ModificaDestinatario}
+
+\subsubsubsection{Visualizzazione documento originale ed estratto}
+Per facilitare il confronto e la verifica, il sistema consente di visualizzare sia il documento originale caricato che la versione estratta e 
+analizzata dall'AI.
+
+\immagine[0.6\textwidth]{immagini/2_ApriDocumento.png}{Visualizzazione e correzione documenti}{fig:ApriDocumento}
 
 
 \subsubsection{Invio documenti}
 Quando si ritiene che il documento sia pronto per essere inviato (con una confidenza adeguata), l'utente può procedere con la creazione di un messaggio, l'eventuale inserimento di allegati ed infine l'invio del documento ai destinatari.
+\immagine[0.8\textwidth]{immagini/2_invio.png}{Invio immediato documento}{fig:InvioDocumento}
 
 \subsubsubsection{Scrittura messaggio}
 Questa funzionalità mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata ai destinatari. L'utente può valorizzare manualmente il campo "Oggetto" e inserire il corpo testuale desiderato.
-
-\subsubsubsection{Inserimento allegati}
-Oltre al documento primario processato (es. la busta paga o la certificazione), il sistema permette l'upload e l'aggiunta di ulteriori file (es. moduli informativi o comunicazioni aziendali) che verranno spediti congiuntamente al messaggio.
 
 \subsubsubsection{Applicazione template}
 Per ottimizzare i tempi, l'utente può decidere di non scrivere il messaggio da zero, bensì caricare un modello (template) precostituito. Questo andrà a sovrascrivere o precompilare i campi dell'oggetto e del corpo del messaggio con formule testuali standard.
@@ -542,11 +544,40 @@ Terminata la verifica e la preparazione della comunicazione, questa funzionalit�
 
 
 
+
 \subsection{Storico documenti}
 L'utente ha a disposizione uno storico dei documenti analizzati, visualizzandone i dettagli e il loro stato.
 
 \subsubsection{Consultazione storico documenti}
 Lo storico dei documenti consente al CdL di visualizzare tutte le analisi documentali precedenti, con la possibilità di accedere ai dettagli di ciascun documento, come la data di analisi, la tipologia del documento, i destinatari riconosciuti, le informazioni estratte e lo stato dell'invio.
+
+\immagine[1\textwidth]{immagini/2_Storico.png}{Storico documenti}{fig:StoricoDocumenti}
+
+\subsubsubsection{Applicazione filtro di ricerca su destinatari}
+Per rintracciare rapidamente i destinatari ed informazioni all'interno di invii massivi, l'utente può utilizzare barre di ricerca e filtri mirati. 
+
+\immagine[1\textwidth]{immagini/2_Filtro.png}{Filtro Storico}{fig:FiltroStorico}
+
+\subsubsubsection{Visualizzazione stato analisi documenti}
+Questa funzionalità permette all'utente di monitorare l'avanzamento e la fase del ciclo di vita in cui si trova il documento. 
+Attraverso etichette testuali o indicatori visivi è possibile comprendere immediatamente se il documento necessita di intervento umano o 
+se l'elaborazione è andata a buon fine.
+
+\immagine[0.2\textwidth]{immagini/2_Stato.png}{Stato analisi documenti}{fig:StatoDocumenti}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Analytics e monitoraggio trasversale}
@@ -570,6 +601,12 @@ Questa sezione evidenzia le preferenze degli utenti riguardo ai formati e ai reg
 
 \subsubsubsection{Filtraggio per periodo temporale AI-assistant generativo}
 L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI-assistant generativo in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle generazioni e delle preferenze degli utenti in periodi specifici, facilitando così l'identificazione di trend o variazioni significative nel tempo.
+
+
+
+
+
+
 
 \subsubsection{Analytics e monitoraggio trasversale per l'AI Co-Pilot per i Consulenti del Lavoro}
 L'utente ha la possibilità di accedere a una sezione dedicata all'AI Co-Pilot per i Consulenti del Lavoro, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni del Co-Pilot, consentendo di valutare l'efficacia delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
