@@ -784,16 +784,16 @@ Il controller delega la logica di business a un job asincrono \textit{(AIGenerat
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/AiGeneratorBlocco.jpg}
-\caption{Diagramma classi parziale -- Document Controller}
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/Assistant/ClassiModuloAiAssistant.jpg}
+\caption{Diagramma delle classi -- Modulo AI Assistant}
 \end{figure}
 
 
-\subsubsection{Diagrammi classi parziali del modulo AI Assistant}
+\subsubsection{Diagrammi delle classi del modulo AI Assistant}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/AiGeneratorController.jpg}
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/Assistant/AiGenerator.jpg}
 \caption{Diagramma classi parziale -- AIGeneratorController}
 \end{figure}
 Il diagramma mostra il controller di ingresso del modulo: riceve le richieste HTTP,
@@ -802,7 +802,7 @@ I vari services gestiscono la logica di interazione con i modelli di intelligenz
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/TonesController.jpg}
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/Assistant/tones.jpg}
 \caption{Diagramma classi parziale -- TonesController}
 \end{figure}
 Il diagramma mostra il controller dedicato alla gestione dei toni di generazione. 
@@ -810,7 +810,7 @@ Espone endpoint per la creazione, eliminazione e recupero dei toni disponibili, 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/StylesController.jpg}
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/Assistant/styles.jpg}
 \caption{Diagramma classi parziale -- StylesController}
 \end{figure}
 Il diagramma mostra il controller dedicato alla gestione dei stili di generazione. 
@@ -818,12 +818,24 @@ Il funzionamento è analogo a quello del controller dei toni, delegando la logic
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/PostController.jpg}
+\includegraphics[width=0.6\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/Assistant/posts.jpg}
 \caption{Diagramma classi parziale -- PostsController}
 \end{figure}
 Il diagramma mostra il controller dedicato alla pubblicazione di post. 
 Anche qui il funzionamento di base è analogo a quello del controller dei toni, fatto utilizzando \textit{PostsSerializer}, 
 ma utilizza anche \textit{PostCreatorService} per gestire la logica di creazione dei post, con la sua logica specifica di validazione.
+
+\subsubsection{Diagramma di sequenza di generazione contenuti}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/Sequenza/SequenzaGenerator.png}
+\caption{Diagramma di sequenza -- Flusso di generazione contenuti}
+\end{figure}
+Il diagramma descrive la sequenza delle operazioni che avvengono quando un utente richiede la generazione di un contenuto tramite l'endpoint dedicato.
+Il controller riceve la richiesta, valida i parametri e delega l'esecuzione a un job asincrono. 
+Il job, una volta avviato, coordina le chiamate ai servizi di generazione testuale e visiva, 
+gestisce la persistenza dei risultati e aggiorna lo stato delle generazioni in corso. 
 
 
 \subsubsubsection{AIGeneratorController}
