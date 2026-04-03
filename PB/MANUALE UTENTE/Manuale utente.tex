@@ -604,5 +604,33 @@ Per avviare i test è necessario eseguire il comando \texttt{docker compose run 
 
 
 \subsection{Test Frontend}
+Il focus dei test frontend è stato sulla verifica del corretto comportamento dell’interfaccia utente, della gestione dello stato e dell’integrazione con il backend. Sono stati eseguiti test unitari su componenti e servizi, insieme a test end-to-end sui principali flussi utente. I test sono stati eseguiti con gli strumenti dello stack Angular e Cypress.
+
+
+\subsubsubsection{Esecuzione test}
+Se l’installazione e l’avvio dell’applicazione sono stati completati correttamente, è possibile eseguire i test frontend per verificare il funzionamento dei componenti, dei servizi e dei principali flussi utente.
+
+Per eseguire i test unitari, utilizzare il seguente comando:
+\begin{verbatim}
+docker compose run --rm frontend npm run test -- --watch=false
+\end{verbatim}
+
+\subsubsection{Esecuzione test end-to-end (Cypress)}
+
+Per eseguire i test E2E, usare due terminali nella cartella \texttt{frontend}.
+
+\paragraph{Terminale 1}
+\begin{verbatim}
+npm run start
+\end{verbatim}
+
+\paragraph{Terminale 2}
+\begin{verbatim}
+npm run cypress:run
+\end{verbatim}
+
+\paragraph{Nota}
+I test Cypress richiedono che il frontend sia raggiungibile su \texttt{http://localhost:4200}.
+
 
 \end{document}
