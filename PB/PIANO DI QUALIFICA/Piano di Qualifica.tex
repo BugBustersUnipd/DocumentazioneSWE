@@ -49,7 +49,7 @@
 \keepXColumns
 
 \renewcommand{\sectionmark}[1]{\markright{#1}}
-\renewcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}\ }
+\renewcommand{\G}{\texorpdfstring{\textsubscript{\scalebox{0.6}{\textbf{G}}}\xspace}{ G}}
 
 % Macro tabella metrica (tabella uniforme, non spezzata e con stile coerente)
 \newcommand{\MetricTable}[1]{
@@ -83,6 +83,7 @@
 %configurazione per il footer
 \pagestyle{fancy}
 \fancyhf{} % pulisce tutti i campi del header e footer
+\setlength{\headheight}{14pt}
 
 % Header: sinistra e destra
 \fancyhead[L]{Gruppo 4 - BugBusters} % sinistra
@@ -804,7 +805,10 @@ sino alla Requirements and Technology Baseline (RTB)\G.
      \caption{Grafico per periodo di MPC01 e MPC02}
  \end{figure}
 
+\subsubsubsection{RTB}
 L'andamento del Valore Guadagnato (\textit{Earned Value} - EV\G) risulta costantemente allineato a quello del Valore Pianificato (\textit{Planned Value} - PV\G) per tutto il periodo analizzato. Questa sovrapposizione indica l'assenza di scostamenti critici a livello di schedulazione e di scopo: il valore operativo prodotto dal team corrisponde a quanto preventivato nella pianificazione di base, confermando la solidità del piano di progetto.
+
+\subsubsubsection{PB}
 
 \newpage
 
@@ -814,7 +818,10 @@ L'andamento del Valore Guadagnato (\textit{Earned Value} - EV\G) risulta costant
   \includegraphics[width=0.9\textwidth]{grafici/MPC03_07.png}
   \caption{Grafico per periodo di MPC03 e MPC07}
 \end{figure}
+\subsubsubsection{RTB}
 La metrica \textit{Actual Cost} (AC)\G registra un incremento progressivo, proporzionale all'effettivo impiego delle risorse per lo sviluppo. In modo simmetrico e inversamente proporzionale, l'\textit{Estimate to Complete} (ETC)\G decresce regolarmente. Il comportamento coerente di queste due metriche dimostra che il consumo del budget sta avvenendo in stretta correlazione con l'avanzamento dei lavori, senza generare spese impreviste o consumi anomali che avrebbero richiesto interventi correttivi.
+
+\subsubsubsection{PB}
 
 \newpage
 
@@ -825,7 +832,10 @@ La metrica \textit{Actual Cost} (AC)\G registra un incremento progressivo, propo
   \caption{Grafico per periodo di MPC04 e MPC05}
 \end{figure}
 
+\subsubsubsection{RTB}
 Nello Sprint\G 1, il \textit{Cost Performance Index} (CPI)\G si è posizionato al di sotto della soglia di accettazione (0.9) a causa dell'overhead temporale necessario per l'impostazione degli ambienti di lavoro e lo studio delle tecnologie di base. A seguito dell'introduzione di procedure di sviluppo standardizzate, l'indice è progressivamente migliorato, stabilizzandosi al di sopra del valore ottimale (1.0). Lo \textit{Schedule Performance Index} (SPI)\G si è mantenuto costantemente $\geq$ 1.0, confermando la totale aderenza alla schedulazione.
+
+\subsubsubsection{PB}
 
 \newpage
 
@@ -836,7 +846,10 @@ Nello Sprint\G 1, il \textit{Cost Performance Index} (CPI)\G si è posizionato a
   \caption{Grafico per periodo di MPC06}
 \end{figure}
 
+\subsubsubsection{RTB}
 L'EAC ha inizialmente superato il budget stimato (BAC) a causa del basso indice di efficienza dei costi (CPI\G) registrato durante il primo sprint\G. Con l'applicazione delle azioni correttive sui processi di sviluppo, il trend dell'EAC si è invertito, rientrando nei limiti previsti e attestandosi in prossimità del BAC originale senza ulteriori sforamenti.
+
+\subsubsubsection{PB}
 
 \newpage
 
@@ -846,7 +859,10 @@ L'EAC ha inizialmente superato il budget stimato (BAC) a causa del basso indice 
   \includegraphics[width=0.9\textwidth]{grafici/MPC08.png}
   \caption{Grafico per periodo di MPC08}
 \end{figure}
+\subsubsubsection{RTB}
 Il TEAC si è mantenuto costante e pari alla durata pianificata per l'intera fase RTB\G. Questo dato evidenzia l'assenza di ritardi strutturali sulla schedulazione e conferma che le variazioni registrate in altre metriche non hanno impattato la data di completamento stimata per la baseline in corso.
+
+\subsubsubsection{PB}
 
 \newpage
 
@@ -856,17 +872,27 @@ Il TEAC si è mantenuto costante e pari alla durata pianificata per l'intera fas
   \includegraphics[width=0.9\textwidth]{grafici/MPC09.png}
   \caption{Grafico per periodo di MPC09}
 \end{figure}
+\subsubsubsection{RTB}
 Nello Sprint\G 2, l'RSI\G ha registrato un valore negativo, evidenziando una forte instabilità causata da revisioni sostanziali del capitolato\G e l'emersione di nuovi casi d'uso. Presa coscienza di tale anomalia, il gruppo ha attuato un'azione di congelamento e formalizzazione dei requisiti. L'effetto di tale contromisura ha portato la metrica a un rapido consolidamento, raggiungendo e mantenendo il 100\% di stabilità dallo Sprint\G 5 in poi.
+
+\subsubsubsection{PB}
 
 \newpage
 
 \subsection{MPC10 - Indice di Gulpease\G}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{grafici/MPC10.png}
+  \IfFileExists{grafici/MPC10.png}{%
+    \includegraphics[width=0.9\textwidth]{grafici/MPC10.png}
+  }{%
+    \fbox{\parbox[c][5cm][c]{0.85\textwidth}{\centering Grafico non trovato: grafici/MPC10.png}}
+  }
   \caption{Grafico per periodo di MPC10}
 \end{figure}
+\subsubsubsection{RTB}
 L'Indice di Gulpease\G ha evidenziato valori sotto la soglia del 60\% per i documenti Glossario\G e Norme di Progetto\G. Questa deviazione, derivante dall'inevitabile uso di terminologia tecnica non semplificabile, è stata analizzata e accettata dal gruppo come limite fisiologico strutturale. Per la restante documentazione, in particolare per l'Analisi dei Requisiti\G, gli interventi mirati di semplificazione sintattica hanno permesso di mantenere l'indice stabilmente al di sopra della soglia ottima.
+
+\subsubsubsection{PB}
 
 \newpage
 
@@ -874,10 +900,17 @@ L'Indice di Gulpease\G ha evidenziato valori sotto la soglia del 60\% per i docu
 \subsection{MPC13 - Quality metrics satisfied}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{grafici/MPC13.png}
+  \IfFileExists{grafici/MPC13.png}{%
+    \includegraphics[width=0.9\textwidth]{grafici/MPC13.png}
+  }{%
+    \fbox{\parbox[c][5cm][c]{0.85\textwidth}{\centering Grafico non trovato: grafici/MPC13.png}}
+  }
   \caption{Grafico per periodo di MPC13}
 \end{figure}
+\subsubsubsection{RTB}
 Nei primi tre sprint\G, la percentuale di metriche soddisfatte si è mantenuta al di sotto della soglia di accettazione (80\%) a causa delle contemporanee criticità rilevate negli indici CPI\G e RSI\G. A valle dell'applicazione delle contromisure ai processi di analisi e sviluppo, l'indicatore generale è tornato a crescere. Dallo Sprint\G 4 la metrica ha superato la soglia di accettabilità, stabilizzandosi in modo permanente.
+
+\subsubsubsection{PB}
 
 
 \newpage
@@ -888,7 +921,10 @@ Nei primi tre sprint\G, la percentuale di metriche soddisfatte si è mantenuta a
   \includegraphics[width=0.9\textwidth]{grafici/MPC14.png}
   \caption{Grafico per periodo di MPC14}
 \end{figure}
+\subsubsubsection{RTB}
 L'efficienza\G temporale si è mantenuta costantemente al di sopra della soglia di accettazione (50\%). Le lievi flessioni registrate negli Sprint\G 4 e 5 sono riconducibili a un fisiologico incremento delle ore di coordinamento e analisi necessarie per la riorganizzazione dei requisiti. Tali scostamenti sono stati riassorbiti nelle iterazioni successive, riportando il valore in prossimità del limite ottimo.
+
+\subsubsubsection{PB}
 
 
 
