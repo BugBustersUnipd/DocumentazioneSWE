@@ -3590,6 +3590,50 @@ Restituisce il valore della pagina finale considerando prima le modifiche penden
 \item private toNumber(primary: unknown, fallback: unknown): number \textbar{} undefined \
 Converte un valore in numero, usando un fallback se il valore principale non è disponibile o non valido.
 \end{itemize}
+\subsubsection{SelectEmployeeDialog}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/select-employee-dialog.png}
+\end{figure}
+Componente UI che rappresenta un dialog per la selezione di un dipendente dalla lista di dipendenti dell'azienda inserita o estratta, con possibilità di ricerca.
+\textbf{Attributi}
+
+\begin{itemize}
+  \item Proprietà di input: il componente non espone proprietà decorate con \texttt{@Input()}.
+
+  \item Proprietà di output: il componente non espone proprietà decorate con \texttt{@Output()}.
+
+  \item Proprietà interne: mantengono lo stato locale del dialog e gestiscono l'integrazione con PrimeNG Dynamic Dialog.
+    \begin{itemize}
+      \item ref: DynamicDialogRef (Proprietà interna, pubblica) 
+      Riferimento al dialog corrente, usato per chiudere la finestra e restituire eventualmente un payload.
+
+      \item config: DynamicDialogConfig (Proprietà interna, pubblica) 
+      Configurazione del dialog, utilizzata per leggere i dati passati in apertura.
+
+      \item employees\$: Observable<EmployeeOption[]> \textbar{} null (Proprietà interna) 
+      Stream contenente la lista dei dipendenti selezionabili nel dialog.
+
+      \item extractedEmployeeName: string (Proprietà interna) 
+      Nome dipendente estratto automaticamente e mostrato come riferimento all'utente.
+
+      \item selectedEmployee: EmployeeOption \textbar{} null (Proprietà interna) 
+      Dipendente attualmente selezionato dall'utente nel menu a tendina.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+
+\begin{itemize}
+  \item ngOnInit(): void 
+  Inizializza lo stato del componente leggendo \texttt{extractedEmployeeName} ed \texttt{employees\$} dai dati del dialog.
+
+  \item closeDialog(): void 
+  Chiude il dialog senza restituire alcun risultato di selezione.
+
+  \item saveDialog(): void 
+  Se è presente una selezione valida, costruisce il payload \texttt{SelectEmployeeDialogResult} e chiude il dialog restituendolo al chiamante.
+\end{itemize}
 \subsection{Macro componenti UI (pagine)}
 
 % ============================================================
