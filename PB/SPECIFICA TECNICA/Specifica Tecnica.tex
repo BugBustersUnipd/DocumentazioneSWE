@@ -2768,8 +2768,8 @@ Nota: anche questa entità è modellata come interface TypeScript\G; rappresenta
 \begin{itemize}[noitemsep, topsep=0pt]
 \item Comunicazione con backend: gestisce la serializzazione dei dati e l'invio delle richieste HTTP verso il backend.
 \begin{itemize}[noitemsep, topsep=0pt]
-\item http: HttpClient (proprietà interna). Client HTTP Angular\G per chiamate REST.
-\item serializer: ResultAiCopilotSerializer (proprietà interna). Conversione payload backend 
+\item http: HttpClient . Client HTTP Angular\G per chiamate REST.
+\item serializer: ResultAiCopilotSerializer . Conversione payload backend 
 \end{itemize}
 \item \textbf{Attributi di stato upload/sessione}
 \begin{itemize}[noitemsep, topsep=0pt]
@@ -3297,7 +3297,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Proprietà di input: configurano dati e comportamento della tabella.
+  \item Attributi di input: configurano dati e comportamento della tabella.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item risultatoFiltrato: any[] \
     Array dei dati filtrati da visualizzare nelle righe della tabella.
@@ -3312,7 +3312,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     Classi CSS aggiuntive da applicare al componente tabella.
   \end{itemize}
 
-  \item Proprietà di output: comunicano al componente padre le interazioni sulla tabella.
+  \item Attributi di output: comunicano al componente padre le interazioni sulla tabella.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item titleClick: EventEmitter<any> \
     Emette la riga quando l'utente clicca sul titolo.
@@ -3323,12 +3323,8 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     \item rowRemoved: EventEmitter<any> \
     Emette la riga eliminata quando viene selezionata l'azione di rimozione (retrocompatibilità).
   \end{itemize}
-
-  \item Proprietà interne: mantengono lo stato locale del componente.
-  \begin{itemize}[noitemsep, topsep=0pt]
-    \item rowMenuItems: MenuItem[] \
-    Voci di menu associate alla riga attualmente selezionata, sincronizzate con le condizioni della riga.
-  \end{itemize}
+  \item rowMenuItems: MenuItem[] \
+  Voci di menu associate alla riga attualmente selezionata, sincronizzate con le condizioni della riga.
 \end{itemize}
 
 \textbf{Metodi}
@@ -3370,7 +3366,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     Abilita o disabilita la visualizzazione del dialog.
 
     \item type: AddDialogType \
-    Specifica il tipo di elemento da aggiungere: tone, style, template\G o company.
+    Specifica il tipo di elemento da aggiungere: tone, style, template\G{} o company.
   \end{itemize}
 
   \item Proprietà di output: comunicano al componente padre le azioni del dialog.
@@ -3399,28 +3395,28 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Proprietà calcolate: determinano dinamicamente il titolo e l'etichetta del dialog in base al tipo.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item get dialogTitle(): string \\
+    \item get dialogTitle(): string \
     Ritorna il titolo del dialog personalizzato secondo il tipo di elemento.
 
-    \item get saveLabel(): string \\
+    \item get saveLabel(): string \
     Ritorna l'etichetta del pulsante di salvataggio personalizzata secondo il tipo di elemento.
   \end{itemize}
 
   \item Gestione chiusura dialog: chiude il dialog e resetta il form interno.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item close(): void \\
+    \item close(): void \
     Nasconde il dialog, notifica il componente padre e resetta i dati del form.
   \end{itemize}
 
   \item Gestione salvataggio: valida e salva i dati inseriti.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item save(): void \\
+    \item save(): void \
     Valida l'input, normalizza i dati (trim), emette l'evento di salvataggio verso il padre e chiude il dialog.
   \end{itemize}
 
   \item Supporto interno: resetta lo stato del form.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item resetForm(): void \\
+    \item resetForm(): void \
     Reimposta i campi del form e il flag di invio a valori iniziali.
   \end{itemize}
 \end{itemize}
@@ -3432,7 +3428,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Proprietà di input: configurano l'aspetto e il comportamento del campo di input.
+  \item Attributi di input: configurano l'aspetto e il comportamento del campo di input.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item editable: boolean \
     Abilita o disabilita la modificabilità del campo.
@@ -3465,7 +3461,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     Classi CSS aggiuntive da applicare al componente.
   \end{itemize}
 
-  \item Proprietà di output: comunicano al componente padre le modifiche del valore.
+  \item Attributi di output: comunicano al componente padre le modifiche del valore.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item valueChange: EventEmitter<string | number | undefined> \
     Emette il nuovo valore quando il contenuto del campo cambia.
@@ -3488,7 +3484,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Proprietà di input: configurano contenuto e stato dell'editor.
+  \item Attributi di input: configurano contenuto e stato dell'editor.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item text: string \
     Contenuto testuale mostrato nell'editor proveniente dal componente padre.
@@ -3500,13 +3496,13 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     Indica se il componente è in stato di caricamento.
   \end{itemize}
 
-  \item Proprietà di output: comunicano al componente padre le modifiche del contenuto.
+  \item Attributi di output: comunicano al componente padre le modifiche del contenuto.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item textChange: EventEmitter<string> \
     Emette il nuovo testo quando il contenuto dell'editor cambia.
   \end{itemize}
 
-  \item Proprietà interne: mantengono lo stato locale dell'editor.
+  \item Attributi interne: mantengono lo stato locale dell'editor.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item editorText: string \
     Copia locale del testo usata per sincronizzare il modello dell'editor.
@@ -3534,7 +3530,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Proprietà di input: configurano l'etichetta e il testo segnaposto del selettore mese/anno.
+  \item Attributi di input: configurano l'etichetta e il testo segnaposto del selettore mese/anno.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item label: string \
     Etichetta visualizzata sopra il controllo.
@@ -3543,13 +3539,13 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     Testo mostrato quando non è stato ancora selezionato alcun mese/anno.
   \end{itemize}
 
-  \item Proprietà di output: comunicano al componente padre il valore selezionato.
+  \item Attributi di output: comunicano al componente padre il valore selezionato.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item monthYearChange: EventEmitter<string> \
     Emette il mese/anno selezionato nel formato YYYY-MM.
   \end{itemize}
 
-  \item Proprietà interne: mantengono lo stato locale del selettore.
+  \item Attributi interne: mantengono lo stato locale del selettore.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item selectedMonthYear: Date | null \
     Valore data selezionato nel datepicker, usato per ricavare mese e anno.
@@ -3572,7 +3568,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item Proprietà di input: configurano l'etichetta e il testo segnaposto del selettore mese/anno.
+\item Attributi di input: configurano l'etichetta e il testo segnaposto del selettore mese/anno.
 \begin{itemize}[noitemsep, topsep=0pt]
 \item label: string \
 Etichetta visualizzata sopra il controllo.
@@ -3580,17 +3576,14 @@ Etichetta visualizzata sopra il controllo.
 Testo mostrato quando non è stato ancora selezionato alcun mese/anno.
 \end{itemize}
 
-\item Proprietà di output: comunicano al componente padre il valore selezionato.
+\item Attributi di output: comunicano al componente padre il valore selezionato.
 \begin{itemize}[noitemsep, topsep=0pt]
 \item monthYearChange: EventEmitter<string> \
 Emette il mese/anno selezionato nel formato YYYY-MM.
 \end{itemize}
+\item dates: Date[] | undefined \ Valore di intervallo selezionato nel datepicker.
+\item selectedPeriodo: Date | null \ Mostra il risultato del periodo selezionato
 
-\item Proprietà interne: mantengono lo stato locale del selettore.
-\begin{itemize}[noitemsep, topsep=0pt]
-\item selectedMonthYear: Date | null \
-Valore data selezionato nel datepicker, usato per ricavare mese e anno.
-\end{itemize}
 \end{itemize}
 
 \textbf{Metodi}
@@ -3606,11 +3599,11 @@ Valore data selezionato nel datepicker, usato per ricavare mese e anno.
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/nested-tables-component.png}
 \end{figure}
-Componente UI che rappresenta una tabella con righe espandibili che contengono a loro volta una tabella annidata. Viene utilizzato per visualizzare i dettagli dei documenti estratti, dove ogni riga rappresenta un documento e l'espansione mostra i dati estratti associati a quel documento.
-\textbf{Attributi}
+Componente UI che rappresenta una riga espandibile che contiene a sua volta una tabella. Viene utilizzato per visualizzare i dettagli dei documenti estratti, dove ogni riga rappresenta un documento e l'espansione mostra i dati estratti associati a uno split di quel documento.\\
 
+\textbf{Attributi}
 \begin{itemize}
-  \item Proprietà di input: configurano i dati e il comportamento della tabella annidata.
+  \item Attributi di input: configurano i dati e il comportamento della tabella annidata.
   \begin{itemize}
   \item columns: any[] \
   Definisce le colonne da visualizzare nelle tabelle nidificate.
@@ -3628,9 +3621,9 @@ Componente UI che rappresenta una tabella con righe espandibili che contengono a
   Collezione dei documenti gestiti e mostrati dal componente.
   \end{itemize}
 
-  \item Proprietà di output: comunicano al componente padre le interazioni e le azioni eseguite dall'utente.
+  \item Attributi di output: comunicano al componente padre le interazioni e le azioni eseguite dall'utente.
     \begin{itemize}
-    \item menuAction: EventEmitter{ row: ResultSplit; item: MenuItem }  \
+    \item menuAction: EventEmitter\{ row: ResultSplit; item: MenuItem \}  \
     Emette l'azione di menu selezionata insieme alla riga di riferimento.
 
     \item retryAction: EventEmitter<number>  \
@@ -3639,16 +3632,13 @@ Componente UI che rappresenta una tabella con righe espandibili che contengono a
     \item rowRemoved: EventEmitter<ResultSplit>  \
     Notifica al componente padre la rimozione di una riga.
     \end{itemize}
-  \item Proprietà interne: mantengono lo stato locale e gestiscono la logica di visualizzazione del componente.
-    \begin{itemize}
-    \item activeValues: string[] (Proprietà interna) \
-    Mantiene lo stato degli elementi attivi nell'interfaccia\G annidata.
-    \end{itemize}
+    \item activeValues: string[] \
+    Mantiene lo stato degli elementi attivi nell'interfaccia\G{} annidata.
 \end{itemize}
 \textbf{Metodi}
 
 \begin{itemize}
-\item onTableMenuAction(event: { row: ResultSplit; item: MenuItem }): void \
+\item onTableMenuAction(event: \{ row: ResultSplit; item: MenuItem \}): void \
 Inoltra verso l'output menuAction l'evento di menu ricevuto dalla tabella interna.
 
 \item onRetryButtonClick(parentId: number): void \
@@ -3666,11 +3656,10 @@ Restituisce la classe di severità CSS coerente con lo stato del documento per l
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/upload-component.png}
 \end{figure}
-Componente UI che rappresenta un'area di drop per il caricamento di file, con supporto per selezione manuale tramite dialog di sistema. Viene utilizzato per consentire agli utenti di caricare documenti da processare tramite OCR\G e estrazione dati.
+Componente UI che rappresenta un'area di drop per il caricamento di file, con supporto per selezione manuale tramite dialog di sistema. Viene utilizzato per consentire agli utenti di caricare documenti da processare tramite OCR\G{} e estrazione dati.\\
 \textbf{Attributi}
-
 \begin{itemize}
-\item Proprietà di input: configurano il comportamento e il testo del componente di upload.
+\item Attributi di input: configurano il comportamento e il testo del componente di upload.
 \begin{itemize}
 \item accept: string \
 Definisce le estensioni di file accettate dal selettore di caricamento.
@@ -3686,18 +3675,18 @@ Definisce le estensioni di file accettate dal selettore di caricamento.
   \item subtitleText: string \
   Testo secondario visualizzato sotto il titolo del componente.
 \end{itemize}
-\item Proprietà di output: comunicano al componente padre i file selezionati e gli eventuali errori di validazione\G.
+\item Attributi di output: comunicano al componente padre i file selezionati e gli eventuali errori di validazione\G.
 \begin{itemize}
 \item filesSelected: EventEmitter<File[]>  \
 Emette l'insieme dei file validi selezionati dall'utente.
   \item fileValidationError: EventEmitter<UploadValidationError>  \
   Emette l'elenco dei file non validi quando la validazione\G{} fallisce.
 \end{itemize}
-\item Proprietà interne: mantengono lo stato locale e gestiscono l'accesso al controllo nativo.
+\item Attributi interne: mantengono lo stato locale e gestiscono l'accesso al controllo nativo.
 \begin{itemize}
-\item nativeFileInput: ElementRef<HTMLInputElement> (Proprietà interna, ViewChild) \
+\item nativeFileInput: ElementRef<HTMLInputElement> \
 Riferimento all'input file nativo utilizzato per avviare la selezione da codice.
-  \item selectedPrimeFiles: File[] (Proprietà interna) \
+  \item selectedPrimeFiles: File[]  \
   Conserva l'insieme corrente dei file gestiti dal componente PrimeNG.
 \end{itemize}
 \end{itemize}
@@ -3717,25 +3706,25 @@ Resetta completamente la selezione corrente e notifica il componente padre con u
 \item onNativeSelect(event: Event): void \
 Gestisce la selezione effettuata tramite input nativo, valida i file e resetta il valore dell'input per consentire una nuova selezione dello stesso file.
 
-\item private emitValidatedFiles(files: File[]): File[] \
+\item emitValidatedFiles(files: File[]): File[] \
 Filtra i file validi, emette gli errori per quelli non ammessi e pubblica l'elenco dei file accettati tramite filesSelected.
 
-\item private isAllowedFile(file: File): boolean \
-Verifica\G se un file rispetta le estensioni configurate nella proprietà accept.
+\item isAllowedFile(file: File): boolean \
+Verifica\G{} se un file rispetta le estensioni configurate nella proprietà accept.
 
-\item private parseAcceptedTypes(): Set<string> \
+\item parseAcceptedTypes(): Set<string> \
 Converte la stringa di configurazione accept in un insieme di estensioni normalizzate e confrontabili.
 
 \item triggerClick(): void \
 Simula il click sull'input file nativo per aprire la finestra di selezione.
 
-\item private extractFiles(event: any): File[] 
+\item extractFiles(event: any): File[] 
 Estrae i file dall'evento ricevuto supportando le diverse strutture fornite dai componenti di upload.
 
-\item private extractCurrentFiles(event: any): File[] \textbar{} null \
+\item extractCurrentFiles(event: any): File[] \textbar{} null \
 Recupera la lista corrente dei file quando è disponibile nel payload dell'evento.
 
-\item private removeSingleFile(files: File[], toRemove: File): File[] \
+\item removeSingleFile(files: File[], toRemove: File): File[] \
 Rimuove un file specifico dall'elenco confrontandolo per nome, dimensione e ultima modifica.
 \end{itemize}
 \subsubsection{DocSummary}
@@ -3817,13 +3806,13 @@ Componente UI che rappresenta un dialog per la selezione di un dipendente dalla 
       \item config: DynamicDialogConfig (Proprietà interna, pubblica) 
       Configurazione del dialog, utilizzata per leggere i dati passati in apertura.
 
-      \item employees\$: Observable<EmployeeOption[]> \textbar{} null (Proprietà interna) 
+      \item employees\$: Observable<EmployeeOption[]> \textbar{} null  
       Stream contenente la lista dei dipendenti selezionabili nel dialog.
 
-      \item extractedEmployeeName: string (Proprietà interna) 
+      \item extractedEmployeeName: string  
       Nome dipendente estratto automaticamente e mostrato come riferimento all'utente.
 
-      \item selectedEmployee: EmployeeOption \textbar{} null (Proprietà interna) 
+      \item selectedEmployee: EmployeeOption \textbar{} null  
       Dipendente attualmente selezionato dall'utente nel menu a tendina.
     \end{itemize}
 \end{itemize}
@@ -4051,25 +4040,25 @@ Riferimento al dialog corrente, usato per chiudere la finestra con o senza paylo
   \item aiService: AiCoPilotService (Proprietà interna, privata) \
   Servizio applicativo usato per la creazione di nuovi template\G.
 
-  \item addDialogVisible: boolean (Proprietà interna) \
+  \item addDialogVisible: boolean  \
   Indica se il dialog secondario di aggiunta è visibile.
 
-  \item addDialogType: AddDialogType (Proprietà interna) \
+  \item addDialogType: AddDialogType  \
   Specifica il tipo di dialog secondario da aprire (es. template/tone).
 
-  \item templates\$: Observable<TemplateOption[]> \textbar{} undefined (Proprietà interna) \
+  \item templates\$: Observable<TemplateOption[]> \textbar{} undefined  \
   Stream dei template\G disponibili da mostrare nella selezione.
 
-  \item selectedTemplate: TemplateOption \textbar{} null (Proprietà interna) \
+  \item selectedTemplate: TemplateOption \textbar{} null  \
   Template\G attualmente selezionato dall'utente.
 
   \item \_messaggio: string (Proprietà interna, privata) \
   Buffer interno del testo messaggio, usato dagli accessor della proprietà messaggio.
 
-  \item timeOptions: any[] (Proprietà interna) \
+  \item timeOptions: any[]  \
   Elenco delle opzioni temporali disponibili per la pianificazione dell'invio.
 
-  \item selectedTime: \{ name: string; value: string \} (Proprietà interna) \
+  \item selectedTime: \{ name: string; value: string \}  \
   Opzione temporale attualmente selezionata per l'invio.
 \end{itemize}
 \item Proprietà calcolate interne:
@@ -4123,31 +4112,31 @@ Iniettato per la navigazione verso la pagina dei risultati generati.
 \item aiService: AiAssistantService (Proprietà interna, privata) \
 Servizio applicativo iniettato per la gestione delle richieste di generazione, il recupero di toni/stili/aziende e la creazione di nuove opzioni.
 
-\item prompt: string (Proprietà interna) \
+\item prompt: string  \
 Contiene il testo del prompt\G inserito dall'utente, inizializzato dallo stato di navigazione.
 
-\item tones\$: Observable (Proprietà interna) \
+\item tones\$: Observable  \
 Stream reattivo dei toni disponibili, sempre sincronizzato con il servizio.
 
-\item styles\$: Observable (Proprietà interna) \
+\item styles\$: Observable  \
 Stream reattivo degli stili disponibili, sempre sincronizzato con il servizio.
 
-\item companies\$: Observable (Proprietà interna) \
+\item companies\$: Observable  \
 Stream reattivo delle aziende disponibili, sempre sincronizzato con il servizio.
 
-\item selectedTone: any (Proprietà interna) \
+\item selectedTone: any  \
 Tono attualmente selezionato dall'utente, inizializzato dallo stato di navigazione.
 
-\item selectedStyle: any (Proprietà interna) \
+\item selectedStyle: any  \
 Stile attualmente selezionato dall'utente, inizializzato dallo stato di navigazione.
 
-\item selectedCompany: any (Proprietà interna) \
+\item selectedCompany: any  \
 Azienda attualmente selezionata; il suo cambio innesca il recupero di toni e stili associati.
 
-\item addDialogVisible: boolean (Proprietà interna) \
+\item addDialogVisible: boolean  \
 Indica se il dialog di aggiunta di nuovo tono/stile è visibile.
 
-\item addDialogType: AddDialogType (Proprietà interna) \
+\item addDialogType: AddDialogType  \
 Specifica il tipo di dialog secondario da aprire (tone o style).
 \end{itemize}
 
@@ -4201,28 +4190,28 @@ Iniettato per la navigazione verso altre pagine (ad esempio, ritorno al generato
 \item destroyRef: DestroyRef (Proprietà interna, privata) \
 Iniettato per la gestione della pulizia delle sottoscrizioni RxJS al distruggersi del componente.
 
-\item isEditable: boolean (Proprietà interna) \
+\item isEditable: boolean  \
 Indica se il componente è in modalità di modifica; abilita/disabilita i campi di input per la modifica del contenuto.
 
-\item readonly: boolean (Proprietà interna) \
+\item readonly: boolean  \
 Controlla lo stato di sola lettura dei componenti editor; sincronizzato con isEditable.
 
-\item isImageTitleLoading: boolean (Proprietà interna) \
+\item isImageTitleLoading: boolean  \
 Indica se titolo e immagine sono ancora in fase di generazione da parte dell'IA.
 
-\item isContentLoading: boolean (Proprietà interna) \
+\item isContentLoading: boolean  \
 Indica se il contenuto principale è ancora in fase di generazione da parte dell'IA.
 
-\item result: Signal\textless{}ResultAiAssistant | null\textgreater{} (Proprietà interna) \
+\item result: Signal\textless{}ResultAiAssistant | null\textgreater{}  \
 Signal che contiene il risultato principale della generazione; viene aggiornato via sottoscrizione al servizio e sincronizzato nello stato di navigazione.
 
-\item pendingModifications: Partial\textless{}ResultAiAssistant\textgreater{} (Proprietà interna) \
+\item pendingModifications: Partial\textless{}ResultAiAssistant\textgreater{}  \
 Oggetto parziale che traccia le modifiche in sospeso (title, content, imagePath) prima del salvataggio definitivo.
 
-\item pendingImagePath: signal\textless{}string | null\textgreater{} (Proprietà interna) \
+\item pendingImagePath: signal\textless{}string | null\textgreater{}  \
 Signal che mantiene il percorso Base64 dell'immagine in modifica prima del salvataggio.
 
-\item imagePathForView: computed (Proprietà interna) \
+\item imagePathForView: computed  \
 Computed Signal che restituisce il percorso immagine da visualizzare: priorità al pendingImagePath, fallback a quello del result.
 \end{itemize}
 
@@ -4313,46 +4302,46 @@ Servizio applicativo iniettato per recuperare lo storico, gestire le azioni sui 
 \item destroyRef: DestroyRef (Proprietà interna, privata) \
 Utilizzato per interrompere automaticamente le sottoscrizioni quando il componente viene distrutto.
 
-\item ButtonLabel: string (Proprietà interna) \
+\item ButtonLabel: string  \
 Etichetta del pulsante principale associato all'azione di aggiunta.
 
-\item Generazioni: ResultAiAssistant[] (Proprietà interna) \
+\item Generazioni: ResultAiAssistant[]  \
 Collezione completa dei risultati di generazione caricati dallo storico.
 
 \item generazioniFiltrateSubject: BehaviorSubject<ResultAiAssistant[]> (Proprietà interna, privata) \
 Subject interno che mantiene l'elenco filtrato dei risultati e notifica gli aggiornamenti alla vista.
 
-\item GenerazioniFiltrate\$ : Observable<ResultAiAssistant[]> (Proprietà interna) \
+\item GenerazioniFiltrate\$ : Observable<ResultAiAssistant[]>  \
 Stream osservabile dell'elenco filtrato, esposto alla vista per il binding reattivo.
 
-\item items: MenuItem[] (Proprietà interna) \
+\item items: MenuItem[]  \
 Voci del menu contestuale associate alle azioni disponibili su ogni riga.
 
-\item dates: Date[] | undefined (Proprietà interna) \
+\item dates: Date[] | undefined  \
 Intervallo di date selezionato per filtrare lo storico.
 
-\item tonoOptions: Tone[] (Proprietà interna) \
+\item tonoOptions: Tone[]  \
 Elenco delle opzioni di tono disponibili per il filtro.
 
-\item stileOptions: Style[] (Proprietà interna) \
+\item stileOptions: Style[]  \
 Elenco delle opzioni di stile disponibili per il filtro.
 
-\item companiesOptions: Company[] (Proprietà interna) \
+\item companiesOptions: Company[]  \
 Elenco delle aziende disponibili per il filtro.
 
-\item selectedTono: number | string | undefined (Proprietà interna) \
+\item selectedTono: number | string | undefined  \
 Tono attualmente selezionato nei filtri.
 
-\item selectedStile: number | string | undefined (Proprietà interna) \
+\item selectedStile: number | string | undefined  \
 Stile attualmente selezionato nei filtri.
 
-\item selectedCompany: number | string | undefined (Proprietà interna) \
+\item selectedCompany: number | string | undefined  \
 Azienda attualmente selezionata nei filtri.
 
-\item searchvalue: string (Proprietà interna) \
+\item searchvalue: string  \
 Valore testuale inserito nella ricerca libera.
 
-\item columns: { field: string; header: string; type?: string }[] (Proprietà interna) \
+\item columns: { field: string; header: string; type?: string }[]  \
 Configurazione delle colonne mostrate nella tabella dello storico.
 \end{itemize}
 \end{itemize}
