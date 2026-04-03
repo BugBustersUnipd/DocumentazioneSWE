@@ -2782,6 +2782,42 @@ Questa classe funge da adapter per la serializzazione e deserializzazione dei da
 DA FARE %todo
 
 \subsection{Micro componenti UI}
+\subsubsubsection{Menu}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{ImmaginiSpecificaTecnica/Frontend/menu-component.png}
+\end{figure}
+Componente UI che rappresenta un menù di navigazione laterale.
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Servizi utilizzati dal componente per navigazione e gestione messaggi.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item messageService: MessageService \\
+    Servizio PrimeNG per la gestione di notifiche/messaggi applicativi.
+
+    \item router: Router \\
+    Servizio Angular usato per leggere la rotta corrente ed effettuare navigazioni programmatiche.
+  \end{itemize}
+  
+  \item items: MenuItem[] | undefined \\
+    Collezione delle sezioni e delle voci del menu, inizializzata nel ciclo di vita del componente.
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Inizializzazione menu: costruisce la struttura delle voci e le relative azioni di navigazione.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item ngOnInit(): void \\
+    Inizializza l'array items con le sezioni principali del menu (AI Assistant Generativo, AI Co-Pilot per CDL, Analytics), configurando routerLink o command per ciascuna voce.
+  \end{itemize}
+
+  \item Azioni di navigazione contestuale: gestiscono casi specifici di routing.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item command (voce Storico AI Co-Pilot): void \\
+    Esegue navigazione verso la pagina di storico AI Co-Pilot e imposta replaceUrl in base alla rotta corrente, per gestire correttamente lo storico del browser.
+  \end{itemize}
+\end{itemize}
+
 \subsubsection{Button}
 \begin{figure}[H]
 \centering
@@ -2899,7 +2935,7 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
 \subsubsection{Filters}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/filters-component.png}
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/filters-enum-component.png}
 \end{figure}
 
 \textbf{Attributi}
@@ -3090,7 +3126,7 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
 \subsubsection{AddDialog}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/add-dialog-component.png}
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/add-dialog-component-dep.png}
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
@@ -3211,7 +3247,52 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
   \end{itemize}
 \end{itemize}
 
+\subsubsubsection{Editor}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/editor-component.png}
+\end{figure}
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Proprietà di input: configurano contenuto e stato dell'editor.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item text: string \\
+    Contenuto testuale mostrato nell'editor proveniente dal componente padre.
 
+    \item editable: boolean \\
+    Abilita o disabilita la modifica del contenuto.
+
+    \item loading: boolean \\
+    Indica se il componente è in stato di caricamento.
+  \end{itemize}
+
+  \item Proprietà di output: comunicano al componente padre le modifiche del contenuto.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item textChange: EventEmitter<string> \\
+    Emette il nuovo testo quando il contenuto dell'editor cambia.
+  \end{itemize}
+
+  \item Proprietà interne: mantengono lo stato locale dell'editor.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item editorText: string \\
+    Copia locale del testo usata per sincronizzare il modello dell'editor.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Gestione ciclo di vita: sincronizza gli input con lo stato interno.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item ngOnChanges(changes: SimpleChanges): void \\
+    Aggiorna editorText quando cambia il valore dell'input text dal padre (es. quando arriva il risultato di una generazione).
+  \end{itemize}
+
+  \item Gestione modifica testo: aggiorna il modello locale e notifica il componente padre.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item onTextModelChange(value: string): void \\
+    Se non è in loading, aggiorna editorText ed emette textChange con il nuovo contenuto.
+  \end{itemize}
+\end{itemize}
 
 \subsection{Macro componenti UI (pagine)}
 
