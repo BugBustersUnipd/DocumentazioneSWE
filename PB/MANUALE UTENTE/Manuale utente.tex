@@ -161,7 +161,7 @@ Documento rivolto agli utenti finali della piattaforma Nexum, sviluppata dal tea
 \hline
 \rowcolor{secondaryblue!10} 0.2.1 & 18/03/2026 & Fine stesura sezione istruzioni per l'uso & Luca Slongo & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.2.0 & 06/03/2026 & Verifica inizio stesura sezione istruzioni per l'uso & - & Marco Favero & - \\
+\rowcolor{secondaryblue!10} 0.2.0 & 06/03/2026 & Verifica dell'inizio della stesura della sezione istruzioni per l'uso & - & Marco Favero & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.1.1 & 03/03/2026 & Inizio stesura sezione istruzioni per l'uso & Alberto Autiero & - & - \\
 \hline
@@ -188,7 +188,7 @@ L'obiettivo è garantire che gli utenti possano sfruttare appieno le potenzialit
 
 \subsection{Scopo del prodotto\G}
 Nexum è una piattaforma che supporta la gestione delle comunicazioni interne, la raccolta di feedback e la timbratura digitale del personale.
-Il sistema consente di inviare comunicazioni ai dipendenti con tracciamento delle letture, creare e distribuire survey personalizzati e monitorarne i risultati tramite dashboard aggiornate in tempo reale. 
+Il sistema consente di inviare comunicazioni ai dipendenti con tracciamento delle letture, creare e distribuire survey personalizzate e monitorarne i risultati tramite dashboard aggiornate in tempo reale. 
 Inoltre, permette di effettuare la timbratura tramite badge o dispositivi mobili, applicando automaticamente le regole di controllo e aggregazione delle ore lavorate.
 
 Le anagrafiche centralizzate, integrate con ruoli e permessi, consentono una gestione controllata degli accessi e garantiscono la coerenza delle informazioni tra i diversi moduli della piattaforma.
@@ -206,7 +206,7 @@ impiegati nel documento e nel progetto\G Nexum. L'obiettivo è fornire definizio
 ambiguità, garantire coerenza terminologica tra i membri del team e facilitare l'onboarding di nuovi partecipanti. \\
 Per i termini tecnici e specifici utilizzati in questo documento, si fa riferimento al glossario\G disponibile al 
 seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}{link}.
-Per maggiore usabilità e facilitá di consultazione, il glossario\G è accessibile anche aprendo dal nostro \href{https://bugbustersunipd.github.io/DocumentazioneSWE/}{sito web} i vari documenti con il viewer
+Per maggiore usabilità e facilità di consultazione, il glossario\G è accessibile anche aprendo dal nostro \href{https://bugbustersunipd.github.io/DocumentazioneSWE/}{sito web} i vari documenti con il viewer
 pdf da noi sviluppato.
  
 \subsection{Riferimenti}
@@ -249,7 +249,7 @@ Tuttavia, per garantire prestazioni ottimali, si consiglia di utilizzare un comp
 
 
 \subsection{Requisiti software}
-Per poter eseguire correttamente l'applicazione è necessario utilizzare un browser web aggiornato per garantire la compatibilità e la sicurezza (ininfluente il tipo di sistema operativo utilizzato).
+Per poter eseguire correttamente l'applicazione è necessario utilizzare un browser web aggiornato per garantire la compatibilità e la sicurezza (indipendentemente dal sistema operativo utilizzato).
 I browser consigliati includono:
 \begin{itemize}
     \item Google Chrome (versione 120 o superiore)
@@ -281,7 +281,7 @@ All'interno del proprio dispositivo:
 In questo modo si otterrà una copia locale del progetto\G, che potrà essere eseguita e modificata secondo le proprie esigenze.
 
 \subsection{Configurare file env per le API-key di AWS}
-Per poter utilizzare le funzionalità di AI generativa e di analisi documentale, è necessario configurare le API-key di AWS all'interno di un file \texttt{.env} la struttura deve essere uguale a quella del file \texttt{.env.example} presente nella directory del progetto\G.
+Per poter utilizzare le funzionalità di AI generativa e di analisi documentale, è necessario configurare le API-key di AWS all'interno di un file \texttt{.env}; la struttura deve essere uguale a quella del file \texttt{.env.example} presente nella directory del progetto\G.
 \begin{itemize}
     \item Aprire il file \texttt{.env} con un editor di testo.
     \item Inserire le API-key di AWS nei campi corrispondenti, seguendo il formato specificato nel file.
@@ -291,7 +291,7 @@ Assicurarsi di salvare le modifiche al file \texttt{.env} prima di procedere con
 \subsection{Inizializzazione applicazione tramite Docker}
 Per avviare l'applicazione, è necessario utilizzare Docker per creare e gestire i container necessari al funzionamento della piattaforma.
 \begin{itemize}
-    \item Per costruire l'ambiente, eseguire il comando \texttt{docker-compose build}, che scarica l'immagine di Ruby e installa tutte le gemme necessarie definite nel Gemfile del progetto.
+    \item Per costruire l'ambiente, eseguire il comando \texttt{docker compose build}, che scarica l'immagine di Ruby e installa tutte le gemme necessarie definite nel Gemfile del progetto.
     \item Successivamente per costruire e popolare il database si utilizza il comando \texttt{docker compose run --rm web rails db:setup}, che esegue le migrazioni del database per creare le tabelle necessarie e popolare il database con i dati iniziali.
     \item Infine per avviare l'applicazione, eseguire il comando \texttt{docker compose up}, che avvia il server all'indirizzo \texttt{http://localhost:3000} e rende disponibile l'interfaccia utente all'indirizzo \texttt{http://localhost:4200}.
 \end{itemize}
@@ -315,20 +315,20 @@ Il modulo di AI-assistant generativo è progettato per supportare gli utenti nel
 
 \subsubsection{Generazione di contenuti}
 La generazione dei contenuti avviene tramite l'inserimento di un prompt, la scelta di un tono e la scelta di uno stile da parte dell'utente. 
-L'assistente Ai utilizza queste informazioni per generare un post formato da titolo, testo e immagine.
+L'assistente AI utilizza queste informazioni per generare un post formato da titolo, testo e immagine.
 
 \immagine[1\textwidth]{immagini/1_GeneratoreDiContenuti.png}{GeneratoreDiContenuti}{fig:GeneratoreDiContenuti}
 
-\subsubsubsection{Menù di scelta del tono}
-Nel menù di scelta del tono, l'utente può cercare e selezionare tra diverse opzioni di tono (formale, informale, amichevole, professionale, ecc.). 
+\subsubsubsection{Menu di scelta del tono}
+Nel menu di scelta del tono, l'utente può cercare e selezionare tra diverse opzioni di tono (formale, informale, amichevole, professionale, ecc.). 
 Inoltre ha anche la possibilità di inserire un tono personalizzato, specificando le caratteristiche desiderate (ad esempio, "tono motivazionale con un tocco di umorismo").
 Oltre all'inserimento di un tono personalizzato, è presente anche un'opzione che consente all'utente di eliminare un tono reputato obsoleto o non soddisfacente.
 
 \immagine[0.5\textwidth]{immagini/1_MenuTono.png}{MenuTono}{fig:MenuTono}
 
 
-\subsubsubsection{Menù di scelta dello stile}
-Nel menù di scelta dello stile, l'utente può cercare e selezionare tra diversi stili di scrittura (conciso, dettagliato, persuasivo, ecc.).
+\subsubsubsection{Menu di scelta dello stile}
+Nel menu di scelta dello stile, l'utente può cercare e selezionare tra diversi stili di scrittura (conciso, dettagliato, persuasivo, ecc.).
 Anche in questo caso, è possibile inserire uno stile personalizzato, indicando le preferenze specifiche (ad esempio, "stile narrativo con esempi concreti").
 Oltre all'inserimento di uno stile personalizzato, è presente anche un'opzione che consente all'utente di eliminare uno stile reputato obsoleto o non soddisfacente.
 
@@ -447,7 +447,7 @@ L'AI Co-Pilot dedicato ai Consulenti del Lavoro (CdL) è progettato per supporta
 
 \subsubsection{Analisi documenti}
 Il modulo di analisi dei documenti consente ai CdL di caricare documenti in vari formati (PDF, Word, ecc.) e di riconoscerne automaticamente la tipologia (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.).
-Per effettuare un'analisi é necessario inserire il file che si ha intenzione di analizzare ed eventualmente dati conosciuti, facilitando così il processo di riconoscimento e estrazione delle informazioni rilevanti.
+Per effettuare un'analisi è necessario inserire il file che si ha intenzione di analizzare ed eventualmente dati conosciuti, facilitando così il processo di riconoscimento e estrazione delle informazioni rilevanti.
 
 \subsubsubsection{Caricamento documento}
 Tramite questa funzione, l'utente può selezionare e caricare uno o più documenti all'interno del sistema. L'infrastruttura verifica l'integrità e la validità del formato del file per prepararlo all'analisi tramite intelligenza artificiale.
@@ -600,7 +600,7 @@ Per generare e avviare i test backend, è stato utilizzato il framework di testi
 
 \subsubsection{Esecuzione test}
 Se l'installazione e l'avvio dell'applicazione sono stati completati con successo, è possibile eseguire i test per verificare che tutte le funzionalità siano operative e che non ci siano errori.
-Per avviare i test è necessario eseguire il comando \texttt{docker compose run --rm backend rails test} in un altro terminale (non necessita di essere in esecuzione).
+Per avviare i test è necessario eseguire il comando \texttt{docker compose run --rm backend rails test} in un altro terminale (l'applicazione non necessita di essere in esecuzione).
 
 
 \subsection{Test Frontend}
