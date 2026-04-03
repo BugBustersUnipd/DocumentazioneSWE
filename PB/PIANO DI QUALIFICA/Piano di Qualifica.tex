@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
-   
-\newcommand{\CurrentVersion}{1.0.1} % ultima versione, da cambiare ad ogni push significativo
+
+\newcommand{\CurrentVersion}{2.0.0} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -121,9 +121,9 @@
 \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
 % Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
-  {Stato} & Approvato per RTB\G \\
+  {Stato} & Approvato \\
   {Redattori\G} & Marco Favero, Linor Sadé, Marco Piro, Leonardo Salviato \\
-  {Verificatori\G} & Alberto Pignat, Marco Favero \\
+  {Verificatori\G} & Alberto Pignat, Marco Favero, Linor Sadè \\
   {Distribuzione} & BugBusters, Eggon, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
 \end{tabularx}
 \end{tcolorbox}
@@ -147,6 +147,14 @@ Piano di Qualifica\G del Team BugBusters per il Capitolato\G C5 proposto da Eggo
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\hline
+\rowcolor{secondaryblue!10}2.0.0 & 03/04/2026 & Approvazione documento & - & - & Linor Sadè \\
+\hline
+\rowcolor{secondaryblue!10}1.2.0 & 03/04/2026 & Verifica documento & - & Alberto Pignat & - \\
+\hline
+\rowcolor{secondaryblue!10}1.1.1 & 03/04/2026 & Conclusione documento & Marco Piro & - & - \\
+\hline
+\rowcolor{secondaryblue!10}1.1.0 & 28/02/2026 & Verifica documento & - & Linor Sadè & - \\
 \hline
 \rowcolor{secondaryblue!10}1.0.1 & 26/02/2026 & Correzione post valutazione RTB & Marco Piro & - & - \\
 \hline
@@ -467,216 +475,216 @@ TS-F-032 & Verifica\G che il sistema permetta all’utente di
 effettuare il logout (terminare la sessione). & RF-32 & NI \\ \hline
 TS-F-033 & Verifica\G che il sistema generi contenuti testuali
 tramite AI\G Assistant in base a prompt\G e
-parametri. & RF-33 & NI \\ \hline
-TS-F-034 & Verifica\G che il sistema permetta l’inserimento di un prompt\G testuale per la generazione. & RF-34 & NI \\ \hline
+parametri. & RF-33 & S \\ \hline
+TS-F-034 & Verifica\G che il sistema permetta l’inserimento di un prompt\G testuale per la generazione. & RF-34 & S \\ \hline
 TS-F-035 & Verifica\G che il sistema permetta la selezione del
-tono per la generazione del contenuto. & RF-35 & NI \\ \hline
+tono per la generazione del contenuto. & RF-35 & S \\ \hline
 TS-F-036 & Verifica\G che il sistema permetta la selezione dello
-stile per la generazione del contenuto. & RF-36 & NI \\ \hline
+stile per la generazione del contenuto. & RF-36 & S \\ \hline
 TS-F-037 & Verifica\G che il sistema permetta la visualizzazione
-dello storico delle generazioni AI\G. & RF-37 & NI \\ \hline
+dello storico delle generazioni AI\G. & RF-37 & S \\ \hline
 TS-F-038 & Verifica\G che il sistema notifichi l’assenza di elementi se lo storico delle generazioni è
-vuoto. & RF-38 & NI \\ \hline
+vuoto. & RF-38 & S \\ \hline
 TS-F-039 & Verifica\G che il sistema mostri i dettagli completi
-di un elemento selezionato dallo storico. & RF-39 & NI \\ \hline
+di un elemento selezionato dallo storico. & RF-39 & S \\ \hline
 
 % --- CO-PILOT (DOCUMENTI) (RF 40-54) ---
 TS-F-040 & Verifica\G che il sistema permetta la visualizzazione dello stile utilizzato
-per un contenuto nello storico. & RF-40 & NI \\ \hline
+per un contenuto nello storico. & RF-40 & S \\ \hline
 TS-F-041 & Verifica\G che il sistema permetta la visualizzazione del testo del
-risultato generato nello storico. & RF-41 & NI \\ \hline
+risultato generato nello storico. & RF-41 & S \\ \hline
 TS-F-042 & Verifica\G che il sistema permetta la visualizzazione del timestamp
-(data/ora) della generazione nello storico. & RF-42 & NI \\ \hline
+(data/ora) della generazione nello storico. & RF-42 & S \\ \hline
 TS-F-043 & Verifica\G che il sistema permetta la visualizzazione della valutazione assegnata dall’utente al contenuto nello
-storico. & RF-43 & NI \\ \hline
+storico. & RF-43 & S \\ \hline
 TS-F-044 & Verifica\G che il sistema permetta la visualizzazione del prompt\G originale utilizzato per un contenuto nello
-storico. & RF-44 & NI \\ \hline
+storico. & RF-44 & S \\ \hline
 TS-F-045 & Verifica\G che il sistema permetta la visualizzazione del tono utilizzato
-per un contenuto nello storico. & RF-45 & NI \\ \hline
+per un contenuto nello storico. & RF-45 & S \\ \hline
 TS-F-046 & Verifica\G che il sistema mostri un’anteprima del
-contenuto generato dall’AI\G. & RF-46 & NI \\ \hline
+contenuto generato dall’AI\G. & RF-46 & S \\ \hline
 TS-F-047 & Verifica\G che il sistema permetta di modificare
-l’immagine associata al contenuto generato. & RF-47 & NI \\ \hline
+l’immagine associata al contenuto generato. & RF-47 & S \\ \hline
 TS-F-048 & Verifica\G che il sistema notifichi l’utente quando tenta di caricare un file immagine non
-valido. & RF-48 & NI \\ \hline
+valido. & RF-48 & S \\ \hline
 TS-F-049 & Verifica\G che il sistema permetta di modificare il
-titolo del contenuto generato. & RF-49 & NI \\ \hline
+titolo del contenuto generato. & RF-49 & S \\ \hline
 TS-F-050 & Verifica\G che il sistema permetta di modificare il
-testo del corpo del contenuto generato. & RF-50 & NI \\ \hline
+testo del corpo del contenuto generato. & RF-50 & S \\ \hline
 TS-F-051 & Verifica\G che il sistema permetta di annullare le
-modifiche apportate al contenuto generato & RF-51 & NI \\ \hline
+modifiche apportate al contenuto generato & RF-51 & S \\ \hline
 TS-F-052 & Verifica\G che il sistema permetta di riutilizzare i
 parametri di un contenuto dello storico per
-una nuova generazione. & RF-52 & NI \\ \hline
+una nuova generazione. & RF-52 & S \\ \hline
 TS-F-053 & Verifica\G che il sistema permetta di duplicare un
 contenuto dallo storico per modificarne i
-parametri. & RF-53 & NI \\ \hline
+parametri. & RF-53 & S \\ \hline
 TS-F-054 & Verifica\G che il sistema permetta di filtrare la lista
-delle generazioni nello storico. & RF-54 & NI \\ \hline
+delle generazioni nello storico. & RF-54 & S \\ \hline
 
 TS-F-055 & Verifica\G che il sistema permetta la visualizzazione della lista dello
-storico aggiornata in base ai filtri applicati. & RF-55 & NI \\ \hline
+storico aggiornata in base ai filtri applicati. & RF-55 & S \\ \hline
 TS-F-056 & Verifica\G che il sistema permetta di rigenerare un contenuto tramite AI\G mantenendo i
-parametri. & RF-56 & NI \\ \hline
+parametri. & RF-56 & S \\ \hline
 TS-F-057 & Verifica\G che il sistema permetta all’utente di
-valutare (rating) il contenuto generato. & RF-57 & NI \\ \hline
+valutare (rating) il contenuto generato. & RF-57 & S \\ \hline
 TS-F-058 & Verifica\G che il sistema permetta di scartare il
-contenuto generato e pulire l’interfaccia\G. & RF-58 & NI \\ \hline
+contenuto generato e pulire l’interfaccia\G. & RF-58 & S \\ \hline
 TS-F-059 & Verifica\G che il sistema permetta di salvare il
-contenuto generato nel database. & RF-59 & NI \\ \hline
+contenuto generato nel database. & RF-59 & S \\ \hline
 TS-F-060 & Verifica\G che il sistema permetta all’utente l’inse-
 rimento di un nuovo tono per la generazione
-di contenuti. & RF-60 & NI \\ \hline
+di contenuti. & RF-60 & S \\ \hline
 TS-F-061 & Verifica\G che il sistema permetta all’utente l’eli-
 minazione di un tono per la generazione di
-contenuti & RF-61 & NI \\ \hline
+contenuti & RF-61 & S \\ \hline
 
 TS-F-062 & Verifica\G che il sistema permetta all’utente l’inse-
 rimento di un nuovo stile per la generazione
-di contenuti. & RF-62 & NI \\ \hline
+di contenuti. & RF-62 & S \\ \hline
 TS-F-063 & Verifica\G che il sistema permetta all’utente l’eli-
 minazione di uno stile per la generazione di
-contenuti. & RF-63 & NI \\ \hline
+contenuti. & RF-63 & S \\ \hline
 TS-F-064 & Verifica\G che il sistema permetta l’analisi di
-documenti tramite il modulo\G AI Co-Pilot\G. & RF-64 & NI \\ \hline
+documenti tramite il modulo\G AI Co-Pilot\G. & RF-64 & S \\ \hline
 TS-F-065 & Verifica\G che il sistema permetta la selezione della categoria del
-documento. & RF-65 & NI \\ \hline
+documento. & RF-65 & S \\ \hline
 TS-F-066 & Verifica\G che il sistema permetta l’inserimento del
-mese/anno di competenza del documento. & RF-66 & NI \\ \hline
+mese/anno di competenza del documento. & RF-66 & S \\ \hline
 TS-F-067 & Verifica\G che il sistema permetta l’inserimento
-dell’azienda associata al documento. & RF-67 & NI \\ \hline
+dell’azienda associata al documento. & RF-67 & S \\ \hline
 TS-F-068 & Verifica\G che il sistema permetta l’inserimento del
-reparto associato al documento. & RF-68 & NI \\ \hline
+reparto associato al documento. & RF-68 & S \\ \hline
 TS-F-069 & Verifica\G che il sistema permetta di controllare la
-correttezza del formato del file inserito. & RF-69 & NI \\ \hline
+correttezza del formato del file inserito. & RF-69 & S \\ \hline
 TS-F-070 & Verifica\G che il sistema permetta di controllare che lo
-stesso file non sia già stato analizzato. & RF-70 & NI \\ \hline
+stesso file non sia già stato analizzato. & RF-70 & S \\ \hline
 TS-F-071 & Verifica\G che il sistema permetta lo split di do-
 cumenti diversi all’interno dello stesso
-file. & RF-71 & NI \\ \hline
+file. & RF-71 & S \\ \hline
 TS-F-072 & Verifica\G che il sistema permetta la visualizzazione della lista dei
-documenti analizzati. & RF-72 & NI \\ \hline
+documenti analizzati. & RF-72 & S \\ \hline
 TS-F-073 & Verifica\G che il sistema notifichi l’utente se nessun
-documento è stato riconosciuto dall’analisi. & RF-73 & NI \\ \hline
+documento è stato riconosciuto dall’analisi. & RF-73 & S \\ \hline
 TS-F-074 & Verifica\G che il sistema permetta di visualizzare i
-dettagli di un singolo documento dalla lista. & RF-74 & NI \\ \hline
+dettagli di un singolo documento dalla lista. & RF-74 & S \\ \hline
 TS-F-075 & Verifica\G che il sistema permetta la visualizzazione della competenza
-(periodo) del documento analizzato. & RF-75 & NI \\ \hline
+(periodo) del documento analizzato. & RF-75 & S \\ \hline
 TS-F-076 & Verifica\G che il sistema permetta la visualizzazione dell’azienda
-associata al documento analizzato. & RF-76 & NI \\ \hline
+associata al documento analizzato. & RF-76 & S \\ \hline
 TS-F-077 & Verifica\G che il sistema permetta la visualizzazione della causale del
-documento analizzato. & RF-77 & NI \\ \hline
+documento analizzato. & RF-77 & S \\ \hline
 TS-F-078 & Verifica\G che il sistema permetta la visualizzazione della lingua rilevata
-nel documento. & RF-78 & NI \\ \hline
+nel documento. & RF-78 & S \\ \hline
 TS-F-079 & Verifica\G che il sistema permetta la visualizzazione del numero di
-pagine del documento. & RF-79 & NI \\ \hline
+pagine del documento. & RF-79 & S \\ \hline
 TS-F-080 & Verifica\G che il sistema permetta la visualizzazione del nome originale
-del file del documento. & RF-80 & NI \\ \hline
+del file del documento. & RF-80 & S \\ \hline
 TS-F-081 & Verifica\G che il sistema permetta la visualizzazione della data di
-redazione/caricamento del documento. & RF-81 & NI \\ \hline
+redazione/caricamento del documento. & RF-81 & S \\ \hline
 TS-F-082 & Verifica\G che il sistema permetta la visualizzazione del codice
-identificativo del documento. & RF-82 & NI \\ \hline
+identificativo del documento. & RF-82 & S \\ \hline
 TS-F-083 & Verifica\G che il sistema permetta la visualizzazione della tipologia del
-documento. & RF-83 & NI \\ \hline
+documento. & RF-83 & S \\ \hline
 TS-F-084 & Verifica\G che il sistema mostri l’anteprima visiva
-del documento analizzato. & RF-84 & NI \\ \hline
+del documento analizzato. & RF-84 & S \\ \hline
 TS-F-085 & Verifica\G che il sistema permetta di modificare il
-destinatario associato al documento. & RF-85 & NI \\ \hline
+destinatario associato al documento. & RF-85 & S \\ \hline
 TS-F-086 & Verifica\G che il sistema permetta di modificare la
-tipologia del documento. & RF-86 & NI \\ \hline
+tipologia del documento. & RF-86 & S \\ \hline
 TS-F-087 & Verifica\G che il sistema ricalcoli la percentuale di
-confidenza dopo modifiche manuali. & RF-87 & NI \\ \hline
+confidenza dopo modifiche manuali. & RF-87 & S \\ \hline
 TS-F-088 & Verifica\G che il sistema permetta la visualizzazione della lista delle
-informazioni sui destinatari estratti. & RF-88 & NI \\ \hline
+informazioni sui destinatari estratti. & RF-88 & S \\ \hline
 TS-F-089 & Verifica\G che il sistema permetta la visualizzazione dei
-dettagli di un singolo destinatario in lista. & RF-89 & NI \\ \hline
+dettagli di un singolo destinatario in lista. & RF-89 & S \\ \hline
 TS-F-090 & Verifica\G che il sistema permetta la visualizzazione del codice fiscale
-del destinatario. & RF-90 & NI \\ \hline
+del destinatario. & RF-90 & S \\ \hline
 TS-F-091 & Verifica\G che il sistema permetta la visualizzazione della matricola del
-destinatario. & RF-91 & NI \\ \hline
+destinatario. & RF-91 & S \\ \hline
 TS-F-092 & Verifica\G che il sistema permetta la visualizzazione del reparto del
-destinatario. & RF-92 & NI \\ \hline
+destinatario. & RF-92 & S \\ \hline
 TS-F-093 & Verifica\G che il sistema permetta la visualizzazione del
-nome/cognome del destinatario. & RF-93 & NI \\ \hline
+nome/cognome del destinatario. & RF-93 & S \\ \hline
 TS-F-094 & Verifica\G che il sistema notifichi se nessun
-destinatario è stato riconosciuto. & RF-94 & NI \\ \hline
+destinatario è stato riconosciuto. & RF-94 & S \\ \hline
 TS-F-095 & Verifica\G che il sistema permetta la visualizzazione dello storico
-completo dei documenti processati. & RF-95 & NI \\ \hline
+completo dei documenti processati. & RF-95 & S \\ \hline
 TS-F-096 & Verifica\G che il sistema notifichi l’assenza di
-documenti nello storico. & RF-96 & NI \\ \hline
+documenti nello storico. & RF-96 & S \\ \hline
 TS-F-097 & Verifica\G che il sistema permetta la visualizzazione dei dettagli di un
-elemento nello storico documenti. & RF-97 & NI \\ \hline
+elemento nello storico documenti. & RF-97 & S \\ \hline
 TS-F-098 & Verifica\G che il sistema permetta la visualizzazione della percentuale di
-confidenza dell’analisi nello storico. & RF-98 & NI \\ \hline
+confidenza dell’analisi nello storico. & RF-98 & S \\ \hline
 TS-F-099 & Verifica\G che il sistema permetta la visualizzazione dell’appartenenza
-alle liste di distribuzione. & RF-99 & NI \\ \hline
+alle liste di distribuzione. & RF-99 & S \\ \hline
 TS-F-100 & Verifica\G che il sistema permetta la visualizzazione dello stato di
-elaborazione del documento. & RF-100 & NI \\ \hline
+elaborazione del documento. & RF-100 & S \\ \hline
 TS-F-101 & Verifica\G che il sistema permetta di caricare un
-template\G di messaggio esistente. & RF-101 & NI \\ \hline
+template\G di messaggio esistente. & RF-101 & S \\ \hline
 TS-F-102 & Verifica\G che il sistema permetta di modificare
-l’oggetto del messaggio. & RF-102 & NI \\ \hline
+l’oggetto del messaggio. & RF-102 & S \\ \hline
 TS-F-103 & Verifica\G che il sistema permetta di modificare il
-testo del corpo del messaggio. & RF-103 & NI \\ \hline
+testo del corpo del messaggio. & RF-103 & S \\ \hline
 TS-F-104 & Verifica\G che il sistema permetta di salvare il
-messaggio corrente come nuovo template\G. & RF-104 & NI \\ \hline
+messaggio corrente come nuovo template\G. & RF-104 & S \\ \hline
 TS-F-105 & Verifica\G che il sistema permetta di eliminare un
-template\G di messaggio. & RF-105 & NI \\ \hline
+template\G di messaggio. & RF-105 & S \\ \hline
 TS-F-106 & Verifica\G che il sistema permetta di visualizzare la
-lista dei template\G di messaggio disponibili. & RF-106 & NI \\ \hline
+lista dei template\G di messaggio disponibili. & RF-106 & S \\ \hline
 TS-F-107 & Verifica\G che il sistema permetta di visualizza-
 re un elemento della lista dei template\G di
-messaggio disponibili. & RF-107 & NI \\ \hline
+messaggio disponibili. & RF-107 & S \\ \hline
 TS-F-108 & Verifica\G che il sistema permetta di visualizzare
-l’oggetto del template\G. & RF-108 & NI \\ \hline
+l’oggetto del template\G. & RF-108 & S \\ \hline
 TS-F-109 & Verifica\G che il sistema permetta di visualizzare il
-testo del template\G. & RF-109 & NI \\ \hline
+testo del template\G. & RF-109 & S \\ \hline
 TS-F-110 & Verifica\G che il sistema permetta di visualizzare il
-codice del template\G. & RF-110 & NI \\ \hline
+codice del template\G. & RF-110 & S \\ \hline
 TS-F-111 & Verifica\G che il sistema permetta l’invio del
-documento e del messaggio associato. & RF-111 & NI \\ \hline
+documento e del messaggio associato. & RF-111 & S \\ \hline
 TS-F-112 & Verifica\G che il sistema permetta di allegare
-ulteriore contenuto al messaggio. & RF-112 & NI \\ \hline
+ulteriore contenuto al messaggio. & RF-112 & S \\ \hline
 TS-F-113 & Verifica\G che il sistema permetta di pianificare l’invio del documento e del messaggio
-associato. & RF-113 & NI \\ \hline
+associato. & RF-113 & S \\ \hline
 TS-F-114 & Verifica\G che il sistema permetta il filtraggio della
-lista dei documenti analizzati. & RF-114 & NI \\ \hline
+lista dei documenti analizzati. & RF-114 & S \\ \hline
 TS-F-115 & Verifica\G che il sistema mostri la lista dei
-documenti aggiornata in base ai filtri. & RF-115 & NI \\ \hline
+documenti aggiornata in base ai filtri. & RF-115 & S \\ \hline
 TS-F-116 & Verifica\G che il sistema permetta il filtraggio della
-lista dei destinatari. & RF-116 & NI \\ \hline
+lista dei destinatari. & RF-116 & S \\ \hline
 TS-F-117 & Verifica\G che il sistema mostri la lista dei
-destinatari aggiornata in base ai filtri. & RF-117 & NI \\ \hline
+destinatari aggiornata in base ai filtri. & RF-117 & S \\ \hline
 TS-F-118 & Verifica\G che il sistema permetta il filtraggio della
-lista dello storico documenti. & RF-118 & NI \\ \hline
+lista dello storico documenti. & RF-118 & S \\ \hline
 TS-F-119 & Verifica\G che il sistema mostri la lista dello storico
-documenti aggiornata in base ai filtri. & RF-119 & NI \\ \hline
+documenti aggiornata in base ai filtri. & RF-119 & S \\ \hline
 TS-F-120 & Verifica\G che il sistema permetta di mostrare
-l’audit di un documento nello storico. & RF-120 & NI \\ \hline
+l’audit di un documento nello storico. & RF-120 & S \\ \hline
 TS-F-121 & Verifica\G che il sistema permetta la visualizzazione della dashboard\G
-con i dati di analytics per l’AI\G Assistant. & RF-121 & NI \\ \hline
+con i dati di analytics per l’AI\G Assistant. & RF-121 & S \\ \hline
 TS-F-122 & Verifica\G che il sistema permetta la visualizzazione del numero totale
-di prompt\G generati. & RF-122 & NI \\ \hline
+di prompt\G generati. & RF-122 & S \\ \hline
 TS-F-123 & Verifica\G che il sistema permetta la visualizzazione del rating medio
-dei prompt\G generati. & RF-123 & NI \\ \hline
+dei prompt\G generati. & RF-123 & S \\ \hline
 TS-F-124 & Verifica\G che il sistema permetta la visualizzazione del numero di
-rigenerazioni effettuate. & RF-124 & NI \\ \hline
+rigenerazioni effettuate. & RF-124 & S \\ \hline
 TS-F-125 & Verifica\G che il sistema permetta la visualizzazione delle statistiche sui
-toni più utilizzati. & RF-125 & NI \\ \hline
+toni più utilizzati. & RF-125 & S \\ \hline
 TS-F-126 & Verifica\G che il sistema permetta la visualizzazione delle statistiche
-sugli stili più utilizzati. & RF-126 & NI \\ \hline
+sugli stili più utilizzati. & RF-126 & S \\ \hline
 TS-F-127 & Verifica\G che il sistema permetta la visualizzazione della dashboard\G
-con i dati di analytics per l’AI Co-Pilot\G. & RF-127 & NI \\ \hline
+con i dati di analytics per l’AI Co-Pilot\G. & RF-127 & S \\ \hline
 TS-F-128 & Verifica\G che il sistema permetta la visualizzazione della confidenza
-media delle analisi documenti. & RF-128 & NI \\ \hline
+media delle analisi documenti. & RF-128 & S \\ \hline
 TS-F-129 & Verifica\G che il sistema permetta la visualizzazione della percentuale di
-interventi manuali necessari. & RF-129 & NI \\ \hline
+interventi manuali necessari. & RF-129 & S \\ \hline
 TS-F-130 & Verifica\G che il sistema permetta la visualizzazione dell’accuratezza del
-mapping dei dati. & RF-130 & NI \\ \hline
-TS-F-131 & Verifica\G che il sistema permetta la visualizzazione dei tempi medi di
-analisi dei documenti. & RF-131 & NI \\ \hline
+mapping dei dati. & RF-130 & S \\ \hline
+TS-F-131 & Verifica\G che il sistema permetta la visualizzazione dei tempi medi d
+analisi dei documenti. & RF-131 & S \\ \hline
 TS-F-132 & Verifica\G che il sistema permetta di filtrare i dati
-di analytics per periodo temporale. & RF-132 & NI \\ \hline
+di analytics per periodo temporale. & RF-132 & S \\ \hline
 
 \caption{Test\G di Sistema - Requisiti Funzionali\G}
 \label{tab:test-sistema-funzionali}
@@ -693,14 +701,14 @@ di analytics per periodo temporale. & RF-132 & NI \\ \hline
 \hline
 \endhead
 
-TS-Q-001 & Verifica\G che sia presente la documentazione dell'analisi dei Requisiti\G completa (diagrammi e descrizioni Use Case) & RQ-01 & NI \\ \hline
-TS-Q-002 & Verifica\G che il way of working\G sia rispettato secondo gli standard definiti nelle Norme di Progetto\G. & RQ-02 & NI \\ \hline
+TS-Q-001 & Verifica\G che sia presente la documentazione dell'analisi dei Requisiti\G completa (diagrammi e descrizioni Use Case) & RQ-01 & S \\ \hline
+TS-Q-002 & Verifica\G che il way of working\G sia rispettato secondo gli standard definiti nelle Norme di Progetto\G. & RQ-02 & S \\ \hline
 TS-Q-003 & Verifica\G che il prodotto\G passi tutti i test\G con la
-copertura concordata con la proponente\G. & RQ-03 & NI \\ \hline
+copertura concordata con la proponente\G. & RQ-03 & S \\ \hline
 TS-Q-004 & Verifica\G che il codice sia documentato secondo le linee guida descritte in Norme di
-Progetto\G. & RQ-04 & NI \\ \hline
-TS-Q-005 & Verifica\G che il codice sia versionato con appositi strumenti di controllo versione, comprensivo di istruzioni di setup. & RQ-05 & NI \\ \hline
-TS-Q-006 & Verifica\G che ci sia il manuale utente. & RQ-06 & NI \\ \hline
+Progetto\G. & RQ-04 & S \\ \hline
+TS-Q-005 & Verifica\G che il codice sia versionato con appositi strumenti di controllo versione, comprensivo di istruzioni di setup. & RQ-05 & S \\ \hline
+TS-Q-006 & Verifica\G che ci sia il manuale utente. & RQ-06 & S \\ \hline
 
 \caption{Test\G di Sistema per Requisiti di Qualità\G}
 \label{tab:test-sistema-qualita}
@@ -716,20 +724,17 @@ TS-Q-006 & Verifica\G che ci sia il manuale utente. & RQ-06 & NI \\ \hline
 \hline
 \endhead
 
-TS-V-001 & Verifica\G che il sistema utilizzi Git come sistema di controllo versione & RV-01 & NI \\ \hline
-TS-V-002 & Verifica\G che API\G e Backend\G siano sviluppati in Ruby on Rails\G & RV-02 & NI \\ \hline
-TS-V-003 & Verifica\G che il database sia PostgreSQL\G. & RV-03 & NI \\ \hline
-TS-V-004 & Verifica\G che il Frontend sia sviluppato utilizzando il framework Angular\G. & RV-04 & NI \\ \hline
+TS-V-001 & Verifica\G che il sistema utilizzi Git come sistema di controllo versione & RV-01 & S \\ \hline
+TS-V-002 & Verifica\G che API\G e Backend\G siano sviluppati in Ruby on Rails\G & RV-02 & S \\ \hline
+TS-V-003 & Verifica\G che il database sia PostgreSQL\G. & RV-03 & S \\ \hline
+TS-V-004 & Verifica\G che il Frontend sia sviluppato utilizzando il framework Angular\G. & RV-04 & S \\ \hline
 TS-V-005 & Verifica\G che la gestione dei modelli AI\G sia
-implementata utilizzando AWS Bedrock\G. & RV-05 & NI \\ \hline
-TS-V-006 & Verifica\G che eventuali background jobs siano gestiti con
-Sidekiq e PWA\G con Next.js. & RV-06 & NI \\ 
+implementata utilizzando AWS Bedrock\G. & RV-05 & S \\ 
 \hline
-TS-V-007 & Verifica\G che i requisiti minimi di sistema siano rispettati: RAM 2GB,
-Spazio 20 GB SSD, CPU 1-2 vCPU. & RV-07 & NI \\ \hline
-TS-V-008 & Verifica\G che i requisiti minimi dell'utente siano rispettati: Desktop 4GB,
-Mobile 2GB, Rete 3G stabile. & RV-08 & NI \\ \hline
-TS-V-009 & Verifica\G che i browser supportati siano Chrome, Safari, Edge e Firefox. & RV-09 & NI \\ \hline
+TS-V-006 & Verifica\G che i requisiti minimi di sistema siano rispettati: RAM 2GB,
+Spazio 10 GB SSD, CPU 1-2 vCPU. & RV-07 & S \\ \hline
+TS-V-007 & Verifica\G che i requisiti minimi dell'utente siano rispettati: Desktop 4GB, Rete 3G stabile. & RV-08 & S \\ \hline
+TS-V-008 & Verifica\G che i browser supportati siano Chrome, Safari, Edge e Firefox. & RV-09 & S \\ \hline
 
 \caption{Test\G di Sistema per Requisiti di Vincolo\G}
 \label{tab:test-sistema-vincolo}
@@ -762,29 +767,29 @@ I test\G di accettazione validano il sistema rispetto agli scenari d'uso (Use Ca
   \hline
   
   % --- HR MANAGER (ASSISTANT) ---
-  \textbf{TA-007} & Verifica\G che l'HR Manager possa configurare una richiesta (Prompt\G, Tono, Lunghezza) e generare un contenuto. & UC-1A, UC-1B, UC-1C & Non Impl. \\
+  \textbf{TA-007} & Verifica\G che l'HR Manager possa configurare una richiesta (Prompt\G, Tono, Lunghezza) e generare un contenuto. & UC-1A, UC-1B, UC-1C & S \\
   \hline
-  \textbf{TA-008} & Verifica\G che l'HR Manager possa visualizzare, copiare e modificare il testo generato dall'AI\G. & UC-1D, UC-1E & Non Impl. \\
+  \textbf{TA-008} & Verifica\G che l'HR Manager possa visualizzare, copiare e modificare il testo generato dall'AI\G. & UC-1D, UC-1E & S \\
   \hline
-  \textbf{TA-009} & Verifica\G che l'HR Manager possa valutare (Feedback) o scartare un contenuto generato. & UC-1F, UC-1N & Non Impl. \\
+  \textbf{TA-009} & Verifica\G che l'HR Manager possa valutare (Feedback) o scartare un contenuto generato. & UC-1F, UC-1N & S \\
   \hline
-  \textbf{TA-010} & Verifica\G il salvataggio automatico nello storico e la possibilità di recuperare generazioni passate. & UC-1O & Non Impl. \\
+  \textbf{TA-010} & Verifica\G il salvataggio automatico nello storico e la possibilità di recuperare generazioni passate. & UC-1O & S \\
   \hline
   
   % --- OPERATORE CDL (CO-PILOT) ---
-  \textbf{TA-011} & Verifica\G che l'Operatore possa caricare un documento PDF e avviare l'analisi automatica. & UC-2A & Non Impl. \\
+  \textbf{TA-011} & Verifica\G che l'Operatore possa caricare un documento PDF e avviare l'analisi automatica. & UC-2A & S \\
   \hline
-  \textbf{TA-012} & Verifica\G che il sistema estragga correttamente i dati e li mostri all'operatore. & UC-2B & Non Impl. \\
+  \textbf{TA-012} & Verifica\G che il sistema estragga correttamente i dati e li mostri all'operatore. & UC-2B & S \\
   \hline
-  \textbf{TA-013} & Verifica\G lo scenario\G "Human-in-the-loop": l'operatore corregge manualmente un dato estratto errato e conferma. & UC-2D, UC-2E & Non Impl. \\
+  \textbf{TA-013} & Verifica\G lo scenario\G "Human-in-the-loop": l'operatore corregge manualmente un dato estratto errato e conferma. & UC-2D, UC-2E & S \\
   \hline
-  \textbf{TA-014} & Verifica\G gestione template\G: creazione, modifica e utilizzo di un template\G di messaggio. & UC-2I & Non Impl. \\
+  \textbf{TA-014} & Verifica\G gestione template\G: creazione, modifica e utilizzo di un template\G di messaggio. & UC-2I & S \\
   \hline
-  \textbf{TA-015} & Verifica\G il flusso di invio: selezione destinatari, associazione documento e invio email (o pianificazione). & UC-2L, UC-2O & Non Impl. \\
+  \textbf{TA-015} & Verifica\G il flusso di invio: selezione destinatari, associazione documento e invio email (o pianificazione). & UC-2L, UC-2O & S \\
   \hline
   
   % --- DATA ANALYST ---
-  \textbf{TA-016} & Verifica\G che il Data Analyst\G possa consultare le Dashboard\G e filtrare le metriche per periodo temporale. & UC-3A, UC-3B & Non Impl. \\
+  \textbf{TA-016} & Verifica\G che il Data Analyst\G possa consultare le Dashboard\G e filtrare le metriche per periodo temporale. & UC-3A, UC-3B & S \\
   \hline
 
     \caption{Test\G di Accettazione}
@@ -806,18 +811,15 @@ sino alla Requirements and Technology Baseline (RTB)\G.
  \end{figure}
 
 \subsubsubsection{RTB}
-L'andamento del Valore Guadagnato (\textit{Earned Value} - EV\G) risulta costantemente allineato a quello del Valore Pianificato (\textit{Planned Value} - PV\G) per tutto il periodo analizzato. Questa sovrapposizione indica l'assenza di scostamenti critici a livello di schedulazione e di scopo: il valore operativo prodotto dal team corrisponde a quanto preventivato nella pianificazione di base, confermando la solidità del piano di progetto.
+L'andamento del Valore Guadagnato (\textit{Earned Value} - EV) risulta costantemente allineato a quello del Valore Pianificato (\textit{Planned Value} - PV) per tutto il periodo analizzato. Questa sovrapposizione indica l'assenza di scostamenti critici a livello di schedulazione e di scopo: il valore operativo prodotto dal team corrisponde a quanto preventivato nella pianificazione di base, confermando la solidità del piano di progetto.
 
 \subsubsubsection{PB}
-Durante la fase di Product Baseline (PB), il Valore Guadagnato (EV)\G e il Valore Pianificato (PV)\G hanno mantenuto un allineamento pressoché perfetto, convergendo al traguardo finale nello Sprint 12. Ciò attesta l'assenza di deviazioni di scope e il rigoroso rispetto del piano di sviluppo preventivato nella precedente baseline.
+Durante la fase di Product Baseline (PB), il Valore Guadagnato (EV) e il Valore Pianificato (PV) hanno mantenuto un allineamento pressoché perfetto, convergendo al traguardo finale nello Sprint 12. Ciò attesta l'assenza di deviazioni di scope e il rigoroso rispetto del piano di sviluppo preventivato nella precedente baseline.
 \newpage
 
 \newpage
 
-\subsection{MPC18 - Nuova metrica 4}
-\subsubsubsection{RTB}
 
-\subsubsubsection{PB}
 
 \subsection{MPC03 e MPC07 - Actual cost (AC)\G e Estimate to complete (ETC)\G}
 \begin{figure}[H]
@@ -826,10 +828,10 @@ Durante la fase di Product Baseline (PB), il Valore Guadagnato (EV)\G e il Valor
   \caption{Grafico per periodo di MPC03 e MPC07}
 \end{figure}
 \subsubsubsection{RTB}
-La metrica \textit{Actual Cost} (AC)\G registra un incremento progressivo, proporzionale all'effettivo impiego delle risorse per lo sviluppo. In modo simmetrico e inversamente proporzionale, l'\textit{Estimate to Complete} (ETC)\G decresce regolarmente. Il comportamento coerente di queste due metriche dimostra che il consumo del budget sta avvenendo in stretta correlazione con l'avanzamento dei lavori, senza generare spese impreviste o consumi anomali che avrebbero richiesto interventi correttivi.
+La metrica \textit{Actual Cost} (AC) registra un incremento progressivo, proporzionale all'effettivo impiego delle risorse per lo sviluppo. In modo simmetrico e inversamente proporzionale, l'\textit{Estimate to Complete} (ETC) decresce regolarmente. Il comportamento coerente di queste due metriche dimostra che il consumo del budget sta avvenendo in stretta correlazione con l'avanzamento dei lavori, senza generare spese impreviste o consumi anomali che avrebbero richiesto interventi correttivi.
 
 \subsubsubsection{PB}
-Nel periodo di PB, la curva dell'Actual Cost (AC)\G ha mantenuto un tasso di crescita lineare e predicibile, speculare al progressivo azzeramento dell'Estimate to Complete (ETC)\G. Il raggiungimento di un ETC\G pari a zero allo Sprint 12, unito a un EAC stabile, dimostra una corretta consuntivazione delle risorse, senza sforamenti di budget tardivi durante l'implementazione finale.
+Nel periodo di PB, la curva dell'Actual Cost (AC) ha mantenuto un tasso di crescita lineare e predicibile, speculare al progressivo azzeramento dell'Estimate to Complete (ETC). Il raggiungimento di un ETC pari a zero allo Sprint 12, unito a un EAC stabile, dimostra una corretta consuntivazione delle risorse, senza sforamenti di budget tardivi durante l'implementazione finale.
 \newpage
 
 \subsection{MPC04 e MPC05 - Cost Performance Index (CPI)\G e Schedule performance Index\G}
@@ -840,10 +842,10 @@ Nel periodo di PB, la curva dell'Actual Cost (AC)\G ha mantenuto un tasso di cre
 \end{figure}
 
 \subsubsubsection{RTB}
-Nello Sprint\G 1, il \textit{Cost Performance Index} (CPI)\G si è posizionato al di sotto della soglia di accettazione (0.9) a causa dell'overhead temporale necessario per l'impostazione degli ambienti di lavoro e lo studio delle tecnologie di base. A seguito dell'introduzione di procedure di sviluppo standardizzate, l'indice è progressivamente migliorato, stabilizzandosi al di sopra del valore ottimale (1.0). Lo \textit{Schedule Performance Index} (SPI)\G si è mantenuto costantemente $\geq$ 1.0, confermando la totale aderenza alla schedulazione.
+Nello Sprint\G 1, il \textit{Cost Performance Index} (CPI) si è posizionato al di sotto della soglia di accettazione (0.9) a causa dell'overhead temporale necessario per l'impostazione degli ambienti di lavoro e lo studio delle tecnologie di base. A seguito dell'introduzione di procedure di sviluppo standardizzate, l'indice è progressivamente migliorato, stabilizzandosi al di sopra del valore ottimale (1.0). Lo \textit{Schedule Performance Index} (SPI) si è mantenuto costantemente $\geq$ 1.0, confermando la totale aderenza alla schedulazione.
 
 \subsubsubsection{PB}
-Nel corso dell'intera fase di PB, gli indici di efficienza CPI\G e SPI\G si sono stabilizzati costantemente al di sopra del valore ottimo (1.0). Questo denota che le contromisure di processo adottate e rodate durante la fase RTB\G hanno reso il workflow di sviluppo pienamente maturo ed efficiente, scongiurando qualsiasi regressione prestazionale durante la scrittura del codice.
+Nel corso dell'intera fase di PB, gli indici di efficienza CPI e SPI si sono stabilizzati costantemente al di sopra del valore ottimo (1.0). Questo denota che le contromisure di processo adottate e rodate durante la fase RTB\G hanno reso il workflow di sviluppo pienamente maturo ed efficiente, scongiurando qualsiasi regressione prestazionale durante la scrittura del codice.
 \newpage
 
 \subsection{MPC06 - Estimated at completion (EAC)}
@@ -854,7 +856,7 @@ Nel corso dell'intera fase di PB, gli indici di efficienza CPI\G e SPI\G si sono
 \end{figure}
 
 \subsubsubsection{RTB}
-L'EAC ha inizialmente superato il budget stimato (BAC) a causa del basso indice di efficienza dei costi (CPI\G) registrato durante il primo sprint\G. Con l'applicazione delle azioni correttive sui processi di sviluppo, il trend dell'EAC si è invertito, rientrando nei limiti previsti e attestandosi in prossimità del BAC originale senza ulteriori sforamenti.
+L'EAC ha inizialmente superato il budget stimato (BAC) a causa del basso indice di efficienza dei costi (CPI) registrato durante il primo sprint\G. Con l'applicazione delle azioni correttive sui processi di sviluppo, il trend dell'EAC si è invertito, rientrando nei limiti previsti e attestandosi in prossimità del BAC originale senza ulteriori sforamenti.
 
 \subsubsubsection{PB}
 L'EAC ha mantenuto un andamento pressochè stabile per l'intero arco temporale della PB, posizionandosi in sicurezza al di sotto del limite massimo di budget stanziato (BAC). Non si sono verificate fluttuazioni eccessive, confermando l'assoluta affidabilità delle stime a finire prodotte al termine della fase precedente.
@@ -880,10 +882,10 @@ Per l'intera durata della fase di PB, la stima temporale a finire (TEAC) si è m
   \caption{Grafico per periodo di MPC09}
 \end{figure}
 \subsubsubsection{RTB}
-Nello Sprint\G 2, l'RSI\G ha registrato un valore negativo, evidenziando una forte instabilità causata da revisioni sostanziali del capitolato\G e l'emersione di nuovi casi d'uso. Presa coscienza di tale anomalia, il gruppo ha attuato un'azione di congelamento e formalizzazione dei requisiti. L'effetto di tale contromisura ha portato la metrica a un rapido consolidamento, raggiungendo e mantenendo il 100\% di stabilità dallo Sprint\G 5 in poi.
+Nello Sprint\G 2, l'RSI ha registrato un valore negativo, evidenziando una forte instabilità causata da revisioni sostanziali del capitolato\G e l'emersione di nuovi casi d'uso. Presa coscienza di tale anomalia, il gruppo ha attuato un'azione di congelamento e formalizzazione dei requisiti. L'effetto di tale contromisura ha portato la metrica a un rapido consolidamento, raggiungendo e mantenendo il 100\% di stabilità dallo Sprint\G 5 in poi.
 
 \subsubsubsection{PB}
-Durante la fase di Product Baseline, l'Indice di Stabilità dei Requisiti (RSI\G) ha registrato un valore costante pari al 100\%. L'assenza di fluttuazioni in questo indicatore conferma oggettivamente che il consolidamento analitico effettuato al termine della fase RTB\G è stato definitivo. Il team ha pertanto condotto l'intera fase di sviluppo e implementazione senza incorrere in richieste di modifiche tardive, garantendo la totale integrità dell'architettura originaria.\newpage
+Durante la fase di Product Baseline, l'Indice di Stabilità dei Requisiti (RSI) ha registrato un valore costante pari al 100\%. L'assenza di fluttuazioni in questo indicatore conferma oggettivamente che il consolidamento analitico effettuato al termine della fase RTB\G è stato definitivo. Il team ha pertanto condotto l'intera fase di sviluppo e implementazione senza incorrere in richieste di modifiche tardive, garantendo la totale integrità dell'architettura originaria.\newpage
 
 \subsection{MPC10 - Indice di Gulpease\G}
 \begin{figure}[H]
@@ -899,7 +901,7 @@ Durante la fase di Product Baseline, l'Indice di Stabilità dei Requisiti (RSI\G
 L'Indice di Gulpease\G ha evidenziato valori sotto la soglia del 60\% per i documenti Glossario\G e Norme di Progetto\G. Questa deviazione, derivante dall'inevitabile uso di terminologia tecnica non semplificabile, è stata analizzata e accettata dal gruppo come limite fisiologico strutturale. Per la restante documentazione, in particolare per l'Analisi dei Requisiti\G, gli interventi mirati di semplificazione sintattica hanno permesso di mantenere l'indice stabilmente al di sopra della soglia ottima.
 
 \subsubsubsection{PB}
-
+Durante la fase di Product Baseline, l'Indice di Gulpease ha confermato una netta divisione strutturale. I documenti discorsivi (AdR, PdP e Specifica Tecnica) si mantengono stabilmente sopra la soglia ottima (80\%). Glossario e Norme di Progetto permangono sotto il minimo accettabile (60\%) per limiti terminologici intrinseci già formalmente accettati. L'unica variazione rilevante riguarda il Manuale Utente: introdotto nello Sprint 9, l'indice è sceso sotto soglia nello Sprint 10 a causa dell'integrazione delle sezioni tecniche di configurazione e installazione.
 \newpage
 
 
@@ -914,7 +916,7 @@ L'Indice di Gulpease\G ha evidenziato valori sotto la soglia del 60\% per i docu
   \caption{Grafico per periodo di MPC13}
 \end{figure}
 \subsubsubsection{RTB}
-Nei primi tre sprint\G, la percentuale di metriche soddisfatte si è mantenuta al di sotto della soglia di accettazione (80\%) a causa delle contemporanee criticità rilevate negli indici CPI\G e RSI\G. A valle dell'applicazione delle contromisure ai processi di analisi e sviluppo, l'indicatore generale è tornato a crescere. Dallo Sprint\G 4 la metrica ha superato la soglia di accettabilità, stabilizzandosi in modo permanente.
+Nei primi tre sprint\G, la percentuale di metriche soddisfatte si è mantenuta al di sotto della soglia di accettazione (80\%) a causa delle contemporanee criticità rilevate negli indici CPI e RSI. A valle dell'applicazione delle contromisure ai processi di analisi e sviluppo, l'indicatore generale è tornato a crescere. Dallo Sprint\G 4 la metrica ha superato la soglia di accettabilità, stabilizzandosi in modo permanente.
 
 \subsubsubsection{PB}
 L'andamento della la percentuale di metriche soddisfatte durante la fase di Product Baseline (PB) mostra un iniziale superamento della soglia di accettazione (80\%) in concomitanza dello Sprint 7. Nelle iterazioni successive (Sprint 8-11), si è registrata una lieve flessione al di sotto del valore minimo accettabile. Tale scostamento è un indicatore fisiologico riconducibile all'emersione di difetti durante la fase di integrazione intensiva dei moduli architetturali.
@@ -928,10 +930,10 @@ L'andamento della la percentuale di metriche soddisfatte durante la fase di Prod
   \caption{Grafico per periodo di MPC14}
 \end{figure}
 \subsubsubsection{RTB}
-L'efficienza\G temporale si è mantenuta costantemente al di sopra della soglia di accettazione (50\%). Le lievi flessioni registrate negli Sprint\G 4 e 5 sono riconducibili a un fisiologico incremento delle ore di coordinamento e analisi necessarie per la riorganizzazione dei requisiti. Tali scostamenti sono stati riassorbiti nelle iterazioni successive, riportando il valore in prossimità del limite ottimo.
+L'efficienza temporale si è mantenuta costantemente al di sopra della soglia di accettazione (50\%). Le lievi flessioni registrate negli Sprint\G 4 e 5 sono riconducibili a un fisiologico incremento delle ore di coordinamento e analisi necessarie per la riorganizzazione dei requisiti. Tali scostamenti sono stati riassorbiti nelle iterazioni successive, riportando il valore in prossimità del limite ottimo.
 
 \subsubsubsection{PB}
-L'efficienza\G temporale ha registrato una fisiologica flessione durante lo Sprint 7, in concomitanza con l'overhead strutturale richiesto per il setup architetturale e tecnologico all'inizio della fase di PB. Nelle iterazioni successive (Sprint 8-12), l'indice è rapidamente risalito stabilizzandosi su valori prossimi al 100\%, confermando il totale riassorbimento dei costi di setup iniziali.
+L'efficienza temporale ha registrato una fisiologica flessione durante lo Sprint 7, in concomitanza con l'overhead strutturale richiesto per il setup architetturale e tecnologico all'inizio della fase di PB. Nelle iterazioni successive (Sprint 8-12), l'indice è rapidamente risalito stabilizzandosi su valori prossimi al 100\%, confermando il totale riassorbimento dei costi di setup iniziali.
 
 \newpage
 
@@ -951,24 +953,8 @@ Non sono presenti misurazioni.
 Negli Sprint 10 e 11, la \textit{Code Coverage} è scesa sotto la soglia di accettazione (80\%) a causa della priorità data allo sviluppo rapido delle funzionalità, che ha temporaneamente rallentato la stesura dei test automatizzati. Rilevato il problema, il team ha riassegnato le risorse per sanare questo debito tecnico avviando una campagna intensiva di testing. L'azione correttiva ha avuto pieno successo nello Sprint 12: la copertura è aumentata drasticamente superando la soglia richiesta, garantendo così l'affidabilità del codice per la consegna finale.
 \newpage
 
-\subsection{MPD14 - Cyclomatic Complexity}
-\begin{figure}[H]
-  \centering
-  \IfFileExists{grafici/MPD14.png}{%
-    \includegraphics[width=0.9\textwidth]{grafici/MPD14.png}
-  }{%
-    \fbox{\parbox[c][5cm][c]{0.85\textwidth}{\centering Grafico non trovato: grafici/MPD14.png}}
-  }
-  \caption{Grafico per periodo di MPD14}
-\end{figure}
-\subsubsubsection{RTB}
-Non sono presenti misurazioni.
-\subsubsubsection{PB}
-DA METTERE
-\newpage
-
 \subsection{Esito delle misurazioni puntuali}
-In questa sezione sono riportate le metriche misurate puntualmente, per le quali non e stato associato un grafico temporale. Si tratta di indicatori con valore statico, binario o calcolato su base aggregata, per cui la rappresentazione tabellare risulta piu chiara e immediata.
+In questa sezione sono riportate le metriche misurate puntualmente, per le quali non è stato associato un grafico temporale. Si tratta di indicatori con valore statico, binario o calcolato su base aggregata, per cui la rappresentazione tabellare risulta più chiara e immediata.
 
 \arrayrulecolor{primaryblue}
 \begin{table}[H]
@@ -988,13 +974,15 @@ In questa sezione sono riportate le metriche misurate puntualmente, per le quali
     \hline
     MPD06 & Defect Density & $\leq 3$ / KLOC & 0.157 / KLOC\\
     \hline
-    MPD11 & Click Count (Funzioni principali) & $\leq 5$ click & 7.5 click \\
+    MPD11 & Click Count (Funzioni principali) & $\leq 5$ click & 5 click \\
     \hline
     MPD12 & User Error Rate (Errori validazione\G) & $\leq 10\%$ & 9.46\% \\
     \hline
-    MPD13 & Blocker Code Smells & 0 & 4 \\
+    MPD13 & Blocker Code Smells & 0 & 0 \\
     \hline
-    MPD15 & Comment Intensity & $\geq 10\%$ & 6.66\% \\
+    MPD14 & Cyclomatic Complexity\G (per metodo) & $\leq 15$ & 1.97 \\
+    \hline
+    MPD15 & Comment Intensity & $\geq 10\%$ & 10\% \\
     \hline
     MPD16 & Supported Browsers (Test passati) & 100\% (Desktop) & 100\% \\
     \hline
