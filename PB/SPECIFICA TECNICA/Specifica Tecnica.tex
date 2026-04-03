@@ -2931,18 +2931,16 @@ Inoltre questi serializer fungono da punto centrale per la gestione di eventuali
 \centering
 \includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/serializer-aiAssistant.png}
 \end{figure}
-Questa classe funge da adapter per la serializzazione e deserializzazione dei dati relativi al modulo\G dell'Ai Assistant Generativo.
+Questa classe funge da adapter per la serializzazione e deserializzazione dei dati relativi al modulo\G{} dell'Ai Assistant Generativo.
 È responsabile di convertire i dati ricevuti dal backend (in formato JSON) in valori di tipo ResultAiAssistant, Tone, Style o Company.\\
-\textbf{Attributi}
-
 \textbf{Metodi}
 \begin{itemize}[noitemsep, topsep=0pt]
 \item Serializzazione richieste verso backend.
 \begin{itemize}[noitemsep, topsep=0pt]
-\item serializeCreatePostRequest(result: ResultAiAssistant): { generated_datum_id: number | null; title: string; body_text: string; img_path: string | null; date_time: Date; }
-\item serializeRequireGenerationRequest(prompt: string, tone: Tone, style: Style, company: Company): { generation_datum: { prompt: string; company_id: number; style_id: number; tone_id: number } }
-\item serializeNewToneRequest(name: string, code: string, companyId: number): { tone: { name: string; description: string; company_id: number } }
-\item serializeNewStyleRequest(name: string, code: string, companyId: number): { style: { name: string; description: string; company_id: number } }
+\item serializeCreatePostRequest(result: ResultAiAssistant): \{ generated_datum_id: number | null; title: string; body_text: string; img_path: string | null; date_time: Date; \}
+\item serializeRequireGenerationRequest(prompt: string, tone: Tone, style: Style, company: Company): \{ generation_datum: \{ prompt: string; company_id: number; style_id: number; tone_id: number \} \}
+\item serializeNewToneRequest(name: string, code: string, companyId: number): \{ tone: \{ name: string; description: string; company_id: number \} \}
+\item serializeNewStyleRequest(name: string, code: string, companyId: number): \{ style: \{ name: string; description: string; company_id: number \} \}
 \end{itemize}
 
 \item Deserializzazione risposte backend.
@@ -2962,7 +2960,7 @@ Questa classe funge da adapter per la serializzazione e deserializzazione dei da
 \item Metodi di supporto e validazione\G interna (privati).
 \begin{itemize}[noitemsep, topsep=0pt]
 \item isRecord(value: unknown): value is Record<string, unknown>
-\item asString(value: unknown, fallback = ''): string
+\item asString(value: unknown, fallback = {`}{'}): string
 \item asNumber(value: unknown, fallback = 0): number
 \item asBoolean(value: unknown, defaultValue: boolean): boolean
 \item asDate(value: unknown): Date
@@ -2978,22 +2976,12 @@ Questa classe funge da adapter per la serializzazione e deserializzazione dei da
 \centering
 \includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/serializer-aiAssistant.png}
 \end{figure}
-\textbf{Attributi}
-\begin{itemize}[noitemsep, topsep=0pt]
-\item Proprietà interne.
-\begin{itemize}[noitemsep, topsep=0pt]
-\item Il serializer non definisce attributi di input/output Angular\G e non mantiene stato interno persistente.
-\item La classe è stateless: trasforma dati in ingresso/uscita tramite metodi puramente funzionali.
-\end{itemize}
-\end{itemize}
 
 \textbf{Metodi}
 \begin{itemize}[noitemsep, topsep=0pt]
 \item Costruzione stato iniziale e serializzazione base.
 \begin{itemize}[noitemsep, topsep=0pt]
-\item creaStatoIniziale(file: File): ResultAiCopilot
-\item serialize(payload: unknown[]): ResultAiCopilot
-\item deserialize(result: ResultAiCopilot): unknown[]
+\item createInitialState(file: File): ResultAiCopilot
 \end{itemize}
 
 \item Deserializzazione risposte backend (documenti estratti).
@@ -3009,19 +2997,12 @@ Questa classe funge da adapter per la serializzazione e deserializzazione dei da
 
 \item Metodi di supporto e conversione tipi.
 \begin{itemize}[noitemsep, topsep=0pt]
-\item asFile(value: unknown, fallback: File = new File([], '')): File
-\item asString(value: unknown, fallback: string = ''): string
+\item asFile(value: unknown, fallback: File = new File([],  {`}{'})): File
+\item asString(value: unknown, fallback: string =  {`}{'}): string
+\end{itemize}
+\item mapStatus(status: string): State \ Mapping stato backend stato frontend.
 \end{itemize}
 
-\item Mapping stato backend ($\rightarrow$) stato frontend (privato).
-\begin{itemize}[noitemsep, topsep=0pt]
-\item mapStatus(status: string): State
-\end{itemize}
-\end{itemize}
-
-\begin{itemize}[noitemsep, topsep=0pt]
-\item Ruolo complessivo: il serializer centralizza la conversione dei payload backend nel modello frontend ResultSplit/ResultAiCopilot, normalizza confidence e stati, e fornisce helper di casting per ridurre errori di tipizzazione nel service.
-\end{itemize}
 
 \subsection{Micro componenti UI}
 \subsubsubsection{Menu}
@@ -3029,35 +3010,23 @@ Questa classe funge da adapter per la serializzazione e deserializzazione dei da
 \centering
 \includegraphics[width=0.3\textwidth]{ImmaginiSpecificaTecnica/Frontend/menu-component.png}
 \end{figure}
-Componente UI che rappresenta un menù di navigazione laterale.
+Componente UI che rappresenta il menù di navigazione laterale.\\
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Servizi utilizzati dal componente per navigazione e gestione messaggi.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item messageService: MessageService \\
-    Servizio PrimeNG per la gestione di notifiche/messaggi applicativi.
-
-    \item router: Router \\
-    Servizio Angular\G usato per leggere la rotta corrente ed effettuare navigazioni programmatiche.
+    \item router: Router \
+    Servizio Angular\G{} usato per leggere la rotta corrente ed effettuare navigazioni programmatiche.
   \end{itemize}
   
-  \item items: MenuItem[] | undefined \\
+  \item items: MenuItem[] | undefined \
     Collezione delle sezioni e delle voci del menu, inizializzata nel ciclo di vita del componente.
 \end{itemize}
 
 \textbf{Metodi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Inizializzazione menu: costruisce la struttura delle voci e le relative azioni di navigazione.
-  \begin{itemize}[noitemsep, topsep=0pt]
-    \item ngOnInit(): void \\
-    Inizializza l'array items con le sezioni principali del menu (AI Assistant\G Generativo, AI Co-Pilot\G per CDL\G, Analytics), configurando routerLink o command per ciascuna voce.
-  \end{itemize}
-
-  \item Azioni di navigazione contestuale: gestiscono casi specifici di routing.
-  \begin{itemize}[noitemsep, topsep=0pt]
-    \item command (voce Storico AI Co-Pilot\G): void \\
-    Esegue navigazione verso la pagina di storico AI Co-Pilot\G e imposta replaceUrl in base alla rotta corrente, per gestire correttamente lo storico del browser.
-  \end{itemize}
+  \item ngOnInit(): void \
+  Inizializza l'array items con le sezioni principali del menu (AI Assistant\G Generativo, AI Co-Pilot\G per CDL\G, Analytics), configurando routerLink o command per ciascuna voce.
 \end{itemize}
 
 \subsubsection{Button}
@@ -3082,51 +3051,50 @@ Componente UI riutilizzabile che rappresenta un pulsante con etichetta e icona p
     \item action: EventEmitter<void>
   \end{itemize}
 \end{itemize}
-\subsubsection{Menutendina}
+\subsubsection{SelectComponent}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/menu-tendina.png}
 \end{figure}
 Componente UI che rappresenta un menu a tendina con ricerca e pulsante per aggiungere opzioni. Viene utilizzato per gestire le scelte di toni, stili le aziende o i template\G.\\
 \textbf{Attributi}
-\textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Proprietà di input: definiscono i dati mostrati e il comportamento del menu a tendina.
+  \item attributi di input: definiscono i dati mostrati e il comportamento del menu a tendina.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item options: \{ id: number; name: string \}[] | null | undefined \\
+    \item options: \{ id: number; name: string \}[] | null | undefined \
     Elenco delle opzioni selezionabili visualizzate nel menu.
 
-    \item label: string \\
+    \item label: string \
     Etichetta testuale mostrata sopra la select.
 
-    \item selected: any \\
+    \item selected: any \
     Valore attualmente selezionato nel menu.
 
-    \item placeholder: string \\
+    \item placeholder: string \
     Testo mostrato quando nessuna opzione è stata selezionata.
 
-    \item addButtonLabel: string \\
+    \item addButtonLabel: string \
     Etichetta del pulsante usato per aggiungere una nuova opzione.
 
-    \item showAddNew: boolean \\
+    \item showAddNew: boolean \
     Abilita o nasconde il pulsante per inserire una nuova opzione.
 
-    \item showRemove: boolean \\
+    \item showRemove: boolean \
     Abilita o nasconde il pulsante per rimuovere un'opzione.
 
-    \item disabled: boolean \\
+    \item disabled: boolean \
     Disabilita il menu rendendolo non modificabile e non interagibile.
   \end{itemize}
 
-  \item Proprietà di output: comunicano al componente padre le azioni eseguite dall'utente.
+  \item Attributi di output: comunicano al componente padre le azioni eseguite dall'utente.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item selectedChange: EventEmitter<any> \\
+    \item selectedChange: EventEmitter<any> \
     Notifica al componente padre quando cambia l'opzione selezionata.
 
-    \item addNew: EventEmitter<void> \\
+    \item addNew: EventEmitter<void> \
     Segnala la richiesta di creazione di una nuova opzione.
 
-    \item remove: EventEmitter<number> \\
+    \item remove: EventEmitter<number> \
     Segnala la richiesta di eliminazione di un'opzione, passando il suo identificativo.
   \end{itemize}
 \end{itemize}
@@ -3144,34 +3112,34 @@ Componente UI che rappresenta un menu a tendina con ricerca e pulsante per aggiu
 \centering
 \includegraphics[width=0.3\textwidth]{ImmaginiSpecificaTecnica/Frontend/prompt-component.png}
 \end{figure}
-Componente UI che rappresenta un'area di testo per l'inserimento del prompt\G da inviare all'assistente AI\G, con funzionalità\G di invio tramite pulsante o tasto
+Componente UI che rappresenta un'area di testo per l'inserimento del prompt\G{} da inviare all'assistente AI\G{}, con funzionalità\G{} di invio tramite pulsante o tasto.\\
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Proprietà di input: definiscono il contenuto e il comportamento del campo di testo.
+  \item Attributi di input: definiscono il contenuto e il comportamento del campo di testo.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item prompt: string \\
-    Contiene il testo del prompt\G inserito o visualizzato nel campo.
+    \item prompt: string \
+    Contiene il testo del prompt\G{} inserito o visualizzato nel campo.
 
-    \item autoResize: boolean \\
+    \item autoResize: boolean \
     Abilita o disabilita il ridimensionamento automatico dell'area di testo.
 
-    \item label: string \\
+    \item label: string \
     Etichetta testuale mostrata sopra il campo di input.
 
-    \item value: string \\
+    \item value: string \
     Valore corrente associato al contenuto del campo.
 
-    \item placeholder: string \\
+    \item placeholder: string \
     Testo mostrato quando il campo è vuoto.
 
-    \item disabled: boolean \\
-    Disabilita il campo rendendolo non modificabile e non focalizzabile.s
+    \item disabled: boolean \
+    Disabilita il campo rendendolo non modificabile e non focalizzabile.
   \end{itemize}
 
-  \item Proprietà di output: comunicano al componente padre le modifiche del testo inserito.
+  \item Attributi di output: comunicano al componente padre le modifiche del testo inserito.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item promptChange: EventEmitter<string> \\
-    Emette il nuovo valore del prompt\G quando il contenuto del campo cambia.
+    \item promptChange: EventEmitter<string> \
+    Emette il nuovo valore del prompt\G{} quando il contenuto del campo cambia.
   \end{itemize}
 \end{itemize}
 \subsubsection{Filters}
@@ -3179,42 +3147,42 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt\G da
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/filters-enum-component.png}
 \end{figure}
-
+Componente UI che rappresenta dei semplici filtri.
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Proprietà di input: definiscono il tipo di filtro e i dati associati.
+  \item Attributi di input: definiscono il tipo di filtro e i dati associati.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item TypeOfFilter: FilterType \\
+    \item TypeOfFilter: FilterType \
     Specifica il tipo di filtro da visualizzare: dateRange, text, number o searchbar.
 
-    \item DatepickerLabel: string \\
+    \item DatepickerLabel: string \
     Etichetta del filtro per selezione data.
 
-    \item dates: Date[] | undefined \\
+    \item dates: Date[] | undefined \
     Array di date selezionate dal componente datepicker.
 
-    \item TextFilterLabel: string \\
+    \item TextFilterLabel: string \
     Etichetta del filtro per selezione testuale.
 
-    \item textOptions: string[] \\
+    \item textOptions: string[] \
     Elenco delle opzioni testuali disponibili per il filtro.
 
-    \item selectedTextOption: number | undefined | string \\
+    \item selectedTextOption: number | undefined | string \
     Opzione testuale attualmente selezionata.
 
-    \item searchvalue: string \\
+    \item searchvalue: string \
     Valore attuale inserito nel campo di ricerca.
   \end{itemize}
 
-  \item Proprietà di output: comunicano al componente padre i cambiamenti dei filtri.
+  \item Attributi di output: comunicano al componente padre i cambiamenti dei filtri.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item datesChange: EventEmitter<Date[]> \\
+    \item datesChange: EventEmitter<Date[]> \
     Emette l'array di date quando cambia la selezione nel datepicker.
 
-    \item selectedTextOptionChange: EventEmitter<number | string> \\
+    \item selectedTextOptionChange: EventEmitter<number | string> \
     Emette l'opzione testuale selezionata quando cambia la scelta.
 
-    \item searchvalueChange: EventEmitter<string> \\
+    \item searchvalueChange: EventEmitter<string> \
     Emette il valore di ricerca quando cambia il contenuto della searchbar.
   \end{itemize}
 \end{itemize}
@@ -3223,13 +3191,13 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt\G da
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Gestione cambiamenti filtri: notificano al componente padre le modifiche dei valori immesse dall'utente.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item onSearchChange(): void \\
+    \item onSearchChange(): void \
     Emette il valore corrente della ricerca quando cambia il contenuto della searchbar.
 
-    \item onTextOptionChange(): void \\
+    \item onTextOptionChange(): void \
     Emette l'opzione testuale selezionata quando cambia la scelta.
 
-    \item onDateSelect(): void \\
+    \item onDateSelect(): void \
     Emette l'array di date selezionate quando cambia la selezione nel datepicker.
   \end{itemize}
 \end{itemize}
@@ -3239,44 +3207,45 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt\G da
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/image-title-component.png}
 \end{figure}
+Componente UI che rappresenta immagine di generazione e titolo della generazione.
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Proprietà di input: configurano l'aspetto e il comportamento del componente immagine con titolo.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item hidden: boolean \\
+    \item hidden: boolean \
     Nasconde o visualizza il componente.
 
-    \item imageUrl: string \\
+    \item imageUrl: string \
     URL dell'immagine da visualizzare.
 
-    \item caption: string \\
+    \item caption: string \
     Didascalia testuale associata all'immagine.
 
-    \item altText: string \\
+    \item altText: string \
     Testo alternativo mostrato se l'immagine non carica.
 
-    \item editable: boolean \\
+    \item editable: boolean \
     Abilita la modalità di modifica per titolo e immagine.
 
-    \item imageTitle: string \\
+    \item imageTitle: string \
     Titolo dell'immagine visualizzato e modificabile.
 
-    \item loading: boolean \\
+    \item loading: boolean \
     Mostra uno spinner di caricamento durante l'upload.
   \end{itemize}
 
   \item Proprietà di output: comunicano al componente padre i cambiamenti di titolo e immagine.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item imageTitleChange: EventEmitter<string> \\
+    \item imageTitleChange: EventEmitter<string> \
     Emette il nuovo titolo quando cambia il valore inserito.
 
-    \item imageChange: EventEmitter<File> \\
+    \item imageChange: EventEmitter<File> \
     Emette il file immagine selezionato quando viene caricato un nuovo file.
   \end{itemize}
 
   \item Proprietà interne: mantengono lo stato locale del componente.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item title: string \\
+    \item title: string \
     Titolo sull'immagine sincronizzato con l'input imageTitle.
   \end{itemize}
 \end{itemize}
@@ -3285,16 +3254,16 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt\G da
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Gestione ciclo di vita: sincronizza i cambiamenti degli input con lo stato interno.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item ngOnChanges(changes: SimpleChanges): void \\
+    \item ngOnChanges(changes: SimpleChanges): void \
     Aggiorna il titolo interno quando cambia l'input imageTitle.
   \end{itemize}
 
   \item Gestione modifica immagine e titolo: notificano al componente padre le variazioni.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item onImageChange(event: any): void \\
+    \item onImageChange(event: any): void \
     Estrae il file dall'evento di upload e lo emette verso il componente padre.
 
-    \item onTitleChange(value: string): void \\
+    \item onTitleChange(value: string): void \
     Aggiorna il titolo interno e notifica il componente padre della modifica.
   \end{itemize}
 \end{itemize}
@@ -3308,24 +3277,19 @@ Componente UI che rappresenta un sistema di valutazione a stelle, utilizzato per
 \textbf{Attributi}
 
 \begin{itemize}
-\item Proprietà di input: configurano il valore iniziale e il comportamento del componente di valutazione.
+\item Attributi di input: configurano il valore iniziale e il comportamento del componente di valutazione.
 \begin{itemize}
-\item rating: number (Input) \
+\item rating: number \
 Valore della valutazione corrente visualizzato dal componente.
 \end{itemize}
 
-\item Proprietà di output: comunicano al componente padre le variazioni della valutazione.
+\item Attributi di output: comunicano al componente padre le variazioni della valutazione.
 \begin{itemize}
-\item ratingChange: EventEmitter<number> (Output) \
+\item ratingChange: EventEmitter<number>  \
 Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \end{itemize}
 \end{itemize}
 
-\textbf{Metodi}
-
-\begin{itemize}
-\item Il componente non definisce metodi pubblici o privati.
-\end{itemize}
 \subsubsection{Tables}
 \begin{figure}[H]
 \centering
@@ -3335,34 +3299,34 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Proprietà di input: configurano dati e comportamento della tabella.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item risultatoFiltrato: any[] \\
+    \item risultatoFiltrato: any[] \
     Array dei dati filtrati da visualizzare nelle righe della tabella.
 
-    \item columns: any[] \\
+    \item columns: any[] \
     Definisce la struttura e le colonne della tabella.
 
-    \item items: MenuItem[] \\
+    \item items: MenuItem[] \
     Elenco delle voci di menu contestuale disponibili per ogni riga.
 
-    \item class: string \\
+    \item class: string \
     Classi CSS aggiuntive da applicare al componente tabella.
   \end{itemize}
 
   \item Proprietà di output: comunicano al componente padre le interazioni sulla tabella.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item titleClick: EventEmitter<any> \\
+    \item titleClick: EventEmitter<any> \
     Emette la riga quando l'utente clicca sul titolo.
 
-    \item menuAction: EventEmitter<\{ row: any; item: MenuItem \}> \\
+    \item menuAction: EventEmitter<\{ row: any; item: MenuItem \}> \
     Emette la riga e la voce di menu selezionata quando viene eseguita un'azione dal menu contestuale.
 
-    \item rowRemoved: EventEmitter<any> \\
+    \item rowRemoved: EventEmitter<any> \
     Emette la riga eliminata quando viene selezionata l'azione di rimozione (retrocompatibilità).
   \end{itemize}
 
   \item Proprietà interne: mantengono lo stato locale del componente.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item rowMenuItems: MenuItem[] \\
+    \item rowMenuItems: MenuItem[] \
     Voci di menu associate alla riga attualmente selezionata, sincronizzate con le condizioni della riga.
   \end{itemize}
 \end{itemize}
@@ -3371,25 +3335,25 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Gestione clic sulla tabella: notificano al componente padre le interazioni dell'utente.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item onTitleClick(row: any): void \\
+    \item onTitleClick(row: any): void \
     Emette la riga quando viene cliccato il titolo.
   \end{itemize}
 
   \item Gestione menu contestuale: sincronizzano le voci del menu con lo stato della riga.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item openRowMenu(menu: \{ toggle: (event: Event) => void \}, event: Event, row: any): void \\
+    \item openRowMenu(menu: \{ toggle: (event: Event) => void \}, event: Event, row: any): void \
     Prepara le voci di menu per la riga selezionata applicando le condizioni di visibilità e apre il menu.
 
-    \item bindMenuItemToRow(item: MenuItem, row: any): MenuItem \\
+    \item bindMenuItemToRow(item: MenuItem, row: any): MenuItem \
     Associa una voce di menu a una riga, gestendo visibilità condizionale e comandi personalizzati.
   \end{itemize}
 
   \item Estrazione e normalizzazione testo: preparano il testo delle celle eliminando formattazione HTML.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item getPlainCellText(row: any, col: any): string \\
+    \item getPlainCellText(row: any, col: any): string \
     Estrae il valore testuale di una cella eliminando i tag HTML.
 
-    \item stripHtmlTags(value: unknown): string \\
+    \item stripHtmlTags(value: unknown): string \
     Rimuove tag HTML, entità HTML e normalizza gli spazi dal testo fornito.
   \end{itemize}
 \end{itemize}
@@ -3402,31 +3366,31 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Proprietà di input: configurano lo stato e il tipo di dialog.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item visible: boolean \\
+    \item visible: boolean \
     Abilita o disabilita la visualizzazione del dialog.
 
-    \item type: AddDialogType \\
+    \item type: AddDialogType \
     Specifica il tipo di elemento da aggiungere: tone, style, template\G o company.
   \end{itemize}
 
   \item Proprietà di output: comunicano al componente padre le azioni del dialog.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item visibleChange: EventEmitter<boolean> \\
+    \item visibleChange: EventEmitter<boolean> \
     Notifica il componente padre quando il dialog viene chiuso.
 
-    \item saveRequested: EventEmitter<AddDialogSaveData> \\
+    \item saveRequested: EventEmitter<AddDialogSaveData> \
     Emette i dati inseriti (nome, descrizione e tipo) quando viene richiesto il salvataggio.
   \end{itemize}
 
   \item Proprietà interne: mantengono lo stato del form all'interno del dialog.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item name: string \\
+    \item name: string \
     Nome dell'elemento inserito nel campo di input.
 
-    \item description: string \\
+    \item description: string \
     Descrizione dell'elemento inserita nel campo di input.
 
-    \item submitted: boolean \\
+    \item submitted: boolean \
     Flag che traccia se il form è stato inviato, usato per la visualizzazione degli errori di validazione\G.
   \end{itemize}
 \end{itemize}
@@ -3470,40 +3434,40 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Proprietà di input: configurano l'aspetto e il comportamento del campo di input.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item editable: boolean \\
+    \item editable: boolean \
     Abilita o disabilita la modificabilità del campo.
 
-    \item label: string \\
+    \item label: string \
     Etichetta testuale mostrata sopra il campo.
 
-    \item value: string | number | undefined \\
+    \item value: string | number | undefined \
     Valore corrente contenuto nel campo.
 
-    \item placeholder: string \\
+    \item placeholder: string \
     Testo mostrato quando il campo è vuoto.
 
-    \item type: string \\
+    \item type: string \
     Tipo di input HTML: text, number, email, password, ecc.
 
-    \item min: number \\
+    \item min: number \
     Valore minimo accettato (rilevante per input di tipo numero).
 
-    \item max: number \\
+    \item max: number \
     Valore massimo accettato (rilevante per input di tipo numero).
 
-    \item id: string \\
+    \item id: string \
     Identificativo univoco del campo HTML.
 
-    \item disabled: boolean \\
+    \item disabled: boolean \
     Disabilita il campo rendendolo non modificabile e non focalizzabile.
 
-    \item class: string \\
+    \item class: string \
     Classi CSS aggiuntive da applicare al componente.
   \end{itemize}
 
   \item Proprietà di output: comunicano al componente padre le modifiche del valore.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item valueChange: EventEmitter<string | number | undefined> \\
+    \item valueChange: EventEmitter<string | number | undefined> \
     Emette il nuovo valore quando il contenuto del campo cambia.
   \end{itemize}
 \end{itemize}
@@ -3512,7 +3476,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Gestione modifica valore: notifica il componente padre delle variazioni.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item onValueChange(value: string | number | undefined): void \\
+    \item onValueChange(value: string | number | undefined): void \
     Emette il nuovo valore verso il componente padre quando il campo viene modificato.
   \end{itemize}
 \end{itemize}
@@ -3526,25 +3490,25 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Proprietà di input: configurano contenuto e stato dell'editor.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item text: string \\
+    \item text: string \
     Contenuto testuale mostrato nell'editor proveniente dal componente padre.
 
-    \item editable: boolean \\
+    \item editable: boolean \
     Abilita o disabilita la modifica del contenuto.
 
-    \item loading: boolean \\
+    \item loading: boolean \
     Indica se il componente è in stato di caricamento.
   \end{itemize}
 
   \item Proprietà di output: comunicano al componente padre le modifiche del contenuto.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item textChange: EventEmitter<string> \\
+    \item textChange: EventEmitter<string> \
     Emette il nuovo testo quando il contenuto dell'editor cambia.
   \end{itemize}
 
   \item Proprietà interne: mantengono lo stato locale dell'editor.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item editorText: string \\
+    \item editorText: string \
     Copia locale del testo usata per sincronizzare il modello dell'editor.
   \end{itemize}
 \end{itemize}
@@ -3553,13 +3517,13 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Gestione ciclo di vita: sincronizza gli input con lo stato interno.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item ngOnChanges(changes: SimpleChanges): void \\
+    \item ngOnChanges(changes: SimpleChanges): void \
     Aggiorna editorText quando cambia il valore dell'input text dal padre (es. quando arriva il risultato di una generazione).
   \end{itemize}
 
   \item Gestione modifica testo: aggiorna il modello locale e notifica il componente padre.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item onTextModelChange(value: string): void \\
+    \item onTextModelChange(value: string): void \
     Se non è in loading, aggiorna editorText ed emette textChange con il nuovo contenuto.
   \end{itemize}
 \end{itemize}
@@ -3572,22 +3536,22 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Proprietà di input: configurano l'etichetta e il testo segnaposto del selettore mese/anno.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item label: string \\
+    \item label: string \
     Etichetta visualizzata sopra il controllo.
 
-    \item placeholder: string \\
+    \item placeholder: string \
     Testo mostrato quando non è stato ancora selezionato alcun mese/anno.
   \end{itemize}
 
   \item Proprietà di output: comunicano al componente padre il valore selezionato.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item monthYearChange: EventEmitter<string> \\
+    \item monthYearChange: EventEmitter<string> \
     Emette il mese/anno selezionato nel formato YYYY-MM.
   \end{itemize}
 
   \item Proprietà interne: mantengono lo stato locale del selettore.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item selectedMonthYear: Date | null \\
+    \item selectedMonthYear: Date | null \
     Valore data selezionato nel datepicker, usato per ricavare mese e anno.
   \end{itemize}
 \end{itemize}
@@ -3596,7 +3560,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Gestione selezione mese/anno: converte la data scelta nel formato richiesto e la emette al padre.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item onMonthYearChange(): void \\
+    \item onMonthYearChange(): void \
     Legge selectedMonthYear, estrae mese e anno e li emette come stringa nel formato YYYY-MM; se non c'è alcun valore selezionato, emette una stringa vuota.
   \end{itemize}
 \end{itemize}
@@ -3610,21 +3574,21 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \begin{itemize}[noitemsep, topsep=0pt]
 \item Proprietà di input: configurano l'etichetta e il testo segnaposto del selettore mese/anno.
 \begin{itemize}[noitemsep, topsep=0pt]
-\item label: string \\
+\item label: string \
 Etichetta visualizzata sopra il controllo.
-\item placeholder: string \\
+\item placeholder: string \
 Testo mostrato quando non è stato ancora selezionato alcun mese/anno.
 \end{itemize}
 
 \item Proprietà di output: comunicano al componente padre il valore selezionato.
 \begin{itemize}[noitemsep, topsep=0pt]
-\item monthYearChange: EventEmitter<string> \\
+\item monthYearChange: EventEmitter<string> \
 Emette il mese/anno selezionato nel formato YYYY-MM.
 \end{itemize}
 
 \item Proprietà interne: mantengono lo stato locale del selettore.
 \begin{itemize}[noitemsep, topsep=0pt]
-\item selectedMonthYear: Date | null \\
+\item selectedMonthYear: Date | null \
 Valore data selezionato nel datepicker, usato per ricavare mese e anno.
 \end{itemize}
 \end{itemize}
@@ -3633,7 +3597,7 @@ Valore data selezionato nel datepicker, usato per ricavare mese e anno.
 \begin{itemize}[noitemsep, topsep=0pt]
 \item Gestione selezione mese/anno: converte la data scelta nel formato richiesto e la emette al padre.
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item onMonthYearChange(): void \\
+  \item onMonthYearChange(): void \
   Legge selectedMonthYear, estrae mese e anno e li emette come stringa nel formato YYYY-MM; se non c'è alcun valore selezionato, emette una stringa vuota.
 \end{itemize}
 \end{itemize}
@@ -3648,31 +3612,31 @@ Componente UI che rappresenta una tabella con righe espandibili che contengono a
 \begin{itemize}
   \item Proprietà di input: configurano i dati e il comportamento della tabella annidata.
   \begin{itemize}
-  \item columns: any[] (Input) \
+  \item columns: any[] \
   Definisce le colonne da visualizzare nelle tabelle nidificate.
 
-  \item items: MenuItem[] (Input) \
+  \item items: MenuItem[] \
   Elenco delle azioni disponibili nel menu contestuale per ciascuna riga.
 
-  \item ButtonLabel: string (Input) \
+  \item ButtonLabel: string \
   Testo mostrato nel pulsante associato all'azione di retry.
 
-  \item class: string (Input) \
+  \item class: string \
   Classe CSS aggiuntiva per personalizzare l'aspetto del componente.
 
-  \item documents: ResultAiCopilot[] (Input) \
+  \item documents: ResultAiCopilot[] \
   Collezione dei documenti gestiti e mostrati dal componente.
   \end{itemize}
 
   \item Proprietà di output: comunicano al componente padre le interazioni e le azioni eseguite dall'utente.
     \begin{itemize}
-    \item menuAction: EventEmitter{ row: ResultSplit; item: MenuItem } (Output) \
+    \item menuAction: EventEmitter{ row: ResultSplit; item: MenuItem }  \
     Emette l'azione di menu selezionata insieme alla riga di riferimento.
 
-    \item retryAction: EventEmitter<number> (Output) \
+    \item retryAction: EventEmitter<number>  \
     Emette l'identificativo del record padre quando viene richiesto un nuovo tentativo.
 
-    \item rowRemoved: EventEmitter<ResultSplit> (Output) \
+    \item rowRemoved: EventEmitter<ResultSplit>  \
     Notifica al componente padre la rimozione di una riga.
     \end{itemize}
   \item Proprietà interne: mantengono lo stato locale e gestiscono la logica di visualizzazione del componente.
@@ -3708,32 +3672,32 @@ Componente UI che rappresenta un'area di drop per il caricamento di file, con su
 \begin{itemize}
 \item Proprietà di input: configurano il comportamento e il testo del componente di upload.
 \begin{itemize}
-\item accept: string (Input) \
+\item accept: string \
 Definisce le estensioni di file accettate dal selettore di caricamento.
-  \item maxFileSize: number (Input) \\
+  \item maxFileSize: number \
   Imposta la dimensione massima consentita per ciascun file, espressa in byte.
 
-  \item multiple: boolean (Input) \\
+  \item multiple: boolean \
   Abilita o disabilita la selezione multipla dei file.
 
-  \item titleText: string (Input) \\
+  \item titleText: string \
   Testo principale mostrato nell'area di caricamento.
 
-  \item subtitleText: string (Input) \\
+  \item subtitleText: string \
   Testo secondario visualizzato sotto il titolo del componente.
 \end{itemize}
 \item Proprietà di output: comunicano al componente padre i file selezionati e gli eventuali errori di validazione\G.
 \begin{itemize}
-\item filesSelected: EventEmitter<File[]> (Output) \
+\item filesSelected: EventEmitter<File[]>  \
 Emette l'insieme dei file validi selezionati dall'utente.
-  \item fileValidationError: EventEmitter<UploadValidationError> (Output) \\
-  Emette l'elenco dei file non validi quando la validazione\G fallisce.
+  \item fileValidationError: EventEmitter<UploadValidationError>  \
+  Emette l'elenco dei file non validi quando la validazione\G{} fallisce.
 \end{itemize}
 \item Proprietà interne: mantengono lo stato locale e gestiscono l'accesso al controllo nativo.
 \begin{itemize}
 \item nativeFileInput: ElementRef<HTMLInputElement> (Proprietà interna, ViewChild) \
 Riferimento all'input file nativo utilizzato per avviare la selezione da codice.
-  \item selectedPrimeFiles: File[] (Proprietà interna) \\
+  \item selectedPrimeFiles: File[] (Proprietà interna) \
   Conserva l'insieme corrente dei file gestiti dal componente PrimeNG.
 \end{itemize}
 \end{itemize}
@@ -3785,25 +3749,25 @@ Componente UI che rappresenta un riepilogo di un documento, mostrando informazio
 \begin{itemize}
 \item Proprietà di input: configurano lo stato iniziale e il contenuto visualizzato dal componente.
 \begin{itemize}
-\item editable: boolean (Input) \
+\item editable: boolean \
 Indica se i campi del riepilogo documento sono modificabili dall'utente.
-  \item result: ResultSplit \textbar{} null (Input) \\
+  \item result: ResultSplit \textbar{} null \\
   Contiene i dati del documento da visualizzare e, se necessario, modificare.
 
-  \item pendingModifications: Partial<ResultSplit> (Input) \\
+  \item pendingModifications: Partial<ResultSplit> \\
   Memorizza le modifiche locali non ancora confermate sul documento.
 
-  \item pages: number (Input) \\
+  \item pages: number \\
   Indica il numero totale di pagine associate al documento.
 \end{itemize}
 \item Proprietà di output: comunicano al componente padre le azioni eseguite dall'utente.
 \begin{itemize}
-\item openOriginalPdf: EventEmitter<void> (Output) \
+\item openOriginalPdf: EventEmitter<void>  \
 Notifica la richiesta di apertura del PDF originale.
-  \item openSplitPdf: EventEmitter<void> (Output) \\
+  \item openSplitPdf: EventEmitter<void>  \\
   Notifica la richiesta di apertura del PDF suddiviso.
 
-  \item fieldModified: EventEmitter\{ field: keyof ResultSplit; value: string \textbar{} number \textbar{} undefined \} (Output) \\
+  \item fieldModified: EventEmitter\{ field: keyof ResultSplit; value: string \textbar{} number \textbar{} undefined \}  \\
   Emite la modifica di un campo del riepilogo con il nuovo valore inserito.
 \end{itemize}
 \end{itemize}
@@ -3887,25 +3851,25 @@ Componente UI che rappresenta un campo di input per l'inserimento di un interval
 \begin{itemize}
 \item Proprietà di input: configurano l'editabilità e i limiti dell'intervallo pagine.
 \begin{itemize}
-\item editable: boolean (Input) \
+\item editable: boolean \
 Indica se i campi dell'intervallo pagine possono essere modificati dall'utente.
-  \item page\_start: number \textbar{} undefined (Input) \\
+  \item page\_start: number \textbar{} undefined \\
   Rappresenta la pagina iniziale dell'intervallo selezionato.
 
-  \item page\_end: number \textbar{} undefined (Input) \\
+  \item page\_end: number \textbar{} undefined \\
   Rappresenta la pagina finale dell'intervallo selezionato.
 
-  \item page\_min: number (Input) \\
+  \item page\_min: number \\
   Definisce il valore minimo consentito per le pagine selezionabili.
 
-  \item page\_max: number (Input) \\
+  \item page\_max: number \\
   Definisce il valore massimo consentito per le pagine selezionabili.
 \end{itemize}
 \item Proprietà di output: comunicano al componente padre le variazioni dell'intervallo.
 \begin{itemize}
-\item pageStartChange: EventEmitter<number \textbar{} undefined> (Output) \
+\item pageStartChange: EventEmitter<number \textbar{} undefined>  \
 Emette il nuovo valore della pagina iniziale quando viene modificata.
-  \item pageEndChange: EventEmitter<number \textbar{} undefined> (Output) \\
+  \item pageEndChange: EventEmitter<number \textbar{} undefined>  \\
   Emette il nuovo valore della pagina finale quando viene modificata.
 \end{itemize}
 \item Proprietà interne: il componente non definisce campi interni persistenti aggiuntivi.
@@ -3943,7 +3907,7 @@ Componente UI che rappresenta una "pillola" di stato, visualizzando un'etichetta
 \begin{itemize}
 \item Proprietà di input: configurano lo stato visualizzato dal componente.
 \begin{itemize}
-\item state: string (Input) \
+\item state: string \
 Definisce lo stato testuale da rappresentare nella pillola di stato.
 \end{itemize}
 
@@ -3961,15 +3925,15 @@ Definisce lo stato testuale da rappresentare nella pillola di stato.
 \begin{itemize}
   \item Proprietà di input: configurano i dati mostrati nella tabella delle informazioni dipendente estratte.
     \begin{itemize}
-      \item rows: ExtractedEmployeeInfoRow[] (Input) \
+      \item rows: ExtractedEmployeeInfoRow[] \
       Elenco delle righe con i dati estratti e di matching del dipendente.
     \end{itemize}
 
   \item Proprietà di output: comunicano al componente padre le azioni richieste dall'utente.
     \begin{itemize}
-      \item editRequested: EventEmitter<void> (Output) \
+      \item editRequested: EventEmitter<void>  \
       Notifica la richiesta di apertura/modifica dei dati estratti.
-      \item rowRemoved: EventEmitter<number> (Output) \\
+      \item rowRemoved: EventEmitter<number>  \\
       Emette l'indice della riga che l'utente richiede di rimuovere.
     \end{itemize}
   \item Proprietà interne: il componente non definisce campi interni persistenti aggiuntivi.
@@ -4024,13 +3988,13 @@ Componente UI che rappresenta gli altri documenti estratti oltre quello corrente
 \begin{itemize}
 \item Proprietà di input: configurano i dati mostrati nella tabella dei documenti estratti.
 \begin{itemize}
-\item rows: OtherExtractDocumentRow[] (Input) \
+\item rows: OtherExtractDocumentRow[] \
 Elenco delle righe da visualizzare, ciascuna contenente identificativo, nominativo destinatario e confidenza\G.
 \end{itemize}
 
 \item Proprietà di output: comunicano al componente padre le azioni utente sulle righe.
 \begin{itemize}
-\item rowRemoved: EventEmitter<number> (Output) \
+\item rowRemoved: EventEmitter<number>  \
 Emette l'identificativo della riga che l'utente richiede di rimuovere.
 \end{itemize}
 
@@ -4071,7 +4035,7 @@ Componente UI che rappresenta un dialog per la conferma dell'invio di un documen
 \begin{itemize}
 \item Proprietà di input: configurano i dati opzionali passati al componente.
 \begin{itemize}
-\item options: any[] (Input) \
+\item options: any[] \
 Collezione generica di opzioni configurabili ricevute dal componente padre.
 \end{itemize}
 
