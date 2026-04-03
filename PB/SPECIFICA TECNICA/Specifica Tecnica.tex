@@ -2565,13 +2565,13 @@ Nota: nel diagramma UML è rappresentata come una classe astratta per coerenza c
   \item tone: Tone - Tono utilizzato per generare il risultato (es. formale, amichevole, tecnico).
   \item style: Style - Stile di scrittura utilizzato per il risultato (es. procedurale, dettagliato, narrativo).
   \item company: Company - Azienda associata al risultato.
-  \item data: Date - Data e ora in cui il risultato è stato generato.
+  \item date: Date - Data e ora in cui il risultato è stato generato.
   \item prompt: string - Prompt di input utilizzato per generare il risultato.
   \item evaluation: number - Valutazione numerica fornita dall'utente per il risultato (es. da 1 a 5 stelle).
-  \item generatedDatumId: number | null - Identifica l'id di un risultato che non è necessariamente un post.
+  \item generatedDatumId: number | null - Identifica l'id di un risultato che non è necessariamente anche un post.
 \end{itemize}
 \begin{center}
-Nota: nel diagramma UML è rappresentata come una classe astratta per coerenza con la notazione del modello, ma nel codice TypeScript viene implementata come interface, perché per natura del linguaggio e per le esigenze del progetto è sufficiente definire la struttura dei dati senza introdurre una classe reale o comportamento astratto.
+Nota: nel diagramma UML è rappresentata come una classe per coerenza con la notazione del modello, ma nel codice TypeScript viene implementata come interface, perché per natura del linguaggio e per le esigenze del progetto è sufficiente definire la struttura dei dati senza introdurre una classe reale.
 \end{center}
 \subsubsection{ResultAiCopilot}
 \begin{figure}[H]
@@ -2604,20 +2604,20 @@ Nota: nel diagramma UML può essere rappresentata come entità di dominio, ma ne
 \item id: number | null - Identificatore univoco ereditato da Result per il documento estratto.
 \item name: string - Nome del documento estratto mostrato in interfaccia.
 \item state: State - Stato corrente del documento estratto nel workflow operativo.
-\item confidence: number - Confidenza complessiva dell’estrazione/analisi.
+\item confidence: number - Confidenza complessiva dell'estrazione/analisi.
 \item fieldConfidences: Record<string, number> - Confidenze puntuali per singolo campo estratto.
 \item recipient: RecipientInfo - Informazioni del destinatario associato (id, nome normalizzato, nome raw, email, codice).
-\item time_Analysis: number - Tempo impiegato per l’analisi del documento estratto.
-\item page_start: number - Pagina iniziale dell’intervallo analizzato.
-\item page_end: number - Pagina finale dell’intervallo analizzato.
+\item time_Analysis: number - Tempo impiegato per l'analisi del documento estratto.
+\item page_start: number - Pagina iniziale dell'intervallo analizzato.
+\item page_end: number - Pagina finale dell'intervallo analizzato.
 \item company: string - Azienda associata al documento.
 \item department: string - Reparto associato al documento.
 \item reason: string - Causale/motivazione estratta dal contenuto.
 \item month_year: string - Competenza temporale (mese/anno) associata al documento.
 \item category: string - Categoria documentale assegnata.
-\item data: Date - Data di creazione del record estratto.
-\item data_interna: Date - Data interna al documento, se disponibile.
-\item parentId: number - Identificatore del documento padre (uploaded document) da cui deriva l’estratto.
+\item analysis_date: Date - Data di creazione del record estratto.
+\item date: Date - Data interna al documento, se disponibile.
+\item parentId: number - Identificatore del documento padre (ResultAiCopilot) da cui deriva l'estratto.
 \end{itemize}
 
 \begin{center}
@@ -2643,6 +2643,12 @@ Nota: anche questa entità è modellata come interface TypeScript; rappresenta u
 \end{figure}
 
 \subsection{Servizi di comunicazione con il backend}
+
+\begin{itemize}
+  \item API_BASE: string (costante modulo, proprietà interna). URL base delle API HTTP backend.
+  \item WS_URL: string (costante modulo, proprietà interna). URL del canale WebSocket ActionCable.
+
+\end{itemize}
 \subsubsection{AiAssistantService}
 \begin{figure}[H]
 \centering
@@ -2748,58 +2754,50 @@ Nota: anche questa entità è modellata come interface TypeScript; rappresenta u
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item \textbf{Input}: il servizio non definisce attributi di input (nessun @Input()).
-\item \textbf{Output}: il servizio non definisce output evento (nessun @Output()), ma espone stream Observable verso i componenti.
-\item \textbf{Proprietà interne di configurazione e integrazione}
+\item Comunicazione con backend: gestisce la serializzazione dei dati e l'invio delle richieste HTTP verso il backend.
 \begin{itemize}[noitemsep, topsep=0pt]
-\item API_BASE: string (costante modulo, proprietà interna). URL base delle API HTTP backend.
-\item WS_URL: string (costante modulo, proprietà interna). URL del canale WebSocket ActionCable.
-\item http: HttpClient (proprietà interna). Client HTTP Angular per chiamate REST.
-\item serializer: ResultAiCopilotSerializer (proprietà interna). Conversione payload backend 
-→
-→ modelli frontend.
+  \item http: HttpClient (proprietà interna). Client HTTP Angular per chiamate REST.
+  \item serializer: ResultAiCopilotSerializer (proprietà interna). 
 \end{itemize}
-\item \textbf{Proprietà interne di stato upload/sessione}
+\item \textbf{Attributi di stato upload/sessione}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item tempParentId: number. Contatore per ID temporanei negativi dei documenti in coda.
-\item scheduledDocuments: Map<number, Date>. Mappa documento estratto 
-→
-→ data di invio programmata.
-\item currentBatchTempIds: Set<number>. ID temporanei della batch corrente.
-\item currentBatchParentIdsSubject: BehaviorSubject<Set<number>>. Stato interno ID parent (temporanei/reali).
-\item currentBatchParentIds\$: Observable<Set<number>>. Stream readonly degli ID parent della batch.
-\item sessionParentsSubject: BehaviorSubject<ResultAiCopilot[]>. Stato interno documenti parent caricati in sessione.
-\item currentSessionParents\$: Observable<ResultAiCopilot[]>. Stream readonly dei parent della sessione.
-\item parentNamesSubject: BehaviorSubject<Record<number, string>>. Cache nomi parent per ID.
-\item currentParentNames\$: Observable<Record<number, string>>. Stream readonly dei nomi parent.
-\item parentPageCountsSubject: BehaviorSubject<Record<number, number>>. Cache numero pagine parent per ID.
-\item currentParentPageCounts\$: Observable<Record<number, number>>. Stream readonly conteggio pagine parent.
+\item tempParentId: number \ Contatore per ID temporanei negativi dei documenti in coda.
+\item scheduledDocuments: Map<number, Date> \ Mappa documento estratto → data di invio programmata.
+\item currentBatchTempIds: Set<number> \ ID temporanei della batch corrente.
+\item currentBatchParentIdsSubject: BehaviorSubject<Set<number{>}{>} \ Stato interno ID parent (temporanei/reali).
+\item currentBatchParentIds\$: Observable<Set<number{>}{>} \ Observable readonly degli ID parent della batch.
+\item sessionParentsSubject: BehaviorSubject<ResultAiCopilot[]> \ Stato interno documenti parent caricati in sessione.
+\item currentSessionParents\$: Observable<ResultAiCopilot[]> \ Observable readonly dei parent della sessione.
+\item parentNamesSubject: BehaviorSubject<Record<number, string{>}{>} \ Subject dei nomi dei parent per ID.
+\item currentParentNames\$: Observable<Record<number, string{>}{>} \ Observable readonly dei nomi parent.
+\item parentPageCountsSubject: BehaviorSubject<Record<number, number{>}{>} \ Subject del numero di pagine del parent per ID.
+\item currentParentPageCounts\$: Observable<Record<number, number{>}{>} \ Observable readonly conteggio pagine parent.
 \end{itemize}
-\item \textbf{Proprietà interne di stato risultati/documenti}
+\item \textbf{Attributi di stato risultati/documenti}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item resultSubject: BehaviorSubject<ResultSplit | null>. Stato del documento estratto corrente.
-\item currentResult\$: Observable<ResultSplit | null>. Stream readonly del risultato corrente.
-\item resultsHistorySubject: BehaviorSubject<ResultSplit[] | null>. Storico risultati estratti in memoria frontend.
-\item currentResultsHistory\$: Observable<ResultSplit[] | null>. Stream readonly della history risultati.
-\item otherExtractedDocumentsSubject: BehaviorSubject<ResultSplit[]>. Stato interno documenti fratelli del parent corrente.
-\item otherExtractedDocuments\$: Observable<ResultSplit[]>. Stream readonly dei documenti fratelli.
+\item resultSubject: BehaviorSubject<ResultSplit | null> \ Stato del documento estratto corrente.
+\item currentResult\$: Observable<ResultSplit | null>\ Observable readonly del risultato corrente.
+\item resultsHistorySubject: BehaviorSubject<ResultSplit[] | null>\ Storico risultati estratti in memoria frontend.
+\item currentResultsHistory\$: Observable<ResultSplit[] | null> \ Observable readonly della history risultati.
+\item otherExtractedDocumentsSubject: BehaviorSubject<ResultSplit[]> \ Stato interno documenti fratelli del parent corrente.
+\item otherExtractedDocuments\$: Observable<ResultSplit[]> \ Observable readonly dei documenti fratelli.
 \end{itemize}
-\item \textbf{Proprietà interne di lookup/filtri/template}
+\item \textbf{Attributi di lookup/filtri/template}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item templatesSubject: BehaviorSubject<TemplateOption[]>. Stato interno template.
-\item templates\$: Observable<TemplateOption[]>. Stream readonly template.
-\item categorySubject: BehaviorSubject<string[]>. Stato interno categorie filtro.
-\item category\$: Observable<string[]>. Stream readonly categorie.
-\item employeesSubject: BehaviorSubject<RecipientInfo[]>. Stato interno destinatari.
-\item employees\$: Observable<RecipientInfo[]>. Stream readonly destinatari.
-\item companiesSubject: BehaviorSubject<Company[]>. Stato interno aziende.
-\item companies\$: Observable<Company[]>. Stream readonly aziende.
-\item departmentSubject: BehaviorSubject<string[]>. Stato interno reparti filtro.
-\item department\$: Observable<string[]>. Stream readonly reparti.
-\item stateSubject: BehaviorSubject<string[]>. Stato interno opzioni stato documento.
-\item state\$: Observable<string[]>. Stream readonly stati.
-\item confidenceSubject: BehaviorSubject<string[]>. Stato interno classi di confidenza.
-\item confidence\$: Observable<string[]>. Stream readonly confidenza.
+\item templatesSubject: BehaviorSubject<TemplateOption[]> \ Stato interno template.
+\item templates\$: Observable<TemplateOption[]> \ Observable readonly template.
+\item categorySubject: BehaviorSubject<string[]> \ Stato interno categorie filtro.
+\item category\$: Observable<string[]> \ Observable readonly categorie.
+\item employeesSubject: BehaviorSubject<RecipientInfo[]> \ Stato interno destinatari.
+\item employees\$: Observable<RecipientInfo[]> \ Observable readonly destinatari.
+\item companiesSubject: BehaviorSubject<Company[]> \ Stato interno aziende.
+\item companies\$: Observable<Company[]> \ Observable readonly aziende.
+\item departmentSubject: BehaviorSubject<string[]> \ Stato interno reparti filtro.
+\item department\$: Observable<string[]> \ Observable readonly reparti.
+\item stateSubject: BehaviorSubject<string[]> \ Stato interno opzioni stato documento.
+\item state\$: Observable<string[]> \ Observable readonly stati.
+\item confidenceSubject: BehaviorSubject<string[]> \ Stato interno classi di confidenza.
+\item confidence\$: Observable<string[]> \ Observable readonly confidenza.
 \end{itemize}
 \end{itemize}
 
@@ -2807,103 +2805,103 @@ Nota: anche questa entità è modellata come interface TypeScript; rappresenta u
 \begin{itemize}[noitemsep, topsep=0pt]
 \item \textbf{Gestione upload e orchestrazione processing}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item public uploadFiles(files: File[], company: string, department: string, category: string, competence_period: string): void \
+\item uploadFiles(files: File[], company: string, department: string, category: string, competence_period: string): void \
 Avvia il caricamento batch, crea parent temporanei in coda e delega il processing per file.
-\item private processDocument(file: File, company: string, department: string, category: string, competence_period: string, temporaryParentId: number): ResultAiCopilot \
-Esegue upload singolo (PDF o file generico), sostituisce ID temporaneo, gestisce eventi realtime via WebSocket.
-\item private subscribeToJobUpdates(jobId: string, onMessage: (payload: any, socket: WebSocket) 
-→
-→ void, onConfirmSubscription?: () 
-→
-→ void, onError?: (error: Event) 
-→
-→ void): void \
+\item processDocument(file: File, company: string, department: string, category: string, competence_period: string, temporaryParentId: number): ResultAiCopilot \
+Si occupa di delegare le operazioni per creare lo stato iniziale, costruire la request e delegare la gestine della risposta.
+\item buildUploadRequest(file: File, company: string, department: string, category: string, competence_period: string): {endpoint: string, formData: FormData} \ Decide endpoint e in base al tipo di file processa o fa spit.
+\item handleProcessDocumentResponse(response: any, reactiveResult: ResultAiCopilot, temporaryParentId: number): void \ Gestisce la risposta http iniziale, imposta l'id reale del documento, o decide se il job e completato o ava aperta la subscription per il websocker.
+\item handleProcessDocumentJobUpdate(payload: any, socker: WebSocket, uplodedDocumentId: number, reactiveResult: ResultAiCopilot): void \ Gestisce gli eventi websocket 
+\item syncUplodedDocumentState(uploadedDocumentId: number, state: DocumentState, reactiveResult?: ResultAiCopilot): void \ Aggiorna lo stato del risultato locale e storico.
+\item subscribeToJobUpdates(jobId: string, onMessage: (payload: any, socket: WebSocket) 
+void, onConfirmSubscription?: () → void, 
+onError?: (error: Event) → void): void \
 Centralizza la sottoscrizione ActionCable per ricevere aggiornamenti del job.
 \end{itemize}
 
 \item \textbf{Gestione stato parent e mapping locale}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item private addPendingParent(file: File): number \
+\item addPendingParent(file: File): number \
 Crea un parent temporaneo con stato In Coda e lo aggiunge alla sessione.
-\item private replacePendingParentId(temporaryParentId: number, realParentId: number, state: DocumentState): void \
+\item replacePendingParentId(temporaryParentId: number, realParentId: number, state: DocumentState): void \
 Sostituisce ID temporaneo con ID reale backend e aggiorna mappe correlate.
-\item private updateSessionParentState(parentId: number, state: DocumentState): void \
+\item updateSessionParentState(parentId: number, state: DocumentState): void \
 Aggiorna lo stato del parent nella lista sessione.
-\item private removeSessionParent(parentId: number): void \
+\item removeSessionParent(parentId: number): void \
 Rimuove un parent dalla sessione (tipicamente in caso di errore upload).
-\item private setParentName(parentId: number, name: string): void \
+\item setParentName(parentId: number, name: string): void \
 Imposta/aggiorna il nome del documento parent.
-\item private setParentPageCount(parentId: number, pageCount: unknown): void \
+\item setParentPageCount(parentId: number, pageCount: unknown): void \
 Normalizza e salva il numero pagine del parent.
-\item private removeUploadedDocumentFromLocalState(uploadedDocumentId: number): void \
+\item removeUploadedDocumentFromLocalState(uploadedDocumentId: number): void \
 Elimina da stato locale parent, figli e metadati correlati senza refresh pagina.
 \end{itemize}
 
 \item \textbf{Gestione risultati estratti e history}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item private resolveScheduledState(split: ResultSplit): ResultSplit \
+\item resolveScheduledState(split: ResultSplit): ResultSplit \
 Converte lo stato Inviato in Programmato se presente un invio futuro in mappa.
-\item private upsertInHistory(split: ResultSplit): void \
+\item upsertInHistory(split: ResultSplit): void \
 Inserisce o aggiorna un risultato nella history mantenendo coerenza di stato.
-\item private refreshDynamicFilterOptions(): void \
+\item refreshDynamicFilterOptions(): void \
 Rigenera opzioni dinamiche di filtro (categorie e reparti).
-\item private fetchExtractedDocumentAndUpsert(extractedDocumentId: number): void \
+\item fetchExtractedDocumentAndUpsert(extractedDocumentId: number): void \
 Recupera un estratto dal backend e lo sincronizza in history.
-\item private refreshExtractedDocumentsForUpload(uploadedDocumentId: number): void \
+\item refreshExtractedDocumentsForUpload(uploadedDocumentId: number): void \
 Ricarica tutti gli estratti di un parent e aggiorna metadati parent.
-\item public fetchExtractedDocument(id: number): void \
+\item fetchExtractedDocument(id: number): void \
 Recupera il dettaglio di un estratto dopo sincronizzazione degli invii programmati.
-\item private refreshScheduledDocuments\$(): Observable<void> \
+\item refreshScheduledDocuments\$(): Observable<void> \
 Aggiorna la mappa locale dei documenti programmati partendo da /sendings.
-\item public getDocumentsByParent(parentId: number, currentResultId?: number): void \
+\item getDocumentsByParent(parentId: number, currentResultId?: number): void \
 Carica i documenti fratelli (stesso parent), escludendo opzionalmente quello corrente.
-\item public fetchHistoryResults(): void \
+\item fetchHistoryResults(): void \
 Carica la history iniziale: upload, metadati parent ed estratti associati.
-\item public updateResult(result: ResultSplit): void \
+\item updateResult(result: ResultSplit): void \
 Sincronizza il risultato corrente e lo persiste in history locale.
 \end{itemize}
 
 \item \textbf{Retry, modifica e cancellazione documenti}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item public retryDocumentProcessing(uploadedDocumentId: number): void \
+\item retryDocumentProcessing(uploadedDocumentId: number): void \
 Riavvia il processamento di un documento parent già caricato.
-\item public retryExtractedDocumentProcessing(extractedDocumentId: number): void \
+\item retryExtractedDocumentProcessing(extractedDocumentId: number): void \
 Riavvia la rianalisi di un singolo documento estratto.
-\item public deleteUploadedDocument(uploadedDocumentId: number): void \
+\item deleteUploadedDocument(uploadedDocumentId: number): void \
 Elimina un parent e i suoi figli dal backend e dallo stato locale.
-\item public modifyDocumentRange\$(id: number, page_start: number, page_end: number): Observable<ResultSplit> \
+\item modifyDocumentRange\$(id: number, page_start: number, page_end: number): Observable<ResultSplit> \
 Richiede riassegnazione intervallo pagine, segue eventi async e restituisce il risultato aggiornato.
-\item public updateDocumentMetadata\$(id: number, metadataUpdates: Record<string, unknown>): Observable<ResultSplit> \
+\item updateDocumentMetadata\$(id: number, metadataUpdates: Record<string, unknown>): Observable<ResultSplit> \
 Aggiorna metadati di un estratto e propaga il nuovo stato in UI e history.
 \end{itemize}
 
 \item \textbf{Template, invio e lookup}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item public newTemplate(name: string, content: string): void \
+\item newTemplate(name: string, content: string): void \
 Crea un nuovo template e aggiorna lo stato locale template.
-\item public fetchTemplates(): void \
+\item fetchTemplates(): void \
 Recupera elenco template e dettagli completi di ciascun template.
-\item public createSending\$(payload: CreateSendingPayload): Observable<any> \
+\item \$(payload: CreateSendingPayload): Observable<any> \
 Crea un invio e registra eventuale scheduling futuro del documento.
-\item public fetchCategories(): void \
+\item fetchCategories(): void \
 Estrae categorie uniche dalla history risultati.
-\item public fetchDepartment(): void \
+\item fetchDepartment(): void \
 Estrae reparti unici dalla history risultati.
-\item public fetchState(): void \
+\item fetchState(): void \
 Popola i valori di filtro stato a partire dall'enum State.
-\item public fetchConfidence(): void \
+\item fetchConfidence(): void \
 Popola gli intervalli di confidenza predefiniti.
-\item public fetchCompanies(): void \
+\item fetchCompanies(): void \
 Recupera le aziende disponibili dal backend.
-\item public fetchEmployeesByCompany(company: string): void \
+\item fetchEmployeesByCompany(company: string): void \
 Recupera utenti/destinatari filtrati per azienda.
 \end{itemize}
 
 \item \textbf{Apertura documenti}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item public getOriginalPdfById(id: number): void \
+\item getOriginalPdfById(id: number): void \
 Apre in nuova finestra il file originale del parent.
-\item public getPdfById(id: number): void \
+\item getPdfById(id: number): void \
 Apre il PDF dell'estratto con cache-buster temporale per evitare versioni non aggiornate.
 \end{itemize}
 \end{itemize}
