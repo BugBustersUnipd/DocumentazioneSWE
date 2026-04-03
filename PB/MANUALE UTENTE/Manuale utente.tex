@@ -598,7 +598,7 @@ L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative
 Per garantire la qualità\G e l'affidabilità\G del prodotto\G, è stato implementato un processo di testing completo che include test\G unitari, test\G di integrazione e test\G end-to-end.
 Il processo di testing è stato eseguito in diverse fasi del ciclo di sviluppo, consentendo di identificare e risolvere tempestivamente eventuali bug o problemi di funzionalità\G.
 
-\subsection{Test\G Backend}
+\subsection{Test\G Backend\G}
 Il focus dei test\G backend è stato principalmente sulla verifica\G della corretta implementazione\G delle funzionalità\G, sulla gestione degli errori e sulla sicurezza\G dell'applicazione. Sono stati eseguiti test\G unitari per verificare il funzionamento di singole componenti e test\G di integrazione per assicurare che le diverse parti del sistema interagiscano correttamente tra loro.
 Per generare e avviare i test\G backend, è stato utilizzato il framework di testing integrato in Ruby on Rails\G, che consente di scrivere test\G in modo semplice e intuitivo.
 
@@ -607,21 +607,21 @@ Se l'installazione e l'avvio dell'applicazione sono stati completati con success
 Per avviare i test\G è necessario eseguire il comando \texttt{docker compose run --rm backend rails test\G} in un altro terminale (l'applicazione non necessita di essere in esecuzione).
 
 
-\subsection{Test Frontend}
-Il focus dei test frontend è stato sulla verifica del corretto comportamento dell’interfaccia utente, della gestione dello stato e dell’integrazione con il backend. Sono stati eseguiti test unitari su componenti e servizi, insieme a test end-to-end sui principali flussi utente. I test sono stati eseguiti con gli strumenti dello stack Angular e Cypress.
+\subsection{Test\G Frontend\G}
+Il focus dei test\G frontend\G è stato sulla verifica\G del corretto comportamento dell’interfaccia\G utente, della gestione dello stato e dell’integrazione con il backend. Sono stati eseguiti test\G unitari su componenti e servizi, insieme a test\G end-to-end sui principali flussi utente. I test\G sono stati eseguiti con gli strumenti dello stack Angular\G e Cypress.
 
 
-\subsubsubsection{Esecuzione test}
-Se l’installazione e l’avvio dell’applicazione sono stati completati correttamente, è possibile eseguire i test frontend per verificare il funzionamento dei componenti, dei servizi e dei principali flussi utente.
+\subsubsubsection{Esecuzione test\G}
+Se l’installazione e l’avvio dell’applicazione sono stati completati correttamente, è possibile eseguire i test\G frontend\G per verificare il funzionamento dei componenti, dei servizi e dei principali flussi utente.
 
-Per eseguire i test unitari, utilizzare il seguente comando:
+Per eseguire i test\G unitari, utilizzare il seguente comando:
 \begin{verbatim}
 docker compose run --rm frontend npm run test -- --watch=false
 \end{verbatim}
 
-\subsubsection{Esecuzione test end-to-end (Cypress)}
+\subsubsection{Esecuzione test\G end-to-end (Cypress)}
 
-Per eseguire i test E2E, usare due terminali nella cartella \texttt{frontend}.
+Per eseguire i test\G E2E, usare due terminali nella cartella \texttt{frontend}.
 
 \paragraph{Terminale 1}
 \begin{verbatim}
