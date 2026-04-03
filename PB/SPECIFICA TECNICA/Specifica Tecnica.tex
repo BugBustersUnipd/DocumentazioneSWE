@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.1.3} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{0.1.4} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -57,8 +57,7 @@
 \keepXColumns
 
 \renewcommand{\sectionmark}[1]{\markright{#1}}
-\renewcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}\ }
-
+\renewcommand{\G}{} 
 % Macro tabella metrica (tabella uniforme, non spezzata e con stile coerente)
 \newcommand{\MetricTable}[1]{
   \Needspace{10\baselineskip}% evita spezzamenti sgradevoli
@@ -142,7 +141,7 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Descrizione}]
-Documento dove viene spiegata in dettaglio la struttura architetturale, le tecnologie utilizzate e le API esposte del prodotto software.\end{tcolorbox}
+Documento dove viene spiegata in dettaglio la struttura architetturale, le tecnologie utilizzate e le API\G esposte del prodotto\G software.\end{tcolorbox}
 \end{center}
 
 \newpage
@@ -156,13 +155,15 @@ Documento dove viene spiegata in dettaglio la struttura architetturale, le tecno
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
-\rowcolor{secondaryblue!10}0.1.3 & 01/04/2026 & Aggiunta parte di modulo AI Assistant & Alberto Pignat & - & - \\
+\rowcolor{secondaryblue!10}0.1.4 & 03/04/2026 & Aggiunti ai termini presenti nel Glossario\G la G & Alberto Autiero & - & - \\
 \hline
-\rowcolor{secondaryblue!10}0.1.2 & 31/03/2026 & Prima stesura parte front-end & Linor Sadè & - & - \\
+\rowcolor{secondaryblue!10}0.1.3 & 01/04/2026 & Aggiunta parte di modulo\G AI Assistant\G & Alberto Pignat & - & - \\
+\hline
+\rowcolor{secondaryblue!10}0.1.2 & 31/03/2026 & Prima stesura parte front-end\G & Linor Sadè & - & - \\
 \hline
 \rowcolor{secondaryblue!10}0.1.1 & 31/03/2026 & Continuazione paragrafo Pattern e aggiunta diagrammi & Luca Slongo & - & - \\
 \hline
-\rowcolor{secondaryblue!10}0.1.0 & 30/03/2026 & Verifica del documento & - & Alberto Autiero & - \\
+\rowcolor{secondaryblue!10}0.1.0 & 30/03/2026 & Verifica\G del documento & - & Alberto Autiero & - \\
 \hline
 \rowcolor{secondaryblue!10}0.0.5 & 27/03/2026 & Prima stesura paragrafo Database e continuazione paragrafo Design Pattern & Alberto Pignat & - & - \\
 \hline
@@ -187,7 +188,7 @@ Documento dove viene spiegata in dettaglio la struttura architetturale, le tecno
 
 \newpage
 \section{Introduzione}
-Il documento ha come scopo la descrizione dettagliata dell'architettura del sistema, delle tecnologie utilizzate e delle API esposte. Viene inoltre fornita una panoramica dei requisiti funzionali soddisfatti dal prodotto software.
+Il documento ha come scopo la descrizione dettagliata dell'architettura del sistema, delle tecnologie utilizzate e delle API\G esposte. Viene inoltre fornita una panoramica dei requisiti funzionali\G soddisfatti dal prodotto\G software.
 \subsection{Glossario}
 Il glossario\G raccoglie e definisce i termini, gli acronimi e le abbreviazioni 
 impiegati nel documento e nel progetto\G Nexum. L'obiettivo è fornire definizioni univoche per ridurre 
@@ -204,10 +205,10 @@ pdf da noi sviluppato.
 \end{itemize}
 
 \section{Tecnologie}
-Il presente capitolo illustra lo stack tecnologico adottato per la progettazione e la realizzazione del prodotto software. Le scelte implementative sono state guidate dalla necessità di sviluppare un'architettura solida, garantendo al contempo elevati standard di scalabilità, manutenibilità e sicurezza del sistema. Nelle sottosezioni seguenti verranno passati in rassegna i linguaggi di programmazione, i framework, le librerie e gli strumenti di supporto operativi impiegati dal team, evidenziando il ruolo specifico di ciascun elemento all'interno del ciclo di vita del progetto.
+Il presente capitolo illustra lo stack tecnologico adottato per la progettazione e la realizzazione del prodotto\G software. Le scelte implementative sono state guidate dalla necessità di sviluppare un'architettura solida, garantendo al contempo elevati standard di scalabilità\G, manutenibilità\G e sicurezza\G del sistema. Nelle sottosezioni seguenti verranno passati in rassegna i linguaggi di programmazione, i framework, le librerie e gli strumenti di supporto operativi impiegati dal team, evidenziando il ruolo specifico di ciascun elemento all'interno del ciclo di vita del progetto\G.
 
 \subsection{Linguaggi}
-Questa sezione descrive i linguaggi di programmazione, di markup e di interrogazione fondamentali utilizzati per la stesura del codice sorgente. La selezione comprende sia gli standard consolidati per la strutturazione e stilizzazione dell'interfaccia utente (Frontend), sia i linguaggi orientati agli oggetti scelti per implementare la logica applicativa (Backend), fino ad arrivare agli strumenti dichiarativi per la gestione delle basi di dati. La Tabella \ref{tab:linguaggi} riassume i linguaggi adottati, specificandone la versione di riferimento e il relativo ambito di utilizzo.
+Questa sezione descrive i linguaggi di programmazione, di markup e di interrogazione fondamentali utilizzati per la stesura del codice sorgente. La selezione comprende sia gli standard consolidati per la strutturazione e stilizzazione dell'interfaccia\G utente (Frontend), sia i linguaggi orientati agli oggetti scelti per implementare la logica applicativa (Backend), fino ad arrivare agli strumenti dichiarativi per la gestione delle basi di dati. La Tabella \ref{tab:linguaggi} riassume i linguaggi adottati, specificandone la versione di riferimento e il relativo ambito di utilizzo.
 
 \begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
 \caption{Tabella dei Linguaggi}\label{tab:linguaggi}\\
@@ -238,14 +239,14 @@ HTML & Linguaggio di markup usato per creare pagine web & 5 \\
 \hline
 CSS & Linguaggio usato per definire lo stile delle pagine web  & 3 \\
 \hline
-Ruby & Linguaggio di programmazione orientato agli oggetti &  3.3.1 \\
+Ruby\G & Linguaggio di programmazione orientato agli oggetti &  3.3.1 \\
 \hline
 SQL & Linguaggio per la gestione e manipolazione di database relazionali & SQL:2023 \\
 \end{longtable}
 
 
 \subsection{Framework}
-In questa sezione vengono presentati i framework adottati per costituire l'impalcatura architetturale del prodotto software. La scelta si è orientata verso soluzioni moderne e ampiamente supportate dalla community, capaci di garantire una netta separazione tra la logica di presentazione e le regole di business. Nello specifico, la Tabella \ref{tab:framework} illustra le infrastrutture cardine impiegate per lo sviluppo della Single Page Application lato client e per la realizzazione delle API lato server.
+In questa sezione vengono presentati i framework adottati per costituire l'impalcatura architetturale del prodotto\G software. La scelta si è orientata verso soluzioni moderne e ampiamente supportate dalla community, capaci di garantire una netta separazione tra la logica di presentazione e le regole di business. Nello specifico, la Tabella \ref{tab:framework} illustra le infrastrutture cardine impiegate per lo sviluppo della Single Page Application lato client e per la realizzazione delle API\G lato server.
 
 \begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
 \caption{Tabella dei Framework}\label{tab:framework}\\
@@ -270,14 +271,14 @@ In questa sezione vengono presentati i framework adottati per costituire l'impal
 \hline
 \endlastfoot
 % Inserire qui le righe della tabella dei framework
-Angular & Framework open source per la creazione e sviluppo di single page applications & 21 \\
+Angular\G & Framework open source per la creazione e sviluppo di single page applications & 21 \\
 \hline
-Ruby on Rails & Framework open source server side per applicazioni web & 8.1 \\
+Ruby on Rails\G & Framework open source server side per applicazioni web & 8.1 \\
 \end{longtable}
 
 
 \subsection{Librerie}
-Oltre alle tecnologie di base, lo sviluppo del sistema ha richiesto l'integrazione di pacchetti e librerie di terze parti. Queste componenti si sono rivelate essenziali per estendere le funzionalità native dei framework, ottimizzare i tempi di sviluppo e risolvere specifiche problematiche di dominio in modo standardizzato, affidabile e sicuro. La Tabella \ref{tab:librerie} elenca le principali dipendenze esterne introdotte all'interno degli ambienti Node.js e Ruby.
+Oltre alle tecnologie di base, lo sviluppo del sistema ha richiesto l'integrazione di pacchetti e librerie di terze parti. Queste componenti si sono rivelate essenziali per estendere le funzionalità\G native dei framework, ottimizzare i tempi di sviluppo e risolvere specifiche problematiche di dominio in modo standardizzato, affidabile e sicuro. La Tabella \ref{tab:librerie} elenca le principali dipendenze esterne introdotte all'interno degli ambienti Node.js e Ruby\G.
 
 \begin{longtable}{|p{3.5cm}|p{8.5cm}|p{3cm}|}
 \caption{Tabella delle Librerie}\label{tab:librerie}\\
@@ -303,11 +304,11 @@ Oltre alle tecnologie di base, lo sviluppo del sistema ha richiesto l'integrazio
 \endlastfoot
 
 % Inserire qui le righe della tabella delle librerie
-rails & Framework web full-stack per Ruby. & 8.1.2.1 \\
+rails & Framework web full-stack per Ruby\G. & 8.1.2.1 \\
 \hline
-pg & Adattatore PostgreSQL per Active Record. & 1.1 \\
+pg & Adattatore PostgreSQL\G per Active Record. & 1.1 \\
 \hline
-puma & Server web concorrente, veloce e multi-thread per Ruby. & 5.0.0 \\
+puma & Server web concorrente, veloce e multi-thread per Ruby\G. & 5.0.0 \\
 \hline
 tzinfo-data & Dati sui fusi orari necessari per i sistemi Windows e JRuby. & 1.2026.1 \\
 \hline
@@ -319,7 +320,7 @@ solid\_cable & Backend basato su database per Action Cable. & 3.0.12 \\
 \hline
 bootsnap & Ottimizza e riduce i tempi di avvio dell'applicazione tramite caching. & 1.23.0 \\
 \hline
-kamal & Strumento per il deploy di applicazioni web ovunque tramite container Docker. & 2.11.0 \\
+kamal & Strumento per il deploy di applicazioni web ovunque tramite container Docker\G. & 2.11.0 \\
 \hline
 thruster & Proxy HTTP per accelerare Puma con caching degli asset e compressione. & 0.1.20 \\
 \hline
@@ -329,32 +330,32 @@ rack-cors & Middleware per la gestione delle richieste CORS (Cross-Origin Resour
 \hline
 combine\_pdf & Libreria per unire, formattare o manipolare file PDF. & 1.0.31 \\
 \hline
-csv & Fornisce un'interfaccia standard per leggere e scrivere file CSV. & 3.3.5 \\
+csv & Fornisce un'interfaccia\G standard per leggere e scrivere file CSV. & 3.3.5 \\
 \hline
-aws-sdk-textract & Client AWS SDK ufficiale per il servizio OCR Amazon Textract. & 1.90.0 \\
+aws-sdk-textract & Client AWS SDK ufficiale per il servizio OCR\G Amazon Textract. & 1.90.0 \\
 \hline
-aws-sdk-bedrockruntime & Client AWS SDK ufficiale per interagire con i modelli LLM di Amazon Bedrock. & 1.74.0 \\
+aws-sdk-bedrockruntime & Client AWS\G SDK ufficiale per interagire con i modelli LLM\G di Amazon Bedrock\G. & 1.74.0 \\
 \hline
-simplecov & Strumento per l'analisi della copertura del codice durante i test. & 0.22.0 \\
+simplecov & Strumento per l'analisi della copertura del codice durante i test\G. & 0.22.0 \\
 \hline
 minitest & Suite completa e leggera per il testing (TDD, BDD, benchmarking). & 6.0.3 \\
 \hline
-minitest-mock & Estensione per Minitest dedicata al mocking di oggetti nei test. & 5.27.0 \\
+minitest-mock & Estensione per Minitest dedicata al mocking di oggetti nei test\G. & 5.27.0 \\
 \hline
-mocha & Libreria ampiamente utilizzata per il mocking e lo stubbing nei test. & 3.1.0 \\
+mocha & Libreria ampiamente utilizzata per il mocking e lo stubbing nei test\G. & 3.1.0 \\
 \hline
-debug & Strumento standard per il debugging delle applicazioni Ruby. & 1.11.1 \\
+debug & Strumento standard per il debugging delle applicazioni Ruby\G. & 1.11.1 \\
 \hline
-bundler-audit & Scanner per rilevare vulnerabilità di sicurezza note nelle gemme installate. & 0.9.3 \\
+bundler-audit & Scanner per rilevare vulnerabilità di sicurezza\G note nelle gemme installate. & 0.9.3 \\
 \hline
-brakeman & Scanner di analisi statica per rilevare vulnerabilità di sicurezza in app Rails. & 8.0.4 \\
+brakeman & Scanner di analisi statica per rilevare vulnerabilità di sicurezza\G in app Rails. & 8.0.4 \\
 \hline
 rubocop-rails-omakase & Configurazione standard ufficiale (stile Omakase) per RuboCop in Rails. & 1.1.0 \\
 \end{longtable}
 
 
 \subsection{Strumenti di Sviluppo}
-L'efficienza, la solidità e la riproducibilità dell'intero ciclo di vita del software sono state assicurate attraverso l'impiego di una serie di strumenti operativi e di orchestrazione avanzati. Questa categoria, dettagliata nella Tabella \ref{tab:strumenti_sviluppo}, comprende gli ambienti di sviluppo integrati (IDE), i sistemi di containerizzazione volti a uniformare gli ambienti tra i vari membri del team, e le piattaforme per la modellazione e l'amministrazione della persistenza dei dati.
+L'efficienza\G, la solidità e la riproducibilità dell'intero ciclo di vita del software sono state assicurate attraverso l'impiego di una serie di strumenti operativi e di orchestrazione avanzati. Questa categoria, dettagliata nella Tabella \ref{tab:strumenti_sviluppo}, comprende gli ambienti di sviluppo integrati (IDE), i sistemi di containerizzazione volti a uniformare gli ambienti tra i vari membri del team, e le piattaforme per la modellazione e l'amministrazione della persistenza dei dati.
 
 \begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
 \caption{Tabella degli Strumenti di Sviluppo}\label{tab:strumenti_sviluppo}\\
@@ -381,18 +382,18 @@ L'efficienza, la solidità e la riproducibilità dell'intero ciclo di vita del s
 % Inserire qui le righe della tabella degli strumenti di sviluppo
 Visual Studio Code & IDE open source per lo sviluppo software sviluppato da Microsoft & 1.114 \\
 \hline
-Docker & Piattaforma che permette di creare, distribuire e eseguire applicazioni in container & 29.3.1 \\
+Docker\G & Piattaforma che permette di creare, distribuire e eseguire applicazioni in container & 29.3.1 \\
 \hline
-PostgreSQL & Database relazionale open source & 18.3 \\
+PostgreSQL\G & Database relazionale open source & 18.3 \\
 \hline
-pgAdmin & Strumento grafico per amministrare e gestire database PostgreSQL & 9.13 \\
+pgAdmin & Strumento grafico per amministrare e gestire database PostgreSQL\G & 9.13 \\
 \end{longtable}
 
 \section{API}
-Il sistema espone un set di API RESTful che consentono l'interazione tra il frontend e il backend, 
-nonché l'integrazione con eventuali servizi esterni. Le API sono progettate per essere intuitive, sicure e 
-performanti, seguendo le best practice del settore per la progettazione di interfacce di programmazione. 
-Di seguito viene fornita una panoramica delle principali API esposte dal sistema, suddivise per funzionalità e endpoint.
+Il sistema espone un set di API\G RESTful che consentono l'interazione tra il frontend e il backend, 
+nonché l'integrazione con eventuali servizi esterni. Le API\G sono progettate per essere intuitive, sicure e 
+performanti, seguendo le best practice\G del settore per la progettazione di interfacce di programmazione. 
+Di seguito viene fornita una panoramica delle principali API\G esposte dal sistema, suddivise per funzionalità\G e endpoint.
 
 \subsection{Document Management API}
 \begin{longtable}{|p{4cm}|p{2cm}|p{7cm}|}
@@ -533,11 +534,11 @@ Di seguito viene fornita una panoramica delle principali API esposte dal sistema
 \hline
 \endlastfoot
 
-/templates & GET & Lista template disponibili \\
+/templates & GET & Lista template\G disponibili \\
 \hline
-/templates/ :id & GET & Dettaglio template \\
+/templates/ :id & GET & Dettaglio template\G \\
 \hline
-/templates & POST & Crea nuovo template \\
+/templates & POST & Crea nuovo template\G \\
 \hline
 \end{longtable}
 
@@ -637,9 +638,9 @@ Di seguito viene fornita una panoramica delle principali API esposte dal sistema
 \hline
 \endlastfoot
 
-/generated\_data & POST & Crea contenuto AI (asincrono) \\
+/generated\_data & POST & Crea contenuto AI\G (asincrono) \\
 \hline
-/generated\_data/:id/regenerate & POST & Rigenera contenuto AI \\
+/generated\_data/:id/regenerate & POST & Rigenera contenuto AI\G \\
 \hline
 /generated\_data/:id & GET & Stato e contenuto generazione \\
 \hline
@@ -686,20 +687,20 @@ Il sistema è stato documentato seguendo un approccio top-down basato sul modell
 
 \subsection{Contesto di Sistema (C4 Level 1)}
 Il diagramma di contesto illustra le interazioni di altissimo livello tra l'utente finale e i sistemi esterni.
-La Piattaforma MVP si posiziona al centro, fornendo all'Operatore funzionalità di caricamento documenti, 
-validazione estrazioni e generazione contenuti tramite browser (via HTTPS e WebSocket). Per l'elaborazione dei dati, 
+La Piattaforma MVP\G si posiziona al centro, fornendo all'Operatore funzionalità\G di caricamento documenti, 
+validazione\G estrazioni e generazione contenuti tramite browser (via HTTPS e WebSocket). Per l'elaborazione dei dati, 
 il sistema si integra con l'ecosistema cloud di Amazon Web Services, delegando l'estrazione ottica dei caratteri 
-(OCR) ad AWS Textract e l'inferenza di intelligenza artificiale ad AWS Bedrock.
+(OCR\G) ad AWS\G Textract e l'inferenza di intelligenza artificiale ad AWS\G Bedrock\G.
 
 \begin{figure}[H] \centering \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/C4/level1.png} \caption{System Context Diagram} \end{figure}
 
 \subsection{Architettura Applicativa (C4 Level 2 - Container)}
 Scendendo al livello applicativo, il sistema si divide nei suoi container logici principali.
-Il frontend è costituito da una Single Page Application (SPA) sviluppata in Angular 21. 
-Il backend è un'API sviluppata in Ruby on Rails 8, servita tramite Puma. 
-Per garantire fluidità all'utente, le operazioni pesanti (come l'OCR e l'invocazione degli LLM) sono gestite 
+Il frontend è costituito da una Single Page Application (SPA) sviluppata in Angular\G 21. 
+Il backend è un'API\G sviluppata in Ruby on Rails\G 8, servita tramite Puma. 
+Per garantire fluidità all'utente, le operazioni pesanti (come l'OCR\G e l'invocazione degli LLM\G) sono gestite 
 in modo asincrono tramite Solid Queue Workers. 
-Il livello di persistenza è unificato su PostgreSQL 16 (Solid Stack), che funge non solo da database primario, ma anche da 
+Il livello di persistenza è unificato su PostgreSQL\G 16 (Solid Stack), che funge non solo da database primario, ma anche da 
 gestore per le code, cache e backend per le connessioni WebSocket (ActionCable).
 
 \begin{figure}[H] \centering \includegraphics[width=0.8\textwidth]{ImmaginiSpecificaTecnica/C4/level2.png} \caption{Container Diagram} \end{figure}
@@ -707,13 +708,13 @@ gestore per le code, cache e backend per le connessioni WebSocket (ActionCable).
 
 \subsection{Architettura Logica Interna (Layered Architecture)}
 Il sistema è stato progettato seguendo un pattern architetturale di tipo Layered (a livelli). Questa separazione garantisce 
-un alto grado di disaccoppiamento, facilitando la manuntenzione, i test e la scalabilità del sistema. 
-Inoltre, lavorando in ruby on rails, è stato possibile sfruttare le convenzioni del framework per implementare in modo 
+un alto grado di disaccoppiamento, facilitando la manuntenzione, i test\G e la scalabilità\G del sistema. 
+Inoltre, lavorando in ruby on rails\G, è stato possibile sfruttare le convenzioni del framework per implementare in modo 
 naturale i vari livelli, senza andare a forzare l'introduzione di ulteriori astrazioni o pattern complessi e contro il linguaggio stesso.
 L'architettura logica si divide in quattro livelli principali:
 
 \subsubsection{Livello di Presentazione (Presentation Layer)}
-Sviluppato in Angular (Single Page Application), è responsabile dell'interfaccia utente e dell'interazione con l'utente finale. Comunica con il backend tramite API RESTful.
+Sviluppato in Angular\G (Single Page Application), è responsabile dell'interfaccia\G utente e dell'interazione con l'utente finale. Comunica con il backend tramite API\G RESTful.
 \begin{itemize}
   \item Riceve gli input dell'utente (es. caricamento documenti, richieste di generazione testo)
   \item Comunica con il backend per inviare richieste e ricevere risposte.
@@ -721,7 +722,7 @@ Sviluppato in Angular (Single Page Application), è responsabile dell'interfacci
 \end{itemize}
 
 \subsubsection{Livello applicativo e di Business Logic (Application Layer)}
-Sviluppato in Ruby on Rails (API-only). Rappresenta il cuore del sistema e si struttura internamente in ulteriori sotto-livelli:
+Sviluppato in Ruby on Rails\G (API-only). Rappresenta il cuore del sistema e si struttura internamente in ulteriori sotto-livelli:
 \begin{itemize}
   \item \textbf{Controller}: gestisce le richieste HTTP, orchestrando le operazioni necessarie per soddisfarle.
   \item \textbf{Service}: contiene la logica di business specifica, come l'integrazione con i modelli di intelligenza artificiale, la gestione dei documenti e la logica di elaborazione.
@@ -729,40 +730,40 @@ Sviluppato in Ruby on Rails (API-only). Rappresenta il cuore del sistema e si st
 \end{itemize}
 
 \subsubsection{Livello di Accesso ai Dati (Data Access Layer)}
-Gestito dal modulo ActiveRecord di Ruby on Rails (ORM), si occupa della comunicazione con il database PostgreSQL. Fornisce un'interfaccia per eseguire operazioni CRUD (Create, Read, Update, Delete) sui dati persistenti traducendo le operazioni in query SQL sicure e ottimizzate, prevenendo vulnerabilità come le SQL Injection.
+Gestito dal modulo\G ActiveRecord di Ruby on Rails\G (ORM), si occupa della comunicazione con il database PostgreSQL\G. Fornisce un'interfaccia\G per eseguire operazioni CRUD (Create, Read, Update, Delete) sui dati persistenti traducendo le operazioni in query SQL sicure e ottimizzate, prevenendo vulnerabilità come le SQL Injection.
 
 \subsubsection{Livello Dati (Data Layer)}
-Costituito dal Database Relazionale (RDBMS) PostgreSQL. Ha la responsabilità di memorizzare in modo persistente tutte le informazioni necessarie al funzionamento del sistema, inclusi dati degli utenti, documenti caricati, sessioni di interazione e log delle attività.
+Costituito dal Database Relazionale (RDBMS) PostgreSQL\G. Ha la responsabilità di memorizzare in modo persistente tutte le informazioni necessarie al funzionamento del sistema, inclusi dati degli utenti, documenti caricati, sessioni di interazione e log delle attività.
 
 
 \subsection{Dettaglio dei Componenti (C4 Level 3)}
 I principi dell'architettura Layered appena descritti trovano applicazione pratica nell'organizzazione interna dei macro-moduli del backend Rails. Di seguito si illustra il dettaglio (Livello 3) dei tre domini principali del sistema:
 
-\subsubsection{Modulo OCR ed Estrazione Dati:}
-Questo modulo gestisce il caricamento dei file, lo splitting asincrono dei PDF e l'orchestrazione con AWS Textract e Bedrock. Si nota la netta separazione tra il livello HTTP (Controllers), i Commands per l'accodamento dei job, gli Orchestratori e i Domain Services (Adapter per le API esterne e logica di validazione).
+\subsubsection{Modulo\G OCR\G ed Estrazione Dati:}
+Questo modulo\G gestisce il caricamento dei file, lo splitting asincrono dei PDF e l'orchestrazione con AWS\G Textract e Bedrock\G. Si nota la netta separazione tra il livello HTTP (Controllers), i Commands per l'accodamento dei job, gli Orchestratori e i Domain Services (Adapter per le API\G esterne e logica di validazione\G).
 \begin{figure}[H] \centering \includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/C4/level3OCR.png} \caption{Component Diagram – Document Processing} \end{figure}
 
 
-\subsubsection{Modulo Generazione Contenuti:}
-Gestisce la pipeline di generazione multimodale (testo e immagini). Il controller delega immediatamente l'esecuzione a un job asincrono (AIGeneratorJob), il quale coordina i servizi di generazione testuale (Bedrock) e visiva, salvando infine i record generati tramite i Data Manager.
+\subsubsection{Modulo\G Generazione Contenuti:}
+Gestisce la pipeline di generazione multimodale (testo e immagini). Il controller delega immediatamente l'esecuzione a un job asincrono (AIGeneratorJob), il quale coordina i servizi di generazione testuale (Bedrock\G) e visiva, salvando infine i record generati tramite i Data Manager.
 \begin{figure}[H] \centering \includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/C4/level3Generator.png} \caption{Component Diagram – AI Generation} \end{figure}
 
 
-\subsubsection{Modulo Analisi e Reportistica (Data Analyst):}
-Questo componente si occupa dell'aggregazione dei dati per le dashboard. L'architettura fa uso del pattern Template Method nei \textit{Computation Services} e demanda l'esecuzione delle query aggregate (es. calcolo della confidence media o dei tempi di elaborazione) a specifici \textit{Data Managers}.
+\subsubsection{Modulo\G Analisi e Reportistica (Data Analyst):}
+Questo componente si occupa dell'aggregazione dei dati per le dashboard\G. L'architettura fa uso del pattern Template Method nei \textit{Computation Services} e demanda l'esecuzione delle query aggregate (es. calcolo della confidence media o dei tempi di elaborazione) a specifici \textit{Data Managers}.
 \begin{figure}[H] \centering \includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/C4/level3Analyst.png} \caption{Component Diagram – Data Analysis} \end{figure}
 
 
 
 \subsection{Architettura di Deployment (Monolite containerizzato)}
 Sebbene logicamente il sistema sia diviso in Frontend e Backend (decoupled), dal punto di vista del rilascio in produzione si è optato per un approccio monolitico basato su container.
-Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come un'unica entità logica su un singolo nodo ospite (Server/Macchina Virtuale), garantendo un ambiente isolato, riproducibile e coerente dalla fase di sviluppo fino alla produzione. L'orchestrazione locale è affidata a Docker Compose.
+Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come un'unica entità logica su un singolo nodo ospite (Server/Macchina Virtuale), garantendo un ambiente isolato, riproducibile e coerente dalla fase di sviluppo fino alla produzione. L'orchestrazione locale è affidata a Docker\G Compose.
 
 \begin{itemize}
-  \item \textbf{Docker Host (Server Node)}: L'infrastruttura hardware o virtuale principale che ospita il motore Docker. Al suo interno risiede una Rete Virtuale Privata (Docker Network) che permette ai container di comunicare tra loro in totale sicurezza, senza esporre porte non necessarie all'esterno.
-  \item \textbf{Container Frontend (Web Server)}: Un container dedicato all'esecuzione dell'applicativo Angular. Nelle richieste esterne, questo nodo funge da punto di ingresso per gli utenti, servendo i file statici della Single Page Application.
-  \item \textbf{Container Backend (Application Server)}: Un container isolato basato su immagine Ruby che esegue il server web di Rails. È esposto internamente per ricevere le chiamate API dal frontend e processare la logica di business.
-  \item \textbf{Container Database (Database Server)}: Un container basato sull'immagine ufficiale di PostgreSQL. Persiste i dati fisicamente scrivendoli su un Docker Volume esterno al container stesso, garantendo che i dati del sistema non vadano persi in caso di riavvio o aggiornamento del container.
+  \item \textbf{Docker Host (Server Node)}: L'infrastruttura hardware o virtuale principale che ospita il motore Docker\G. Al suo interno risiede una Rete Virtuale Privata (Docker\G Network) che permette ai container di comunicare tra loro in totale sicurezza\G, senza esporre porte non necessarie all'esterno.
+  \item \textbf{Container Frontend (Web Server)}: Un container dedicato all'esecuzione dell'applicativo Angular\G. Nelle richieste esterne, questo nodo funge da punto di ingresso per gli utenti, servendo i file statici della Single Page Application.
+  \item \textbf{Container Backend (Application Server)}: Un container isolato basato su immagine Ruby\G che esegue il server web di Rails. È esposto internamente per ricevere le chiamate API\G dal frontend e processare la logica di business.
+  \item \textbf{Container Database (Database Server)}: Un container basato sull'immagine ufficiale di PostgreSQL\G. Persiste i dati fisicamente scrivendoli su un Docker\G Volume esterno al container stesso, garantendo che i dati del sistema non vadano persi in caso di riavvio o aggiornamento del container.
 \end{itemize}
 
 \begin{figure}[H]
@@ -773,44 +774,44 @@ Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come u
 
 \section{Descrizione architettura (Backend)}
 
-\subsection{Modulo AI Assistant}
-Il modulo AI Assistant è la componente del sistema dedicata alla generazione di contenuti testuali e visivi tramite modelli di intelligenza artificiale.
-Il suo obiettivo è fornire agli utenti uno strumento potente e intuitivo per creare post personalizzati, arricchendo l'esperienza utente con funzionalità avanzate di generazione automatica di contenuti. 
-Il modulo si integra con i servizi di AI (AWS Bedrock) per estrarre il massimo valore dalle capacità di generazione testuale e visiva, offrendo un'interfaccia semplice per la creazione di contenuti complessi e personalizzati, supportando al contempo la gestione e la valutazione dei risultati generati.
-Nei diagrammi seguenti sono rappresentati i componenti del modulo, divisi per controller, evidenziando i componenti principali e le loro interazioni.
+\subsection{Modulo\G AI Assistant}
+Il modulo\G AI Assistant\G è la componente del sistema dedicata alla generazione di contenuti testuali e visivi tramite modelli di intelligenza artificiale.
+Il suo obiettivo è fornire agli utenti uno strumento potente e intuitivo per creare post personalizzati, arricchendo l'esperienza utente con funzionalità\G avanzate di generazione automatica di contenuti. 
+Il modulo\G si integra con i servizi di AI\G (AWS\G Bedrock\G) per estrarre il massimo valore dalle capacità di generazione testuale e visiva, offrendo un'interfaccia\G semplice per la creazione di contenuti complessi e personalizzati, supportando al contempo la gestione e la valutazione dei risultati generati.
+Nei diagrammi seguenti sono rappresentati i componenti del modulo\G, divisi per controller, evidenziando i componenti principali e le loro interazioni.
 
-Il controller più imporante del modulo è \textit{AIGeneratorController}, che espone gli endpoint per la creazione e gestione dei contenuti generati. 
+Il controller più imporante del modulo\G è \textit{AIGeneratorController}, che espone gli endpoint per la creazione e gestione dei contenuti generati. 
 Il controller delega la logica di business a un job asincrono \textit{(AIGeneratorJob)}, che si occupa di orchestrare le chiamate ai servizi di generazione testuale e visiva, gestire la persistenza dei risultati e aggiornare lo stato delle generazioni in corso.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/AiGeneratorBlocco.jpg}
-\caption{Diagramma classi parziale -- Document Controller}
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/Assistant/ClassiModuloAiAssistant.jpg}
+\caption{Diagramma delle classi -- Modulo\G AI Assistant\G}
 \end{figure}
 
 
-\subsubsection{Diagrammi classi parziali del modulo AI Assistant}
+\subsubsection{Diagrammi delle classi del modulo\G AI Assistant\G}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/AiGeneratorController.jpg}
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/Assistant/AiGenerator.jpg}
 \caption{Diagramma classi parziale -- AIGeneratorController}
 \end{figure}
-Il diagramma mostra il controller di ingresso del modulo: riceve le richieste HTTP,
+Il diagramma mostra il controller di ingresso del modulo\G: riceve le richieste HTTP,
 valida i parametri e delega l'esecuzione al job asincrono. Tramite l'utilizzo di un container di dipendenza, il controller inietta i servizi necessari per la generazione, mantenendo un alto grado di disaccoppiamento e testabilità.
 I vari services gestiscono la logica di interazione con i modelli di intelligenza artificiale, la persistenza dei dati e l'aggiornamento dello stato delle generazioni.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/TonesController.jpg}
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/Assistant/tones.jpg}
 \caption{Diagramma classi parziale -- TonesController}
 \end{figure}
 Il diagramma mostra il controller dedicato alla gestione dei toni di generazione. 
-Espone endpoint per la creazione, eliminazione e recupero dei toni disponibili, delegando la logica di business al servizio specifico che si occupa della persistenza e della validazione dei dati: \textit{ToneSerializer}.
+Espone endpoint per la creazione, eliminazione e recupero dei toni disponibili, delegando la logica di business al servizio specifico che si occupa della persistenza e della validazione\G dei dati: \textit{ToneSerializer}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/StylesController.jpg}
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/Assistant/styles.jpg}
 \caption{Diagramma classi parziale -- StylesController}
 \end{figure}
 Il diagramma mostra il controller dedicato alla gestione dei stili di generazione. 
@@ -818,12 +819,24 @@ Il funzionamento è analogo a quello del controller dei toni, delegando la logic
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/PostController.jpg}
+\includegraphics[width=0.6\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/Assistant/posts.jpg}
 \caption{Diagramma classi parziale -- PostsController}
 \end{figure}
 Il diagramma mostra il controller dedicato alla pubblicazione di post. 
 Anche qui il funzionamento di base è analogo a quello del controller dei toni, fatto utilizzando \textit{PostsSerializer}, 
-ma utilizza anche \textit{PostCreatorService} per gestire la logica di creazione dei post, con la sua logica specifica di validazione.
+ma utilizza anche \textit{PostCreatorService} per gestire la logica di creazione dei post, con la sua logica specifica di validazione\G.
+
+\subsubsection{Diagramma di sequenza di generazione contenuti}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/Sequenza/SequenzaGenerator.png}
+\caption{Diagramma di sequenza -- Flusso di generazione contenuti}
+\end{figure}
+Il diagramma descrive la sequenza delle operazioni che avvengono quando un utente richiede la generazione di un contenuto tramite l'endpoint dedicato.
+Il controller riceve la richiesta, valida i parametri e delega l'esecuzione a un job asincrono. 
+Il job, una volta avviato, coordina le chiamate ai servizi di generazione testuale e visiva, 
+gestisce la persistenza dei risultati e aggiorna lo stato delle generazioni in corso. 
 
 
 \subsubsubsection{AIGeneratorController}
@@ -831,7 +844,7 @@ ma utilizza anche \textit{PostCreatorService} per gestire la logica di creazione
 \centering
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/AiGeneratorController.jpg}
 \end{figure}
-Classe di tipo Controller che espone gli endpoint per la generazione dei contenuti nel modulo AI Assistant. 
+Classe di tipo Controller che espone gli endpoint per la generazione dei contenuti nel modulo\G AI Assistant\G. 
 Gestisce le operazioni CRUD sulle generazioni, espone un endpoint per rigenerare i contenuti e un endpoint per valutare i risultati generati.
 
 \textbf{Attributi} 
@@ -877,7 +890,7 @@ Si occupa di coordinare le chiamate ai servizi di generazione testuale e visiva,
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/ActionCable.jpg}
 \end{figure}
 Classe nativa di rails per la gestione delle connessioni WebSocket. 
-Nel contesto del modulo AI Assistant, viene utilizzata per inviare aggiornamenti in tempo reale al frontend riguardo lo stato delle generazioni in corso, permettendo un'esperienza utente più fluida e interattiva.
+Nel contesto del modulo\G AI Assistant\G, viene utilizzata per inviare aggiornamenti in tempo reale al frontend riguardo lo stato delle generazioni in corso, permettendo un'esperienza utente più fluida e interattiva.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -973,7 +986,7 @@ Si occupa di coordinare le chiamate ai servizi di generazione testuale e visiva,
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/AiGeneratorDataManager.jpg}
 \end{figure}
 Classe di tipo Data Manager che si occupa della gestione dei dati relativi alle generazioni dei contenuti.
-Si occupa di salvare i risultati generati, aggiornare lo stato delle generazioni in corso e fornire un'interfaccia per recuperare i dati delle generazioni quando necessario.
+Si occupa di salvare i risultati generati, aggiornare lo stato delle generazioni in corso e fornire un'interfaccia\G per recuperare i dati delle generazioni quando necessario.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -1068,7 +1081,7 @@ utilizzando anche la risposta della generazione testuale per ulteriori dettagli.
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/TextGeneratorService.jpg}
 \end{figure}
 Classe service che si occupa di gestire la logica di generazione dei contenuti testuali.
-Si occupa di interagire con il servizio di generazione testuale (AWS Bedrock) per generare i contenuti richiesti, utilizzando i parametri impostati dal \textit{TextParamsSetterService}.
+Si occupa di interagire con il servizio di generazione testuale (AWS\G Bedrock\G) per generare i contenuti richiesti, utilizzando i parametri impostati dal \textit{TextParamsSetterService}.
 
 
 \textbf{Attributi} 
@@ -1093,7 +1106,7 @@ Si occupa di interagire con il servizio di generazione testuale (AWS Bedrock) pe
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/ImageGeneratorService.jpg}
 \end{figure}
 Classe service che si occupa di gestire la logica di generazione dei contenuti immagine.
-Si occupa di interagire con il servizio di generazione immagini (AWS Bedrock) per generare i contenuti richiesti, utilizzando i parametri impostati dal \textit{ImageParamsSetterService}.
+Si occupa di interagire con il servizio di generazione immagini (AWS\G Bedrock\G) per generare i contenuti richiesti, utilizzando i parametri impostati dal \textit{ImageParamsSetterService}.
 
 
 \textbf{Attributi} 
@@ -1120,7 +1133,7 @@ Si occupa di interagire con il servizio di generazione immagini (AWS Bedrock) pe
 \end{figure}
 Classe Service che si occupa di validare la risposta della generazione testuale.
 Si occupa di verificare che la risposta della generazione testuale sia valida e che lo split del titolo dal contenuto sia avvenuto correttamente, 
-restituendo eventuali errori riscontrati durante la validazione.
+restituendo eventuali errori riscontrati durante la validazione\G.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -1247,7 +1260,7 @@ gestendo eventuali trasformazioni necessarie per la corretta rappresentazione de
 \end{figure}
 Controller dedicato alla gestione dei post generati.
 Espone endpoint per la creazione, eliminazione e recupero dei post disponibili, 
-delegando la logica di business alla combinazione di \textit{PostsSerializer} per la serializzazione dei dati e \textit{PostCreatorService} per la logica di creazione dei post, con la sua logica specifica di validazione.
+delegando la logica di business alla combinazione di \textit{PostsSerializer} per la serializzazione dei dati e \textit{PostCreatorService} per la logica di creazione dei post, con la sua logica specifica di validazione\G.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -1287,8 +1300,8 @@ gestendo eventuali trasformazioni necessarie per la corretta rappresentazione de
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/PostCreatorSerivce.jpg}
 \end{figure}
 Classe service che si occupa della creazione dei post.
-Viene utilizzata per gestire la logica di creazione dei post, inclusa la validazione e la persistenza dei dati.
-Il servizio si assicura che i dati forniti siano validi e completi prima di creare un nuovo post, restituendo eventuali errori riscontrati durante la validazione.
+Viene utilizzata per gestire la logica di creazione dei post, inclusa la validazione\G e la persistenza dei dati.
+Il servizio si assicura che i dati forniti siano validi e completi prima di creare un nuovo post, restituendo eventuali errori riscontrati durante la validazione\G.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -1304,14 +1317,14 @@ Il servizio si assicura che i dati forniti siano validi e completi prima di crea
 
 
 
-\subsection{Modulo AI CoPilot}
-Il modulo AI CoPilot è la componente del sistema dedicata al supporto dei Consulenti del 
-Lavoro (CdL) nella gestione e revisione documentale automatizzata. 
-L'obiettivo principale è l'efficientamento del workflow operativo attraverso l'impiego di 
+\subsection{Modulo\G AI CoPilot}
+Il modulo\G AI CoPilot\G è la componente del sistema dedicata al supporto dei Consulenti del 
+Lavoro (CdL)\G nella gestione e revisione documentale automatizzata. 
+L'obiettivo principale è l'efficientamento del workflow\G operativo attraverso l'impiego di 
 modelli di intelligenza artificiale per l'estrazione di metadati e il riconoscimento 
 anagrafico.
 
-I diagrammi riportati di seguito rappresentano diagrammi delle classi parziali del blocco OCR,
+I diagrammi riportati di seguito rappresentano diagrammi delle classi parziali del blocco OCR\G,
 utili a mostrare i componenti principali senza appesantire la lettura con l'intero grafo delle
 dipendenze.
 
@@ -1324,14 +1337,14 @@ di sistema per massimizzare il disaccoppiamento; il dettaglio completo dell'inie
 rappresentato nei diagrammi per ragioni di comodità e chiarezza, ma rimane evidente dall'uso
 costante di componenti iniettati.
 
-\subsubsection{Diagrammi classi parziali del blocco OCR}
+\subsubsection{Diagrammi classi parziali del blocco OCR\G}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/ClassiBlocchi/OCR/documentController.png}
 \caption{Diagramma classi parziale -- Document Controller}
 \end{figure}
-Il diagramma mostra il controller di ingresso del modulo OCR: riceve le richieste HTTP,
+Il diagramma mostra il controller di ingresso del modulo\G OCR\G: riceve le richieste HTTP,
 valida i parametri e delega l'esecuzione ai servizi applicativi, fino all'avvio dei job asincroni.
 
 \begin{figure}[H]
@@ -1340,7 +1353,7 @@ valida i parametri e delega l'esecuzione ai servizi applicativi, fino all'avvio 
 \caption{Diagramma classi parziale -- Flusso di split PDF}
 \end{figure}
 Questo diagramma rappresenta il flusso asincrono di splitting dei PDF, dalla preparazione
-del file alla suddivisione in item di elaborazione e al dispatch delle estrazioni.
+del file alla suddivisione in item di elaborazione e al dispatch\G delle estrazioni.
 
 \begin{figure}[H]
 \centering
@@ -1358,7 +1371,7 @@ dei servizi OCR/LLM, persistenza dei metadati e aggiornamento dello stato dei pr
 Questo diagramma mostra il percorso dedicato ai file non PDF (ad esempio immagini o CSV),
 con inizializzazione specifica, job asincrono dedicato e normalizzazione del risultato.
 
-\subsubsection{Diagrammi di sequenza del blocco OCR}
+\subsubsection{Diagrammi di sequenza del blocco OCR\G}
 
 \begin{figure}[H]
 \centering
@@ -1373,7 +1386,7 @@ inizializzazione del processing dedicato, accodamento job e aggiornamento asincr
 \includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/Sequenza/SequenzaOCR.png}
 \caption{Diagramma di sequenza -- Flusso PDF/OCR}
 \end{figure}
-Il diagramma mostra il flusso PDF con OCR: upload e split, orchestrazione dei servizi di
+Il diagramma mostra il flusso PDF con OCR\G: upload e split, orchestrazione dei servizi di
 estrazione, invocazione dei job asincroni e persistenza progressiva dei risultati estratti.
 Il flusso è separato dal percorso dei file generici, evidenziando la specificità del processo di splitting e dell'estrazione basata su pagine.
 
@@ -1388,9 +1401,9 @@ Il flusso è separato dal percorso dei file generici, evidenziando la specificit
 \includegraphics[width=0.8\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/AiDocumentController.jpg}
 \end{figure}
 Classe di tipo Controller che espone gli endpoint per la gestione del ciclo di vita dei 
-documenti nel modulo AI CoPilot. Coordina le richieste HTTP provenienti 
+documenti nel modulo\G AI CoPilot\G. Coordina le richieste HTTP provenienti 
 dal client per operazioni quali il caricamento dei file, l'avvio del processo di splitting, 
-la validazione dei dati estratti e la riassegnazione manuale dei range di pagine.
+la validazione\G dei dati estratti e la riassegnazione manuale dei range di pagine.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -1453,9 +1466,9 @@ Classe di tipo Presenter (Serializer) responsabile della trasformazione dei dati
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/DbManager.jpg}
 \end{figure}
-Componente delegato all'interazione con il database per il modulo di elaborazione 
+Componente delegato all'interazione con il database per il modulo\G di elaborazione 
 documentale. Agisce come un livello di astrazione per il recupero e l'aggiornamento dei 
-metadati dei documenti estratti, incapsulando l'uso dei repository e dei resolver per 
+metadati dei documenti estratti, incapsulando l'uso dei repository\G e dei resolver per 
 l'associazione dei destinatari.
 
 \textbf{Attributi} 
@@ -1521,7 +1534,7 @@ specifico di pagine a partire da un documento sorgente più ampio.
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/FileStorage.jpg}
 \end{figure}
-Interfaccia di astrazione per la gestione del file system. 
+Interfaccia\G di astrazione per la gestione del file system. 
 Offre metodi standardizzati per verificare l'esistenza, eliminare ed espandere i percorsi 
 dei file temporanei e persistenti utilizzati durante le fasi di caricamento e analisi.
 
@@ -1543,7 +1556,7 @@ dei file temporanei e persistenti utilizzati durante le fasi di caricamento e an
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/InitializeProcessing.jpg}
 \end{figure}
 Componente di orchestrazione che gestisce le fasi preparatorie all'elaborazione di un file,. 
-Verifica l'integrità del caricamento, calcola i checksum e innesca la catena di elaborazione 
+Verifica\G l'integrità del caricamento, calcola i checksum e innesca la catena di elaborazione 
 asincrona (come lo splitting del PDF) tramite job dedicati.
 
 \textbf{Attributi} 
@@ -1586,8 +1599,8 @@ delegando la separazione logica dei documenti massivi in file individuali.
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/UploadManager.jpg}
 \end{figure}
-Servizio centralizzato per la validazione e la persistenza dei file in ingresso.
- Gestisce il salvataggio dei file sorgente, verifica la correttezza del formato 
+Servizio centralizzato per la validazione\G e la persistenza dei file in ingresso.
+ Gestisce il salvataggio dei file sorgente, verifica\G la correttezza del formato 
  (es. firme PDF) e ne determina la tipologia per indirizzarli al corretto flusso di 
  elaborazione.
 
@@ -1641,7 +1654,7 @@ in una struttura JSON ottimizzata per la renderizzazione lato frontend.
 \end{figure}
 Job in background che esegue materialmente il processo di estrazione dati su un 
 singolo documento o frammento di esso. Normalizza il contesto di 
-esecuzione e coordina le chiamate ai servizi AI in modo asincrono.
+esecuzione e coordina le chiamate ai servizi AI\G in modo asincrono.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -1703,9 +1716,9 @@ in maniera asincrona, applicando la specifica logica di estrazione in base al ti
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ProcessGenericFile.jpg}
 \end{figure}
 Servizio core per l'elaborazione dei file generici (immagini, CSV). 
-Smista il documento al processore corretto, integra i punteggi di confidenza restituiti 
+Smista il documento al processore corretto, integra i punteggi di confidenza\G restituiti 
 dall'LLM e prepara i payload (sia in caso di successo che di errore) per l'aggiornamento 
-in tempo reale dell'interfaccia.
+in tempo reale dell'interfaccia\G.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -1736,7 +1749,7 @@ in tempo reale dell'interfaccia.
 Servizio specializzato nell'estrazione di dati da file CSV.
 Implementa logiche di parsing e normalizzazione specifiche per questo formato, 
 estraendo i metadati strutturati e preparando i dati per la valutazione della 
-confidence da parte dell'LLM.  
+confidence da parte dell'LLM\G.  
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -1757,9 +1770,9 @@ confidence da parte dell'LLM.
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ConfidenceCalculator.jpg}
 \end{figure}
 
-Motore di calcolo dedicato alla determinazione del punteggio di affidabilità 
-(confidence score) dei dati estratti[cite: 817, 826]. Combina le metriche restituite dal 
-motore OCR con quelle dell'LLM, applicando logiche di fusione e regole di override in base 
+Motore di calcolo dedicato alla determinazione del punteggio di affidabilità\G 
+(confidence score\G) dei dati estratti[cite: 817, 826]. Combina le metriche restituite dal 
+motore OCR\G con quelle dell'LLM\G, applicando logiche di fusione e regole di override in base 
 a campi specifici (es. destinatari, date).
 
 \textbf{Attributi} 
@@ -1790,19 +1803,19 @@ a campi specifici (es. destinatari, date).
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ImageProcessor.jpg}
 \end{figure}
 Servizio che coordina il flusso di estrazione dei dati a partire da formati immagine. 
-Incapsula le chiamate al servizio OCR per ottenere il testo grezzo e lo inoltra al modulo 
+Incapsula le chiamate al servizio OCR\G per ottenere il testo grezzo e lo inoltra al modulo\G 
 di estrazione per identificare i metadati strutturati e i destinatari.
 
 \textbf{Attributi} 
 \begin{itemize}
-    \item ocr_service: Ocr
+    \item ocr_service: Ocr\G
     \item data_extractor: DataExtractor
     \item recipient_resolver: RecipientResolver
 \end{itemize}
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(ocr_service: Ocr, data_extractor: DataExtractor, recipient_resolver: RecipientResolver)
+    \item initialize(ocr_service: Ocr\G, data_extractor: DataExtractor, recipient_resolver: RecipientResolver)
     \item call(file_path: String): Hash\{ocr_text: String, metadata: Hash, confidence: Hash\}
 \end{itemize}
 
@@ -1867,7 +1880,7 @@ l'associazione più probabile.
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ProcessDataItem.jpg}
 \end{figure}
 Servizio orchestratore per l'elaborazione end-to-end di un singolo elemento di dato. 
-Coordina l'interazione tra OCR, Data Extractor, Recipient Resolver e gestisce 
+Coordina l'interazione tra OCR\G, Data Extractor, Recipient Resolver e gestisce 
 l'aggiornamento dello stato del job, inviando notifiche WebSockets (ActionCable) al termine 
 del processo.
 
@@ -1876,7 +1889,7 @@ del processo.
     \item data_item_repository: DataItemRepository
     \item notifier: ActionCableNotifier
     \item file_storage: FileStorage
-    \item ocr_service: Ocr
+    \item ocr_service: Ocr\G
     \item data_extractor: DataExtractor
     \item recipient_resolver: RecipientResolver
     \item confidence_calculator_factory: Proc
@@ -1885,7 +1898,7 @@ del processo.
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(data_item_repository: DataItemRepository, notifier: ActionCableNotifier, file_storage: FileStorage, ocr_service: Ocr, data_extractor: DataExtractor, recipient_resolver: RecipientResolver, confidence_calculator_factory: Proc, extracted_metadata_builder_factory: Proc)
+    \item initialize(data_item_repository: DataItemRepository, notifier: ActionCableNotifier, file_storage: FileStorage, ocr_service: Ocr\G, data_extractor: DataExtractor, recipient_resolver: RecipientResolver, confidence_calculator_factory: Proc, extracted_metadata_builder_factory: Proc)
     \item call(file_path: String, job_id*: String, processing_item_id*: int, extracted_document_id*: int): void
     \item resolve_extracted_document(extracted_document_id*: int, item*: Object): ExtractedDocument | nil
     \item update_extracted_document_success(extracted_document: ExtractedDocument, resolution: Object, metadata: Hash, recipient: String | nil, global_confidence: Float, process_duration_seconds: Float): void
@@ -1900,9 +1913,9 @@ del processo.
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/Container.jpg}
 \end{figure}
-Modulo di Dependency Injection (DI) del sistema. 
+Modulo\G di Dependency Injection (DI) del sistema. 
 Centralizza la configurazione e l'istanziazione di tutte le classi di servizio, 
-repository e client esterni (es. AWS Bedrock, AWS Textract) garantendo una corretta 
+repository\G e client esterni (es. AWS\G Bedrock\G, AWS\G Textract) garantendo una corretta 
 inversione delle dipendenze.
 
 \textbf{Attributi} 
@@ -1988,8 +2001,8 @@ avvia la messa in coda per l'estrazione asincrona dei dati.
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/SplitRunRepository.jpg}
 \end{figure}
-Classe di tipo Repository dedicata alla gestione dello stato per le esecuzioni di splitting. 
-Fornisce l'interfaccia di persistenza per tracciare i progressi dell'elaborazione massiva, 
+Classe di tipo Repository\G dedicata alla gestione dello stato per le esecuzioni di splitting. 
+Fornisce l'interfaccia\G di persistenza per tracciare i progressi dell'elaborazione massiva, 
 segnandone successi, artefatti creati o eventuali fallimenti.
 
 \textbf{Attributi} 
@@ -2032,7 +2045,7 @@ avanzamento dei processi asincroni (job) per un aggiornamento fluido della UI.
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/DataItemRepository.jpg}
 \end{figure}
-Repository che gestisce la persistenza degli oggetti legati alla singola elaborazione e 
+Repository\G che gestisce la persistenza degli oggetti legati alla singola elaborazione e 
 all'estrazione documentale. Regola le transazioni sul database e la transizione di stato 
 degli item da "in progress" a "completato" o "fallito".
 
@@ -2091,7 +2104,7 @@ database.
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/DataExtractor.jpg}
 \end{figure}
-Servizio delegato all'interfacciamento con il modello LLM per estrapolare metadati 
+Servizio delegato all'interfacciamento con il modello LLM\G per estrapolare metadati 
 strutturati dal testo grezzo. Include logiche per la pulizia del 
 risultato JSON e la normalizzazione dei campi estratti prima del salvataggio.
 
@@ -2119,7 +2132,7 @@ risultato JSON e la normalizzazione dei campi estratti prima del salvataggio.
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/OCR.jpg}
 \end{figure}
-Servizio che wrappa le chiamate al motore OCR (AWS Textract). 
+Servizio che wrappa le chiamate al motore OCR\G (AWS\G Textract). 
 È responsabile della conversione di PDF o immagini in blocchi di testo strutturati, 
 analizzando i layout per fornire un input coerente all'intelligenza artificiale generativa.
 
@@ -2149,7 +2162,7 @@ analizzando i layout per fornire un input coerente all'intelligenza artificiale 
 \end{figure}
 Motore di divisione dei PDF basato su intelligenza artificiale. 
 Identifica i confini logici tra documenti diversi all'interno dello stesso file 
-(breakpoints) basandosi su riassunti del testo di ogni pagina analizzati tramite l'LLM.
+(breakpoints) basandosi su riassunti del testo di ogni pagina analizzati tramite l'LLM\G.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -2175,8 +2188,8 @@ Identifica i confini logici tra documenti diversi all'interno dello stesso file
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/LLMService.jpg}
 \end{figure}
 Servizio dedicato alla gestione della comunicazione con i foundation models 
-(es. tramite AWS Bedrock Runtime). Prepara i prompt di sistema e utente per l'estrazione 
-dati e il rilevamento dei breakpoint, gestendo la corretta esecuzione delle richieste AI 
+(es. tramite AWS\G Bedrock\G Runtime). Prepara i prompt\G di sistema e utente per l'estrazione 
+dati e il rilevamento dei breakpoint, gestendo la corretta esecuzione delle richieste AI\G 
 e il parsing delle risposte JSON.
 
 \textbf{Attributi} 
@@ -2204,33 +2217,33 @@ e il parsing delle risposte JSON.
 
 
 
-\subsection{Modulo Data analisi}
-Il modulo \textit{Data analisi} espone i componenti fondamentali per l'estrazione, il calcolo e l'esposizione delle
-metriche di utilizzo e delle statistiche relative alle due funzionalità principali del sistema: l'AI Co-Pilot per
-i documenti e l'AI-assistant generativo. Il modulo segue un'architettura a livelli, separando la gestione delle richieste (Controller),
+\subsection{Modulo\G Data analisi}
+Il modulo\G \textit{Data analisi} espone i componenti fondamentali per l'estrazione, il calcolo e l'esposizione delle
+metriche di utilizzo e delle statistiche relative alle due funzionalità\G principali del sistema: l'AI Co-Pilot\G per
+i documenti e l'AI-assistant\G generativo. Il modulo\G segue un'architettura a livelli, separando la gestione delle richieste (Controller),
 la logica di business e calcolo (Service) e l'interazione con il database (Data Manager).
 
-\subsubsection{Diagramma delle classi blocco modulo Data analisi}
+\subsubsection{Diagramma delle classi blocco modulo\G Data analisi}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAnalisi/BloccoModuloDataAnalisi.jpg}
 \end{figure}
 
-Questo diagramma illustra le classi principali del modulo di Data Analisi, evidenziando le loro responsabilità e le relazioni tra di esse.
-Lo scopo di questo modulo è fornire un'interfaccia coerente per l'estrazione e la 
-presentazione delle metriche chiave, consentendo al front-end di visualizzare 
-dashboard informative sull'utilizzo e le performance dell'AI Co-Pilot e 
-dell'AI-assistant generativo.
+Questo diagramma illustra le classi principali del modulo\G di Data Analisi, evidenziando le loro responsabilità e le relazioni tra di esse.
+Lo scopo di questo modulo\G è fornire un'interfaccia\G coerente per l'estrazione e la 
+presentazione delle metriche chiave, consentendo al front-end\G di visualizzare 
+dashboard\G informative sull'utilizzo e le performance dell'AI Co-Pilot\G e 
+dell'AI-assistant\G generativo.
 
 \subsubsubsection{AICopilotDataAnalystController}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAnalisi/AiCopilotDataAnalystController.jpg}
 \end{figure}
-Classe di tipo Controller responsabile dell'esposizione degli endpoint API relativi alle statistiche dell'AI Co-Pilot. 
-Gestisce le richieste HTTP provenienti dal front-end, validando i parametri di input (es. i filtri temporali). 
-Delega la complessa logica di calcolo delle metriche (come confidenza media e accuratezza) al livello di servizio sottostante, 
+Classe di tipo Controller responsabile dell'esposizione degli endpoint API\G relativi alle statistiche dell'AI Co-Pilot\G. 
+Gestisce le richieste HTTP provenienti dal front-end\G, validando i parametri di input (es. i filtri temporali). 
+Delega la complessa logica di calcolo delle metriche (come confidenza\G media e accuratezza) al livello di servizio sottostante, 
 per poi impacchettare i risultati in un formato standard (es. JSON) da restituire al client.\\ 
 
 \textbf{Attributi} 
@@ -2249,8 +2262,8 @@ per poi impacchettare i risultati in un formato standard (es. JSON) da restituir
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAnalisi/AiGeneratorDataAnalystController.jpg}
 \end{figure}
-Classe di tipo Controller che gestisce l'interfaccia API per le analytics dell'AI-assistant generativo. Riceve e processa le richieste relative ai dati di generazione 
-(prompt effettuati, rigenerazioni, feedback degli utenti). Come il suo omologo per il Co-Pilot, funge da punto di ingresso per le richieste, interfacciandosi con i servizi di 
+Classe di tipo Controller che gestisce l'interfaccia\G API\G per le analytics dell'AI-assistant\G generativo. Riceve e processa le richieste relative ai dati di generazione 
+(prompt\G effettuati, rigenerazioni, feedback degli utenti). Come il suo omologo per il Co-Pilot, funge da punto di ingresso per le richieste, interfacciandosi con i servizi di 
 computazione per elaborare i dati e restituire le risposte al client in base ai parametri temporali specificati.\\
 
 \textbf{Attributi} 
@@ -2268,8 +2281,8 @@ computazione per elaborare i dati e restituire le risposte al client in base ai 
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAnalisi/ComputationService.jpg}
 \end{figure}
-Interfaccia o classe base astratta che definisce il contratto standard per i servizi di calcolo delle metriche di analytics. 
-Fornisce i metodi comuni e le firme necessarie per l'elaborazione dei dati grezzi, garantendo uniformità e polimorfismo tra i diversi servizi di computazione implementati nel modulo.\\
+Interfaccia\G o classe base astratta che definisce il contratto standard per i servizi di calcolo delle metriche di analytics. 
+Fornisce i metodi comuni e le firme necessarie per l'elaborazione dei dati grezzi, garantendo uniformità e polimorfismo tra i diversi servizi di computazione implementati nel modulo\G.\\
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -2288,9 +2301,9 @@ Fornisce i metodi comuni e le firme necessarie per l'elaborazione dei dati grezz
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAnalisi/AiCopilotComputationService.jpg}
 \end{figure}
-Classe concreta che implementa la logica di business per l'elaborazione delle metriche specifiche dell'AI Co-Pilot. 
+Classe concreta che implementa la logica di business per l'elaborazione delle metriche specifiche dell'AI Co-Pilot\G. 
 Riceve i dati grezzi dal livello dati e applica gli algoritmi necessari per calcolare indicatori chiave quali: 
-la percentuale di confidenza media delle estrazioni, la frequenza dell'intervento umano per le correzioni, l'accuratezza strutturale del mapping dei dati e i tempi medi di elaborazione dei documenti.\\
+la percentuale di confidenza\G media delle estrazioni, la frequenza dell'intervento umano per le correzioni, l'accuratezza strutturale del mapping dei dati e i tempi medi di elaborazione dei documenti.\\
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -2312,9 +2325,9 @@ la percentuale di confidenza media delle estrazioni, la frequenza dell'intervent
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAnalisi/AiGeneratorComputationService.jpg}
 \end{figure}
-Classe concreta contenente la logica di business per la generazione delle statistiche relative all'AI-assistant. 
+Classe concreta contenente la logica di business per la generazione delle statistiche relative all'AI-assistant\G. 
 Si occupa di aggregare e calcolare le metriche di utilizzo dell'assistente, tra cui il volume totale delle generazioni, 
-la valutazione media fornita dagli utenti, il tasso di rigenerazione dei prompt e la distribuzione percentuale dell'utilizzo dei vari toni e stili di comunicazione.\\
+la valutazione media fornita dagli utenti, il tasso di rigenerazione dei prompt\G e la distribuzione percentuale dell'utilizzo dei vari toni e stili di comunicazione.\\
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -2335,7 +2348,7 @@ la valutazione media fornita dagli utenti, il tasso di rigenerazione dei prompt 
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAnalisi/AnalysesDataManager.jpg}
 \end{figure}
-Interfaccia o classe base per il livello di persistenza (Data Access Object / Repository) dedicato alle analytics. 
+Interfaccia\G o classe base per il livello di persistenza (Data Access Object / Repository) dedicato alle analytics. 
 Definisce le operazioni comuni per l'interrogazione del database al fine di estrarre lo storico delle interazioni, 
 i log di sistema e i metadati senza esporre la complessità delle query SQL (o ORM) ai livelli superiori.\\
 
@@ -2355,7 +2368,7 @@ i log di sistema e i metadati senza esporre la complessità delle query SQL (o O
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAnalisi/AiCopilotAnalysesDataManager.jpg}
 \end{figure}
-Implementazione specifica del Data Manager responsabile del recupero dei dati storici legati al modulo AI Co-Pilot. Interroga le tabelle del database pertinenti 
+Implementazione\G specifica del Data Manager responsabile del recupero dei dati storici legati al modulo\G AI Co-Pilot\G. Interroga le tabelle del database pertinenti 
 (es. storico dei documenti caricati, audit log delle modifiche manuali, timestamp di elaborazione) estraendo dataset filtrati che verranno 
 poi passati al \textit{AiCopilotComputationService} per le elaborazioni statistiche.\\
 
@@ -2378,8 +2391,8 @@ poi passati al \textit{AiCopilotComputationService} per le elaborazioni statisti
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAnalisi/AiGeneratorAnalysesDataManager.jpg}
 \end{figure}
-Implementazione specifica del Data Manager per il recupero dei dati relativi all'AI-assistant generativo. 
-Si occupa di eseguire query sul database per estrarre lo storico dei prompt inviati, i parametri utilizzati (tono e stile), 
+Implementazione\G specifica del Data Manager per il recupero dei dati relativi all'AI-assistant\G generativo. 
+Si occupa di eseguire query sul database per estrarre lo storico dei prompt\G inviati, i parametri utilizzati (tono e stile), 
 i feedback registrati (rating) e i conteggi delle richieste di rigenerazione, fornendo il set di dati grezzi al \textit{AiGeneratorComputationService}.\\
 
 \textbf{Attributi} 
@@ -2396,11 +2409,11 @@ i feedback registrati (rating) e i conteggi delle richieste di rigenerazione, fo
 \end{itemize}
 
 \subsection{Classi condivise}
-Questa sezione include classi che, pur non appartenendo a un modulo specifico, 
-forniscono funzionalità trasversali utilizzate sia dal modulo di AI Co-Pilot 
-che da quello di AI-assistant generativo.
+Questa sezione include classi che, pur non appartenendo a un modulo\G specifico, 
+forniscono funzionalità\G trasversali utilizzate sia dal modulo\G di AI Co-Pilot\G
+che da quello di AI-assistant\G generativo.
 
-\subsubsection{Diagramma delle classi blocco modulo Classi condivise}
+\subsubsection{Diagramma delle classi blocco modulo\G Classi condivise}
 
 \begin{figure}[H]
 \centering
@@ -2465,8 +2478,8 @@ Si occupa di validare i parametri di input, costruire l'oggetto Sending da salva
 
 \subsubsubsection{LookupsController}
 
-Questa classe di tipo Controller fornisce endpoint API per recuperare dati di riferimento condivisi, come la lista delle aziende e degli utenti associati a ciascuna azienda.
-Questi dati sono utilizzati sia dal modulo di AI Co-Pilot che da quello di AI-assistant generativo per popolare dropdown, assegnare responsabilità o filtrare le informazioni visualizzate. Il controller delega la logica di recupero dei dati a classi di servizio dedicate (es. \textit{UsersFetcher} e \textit{CompaniesFetcher}).\\
+Questa classe di tipo Controller fornisce endpoint API\G per recuperare dati di riferimento condivisi, come la lista delle aziende e degli utenti associati a ciascuna azienda.
+Questi dati sono utilizzati sia dal modulo\G di AI Co-Pilot\G che da quello di AI-assistant\G generativo per popolare dropdown, assegnare responsabilità o filtrare le informazioni visualizzate. Il controller delega la logica di recupero dei dati a classi di servizio dedicate (es. \textit{UsersFetcher} e \textit{CompaniesFetcher}).\\
 
 \begin{figure}[H]
 \centering
@@ -2487,7 +2500,7 @@ Questi dati sono utilizzati sia dal modulo di AI Co-Pilot che da quello di AI-as
 \subsubsubsection{UsersFetcher}
 
 Questa classe di tipo Service Object è responsabile del recupero degli utenti associati a una specifica azienda.
-Fornisce un'interfaccia semplice per ottenere la lista degli employee da un database o da un servizio esterno, filtrando per azienda. Viene utilizzata principalmente dal \textit{LookupsController} per popolare le dropdown di selezione degli utenti nel front-end.\\
+Fornisce un'interfaccia\G semplice per ottenere la lista degli employee da un database o da un servizio esterno, filtrando per azienda. Viene utilizzata principalmente dal \textit{LookupsController} per popolare le dropdown di selezione degli utenti nel front-end\G.\\
 
 \begin{figure}[H]
 \centering
@@ -2507,7 +2520,7 @@ Fornisce un'interfaccia semplice per ottenere la lista degli employee da un data
 \subsubsubsection{CompaniesFetcher}
 
 Questa classe di tipo Service Object è responsabile del recupero della lista delle aziende disponibili.
-Fornisce un'interfaccia semplice per ottenere l'elenco delle aziende da un database o da un servizio esterno, restituendo i dati in un formato adatto alla serializzazione JSON. Viene utilizzata principalmente dal \textit{LookupsController} per popolare le dropdown di selezione delle aziende nel front-end.\\
+Fornisce un'interfaccia\G semplice per ottenere l'elenco delle aziende da un database o da un servizio esterno, restituendo i dati in un formato adatto alla serializzazione JSON. Viene utilizzata principalmente dal \textit{LookupsController} per popolare le dropdown di selezione delle aziende nel front-end\G.\\
 
 \begin{figure}[H]
 \centering
@@ -2527,9 +2540,9 @@ Fornisce un'interfaccia semplice per ottenere l'elenco delle aziende da un datab
 
 \section{Descrizione architettura (Frontend)}
 L'architettura frontend è organizzata in modo modulare, separando i componenti UI dai servizi di comunicazione con il backend e dagli altri servizi di utilità. \\\\
-Per semplicità e manutenibilità i dati principali (risultati di generazione, risultati di estrazione e riconoscimento) sono modellati tramite \textit{interface}. Un chiaro vantaggio di raccogliere i dati in queste strutture è il passaggio di oggetti semplici e leggeri tra i componenti e la manutenibilità del codice: se in futuro si volessero aggiungere campi o modificare la struttura dei dati, basterebbe aggiornare l'interfaccia senza dover modificare il passaggio dei dati tra i componenti.
+Per semplicità e manutenibilità\G i dati principali (risultati di generazione, risultati di estrazione e riconoscimento) sono modellati tramite \textit{interface}. Un chiaro vantaggio di raccogliere i dati in queste strutture è il passaggio di oggetti semplici e leggeri tra i componenti e la manutenibilità\G del codice: se in futuro si volessero aggiungere campi o modificare la struttura dei dati, basterebbe aggiornare l'interfaccia\G senza dover modificare il passaggio dei dati tra i componenti.
 L'uso di interface invece di classi è una scelta consapevole. Innanzitutto, le interface scompaiono completamente durante la compilazione a JavaScript, risparmiando spazio e accelerando il download e il parsing iniziale. \\
-In secondo luogo, i modelli del progetto contengono esclusivamente dati puri senza alcuna logica di business, validazione o comportamento: una classe aggiungerebbe solo complessità inutile e overhead di istanziazione. Questa scelta riflette una chiara separazione delle responsabilità: i modelli rimangono semplici contenitori di dati, mentre la validazione e la trasformazione rimangono delegate ai servizi e serializer appropriati.
+In secondo luogo, i modelli del progetto\G contengono esclusivamente dati puri senza alcuna logica di business, validazione\G o comportamento: una classe aggiungerebbe solo complessità inutile e overhead di istanziazione. Questa scelta riflette una chiara separazione delle responsabilità: i modelli rimangono semplici contenitori di dati, mentre la validazione\G e la trasformazione rimangono delegate ai servizi e serializer appropriati.
 \subsection{Definizione dei modelli dati}
 \begin{figure}[H]
 \centering
@@ -2548,30 +2561,30 @@ In secondo luogo, i modelli del progetto contengono esclusivamente dati puri sen
 \end{itemize}
 
 \begin{center}
-Nota: nel diagramma UML è rappresentata come una classe astratta per coerenza con la notazione del modello, ma nel codice TypeScript viene implementata come interface, perché per natura del linguaggio e per le esigenze del progetto è sufficiente definire la struttura dei dati senza introdurre una classe reale o comportamento astratto.
+Nota: nel diagramma UML è rappresentata come una classe astratta per coerenza con la notazione del modello, ma nel codice TypeScript\G viene implementata come interface, perché per natura del linguaggio e per le esigenze del progetto\G è sufficiente definire la struttura dei dati senza introdurre una classe reale o comportamento astratto.
 \end{center}
 \subsubsection{ResultAiAssistant}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.3\textwidth]{ImmaginiSpecificaTecnica/Frontend/ResultAiAssistant.png}
 \end{figure}
-\textit{Interface} che estende \textit{Result} e rappresenta un risultato generato dall'assistente AI.\\\\
+\textit{Interface} che estende \textit{Result} e rappresenta un risultato generato dall'assistente AI\G.\\\\
 \textbf{Campi}
 \begin{itemize}[noitemsep, topsep=0pt]
   \item id: number | null - Identificatore univoco del post ereditato da Result, può essere null se la generazione non è un post.
   \item title: string - Titolo o breve descrizione del risultato generato.
-  \item content: string - Contenuto completo del risultato generato dall'assistente AI.
+  \item content: string - Contenuto completo del risultato generato dall'assistente AI\G.
   \item imagePath: string | null - Percorso dell'immagine associata al risultato, se presente.
   \item tone: Tone - Tono utilizzato per generare il risultato (es. formale, amichevole, tecnico).
   \item style: Style - Stile di scrittura utilizzato per il risultato (es. procedurale, dettagliato, narrativo).
   \item company: Company - Azienda associata al risultato.
   \item date: Date - Data e ora in cui il risultato è stato generato.
-  \item prompt: string - Prompt di input utilizzato per generare il risultato.
+  \item prompt: string - Prompt\G  di input utilizzato per generare il risultato.
   \item evaluation: number - Valutazione numerica fornita dall'utente per il risultato (es. da 1 a 5 stelle).
   \item generatedDatumId: number | null - Identifica l'id di un risultato che non è necessariamente anche un post.
 \end{itemize}
 \begin{center}
-Nota: nel diagramma UML è rappresentata come una classe per coerenza con la notazione del modello, ma nel codice TypeScript viene implementata come interface, perché per natura del linguaggio e per le esigenze del progetto è sufficiente definire la struttura dei dati senza introdurre una classe reale.
+Nota: nel diagramma UML è rappresentata come una classe per coerenza con la notazione del modello, ma nel codice TypeScript\G viene implementata come interface, perché per natura del linguaggio e per le esigenze del progetto\G è sufficiente definire la struttura dei dati senza introdurre una classe reale.
 \end{center}
 \subsubsection{ResultAiCopilot}
 \begin{figure}[H]
@@ -2589,7 +2602,7 @@ Nota: nel diagramma UML è rappresentata come una classe per coerenza con la not
 \end{itemize}
 
 \begin{center}
-Nota: nel diagramma UML può essere rappresentata come entità di dominio, ma nel codice TypeScript è implementata come interface, in modo da descrivere solo la struttura dati senza introdurre comportamento applicativo.
+Nota: nel diagramma UML può essere rappresentata come entità di dominio, ma nel codice TypeScript\G è implementata come interface, in modo da descrivere solo la struttura dati senza introdurre comportamento applicativo.
 \end{center}
 
 
@@ -2602,9 +2615,9 @@ Nota: nel diagramma UML può essere rappresentata come entità di dominio, ma ne
 \textbf{Campi}
 \begin{itemize}[noitemsep, topsep=0pt]
 \item id: number | null - Identificatore univoco ereditato da Result per il documento estratto.
-\item name: string - Nome del documento estratto mostrato in interfaccia.
-\item state: State - Stato corrente del documento estratto nel workflow operativo.
-\item confidence: number - Confidenza complessiva dell'estrazione/analisi.
+\item name: string - Nome del documento estratto mostrato in interfaccia\G.
+\item state: State - Stato corrente del documento estratto nel workflow\G operativo.
+\item confidence: number - Confidenza\G complessiva dell'estrazione/analisi.
 \item fieldConfidences: Record<string, number> - Confidenze puntuali per singolo campo estratto.
 \item recipient: RecipientInfo - Informazioni del destinatario associato (id, nome normalizzato, nome raw, email, codice).
 \item time_Analysis: number - Tempo impiegato per l'analisi del documento estratto.
@@ -2621,20 +2634,20 @@ Nota: nel diagramma UML può essere rappresentata come entità di dominio, ma ne
 \end{itemize}
 
 \begin{center}
-Nota: anche questa entità è modellata come interface TypeScript; rappresenta un contratto dati usato da service e componenti senza comportamento interno.
+Nota: anche questa entità è modellata come interface TypeScript\G; rappresenta un contratto dati usato da service e componenti senza comportamento interno.
 \end{center}
 \subsubsection{Altre strutture di supporto}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/options.interface.png}
 \end{figure}
-\textit{Interface} usate per lo stesso motivo dei result, e in particolare per modellare le opzioni di toni, stili, aziende e template.\\
+\textit{Interface} usate per lo stesso motivo dei result, e in particolare per modellare le opzioni di toni, stili, aziende e template\G.\\
 \textbf{Campi presenti nelle opzioni}
 \begin{itemize}[noitemsep, topsep=0pt]
   \item id: number - Identificatore univoco dell'opzione.
   \item name: string - Nome visualizzato dell'opzione.
   \item isActive: boolean - Indica se l'opzione è attiva o è stata eliminata. Presente per permettere all'utente di visualizzare anche le opzioni eliminate.
-  \item content: string - Contenuto associato all'opzione, se necessario (es. messaggio del template).
+  \item content: string - Contenuto associato all'opzione, se necessario (es. messaggio del template\G).
 \end{itemize}
 \textit{Enum} usato per definire gli stati che i documenti processati possono assumere.
 \begin{figure}[H]
@@ -2645,16 +2658,15 @@ Nota: anche questa entità è modellata come interface TypeScript; rappresenta u
 \subsection{Servizi di comunicazione con il backend}
 
 \begin{itemize}
-  \item API_BASE: string (costante modulo, proprietà interna). URL base delle API HTTP backend.
-  \item WS_URL: string (costante modulo, proprietà interna). URL del canale WebSocket ActionCable.
-
+\item API_BASE: string (costante modulo\G, proprietà interna). URL base delle API\G HTTP backend.
+\item WS_URL: string (costante modulo\G, proprietà interna). URL del canale WebSocket ActionCable.
 \end{itemize}
 \subsubsection{AiAssistantService}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/AiAssistantService.drawio.png}
 \end{figure}
-È il servizio frontend che centralizza l'integrazione con l'assistente AI: gestisce invio di richieste al backend e ricezione delle risposte (incluse eventuali informazioni di stato/errore). Utilizza il wrapper HttpClient di Angular per la comunicazione HTTP mentre usa le API native dei browser per la comunicazione websocket.\\\\
+È il servizio frontend che centralizza l'integrazione con l'assistente AI\G: gestisce invio di richieste al backend e ricezione delle risposte (incluse eventuali informazioni di stato/errore). Utilizza il wrapper HttpClient di Angular\G per la comunicazione HTTP mentre usa le API\G native dei browser per la comunicazione websocket.\\\\
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Comunicazione con backend: gestisce la serializzazione dei dati e l'invio delle richieste HTTP verso il backend.
@@ -2678,7 +2690,7 @@ Nota: anche questa entità è modellata come interface TypeScript; rappresenta u
     \item allStylesSubject: BehaviorSubject<Style[]>
     \item companiesSubject: BehaviorSubject<Company[]>
   \end{itemize}
-  \item Stato del risultato corrente: conserva e pubblica il risultato generato dall'assistente AI attualmente visualizzato.
+  \item Stato del risultato corrente: conserva e pubblica il risultato generato dall'assistente AI\G attualmente visualizzato.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item resultSubject: BehaviorSubject<ResultAiAssistant>
     \item result\$: Observable<ResultAiAssistant>
@@ -2704,7 +2716,7 @@ Nota: anche questa entità è modellata come interface TypeScript; rappresenta u
     \item clearGenerationError(): void
   \end{itemize}
 
-  \item Gestione dello stato corrente: aggiorna il risultato AI attualmente visualizzato.
+  \item Gestione dello stato corrente: aggiorna il risultato AI\G attualmente visualizzato.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item setCurrentResult(result: ResultAiAssistant | null): void
     \item buildPendingResult(prompt: string, tone: Tone, style: Style, company: Company): ResultAiAssistant
@@ -2727,7 +2739,7 @@ Nota: anche questa entità è modellata come interface TypeScript; rappresenta u
     \item removeStyle(id: number): void
   \end{itemize}
 
-  \item Generazione AI: avvia e gestisce il flusso di generazione/rigenerazione del contenuto.
+  \item Generazione AI\G: avvia e gestisce il flusso di generazione/rigenerazione del contenuto.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item reuse(tone: Tone, style: Style, company: Company, prompt: string): void
     \item requireGeneration(prompt: string, tone: Tone, style: Style, company: Company): void
@@ -2756,8 +2768,8 @@ Nota: anche questa entità è modellata come interface TypeScript; rappresenta u
 \begin{itemize}[noitemsep, topsep=0pt]
 \item Comunicazione con backend: gestisce la serializzazione dei dati e l'invio delle richieste HTTP verso il backend.
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item http: HttpClient (proprietà interna). Client HTTP Angular per chiamate REST.
-  \item serializer: ResultAiCopilotSerializer (proprietà interna). 
+\item http: HttpClient (proprietà interna). Client HTTP Angular\G per chiamate REST.
+\item serializer: ResultAiCopilotSerializer (proprietà interna). Conversione payload backend 
 \end{itemize}
 \item \textbf{Attributi di stato upload/sessione}
 \begin{itemize}[noitemsep, topsep=0pt]
@@ -2784,8 +2796,8 @@ Nota: anche questa entità è modellata come interface TypeScript; rappresenta u
 \end{itemize}
 \item \textbf{Attributi di lookup/filtri/template}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item templatesSubject: BehaviorSubject<TemplateOption[]> \ Stato interno template.
-\item templates\$: Observable<TemplateOption[]> \ Observable readonly template.
+\item templatesSubject: BehaviorSubject<TemplateOption[]> \ Stato interno template\G.
+\item templates\$: Observable<TemplateOption[]> \ Observable readonly template\G.
 \item categorySubject: BehaviorSubject<string[]> \ Stato interno categorie filtro.
 \item category\$: Observable<string[]> \ Observable readonly categorie.
 \item employeesSubject: BehaviorSubject<RecipientInfo[]> \ Stato interno destinatari.
@@ -2796,8 +2808,8 @@ Nota: anche questa entità è modellata come interface TypeScript; rappresenta u
 \item department\$: Observable<string[]> \ Observable readonly reparti.
 \item stateSubject: BehaviorSubject<string[]> \ Stato interno opzioni stato documento.
 \item state\$: Observable<string[]> \ Observable readonly stati.
-\item confidenceSubject: BehaviorSubject<string[]> \ Stato interno classi di confidenza.
-\item confidence\$: Observable<string[]> \ Observable readonly confidenza.
+\item confidenceSubject: BehaviorSubject<string[]> \ Stato interno classi di confidenza\G.
+\item confidence\$: Observable<string[]> \ Observable readonly confidenza\G.
 \end{itemize}
 \end{itemize}
 
@@ -2878,9 +2890,9 @@ Aggiorna metadati di un estratto e propaga il nuovo stato in UI e history.
 \item \textbf{Template, invio e lookup}
 \begin{itemize}[noitemsep, topsep=0pt]
 \item newTemplate(name: string, content: string): void \
-Crea un nuovo template e aggiorna lo stato locale template.
+Crea un nuovo template\G  e aggiorna lo stato locale template\G.
 \item fetchTemplates(): void \
-Recupera elenco template e dettagli completi di ciascun template.
+Recupera elenco template\G e dettagli completi di ciascun template\G.
 \item \$(payload: CreateSendingPayload): Observable<any> \
 Crea un invio e registra eventuale scheduling futuro del documento.
 \item fetchCategories(): void \
@@ -2890,7 +2902,7 @@ Estrae reparti unici dalla history risultati.
 \item fetchState(): void \
 Popola i valori di filtro stato a partire dall'enum State.
 \item fetchConfidence(): void \
-Popola gli intervalli di confidenza predefiniti.
+Popola gli intervalli di confidenza\G predefiniti.
 \item fetchCompanies(): void \
 Recupera le aziende disponibili dal backend.
 \item fetchEmployeesByCompany(company: string): void \
@@ -2912,14 +2924,14 @@ Apre il PDF dell'estratto con cache-buster temporale per evitare versioni non ag
 \end{figure}
 DA FARE %todo
 \subsection{Adapter: Serializzazione/deserializzazione dei dati}
-Benchè in Typescript è semplice convertire dati strutturati json in interfacce, le classi sono state utilizzate per non dipendere dalla struttura esatta dei dati restituiti dal backend e conformali alle esigenze del frontend. \\
+Benchè in Typescript\G è semplice convertire dati strutturati json in interfacce, le classi sono state utilizzate per non dipendere dalla struttura esatta dei dati restituiti dal backend e conformali alle esigenze del frontend. \\
 Inoltre questi serializer fungono da punto centrale per la gestione di eventuali trasformazioni, normalizzazioni o arricchimenti dei dati, rispettando il principio di single responsibility e mantenendo il codice dei servizi di comunicazione più pulito e focalizzato sulla logica di comunicazione piuttosto che sulla manipolazione dei dati.
 \subsubsection{ResultAiAssistantSerializer}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/serializer-aiAssistant.png}
 \end{figure}
-Questa classe funge da adapter per la serializzazione e deserializzazione dei dati relativi al modulo dell'Ai Assistant Generativo.
+Questa classe funge da adapter per la serializzazione e deserializzazione dei dati relativi al modulo\G dell'Ai Assistant Generativo.
 È responsabile di convertire i dati ricevuti dal backend (in formato JSON) in valori di tipo ResultAiAssistant, Tone, Style o Company.\\
 \textbf{Attributi}
 
@@ -2947,7 +2959,7 @@ Questa classe funge da adapter per la serializzazione e deserializzazione dei da
 \item deserializePostItem(payload: any): ResultAiAssistant
 \end{itemize}
 
-\item Metodi di supporto e validazione interna (privati).
+\item Metodi di supporto e validazione\G interna (privati).
 \begin{itemize}[noitemsep, topsep=0pt]
 \item isRecord(value: unknown): value is Record<string, unknown>
 \item asString(value: unknown, fallback = ''): string
@@ -2970,7 +2982,7 @@ Questa classe funge da adapter per la serializzazione e deserializzazione dei da
 \begin{itemize}[noitemsep, topsep=0pt]
 \item Proprietà interne.
 \begin{itemize}[noitemsep, topsep=0pt]
-\item Il serializer non definisce attributi di input/output Angular e non mantiene stato interno persistente.
+\item Il serializer non definisce attributi di input/output Angular\G e non mantiene stato interno persistente.
 \item La classe è stateless: trasforma dati in ingresso/uscita tramite metodi puramente funzionali.
 \end{itemize}
 \end{itemize}
@@ -3026,7 +3038,7 @@ Componente UI che rappresenta un menù di navigazione laterale.
     Servizio PrimeNG per la gestione di notifiche/messaggi applicativi.
 
     \item router: Router \\
-    Servizio Angular usato per leggere la rotta corrente ed effettuare navigazioni programmatiche.
+    Servizio Angular\G usato per leggere la rotta corrente ed effettuare navigazioni programmatiche.
   \end{itemize}
   
   \item items: MenuItem[] | undefined \\
@@ -3038,13 +3050,13 @@ Componente UI che rappresenta un menù di navigazione laterale.
   \item Inizializzazione menu: costruisce la struttura delle voci e le relative azioni di navigazione.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item ngOnInit(): void \\
-    Inizializza l'array items con le sezioni principali del menu (AI Assistant Generativo, AI Co-Pilot per CDL, Analytics), configurando routerLink o command per ciascuna voce.
+    Inizializza l'array items con le sezioni principali del menu (AI Assistant\G Generativo, AI Co-Pilot\G per CDL\G, Analytics), configurando routerLink o command per ciascuna voce.
   \end{itemize}
 
   \item Azioni di navigazione contestuale: gestiscono casi specifici di routing.
   \begin{itemize}[noitemsep, topsep=0pt]
-    \item command (voce Storico AI Co-Pilot): void \\
-    Esegue navigazione verso la pagina di storico AI Co-Pilot e imposta replaceUrl in base alla rotta corrente, per gestire correttamente lo storico del browser.
+    \item command (voce Storico AI Co-Pilot\G): void \\
+    Esegue navigazione verso la pagina di storico AI Co-Pilot\G e imposta replaceUrl in base alla rotta corrente, per gestire correttamente lo storico del browser.
   \end{itemize}
 \end{itemize}
 
@@ -3075,7 +3087,7 @@ Componente UI riutilizzabile che rappresenta un pulsante con etichetta e icona p
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/menu-tendina.png}
 \end{figure}
-Componente UI che rappresenta un menu a tendina con ricerca e pulsante per aggiungere opzioni. Viene utilizzato per gestire le scelte di toni, stili le aziende o i template.\\
+Componente UI che rappresenta un menu a tendina con ricerca e pulsante per aggiungere opzioni. Viene utilizzato per gestire le scelte di toni, stili le aziende o i template\G.\\
 \textbf{Attributi}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
@@ -3132,13 +3144,13 @@ Componente UI che rappresenta un menu a tendina con ricerca e pulsante per aggiu
 \centering
 \includegraphics[width=0.3\textwidth]{ImmaginiSpecificaTecnica/Frontend/prompt-component.png}
 \end{figure}
-Componente UI che rappresenta un'area di testo per l'inserimento del prompt da inviare all'assistente AI, con funzionalità di invio tramite pulsante o tasto
+Componente UI che rappresenta un'area di testo per l'inserimento del prompt\G da inviare all'assistente AI\G, con funzionalità\G di invio tramite pulsante o tasto
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Proprietà di input: definiscono il contenuto e il comportamento del campo di testo.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item prompt: string \\
-    Contiene il testo del prompt inserito o visualizzato nel campo.
+    Contiene il testo del prompt\G inserito o visualizzato nel campo.
 
     \item autoResize: boolean \\
     Abilita o disabilita il ridimensionamento automatico dell'area di testo.
@@ -3159,7 +3171,7 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
   \item Proprietà di output: comunicano al componente padre le modifiche del testo inserito.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item promptChange: EventEmitter<string> \\
-    Emette il nuovo valore del prompt quando il contenuto del campo cambia.
+    Emette il nuovo valore del prompt\G quando il contenuto del campo cambia.
   \end{itemize}
 \end{itemize}
 \subsubsection{Filters}
@@ -3292,7 +3304,7 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
 \centering
 \includegraphics[width=0.45\textwidth]{ImmaginiSpecificaTecnica/Frontend/rating-component.png}
 \end{figure}
-Componente UI che rappresenta un sistema di valutazione a stelle, utilizzato per valutare i risultati generati dall'assistente AI.\\
+Componente UI che rappresenta un sistema di valutazione a stelle, utilizzato per valutare i risultati generati dall'assistente AI\G.\\
 \textbf{Attributi}
 
 \begin{itemize}
@@ -3394,7 +3406,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     Abilita o disabilita la visualizzazione del dialog.
 
     \item type: AddDialogType \\
-    Specifica il tipo di elemento da aggiungere: tone, style, template o company.
+    Specifica il tipo di elemento da aggiungere: tone, style, template\G o company.
   \end{itemize}
 
   \item Proprietà di output: comunicano al componente padre le azioni del dialog.
@@ -3415,7 +3427,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     Descrizione dell'elemento inserita nel campo di input.
 
     \item submitted: boolean \\
-    Flag che traccia se il form è stato inviato, usato per la visualizzazione degli errori di validazione.
+    Flag che traccia se il form è stato inviato, usato per la visualizzazione degli errori di validazione\G.
   \end{itemize}
 \end{itemize}
 
@@ -3666,7 +3678,7 @@ Componente UI che rappresenta una tabella con righe espandibili che contengono a
   \item Proprietà interne: mantengono lo stato locale e gestiscono la logica di visualizzazione del componente.
     \begin{itemize}
     \item activeValues: string[] (Proprietà interna) \
-    Mantiene lo stato degli elementi attivi nell'interfaccia annidata.
+    Mantiene lo stato degli elementi attivi nell'interfaccia\G annidata.
     \end{itemize}
 \end{itemize}
 \textbf{Metodi}
@@ -3690,7 +3702,7 @@ Restituisce la classe di severità CSS coerente con lo stato del documento per l
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/upload-component.png}
 \end{figure}
-Componente UI che rappresenta un'area di drop per il caricamento di file, con supporto per selezione manuale tramite dialog di sistema. Viene utilizzato per consentire agli utenti di caricare documenti da processare tramite OCR e estrazione dati.
+Componente UI che rappresenta un'area di drop per il caricamento di file, con supporto per selezione manuale tramite dialog di sistema. Viene utilizzato per consentire agli utenti di caricare documenti da processare tramite OCR\G e estrazione dati.
 \textbf{Attributi}
 
 \begin{itemize}
@@ -3710,12 +3722,12 @@ Definisce le estensioni di file accettate dal selettore di caricamento.
   \item subtitleText: string (Input) \\
   Testo secondario visualizzato sotto il titolo del componente.
 \end{itemize}
-\item Proprietà di output: comunicano al componente padre i file selezionati e gli eventuali errori di validazione.
+\item Proprietà di output: comunicano al componente padre i file selezionati e gli eventuali errori di validazione\G.
 \begin{itemize}
 \item filesSelected: EventEmitter<File[]> (Output) \
 Emette l'insieme dei file validi selezionati dall'utente.
   \item fileValidationError: EventEmitter<UploadValidationError> (Output) \\
-  Emette l'elenco dei file non validi quando la validazione fallisce.
+  Emette l'elenco dei file non validi quando la validazione\G fallisce.
 \end{itemize}
 \item Proprietà interne: mantengono lo stato locale e gestiscono l'accesso al controllo nativo.
 \begin{itemize}
@@ -3745,7 +3757,7 @@ Gestisce la selezione effettuata tramite input nativo, valida i file e resetta i
 Filtra i file validi, emette gli errori per quelli non ammessi e pubblica l'elenco dei file accettati tramite filesSelected.
 
 \item private isAllowedFile(file: File): boolean \
-Verifica se un file rispetta le estensioni configurate nella proprietà accept.
+Verifica\G se un file rispetta le estensioni configurate nella proprietà accept.
 
 \item private parseAcceptedTypes(): Set<string> \
 Converte la stringa di configurazione accept in un insieme di estensioni normalizzate e confrontabili.
@@ -3800,7 +3812,7 @@ Notifica la richiesta di apertura del PDF originale.
 
 \begin{itemize}
 \item getFieldConfidence(...keys: string[]): number \textbar{} null \
-Restituisce il livello di confidenza del primo campo disponibile tra quelli indicati.
+Restituisce il livello di confidenza\G del primo campo disponibile tra quelli indicati.
 
 \item getFieldValue(field: keyof ResultSplit, fallback: string = 'Non trovato'): string \textbar{} number \
 Recupera il valore di un campo considerando prima le modifiche pendenti e poi il dato originale, con fallback configurabile.
@@ -3869,7 +3881,7 @@ Componente UI che rappresenta un dialog per la selezione di un dipendente dalla 
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/page-range-input-component.drawio.png}
 \end{figure}
-Componente UI che rappresenta un campo di input per l'inserimento di un intervallo di pagine, con validazione e parsing del formato "start-end".
+Componente UI che rappresenta un campo di input per l'inserimento di un intervallo di pagine, con validazione\G e parsing del formato "start-end".
 \textbf{Attributi}
 
 \begin{itemize}
@@ -3973,12 +3985,12 @@ Definisce lo stato testuale da rappresentare nella pillola di stato.
   Emette l'indice della riga da rimuovere tramite \texttt{rowRemoved}.
 \end{itemize}
 
-\textbf{ExtractedEmployeeInfoRow (interfaccia di supporto)}
+\textbf{ExtractedEmployeeInfoRow (interfaccia\G di supporto)}
 
 \textbf{Attributi}
 
 \begin{itemize}
-  \item Tipo dati di supporto: non è un componente Angular, ma un'interfaccia TypeScript usata da \texttt{ExtractedEmployeeInfo}.
+  \item Tipo dati di supporto: non è un componente Angular\G, ma un'interfaccia\G TypeScript\G usata da \texttt{ExtractedEmployeeInfo}.
   \begin{itemize}
     \item name: string \
     Nome normalizzato del dipendente associato alla riga.
@@ -3989,7 +4001,7 @@ Definisce lo stato testuale da rappresentare nella pillola di stato.
     Indica se è stata trovata una corrispondenza valida con un dipendente noto.
 
     \item recipientConfidence: number \textbar{} null \\
-    Livello di confidenza dell'estrazione del destinatario; nullo se non disponibile.
+    Livello di confidenza\G dell'estrazione del destinatario; nullo se non disponibile.
 
     \item employeeCode: string \\
     Codice identificativo del dipendente.
@@ -4013,7 +4025,7 @@ Componente UI che rappresenta gli altri documenti estratti oltre quello corrente
 \item Proprietà di input: configurano i dati mostrati nella tabella dei documenti estratti.
 \begin{itemize}
 \item rows: OtherExtractDocumentRow[] (Input) \
-Elenco delle righe da visualizzare, ciascuna contenente identificativo, nominativo destinatario e confidenza.
+Elenco delle righe da visualizzare, ciascuna contenente identificativo, nominativo destinatario e confidenza\G.
 \end{itemize}
 
 \item Proprietà di output: comunicano al componente padre le azioni utente sulle righe.
@@ -4037,7 +4049,7 @@ Inoltra verso l'esterno la richiesta di rimozione di una riga emettendo il relat
 \textbf{Attributi}
 
 \begin{itemize}
-\item Tipo dati di supporto: non è un componente Angular, ma un'interfaccia TypeScript usata da \texttt{OtherExtractDocuments}.
+\item Tipo dati di supporto: non è un componente Angular\G, ma un'interfaccia\G TypeScript\G usata da \texttt{OtherExtractDocuments}.
 \begin{itemize}
 \item id: number \textbar{} null \
 Identificativo univoco della riga; può essere nullo quando il record non è ancora persistito o identificato.
@@ -4045,7 +4057,7 @@ Identificativo univoco della riga; può essere nullo quando il record non è anc
   Nome del destinatario associato al documento estratto.
 
   \item confidence: number \\
-  Valore numerico di confidenza dell'estrazione associata alla riga.
+  Valore numerico di confidenza\G dell'estrazione associata alla riga.
 \end{itemize}
 \end{itemize}
 \subsubsection{SendDocumentDialog}
@@ -4053,7 +4065,7 @@ Identificativo univoco della riga; può essere nullo quando il record non è anc
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/send-document-dialog-component.drawio.png}
 \end{figure}
-Componente UI che rappresenta un dialog per la conferma dell'invio di un documento. Mostra un campo di testo per inserire un messaggio personalizzato o la selezione di un template per un messaggio predefinito. Inoltre mostra la possibilità di inviare il messaggio immediatamente o programmarlo a orari prestabiliti. Infine il pulsante di invio.
+Componente UI che rappresenta un dialog per la conferma dell'invio di un documento. Mostra un campo di testo per inserire un messaggio personalizzato o la selezione di un template\G per un messaggio predefinito. Inoltre mostra la possibilità di inviare il messaggio immediatamente o programmarlo a orari prestabiliti. Infine il pulsante di invio.
 \textbf{Attributi}
 
 \begin{itemize}
@@ -4073,7 +4085,7 @@ Riferimento al dialog corrente, usato per chiudere la finestra con o senza paylo
   Configurazione del dialog, usata per leggere i dati passati in apertura.
 
   \item aiService: AiCoPilotService (Proprietà interna, privata) \
-  Servizio applicativo usato per la creazione di nuovi template.
+  Servizio applicativo usato per la creazione di nuovi template\G.
 
   \item addDialogVisible: boolean (Proprietà interna) \
   Indica se il dialog secondario di aggiunta è visibile.
@@ -4082,10 +4094,10 @@ Riferimento al dialog corrente, usato per chiudere la finestra con o senza paylo
   Specifica il tipo di dialog secondario da aprire (es. template/tone).
 
   \item templates\$: Observable<TemplateOption[]> \textbar{} undefined (Proprietà interna) \
-  Stream dei template disponibili da mostrare nella selezione.
+  Stream dei template\G disponibili da mostrare nella selezione.
 
   \item selectedTemplate: TemplateOption \textbar{} null (Proprietà interna) \
-  Template attualmente selezionato dall'utente.
+  Template\G attualmente selezionato dall'utente.
 
   \item \_messaggio: string (Proprietà interna, privata) \
   Buffer interno del testo messaggio, usato dagli accessor della proprietà messaggio.
@@ -4099,35 +4111,35 @@ Riferimento al dialog corrente, usato per chiudere la finestra con o senza paylo
 \item Proprietà calcolate interne:
 \begin{itemize}
 \item messaggio: string (Accessor get/set) \
-Espone il contenuto del messaggio: in lettura usa \texttt{_messaggio} oppure il contenuto del template selezionato; in scrittura aggiorna \texttt{_messaggio}.
+Espone il contenuto del messaggio: in lettura usa \texttt{_messaggio} oppure il contenuto del template\G selezionato; in scrittura aggiorna \texttt{_messaggio}.
 \end{itemize}
 \end{itemize}
 
 \textbf{Metodi}
 \begin{itemize}
 \item get messaggio(): string \
-Restituisce il testo del messaggio privilegiando il valore inserito manualmente, con fallback al contenuto del template selezionato.
+Restituisce il testo del messaggio privilegiando il valore inserito manualmente, con fallback al contenuto del template\G selezionato.
 
 \item set messaggio(value: string): void \
 Aggiorna il contenuto interno del messaggio.
 
 \item onTemplateSelected(template: TemplateOption \textbar{} null): void \
-Aggiorna il template selezionato e sincronizza il messaggio con il contenuto del template scelto.
+Aggiorna il template\G selezionato e sincronizza il messaggio con il contenuto del template\G scelto.
 
 \item ngOnInit(): void \
-Inizializza il componente leggendo dallo stato del dialog lo stream dei template disponibili.
+Inizializza il componente leggendo dallo stato del dialog lo stream dei template\G disponibili.
 
 \item openAddDialog(type: AddDialogType): void \
 Imposta il tipo di dialog secondario da aprire e ne abilita la visualizzazione.
 
 \item handleAddSave(event: AddDialogSaveData): void \
-Gestisce il salvataggio dal dialog secondario e, se il tipo è template, invoca il servizio per crearne uno nuovo.
+Gestisce il salvataggio dal dialog secondario e, se il tipo è template\G, invoca il servizio per crearne uno nuovo.
 
 \item closeDialog(): void \
 Chiude il dialog senza restituire dati di conferma.
 
 \item confirmDialog(): void \
-Costruisce il payload \texttt{SendDocumentData} con messaggio, orario, allegati e template selezionato, quindi chiude il dialog restituendolo.
+Costruisce il payload \texttt{SendDocumentData} con messaggio, orario, allegati e template\G selezionato, quindi chiude il dialog restituendolo.
 \end{itemize}
 \subsection{Macro componenti UI (pagine)}
 \subsubsection{Pagina di generazione}
@@ -4135,7 +4147,7 @@ Costruisce il payload \texttt{SendDocumentData} con messaggio, orario, allegati 
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/generatore-page.png}
 \end{figure}
-Pagina principale per la generazione di documenti, che utilizza i componenti Menutendina, button, prompt, AddDialog e riceve segnali da questi per fare operazioni con l'AiAssistantService.
+Pagina principale per la generazione di documenti, che utilizza i componenti Menutendina, button, prompt\G, AddDialog e riceve segnali da questi per fare operazioni con l'AiAssistantService.
 \textbf{Attributi}
 
 \begin{itemize}
@@ -4148,7 +4160,7 @@ Iniettato per la navigazione verso la pagina dei risultati generati.
 Servizio applicativo iniettato per la gestione delle richieste di generazione, il recupero di toni/stili/aziende e la creazione di nuove opzioni.
 
 \item prompt: string (Proprietà interna) \
-Contiene il testo del prompt inserito dall'utente, inizializzato dallo stato di navigazione.
+Contiene il testo del prompt\G inserito dall'utente, inizializzato dallo stato di navigazione.
 
 \item tones\$: Observable (Proprietà interna) \
 Stream reattivo dei toni disponibili, sempre sincronizzato con il servizio.
@@ -4178,7 +4190,7 @@ Specifica il tipo di dialog secondario da aprire (tone o style).
 \item Proprietà calcolate interne:
 \begin{itemize}
 \item canGenerate: boolean (Accessor get) \
-Restituisce true se sono selezionati un tono, uno stile e il prompt contiene almeno 50 caratteri; abilita il pulsante di generazione.
+Restituisce true se sono selezionati un tono, uno stile e il prompt\G contiene almeno 50 caratteri; abilita il pulsante di generazione.
 \end{itemize}
 \end{itemize}
 
@@ -4186,10 +4198,10 @@ Restituisce true se sono selezionati un tono, uno stile e il prompt contiene alm
 
 \begin{itemize}
 \item get canGenerate(): boolean \
-Valida lo stato di completamento del modulo: verifica la selezione di tono, stile e la lunghezza minima del prompt.
+Valida lo stato di completamento del modulo\G: verifica\G la selezione di tono, stile e la lunghezza minima del prompt\G.
 
 \item generate(): void \
-Invia la richiesta di generazione al servizio con prompt, tono, stile e azienda selezionati. Sottoscrive il risultato e naviga verso la pagina dei risultati.
+Invia la richiesta di generazione al servizio con prompt\G, tono, stile e azienda selezionati. Sottoscrive il risultato e naviga verso la pagina dei risultati.
 
 \item ngOnInit(): void \
 Inizializza il componente eseguendo il recupero delle aziende e, se un'azienda è preselezionata, carica i toni e gli stili ad essa associati.
@@ -4312,10 +4324,10 @@ Abilita la modalità di modifica svuotando le modifiche precedenti e impostando 
 Invoca il servizio per registrare la valutazione dell'utente sul generatedDatumId del result corrente.
 
 \item reuseGeneration(): void \
-Prepara il riutilizzo della generazione inviando al servizio tono, stile, azienda e prompt dal result corrente.
+Prepara il riutilizzo della generazione inviando al servizio tono, stile, azienda e prompt\G dal result corrente.
 
 \item duplicateGeneration(): void \
-Naviga verso il generatore passando lo stato di tono, stile, azienda e prompt dal result corrente per la duplicazione.
+Naviga verso il generatore passando lo stato di tono, stile, azienda e prompt\G dal result corrente per la duplicazione.
 \end{itemize}
 \subsubsection{Pagina di storico dei risultati dell'Ai Assistant}
 \begin{figure}[H]
@@ -4415,7 +4427,7 @@ Applica tutti i criteri di filtro disponibili su storico, ricerca testuale, tono
 Normalizza una stringa per la ricerca rimuovendo markup HTML, spazi multipli e maiuscole, così da rendere i confronti consistenti.
 
 \item isInSelectedDateRange(value: Date | string | undefined): boolean \
-Verifica se una data rientra nell'intervallo selezionato; se non ci sono date impostate, considera il record valido.
+Verifica\G se una data rientra nell'intervallo selezionato; se non ci sono date impostate, considera il record valido.
 
 \item toDate(value: Date | string | undefined): Date | null \
 Converte un valore in una istanza Date valida oppure restituisce null se la conversione non è possibile.
@@ -4435,8 +4447,8 @@ Aggiorna l'azienda selezionata e riapplica i filtri alla tabella.
 
 La progettazione e lo sviluppo del sistema si sono avvalsi di consolidati design
 pattern, sia implementati esplicitamente nella logica di dominio, sia ereditati
-intrinsecamente dal framework Ruby on Rails. L'adozione di tali paradigmi ha
-garantito modularità, manutenibilità ed elevata testabilità dell'intero
+intrinsecamente dal framework Ruby on Rails\G. L'adozione di tali paradigmi ha
+garantito modularità\G, manutenibilità\G ed elevata testabilità dell'intero
 applicativo.
 
 Il backend è strutturato attorno a un'architettura a servizi stratificata:
@@ -4485,7 +4497,7 @@ MVC                 & Architetturale  & ---      & Intera applicazione Rails \\
 \subsubsection{Service Object}
 
 \textit{Intent: Incapsulare un'operazione di business complessa in una classe dedicata con
-un'unica responsabilità, esponendo un'interfaccia uniforme \code{call(\ldots)}, o, in alternativa, un set di metodi pubblici che rappresentano le fasi dell'operazione.}
+un'unica responsabilità, esponendo un'interfaccia\G uniforme \code{call(\ldots)}, o, in alternativa, un set di metodi pubblici che rappresentano le fasi dell'operazione.}
 
 Il pattern \pattern{Service Object} costituisce l'ossatura della logica
 applicativa. Ogni servizio ha una responsabilità precisa e non porta stato
@@ -4494,8 +4506,8 @@ persistente tra invocazioni distinte. \\
 Esempi:
 
 \paragraph{ProcessDataItem}
-Orchestratore centrale della pipeline OCR: coordina riconoscimento ottico dei
-caratteri, estrazione dati tramite LLM, calcolo della confidenza, risoluzione
+Orchestratore centrale della pipeline OCR\G: coordina riconoscimento ottico dei
+caratteri, estrazione dati tramite LLM\G, calcolo della confidenza\G, risoluzione
 del destinatario e persistenza del risultato.
 
 \begin{lstlisting}[caption={ProcessDataItem -- struttura del metodo \code{call}}]
@@ -4530,7 +4542,7 @@ module DocumentProcessing
       ocr_result = @ocr_service.extract_text(file_path)
       # 2. Estrazione strutturata via LLM
       extracted  = @data_extractor.extract(ocr_result.text)
-      # 3. Confidenza
+      # 3. Confidenza\G
       confidence = @confidence_calculator_factory.call(
         ocr_lines: ocr_result.lines, llm_result: extracted
       ).global_confidence
@@ -4557,11 +4569,11 @@ e accoda un job \code{DataExtractionJob} per ciascuna porzione.
 \paragraph{ProcessGenericFile}
 Gestisce file non-PDF (CSV, immagini) tramite il pattern Strategy
 (si veda la sezione \ref{sec:strategy}): seleziona il processore appropriato
-in base al \code{file\_kind} e applica gli override utente con confidenza 1.0.
+in base al \code{file\_kind} e applica gli override utente con confidenza\G 1.0.
 
 \paragraph{AiGeneratorService}
-SI occupa di fare le chiamate al modello LLM per generare i testi e immagini in uscita, applicando i toni e stili selezionati dall'utente.
-Orchestra la costruzione dei prompt, l'invocazione del modello e il salvataggio del risultato, 
+SI occupa di fare le chiamate al modello LLM\G per generare i testi e immagini in uscita, applicando i toni e stili selezionati dall'utente.
+Orchestra la costruzione dei prompt\G, l'invocazione del modello e il salvataggio del risultato, 
 restituendo l'output della richiesta.
 
 % ------------------------------------------------------------------
@@ -4575,7 +4587,7 @@ I Command centralizzano le operazioni di business esposte dai Controller,
 restituendo sempre un hash di risultato strutturato e isolando la gestione
 degli errori dalla presentazione HTTP.
 
-\begin{lstlisting}[caption={InitializeProcessing -- validazione e avvio pipeline}]
+\begin{lstlisting}[caption={InitializeProcessing -- validazione\G e avvio pipeline}]
 # app/services/document_processing/commands/initialize_processing.rb
 module DocumentProcessing
   module Commands
@@ -4670,15 +4682,15 @@ I tre Command del sistema sono riepilogati in tabella~\ref{tab:commands}.
 \subsubsection{Repository}
 % ------------------------------------------------------------------
 
-\textit{Intent (POEAA -- Fowler): Mediare tra il dominio e il livello di mapping dati usando un'interfaccia
+\textit{Intent (POEAA -- Fowler): Mediare tra il dominio e il livello di mapping dati usando un'interfaccia\G
 simile a una collezione per accedere agli oggetti del dominio.}
 
-I Repository centralizzano tutte le transizioni di stato e le query di
+I Repository\G centralizzano tutte le transizioni di stato e le query di
 persistenza, isolando il resto dell'applicazione da ActiveRecord. 
 Rails ha uno degli ORM piú completi sul mercato e per query semplici è possibile utilizzare direttamente i modelli, 
 in quanto le operazioni sono native e non ha senso introdurre un ulteriore livello di astrazione che non aggiunge valore.
 Tuttavia, per operazioni più complesse (es. transizioni di stato con lock, query aggregate) è consigliabile incapsulare 
-la logica in un Repository dedicato, evitando duplicazioni e garantendo la correttagestione della concorrenza, 
+la logica in un Repository\G dedicato, evitando duplicazioni e garantendo la correttagestione della concorrenza, 
 permettendo di separare nettamente la logica di dominio dalla persistenza. \\
 
 
@@ -4769,8 +4781,8 @@ dipendenze senza istanziarle direttamente.}
 
 \paragraph{DocumentProcessing::Container}
 Il Container è il cuore dell'architettura: gestisce l'intero grafo di
-dipendenze del modulo OCR, inizializzando i servizi con lazy memoization
-e supportando l'override di qualsiasi componente per i test.
+dipendenze del modulo\G OCR\G, inizializzando i servizi con lazy memoization
+e supportando l'override di qualsiasi componente per i test\G.
 
 \begin{lstlisting}[caption={DocumentProcessing::Container -- composizione delle dipendenze}]
 # app/services/document_processing/container.rb
@@ -4871,10 +4883,10 @@ end
 \end{lstlisting}
 
 \paragraph{AiGenerator::AiGeneratorContainer}
-Container analogo per il modulo di generazione AI: gestisce i servizi
-Bedrock per testo e immagini, il data manager e la factory dei parametri.
+Container analogo per il modulo\G di generazione AI\G: gestisce i servizi
+Bedrock\G per testo e immagini, il data manager e la factory dei parametri.
 
-\begin{lstlisting}[caption={AiGeneratorContainer -- servizi Bedrock con configurazione da ENV}]
+\begin{lstlisting}[caption={AiGeneratorContainer -- servizi Bedrock\G con configurazione da ENV}]
 # app/services/ai_generator/ai_generator_container.rb
 module AiGenerator
 class AiGeneratorContainer
@@ -4960,9 +4972,9 @@ def image_processor
 end
 \end{lstlisting}
 
-Entrambi i processori condividono la stessa interfaccia \code{call(file\_path)}
+Entrambi i processori condividono la stessa interfaccia\G \code{call(file\_path)}
 e restituiscono un hash uniforme con \code{metadata}, \code{confidence},
-\code{recipient} e \code{ocr\_text}. Il chiamante (\code{ProcessGenericFile})
+\code{recipient} e \code{ocr\G\_text}. Il chiamante (\code{ProcessGenericFile})
 non conosce quale strategia stia usando:
 
 \begin{lstlisting}[caption={ProcessGenericFile -- polimorfismo tramite Strategy}]
@@ -4973,7 +4985,7 @@ def call(file_path:, job_id:, uploaded_document_id:, ...)
   # file_processor e' gia' la strategia corretta
   result = @file_processor.call(file_path)
 
-  # Override utente: confidenza 1.0 (certezza massima)
+  # Override utente: confidenza\G 1.0 (certezza massima)
   result[:metadata].merge!(override_company: override_company) if override_company
   create_extracted_document(uploaded, result, ...)
 end
@@ -4983,7 +4995,7 @@ end
 \subsubsection{Factory Method}
 % ------------------------------------------------------------------
 
-\textit{Intent (GoF): Definire un'interfaccia per la creazione di un oggetto, lasciando alle
+\textit{Intent (GoF): Definire un'interfaccia\G per la creazione di un oggetto, lasciando alle
 sottoclassi (o ai metodi specializzati) la decisione su quale classe
 istanziare.}
 
@@ -5023,7 +5035,7 @@ di persistenza.}
 
 \paragraph{ExtractedDocumentPresenter}
 Trasforma un record \code{ExtractedDocument} (con le sue relazioni) nella
-struttura JSON restituita dall'API, generando anche l'URL di download del PDF:
+struttura JSON restituita dall'API\G, generando anche l'URL di download del PDF:
 
 \begin{lstlisting}[caption={ExtractedDocumentPresenter -- trasformazione modello in JSON}]
 # app/services/document_processing/presenters/extracted_document_presenter.rb
@@ -5144,7 +5156,7 @@ end
 \end{lstlisting}
 
 \paragraph{AiJobOrchestrator}
-Orchestratore degli stati del job AI: coordina creazione, avvio, completamento
+Orchestratore degli stati del job AI\G: coordina creazione, avvio, completamento
 e fallimento della generazione, notificando il frontend sul canale
 \code{generation\_channel}:
 
@@ -5217,7 +5229,7 @@ end
 \subsubsection{Model-View-Controller (MVC)}
 
 L'architettura dell'intera applicazione è fondata sul pattern MVC imposto
-da Ruby on Rails:
+da Ruby on Rails\G:
 
 \begin{itemize}[noitemsep]
   \item \textbf{Model}: gestisce la logica dei dati, le validazioni e le
@@ -5228,16 +5240,16 @@ da Ruby on Rails:
         e delegando ai Command o ai Service Object la logica di business.
 \end{itemize}
 
-Non si tratta del tradizionale approccio MVC basato su template HTML generati lato server — in questo caso, infatti, la 
+Non si tratta del tradizionale approccio MVC basato su template\G HTML generati lato server — in questo caso, infatti, la 
 “view” è rappresentata da dati in formato JSON — ma la struttura di base rimane comunque riconoscibile. I controller continuano a 
 svolgere il ruolo di intermediari tra le richieste HTTP e la logica applicativa, che è incapsulata nei servizi e nei modelli.\\
 Ci troviamo però di fronte a un approccio più moderno, caratterizzato da una netta separazione tra backend e frontend. Il backend si limita a 
-esporre API RESTful, senza occuparsi del rendering o della presentazione dei dati. Questo consente di ottenere un'architettura più modulare, 
+esporre API\G RESTful, senza occuparsi del rendering o della presentazione dei dati. Questo consente di ottenere un'architettura più modulare, 
 scalabile e manutenibile.\\
-Il rendering viene invece delegato ad Angular, che gestisce la visualizzazione lato client (client-side rendering), evitando di sovraccaricare 
+Il rendering viene invece delegato ad Angular\G, che gestisce la visualizzazione lato client (client-side rendering), evitando di sovraccaricare 
 il server. Questo si differenzia dal classico MVC, in cui il rendering avviene lato server (server-side rendering).\\
 
-Questo modello dunque rappresenta oggi uno standard per applicazioni sviluppate con Ruby on Rails e offre diversi vantaggi: maggiore scalabilità, 
+Questo modello dunque rappresenta oggi uno standard per applicazioni sviluppate con Ruby on Rails\G e offre diversi vantaggi: maggiore scalabilità\G, 
 flessibilità nella scelta del frontend, interfacce più reattive grazie al paradigma delle Single Page Application (SPA), distribuzione del 
 carico sul client e possibilità di riutilizzare il backend per applicazioni mobile o integrazioni con servizi di terze parti.
 
@@ -5296,7 +5308,7 @@ end
 
 Ogni classe Modello mappa una tabella del database (pattern \pattern{Active
 Record} di Martin Fowler), nascondendo la complessità SQL e fornendo
-un'interfaccia orientata agli oggetti per operazioni CRUD, relazioni e
+un'interfaccia\G orientata agli oggetti per operazioni CRUD, relazioni e
 validazioni:
 
 \begin{lstlisting}[caption={Modelli principali -- associazioni, validazioni e predicate methods}]
@@ -5355,9 +5367,9 @@ gestione delle chiavi esterne a livello applicativo: la cancellazione di un
 
 
 \subsubsection{Active Storage}
-Il modulo Active Storage di Rails gestisce l'upload, la memorizzazione e la
-recupero dei file, permettendo l'utilizzo sia di servizi cloud (es. Amazon S3) che il filesystem locale. Nel progetto, Active Storage è utilizzato per
-gestire le immagini generate dalle chiamate API e quelle caricate da frontend. I file vengono associati ai modelli tramite \code{has_one_attached}.
+Il modulo\G Active Storage di Rails gestisce l'upload, la memorizzazione e la
+recupero dei file, permettendo l'utilizzo sia di servizi cloud (es. Amazon S3) che il filesystem locale. Nel progetto\G, Active Storage è utilizzato per
+gestire le immagini generate dalle chiamate API\G e quelle caricate da frontend. I file vengono associati ai modelli tramite \code{has_one_attached}.
 
 
 \begin{lstlisting}[caption={Modello principale con Active Storage -- associazione has_one_attached per immagini generate}]
@@ -5376,7 +5388,7 @@ end
 \subsubsection{Observer tramite Callbacks}
 
 Rails implementa il pattern Observer attraverso il meccanismo dei
-\textit{callbacks} legati al ciclo di vita dei modelli. Nel progetto,
+\textit{callbacks} legati al ciclo di vita dei modelli. Nel progetto\G,
 il framework gestisce automaticamente i timestamp \code{created\_at} e
 \code{updated\_at} ad ogni operazione di persistenza. Il pattern è
 esteso esplicitamente per il modello \code{ProcessingRun}:
@@ -5409,7 +5421,7 @@ end
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/DB/ER.png}
+\includegraphics[width=1.4\textwidth, angle=90]{ImmaginiSpecificaTecnica/DB/ER.png}
 \caption{Schema ER}
 \end{figure}
 
@@ -5417,7 +5429,7 @@ end
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/DB/RS.png}
+\includegraphics[width=1.4\textwidth, angle=90]{ImmaginiSpecificaTecnica/DB/RS.png}
 \caption{Schema RS}
 \end{figure}
 
@@ -5444,7 +5456,7 @@ Costituisce l'entità anagrafica principale del sistema e gestisce l'accesso
 all'applicativo. Memorizza i dati personali dell'utente 
 (codice fiscale, nome, cognome) e le credenziali di autenticazione (username, 
 email, password). In un'architettura API-only, questa tabella è il punto di 
-riferimento per l'emissione e la convalida dei token di sicurezza.
+riferimento per l'emissione e la convalida dei token di sicurezza\G.
 
 \begin{figure}[H]
 \centering
@@ -5477,7 +5489,7 @@ competenza (\textit{Department}).
 \end{figure}
 
 \subsubsection{Tones}
-Tabella di dizionario dedicata al modulo AI Generator. Definisce le direttive sul 
+Tabella di dizionario dedicata al modulo\G AI\G Generator. Definisce le direttive sul 
 "tono di voce" (es. Professionale, Amichevole) da fornire in input ai modelli 
 generativi. Ogni tono è vincolato a una specifica azienda (\textit{CompanyId}), 
 garantendo una personalizzazione della generazione isolata per ogni tenant.
@@ -5501,7 +5513,7 @@ aziendale.
 \end{figure}
 
 \subsubsection{GeneratedDatum}
-È l'entità centrale del modulo AI Generator. Traccia in modo esaustivo ogni 
+È l'entità centrale del modulo\G AI\G Generator. Traccia in modo esaustivo ogni 
 interazione con il modello di intelligenza artificiale, persistendo l'input 
 (\textit{Prompt}), l'output testuale (\textit{TextResult}) o visivo 
 (\textit{ImgPath}, \textit{Seed}, \textit{Height}, \textit{Width}), le 
@@ -5529,11 +5541,11 @@ effettivo utilizzo.
 \end{figure}
 
 \subsubsection{UploadedDocument}
-Rappresenta il punto di ingresso dei file fisici nel modulo AI Copilot. Oltre a 
+Rappresenta il punto di ingresso dei file fisici nel modulo\G AI Copilot\G. Oltre a 
 mantenere i riferimenti di archiviazione (\textit{StoragePath}, 
 \textit{OriginalFilename}, \textit{Checksum}), traccia gli eventuali interventi 
 umani di forzatura dei dati (\textit{OverrideCompany}, \textit{OverrideDepartment}),
- permettendo di misurare l'affidabilità del sistema automatico.
+ permettendo di misurare l'affidabilità\G del sistema automatico.
 
 \begin{figure}[H]
 \centering
@@ -5544,7 +5556,7 @@ umani di forzatura dei dati (\textit{OverrideCompany}, \textit{OverrideDepartmen
 \subsubsection{ExtractedDocument}
 Consolida i dati di business estrapolati dall'intelligenza artificiale a partire 
 dal file originario (\textit{UploadedDocument}). Memorizza le metriche di 
-affidabilità dell'estrazione (\textit{Confidence}), i tempi di elaborazione e 
+affidabilità\G dell'estrazione (\textit{Confidence}), i tempi di elaborazione e 
 mappa il risultato all'entità di business corretta (\textit{MatchedEmployeeId}).
 
 \begin{figure}[H]
@@ -5609,17 +5621,17 @@ invio (\textit{SentAt}).
 
 
 \section{Requisiti Funzionali Soddisfatti}
-Il periodo di analisi dei requisiti ha portato all'identificazione di un set di requisiti funzionali che il prodotto software deve soddisfare. 
+Il periodo di analisi dei requisiti\G ha portato all'identificazione di un set di requisiti funzionali\G che il prodotto\G software deve soddisfare. 
 Di seguito viene fornita una panoramica dei principali requisiti soddisfatti nel sistema, con riferimento alle sezioni del documento dove sono descritti in dettaglio.
-I requisiti funzionali si dividono in obbligatori, desiderabili e opzionali, a seconda della loro importanza e priorità per il progetto.
-In particolare sono stati identificati 132 requisiti funzionali, di cui 97 obbligatori, 0 desiderabili e 35 opzionali.
-I requisiti obbligatori hanno come focus l'implementazione dei tre moduli principali del sistema, ovvero il modulo di analisi documenti, il modulo di generazione testo e il modulo di raccolta dati, che rappresentano le funzionalità core del prodotto software.
-Ciascuna di queste aree non era presente all'interno dell'applicativo Nexum quindi i rappresentanti dell'azienda (Eggon) hanno ritenuto fondamentale implementare queste funzionalità per soddisfare le esigenze degli utenti finali e garantire il successo del progetto.
-I requisiti opzionali, invece, si concentrano su funzionalità come la gestione delle utenze e la distribuzione dei documenti, che invece sono già presenti all'interno dell'applicativo Nexum e quindi non rappresentano un elemento di differenziazione significativo per il prodotto software che stiamo sviluppando.
+I requisiti funzionali\G si dividono in obbligatori, desiderabili e opzionali, a seconda della loro importanza e priorità\G per il progetto\G.
+In particolare sono stati identificati 132 requisiti funzionali\G, di cui 97 obbligatori, 0 desiderabili e 35 opzionali.
+I requisiti obbligatori hanno come focus l'implementazione\G dei tre moduli principali del sistema, ovvero il modulo\G di analisi documenti, il modulo\G di generazione testo e il modulo\G di raccolta dati, che rappresentano le funzionalità\G core del prodotto\G software.
+Ciascuna di queste aree non era presente all'interno dell'applicativo Nexum quindi i rappresentanti dell'azienda (Eggon) hanno ritenuto fondamentale implementare queste funzionalità\G per soddisfare le esigenze degli utenti finali e garantire il successo del progetto\G.
+I requisiti opzionali, invece, si concentrano su funzionalità\G come la gestione delle utenze e la distribuzione dei documenti, che invece sono già presenti all'interno dell'applicativo Nexum e quindi non rappresentano un elemento di differenziazione significativo per il prodotto\G software che stiamo sviluppando.
 
 \subsection{Completamento requisiti}
 \begin{itemize}
-  \item \textbf{Requisiti Obbligatori}: 97 requisiti funzionali soddisfatti, con focus sui moduli di analisi documenti, generazione testo e raccolta dati.
+  \item \textbf{Requisiti Obbligatori}: 97 requisiti funzionali\G soddisfatti, con focus sui moduli di analisi documenti, generazione testo e raccolta dati.
   \item \textbf{Requisiti Desiderabili}: 0 requisiti desiderabili identificati.
   \item \textbf{Requisiti Opzionali}: 0 requisiti opzionali soddisfatti, principalmente relativi alla gestione utenze e distribuzione documenti.
 \end{itemize}
@@ -5649,16 +5661,16 @@ I requisiti opzionali, invece, si concentrano su funzionalità come la gestione 
 \setcounter{rfCounter}{0}
 
 \begin{longtable}{|L{\wCod}|L{\wDesc}|L{\wStato}|L{\wPrio}|}
-\caption{Tabella dei Requisiti funzionali\textsubscript{\scalebox{0.6}{\textbf{G}}}}\label{tab:reqfunzionali}\\
+\caption{Tabella dei Requisiti funzionali\G}\label{tab:reqfunzionali}\\
 \hline
 \rowcolor{primaryblue!40}
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Stato} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Stato} & \textbf{Priorità\G} \\
 \hline
 \endfirsthead
 \multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
 \rowcolor{primaryblue!40}
-\textbf{Codice} & \textbf{Descrizione} & \textbf{Stato} & \textbf{Priorità\textsubscript{\scalebox{0.6}{\textbf{G}}}} \\
+\textbf{Codice} & \textbf{Descrizione} & \textbf{Stato} & \textbf{Priorità\G} \\
 \hline
 \endhead
 
@@ -5671,269 +5683,269 @@ I requisiti opzionali, invece, si concentrano su funzionalità come la gestione 
 \endlastfoot
 
 
-\autoRF & Il sistema deve permettere all'utente non autenticato di effettuare la registrazione di un nuovo account. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente non autenticato di effettuare la registrazione di un nuovo account. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire il proprio indirizzo email in fase di registrazione. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di inserire il proprio indirizzo email in fase di registrazione. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire una password in fase di registrazione. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di inserire una password in fase di registrazione. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire un username in fase di registrazione. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di inserire un username in fase di registrazione. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire il proprio nome in fase di registrazione. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di inserire il proprio nome in fase di registrazione. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire il proprio cognome in fase di registrazione. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di inserire il proprio cognome in fase di registrazione. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di inserire la propria matricola in fase di registrazione. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di inserire la propria matricola in fase di registrazione. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare un messaggio di errore se il formato dell'email inserita non è valido. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare un messaggio di errore se il formato dell'email inserita non è valido. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare un messaggio di errore se la password non rispetta i criteri di sicurezza\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare un messaggio di errore se la password non rispetta i criteri di sicurezza\G. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve impedire la registrazione se l'email inserita è già associata a un account esistente. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve impedire la registrazione se l'email inserita è già associata a un account esistente. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve impedire la registrazione se lo username inserito è già utilizzato. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve impedire la registrazione se lo username inserito è già utilizzato. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve impedire la registrazione se la matricola inserita è già presente nel sistema. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve impedire la registrazione se la matricola inserita è già presente nel sistema. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare un messaggio di errore se il formato della matricola non è valido. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare un messaggio di errore se il formato della matricola non è valido. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente registrato di effettuare il login (autenticazione). & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente registrato di effettuare il login (autenticazione). & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve notificare l'errore in caso di tentativo di login con email non registrata o password associata all'email errata. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve notificare l'errore in caso di tentativo di login con email non registrata o password associata all'email errata. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve consentire all'utente di poter inserire i dati necessari al login. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve consentire all'utente di poter inserire i dati necessari al login. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di visualizzare i dati del proprio profilo. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di visualizzare i dati del proprio profilo. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve mostrare l'email associata al profilo utente. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare l'email associata al profilo utente. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve mostrare (o permettere la gestione del) la password del profilo utente. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare (o permettere la gestione del) la password del profilo utente. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve mostrare lo username associato al profilo utente. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare lo username associato al profilo utente. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve mostrare il nome associato al profilo utente. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare il nome associato al profilo utente. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve mostrare il cognome associato al profilo utente. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare il cognome associato al profilo utente. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve mostrare la matricola associata al profilo utente. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare la matricola associata al profilo utente. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di effettuare il logout terminando la sessione. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di effettuare il logout terminando la sessione. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve gestire l'uscita dalla modifica profilo senza salvare i cambiamenti. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve gestire l'uscita dalla modifica profilo senza salvare i cambiamenti. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} di visualizzare la lista degli utenti registrati. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'Amministratore\G di visualizzare la lista degli utenti registrati. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere la visualizzazione del dettaglio di un singolo utente dalla lista. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere la visualizzazione del dettaglio di un singolo utente dalla lista. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve mostrare il ruolo associato a un utente registrato. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare il ruolo associato a un utente registrato. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve mostrare il nome di un utente registrato. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare il nome di un utente registrato. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve mostrare il cognome di un utente registrato. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare il cognome di un utente registrato. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'Amministratore\textsubscript{\scalebox{0.6}{\textbf{G}}} di modificare il ruolo di un utente registrato. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'Amministratore\G di modificare il ruolo di un utente registrato. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di effettuare il logout (terminare la sessione). & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di effettuare il logout (terminare la sessione). & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve generare contenuti testuali tramite AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}} in base a prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} e parametri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve generare contenuti testuali tramite AI Assistant\G in base a prompt\G e parametri. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere l'inserimento di un prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} testuale per la generazione. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere l'inserimento di un prompt\G testuale per la generazione. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere la selezione del tono per la generazione del contenuto. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere la selezione del tono per la generazione del contenuto. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere la selezione dello stile per la generazione del contenuto. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere la selezione dello stile per la generazione del contenuto. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere la visualizzazione dello storico delle generazioni AI\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere la visualizzazione dello storico delle generazioni AI\G. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve notificare l'assenza di elementi se lo storico delle generazioni è vuoto. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve notificare l'assenza di elementi se lo storico delle generazioni è vuoto. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve mostrare i dettagli completi di un elemento selezionato dallo storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare i dettagli completi di un elemento selezionato dallo storico. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare lo stile utilizzato per un contenuto nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare lo stile utilizzato per un contenuto nello storico. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il testo del risultato generato nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il testo del risultato generato nello storico. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il timestamp (data/ora) della generazione nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il timestamp (data/ora) della generazione nello storico. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la valutazione assegnata dall'utente al contenuto nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la valutazione assegnata dall'utente al contenuto nello storico. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} originale utilizzato per un contenuto nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il prompt\G originale utilizzato per un contenuto nello storico. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il tono utilizzato per un contenuto nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il tono utilizzato per un contenuto nello storico. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve mostrare un'anteprima del contenuto generato dall'AI\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare un'anteprima del contenuto generato dall'AI\G. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di modificare l'immagine associata al contenuto generato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di modificare l'immagine associata al contenuto generato. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve notificare l'utente quando tenta di caricare un file immagine non valido. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve notificare l'utente quando tenta di caricare un file immagine non valido. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di modificare il titolo del contenuto generato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di modificare il titolo del contenuto generato. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di modificare il testo del corpo del contenuto generato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di modificare il testo del corpo del contenuto generato. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di annullare le modifiche apportate al contenuto generato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di annullare le modifiche apportate al contenuto generato. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di riutilizzare i parametri di un contenuto dello storico per una nuova generazione. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di riutilizzare i parametri di un contenuto dello storico per una nuova generazione. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di duplicare un contenuto dallo storico per modificarne i parametri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di duplicare un contenuto dallo storico per modificarne i parametri. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di filtrare la lista delle generazioni nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di filtrare la lista delle generazioni nello storico. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la lista dello storico aggiornata in base ai filtri applicati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la lista dello storico aggiornata in base ai filtri applicati. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di rigenerare un contenuto tramite AI\textsubscript{\scalebox{0.6}{\textbf{G}}} mantenendo i parametri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di rigenerare un contenuto tramite AI\G mantenendo i parametri. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di valutare (rating) il contenuto generato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente di valutare (rating) il contenuto generato. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di scartare il contenuto generato e pulire l'interfaccia\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di scartare il contenuto generato e pulire l'interfaccia\G. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di salvare il contenuto generato nel database. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di salvare il contenuto generato nel database. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo tono per la generazione di contenuti & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo tono per la generazione di contenuti & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'eliminazione di un tono per la generazione di contenuti & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente l'eliminazione di un tono per la generazione di contenuti & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo stile per la generazione di contenuti & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo stile per la generazione di contenuti & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'eliminazione di uno stile per la generazione di contenuti & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere all'utente l'eliminazione di uno stile per la generazione di contenuti & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere l'analisi di documenti tramite il modulo\textsubscript{\scalebox{0.6}{\textbf{G}}} AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere l'analisi di documenti tramite il modulo\G AI Co-Pilot\G. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere l'inserimento/selezione della categoria del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere l'inserimento/selezione della categoria del documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere l'inserimento del mese/anno di competenza del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere l'inserimento del mese/anno di competenza del documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere l'inserimento dell'azienda associata al documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere l'inserimento dell'azienda associata al documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere l'inserimento del reparto associato al documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere l'inserimento del reparto associato al documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di controllare la correttezza del formato del file inserito. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di controllare la correttezza del formato del file inserito. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di controllare che lo stesso file non sia già stato analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di controllare che lo stesso file non sia già stato analizzato. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere lo split di documenti diversi all'interno dello stesso file. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere lo split di documenti diversi all'interno dello stesso file. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la lista dei documenti analizzati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la lista dei documenti analizzati. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve notificare l'utente se nessun documento è stato riconosciuto dall'analisi. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve notificare l'utente se nessun documento è stato riconosciuto dall'analisi. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare i dettagli di un singolo documento dalla lista. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare i dettagli di un singolo documento dalla lista. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la competenza (periodo) del documento analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la competenza (periodo) del documento analizzato. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare l'azienda associata al documento analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare l'azienda associata al documento analizzato. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la causale del documento analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la causale del documento analizzato. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la lingua rilevata nel documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la lingua rilevata nel documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il numero di pagine del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il numero di pagine del documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il nome originale del file del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il nome originale del file del documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la data di redazione/caricamento del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la data di redazione/caricamento del documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il codice identificativo del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il codice identificativo del documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la tipologia del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la tipologia del documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve mostrare l'anteprima visiva del documento analizzato. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare l'anteprima visiva del documento analizzato. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di modificare il destinatario associato al documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di modificare il destinatario associato al documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di modificare la tipologia del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di modificare la tipologia del documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve ricalcolare la percentuale di confidenza dopo modifiche manuali. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve ricalcolare la percentuale di confidenza\G dopo modifiche manuali. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la lista delle informazioni sui destinatari estratti. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la lista delle informazioni sui destinatari estratti. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare i dettagli di un singolo destinatario in lista. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare i dettagli di un singolo destinatario in lista. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il codice fiscale del destinatario. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il codice fiscale del destinatario. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la matricola del destinatario. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la matricola del destinatario. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il reparto del destinatario. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il reparto del destinatario. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il nome/cognome del destinatario. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il nome/cognome del destinatario. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve notificare se nessun destinatario è stato riconosciuto. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve notificare se nessun destinatario è stato riconosciuto. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare lo storico completo dei documenti processati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare lo storico completo dei documenti processati. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve notificare l'assenza di documenti nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve notificare l'assenza di documenti nello storico. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare i dettagli di un elemento nello storico documenti. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare i dettagli di un elemento nello storico documenti. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la percentuale di confidenza dell'analisi nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la percentuale di confidenza\G dell'analisi nello storico. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare l'appartenenza alle liste di distribuzione. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare l'appartenenza alle liste di distribuzione. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare lo stato di elaborazione del documento. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare lo stato di elaborazione del documento. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di caricare un template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio esistente. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di caricare un template\G di messaggio esistente. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di modificare l'oggetto del messaggio. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di modificare l'oggetto del messaggio. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di modificare il testo del corpo del messaggio. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di modificare il testo del corpo del messaggio. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di salvare il messaggio corrente come nuovo template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di salvare il messaggio corrente come nuovo template\G. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di eliminare un template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di eliminare un template\G di messaggio. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la lista dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio disponibili. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la lista dei template\G di messaggio disponibili. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare un elemento della lista dei template\textsubscript{\scalebox{0.6}{\textbf{G}}} di messaggio disponibili. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare un elemento della lista dei template\G di messaggio disponibili. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare l'oggetto del template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare l'oggetto del template\G. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il testo del template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il testo del template\G. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il codice del template\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il codice del template\G. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere l'invio del documento e del messaggio associato. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere l'invio del documento e del messaggio associato. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere di allegare ulteriore contenuto al messaggio. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di allegare ulteriore contenuto al messaggio. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere di pianificare l'invio del documento e del messaggio associato. & Non implementato & Opzionale\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di pianificare l'invio del documento e del messaggio associato. & Non implementato & Opzionale\G \\
 \hline
-\autoRF & Il sistema deve permettere il filtraggio della lista dei documenti analizzati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere il filtraggio della lista dei documenti analizzati. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve mostrare la lista dei documenti aggiornata in base ai filtri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare la lista dei documenti aggiornata in base ai filtri. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere il filtraggio della lista dei destinatari. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere il filtraggio della lista dei destinatari. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve mostrare la lista dei destinatari aggiornata in base ai filtri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare la lista dei destinatari aggiornata in base ai filtri. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere il filtraggio della lista dello storico documenti. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere il filtraggio della lista dello storico documenti. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve mostrare la lista dello storico documenti aggiornata in base ai filtri. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve mostrare la lista dello storico documenti aggiornata in base ai filtri. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di mostrare l'audit di un documento nello storico. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di mostrare l'audit di un documento nello storico. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} con i dati di analytics per l'AI Assistant\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la dashboard\G con i dati di analytics per l'AI Assistant\G. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il numero totale di prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il numero totale di prompt\G generati. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il rating medio dei prompt\textsubscript{\scalebox{0.6}{\textbf{G}}} generati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il rating medio dei prompt\G generati. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare il numero di rigenerazioni effettuate. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare il numero di rigenerazioni effettuate. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare le statistiche sui toni più utilizzati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare le statistiche sui toni più utilizzati. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare le statistiche sugli stili più utilizzati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare le statistiche sugli stili più utilizzati. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la dashboard\textsubscript{\scalebox{0.6}{\textbf{G}}} con i dati di analytics per l'AI Co-Pilot\textsubscript{\scalebox{0.6}{\textbf{G}}}. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la dashboard\G con i dati di analytics per l'AI Co-Pilot\G. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la confidenza media delle analisi documenti. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la confidenza\G media delle analisi documenti. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare la percentuale di interventi manuali necessari. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare la percentuale di interventi manuali necessari. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare l'accuratezza del mapping dei dati. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare l'accuratezza del mapping dei dati. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di visualizzare i tempi medi di analisi dei documenti. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di visualizzare i tempi medi di analisi dei documenti. & Implementato & Obbligatorio\G \\
 \hline
-\autoRF & Il sistema deve permettere di filtrare i dati di analytics per periodo temporale. & Implementato & Obbligatorio\textsubscript{\scalebox{0.6}{\textbf{G}}} \\
+\autoRF & Il sistema deve permettere di filtrare i dati di analytics per periodo temporale. & Implementato & Obbligatorio\G \\
 \hline
 
 
