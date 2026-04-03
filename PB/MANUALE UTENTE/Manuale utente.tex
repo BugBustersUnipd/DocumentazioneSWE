@@ -198,7 +198,7 @@ Inoltre, permette di effettuare la timbratura tramite badge o dispositivi mobili
 Le anagrafiche centralizzate, integrate con ruoli e permessi, consentono una gestione controllata degli accessi e garantiscono la coerenza delle informazioni tra i diversi moduli della piattaforma.
 
 Questo manuale si occupa di un’applicazione stand-alone\G che in futuro verrà integrata con Nexum, che introduce funzionalità\G di assistente AI\G generativo per supportare l’utente nella scrittura di comunicazioni e un AI Co-Pilot\G dedicato ai Consulenti del Lavoro (CdL)\G.
-Questo modulo\G consente di caricare documenti, riconoscerne automaticamente la tipologia, estrarre le informazioni rilevanti e gestirne l’invio ai destinatari in modo massivo.
+Questo modulo\G consente di caricare documenti, riconoscerne automaticamente la tipologia, estrarre le informazioni rilevanti e gestirne l’invio a destinatari in modo massivo.
 
 Per ulteriori dettagli sulle funzionalità\G e sul contesto del progetto\G, si rimanda alla documentazione di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}.
 
@@ -506,55 +506,69 @@ possibilità di rilanciare l'analisi per quel documento specifico, sperando in u
 
 
 \subsubsection{Visualizzazione e correzione documenti}
-A seguito dell'analisi, il sistema estrae le informazioni rilevanti dal documento e le presenta in modo chiaro e organizzato, consentendo al CdL\G di verificare l'accuratezza dei dati estratti e di apportare eventuali correzioni o integrazioni prima di procedere con l'invio del documento ai destinatari.
+A seguito dell'analisi, il sistema estrae le informazioni rilevanti dal documento e le presenta in modo chiaro e organizzato, consentendo al CdL\G di verificare l'accuratezza dei dati estratti e di apportare eventuali correzioni o integrazioni prima di procedere con l'invio del documento al destinatario.
 
 \immagine[1\textwidth]{immagini/2_DocumentoEstratto.png}{Dettagli analisi documento}{fig:DocumentoEstratto}
 
 
 \subsubsubsection{Visualizzazione informazioni documento}
-In una sezione adiacente all'anteprima, il sistema raccoglie tutti i metadati specifici del singolo file, quali il codice univoco interno, la data di caricamento e redazione, la causale individuata e il grado di affidabilità\G dell'estrazione (confidence score\G).
+In una sezione il sistema raccoglie tutti i metadati specifici del singolo file, quali la categoria, ragione, azienda, reparto, competenza, data documento e il grado di affidabilità\G dell'estrazione (confidence score\G).
 
 \immagine[0.5\textwidth]{immagini/2_ModificaInfo.png}{Visualizzazione informazioni documento}{fig:ModificaInfoDocumento}
 
-\subsubsubsection{Visualizzazione destinatari documento}
-Visualizza nel dettaglio i soggetti a cui il singolo documento in anteprima è indirizzato. In presenza di liste lunghe, questa sezione può presentare un riepilogo rapido e mostrare l'appartenenza a specifiche liste di distribuzione.
-\immagine[0.8\textwidth]{immagini/2_Destinatario.png}{Visualizzazione destinatari documento}{fig:DestinatariDocumento}
+\subsubsubsection{Visualizzazione destinatario documento}
+Visualizza nel dettaglio i soggetti a cui il singolo documento in anteprima è indirizzato. 
+Questa sezione mostra il destinatario rilevato dal AI\G, evidenziando un possibile match con il database aziendale.
+\immagine[0.8\textwidth]{immagini/2_Destinatario.png}{Visualizzazione destinatario documento}{fig:DestinatarioDocumento}
 
 
 \subsubsubsection{Visualizzazione dettagli analisi}
-Permette di consultare le metriche tecniche del processo elaborativo eseguito dall'AI\G, evidenziando le criticità (es. confidenza del dato inferiore alla soglia di sicurezza\G) e consultando l'audit log, che riporta cronologicamente tutte le modifiche e i cambi di stato del documento nel tempo.
+Ogni campo estratto dall'AI\G è accompagnato da un indicatore di confidenza (confidence score\G) 
+che quantifica l'affidabilità\G dell'estrazione.
 
+\subsubsubsection{Modifica del risultato dell'analisi destinatario}
+Nel caso l'algoritmo associ un destinatario errato a un documento o non riesca a dedurlo, 
+l'operatore può intervenire per cercare e selezionare il destinatario corretto. 
+L'associazione avviene tramite a menù a tendina mostrando i dipendenti dell'azienda estratta o inserita nei dati conosciuti, 
+facilitando così la correzione e migliorando la precisione\G del processo di invio.
 
-\subsubsubsection{Modifica del risultato dell'analisi destinatari}
-Nel caso l'algoritmo associ un destinatario errato a un documento o non riesca a dedurlo, l'operatore può intervenire per cercare e selezionare il destinatario corretto. L'associazione può avvenire tramite l'inserimento manuale dell'indirizzo email o del numero di matricola.
-
-\immagine[0.6\textwidth]{immagini/2_ModificaDestinatario.png}{Modifica risultato analisi destinatari}{fig:ModificaDestinatario}
+\immagine[0.6\textwidth]{immagini/2_ModificaDestinatario.png}{Modifica risultato analisi destinatario}{fig:ModificaDestinatario}
 
 \subsubsubsection{Visualizzazione documento originale ed estratto}
-Per facilitare il confronto e la verifica\G, il sistema consente di visualizzare sia il documento originale caricato che la versione estratta e 
-analizzata dall'AI\G.
+Per facilitare il confronto e la verifica\G, il sistema consente di visualizzare sia il documento originale caricato che 
+la versione estratta e analizzata dall'AI\G.
 
 \immagine[0.6\textwidth]{immagini/2_ApriDocumento.png}{Visualizzazione e correzione documenti}{fig:ApriDocumento}
 
 
 \subsubsection{Invio documenti}
-Quando si ritiene che il documento sia pronto per essere inviato (con una confidenza adeguata), l'utente può procedere con la creazione di un messaggio, l'eventuale inserimento di allegati ed infine l'invio del documento ai destinatari.
+Quando si ritiene che il documento sia pronto per essere inviato (con una confidenza adeguata), l'utente può procedere con la creazione di un messaggio ed infine l'invio del documento al destinatario.
 \immagine[0.8\textwidth]{immagini/2_invio.png}{Invio immediato documento}{fig:InvioDocumento}
 
 \subsubsubsection{Scrittura messaggio}
-Questa funzionalità\G mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata ai destinatari. L'utente può valorizzare manualmente il campo "Oggetto" e inserire il corpo testuale desiderato.
+Questa funzionalità\G mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata al 
+destinatario.
 
 \subsubsubsection{Applicazione template\G}
-Per ottimizzare i tempi, l'utente può decidere di non scrivere il messaggio da zero, bensì caricare un modello (template\G) precostituito. Questo andrà a sovrascrivere o precompilare i campi dell'oggetto e del corpo del messaggio con formule testuali standard.
+Per ottimizzare i tempi, l'utente può decidere di non scrivere il messaggio da zero, bensì caricare un modello 
+(template\G) precostituito (o crearne uno nuovo). Questo andrà a sovrascrivere o precompilare i campi dell'oggetto e del corpo del messaggio con 
+formule testuali standard.
 
 \subsubsubsection{Operazioni su template\G esistenti}
-L'utente ha accesso a una gestione completa dei modelli di comunicazione: può visualizzare la lista dei template\G salvati, creare un nuovo template\G a partire dal messaggio che sta scrivendo, oltre a modificare e cancellare definitivamente quelli divenuti obsoleti.
+L'utente ha accesso a una gestione completa dei modelli di comunicazione: può visualizzare la 
+lista dei template\G salvati, creare un nuovo template\G a partire dal messaggio che sta scrivendo, 
+oltre a cancellare definitivamente quelli divenuti obsoleti.
 
 \subsubsubsection{Programmazione invio documento}
-Se non vi è urgenza o si desidera sincronizzare l'inoltro dei documenti con specifiche scadenze aziendali, il sistema permette di schedulare l'operazione. Tramite un apposito selettore (date/time picker), l'utente definisce l'esatta data e ora di invio, e lo stato passerà a "Pianificato".
+Se non vi è urgenza o si desidera sincronizzare l'inoltro dei documenti con specifiche scadenze aziendali, 
+il sistema permette di pianificare l'operazione. 
+Tramite un apposito selettore (date/time picker), l'utente definisce l'esatta data e ora di invio, 
+e lo stato globale del documento passerà a "Pianificato".
 
 \subsubsubsection{Invio immediato documento}
-Terminata la verifica\G e la preparazione della comunicazione, questa funzionalità\G fa partire istantaneamente il processo di spedizione verso tutti i destinatari associati al documento, fornendo all'utente un feedback visivo a conferma del successo dell'operazione.
+Terminata la verifica\G e la preparazione della comunicazione, questa funzionalità\G fa partire istantaneamente il processo di 
+spedizione verso il destinatario associato al documento, fornendo all'utente un feedback visivo a conferma del successo 
+dell'operazione.
 
 
 
@@ -564,7 +578,9 @@ Terminata la verifica\G e la preparazione della comunicazione, questa funzionali
 L'utente ha a disposizione uno storico dei documenti analizzati, visualizzandone i dettagli e il loro stato.
 
 \subsubsection{Consultazione storico documenti}
-Lo storico dei documenti consente al CdL\G di visualizzare tutte le analisi documentali precedenti, con la possibilità di accedere ai dettagli di ciascun documento, come la data di analisi, la tipologia del documento, i destinatari riconosciuti, le informazioni estratte e lo stato dell'invio.
+Lo storico dei documenti consente al CdL\G di visualizzare tutte le analisi documentali precedenti, con la possibilità 
+di accedere ai dettagli di ciascun documento, come la data di analisi, la tipologia del documento, i destinatari riconosciuti, 
+le informazioni estratte e lo stato dell'invio.
 
 \immagine[1\textwidth]{immagini/2_Storico.png}{Storico documenti}{fig:StoricoDocumenti}
 
@@ -575,8 +591,9 @@ Per rintracciare rapidamente i destinatari ed informazioni all'interno di invii 
 
 \subsubsubsection{Visualizzazione stato analisi documenti}
 Questa funzionalità\G permette all'utente di monitorare l'avanzamento e la fase del ciclo di vita in cui si trova il documento. 
-Attraverso etichette testuali o indicatori visivi è possibile comprendere immediatamente se il documento necessita di intervento umano o 
-se l'elaborazione è andata a buon fine.
+Attraverso etichette testuali o indicatori visivi è possibile comprendere immediatamente se il documento necessita di intervento umano, 
+se l'elaborazione è andata a buon fine, se è stato inviato o se è pianificato per un invio futuro, 
+facilitando così la gestione e il controllo dei documenti all'interno del flusso di lavoro aziendale.
 
 \immagine[0.2\textwidth]{immagini/2_Stato.png}{Stato analisi documenti}{fig:StatoDocumenti}
 
