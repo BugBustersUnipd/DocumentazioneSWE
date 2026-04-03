@@ -246,8 +246,8 @@ Trattandosi di un'applicazione web, Nexum è accessibile da qualsiasi dispositiv
 Tuttavia, per garantire prestazioni ottimali, si consiglia di utilizzare un computer con le seguenti specifiche minime:
 \begin{itemize}
     \item Processore: Intel Core i3 o equivalente
-    \item RAM: 4 GB
-    \item Spazio su disco: almeno 500 MB di spazio libero
+    \item RAM: 4 GB, consigliati 8 GB o più
+    \item Spazio su disco: almeno 10 GB spazio libero per l'installazione di docker e del container dedicato all'applicazione
     \item Connessione Internet: banda larga con velocità minima di 10 Mbps
 \end{itemize}
 
@@ -451,7 +451,7 @@ Utilizzando frecce a fondo tabella l'utente può scorrere tra le pagine dello st
 L'AI Co-Pilot\G dedicato ai Consulenti del Lavoro (CdL)\G è progettato per supportare i professionisti nella gestione e nell'analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
 
 \subsubsection{Analisi documenti}
-Il modulo\G di analisi dei documenti consente ai CdL\G di caricare documenti in vari formati (PDF, Word, ecc.) e di riconoscerne automaticamente la tipologia (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.).
+Il modulo\G di analisi dei documenti consente ai CdL\G di caricare documenti in vari formati (PDF, CSV, jpg, png...) e di riconoscerne automaticamente la tipologia (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.).
 Per effettuare un'analisi è necessario inserire il file che si ha intenzione di analizzare ed eventualmente dati conosciuti, facilitando così il processo di riconoscimento e estrazione delle informazioni rilevanti.
 
 \immagine[1\textwidth]{immagini/2_Analisi.png}{Analisi documenti}{fig:AnalisiDocumenti}
@@ -475,15 +475,20 @@ Questa visualizzazione consente al CdL\G di comprendere rapidamente le informazi
  
 
 \subsubsubsection{Visualizzazione tabella riepilogativa documenti analizzati}
-Il sistema presenta l'elenco dei documenti analizzati in formato tabellare. Per ogni elemento, vengono esposti i dati di sintesi estratti dall'AI\G, quali l'azienda, il periodo di competenza, la tipologia del file, la lingua, il numero di pagine e l'identificativo originale, permettendo un controllo rapido del flusso elaborato.
+Il sistema presenta l'elenco dei documenti analizzati in formato tabellare. Per ogni elemento, vengono esposti i
+ dati di sintesi estratti dall'AI\G, quali l'azienda, il periodo di competenza, la tipologia del file il numero di 
+ pagine e l'identificativo originale, permettendo un controllo rapido del flusso elaborato.
 
 \immagine[1\textwidth]{immagini/2_RiconoscimentDocumenti.png}{Tabella riepilogativa documenti analizzati}{fig:RiconoscimentoDocumenti}
 
 
 \subsubsubsection{Applicazione filtro di ricerca su documenti}
-Per agevolare la gestione di archivi voluminosi, il sistema mette a disposizione uno strumento di filtraggio dinamico. L'utente può raffinare la lista dei risultati applicando filtri per tipologia documentale, mese/anno di competenza, livello di confidenza dell'AI\G, documento originale o stato di elaborazione.
+Per agevolare la gestione di archivi voluminosi, il sistema mette a disposizione uno strumento di filtraggio dinamico. 
+L'utente può raffinare la lista dei risultati applicando filtri per tipologia documentale, 
+mese/anno di competenza, confidenza, stato, reparto, documento originale o azienda, consentendo di individuare rapidamente i documenti di interesse 
+e di focalizzarsi su quelli più rilevanti per le proprie attività.
 
-\immagine[1\textwidth]{immagini/2_Filtro.png}{Filtro ricerca documenti}{fig:FiltroDocumenti}
+\immagine[1\textwidth]{immagini/2_FiltroUpload.png}{Filtro ricerca documenti}{fig:FiltroDocumenti}
 
 \subsubsubsection{Modifica del risultato dell'analisi documenti}
 In ottica "Human-in-the-loop", se l'AI\G dovesse classificare un documento in modo impreciso o associare dati non corretti, l'operatore può intervenire manualmente per modificare la tipologia del documento o correggerne gli attributi. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza.
@@ -493,6 +498,11 @@ Qualora un documento sia stato caricato per errore, risulti duplicato o non debb
 
 \immagine[0.4\textwidth]{immagini/2_ModificaElimina.png}{Modifica ed eliminazione risultati analisi documenti}{fig:ModificaEliminaDocumenti}
 
+\subsubsubsection{Retry analisi documenti}
+Se un documento non viene analizzato correttamente a causa di un errore temporaneo, l'utente ha la 
+possibilità di rilanciare l'analisi per quel documento specifico, sperando in un risultato più accurato.
+
+\immagine[1\textwidth]{immagini/2_Retry.png}{Retry analisi documenti}{fig:RetryDocumenti}
 
 
 \subsubsection{Visualizzazione e correzione documenti}
