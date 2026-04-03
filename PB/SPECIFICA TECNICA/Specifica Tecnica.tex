@@ -3056,6 +3056,34 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt da i
     Aggiorna il titolo interno e notifica il componente padre della modifica.
   \end{itemize}
 \end{itemize}
+
+\subsubsection{Rating}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{ImmaginiSpecificaTecnica/Frontend/rating-component.png}
+\end{figure}
+Componente UI che rappresenta un sistema di valutazione a stelle, utilizzato per valutare i risultati generati dall'assistente AI.\\
+\textbf{Attributi}
+
+\begin{itemize}
+\item Proprietà di input: configurano il valore iniziale e il comportamento del componente di valutazione.
+\begin{itemize}
+\item rating: number (Input) \
+Valore della valutazione corrente visualizzato dal componente.
+\end{itemize}
+
+\item Proprietà di output: comunicano al componente padre le variazioni della valutazione.
+\begin{itemize}
+\item ratingChange: EventEmitter<number> (Output) \
+Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
+\end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+
+\begin{itemize}
+\item Il componente non definisce metodi pubblici o privati.
+\end{itemize}
 \subsubsection{Tables}
 \begin{figure}[H]
 \centering
@@ -3366,6 +3394,201 @@ Valore data selezionato nel datepicker, usato per ricavare mese e anno.
   \item onMonthYearChange(): void \\
   Legge selectedMonthYear, estrae mese e anno e li emette come stringa nel formato YYYY-MM; se non c'è alcun valore selezionato, emette una stringa vuota.
 \end{itemize}
+\end{itemize}
+\subsubsection{NestedTables}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/nested-tables-component.png}
+\end{figure}
+Componente UI che rappresenta una tabella con righe espandibili che contengono a loro volta una tabella annidata. Viene utilizzato per visualizzare i dettagli dei documenti estratti, dove ogni riga rappresenta un documento e l'espansione mostra i dati estratti associati a quel documento.
+\textbf{Attributi}
+
+\begin{itemize}
+  \item Proprietà di input: configurano i dati e il comportamento della tabella annidata.
+  \begin{itemize}
+  \item columns: any[] (Input) \
+  Definisce le colonne da visualizzare nelle tabelle nidificate.
+
+  \item items: MenuItem[] (Input) \
+  Elenco delle azioni disponibili nel menu contestuale per ciascuna riga.
+
+  \item ButtonLabel: string (Input) \
+  Testo mostrato nel pulsante associato all'azione di retry.
+
+  \item class: string (Input) \
+  Classe CSS aggiuntiva per personalizzare l'aspetto del componente.
+
+  \item documents: ResultAiCopilot[] (Input) \
+  Collezione dei documenti gestiti e mostrati dal componente.
+  \end{itemize}
+
+  \item Proprietà di output: comunicano al componente padre le interazioni e le azioni eseguite dall'utente.
+    \begin{itemize}
+    \item menuAction: EventEmitter{ row: ResultSplit; item: MenuItem } (Output) \
+    Emette l'azione di menu selezionata insieme alla riga di riferimento.
+
+    \item retryAction: EventEmitter<number> (Output) \
+    Emette l'identificativo del record padre quando viene richiesto un nuovo tentativo.
+
+    \item rowRemoved: EventEmitter<ResultSplit> (Output) \
+    Notifica al componente padre la rimozione di una riga.
+    \end{itemize}
+  \item Proprietà interne: mantengono lo stato locale e gestiscono la logica di visualizzazione del componente.
+    \begin{itemize}
+    \item activeValues: string[] (Proprietà interna) \
+    Mantiene lo stato degli elementi attivi nell'interfaccia annidata.
+    \end{itemize}
+\end{itemize}
+\textbf{Metodi}
+
+\begin{itemize}
+\item onTableMenuAction(event: { row: ResultSplit; item: MenuItem }): void \
+Inoltra verso l'output menuAction l'evento di menu ricevuto dalla tabella interna.
+
+\item onRetryButtonClick(parentId: number): void \
+Propaga l'identificativo del padre tramite retryAction quando l'utente avvia il retry.
+
+\item onRowRemoved(row: ResultSplit): void \
+Propaga tramite rowRemoved la riga eliminata dal livello tabellare interno.
+
+\item getSeverity(state: DocumentState): string \
+Restituisce la classe di severità CSS coerente con lo stato del documento per la resa grafica.
+\end{itemize}
+
+\subsubsection{Upload}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/upload-component.png}
+\end{figure}
+Componente UI che rappresenta un'area di drop per il caricamento di file, con supporto per selezione manuale tramite dialog di sistema. Viene utilizzato per consentire agli utenti di caricare documenti da processare tramite OCR e estrazione dati.
+\textbf{Attributi}
+
+\begin{itemize}
+\item Proprietà di input: configurano il comportamento e il testo del componente di upload.
+\begin{itemize}
+\item accept: string (Input) \
+Definisce le estensioni di file accettate dal selettore di caricamento.
+  \item maxFileSize: number (Input) \\
+  Imposta la dimensione massima consentita per ciascun file, espressa in byte.
+
+  \item multiple: boolean (Input) \\
+  Abilita o disabilita la selezione multipla dei file.
+
+  \item titleText: string (Input) \\
+  Testo principale mostrato nell'area di caricamento.
+
+  \item subtitleText: string (Input) \\
+  Testo secondario visualizzato sotto il titolo del componente.
+\end{itemize}
+\item Proprietà di output: comunicano al componente padre i file selezionati e gli eventuali errori di validazione.
+\begin{itemize}
+\item filesSelected: EventEmitter<File[]> (Output) \
+Emette l'insieme dei file validi selezionati dall'utente.
+  \item fileValidationError: EventEmitter<UploadValidationError> (Output) \\
+  Emette l'elenco dei file non validi quando la validazione fallisce.
+\end{itemize}
+\item Proprietà interne: mantengono lo stato locale e gestiscono l'accesso al controllo nativo.
+\begin{itemize}
+\item nativeFileInput: ElementRef<HTMLInputElement> (Proprietà interna, ViewChild) \
+Riferimento all'input file nativo utilizzato per avviare la selezione da codice.
+  \item selectedPrimeFiles: File[] (Proprietà interna) \\
+  Conserva l'insieme corrente dei file gestiti dal componente PrimeNG.
+\end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+
+\begin{itemize}
+\item onPrimeSelect(event: any): void \
+Gestisce la selezione dei file tramite il componente PrimeNG, valida i file e aggiorna lo stato interno.
+
+\item onPrimeRemove(event: any): void \
+Gestisce la rimozione di un file o dell'intera selezione dal controllo PrimeNG e aggiorna lo stato interno.
+
+\item onPrimeClear(): void \
+Resetta completamente la selezione corrente e notifica il componente padre con una lista vuota.
+
+\item onNativeSelect(event: Event): void \
+Gestisce la selezione effettuata tramite input nativo, valida i file e resetta il valore dell'input per consentire una nuova selezione dello stesso file.
+
+\item private emitValidatedFiles(files: File[]): File[] \
+Filtra i file validi, emette gli errori per quelli non ammessi e pubblica l'elenco dei file accettati tramite filesSelected.
+
+\item private isAllowedFile(file: File): boolean \
+Verifica se un file rispetta le estensioni configurate nella proprietà accept.
+
+\item private parseAcceptedTypes(): Set<string> \
+Converte la stringa di configurazione accept in un insieme di estensioni normalizzate e confrontabili.
+
+\item triggerClick(): void \
+Simula il click sull'input file nativo per aprire la finestra di selezione.
+
+\item private extractFiles(event: any): File[] 
+Estrae i file dall'evento ricevuto supportando le diverse strutture fornite dai componenti di upload.
+
+\item private extractCurrentFiles(event: any): File[] \textbar{} null \
+Recupera la lista corrente dei file quando è disponibile nel payload dell'evento.
+
+\item private removeSingleFile(files: File[], toRemove: File): File[] \
+Rimuove un file specifico dall'elenco confrontandolo per nome, dimensione e ultima modifica.
+\end{itemize}
+\subsubsection{DocSummary}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/doc-summary-component.png}
+\end{figure}
+Componente UI che rappresenta un riepilogo di un documento, mostrando informazioni chiave estratte (o compilate).
+\textbf{Attributi}
+
+\begin{itemize}
+\item Proprietà di input: configurano lo stato iniziale e il contenuto visualizzato dal componente.
+\begin{itemize}
+\item editable: boolean (Input) \
+Indica se i campi del riepilogo documento sono modificabili dall'utente.
+  \item result: ResultSplit \textbar{} null (Input) \\
+  Contiene i dati del documento da visualizzare e, se necessario, modificare.
+
+  \item pendingModifications: Partial<ResultSplit> (Input) \\
+  Memorizza le modifiche locali non ancora confermate sul documento.
+
+  \item pages: number (Input) \\
+  Indica il numero totale di pagine associate al documento.
+\end{itemize}
+\item Proprietà di output: comunicano al componente padre le azioni eseguite dall'utente.
+\begin{itemize}
+\item openOriginalPdf: EventEmitter<void> (Output) \
+Notifica la richiesta di apertura del PDF originale.
+  \item openSplitPdf: EventEmitter<void> (Output) \\
+  Notifica la richiesta di apertura del PDF suddiviso.
+
+  \item fieldModified: EventEmitter\{ field: keyof ResultSplit; value: string \textbar{} number \textbar{} undefined \} (Output) \\
+  Emite la modifica di un campo del riepilogo con il nuovo valore inserito.
+\end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+
+\begin{itemize}
+\item getFieldConfidence(...keys: string[]): number \textbar{} null \
+Restituisce il livello di confidenza del primo campo disponibile tra quelli indicati.
+
+\item getFieldValue(field: keyof ResultSplit, fallback: string = 'Non trovato'): string \textbar{} number \
+Recupera il valore di un campo considerando prima le modifiche pendenti e poi il dato originale, con fallback configurabile.
+
+\item onFieldChange(field: keyof ResultSplit, value: string \textbar{} number \textbar{} undefined): void \
+Propaga verso l'esterno la modifica di un campo del documento.
+
+\item getMonthYearValue(): string \
+Normalizza il valore del campo data nel formato mese/anno, gestendo diversi formati di input.
+
+\item getPageStartValue(): number \textbar{} undefined \
+Restituisce il valore della pagina iniziale considerando prima le modifiche pendenti e poi i dati originali.
+
+\item getPageEndValue(): number \textbar{} undefined \
+Restituisce il valore della pagina finale considerando prima le modifiche pendenti e poi i dati originali.
+
+\item private toNumber(primary: unknown, fallback: unknown): number \textbar{} undefined \
+Converte un valore in numero, usando un fallback se il valore principale non è disponibile o non valido.
 \end{itemize}
 \subsection{Macro componenti UI (pagine)}
 
