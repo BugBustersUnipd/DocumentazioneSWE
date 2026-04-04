@@ -328,6 +328,7 @@ Nel contesto della nostra applicazione stand-alone\G{}, la dashboard\G{} funge d
 \immagine[1\textwidth]{immagini/0_Dashboard.png}{Dashboard}{fig:Dashboard}
 
 \subsubsection{Menù laterale}
+\label{sec:menulaterale}
 Per permettere la navigazione tra i moduli, è presente una menù laterale che consente di accedere rapidamente alle sezioni principali dell'applicazione.
 
 \immagine[0.3\textwidth]{immagini/0_BarraLaterale.png}{Menù laterale}{fig:BarraLaterale}
@@ -530,25 +531,37 @@ A seguito della generazione del contenuto, l'utente ha la possibilità di gestir
 
 
 \subsection{Storico delle generazioni}
-Lo storico delle generazioni consente all'utente di visualizzare tutte le generazioni precedenti, con la possibilità di accedere ai dettagli di ciascuna generazione, come i parametri utilizzati, la valutazione e le eventuali modifiche apportate.
+Cliccando sulla voce "Storico" presente nel menù laterale (Vedi \hyperref[sec:menulaterale]{Sezione 4.1.1}), l'utente può accedere allo storico delle generazioni. Lo storico delle generazioni consente all'utente di visualizzare tutte le generazioni salvate precedenti, con la possibilità di filtrarle e di accedere ai dettagli di ciascuna di esse.\\
+\immagine[1\textwidth]{immagini/1_Storico.png}{Storico delle generazioni}{fig:StoricoGenerazioni}
+\textbf{Il pulsante} \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=1mm,bottom=1mm,on line]{\footnotesize\textcolor{white}{\textbf{Aggiungi}}} riporta alla pagina di generazione del contenuto, permettendo all'utente di creare una nuova generazione.\\
 
-\subsubsection{Consultazione storico delle generazioni}
-Lo storico delle generazioni è una sezione composta da una tabella contenente le generazioni e vari sistemi di input che permettono di effettuare operazioni su questa tabella con fini di gestione o di analisi.
+\subsubsection{Filtraggio e ricerca nello storico}
+All'interno dello storico delle generazioni, è presente una funzionalità\G{} di filtraggio e ricerca che consente all'utente di trovare facilmente specifiche generazioni passate in base a criteri come data, parole chiave, tono o stile utilizzato.\\\\
+\textbf{Ricerca per tutto:} L'utente può inserire una parola o una frase nella barra di ricerca \\ \tcbox[colback=white,colframe=darkgray,boxrule=0.4pt,arc=1mm,left=1.2mm,right=18mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{Cerca per tutto\quad}} per cercare tra tutte le generazioni passate, senza limitare la ricerca a un campo specifico. \\
+Il sistema restituirà tutte le generazioni che contengono la parola o frase inserita in qualsiasi campo (titolo, testo, tono, stile, ecc.).\\
+\immagine[1\textwidth]{immagini/1_FiltriStorico.png}{Filtri per lo storico delle generazioni}{fig:FiltriStorico}
 
-\subsubsubsection{Filtraggio e ricerca nello storico}
-All'interno dello storico delle generazioni, è presente una funzionalità\G{} di filtraggio e ricerca che consente all'utente di trovare facilmente specifiche generazioni passate in base a criteri come data, valutazione, parole chiave, tono o stile utilizzato.
+\subsubsection{Azioni su generazioni passate}
+\label{sec:AzioniGenerazioni}
+Per ogni generazione passata visualizzata nella tabella, un comodo pulsante a 3 puntini \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{...}}} apre un menù delle veloci possibili. Tali azioni possono essere eseguite anche dalla pagina di visualizzazione del singolo post (Vedi \hyperref[sec:VisualizzazioneDettagliVoceStorico]{Sezione 4.3.4}).\\
+Le azioni disponibili nel menù a 3 puntini per ogni generazione sono:
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item \textbf{Riutilizza:} consente di avviare una nuova generazione con i parametri di generazione (tono, stile e prompt\G{}) della generazione selezionata.
+    \item \textbf{Duplica:} riporta alla pagina di generazione del contenuto, con i campi del modulo di generazione (tono, stile e prompt\G{}) precompilati con quelli della generazione selezionata, permettendo all'utente di modificare i parametri prima di avviare la generazione.
+    \item \textbf{\textcolor{red}{Elimina}:} consente di eliminare il post dallo storico in maniera definitiva.
+\end{itemize}
+\immagine[0.4\textwidth]{immagini/1_AzioniRow.png}{Azioni sui post}{fig:AzioniGenerazioni}
 
-\subsubsubsection{Visualizzazione tabella generazioni}
-Le generazioni passate vengono visualizzate in una tabella che mostra informazioni chiave come la data di creazione, il titolo del post generato, il tono e lo stile utilizzati, la valutazione assegnata, il testo generato e il prompt\G{} utilizzato.
-
-\subsubsubsection{Azioni su generazioni passate}
-Per ogni generazione passata visualizzata nella tabella, l'utente ha la possibilità di eseguire azioni come riutilizzare, duplicare o eliminare la generazione dallo storico.
-Riutilizzare una generazione consiste nell'effettiva generazione di un nuovo post con gli stessi campi, mentre la duplicazione riempie i campi permettendo di apportare modifiche prima di effettuare la nuova generazione.
-
-\subsubsubsection{Scorrimento tabella storico}
+\subsubsection{Scorrimento tabella storico}
 Utilizzando frecce a fondo tabella l'utente può scorrere tra le pagine dello storico delle generazioni, visualizzando un numero limitato di generazioni per pagina per facilitare la consultazione e la gestione dello storico.
+\immagine[0.4\textwidth]{immagini/1_PaginazioneStorico.png}{Paginazione dello storico}{fig:PaginazioneStorico}
 
-
+\subsubsection{Visualizzazione dettagli voce storico}
+\label{sec:VisualizzazioneDettagliVoceStorico}
+Cliccando su una voce specifica dello storico, l'utente può accedere alla pagina di visualizzazione del post generato, dove potrà vedere il risultato completo del post (titolo, testo e immagine) e i parametri di generazione associati.\\
+La visualizzazione è simile a quella dell'anteprima del post generato (Vedi \hyperref[fig:AnteprimaGenerazione]{Figura 10}), ma con la differenza che in questo caso sono presenti informazioni aggiuntive (come la data di creazione del post) e non è possibile modificare il contenuto, in quanto si tratta di una visualizzazione di un post già salvato nello storico.\\
+Infine sono disponibili le operazioni di gestione del post (Riutilizza, Duplica e Elimina) discusse nella sezione precedente (\hyperref[sec:AzioniGenerazioni]{Sezione 4.3.2}).
+\immagine[1\textwidth]{immagini/1_VoceStorico.png}{Dettagli di una voce dello storico}{fig:VoceStorico}
 
 
 \subsection{AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}}
@@ -787,12 +800,12 @@ L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative
 \subsubsection{Analytics e monitoraggio trasversale per l'AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}}
 L'utente ha la possibilità di accedere a una sezione dedicata all'AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni del Co-Pilot, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
 Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G{} e garantire un'esperienza utente sempre più soddisfacente.
-
+\immagine[0.2\textwidth]{immagini/3_VistaAiCoPilot.png}{Analytics Ai Co-Pilot}{fig:VistaAiCoPilot}
 \subsubsubsection{Percentuale confidenza media}
 Questa metrica mostra il punteggio medio di affidabilità\G{} (confidence score\G{}) che l'AI\G{} ha attribuito alle proprie estrazioni di dati nel periodo selezionato. Il sistema calcola la media (pesata o aritmetica) dei punteggi associati a tutti i documenti elaborati, indicando inoltre se tale valore è in linea, superiore o inferiore rispetto ai trend storici.
 
-\subsubsubsection{Percentuale intervento umano per correzione}
-Questo indicatore visualizza la frequenza con cui gli operatori umani ("Human-in-the-loop") devono intervenire per correggere i dati estratti dall'AI\G{} prima del salvataggio. Analizzando i log di audit, il sistema confronta il numero di documenti che hanno subito modifiche manuali con il volume totale dei documenti processati, esprimendo il risultato in percentuale.
+\subsubsubsection{Media intervento umano per correzione}
+Questo indicatore visualizza in media, la frequenza con cui gli operatori umani ("Human-in-the-loop") devono intervenire per correggere i dati estratti dall'AI\G{} prima del salvataggio. Analizzando i log di audit, il sistema confronta il numero di documenti che hanno subito modifiche manuali con il volume totale dei documenti processati.
 
 \subsubsubsection{Accuratezza mapping}
 Questa statistica rappresenta la precisione con cui l'AI\G{} associa i dati individuati nei documenti ai campi corretti all'interno del database. Il sistema valuta la coerenza dei dati e calcola un indice di accuratezza strutturale, permettendo di identificare se l'AI\G{} sta fallendo nel riconoscere specifiche tipologie di documento o determinati layout.
@@ -801,7 +814,47 @@ Questa statistica rappresenta la precisione con cui l'AI\G{} associa i dati indi
 Questa metrica indica il tempo medio impiegato dal sistema per processare ed elaborare un documento. Il calcolo viene effettuato basandosi sui timestamp di inizio (upload) e di fine (disponibilità dei dati), restituendo un valore fondamentale per monitorare le performance dell'infrastruttura e la latenza del servizio.
 
 \subsubsubsection{Filtraggio per periodo temporale AI Co-Pilot\G{}}
-L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI Co-Pilot\G{} in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle analisi.
+L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI Co-Pilot\G{} in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.) o a un intervallo di tempo personalizzato scelto dall'utente. Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle analisi.
+\begin{figure}[H]
+    \centering    
+\begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]
+        {\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/3_DataDatePicker.png}}
+        \caption{Scelta range data tramite calendario}
+        \label{fig:datadatepicker}
+        
+    \end{subfigure}
+    \hspace{0.02\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]
+            {\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/3_DataSelect.png}}
+        \caption{Scelta range data tramite valori preimpostati}
+            \label{fig:dataselect}
+        
+    \end{subfigure}
+\end{figure}
 
 \section{Test\G{}}
 Per garantire la qualità\G{} e l'affidabilità\G{} del prodotto\G{}, è stato implementato un processo di testing completo che include test\G{} unitari, test\G{} di integrazione e test\G{} end-to-end.
@@ -845,5 +898,5 @@ npm run cypress:run
 \paragraph{Nota}
 I test\G{} Cypress richiedono che il frontend sia raggiungibile su \texttt{http://localhost:4200}.
 
-
+\label{LastPage}
 \end{document}
