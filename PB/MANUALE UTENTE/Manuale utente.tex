@@ -76,7 +76,7 @@
 
 % Header: sinistra e destra
 \fancyhead[L]{Gruppo 4 - BugBusters} % sinistra
-\fancyhead[R]{Manuale utente\G}   % destra
+\fancyhead[R]{Manuale utente\G{}}   % destra
 
 \fancyfoot[L]{ \thepage\ di \pageref{LastPage}} %definisce il formato del footer
 \fancyfoot[R]{ \nouppercase{\rightmark}} % nome della sezione
@@ -109,7 +109,7 @@
  {\small Corso: Ingegneria del Software}\\[0.2cm]
  {\small Anno Accademico: 2025/2026}\\[0.8cm]
 
- {\Huge\bfseries\color{primaryblue} Manuale utente\G}\\[0.8cm]
+ {\Huge\bfseries\color{primaryblue} Manuale utente\G{}}\\[0.8cm]
  {\Large\color{secondaryblue}Versione \CurrentVersion}\\[0.8cm]
 \end{center}
 
@@ -118,8 +118,8 @@
 % Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
 	{Stato} & Approvato \\
-    {Redattori\G} & Alberto Autiero, Luca Slongo, Leonardo Salviato, Marco Piro \\
-	{Verificatori\G} &  Linor Sadè, Marco Favero, Alberto Pignat, Leonardo Salviato \\
+    {Redattori\G{}} & Alberto Autiero, Luca Slongo, Leonardo Salviato, Marco Piro \\
+	{Verificatori\G{}} &  Linor Sadè, Marco Favero, Alberto Pignat, Leonardo Salviato \\
 	{Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
 \end{tabularx}
 \end{tcolorbox}
@@ -129,7 +129,7 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
-Documento rivolto agli utenti finali della piattaforma Nexum, sviluppata dal team BugBusters per l'azienda Eggon. Il manuale fornisce una guida completa all'installazione, alla configurazione e all'utilizzo dei moduli AI-assistant\G generativo e AI Co-Pilot\G per i Consulenti del Lavoro\G, includendo istruzioni operative e indicazioni per la risoluzione dei problemi più comuni.
+Documento rivolto agli utenti finali della piattaforma Nexum, sviluppata dal team BugBusters per l'azienda Eggon. Il manuale fornisce una guida completa all'installazione, alla configurazione e all'utilizzo dei moduli AI-assistant\G{} generativo e AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}, includendo istruzioni operative e indicazioni per la risoluzione dei problemi più comuni.
 \end{tcolorbox}
 \end{center}
 
@@ -147,29 +147,29 @@ Documento rivolto agli utenti finali della piattaforma Nexum, sviluppata dal tea
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\rowcolor{secondaryblue!10} 1.0.0 & 03/04/2026 & Approvazione\G documento & - & - & Linor Sadè \\
+\rowcolor{secondaryblue!10} 1.0.0 & 03/04/2026 & Approvazione\G{} documento & - & - & Linor Sadè \\
 \hline
-\rowcolor{secondaryblue!10} 0.6.0 & 30/03/2026 & Verifica\G finale & - & Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.6.0 & 30/03/2026 & Verifica\G{} finale & - & Leonardo Salviato & - \\
 \hline
-\rowcolor{secondaryblue!10}0.5.1 & 03/04/2026 & Aggiunti ai termini presenti nel Glossario\G la G & Alberto Autiero & - & - \\
+\rowcolor{secondaryblue!10}0.5.1 & 03/04/2026 & Aggiunti ai termini presenti nel Glossario\G{} la G & Alberto Autiero & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.5.0 & 30/03/2026 & Verifica\G sezione test\G & - & Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.5.0 & 30/03/2026 & Verifica\G{} sezione test\G{} & - & Leonardo Salviato & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.4.1 & 27/03/2026 & Inizio stesura sezione test\G & Marco Piro & - & - \\
+\rowcolor{secondaryblue!10} 0.4.1 & 27/03/2026 & Inizio stesura sezione test\G{} & Marco Piro & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.4.0 & 23/03/2026 & Verifica\G sezione installazione & - & Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.4.0 & 23/03/2026 & Verifica\G{} sezione installazione & - & Leonardo Salviato & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.3.1 & 22/03/2026 & Inizio stesura sezione installazione & Luca Slongo & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.3.0 & 20/03/2026 & Verifica\G sezione istruzioni per l'uso & - & Alberto Pignat & - \\
+\rowcolor{secondaryblue!10} 0.3.0 & 20/03/2026 & Verifica\G{} sezione istruzioni per l'uso & - & Alberto Pignat & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.2.1 & 18/03/2026 & Fine stesura sezione istruzioni per l'uso & Luca Slongo & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.2.0 & 06/03/2026 & Verifica\G dell'inizio della stesura della sezione istruzioni per l'uso & - & Marco Favero & - \\
+\rowcolor{secondaryblue!10} 0.2.0 & 06/03/2026 & Verifica\G{} dell'inizio della stesura della sezione istruzioni per l'uso & - & Marco Favero & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.1.1 & 03/03/2026 & Inizio stesura sezione istruzioni per l'uso & Alberto Autiero & - & - \\
 \hline
-\rowcolor{secondaryblue!10} 0.1.0 & 24/02/2026 & Verifica\G prima stesura & - & Linor Sadè & - \\
+\rowcolor{secondaryblue!10} 0.1.0 & 24/02/2026 & Verifica\G{} prima stesura & - & Linor Sadè & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.0.1 & 24/02/2026 & Prima stesura & Leonardo Salviato & - & - \\
 \hline
@@ -185,42 +185,42 @@ Documento rivolto agli utenti finali della piattaforma Nexum, sviluppata dal tea
 \section{Introduzione}
 
 \subsection{Scopo del documento}
-Il documento "Manuale utente\G" ha lo scopo di fornire agli utenti finali una guida completa e dettagliata sull'utilizzo dei Moduli AI Assistant\G generativo e AI Copilot\G per i consulenti del lavoro\G. 
-Esso include informazioni su come installare, configurare e utilizzare le funzionalità\G principali della piattaforma, nonché indicazioni per la risoluzione di eventuali problemi comuni. 
+Il documento "Manuale utente\G{}" ha lo scopo di fornire agli utenti finali una guida completa e dettagliata sull'utilizzo dei Moduli AI Assistant\G{} generativo e AI Copilot\G{} per i consulenti del lavoro\G{}. 
+Esso include informazioni su come installare, configurare e utilizzare le funzionalità\G{} principali della piattaforma, nonché indicazioni per la risoluzione di eventuali problemi comuni. 
 L'obiettivo è garantire che gli utenti possano sfruttare appieno le potenzialità di Nexum per migliorare la comunicazione interna e la revisione e analisi di documenti all'interno delle loro organizzazioni.
 
 
-\subsection{Scopo del prodotto\G}
+\subsection{Scopo del prodotto\G{}}
 Nexum è una piattaforma che supporta la gestione delle comunicazioni interne, la raccolta di feedback e la timbratura digitale del personale.
-Il sistema consente di inviare comunicazioni ai dipendenti con tracciamento delle letture, creare e distribuire survey personalizzate e monitorarne i risultati tramite dashboard\G aggiornate in tempo reale. 
+Il sistema consente di inviare comunicazioni ai dipendenti con tracciamento delle letture, creare e distribuire survey personalizzate e monitorarne i risultati tramite dashboard\G{} aggiornate in tempo reale. 
 Inoltre, permette di effettuare la timbratura tramite badge o dispositivi mobili, applicando automaticamente le regole di controllo e aggregazione delle ore lavorate.
 
 Le anagrafiche centralizzate, integrate con ruoli e permessi, consentono una gestione controllata degli accessi e garantiscono la coerenza delle informazioni tra i diversi moduli della piattaforma.
 
-Questo manuale si occupa di un’applicazione stand-alone\G che in futuro verrà integrata con Nexum, che introduce funzionalità\G di assistente AI\G generativo per supportare l’utente nella scrittura di comunicazioni e un AI Co-Pilot\G dedicato ai Consulenti del Lavoro (CdL)\G.
-Questo modulo\G consente di caricare documenti, riconoscerne automaticamente la tipologia, estrarre le informazioni rilevanti e gestirne l’invio a destinatari in modo massivo.
+Questo manuale si occupa di un’applicazione stand-alone\G{} che in futuro verrà integrata con Nexum, che introduce funzionalità\G{} di assistente AI\G{} generativo per supportare l’utente nella scrittura di comunicazioni e un AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}.
+Questo modulo\G{} consente di caricare documenti, riconoscerne automaticamente la tipologia, estrarre le informazioni rilevanti e gestirne l’invio a destinatari in modo massivo.
 
-Per ulteriori dettagli sulle funzionalità\G e sul contesto del progetto\G, si rimanda alla documentazione di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}.
+Per ulteriori dettagli sulle funzionalità\G{} e sul contesto del progetto\G{}, si rimanda alla documentazione di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G{}}.
 
 
 
-\subsection{Glossario\G}
-Il glossario\G raccoglie e definisce i termini, gli acronimi e le abbreviazioni 
-impiegati nel documento e nel progetto\G Nexum. L'obiettivo è fornire definizioni univoche per ridurre 
+\subsection{Glossario\G{}}
+Il glossario\G{} raccoglie e definisce i termini, gli acronimi e le abbreviazioni 
+impiegati nel documento e nel progetto\G{} Nexum. L'obiettivo è fornire definizioni univoche per ridurre 
 ambiguità, garantire coerenza terminologica tra i membri del team e facilitare l'onboarding di nuovi partecipanti. \\
-Per i termini tecnici e specifici utilizzati in questo documento, si fa riferimento al glossario\G disponibile al 
+Per i termini tecnici e specifici utilizzati in questo documento, si fa riferimento al glossario\G{} disponibile al 
 seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}{link}.
-Per maggiore usabilità e facilità di consultazione, il glossario\G è accessibile anche aprendo dal nostro \href{https://bugbustersunipd.github.io/DocumentazioneSWE/}{sito web} i vari documenti con il viewer
+Per maggiore usabilità e facilità di consultazione, il glossario\G{} è accessibile anche aprendo dal nostro \href{https://bugbustersunipd.github.io/DocumentazioneSWE/}{sito web} i vari documenti con il viewer
 pdf da noi sviluppato.
  
 \subsection{Riferimenti}
  
 \subsubsection{Riferimenti normativi}
 \begin{itemize}
-\item \textbf{Capitolato\G
+\item \textbf{Capitolato\G{}
  d'appalto C5: Nexum - Piattaforma di consulenza e documentazione previdenziale}\\
 \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf}
-\item \textbf{Norme di Progetto\G:}\\
+\item \textbf{Norme di Progetto\G{}:}\\
 \url{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/NORME%20DI%20PROGETTO/Norme%20di%20Progetto.pdf}
 \end{itemize}
  
@@ -237,7 +237,7 @@ pdf da noi sviluppato.
 \newpage
 
 \section{Requisiti}
-Per poter utilizzare correttamente il prodotto\G, è necessario soddisfare alcuni requisiti minimi. 
+Per poter utilizzare correttamente il prodotto\G{}, è necessario soddisfare alcuni requisiti minimi. 
 Questi requisiti garantiscono che la piattaforma funzioni in modo efficiente e senza problemi, offrendo un'esperienza utente ottimale.
 
 
@@ -253,7 +253,7 @@ Tuttavia, per garantire prestazioni ottimali, si consiglia di utilizzare un comp
 
 
 \subsection{Requisiti software}
-Per poter eseguire correttamente l'applicazione è necessario utilizzare un browser web aggiornato per garantire la compatibilità e la sicurezza\G (indipendentemente dal sistema operativo utilizzato).
+Per poter eseguire correttamente l'applicazione è necessario utilizzare un browser web aggiornato per garantire la compatibilità e la sicurezza\G{} (indipendentemente dal sistema operativo utilizzato).
 I browser consigliati includono:
 \begin{itemize}
     \item Google Chrome (versione 120 o superiore)
@@ -262,50 +262,50 @@ I browser consigliati includono:
     \item Safari (versione 17 o superiore)
 \end{itemize}
 
-Inoltre è necessario l'utilizzo di Docker\G per eseguire l'applicazione in un ambiente isolato e controllato, garantendo la compatibilità tra le diverse piattaforme e semplificando il processo di installazione e configurazione.
+Inoltre è necessario l'utilizzo di Docker\G{} per eseguire l'applicazione in un ambiente isolato e controllato, garantendo la compatibilità tra le diverse piattaforme e semplificando il processo di installazione e configurazione.
 \begin{itemize}
-    \item Versione minima di Docker\G: 19.03 con utilizzo di Docker\G Desktop 4.0.0
-    \item Versione consigliata di Docker\G: 24 o superiore con utilizzo di Docker\G Desktop 4.3.0 o superiore
+    \item Versione minima di Docker\G{}: 19.03 con utilizzo di Docker\G{} Desktop 4.0.0
+    \item Versione consigliata di Docker\G{}: 24 o superiore con utilizzo di Docker\G{} Desktop 4.3.0 o superiore
 \end{itemize}
 
 
 \section{Installazione}
-Con il seguente procedimento è possibile installare e configurare l'applicazione stand-alone\G che introduce 
-funzionalità\G di assistente AI\G generativo per supportare l’utente nella scrittura di comunicazioni e un AI Co-Pilot\G dedicato ai Consulenti del Lavoro (CdL)\G.
+Con il seguente procedimento è possibile installare e configurare l'applicazione stand-alone\G{} che introduce 
+funzionalità\G{} di assistente AI\G{} generativo per supportare l’utente nella scrittura di comunicazioni e un AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}.
 Per un corretto funzionamento è necessario seguire ogni passaggio nell'ordine riportato.
-Per motivi di sicurezza\G le API-key cambiano costantemente, quindi per poter usufruire correttamente dei moduli è necessario disporre di API-key aggiornate.
+Per motivi di sicurezza\G{} le API-key cambiano costantemente, quindi per poter usufruire correttamente dei moduli è necessario disporre di API-key aggiornate.
 
-\subsection{Clonare la repository\G}
+\subsection{Clonare la repository\G{}}
 All'interno del proprio dispositivo:
 \begin{itemize}
-    \item Aprire il terminale e posizionarsi nella directory in cui si desidera clonare la repository\G.
+    \item Aprire il terminale e posizionarsi nella directory in cui si desidera clonare la repository\G{}.
     \item Eseguire il comando: \texttt{git clone <URL della repository>}
 \end{itemize}
 
-In questo modo si otterrà una copia locale del progetto\G, che potrà essere eseguita e modificata secondo le proprie esigenze.
+In questo modo si otterrà una copia locale del progetto\G{}, che potrà essere eseguita e modificata secondo le proprie esigenze.
 
-\subsection{Configurare file env per le API-key di AWS\G}
-Per poter utilizzare le funzionalità\G di AI\G generativa e di analisi documentale, è necessario configurare le API-key di AWS\G all'interno di un file \texttt{.env}; la struttura deve essere uguale a quella del file \texttt{.env.example} presente nella directory del progetto\G.
+\subsection{Configurare file env per le API-key di AWS\G{}}
+Per poter utilizzare le funzionalità\G{} di AI\G{} generativa e di analisi documentale, è necessario configurare le API-key di AWS\G{} all'interno di un file \texttt{.env}; la struttura deve essere uguale a quella del file \texttt{.env.example} presente nella directory del progetto\G{}.
 \begin{itemize}
     \item Aprire il file \texttt{.env} con un editor di testo.
-    \item Inserire le API-key di AWS\G nei campi corrispondenti, seguendo il formato specificato nel file.
+    \item Inserire le API-key di AWS\G{} nei campi corrispondenti, seguendo il formato specificato nel file.
 \end{itemize}
 Assicurarsi di salvare le modifiche al file \texttt{.env} prima di procedere con l'esecuzione dell'applicazione.
 
-\subsection{Inizializzazione applicazione tramite Docker\G}
-Per avviare l'applicazione, è necessario utilizzare Docker\G per creare e gestire i container necessari al funzionamento della piattaforma.
+\subsection{Inizializzazione applicazione tramite Docker\G{}}
+Per avviare l'applicazione, è necessario utilizzare Docker\G{} per creare e gestire i container necessari al funzionamento della piattaforma.
 \begin{itemize}
-    \item Per costruire l'ambiente, eseguire il comando \texttt{docker compose build}, che scarica l'immagine di Ruby\G e installa tutte le gemme necessarie definite nel Gemfile del progetto\G.
+    \item Per costruire l'ambiente, eseguire il comando \texttt{docker compose build}, che scarica l'immagine di Ruby\G{} e installa tutte le gemme necessarie definite nel Gemfile del progetto\G{}.
     \item Successivamente per costruire e popolare il database si utilizza il comando \texttt{docker compose run --rm web rails db:setup}, che esegue le migrazioni del database per creare le tabelle necessarie e popolare il database con i dati iniziali.
-    \item Infine per avviare l'applicazione, eseguire il comando \texttt{docker compose up}, che avvia il server all'indirizzo \texttt{http://localhost:3000} e rende disponibile l'interfaccia\G utente all'indirizzo \texttt{http://localhost:4200}.
+    \item Infine per avviare l'applicazione, eseguire il comando \texttt{docker compose up}, che avvia il server all'indirizzo \texttt{http://localhost:3000} e rende disponibile l'interfaccia\G{} utente all'indirizzo \texttt{http://localhost:4200}.
 \end{itemize}
 
 
 \section{Istruzioni per l'uso}
 
-\subsection{Dashboard\G}
-La dashboard\G è il punto di accesso ai moduli dell'applicazione. Da qui, gli utenti possono navigare tra le diverse funzionalità\G, visualizzare notifiche e accedere rapidamente 
-alle varie sezioni. Nel contesto della nostra applicazione stand-alone\G, la dashboard\G funge da hub centrale per accedere sia all'AI-assistant\G generativo che all'AI Co-Pilot\G dedicato ai Consulenti del Lavoro (CdL)\G.
+\subsection{Dashboard\G{}}
+La dashboard\G{} è il punto di accesso ai moduli dell'applicazione. Da qui, gli utenti possono navigare tra le diverse funzionalità\G{}, visualizzare notifiche e accedere rapidamente 
+alle varie sezioni. Nel contesto della nostra applicazione stand-alone\G{}, la dashboard\G{} funge da hub centrale per accedere sia all'AI-assistant\G{} generativo che all'AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}.
 
 \immagine[1\textwidth]{immagini/0_Dashboard.png}{Dashboard}{fig:Dashboard}
 
@@ -314,12 +314,12 @@ Per permettere la navigazione tra i moduli, è presente una barra laterale che c
 
 \immagine[0.3\textwidth]{immagini/0_BarraLaterale.png}{BarraLaterale}{fig:BarraLaterale}
 
-\subsection{AI-assistant\G generativo}
-Il modulo\G di AI-assistant\G generativo è progettato per supportare gli utenti nella creazione di comunicazioni interne.
+\subsection{AI-assistant\G{} generativo}
+Il modulo\G{} di AI-assistant\G{} generativo è progettato per supportare gli utenti nella creazione di comunicazioni interne.
 
 \subsubsection{Generazione di contenuti}
-La generazione dei contenuti avviene tramite l'inserimento di un prompt\G, la scelta di un tono e la scelta di uno stile da parte dell'utente. 
-L'assistente AI\G utilizza queste informazioni per generare un post formato da titolo, testo e immagine.
+La generazione dei contenuti avviene tramite l'inserimento di un prompt\G{}, la scelta di un tono e la scelta di uno stile da parte dell'utente. 
+L'assistente AI\G{} utilizza queste informazioni per generare un post formato da titolo, testo e immagine.
 
 \immagine[1\textwidth]{immagini/1_GeneratoreDiContenuti.png}{GeneratoreDiContenuti}{fig:GeneratoreDiContenuti}
 
@@ -339,21 +339,21 @@ Oltre all'inserimento di uno stile personalizzato, è presente anche un'opzione 
 \immagine[0.5\textwidth]{immagini/1_MenuStile.png}{MenuStile}{fig:MenuStile}
 
 
-\subsubsubsection{Casella di testo per inserimento del prompt\G}
-La casella di testo per l'inserimento del prompt\G consente all'utente di fornire indicazioni specifiche su ciò che desidera comunicare.
-Il prompt\G può includere informazioni chiave, obiettivi della comunicazione o qualsiasi dettaglio che l'utente ritiene importante per guidare la generazione del contenuto da parte dell'assistente AI\G.
+\subsubsubsection{Casella di testo per inserimento del prompt\G{}}
+La casella di testo per l'inserimento del prompt\G{} consente all'utente di fornire indicazioni specifiche su ciò che desidera comunicare.
+Il prompt\G{} può includere informazioni chiave, obiettivi della comunicazione o qualsiasi dettaglio che l'utente ritiene importante per guidare la generazione del contenuto da parte dell'assistente AI\G{}.
 
 \immagine[1\textwidth]{immagini/1_CasellaInserimentoPrompt.png}{CasellaPrompt}{fig:CasellaPrompt}
 
 \subsubsubsection{Tasto di generazione}
-Dopo aver compilato i campi necessari (prompt\G, tono e stile), l'utente può cliccare sul tasto di generazione per avviare il processo di creazione del contenuto.
+Dopo aver compilato i campi necessari (prompt\G{}, tono e stile), l'utente può cliccare sul tasto di generazione per avviare il processo di creazione del contenuto.
 
 \immagine[0.4\textwidth]{immagini/1_TastoGenerazioneContenuto.png}{TastoGenerazione}{fig:TastoGenerazione}
 
 
 \subsubsection{Anteprima del post generato}
 A seguito della generazione, viene visualizzata un'anteprima del post generato, che potrà essere modificato o confermato dall'utente prima di essere pubblicato o salvato. Inoltre l'utente 
-dovrà anche valutare la qualità\G del contenuto generato.
+dovrà anche valutare la qualità\G{} del contenuto generato.
 
 \immagine[1\textwidth]{immagini/1_AnteprimaGenerazione.png}{AnteprimaGenerazione}{fig:AnteprimaGenerazione}
 
@@ -370,24 +370,24 @@ All'interno dell'anteprima del post, il titolo generato viene visualizzato in mo
 
 
 \subsubsubsection{Testo generato}
-Il testo viene mostrato sotto l'immagine e il titolo, fornendo il corpo principale della comunicazione che l'utente ha richiesto all'assistente AI\G di generare.
+Il testo viene mostrato sotto l'immagine e il titolo, fornendo il corpo principale della comunicazione che l'utente ha richiesto all'assistente AI\G{} di generare.
 
 \immagine[1\textwidth]{immagini/1_TestoGenerazione.png}{TestoGenerazione}{fig:TestoGenerazione}
 
 
 \subsubsubsection{Valutazione del post generato}
-Dopo aver visualizzato l'anteprima del post generato, l'utente ha la possibilità di valutare la qualità\G del contenuto attraverso un sistema basato su un punteggio da 1 a 5 stelle.
+Dopo aver visualizzato l'anteprima del post generato, l'utente ha la possibilità di valutare la qualità\G{} del contenuto attraverso un sistema basato su un punteggio da 1 a 5 stelle.
 
 \immagine[0.4\textwidth]{immagini/1_Valutazione.png}{Valutazione}{fig:Valutazione}
 
 
 \subsubsubsection{Panoramica parametri di generazione}
-Per poter associare più facilmente il risultato generato ai parametri di generazione, è presente una sezione che mostra in modo chiaro e sintetico i parametri utilizzati per la generazione del contenuto (il tono, lo stile e il prompt\G inserito dall'utente).
+Per poter associare più facilmente il risultato generato ai parametri di generazione, è presente una sezione che mostra in modo chiaro e sintetico i parametri utilizzati per la generazione del contenuto (il tono, lo stile e il prompt\G{} inserito dall'utente).
 
 \immagine[1\textwidth]{immagini/1_PanoramicaParametri.png}{PanoramicaParametri}{fig:PanoramicaParametri}
 
 \subsubsubsection{Tasto accesso modalità modifica}
-Per attivare le funzionalità\G di modifica del post generato, è presente un tasto che consente all'utente di accedere alla modalità di modifica, dove potrà apportare le modifiche desiderate al titolo, al testo e all'immagine generati.
+Per attivare le funzionalità\G{} di modifica del post generato, è presente un tasto che consente all'utente di accedere alla modalità di modifica, dove potrà apportare le modifiche desiderate al titolo, al testo e all'immagine generati.
 
 \immagine[0.4\textwidth]{immagini/1_TastoModalitaModifica.png}{TastoModalitaModifica}{fig:TastoModalitaModifica}
 
@@ -403,7 +403,7 @@ Entrando nella modalità di modifica, l'utente può apportare modifiche al titol
 \immagine[1\textwidth]{immagini/1_ModalitaModificaGenerazione.png}{ModalitaModificaGenerazione}{fig:ModalitaModificaGenerazione}
 
 \subsubsubsection{Modifica immagine generata}
-Nella modalità di modifica, l'utente ha la possibilità di sostituire l'immagine generata dall'AI\G con una nuova, avviando una rigenerazione sulla base dei parametri originali o di un prompt\G aggiornato.
+Nella modalità di modifica, l'utente ha la possibilità di sostituire l'immagine generata dall'AI\G{} con una nuova, avviando una rigenerazione sulla base dei parametri originali o di un prompt\G{} aggiornato.
 
 \immagine[0.6\textwidth]{immagini/1_ModificaImmagine.png}{ModificaImmagine}{fig:ModificaImmagine}
 
@@ -432,10 +432,10 @@ Lo storico delle generazioni consente all'utente di visualizzare tutte le genera
 Lo storico delle generazioni è una sezione composta da una tabella contenente le generazioni e vari sistemi di input che permettono di effettuare operazioni su questa tabella con fini di gestione o di analisi.
 
 \subsubsubsection{Filtraggio e ricerca nello storico}
-All'interno dello storico delle generazioni, è presente una funzionalità\G di filtraggio e ricerca che consente all'utente di trovare facilmente specifiche generazioni passate in base a criteri come data, valutazione, parole chiave, tono o stile utilizzato.
+All'interno dello storico delle generazioni, è presente una funzionalità\G{} di filtraggio e ricerca che consente all'utente di trovare facilmente specifiche generazioni passate in base a criteri come data, valutazione, parole chiave, tono o stile utilizzato.
 
 \subsubsubsection{Visualizzazione tabella generazioni}
-Le generazioni passate vengono visualizzate in una tabella che mostra informazioni chiave come la data di creazione, il titolo del post generato, il tono e lo stile utilizzati, la valutazione assegnata, il testo generato e il prompt\G utilizzato.
+Le generazioni passate vengono visualizzate in una tabella che mostra informazioni chiave come la data di creazione, il titolo del post generato, il tono e lo stile utilizzati, la valutazione assegnata, il testo generato e il prompt\G{} utilizzato.
 
 \subsubsubsection{Azioni su generazioni passate}
 Per ogni generazione passata visualizzata nella tabella, l'utente ha la possibilità di eseguire azioni come riutilizzare, duplicare o eliminare la generazione dallo storico.
@@ -447,36 +447,36 @@ Utilizzando frecce a fondo tabella l'utente può scorrere tra le pagine dello st
 
 
 
-\subsection{AI Co-Pilot\G per i Consulenti del Lavoro\G}
-L'AI Co-Pilot\G dedicato ai Consulenti del Lavoro (CdL)\G è progettato per supportare i professionisti nella gestione e nell'analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
+\subsection{AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}}
+L'AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{} è progettato per supportare i professionisti nella gestione e nell'analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
 
 \subsubsection{Analisi documenti}
-Il modulo\G di analisi dei documenti consente ai CdL\G di caricare documenti in vari formati (PDF, CSV, jpg, png...) e di riconoscerne automaticamente la tipologia (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.).
+Il modulo\G{} di analisi dei documenti consente ai CdL\G{} di caricare documenti in vari formati (PDF, CSV, jpg, png...) e di riconoscerne automaticamente la tipologia (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.).
 Per effettuare un'analisi è necessario inserire il file che si ha intenzione di analizzare ed eventualmente dati conosciuti, facilitando così il processo di riconoscimento e estrazione delle informazioni rilevanti.
 
 \immagine[1\textwidth]{immagini/2_Analisi.png}{Analisi documenti}{fig:AnalisiDocumenti}
 
 \subsubsubsection{Caricamento documento}
-Tramite questa funzione, l'utente può selezionare e caricare uno o più documenti all'interno del sistema. L'infrastruttura verifica\G l'integrità e la validità del formato del file per prepararlo all'analisi tramite intelligenza artificiale.
+Tramite questa funzione, l'utente può selezionare e caricare uno o più documenti all'interno del sistema. L'infrastruttura verifica\G{} l'integrità e la validità del formato del file per prepararlo all'analisi tramite intelligenza artificiale.
 \immagine[1\textwidth]{immagini/2_Caricamento.png}{Analisi documenti}{fig:CaricamentoDocumenti}
 
 
 \subsubsubsection{Inserimento dati conosciuti}
-Per guidare il modello di AI\G e aumentare la precisione dell'estrazione (confidence), l'utente ha la facoltà di inserire manualmente alcuni metadati ancor prima di lanciare l'analisi. Tra questi figurano la selezione della categoria documentale, l'inserimento dell'azienda cliente, l'indicazione del mese/anno di competenza e lo specifico reparto aziendale.
+Per guidare il modello di AI\G{} e aumentare la precisione dell'estrazione (confidence), l'utente ha la facoltà di inserire manualmente alcuni metadati ancor prima di lanciare l'analisi. Tra questi figurano la selezione della categoria documentale, l'inserimento dell'azienda cliente, l'indicazione del mese/anno di competenza e lo specifico reparto aziendale.
 
 \immagine[1\textwidth]{immagini/2_DatiConosciuti.png}{Inserimento dati conosciuti}{fig:DatiConosciuti}
 
 
 \subsubsection{Visualizzazione risultati analisi documenti}
 Dopo l'analisi, i risultati vengono visualizzati in modo chiaro e organizzato, evidenziando le informazioni estratte dal documento e fornendo un quadro completo del contenuto analizzato.
-Questa visualizzazione consente al CdL\G di comprendere rapidamente le informazioni chiave del documento e di prendere decisioni informate su come procedere con la gestione del documento stesso.
+Questa visualizzazione consente al CdL\G{} di comprendere rapidamente le informazioni chiave del documento e di prendere decisioni informate su come procedere con la gestione del documento stesso.
 
 \immagine[1\textwidth]{immagini/2_RisultatoAnalisi.png}{Visualizzazione risultati analisi documenti}{fig:RisultatoAnalisi}
  
 
 \subsubsubsection{Visualizzazione tabella riepilogativa documenti analizzati}
 Il sistema presenta l'elenco dei documenti analizzati in formato tabellare. Per ogni elemento, vengono esposti i
- dati di sintesi estratti dall'AI\G, quali l'azienda, il periodo di competenza, la tipologia del file il numero di 
+ dati di sintesi estratti dall'AI\G{}, quali l'azienda, il periodo di competenza, la tipologia del file il numero di 
  pagine e l'identificativo originale, permettendo un controllo rapido del flusso elaborato.
 
 \immagine[1\textwidth]{immagini/2_RiconoscimentDocumenti.png}{Tabella riepilogativa documenti analizzati}{fig:RiconoscimentoDocumenti}
@@ -491,10 +491,10 @@ e di focalizzarsi su quelli più rilevanti per le proprie attività.
 \immagine[1\textwidth]{immagini/2_FiltroUpload.png}{Filtro ricerca documenti}{fig:FiltroDocumenti}
 
 \subsubsubsection{Modifica del risultato dell'analisi documenti}
-In ottica "Human-in-the-loop", se l'AI\G dovesse classificare un documento in modo impreciso o associare dati non corretti, l'operatore può intervenire manualmente per modificare la tipologia del documento o correggerne gli attributi. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza.
+In ottica "Human-in-the-loop", se l'AI\G{} dovesse classificare un documento in modo impreciso o associare dati non corretti, l'operatore può intervenire manualmente per modificare la tipologia del documento o correggerne gli attributi. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza.
 
 \subsubsubsection{Eliminazione del risultato dell'analisi documenti}
-Qualora un documento sia stato caricato per errore, risulti duplicato o non debba più far parte del flusso di invio, l'utente può rimuovere il documento e i relativi risultati dell'analisi dal database e dall'interfaccia\G corrente.
+Qualora un documento sia stato caricato per errore, risulti duplicato o non debba più far parte del flusso di invio, l'utente può rimuovere il documento e i relativi risultati dell'analisi dal database e dall'interfaccia\G{} corrente.
 
 \immagine[0.4\textwidth]{immagini/2_ModificaElimina.png}{Modifica ed eliminazione risultati analisi documenti}{fig:ModificaEliminaDocumenti}
 
@@ -506,37 +506,37 @@ possibilità di rilanciare l'analisi per quel documento specifico, sperando in u
 
 
 \subsubsection{Visualizzazione e correzione documenti}
-A seguito dell'analisi, il sistema estrae le informazioni rilevanti dal documento e le presenta in modo chiaro e organizzato, consentendo al CdL\G di verificare l'accuratezza dei dati estratti e di apportare eventuali correzioni o integrazioni prima di procedere con l'invio del documento al destinatario.
+A seguito dell'analisi, il sistema estrae le informazioni rilevanti dal documento e le presenta in modo chiaro e organizzato, consentendo al CdL\G{} di verificare l'accuratezza dei dati estratti e di apportare eventuali correzioni o integrazioni prima di procedere con l'invio del documento al destinatario.
 
 \immagine[1\textwidth]{immagini/2_DocumentoEstratto.png}{Dettagli analisi documento}{fig:DocumentoEstratto}
 
 
 \subsubsubsection{Visualizzazione informazioni documento}
-In una sezione il sistema raccoglie tutti i metadati specifici del singolo file, quali la categoria, ragione, azienda, reparto, competenza, data documento e il grado di affidabilità\G dell'estrazione (confidence score\G).
+In una sezione il sistema raccoglie tutti i metadati specifici del singolo file, quali la categoria, ragione, azienda, reparto, competenza, data documento e il grado di affidabilità\G{} dell'estrazione (confidence score\G{}).
 
 \immagine[0.5\textwidth]{immagini/2_ModificaInfo.png}{Visualizzazione informazioni documento}{fig:ModificaInfoDocumento}
 
 \subsubsubsection{Visualizzazione destinatario documento}
 Visualizza nel dettaglio i soggetti a cui il singolo documento in anteprima è indirizzato. 
-Questa sezione mostra il destinatario rilevato dal AI\G, evidenziando un possibile match con il database aziendale.
+Questa sezione mostra il destinatario rilevato dal AI\G{}, evidenziando un possibile match con il database aziendale.
 \immagine[0.8\textwidth]{immagini/2_Destinatario.png}{Visualizzazione destinatario documento}{fig:DestinatarioDocumento}
 
 
 \subsubsubsection{Visualizzazione dettagli analisi}
-Ogni campo estratto dall'AI\G è accompagnato da un indicatore di confidenza (confidence score\G) 
-che quantifica l'affidabilità\G dell'estrazione.
+Ogni campo estratto dall'AI\G{} è accompagnato da un indicatore di confidenza (confidence score\G{}) 
+che quantifica l'affidabilità\G{} dell'estrazione.
 
 \subsubsubsection{Modifica del risultato dell'analisi destinatario}
 Nel caso l'algoritmo associ un destinatario errato a un documento o non riesca a dedurlo, 
 l'operatore può intervenire per cercare e selezionare il destinatario corretto. 
 L'associazione avviene tramite a menù a tendina mostrando i dipendenti dell'azienda estratta o inserita nei dati conosciuti, 
-facilitando così la correzione e migliorando la precisione\G del processo di invio.
+facilitando così la correzione e migliorando la precisione\G{} del processo di invio.
 
 \immagine[0.6\textwidth]{immagini/2_ModificaDestinatario.png}{Modifica risultato analisi destinatario}{fig:ModificaDestinatario}
 
 \subsubsubsection{Visualizzazione documento originale ed estratto}
-Per facilitare il confronto e la verifica\G, il sistema consente di visualizzare sia il documento originale caricato che 
-la versione estratta e analizzata dall'AI\G.
+Per facilitare il confronto e la verifica\G{}, il sistema consente di visualizzare sia il documento originale caricato che 
+la versione estratta e analizzata dall'AI\G{}.
 
 \immagine[0.6\textwidth]{immagini/2_ApriDocumento.png}{Visualizzazione e correzione documenti}{fig:ApriDocumento}
 
@@ -546,17 +546,17 @@ Quando si ritiene che il documento sia pronto per essere inviato (con una confid
 \immagine[0.8\textwidth]{immagini/2_invio.png}{Invio immediato documento}{fig:InvioDocumento}
 
 \subsubsubsection{Scrittura messaggio}
-Questa funzionalità\G mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata al 
+Questa funzionalità\G{} mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata al 
 destinatario.
 
-\subsubsubsection{Applicazione template\G}
+\subsubsubsection{Applicazione template\G{}}
 Per ottimizzare i tempi, l'utente può decidere di non scrivere il messaggio da zero, bensì caricare un modello 
-(template\G) precostituito (o crearne uno nuovo). Questo andrà a sovrascrivere o precompilare i campi dell'oggetto e del corpo del messaggio con 
+(template\G{}) precostituito (o crearne uno nuovo). Questo andrà a sovrascrivere o precompilare i campi dell'oggetto e del corpo del messaggio con 
 formule testuali standard.
 
-\subsubsubsection{Operazioni su template\G esistenti}
+\subsubsubsection{Operazioni su template\G{} esistenti}
 L'utente ha accesso a una gestione completa dei modelli di comunicazione: può visualizzare la 
-lista dei template\G salvati, creare un nuovo template\G a partire dal messaggio che sta scrivendo, 
+lista dei template\G{} salvati, creare un nuovo template\G{} a partire dal messaggio che sta scrivendo, 
 oltre a cancellare definitivamente quelli divenuti obsoleti.
 
 \subsubsubsection{Programmazione invio documento}
@@ -566,7 +566,7 @@ Tramite un apposito selettore (date/time picker), l'utente definisce l'esatta da
 e lo stato globale del documento passerà a "Pianificato".
 
 \subsubsubsection{Invio immediato documento}
-Terminata la verifica\G e la preparazione della comunicazione, questa funzionalità\G fa partire istantaneamente il processo di 
+Terminata la verifica\G{} e la preparazione della comunicazione, questa funzionalità\G{} fa partire istantaneamente il processo di 
 spedizione verso il destinatario associato al documento, fornendo all'utente un feedback visivo a conferma del successo 
 dell'operazione.
 
@@ -578,7 +578,7 @@ dell'operazione.
 L'utente ha a disposizione uno storico dei documenti analizzati, visualizzandone i dettagli e il loro stato.
 
 \subsubsection{Consultazione storico documenti}
-Lo storico dei documenti consente al CdL\G di visualizzare tutte le analisi documentali precedenti, con la possibilità 
+Lo storico dei documenti consente al CdL\G{} di visualizzare tutte le analisi documentali precedenti, con la possibilità 
 di accedere ai dettagli di ciascun documento, come la data di analisi, la tipologia del documento, i destinatari riconosciuti, 
 le informazioni estratte e lo stato dell'invio.
 
@@ -590,7 +590,7 @@ Per rintracciare rapidamente i destinatari ed informazioni all'interno di invii 
 \immagine[1\textwidth]{immagini/2_Filtro.png}{Filtro Storico}{fig:FiltroStorico}
 
 \subsubsubsection{Visualizzazione stato analisi documenti}
-Questa funzionalità\G permette all'utente di monitorare l'avanzamento e la fase del ciclo di vita in cui si trova il documento. 
+Questa funzionalità\G{} permette all'utente di monitorare l'avanzamento e la fase del ciclo di vita in cui si trova il documento. 
 Attraverso etichette testuali o indicatori visivi è possibile comprendere immediatamente se il documento necessita di intervento umano, 
 se l'elaborazione è andata a buon fine, se è stato inviato o se è pianificato per un invio futuro, 
 facilitando così la gestione e il controllo dei documenti all'interno del flusso di lavoro aziendale.
@@ -613,78 +613,78 @@ facilitando così la gestione e il controllo dei documenti all'interno del fluss
 
 
 \subsection{Analytics e monitoraggio trasversale}
-L'utente ha a disposizione una sezione dedicata all'analytics e al monitoraggio trasversale, che consente di visualizzare metriche e statistiche relative all'utilizzo dell'AI-assistant\G generativo e dell'AI Co-Pilot\G per i Consulenti del Lavoro (CdL)\G, fornendo insights utili per valutare l'efficacia\G delle funzionalità\G offerte dalla piattaforma e per identificare eventuali aree di miglioramento.
+L'utente ha a disposizione una sezione dedicata all'analytics e al monitoraggio trasversale, che consente di visualizzare metriche e statistiche relative all'utilizzo dell'AI-assistant\G{} generativo e dell'AI Co-Pilot\G{} per i Consulenti del Lavoro (CdL)\G{}, fornendo insights utili per valutare l'efficacia\G{} delle funzionalità\G{} offerte dalla piattaforma e per identificare eventuali aree di miglioramento.
 
-\subsubsection{Analytics e monitoraggio trasversale per l'AI-assistant\G generativo}
-L'utente ha la possibilità di accedere a una sezione dedicata all'AI-assistant\G generativo, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni dell'assistente AI\G, consentendo di valutare l'efficacia\G delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
-Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G e garantire un'esperienza utente sempre più soddisfacente.
+\subsubsection{Analytics e monitoraggio trasversale per l'AI-assistant\G{} generativo}
+L'utente ha la possibilità di accedere a una sezione dedicata all'AI-assistant\G{} generativo, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni dell'assistente AI\G{}, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
+Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G{} e garantire un'esperienza utente sempre più soddisfacente.
 
 \subsubsubsection{Numero di generazioni effettuate}
-Questa metrica permette all'utente di visualizzare il volume totale di richieste, o prompt\G, inviate all'AI\G nel periodo temporale selezionato. Il sistema interroga il database storico e conteggia il numero totale di interazioni avviate, mostrando il dato numerico all'interno della dashboard\G.
+Questa metrica permette all'utente di visualizzare il volume totale di richieste, o prompt\G{}, inviate all'AI\G{} nel periodo temporale selezionato. Il sistema interroga il database storico e conteggia il numero totale di interazioni avviate, mostrando il dato numerico all'interno della dashboard\G{}.
 
 \subsubsubsection{Valutazione media delle generazioni}
-Tramite questo indicatore, l'utente può valutare la qualità\G percepita delle risposte fornite dall'AI Assistant\G. Il sistema aggrega i feedback ricevuti (tramite stelle) e calcola la media aritmetica dei voti, mostrando un valore che permette di comprendere il livello di soddisfazione dell'utenza.
+Tramite questo indicatore, l'utente può valutare la qualità\G{} percepita delle risposte fornite dall'AI Assistant\G{}. Il sistema aggrega i feedback ricevuti (tramite stelle) e calcola la media aritmetica dei voti, mostrando un valore che permette di comprendere il livello di soddisfazione dell'utenza.
 
-\subsubsubsection{Numero di rigenerazioni per prompt\G}
-Questa statistica mostra quante volte è stata utilizzata dagli utenti la funzione "Rigenera risposta". Il sistema conta le occorrenze in cui viene richiesta una nuova versione di un messaggio già generato: si tratta di un dato utile per capire se la prima risposta dell'AI\G risulta spesso insoddisfacente.
+\subsubsubsection{Numero di rigenerazioni per prompt\G{}}
+Questa statistica mostra quante volte è stata utilizzata dagli utenti la funzione "Rigenera risposta". Il sistema conta le occorrenze in cui viene richiesta una nuova versione di un messaggio già generato: si tratta di un dato utile per capire se la prima risposta dell'AI\G{} risulta spesso insoddisfacente.
 
 \subsubsubsection{Utilizzo toni e stili}
-Questa sezione evidenzia le preferenze degli utenti riguardo ai formati e ai registri di comunicazione. Il sistema raggruppa i prompt\G generati in base agli attributi "Tono" (es. Formale, Empatico) e "Stile" (es. Sintetico, Dettagliato), calcolandone la frequenza di utilizzo. I dati vengono visualizzati tramite grafici o classifiche che mettono in risalto i toni e gli stili più richiesti.
+Questa sezione evidenzia le preferenze degli utenti riguardo ai formati e ai registri di comunicazione. Il sistema raggruppa i prompt\G{} generati in base agli attributi "Tono" (es. Formale, Empatico) e "Stile" (es. Sintetico, Dettagliato), calcolandone la frequenza di utilizzo. I dati vengono visualizzati tramite grafici o classifiche che mettono in risalto i toni e gli stili più richiesti.
 
-\subsubsubsection{Filtraggio per periodo temporale AI-assistant\G generativo}
-L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI-assistant\G generativo in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle generazioni e delle preferenze degli utenti in periodi specifici, facilitando così l'identificazione di trend o variazioni significative nel tempo.
-
-
+\subsubsubsection{Filtraggio per periodo temporale AI-assistant\G{} generativo}
+L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI-assistant\G{} generativo in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle generazioni e delle preferenze degli utenti in periodi specifici, facilitando così l'identificazione di trend o variazioni significative nel tempo.
 
 
 
-\subsubsection{Analytics e monitoraggio trasversale per l'AI Co-Pilot\G per i Consulenti del Lavoro\G}
-L'utente ha la possibilità di accedere a una sezione dedicata all'AI Co-Pilot\G per i Consulenti del Lavoro\G, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni del Co-Pilot, consentendo di valutare l'efficacia\G delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
-Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G e garantire un'esperienza utente sempre più soddisfacente.
+
+
+\subsubsection{Analytics e monitoraggio trasversale per l'AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}}
+L'utente ha la possibilità di accedere a una sezione dedicata all'AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni del Co-Pilot, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
+Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G{} e garantire un'esperienza utente sempre più soddisfacente.
 
 \subsubsubsection{Percentuale confidenza media}
-Questa metrica mostra il punteggio medio di affidabilità\G (confidence score\G) che l'AI\G ha attribuito alle proprie estrazioni di dati nel periodo selezionato. Il sistema calcola la media (pesata o aritmetica) dei punteggi associati a tutti i documenti elaborati, indicando inoltre se tale valore è in linea, superiore o inferiore rispetto ai trend storici.
+Questa metrica mostra il punteggio medio di affidabilità\G{} (confidence score\G{}) che l'AI\G{} ha attribuito alle proprie estrazioni di dati nel periodo selezionato. Il sistema calcola la media (pesata o aritmetica) dei punteggi associati a tutti i documenti elaborati, indicando inoltre se tale valore è in linea, superiore o inferiore rispetto ai trend storici.
 
 \subsubsubsection{Percentuale intervento umano per correzione}
-Questo indicatore visualizza la frequenza con cui gli operatori umani ("Human-in-the-loop") devono intervenire per correggere i dati estratti dall'AI\G prima del salvataggio. Analizzando i log di audit, il sistema confronta il numero di documenti che hanno subito modifiche manuali con il volume totale dei documenti processati, esprimendo il risultato in percentuale.
+Questo indicatore visualizza la frequenza con cui gli operatori umani ("Human-in-the-loop") devono intervenire per correggere i dati estratti dall'AI\G{} prima del salvataggio. Analizzando i log di audit, il sistema confronta il numero di documenti che hanno subito modifiche manuali con il volume totale dei documenti processati, esprimendo il risultato in percentuale.
 
 \subsubsubsection{Accuratezza mapping}
-Questa statistica rappresenta la precisione con cui l'AI\G associa i dati individuati nei documenti ai campi corretti all'interno del database. Il sistema valuta la coerenza dei dati e calcola un indice di accuratezza strutturale, permettendo di identificare se l'AI\G sta fallendo nel riconoscere specifiche tipologie di documento o determinati layout.
+Questa statistica rappresenta la precisione con cui l'AI\G{} associa i dati individuati nei documenti ai campi corretti all'interno del database. Il sistema valuta la coerenza dei dati e calcola un indice di accuratezza strutturale, permettendo di identificare se l'AI\G{} sta fallendo nel riconoscere specifiche tipologie di documento o determinati layout.
 
 \subsubsubsection{Tempo medio di analisi documenti}
 Questa metrica indica il tempo medio impiegato dal sistema per processare ed elaborare un documento. Il calcolo viene effettuato basandosi sui timestamp di inizio (upload) e di fine (disponibilità dei dati), restituendo un valore fondamentale per monitorare le performance dell'infrastruttura e la latenza del servizio.
 
-\subsubsubsection{Filtraggio per periodo temporale AI Co-Pilot\G}
-L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI Co-Pilot\G in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle analisi.
+\subsubsubsection{Filtraggio per periodo temporale AI Co-Pilot\G{}}
+L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI Co-Pilot\G{} in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle analisi.
 
-\section{Test\G}
-Per garantire la qualità\G e l'affidabilità\G del prodotto\G, è stato implementato un processo di testing completo che include test\G unitari, test\G di integrazione e test\G end-to-end.
-Il processo di testing è stato eseguito in diverse fasi del ciclo di sviluppo, consentendo di identificare e risolvere tempestivamente eventuali bug o problemi di funzionalità\G.
+\section{Test\G{}}
+Per garantire la qualità\G{} e l'affidabilità\G{} del prodotto\G{}, è stato implementato un processo di testing completo che include test\G{} unitari, test\G{} di integrazione e test\G{} end-to-end.
+Il processo di testing è stato eseguito in diverse fasi del ciclo di sviluppo, consentendo di identificare e risolvere tempestivamente eventuali bug o problemi di funzionalità\G{}.
 
-\subsection{Test\G Backend\G}
-Il focus dei test\G backend è stato principalmente sulla verifica\G della corretta implementazione\G delle funzionalità\G, sulla gestione degli errori e sulla sicurezza\G dell'applicazione. Sono stati eseguiti test\G unitari per verificare il funzionamento di singole componenti e test\G di integrazione per assicurare che le diverse parti del sistema interagiscano correttamente tra loro.
-Per generare e avviare i test\G backend, è stato utilizzato il framework di testing integrato in Ruby on Rails\G, che consente di scrivere test\G in modo semplice e intuitivo.
+\subsection{Test\G{} Backend\G{}}
+Il focus dei test\G{} backend è stato principalmente sulla verifica\G{} della corretta implementazione\G{} delle funzionalità\G{}, sulla gestione degli errori e sulla sicurezza\G{} dell'applicazione. Sono stati eseguiti test\G{} unitari per verificare il funzionamento di singole componenti e test\G{} di integrazione per assicurare che le diverse parti del sistema interagiscano correttamente tra loro.
+Per generare e avviare i test\G{} backend, è stato utilizzato il framework di testing integrato in Ruby on Rails\G{}, che consente di scrivere test\G{} in modo semplice e intuitivo.
 
-\subsubsection{Esecuzione test\G}
-Se l'installazione e l'avvio dell'applicazione sono stati completati con successo, è possibile eseguire i test\G per verificare che tutte le funzionalità\G siano operative e che non ci siano errori.
-Per avviare i test\G è necessario eseguire il comando \texttt{docker compose run --rm backend rails test\G} in un altro terminale (l'applicazione non necessita di essere in esecuzione).
-
-
-\subsection{Test\G Frontend\G}
-Il focus dei test\G frontend\G è stato sulla verifica\G del corretto comportamento dell’interfaccia\G utente, della gestione dello stato e dell’integrazione con il backend. Sono stati eseguiti test\G unitari su componenti e servizi, insieme a test\G end-to-end sui principali flussi utente. I test\G sono stati eseguiti con gli strumenti dello stack Angular\G e Cypress.
+\subsubsection{Esecuzione test\G{}}
+Se l'installazione e l'avvio dell'applicazione sono stati completati con successo, è possibile eseguire i test\G{} per verificare che tutte le funzionalità\G{} siano operative e che non ci siano errori.
+Per avviare i test\G{} è necessario eseguire il comando \texttt{docker compose run --rm backend rails test\G{}} in un altro terminale (l'applicazione non necessita di essere in esecuzione).
 
 
-\subsubsubsection{Esecuzione test\G}
-Se l’installazione e l’avvio dell’applicazione sono stati completati correttamente, è possibile eseguire i test\G frontend\G per verificare il funzionamento dei componenti, dei servizi e dei principali flussi utente.
+\subsection{Test\G{} Frontend\G{}}
+Il focus dei test\G{} frontend\G{} è stato sulla verifica\G{} del corretto comportamento dell’interfaccia\G{} utente, della gestione dello stato e dell’integrazione con il backend. Sono stati eseguiti test\G{} unitari su componenti e servizi, insieme a test\G{} end-to-end sui principali flussi utente. I test\G{} sono stati eseguiti con gli strumenti dello stack Angular\G{} e Cypress.
 
-Per eseguire i test\G unitari, utilizzare il seguente comando:
+
+\subsubsubsection{Esecuzione test\G{}}
+Se l’installazione e l’avvio dell’applicazione sono stati completati correttamente, è possibile eseguire i test\G{} frontend\G{} per verificare il funzionamento dei componenti, dei servizi e dei principali flussi utente.
+
+Per eseguire i test\G{} unitari, utilizzare il seguente comando:
 \begin{verbatim}
 docker compose run --rm frontend npm run test -- --watch=false
 \end{verbatim}
 
-\subsubsection{Esecuzione test\G end-to-end (Cypress)}
+\subsubsection{Esecuzione test\G{} end-to-end (Cypress)}
 
-Per eseguire i test\G E2E, usare due terminali nella cartella \texttt{frontend}.
+Per eseguire i test\G{} E2E, usare due terminali nella cartella \texttt{frontend}.
 
 \paragraph{Terminale 1}
 \begin{verbatim}
@@ -697,7 +697,7 @@ npm run cypress:run
 \end{verbatim}
 
 \paragraph{Nota}
-I test\G Cypress richiedono che il frontend sia raggiungibile su \texttt{http://localhost:4200}.
+I test\G{} Cypress richiedono che il frontend sia raggiungibile su \texttt{http://localhost:4200}.
 
 
 \end{document}
