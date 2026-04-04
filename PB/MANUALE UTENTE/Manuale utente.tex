@@ -7,6 +7,7 @@
 \usepackage[italian]{babel}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx}
+\usepackage[export]{adjustbox}
 \usepackage{grffile}
 \usepackage{booktabs}
 \usepackage{setspace}
@@ -17,6 +18,7 @@
 \usepackage{tabularx}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
+\usepackage{subcaption}
 \usepackage[titles]{tocloft}
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref}
 \usepackage{amsmath}
@@ -48,16 +50,27 @@
 \renewcommand{\sectionmark}[1]{\markright{#1}}
 \newcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 
-
-\newcommand{\immagine}[4][0.8\textwidth]{
+% per i drop shadow
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\newcommand{\immagine}[4][0.8\textwidth]{%
     \begin{figure}[H]
         \centering
-        \includegraphics[width=#1]{#2}
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]{\includegraphics[max width=#1,max height=0.85\textheight,keepaspectratio]{#2}}
         \caption{#3}
         \label{#4}
-    \end{figure}
+    \end{figure}%
 }
-
 
 
 \setlength{\parskip}{4pt}
@@ -129,7 +142,7 @@
 
 \begin{center}
 \begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
-Documento rivolto agli utenti finali della piattaforma Nexum, sviluppata dal team BugBusters per l'azienda Eggon. Il manuale fornisce una guida completa all'installazione, alla configurazione e all'utilizzo dei moduli AI-assistant\G{} generativo e AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}, includendo istruzioni operative e indicazioni per la risoluzione dei problemi più comuni.
+Documento rivolto agli utenti finali della piattaforma Nexum, sviluppata dal team BugBusters per l'azienda Eggon. Il manuale fornisce una guida completa all'installazione, alla configurazione e all'utilizzo dei moduli AI-Assistant\G{} Generativo e AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}, includendo istruzioni operative e indicazioni per la risoluzione dei problemi più comuni.
 \end{tcolorbox}
 \end{center}
 
@@ -197,8 +210,8 @@ Inoltre, permette di effettuare la timbratura tramite badge o dispositivi mobili
 
 Le anagrafiche centralizzate, integrate con ruoli e permessi, consentono una gestione controllata degli accessi e garantiscono la coerenza delle informazioni tra i diversi moduli della piattaforma.
 
-Questo manuale si occupa di un’applicazione stand-alone\G{} che in futuro verrà integrata con Nexum, che introduce funzionalità\G{} di assistente AI\G{} generativo per supportare l’utente nella scrittura di comunicazioni e un AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}.
-Questo modulo\G{} consente di caricare documenti, riconoscerne automaticamente la tipologia, estrarre le informazioni rilevanti e gestirne l’invio a destinatari in modo massivo.
+Questo manuale si occupa di un'applicazione stand-alone\G{} che in futuro verrà integrata con Nexum, che introduce funzionalità\G{} di assistente AI\G{} generativo per supportare l'utente nella scrittura di comunicazioni e un AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}.
+Questo modulo\G{} consente di caricare documenti, riconoscerne automaticamente la tipologia, estrarre le informazioni rilevanti e gestirne l'invio a destinatari in modo massivo.
 
 Per ulteriori dettagli sulle funzionalità\G{} e sul contesto del progetto\G{}, si rimanda alla documentazione di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G{}}.
 
@@ -271,7 +284,7 @@ Inoltre è necessario l'utilizzo di Docker\G{} per eseguire l'applicazione in un
 
 \section{Installazione}
 Con il seguente procedimento è possibile installare e configurare l'applicazione stand-alone\G{} che introduce 
-funzionalità\G{} di assistente AI\G{} generativo per supportare l’utente nella scrittura di comunicazioni e un AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}.
+funzionalità\G{} di assistente AI\G{} generativo per supportare l'utente nella scrittura di comunicazioni e un AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}.
 Per un corretto funzionamento è necessario seguire ogni passaggio nell'ordine riportato.
 Per motivi di sicurezza\G{} le API-key cambiano costantemente, quindi per poter usufruire correttamente dei moduli è necessario disporre di API-key aggiornate.
 
@@ -303,52 +316,135 @@ Per avviare l'applicazione, è necessario utilizzare Docker\G{} per creare e ges
 
 \section{Istruzioni per l'uso}
 
-\subsection{Dashboard\G{}}
-La dashboard\G{} è il punto di accesso ai moduli dell'applicazione. Da qui, gli utenti possono navigare tra le diverse funzionalità\G{}, visualizzare notifiche e accedere rapidamente 
-alle varie sezioni. Nel contesto della nostra applicazione stand-alone\G{}, la dashboard\G{} funge da hub centrale per accedere sia all'AI-assistant\G{} generativo che all'AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}.
+\subsection{Overview\G{}}
+All'apertura dell'applicazione, gli utenti possono navigare tra le diverse funzionalità\G{}.
+Nel contesto della nostra applicazione stand-alone\G{}, la dashboard\G{} funge da hub centrale per accedere a:
+\begin{itemize}
+    \item AI-Assistant\G{} generativo per la creazione di post
+    \item AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}
+    \item pagina di analytics per visualizzare le statistiche\G{} relative alle generazioni effettuate e ai documenti analizzati.
+\end{itemize}
 
 \immagine[1\textwidth]{immagini/0_Dashboard.png}{Dashboard}{fig:Dashboard}
 
-\subsubsection{Barra laterale}
-Per permettere la navigazione tra i moduli, è presente una barra laterale che consente di accedere rapidamente alle sezioni principali dell'applicazione.
+\subsubsection{Menù laterale}
+Per permettere la navigazione tra i moduli, è presente una menù laterale che consente di accedere rapidamente alle sezioni principali dell'applicazione.
 
-\immagine[0.3\textwidth]{immagini/0_BarraLaterale.png}{BarraLaterale}{fig:BarraLaterale}
+\immagine[0.3\textwidth]{immagini/0_BarraLaterale.png}{Menù laterale}{fig:BarraLaterale}
 
-\subsection{AI-assistant\G{} generativo}
-Il modulo\G{} di AI-assistant\G{} generativo è progettato per supportare gli utenti nella creazione di comunicazioni interne.
+\subsection{AI-Assistant\G{} Generativo}
+Il modulo\G{} di AI-Assistant\G{} Generativo è progettato per supportare gli utenti nella creazione di comunicazioni interne.
 
 \subsubsection{Generazione di contenuti}
 La generazione dei contenuti avviene tramite l'inserimento di un prompt\G{}, la scelta di un tono e la scelta di uno stile da parte dell'utente. 
 L'assistente AI\G{} utilizza queste informazioni per generare un post formato da titolo, testo e immagine.
 
-\immagine[1\textwidth]{immagini/1_GeneratoreDiContenuti.png}{GeneratoreDiContenuti}{fig:GeneratoreDiContenuti}
+\immagine[1\textwidth]{immagini/1_GeneratoreDiContenuti.png}{Generatore di contenuti AI Assistant\G{} Generativo}{fig:GeneratoreDiContenuti}
 
-\subsubsubsection{Menu di scelta del tono}
-Nel menu di scelta del tono, l'utente può cercare e selezionare tra diverse opzioni di tono (formale, informale, amichevole, professionale, ecc.). 
-Inoltre ha anche la possibilità di inserire un tono personalizzato, specificando le caratteristiche desiderate (ad esempio, "tono motivazionale con un tocco di umorismo").
-Oltre all'inserimento di un tono personalizzato, è presente anche un'opzione che consente all'utente di eliminare un tono reputato obsoleto o non soddisfacente.
+\subsubsubsection{Menù a tendina}
+Nei menù a tendina, l'utente può cercare e selezionare tra diverse opzioni. Inoltre i menù presenti nell'AI Assistant\G{} Generativo si diffenziano tra:
+\begin{itemize}
+    \item \textbf{Menù di scelta del tono e dello stile}: permettono di eliminare e aggiungere toni e stili personalizzati.
+    \item \textbf{Menù di scelta dell'azienda}: utilizzato per selezionare l'azienda di riferimento per i toni e stili che si voglio visualizzare.
+\end{itemize}
 
-\immagine[0.5\textwidth]{immagini/1_MenuTono.png}{MenuTono}{fig:MenuTono}
+Per esempio, nel menù a tendina per il tono \hyperref[fig:MenuTono]{(Figura 4(a))} l'utente può \textbf{scegliere tra le opzioni presenti} (Formale, Amichevole e Autoritario) ma ha anche la possibilità di \textbf{aggiungerne uno nuovo cliccando sul pulsante} \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo tono}} (Vedi la sezione \hyperref[sec:AggiungiTono]{Aggiungi tono e stile} per maggiori dettagli).\\\\
+Oltre all'inserimento di un tono personalizzato, è presente anche un'opzione che consente all'utente di \textbf{eliminare un tono}reputato obsoleto o non soddisfacente.\\
+Infine una comoda \textbf{barra di ricerca} \tcbox[colback=white,colframe=darkgray,boxrule=0.4pt,arc=1mm,left=1.2mm,right=18mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{|\quad}} consente all'utente di trovare rapidamente l'opzione desiderata, soprattutto quando il numero di toni o stili disponibili è elevato.
 
-
-\subsubsubsection{Menu di scelta dello stile}
-Nel menu di scelta dello stile, l'utente può cercare e selezionare tra diversi stili di scrittura (conciso, dettagliato, persuasivo, ecc.).
-Anche in questo caso, è possibile inserire uno stile personalizzato, indicando le preferenze specifiche (ad esempio, "stile narrativo con esempi concreti").
-Oltre all'inserimento di uno stile personalizzato, è presente anche un'opzione che consente all'utente di eliminare uno stile reputato obsoleto o non soddisfacente.
-
-\immagine[0.5\textwidth]{immagini/1_MenuStile.png}{MenuStile}{fig:MenuStile}
-
-
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]{\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/1_SelettoreToni.png}}
+        \caption{Menù a tendina per il tono}
+        \label{fig:MenuTono}
+    \end{subfigure}
+    \hspace{0.02\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+            ]{\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/1_SelettoreStili.png}}
+            \caption{Menù a tendina per lo stile}
+            \label{fig:MenuStile}
+        \end{subfigure}
+    \end{figure}
+    
+\immagine[0.4\textwidth]{immagini/1_SelettoreAzienda.png}{Selettore azienda}{fig:SelettoreAzienda}
+\subsubsubsection{Aggiungi tono e stile}
+\label{sec:AggiungiTono}
+Per aggiungere un nuovo tono o stile, l'utente può cliccare sul pulsante \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo tono}} o \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo stile}} presente nei menù a tendina per il tono e lo stile (Vedi la \hyperref[fig:MenuTono]{Figura 4(a)} e la \hyperref[fig:MenuStile]{Figura 4(b)}).\\
+Si aprirà una finestra di dialogo in cui è richiesto un campo \tcbox[colback=white,colframe=darkgray,boxrule=0.4pt,arc=1mm,left=1.2mm,right=8mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{nome}} (che verrà poi visualizzato come etichetta del nuovo tono o stile) e un campo \tcbox[colback=white,colframe=darkgray,boxrule=0.4pt,arc=1mm,left=1.2mm,right=14mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{descrizione espansiva}} (opzionale) per descrivere in maniera più precisa l'opzione aggiunta (consigliato).\\
+\\L'immagine in figura \hyperref[fig:AggiungiTono]{Figura 5} mostra la dialog di creazione di un nuovo tono. Quella per lo stile è la medesima.
+\immagine[0.5\textwidth]{immagini/1_AggiungiTono.png}{Dialog di creazione di un nuovo tono}{fig:AggiungiTono}
 \subsubsubsection{Casella di testo per inserimento del prompt\G{}}
-La casella di testo per l'inserimento del prompt\G{} consente all'utente di fornire indicazioni specifiche su ciò che desidera comunicare.
-Il prompt\G{} può includere informazioni chiave, obiettivi della comunicazione o qualsiasi dettaglio che l'utente ritiene importante per guidare la generazione del contenuto da parte dell'assistente AI\G{}.
+La casella di testo per l'inserimento del prompt\G{} è la zona dedicata all'inserimento del testo per il contenuto e l'immagine che l'utente desidera generare per la creazione del post.\\\\
+Il prompt\G{} può essere semplicemente un testo che la generazione rifinirà o migliorerà oppure linee guida, obiettivi della comunicazione o qualsiasi altro dettaglio che l'utente ritiene importante per guidare la generazione del contenuto da parte dell'assistente AI\G{}.\\\\
+Per aumentare la probabilità di ottenere un post di qualità ed evitare che l'AI restituisca un errore come “Domanda non chiara o non pertinente”, è richiesto che il prompt inserito dall'utente contenga almeno 50 caratteri.
 
-\immagine[1\textwidth]{immagini/1_CasellaInserimentoPrompt.png}{CasellaPrompt}{fig:CasellaPrompt}
+\immagine[1\textwidth]{immagini/1_CasellaInserimentoPrompt.png}{Casella di inserimento del prompt}{fig:CasellaPrompt}
 
-\subsubsubsection{Tasto di generazione}
-Dopo aver compilato i campi necessari (prompt\G{}, tono e stile), l'utente può cliccare sul tasto di generazione per avviare il processo di creazione del contenuto.
+\subsubsubsection{Pulsante di generazione}
+Dopo aver compilato i campi necessari (prompt\G{}, tono e stile), l'utente può cliccare sul tasto di generazione per avviare il processo di creazione del contenuto.\\
+Qualora non fossero stati compilati tutti i campi necessari, il tasto di generazione risulterà disabilitato, impedendo all'utente di avviare la generazione fino a quando non avrà inserito tutte le informazioni richieste.\\
+\begin{figure}[H]
+    \centering    
+\begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]{\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/1_GeneraOn.png}}
+        \caption{Pulsante di generazione abilitato}
+        \label{fig:genon}
+    \end{subfigure}
+    \hspace{0.02\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+            ]{\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/1_GeneraOff.png}}
+            \caption{Pulsante di generazione disabilitato}
+            \label{fig:genoff}
+    \end{subfigure}
+\end{figure}
 
-\immagine[0.4\textwidth]{immagini/1_TastoGenerazioneContenuto.png}{TastoGenerazione}{fig:TastoGenerazione}
+    
+
 
 
 \subsubsection{Anteprima del post generato}
@@ -448,18 +544,19 @@ Utilizzando frecce a fondo tabella l'utente può scorrere tra le pagine dello st
 
 
 \subsection{AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}}
-L'AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{} è progettato per supportare i professionisti nella gestione e nell'analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
+Il modulo AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{} è progettato per supportare i professionisti nella gestione, splitting e analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
 
 \subsubsection{Analisi documenti}
 Il modulo\G{} di analisi dei documenti consente ai CdL\G{} di caricare documenti in vari formati (PDF, CSV, jpg, png...) e di riconoscerne automaticamente la tipologia (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.).
-Per effettuare un'analisi è necessario inserire il file che si ha intenzione di analizzare ed eventualmente dati conosciuti, facilitando così il processo di riconoscimento e estrazione delle informazioni rilevanti.
+Per effettuare un'analisi è necessario inserire uno o più file che si ha intenzione di analizzare ed eventualmente dati conosciuti(categoria,azienda,reparto,mese/anno di competenza), facilitando così il processo di riconoscimento e estrazione delle informazioni rilevanti.
+Se il documento da processare è un PDF, il sistema controlla prima se è necessario suddividere tale documento in più sottodocumenti (è ad esempio il caso dei cedlini), e poi avvia l'analisi su ogni sottodocumento, altrimenti se il documento è di un altro formato, viene analizzato direttamente senza effettuare suddivisioni.
 
 \immagine[1\textwidth]{immagini/2_Analisi.png}{Analisi documenti}{fig:AnalisiDocumenti}
 
 \subsubsubsection{Caricamento documento}
 Tramite questa funzione, l'utente può selezionare e caricare uno o più documenti all'interno del sistema. L'infrastruttura verifica\G{} l'integrità e la validità del formato del file per prepararlo all'analisi tramite intelligenza artificiale.
-\immagine[1\textwidth]{immagini/2_Caricamento.png}{Analisi documenti}{fig:CaricamentoDocumenti}
 
+\immagine[1\textwidth]{immagini/2_Caricamento.png}{Zona Caricamento}{fig:CaricamentoDocumenti}
 
 \subsubsubsection{Inserimento dati conosciuti}
 Per guidare il modello di AI\G{} e aumentare la precisione dell'estrazione (confidence), l'utente ha la facoltà di inserire manualmente alcuni metadati ancor prima di lanciare l'analisi. Tra questi figurano la selezione della categoria documentale, l'inserimento dell'azienda cliente, l'indicazione del mese/anno di competenza e lo specifico reparto aziendale.
@@ -467,20 +564,17 @@ Per guidare il modello di AI\G{} e aumentare la precisione dell'estrazione (conf
 \immagine[1\textwidth]{immagini/2_DatiConosciuti.png}{Inserimento dati conosciuti}{fig:DatiConosciuti}
 
 
+\subsubsubsection{Visualizzazione tabella riepilogativa documenti analizzati}
+Il sistema presenta l'elenco dei documenti analizzati in formato tabellare. Per ogni elemento, vengono esposti i
+ dati di sintesi estratti dall'AI\G{}, quali l'id assegnato, il nome, le pagisne da cui è composto e lo stato in cui si trova. Inizialmente i documenti si trovano nello stato "In coda", non appena la fase di splitting termmina il documento passa alla fase di elaborazione
+
+\immagine[1\textwidth]{immagini/2_RiconoscimentDocumenti.png}{Tabella riepilogativa documenti analizzati}{fig:RiconoscimentoDocumenti}
+
 \subsubsection{Visualizzazione risultati analisi documenti}
 Dopo l'analisi, i risultati vengono visualizzati in modo chiaro e organizzato, evidenziando le informazioni estratte dal documento e fornendo un quadro completo del contenuto analizzato.
 Questa visualizzazione consente al CdL\G{} di comprendere rapidamente le informazioni chiave del documento e di prendere decisioni informate su come procedere con la gestione del documento stesso.
 
 \immagine[1\textwidth]{immagini/2_RisultatoAnalisi.png}{Visualizzazione risultati analisi documenti}{fig:RisultatoAnalisi}
- 
-
-\subsubsubsection{Visualizzazione tabella riepilogativa documenti analizzati}
-Il sistema presenta l'elenco dei documenti analizzati in formato tabellare. Per ogni elemento, vengono esposti i
- dati di sintesi estratti dall'AI\G{}, quali l'azienda, il periodo di competenza, la tipologia del file il numero di 
- pagine e l'identificativo originale, permettendo un controllo rapido del flusso elaborato.
-
-\immagine[1\textwidth]{immagini/2_RiconoscimentDocumenti.png}{Tabella riepilogativa documenti analizzati}{fig:RiconoscimentoDocumenti}
-
 
 \subsubsubsection{Applicazione filtro di ricerca su documenti}
 Per agevolare la gestione di archivi voluminosi, il sistema mette a disposizione uno strumento di filtraggio dinamico. 
@@ -613,10 +707,10 @@ facilitando così la gestione e il controllo dei documenti all'interno del fluss
 
 
 \subsection{Analytics e monitoraggio trasversale}
-L'utente ha a disposizione una sezione dedicata all'analytics e al monitoraggio trasversale, che consente di visualizzare metriche e statistiche relative all'utilizzo dell'AI-assistant\G{} generativo e dell'AI Co-Pilot\G{} per i Consulenti del Lavoro (CdL)\G{}, fornendo insights utili per valutare l'efficacia\G{} delle funzionalità\G{} offerte dalla piattaforma e per identificare eventuali aree di miglioramento.
+L'utente ha a disposizione una sezione dedicata all'analytics e al monitoraggio trasversale, che consente di visualizzare metriche e statistiche relative all'utilizzo dell'AI-Assistant\G{} Generativo e dell'AI Co-Pilot\G{} per i Consulenti del Lavoro (CdL)\G{}, fornendo insights utili per valutare l'efficacia\G{} delle funzionalità\G{} offerte dalla piattaforma e per identificare eventuali aree di miglioramento.
 
-\subsubsection{Analytics e monitoraggio trasversale per l'AI-assistant\G{} generativo}
-L'utente ha la possibilità di accedere a una sezione dedicata all'AI-assistant\G{} generativo, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni dell'assistente AI\G{}, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
+\subsubsection{Analytics e monitoraggio trasversale per l'AI-Assistant\G{} Generativo}
+L'utente ha la possibilità di accedere a una sezione dedicata all'AI-Assistant\G{} Generativo, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni dell'assistente AI\G{}, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
 Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G{} e garantire un'esperienza utente sempre più soddisfacente.
 
 \subsubsubsection{Numero di generazioni effettuate}
@@ -631,8 +725,8 @@ Questa statistica mostra quante volte è stata utilizzata dagli utenti la funzio
 \subsubsubsection{Utilizzo toni e stili}
 Questa sezione evidenzia le preferenze degli utenti riguardo ai formati e ai registri di comunicazione. Il sistema raggruppa i prompt\G{} generati in base agli attributi "Tono" (es. Formale, Empatico) e "Stile" (es. Sintetico, Dettagliato), calcolandone la frequenza di utilizzo. I dati vengono visualizzati tramite grafici o classifiche che mettono in risalto i toni e gli stili più richiesti.
 
-\subsubsubsection{Filtraggio per periodo temporale AI-assistant\G{} generativo}
-L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI-assistant\G{} generativo in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle generazioni e delle preferenze degli utenti in periodi specifici, facilitando così l'identificazione di trend o variazioni significative nel tempo.
+\subsubsubsection{Filtraggio per periodo temporale AI-Assistant\G{} Generativo}
+L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI-Assistant\G{} Generativo in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle generazioni e delle preferenze degli utenti in periodi specifici, facilitando così l'identificazione di trend o variazioni significative nel tempo.
 
 
 
@@ -671,11 +765,11 @@ Per avviare i test\G{} è necessario eseguire il comando \texttt{docker compose 
 
 
 \subsection{Test\G{} Frontend\G{}}
-Il focus dei test\G{} frontend\G{} è stato sulla verifica\G{} del corretto comportamento dell’interfaccia\G{} utente, della gestione dello stato e dell’integrazione con il backend. Sono stati eseguiti test\G{} unitari su componenti e servizi, insieme a test\G{} end-to-end sui principali flussi utente. I test\G{} sono stati eseguiti con gli strumenti dello stack Angular\G{} e Cypress.
+Il focus dei test\G{} frontend\G{} è stato sulla verifica\G{} del corretto comportamento dell'interfaccia\G{} utente, della gestione dello stato e dell'integrazione con il backend. Sono stati eseguiti test\G{} unitari su componenti e servizi, insieme a test\G{} end-to-end sui principali flussi utente. I test\G{} sono stati eseguiti con gli strumenti dello stack Angular\G{} e Cypress.
 
 
 \subsubsubsection{Esecuzione test\G{}}
-Se l’installazione e l’avvio dell’applicazione sono stati completati correttamente, è possibile eseguire i test\G{} frontend\G{} per verificare il funzionamento dei componenti, dei servizi e dei principali flussi utente.
+Se l'installazione e l'avvio dell'applicazione sono stati completati correttamente, è possibile eseguire i test\G{} frontend\G{} per verificare il funzionamento dei componenti, dei servizi e dei principali flussi utente.
 
 Per eseguire i test\G{} unitari, utilizzare il seguente comando:
 \begin{verbatim}
