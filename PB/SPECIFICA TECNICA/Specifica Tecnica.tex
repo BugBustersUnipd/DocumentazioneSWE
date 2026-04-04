@@ -2780,7 +2780,7 @@ Costanti di configurazione usate nei servizi:
     \item setEvaluation(id: number | null, evaluation: number): void
   \end{itemize}
 \end{itemize}
-\subsubsubsection{AiCopilotService}
+\subsubsection{AiCopilotService}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/AiCopilotService.png}
@@ -2938,12 +2938,100 @@ Apre in nuova finestra il file originale del parent.
 Apre il PDF dell'estratto con cache-buster temporale per evitare versioni non aggiornate.
 \end{itemize}
 \end{itemize}
-\subsubsubsection{AiAnalyticsService}
+\subsubsection{AiAnalyticsService}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/AiAnalyticsService.png}
 \end{figure}
-DA FARE %todo
+\subsubsubsection{AiAssistantAnalyticsService}
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item Configurazione endpoint backend: definisce l'URL per recuperare le metriche dell'assistente.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item apiUrl: string
+\end{itemize}
+\item Stato metriche principali: mantiene i KPI principali mostrati in UI.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item metricsSubject: BehaviorSubject<AnalyticsMetric[]>
+\end{itemize}
+\item Stato grafico uso toni: conserva labels e valori del grafico relativo ai toni.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item toneUsageChartSubject: BehaviorSubject<AnalyticsChartData>
+\end{itemize}
+\item Stato grafico uso stili: conserva labels e valori del grafico relativo agli stili.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item styleUsageChartSubject: BehaviorSubject<AnalyticsChartData>
+\end{itemize}
+\item Client HTTP: gestisce l'invocazione delle API REST.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item httpClient: HttpClient
+\end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item Recupero analytics: invia la richiesta HTTP con filtro temporale e aggiorna metriche e grafici.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item getAnalysis(periodo: AnalyticsPeriod): Observable<AnalyticsMetric[]>
+\end{itemize}
+
+\item Esposizione grafici: pubblica gli stream dei dati chart per toni e stili.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item getToneUsageChart(): Observable<AnalyticsChartData>
+\item getStyleUsageChart(): Observable<AnalyticsChartData>
+\end{itemize}
+
+\item Mapping risposta backend: converte i KPI principali in metriche frontend.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item transformToMetrics(response: AiAssistantAnalyticsResponse): AnalyticsMetric[]
+\end{itemize}
+
+\item Conversione usage in chart: trasforma mappe key-value in labels/values.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item transformUsageToChart(usage: Record<string, number>): AnalyticsChartData
+\end{itemize}
+
+\item Normalizzazione date filtro: prepara i timestamp ISO per inizio e fine giornata.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item toStartOfDayIso(date: Date): string
+\item toEndOfDayIso(date: Date): string
+\end{itemize}
+\end{itemize}
+\subsubsubsection{AiCoPilotAnalyticsService}
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item Configurazione endpoint backend: definisce l'URL per recuperare le metriche analytics del co-pilot.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item apiUrl: string
+\end{itemize}
+\item Stato metriche analytics: mantiene l'ultimo snapshot delle metriche da mostrare in UI.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item metricsSubject: BehaviorSubject<AnalyticsMetric[]>
+\end{itemize}
+\item Client HTTP: gestisce l'invocazione delle API REST.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item httpClient: HttpClient
+\end{itemize}
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item Recupero analytics: invia la richiesta HTTP con eventuale filtro temporale e aggiorna lo stream metriche.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item getAnalysis(periodo: AnalyticsPeriod): Observable<AnalyticsMetric[]>
+\end{itemize}
+
+\item Mapping risposta backend: converte il payload API in metriche leggibili dal frontend.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item transformToMetrics(response: AiCoPilotAnalyticsResponse): AnalyticsMetric[]
+\end{itemize}
+
+\item Normalizzazione date filtro: prepara i timestamp ISO per inizio e fine giornata.
+\begin{itemize}[noitemsep, topsep=0pt]
+\item toStartOfDayIso(date: Date): string
+\item toEndOfDayIso(date: Date): string
+\end{itemize}
+\end{itemize}
 \subsection{Adapter: Serializzazione/deserializzazione dei dati}
 Benchè in Typescript\G{} è semplice convertire dati strutturati json in interfacce, le classi sono state utilizzate per non dipendere dalla struttura esatta dei dati restituiti dal backend e conformali alle esigenze del frontend. \\
 Inoltre questi serializer fungono da punto centrale per la gestione di eventuali trasformazioni, normalizzazioni o arricchimenti dei dati, rispettando il principio di single responsibility e mantenendo il codice dei servizi di comunicazione più pulito e focalizzato sulla logica di comunicazione piuttosto che sulla manipolazione dei dati.
