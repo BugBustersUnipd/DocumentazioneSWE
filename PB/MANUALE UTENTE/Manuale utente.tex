@@ -464,26 +464,13 @@ In particolare la pagina di anteprima consente di:
 \subsubsubsection{Risultato generato}
 \begin{itemize}[noitemsep,topsep=0pt]
     \item L'immagine generata viene mostrata come primo elemento dell'anteprima del post
+    \item È possibile aprire l'immagine con una modalità di visualizzazione che la mette in evidenza, oscurando il resto della pagina e mostrando comandi per ingrandire, ridurre, girare a destra o a sinistra e chiudere la visualizzazione dell'immagine stessa (Vedi \hyperref[fig:VisualizzazioneImmagine]{Figura 11}). 
     \item Il titolo è visualizzato su una riga di testo sopra l'immagine ma in un angolo che non disturba la visualizzazione dell'immagine stessa
     \item Il testo è visualizzato sotto l'immagine e il titolo, fornendo il corpo principale della comunicazione che l'utente ha richiesto all'assistente AI\G{} di generare. 
 \end{itemize}
 \immagine[0.8\textwidth]{immagini/1_ImmagineTitoloContenuto.png}{Risultato di generazione con tono \texttt{Entusiasta} e stile \texttt{Normale}}{fig:RisultatoGenerato}
-% \subsubsubsection{Immagine generata}
-% L'immagine generata viene mostrata come primo elemento dell'anteprima del post, fornendo un supporto visivo che arricchisce il contenuto testuale e rende la comunicazione più accattivante e coinvolgente per i destinatari.  
 
-% \immagine[1\textwidth]{immagini/1_ImmagineGenerazione.png}{ImmagineGenerazione}{fig:ImmagineGenerazione}
-
-
-% \subsubsubsection{Titolo generato}
-% All'interno dell'anteprima del post, il titolo generato viene visualizzato in modo prominente, evidenziando l'argomento principale della comunicazione ai destinatari.
-
-% \immagine[0.8\textwidth]{immagini/1_TitoloGenerazione.png}{TitoloGenerazione}{fig:TitoloGenerazione}
-
-
-% \subsubsubsection{Testo generato}
-% Il testo viene mostrato sotto l'immagine e il titolo, fornendo il corpo principale della comunicazione che l'utente ha richiesto all'assistente AI\G{} di generare.
-
-% \immagine[1\textwidth]{immagini/1_TestoGenerazione.png}{TestoGenerazione}{fig:TestoGenerazione}
+\immagine[0.8\textwidth]{immagini/1_VisualizzaImmagine.png}{Visualizzazione dell'immagine generata}{fig:VisualizzazioneImmagine}
 
 
 \subsubsubsection{Valutazione del post generato}
@@ -526,39 +513,20 @@ Nella modalità di modifica, il titolo può essere aggiornato dallo stesso campo
 \textbf{L'editor di testo:}
 L'editor consente la modifica del testo generato, offrendo funzionalità\G{} di formattazione come grassetto, corsivo, sottolineato, elenchi puntati e numerati, allineamento del testo e inserimento di link.\\
 \immagine[1\textwidth]{immagini/1_EditorDiTesto.png}{Editor per la modifica del testo}{fig:EditorTesto}
+
+
 \subsubsubsection{Operazioni di gestione del risultato generato}
-A seguito della generazione del contenuto, l'utente ha la possibilità di gestire il risultato; scartandolo se non soddisfacente (questa funzione comporta la valutazione minima), rigenerandolo per provare a ottenere un risultato migliore o salvandolo se soddisfatto con quello che ha ottenuto.
-
-% \immagine[0.6\textwidth]{immagini/1_OperazioniModifica.png}{OperazioniGenerazione}{fig:OperazioniGenerazione}
-
-
-\subsubsection{Modifica delle generazioni}
-Entrando nella modalità di modifica, l'utente può apportare modifiche al titolo, al testo e all'immagine generati, personalizzando ulteriormente il contenuto per adattarlo meglio alle proprie esigenze comunicative.
-
-\immagine[1\textwidth]{immagini/1_ModalitaModificaGenerazione.png}{ModalitaModificaGenerazione}{fig:ModalitaModificaGenerazione}
-
-\subsubsubsection{Modifica immagine generata}
-Nella modalità di modifica, l'utente ha la possibilità di sostituire l'immagine generata dall'AI\G{} con una nuova, avviando una rigenerazione sulla base dei parametri originali o di un prompt\G{} aggiornato.
-
-\immagine[0.6\textwidth]{immagini/1_ModificaImmagine.png}{ModificaImmagine}{fig:ModificaImmagine}
-
-\subsubsubsection{Modifica titolo generato}
-Nella modalità di modifica, l'utente ha la possibilità di modificare il titolo generato, adattandolo meglio al contesto comunicativo desiderato.
-
-\immagine[0.8\textwidth]{immagini/1_ModificaTitolo.png}{ModificaTitolo}{fig:ModificaTitolo}
-
-
-\subsubsubsection{Modifica testo generato}
-Nella modalità di modifica, l'utente ha la possibilità di modificare il testo generato, personalizzandolo ulteriormente per renderlo più efficace e adatto alle proprie esigenze comunicative.
-
-\immagine[0.8\textwidth]{immagini/1_ModificaTesto.png}{ModificaTesto}{fig:ModificaTesto}
-
-
-\subsubsubsection{Salvataggio o annullamento modifiche alla generazione}
-La modifica può essere salvata per aggiornare il post generato con le modifiche apportate, oppure annullata per tornare alla versione precedente alla modifica.\\
-Il pulsante di salvataggio è disabilitato qualora non siano state apportate modifiche al post generato, per evitare salvataggi accidentali o non necessari.
-
-\immagine[0.8\textwidth]{immagini/1_GestioneModifiche.png}{GestioneModifiche}{fig:GestioneModifiche}
+A seguito della generazione del contenuto, l'utente ha la possibilità di gestire il risultato:
+\begin{itemize}
+    \item \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{Rigenera}}: per provare a ottenere un risultato migliore;
+    \item \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Salva}}}: per salvare il post;
+    \item \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{X}}: per scartare la generazione. Questa funzione comporta alla comparsa di una finestra di dialogo che chiede la conferma e ne spiega gli effetti.
+\end{itemize}
+\immagine[0.6\textwidth]{immagini/1_RigeneraSalvaScarta.png}{Operazioni di gestione del risultato generato}{fig:OperazioniGenerazione}
+\textbf{Rigenera:} Fa partire una nuova generazione con gli stessi parametri. Questa funzionalità differeisce da "Riutilizza" (Vedi ?????????????????????) perchè, oltre a non dover salvare prima il risultato, fornisce feedback alla sezione Analytics\G{} per arricchire le analisi sulla qualità\G{} delle generazioni (Vedi ?????????????????????).\\\\
+\textbf{Scarta generazione:} Scartare una generazione comporta per l'utente la cancellazione del risultato generato ma i dati vengono collezionati per arricchire le analisi sulla qualità\G{} delle generazioni.\\Infatti cliccando su Scarta appare una finestra di dialogo che chiede conferma dell'azione e spiega che, se confermata, il risultato generato verrà eliminato la valutazione minima (1). (Vedi \hyperref[fig:ScartaGenerazione]{Figura 17}).
+\immagine[0.6\textwidth]{immagini/1_ScartaGenerazione.png}{Finestra di dialogo per scartare la generazione}{fig:ScartaGenerazione}
+\textbf{Salva:} Salva il risultato generato, creando un nuovo post con il titolo, il testo e l'immagine generati, consultabile nella sezione dello storico.\\Al salvataggio l'interfaccia cambia e diventa la pagina di visualizzazione del post appena creato (Vedi ???????????).
 
 
 \subsection{Storico delle generazioni}
@@ -641,6 +609,7 @@ possibilità di rilanciare l'analisi per quel documento specifico, sperando in u
 
 \subsubsection{Visualizzazione e correzione documenti}
 A seguito dell'analisi, il sistema estrae le informazioni rilevanti dal documento e le presenta in modo chiaro e organizzato, consentendo al CdL\G{} di verificare l'accuratezza dei dati estratti e di apportare eventuali correzioni o integrazioni prima di procedere con l'invio del documento al destinatario.
+Nel caso il range di pagine del documento suddiviso sia errato, o comunque nel caso si voglia modificarlo, è possibile farlo manualmente, ciò farà ripartire il processo di analisi del documento con il nuovo range di pagine selezionato.
 
 \immagine[1\textwidth]{immagini/2_DocumentoEstratto.png}{Dettagli analisi documento}{fig:DocumentoEstratto}
 
@@ -699,8 +668,9 @@ L'utente ha la possibilità di eliminare i template\G{} esistenti, qualora non p
 \subsubsubsection{Programmazione invio documento}
 Se non vi è urgenza o si desidera sincronizzare l'inoltro dei documenti con specifiche scadenze aziendali, 
 il sistema permette di pianificare l'operazione. 
-Tramite un apposito selettore (date/time picker), l'utente definisce l'esatta data e ora di invio, 
+Tramite un apposito selettore, l'utente può selezionare l'ora di invio del documento, 
 e lo stato globale del documento passerà a "Pianificato".
+\immagine[0.8\textwidth]{immagini/2_TimePicker.png}{Programmazione invio documento}{fig:TimePicker}
 
 \subsubsubsection{Invio immediato documento}
 Terminata la verifica\G{} e la preparazione della comunicazione, questa funzionalità\G{} fa partire istantaneamente il processo di 
@@ -755,7 +725,7 @@ L'utente ha a disposizione una sezione dedicata all'analytics e al monitoraggio 
 \subsubsection{Analytics e monitoraggio trasversale per l'AI-Assistant\G{} Generativo}
 L'utente ha la possibilità di accedere a una sezione dedicata all'AI-Assistant\G{} Generativo, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni dell'assistente AI\G{}, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
 Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G{} e garantire un'esperienza utente sempre più soddisfacente.
-
+\immagine[0.2\textwidth]{immagini/3_VistaAiAssistantGenerativo.png}{Analytics Ai Assistant Generativo}{fig:VistaAiAssistantGenerativo}
 \subsubsubsection{Numero di generazioni effettuate}
 Questa metrica permette all'utente di visualizzare il volume totale di richieste, o prompt\G{}, inviate all'AI\G{} nel periodo temporale selezionato. Il sistema interroga il database storico e conteggia il numero totale di interazioni avviate, mostrando il dato numerico all'interno della dashboard\G{}.
 
@@ -769,9 +739,48 @@ Questa statistica mostra quante volte è stata utilizzata dagli utenti la funzio
 Questa sezione evidenzia le preferenze degli utenti riguardo ai formati e ai registri di comunicazione. Il sistema raggruppa i prompt\G{} generati in base agli attributi "Tono" (es. Formale, Empatico) e "Stile" (es. Sintetico, Dettagliato), calcolandone la frequenza di utilizzo. I dati vengono visualizzati tramite grafici o classifiche che mettono in risalto i toni e gli stili più richiesti.
 
 \subsubsubsection{Filtraggio per periodo temporale AI-Assistant\G{} Generativo}
-L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI-Assistant\G{} Generativo in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.). Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle generazioni e delle preferenze degli utenti in periodi specifici, facilitando così l'identificazione di trend o variazioni significative nel tempo.
+L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI-Assistant\G{} Generativo in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.) o a un intervallo di tempo personalizzato scelto dall'utente. Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle generazioni e delle preferenze degli utenti in periodi specifici, facilitando così l'identificazione di trend o variazioni significative nel tempo.
 
-
+\begin{figure}[H]
+    \centering    
+\begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]
+        {\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/3_DataDatePicker.png}}
+        \caption{Scelta range data tramite calendario}
+        \label{fig:datadatepicker}
+        
+    \end{subfigure}
+    \hspace{0.02\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]
+            {\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/3_DataSelect.png}}
+        \caption{Scelta range data tramite valori preimpostati}
+            \label{fig:dataselect}
+        
+    \end{subfigure}
+\end{figure}
 
 
 
