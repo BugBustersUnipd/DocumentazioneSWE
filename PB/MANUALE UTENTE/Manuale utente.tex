@@ -404,7 +404,7 @@ Per aumentare la probabilità di ottenere un post di qualità ed evitare che l'A
 \immagine[1\textwidth]{immagini/1_CasellaInserimentoPrompt.png}{Casella di inserimento del prompt}{fig:CasellaPrompt}
 
 \subsubsubsection{Pulsante di generazione}
-Dopo aver compilato i campi necessari (prompt\G{}, tono e stile), l'utente può cliccare sul tasto di generazione per avviare il processo di creazione del contenuto.\\
+Dopo aver compilato i campi necessari (prompt\G{}, tono e stile), l'utente può cliccare sul pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Genera}}} per avviare il processo di creazione del contenuto.\\\\
 Qualora non fossero stati compilati tutti i campi necessari, il tasto di generazione risulterà disabilitato, impedendo all'utente di avviare la generazione fino a quando non avrà inserito tutte le informazioni richieste.\\
 \begin{figure}[H]
     \centering    
@@ -448,49 +448,88 @@ Qualora non fossero stati compilati tutti i campi necessari, il tasto di generaz
 
 
 \subsubsection{Anteprima del post generato}
-A seguito della generazione, viene visualizzata un'anteprima del post generato, che potrà essere modificato o confermato dall'utente prima di essere pubblicato o salvato. Inoltre l'utente 
-dovrà anche valutare la qualità\G{} del contenuto generato.
+A seguito della generazione, viene visualizzata un'anteprima del risultato generato, che potrà essere modificato o rigenerato dall'utente prima di essere salvato.\\
+In particolare la pagina di anteprima consente di:
+\begin{enumerate}[leftmargin=1.2em]
+    \item Visualizzare il risultato generato (titolo, immagine e testo) (Vedi \hyperref[fig:RisultatoGenerato]{Figura 10})
+    \item Valutare la qualità\G{} del risultato generato attraverso un sistema di valutazione a stelle (da 1 a 5) (Vedi \hyperref[fig:Valutazione]{Figura 12})
+    \item Visualizzare i parametri di generazione utilizzati per ottenere il risultato (il tono, lo stile e il prompt\G{} inserito dall'utente)
+    \item Accedere alla modalità di modifica per poter modificare il risultato generato (titolo, contenuto e/o immagine)
+    \item Rigenerare il risultato per provare a ottenere un risultato migliore
+    \item Salvare il risultato generato (creazione di post)
+    \item Scartare il risultato generato
+\end{enumerate}
 
-\immagine[1\textwidth]{immagini/1_AnteprimaGenerazione.png}{AnteprimaGenerazione}{fig:AnteprimaGenerazione}
+\immagine[1\textwidth]{immagini/1_RisultatoGenerazione.png}{Pagina di anteprima del post generato}{fig:AnteprimaGenerazione}
+\subsubsubsection{Risultato generato}
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item L'immagine generata viene mostrata come primo elemento dell'anteprima del post
+    \item Il titolo è visualizzato su una riga di testo sopra l'immagine ma in un angolo che non disturba la visualizzazione dell'immagine stessa
+    \item Il testo è visualizzato sotto l'immagine e il titolo, fornendo il corpo principale della comunicazione che l'utente ha richiesto all'assistente AI\G{} di generare. 
+\end{itemize}
+\immagine[0.8\textwidth]{immagini/1_ImmagineTitoloContenuto.png}{Risultato di generazione con tono \texttt{Entusiasta} e stile \texttt{Normale}}{fig:RisultatoGenerato}
+% \subsubsubsection{Immagine generata}
+% L'immagine generata viene mostrata come primo elemento dell'anteprima del post, fornendo un supporto visivo che arricchisce il contenuto testuale e rende la comunicazione più accattivante e coinvolgente per i destinatari.  
 
-\subsubsubsection{Immagine generata}
-L'immagine generata viene mostrata come primo elemento dell'anteprima del post, fornendo un supporto visivo che arricchisce il contenuto testuale e rende la comunicazione più accattivante e coinvolgente per i destinatari.  
-
-\immagine[1\textwidth]{immagini/1_ImmagineGenerazione.png}{ImmagineGenerazione}{fig:ImmagineGenerazione}
+% \immagine[1\textwidth]{immagini/1_ImmagineGenerazione.png}{ImmagineGenerazione}{fig:ImmagineGenerazione}
 
 
-\subsubsubsection{Titolo generato}
-All'interno dell'anteprima del post, il titolo generato viene visualizzato in modo prominente, evidenziando l'argomento principale della comunicazione ai destinatari.
+% \subsubsubsection{Titolo generato}
+% All'interno dell'anteprima del post, il titolo generato viene visualizzato in modo prominente, evidenziando l'argomento principale della comunicazione ai destinatari.
 
-\immagine[0.8\textwidth]{immagini/1_TitoloGenerazione.png}{TitoloGenerazione}{fig:TitoloGenerazione}
+% \immagine[0.8\textwidth]{immagini/1_TitoloGenerazione.png}{TitoloGenerazione}{fig:TitoloGenerazione}
 
 
-\subsubsubsection{Testo generato}
-Il testo viene mostrato sotto l'immagine e il titolo, fornendo il corpo principale della comunicazione che l'utente ha richiesto all'assistente AI\G{} di generare.
+% \subsubsubsection{Testo generato}
+% Il testo viene mostrato sotto l'immagine e il titolo, fornendo il corpo principale della comunicazione che l'utente ha richiesto all'assistente AI\G{} di generare.
 
-\immagine[1\textwidth]{immagini/1_TestoGenerazione.png}{TestoGenerazione}{fig:TestoGenerazione}
+% \immagine[1\textwidth]{immagini/1_TestoGenerazione.png}{TestoGenerazione}{fig:TestoGenerazione}
 
 
 \subsubsubsection{Valutazione del post generato}
-Dopo aver visualizzato l'anteprima del post generato, l'utente ha la possibilità di valutare la qualità\G{} del contenuto attraverso un sistema basato su un punteggio da 1 a 5 stelle.
+Dopo aver visualizzato l'anteprima del post generato, l'utente ha la possibilità di valutare la qualità\G{} del contenuto attraverso un sistema basato su un punteggio da 1 a 5 stelle.\\
+La valutazione procede immediatamente a modificare il punteggio assegnato, quindi non è necessario un salvataggio specifico per il campo valutazione.\\\\
+La valutazione è modificabile anche dopo il salvataggio del risultato generato e non è necessaria per poter salvare il risultato, ma è fortemente consigliata per fornire un feedback prezioso che arrichisce le analisi sulla qualità\G{} (Vedi ???????????????????????????????????).
 
-\immagine[0.4\textwidth]{immagini/1_Valutazione.png}{Valutazione}{fig:Valutazione}
+\immagine[0.4\textwidth]{immagini/1_Valutazione.png}{Valutazione del post generato}{fig:Valutazione}
 
 
 \subsubsubsection{Panoramica parametri di generazione}
-Per poter associare più facilmente il risultato generato ai parametri di generazione, è presente una sezione che mostra in modo chiaro e sintetico i parametri utilizzati per la generazione del contenuto (il tono, lo stile e il prompt\G{} inserito dall'utente).
+Per poter associare più facilmente il risultato generato ai parametri di generazione, è presente una sezione che mostra i parametri utilizzati per la generazione del contenuto (il tono, lo stile e il prompt\G{} inserito dall'utente).\\\\
+I campi e i menù a tendina presenti in questa sezione sono in sola lettura.
+\immagine[1\textwidth]{immagini/1_ParametriInseriti.png}{Parametri inseriti nella generazione}{fig:PanoramicaParametri}
 
-\immagine[1\textwidth]{immagini/1_PanoramicaParametri.png}{PanoramicaParametri}{fig:PanoramicaParametri}
+\subsubsubsection{Modifica la generazione}
+Il pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Modifica}}} consente all'utente di accedere alla modalità di modifica del post generato, dove potrà apportare modifiche al titolo, al testo e all'immagine generati.\\
 
-\subsubsubsection{Tasto accesso modalità modifica}
 Per attivare le funzionalità\G{} di modifica del post generato, è presente un tasto che consente all'utente di accedere alla modalità di modifica, dove potrà apportare le modifiche desiderate al titolo, al testo e all'immagine generati.
 
-\immagine[0.4\textwidth]{immagini/1_TastoModalitaModifica.png}{TastoModalitaModifica}{fig:TastoModalitaModifica}
+\immagine[1\textwidth]{immagini/1_ModificaGenerazione.png}{Modalità di modifica abilitata}{fig:ModificaGenerazione}
+I pulsanti \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Salva Modifiche}}} e  \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{Annulla Modifiche}} consentono rispettivamente di salvare le modifiche apportate al post generato o di annullarle per tornare alla versione originale del contenuto generato.\\ \\
+\textbf{Sostituzione dell'immagine generata:}
+\tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Modifica Immagine}}} permette all'utente di sostituire l'immagine generata con una propria tra quelle presenti nel proprio dispositivo.\\
 
+\textbf{Modifica del titolo generato:}
+Nella modalità di modifica, il titolo può essere aggiornato dallo stesso campo prima disabilitato alla modifica. L'utente può inserire manualmente il nuovo titolo e visualizzare subito il risultato nell'anteprima.
+
+\tcbox[
+    colback=white,
+    colframe=darkgray,
+    boxrule=0.4pt,
+    arc=1mm,
+    left=1.2mm,
+    right=25mm,
+    top=0.6mm,
+    bottom=0.6mm,
+    on line
+]{\footnotesize\textcolor{black}{Vacanze di Pasqua}}\\\\
+\textbf{L'editor di testo:}
+L'editor consente la modifica del testo generato, offrendo funzionalità\G{} di formattazione come grassetto, corsivo, sottolineato, elenchi puntati e numerati, allineamento del testo e inserimento di link.\\
+\immagine[1\textwidth]{immagini/1_EditorDiTesto.png}{Editor per la modifica del testo}{fig:EditorTesto}
 \subsubsubsection{Operazioni di gestione del risultato generato}
 A seguito della generazione del contenuto, l'utente ha la possibilità di gestire il risultato; scartandolo se non soddisfacente (questa funzione comporta la valutazione minima), rigenerandolo per provare a ottenere un risultato migliore o salvandolo se soddisfatto con quello che ha ottenuto.
 
-\immagine[0.6\textwidth]{immagini/1_OperazioniGenerazione.png}{OperazioniGenerazione}{fig:OperazioniGenerazione}
+% \immagine[0.6\textwidth]{immagini/1_OperazioniModifica.png}{OperazioniGenerazione}{fig:OperazioniGenerazione}
 
 
 \subsubsection{Modifica delle generazioni}
@@ -516,7 +555,8 @@ Nella modalità di modifica, l'utente ha la possibilità di modificare il testo 
 
 
 \subsubsubsection{Salvataggio o annullamento modifiche alla generazione}
-La modifica può essere salvata per aggiornare il post generato con le modifiche apportate, oppure annullata per tornare alla versione originale del contenuto generato.
+La modifica può essere salvata per aggiornare il post generato con le modifiche apportate, oppure annullata per tornare alla versione precedente alla modifica.\\
+Il pulsante di salvataggio è disabilitato qualora non siano state apportate modifiche al post generato, per evitare salvataggi accidentali o non necessari.
 
 \immagine[0.8\textwidth]{immagini/1_GestioneModifiche.png}{GestioneModifiche}{fig:GestioneModifiche}
 
@@ -566,13 +606,13 @@ Per guidare il modello di AI\G{} e aumentare la precisione dell'estrazione (conf
 
 \subsubsubsection{Visualizzazione tabella riepilogativa documenti analizzati}
 Il sistema presenta l'elenco dei documenti analizzati in formato tabellare. Per ogni elemento, vengono esposti i
- dati di sintesi estratti dall'AI\G{}, quali l'id assegnato, il nome, le pagisne da cui è composto e lo stato in cui si trova. Inizialmente i documenti si trovano nello stato "In coda", non appena la fase di splitting termmina il documento passa alla fase di elaborazione
+ dati di sintesi estratti dall'AI\G{}, quali l'id assegnato, il nome, le pagine da cui è composto e lo stato in cui si trova. Inizialmente i documenti si trovano nello stato "In coda", non appena la fase di splitting termmina il documento passa alla fase di elaborazione
 
 \immagine[1\textwidth]{immagini/2_RiconoscimentDocumenti.png}{Tabella riepilogativa documenti analizzati}{fig:RiconoscimentoDocumenti}
 
 \subsubsection{Visualizzazione risultati analisi documenti}
-Dopo l'analisi, i risultati vengono visualizzati in modo chiaro e organizzato, evidenziando le informazioni estratte dal documento e fornendo un quadro completo del contenuto analizzato.
-Questa visualizzazione consente al CdL\G{} di comprendere rapidamente le informazioni chiave del documento e di prendere decisioni informate su come procedere con la gestione del documento stesso.
+Cliccando su un documento specifico, è possibile accedere ad una visualizzazione dettagliata dei documenti suddivisi e analizzati a partire dal documento originale. 
+Per ogni sottodocumento, vengono mostrati alcuni campi analizzati dall'AI\G{}: l'id, la confidenza media dell'analisi, il destinatario rilevato, lo stato del documento, il reparto, l'azienda, la categoria e la data di analisi.
 
 \immagine[1\textwidth]{immagini/2_RisultatoAnalisi.png}{Visualizzazione risultati analisi documenti}{fig:RisultatoAnalisi}
 
@@ -637,21 +677,24 @@ la versione estratta e analizzata dall'AI\G{}.
 
 \subsubsection{Invio documenti}
 Quando si ritiene che il documento sia pronto per essere inviato (con una confidenza adeguata), l'utente può procedere con la creazione di un messaggio ed infine l'invio del documento al destinatario.
+È possibile inviare il documento solo se è stato associato un destinatario, altrimenti il pulsante di invio risulterà disabilitato.\\
 \immagine[0.8\textwidth]{immagini/2_invio.png}{Invio immediato documento}{fig:InvioDocumento}
 
 \subsubsubsection{Scrittura messaggio}
-Questa funzionalità\G{} mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata al 
-destinatario.
+Questa funzionalità\G{} mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata al destinatario.
+
+\subsubsubsection{Creazione template\G{}}
+Per agevolare la stesura del messaggio, l'utente ha la possibilità di creare dei messaggi preipostati (template\G{}) personalizzati, che potranno essere riutilizzati in futuro per velocizzare la preparazione dei messaggi, garantendo coerenza e standardizzazione nelle comunicazioni inviate ai destinatari.
+\immagine[0.8\textwidth]{immagini/2_AggiuntaTemplate.png}{Aggiunta Template}{fig:AggiuntaTemplate}
 
 \subsubsubsection{Applicazione template\G{}}
 Per ottimizzare i tempi, l'utente può decidere di non scrivere il messaggio da zero, bensì caricare un modello 
 (template\G{}) precostituito (o crearne uno nuovo). Questo andrà a sovrascrivere o precompilare i campi dell'oggetto e del corpo del messaggio con 
 formule testuali standard.
-
-\subsubsubsection{Operazioni su template\G{} esistenti}
-L'utente ha accesso a una gestione completa dei modelli di comunicazione: può visualizzare la 
-lista dei template\G{} salvati, creare un nuovo template\G{} a partire dal messaggio che sta scrivendo, 
-oltre a cancellare definitivamente quelli divenuti obsoleti.
+\immagine[0.8\textwidth]{immagini/2_ApplicazioneTemplate.png}{Applicazione Template}{fig:ApplicazioneTemplate}
+\subsubsubsection{Eliminazione template\G{} esistenti}
+L'utente ha la possibilità di eliminare i template\G{} esistenti, qualora non più necessari o obsoleti, per mantenere un archivio di modelli sempre aggiornato e rilevante per le esigenze comunicative attuali.
+\immagine[0.8\textwidth]{immagini/2_EliminazioneTemplate.png}{Eliminazione Template}{fig:EliminazioneTemplate}
 
 \subsubsubsection{Programmazione invio documento}
 Se non vi è urgenza o si desidera sincronizzare l'inoltro dei documenti con specifiche scadenze aziendali, 
