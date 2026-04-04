@@ -2636,6 +2636,7 @@ Nota: nel diagramma UML può essere rappresentata come entità di dominio, ma ne
 Nota: anche questa entità è modellata come interface TypeScript\G{}; rappresenta un contratto dati usato da service e componenti senza comportamento interno.
 \end{center}
 \subsubsection{Altre strutture di supporto}
+\subsubsubsection{Tone, Style, Company, Template}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/options.interface.png}
@@ -2648,14 +2649,35 @@ Nota: anche questa entità è modellata come interface TypeScript\G{}; rappresen
   \item isActive: boolean - Indica se l'opzione è attiva o è stata eliminata. Presente per permettere all'utente di visualizzare anche le opzioni eliminate.
   \item content: string - Contenuto associato all'opzione, se necessario (es. messaggio del template\G{}).
 \end{itemize}
+\subsubsubsection{DocumentState}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.2\textwidth]{ImmaginiSpecificaTecnica/Frontend/document.states.png}
+\end{figure}
 \textit{Enum} usato per definire gli stati che i documenti processati possono assumere.
+\subsubsubsection{RecipientInfo}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{ImmaginiSpecificaTecnica/Frontend/recepientinfo.png}
+\end{figure}
+\textit{Interface} che rappresenta le informazioni del destinatario associate a un documento estratto, usata principalmente per visualizzare i dati del destinatario in interfaccia\G{}
+\begin{itemize}[notemsep, topsep=0pt]
+  \item recepientId: number \ Id del destinatario nel database
+  \item recepientName: string \ Nome del destinatario trovato nel db
+  \item recepientNameRaw: string \ Nome del destinatario estratto dal documento
+  \item recepientEmail: string \ Email del destinatario trovato nel db
+  \item recepientCode: string \ Codice fiscale trovato nel db
+\end{itemize}
+AddDialogSaveData\subsubsection{ e  AddDialogType}
+\textit{Interface} e \textit{Enum} usati per gestire i dati e i tipi di dialog di salvataggio dei risultati generati dall'assistente AI\G{}.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.2\textwidth]{ImmaginiSpecificaTecnica/Frontend/document.states.png}
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/interface-enum-dialog.drawio.png}
 \end{figure}
 
 \subsection{Servizi di comunicazione con il backend}
 
+Costanti di configurazione usate nei servizi:
 \begin{itemize}
 \item API_BASE: string (costante modulo\G{}, proprietà interna). URL base delle API\G{} HTTP backend.
 \item WS_URL: string (costante modulo\G{}, proprietà interna). URL del canale WebSocket ActionCable.
