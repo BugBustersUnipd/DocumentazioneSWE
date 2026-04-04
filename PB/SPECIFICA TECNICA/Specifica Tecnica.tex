@@ -3853,12 +3853,9 @@ Emette il nuovo valore della pagina iniziale quando viene modificata.
   \item pageEndChange: EventEmitter<number \textbar{} undefined>  \
   Emette il nuovo valore della pagina finale quando viene modificata.
 \end{itemize}
-\item pageEndMin: number (getter) \
-Calcola dinamicamente il valore minimo ammesso per la pagina finale in base a page_min e page_start.
 \end{itemize}
 
 \textbf{Metodi}
-
 \begin{itemize}
 \item onPageStartChange(value: string \textbar{} number \textbar{} undefined): void \
 Normalizza e aggiorna la pagina iniziale; se necessario riallinea la pagina finale per garantire coerenza dell'intervallo.
@@ -3892,14 +3889,14 @@ Definisce lo stato testuale da rappresentare nella pillola di stato.
 \end{figure}
 \textbf{Attributi}
 
-\begin{itemize}
-  \item Proprietà di input: configurano i dati mostrati nella tabella delle informazioni dipendente estratte.
+\begin{itemize}[noitemsep, topsep=0pt]
+  \item Attributi di input: configurano i dati mostrati nella tabella delle informazioni dipendente estratte.
     \begin{itemize}
       \item rows: ExtractedEmployeeInfoRow[] \
       Elenco delle righe con i dati estratti e di matching del dipendente.
     \end{itemize}
 
-  \item Proprietà di output: comunicano al componente padre le azioni richieste dall'utente.
+  \item Attributi di output: comunicano al componente padre le azioni richieste dall'utente.
     \begin{itemize}
       \item editRequested: EventEmitter<void>  \
       Notifica la richiesta di apertura/modifica dei dati estratti.
@@ -3922,7 +3919,7 @@ Definisce lo stato testuale da rappresentare nella pillola di stato.
 \textbf{ExtractedEmployeeInfoRow (interfaccia\G{} di supporto)}
 
 \textbf{Attributi}
-\begin{itemize}
+\begin{itemize}[noitemsep, topsep=0pt]
   \item Tipo dati di supporto: non è un componente Angular\G{}, ma un'interfaccia\G{} TypeScript\G{} usata da \texttt{ExtractedEmployeeInfo}.
   \begin{itemize}
     \item recipient: RecipientInfo \
@@ -4015,7 +4012,7 @@ Identificativo univoco della riga; può essere nullo quando il record non è anc
 Componente UI che rappresenta un dialog per la conferma dell'invio di un documento. Mostra un campo di testo per inserire un messaggio personalizzato o la selezione di un template\G{} per un messaggio predefinito. Inoltre mostra la possibilità di inviare il messaggio immediatamente o programmarlo a orari prestabiliti. Infine il pulsante di invio.\\
 \textbf{Attributi}
 
-\begin{itemize}
+\begin{itemize}[noitemsep, topsep=0pt]
 \item Attributi di input: configurano i dati opzionali passati al componente.
 \begin{itemize}
 \item options: any[] \
@@ -4058,7 +4055,7 @@ Espone il contenuto del messaggio: in lettura usa \texttt{_messaggio} oppure il 
 \end{itemize}
 
 \textbf{Metodi}
-\begin{itemize}
+\begin{itemize}[noitemsep, topsep=0pt]
 \item get messaggio(): string \
 Restituisce il testo del messaggio privilegiando il valore inserito manualmente, con fallback al contenuto del template\G{} selezionato.
 
@@ -4089,12 +4086,9 @@ Costruisce il payload \texttt{SendDocumentData} con messaggio, orario, allegati 
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/generatore-page.png}
 \end{figure}
-Pagina principale per la generazione di documenti, che utilizza i componenti Menutendina, button, prompt\G{}, AddDialog e riceve segnali da questi per fare operazioni con l'AiAssistantService.
+Pagina principale per la generazione di documenti, che utilizza i componenti SelectComponent, Button, Prompt\G{}, AddDialog e riceve segnali da questi per fare operazioni con l'AiAssistantService.\\
 \textbf{Attributi}
-
-\begin{itemize}
-\item Proprietà interne: gestiscono lo stato locale, l'integrazione con i servizi e il flusso di generazione.
-\begin{itemize}
+\begin{itemize}[noitemsep, topsep=0pt]
 \item router: Router  \
 Iniettato per la navigazione verso la pagina dei risultati generati.
 
@@ -4127,19 +4121,12 @@ Indica se il dialog di aggiunta di nuovo tono/stile è visibile.
 
 \item addDialogType: AddDialogType  \
 Specifica il tipo di dialog secondario da aprire (tone o style).
-\end{itemize}
 
-\item Proprietà calcolate interne:
-\begin{itemize}
-\item canGenerate: boolean (Accessor get) \
-Restituisce true se sono selezionati un tono, uno stile e il prompt\G{} contiene almeno 50 caratteri; abilita il pulsante di generazione.
-\end{itemize}
 \end{itemize}
 
 \textbf{Metodi}
-
-\begin{itemize}
-\item get canGenerate(): boolean \
+\begin{itemize}[noitemsep, topsep=0pt]
+\item get canGenerate(): boolean (getter) \
 Valida lo stato di completamento del modulo\G{}: verifica\G{} la selezione di tono, stile e la lunghezza minima del prompt\G{}.
 
 \item generate(): void \
@@ -4157,7 +4144,7 @@ Gestisce il salvataggio dal dialog secondario: invoca il servizio per creare un 
 \item removeOption(id: number, type: AddDialogType): void \
 Rimuove un'opzione (tono o stile) identificata da id, invocando il metodo appropriato del servizio in base al tipo.
 
-\item onCompanyChange(event: { id: number; name: string } \textbar{} null): void \
+\item onCompanyChange(event: \{ id: number; name: string \} \textbar{} null): void \
 Aggiorna l'azienda selezionata e sincronizza il caricamento di toni e stili relativi; reimposta le selezioni precedenti di tono e stile.
 \end{itemize}
 \subsubsection{Risultato generazione}
@@ -4167,9 +4154,7 @@ Aggiorna l'azienda selezionata e sincronizza il caricamento di toni e stili rela
 \end{figure}
 \textbf{Attributi}
 
-\begin{itemize}
-\item Proprietà interne: gestiscono lo stato locale, l'integrazione con i servizi e la sincronizzazione dei dati generati.
-\begin{itemize}
+\begin{itemize}[noitemsep, topsep=0pt]
 \item aiService: AiAssistantService  \
 Servizio applicativo iniettato per la gestione della rigenerazione, salvataggio, valutazione e operazioni sugli articoli generati.
 
@@ -4181,9 +4166,6 @@ Iniettato per la gestione della pulizia delle sottoscrizioni RxJS al distruggers
 
 \item isEditable: boolean  \
 Indica se il componente è in modalità di modifica; abilita/disabilita i campi di input per la modifica del contenuto.
-
-\item readonly: boolean  \
-Controlla lo stato di sola lettura dei componenti editor; sincronizzato con isEditable.
 
 \item isImageTitleLoading: boolean  \
 Indica se titolo e immagine sono ancora in fase di generazione da parte dell'IA.
@@ -4202,20 +4184,18 @@ Signal che mantiene il percorso Base64 dell'immagine in modifica prima del salva
 
 \item imagePathForView: computed  \
 Computed Signal che restituisce il percorso immagine da visualizzare: priorità al pendingImagePath, fallback a quello del result.
+
+
 \end{itemize}
 
-\item Proprietà calcolate interne:
-\begin{itemize}
-\item hasPendingModifications: boolean (Accessor get) \
-Restituisce true se ci sono pendingModifications non vuote; usato per abilitare il pulsante di salvataggio.
-\end{itemize}
-\end{itemize}
 
 \textbf{Metodi}
 
-\begin{itemize}
-\item constructor(): void \
+\begin{itemize}[noitemsep, topsep=0pt]
+\item ngOnInit(): void \
 Inizializza il componente: ripristina il result dallo stato di navigazione, si sottoscrive agli aggiornamenti del servizio (result e errori), e aggiorna gli stati di caricamento.
+\item hasPendingModifications: boolean (getter) \
+Restituisce true se ci sono pendingModifications non vuote; usato per abilitare il pulsante di salvataggio.
 
 \item updateImageTitleLoading(result: ResultAiAssistant | null): void \
 Aggiorna isImageTitleLoading controllando se il result è completo e se titolo e immagine hanno valori non vuoti.
@@ -4232,13 +4212,10 @@ Invoca il servizio per creare e salvare un nuovo post dal result corrente.
 \item deleteGeneration(): void \
 Elimina il post tramite il servizio e naviga verso la pagina generatore.
 
-\item hasPendingModifications: boolean \
-Getter che restituisce true se pendingModifications contiene almeno una proprietà.
-
 \item normalizeValue(value: string | null | undefined): string \
 Converte un valore stringa nullable in stringa vuota se non definito; usato per normalizzare i confronti.
 
-\item onFieldModified(field: 'title' | 'content', value: string): void \
+\item onFieldModified(field: `title' | `content', value: string): void \
 Traccia la modifica di un campo (titolo o contenuto) in pendingModifications; rimuove la modifica se il valore è ripristinato a quello originale.
 
 \item getTitleValue(): string \
@@ -4260,7 +4237,7 @@ Annulla tutte le modifiche in sospeso: reimposta pendingModifications e pendingI
 Converte un file immagine selezionato in Base64 e lo traccia in pendingModifications e pendingImagePath.
 
 \item enableEditing(): void \
-Abilita la modalità di modifica svuotando le modifiche precedenti e impostando isEditable e readonly.
+Abilita la modalità di modifica svuotando le modifiche precedenti e impostando isEditable.
 
 \item onRatingChange(rating: number): void \
 Invoca il servizio per registrare la valutazione dell'utente sul generatedDatumId del result corrente.
@@ -4276,12 +4253,9 @@ Naviga verso il generatore passando lo stato di tono, stile, azienda e prompt\G{
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/storico-ai-assistant-page.png}
 \end{figure}
-Pagina che mostra lo storico dei risultati salvati come post.
+Pagina che mostra lo storico dei risultati salvati come post.\\
 \textbf{Attributi}
-
-\begin{itemize}
-\item Proprietà interne: gestiscono il caricamento dello storico, i filtri applicati e l'integrazione con il servizio applicativo.
-\begin{itemize}
+\begin{itemize}[noitemsep, topsep=0pt]
 \item router: Router  \
 Iniettato per la navigazione verso il generatore e verso la pagina del risultato di generazione.
 
@@ -4330,14 +4304,13 @@ Azienda attualmente selezionata nei filtri.
 \item searchvalue: string  \
 Valore testuale inserito nella ricerca libera.
 
-\item columns: { field: string; header: string; type?: string }[]  \
+\item columns: \{ field: string; header: string; type?: string \}[]  \
 Configurazione delle colonne mostrate nella tabella dello storico.
-\end{itemize}
 \end{itemize}
 
 \textbf{Metodi}
 
-\begin{itemize}
+\begin{itemize}[noitemsep, topsep=0pt]
 \item ngOnInit(): void \
 Inizializza il componente caricando aziende, toni, stili e storico delle generazioni; sottoscrive gli stream del servizio e aggiorna i filtri quando arrivano nuovi dati.
 
@@ -4347,7 +4320,7 @@ Naviga alla pagina del generatore.
 \item openGenerationResult(result: ResultAiAssistant): void \
 Imposta il risultato selezionato come corrente nel servizio e apre la pagina del dettaglio di generazione.
 
-\item onMenuAction(event: { row: ResultAiAssistant; item: MenuItem }): void \
+\item onMenuAction(event: \{ row: ResultAiAssistant; item: MenuItem \}): void \
 Gestisce le azioni del menu contestuale sulla riga: elimina, riutilizza o duplica la generazione selezionata.
 
 \item onSearchChange(value: string): void \
