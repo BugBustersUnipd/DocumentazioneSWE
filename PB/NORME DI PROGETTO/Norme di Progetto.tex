@@ -328,6 +328,13 @@ Durante la fase di fornitura, il team BugBusters produce e mantiene aggiornata l
     \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}
     \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20PROGETTO/Piano%20di%20progetto.pdf}{Piano di Progetto\G}
     \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}
+    \item \href{http:\\localhost}{Verbali}
+    \item \href{http:\\localhost}{Lettera di candidatura}
+    \item \href{http:\\localhost}{Lettera di presentazione}
+    \item \href{http:\\localhost}{Specifica tecnica}
+    \item \href{http:\\localhost}{Manuale utente}
+    \item \href{http:\\localhost}{Valutazione dei capitolati}
+    \item Norme di Progetto\G
 \end{itemize}
 
 \subsubsubsection{Glossario\G}
@@ -549,6 +556,44 @@ Il documento riporta inoltre la pianificazione e gli esiti dei test\G effettuati
     \end{tabularx}
     \end{center}
 
+
+
+\subsubsubsection{Specifica Tecnica}
+La Specifica Tecnica documenta l'architettura di sistema e le scelte progettuali adottate dal gruppo BugBusters per lo sviluppo del prodotto software. Esso definisce nel dettaglio i design pattern scelti, lo stack tecnologico impiegato, l'architettura ad alto e basso livello, e il tracciamento tra i componenti software e i requisiti. Il documento funge da linea guida operativa per i programmatori, con l'obiettivo specifico di garantire una solida base strutturale che favorisca la scalabilità, la manutenibilità del codice e la corretta implementazione delle funzionalità.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{3.2cm}|>{\centering\arraybackslash}X|}
+\hline
+\rowcolor{primaryblue!40}
+\multicolumn{1}{|>{\centering\arraybackslash}p{3.2cm}|}{\color{white}\textbf{Campo}} & \multicolumn{1}{>{\centering\arraybackslash}X|}{\color{white}\textbf{Dettaglio}} \\
+\hline
+\textbf{Redattore} & Progettisti \\
+\hline
+\textbf{Destinatari} & BugBusters, Eggon, Prof. Vardanega, Prof. Cardin  \\
+\hline
+\textbf{Uso} & Interno ed Esterno \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsubsubsection{Manuale Utente}
+Il Manuale Utente documenta le istruzioni operative e le linee guida necessarie per il corretto utilizzo del prodotto software rilasciato dal gruppo BugBusters. Esso definisce nel dettaglio i requisiti minimi di sistema, le procedure di configurazione, e illustra passo-passo tutte le funzionalità dell'applicativo divise per tipologia di utente (ruoli). Il documento riporta inoltre il supporto visivo delle interfacce grafiche e la gestione degli errori più comuni, con l'obiettivo specifico di rendere l'utente finale completamente autonomo nell'utilizzo del sistema e minimizzarne la curva di apprendimento.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{3.2cm}|>{\centering\arraybackslash}X|}
+\hline
+\rowcolor{primaryblue!40}
+\multicolumn{1}{|>{\centering\arraybackslash}p{3.2cm}|}{\color{white}\textbf{Campo}} & \multicolumn{1}{>{\centering\arraybackslash}X|}{\color{white}\textbf{Dettaglio}} \\
+\hline
+\textbf{Redattore} & Amministratore \\
+\hline
+\textbf{Destinatari} & BugBusters, Eggon, Prof. Vardanega, Prof. Cardin  \\
+\hline
+\textbf{Uso} & Interno ed Esterno \\
+\hline
+\end{tabularx}
+\end{center}
+
 \subsection{Processi di sviluppo}
 Il processo di sviluppo definisce le attività tecniche e operative necessarie per la realizzazione del prodotto\G software che il gruppo deve realizzare,
 in conformità ai requisiti\G stabiliti durante la fase di fornitura. Questo processo include la progettazione, 
@@ -747,6 +792,29 @@ Per ognuna delle attività previste, BugBusters utilizza:
     repository\G Git utilizzato per il versionamento di codice 
     e documentazione. Fornisce strumenti per la collaborazione (branching, pull request e code review), per il tracciamento delle attività (issues, project board) e per l'integrazione continua (Actions). Su GitHub\G vengono centralizzate le risorse di progetto\G e registrate tutte le modifiche, garantendo controllo degli accessi e tracciabilità\G.
 \end{itemize}
+
+\subsubsubsection{Attività previste}
+L’attività di gestione delle configurazioni svolta dal gruppo si avvale delle seguenti attività:
+\begin{itemize}
+    \item \textbf{Identificazione della configurazione}: l’identificazione delle componenti che
+formeranno il prodotto da sviluppare
+    \item \textbf{Controllo della configurazione}: il controllo dei cambiamenti con opportuni
+metodi di approvazione e rifiuto degli stessi;
+    \item \textbf{Registrazione dello stato di configurazione}: il come rappresentare la storia dei
+cambiamenti subiti da ciascun elemento sviluppato;
+    \item \textbf{Valutazione della configurazione}: come determinare l’efficacia del prodotto
+sviluppato, ossia la sua conformità ai requisiti;
+
+\end{itemize}
+
+\subsubsection{Identificazione della configurazione}
+Data la complessità architetturale del progetto definito nel capitolato\G, l'identificazione della configurazione risulta un'attività fondamentale. In fase di progettazione, le varie parti del sistema verranno pertanto schematizzate e documentate in un artefatto specifico, da redigere e approvare durante la Product Baseline\G (PB).
+
+
+
+
+
+
 \subsubsection{Controllo della configurazione}
 Il controllo  della configurazione consiste nell'amministrare le richieste di modifica che vengono poi approvate o meno.\\
 Per tracciare le modifiche da approvare BugBusters utilizza le \textbf{issue}\G{} la \textbf{board} e le \textbf{pull request} predisposte da GitHub\G nel modo seguente:
@@ -773,6 +841,14 @@ Dove:
     \item \textbf{Y}: subisce un incremento solo quando il file viene verificato{};
     \item \textbf{Z}: subisce un incremento quando viene fatto un qualsiasi tipo di modifica al file;
 \end{itemize}
+\subsubsection{Valutazione della configurazione}
+La valutazione della configurazione verifica il perfetto allineamento del software ai requisiti e al design architetturale, garantendo tramite il Tracciamento dei Requisiti il rilascio di un prodotto efficiente (pienamente conforme alle specifiche) e sufficiente (privo di complessità superflue). Per assicurare tale aderenza durante l'intero ciclo di sviluppo, il gruppo adotterà una strategia integrata: il codice verrà esplicitamente commentato per tracciare il legame diretto con il requisito soddisfatto, mentre il testing automatizzato e le metriche di code coverage permetteranno di validare costantemente le funzionalità e individuare tempestivamente eventuali aree scoperte. A supporto di ciò, la rigorosa modularità del sistema separerà le responsabilità architetturali, favorendo una tracciabilità netta e lineare tra ogni singolo componente e i requisiti di riferimento.
+
+
+
+
+
+
 \subsection{Qualifica}
 \subsubsection{Verifica\G}
 Il processo di Verifica\G{} ha come obiettivo principale quello di verificare che quanto prodotto\G sia a regola d'arte, ovvero conforme con i requisiti\G richiesti.\\
