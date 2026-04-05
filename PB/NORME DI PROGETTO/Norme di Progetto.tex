@@ -106,8 +106,8 @@
 % Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
 	{Stato} & Approvato \\
-    {Redattori\G} & Alberto Autiero, Marco Favero, Alberto Pignat, Marco Piro, Linor Sadé, Leonardo Salviato, Luca Slongo \\
-	{Verificatori\G} &   Alberto Pignat, Linor Sadé, Luca Slongo \\
+    {Redattori\G{}} & Alberto Autiero, Marco Favero, Alberto Pignat, Marco Piro, Linor Sadé, Leonardo Salviato, Luca Slongo \\
+	{Verificatori\G{}} &   Alberto Pignat, Linor Sadé, Luca Slongo \\
 	{Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
 \end{tabularx}
 \end{tcolorbox}
@@ -135,9 +135,9 @@ Documento contenente le Norme di Progetto\G{} adottate dal team BugBusters per l
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
-\rowcolor{secondaryblue!10} 2.0.0 & 01/03/2025 & Approvato per PB & - & - & Marco Favero \\
+\rowcolor{secondaryblue!10} 2.0.0 & 01/03/2025 & Approvato per PB\G{} & - & - & Marco Favero \\
 \hline
-\rowcolor{secondaryblue!10} 1.4.0 & 28/02/2025 & Verificata sezione Formazione & - & Alberto Pignat & - \\
+\rowcolor{secondaryblue!10} 1.4.0 & 28/02/2025 & Verifica\G{} finale & - & Alberto Pignat & - \\
 \hline
 \rowcolor{secondaryblue!10} 1.3.1 & 28/02/2025 & Aggiunta sezione Formazione & Leonardo Salviato & - & - \\
 \hline
@@ -154,9 +154,9 @@ Documento contenente le Norme di Progetto\G{} adottate dal team BugBusters per l
 \rowcolor{secondaryblue!10} 1.0.1 & 23/02/2025 & Aggiunta sezione miglioramento continuo & Leonardo Salviato &  - & - \\
 \hline
 
-\rowcolor{secondaryblue!10} 1.0.0 & 30/01/2025 & Approvazione documento & - &  & Luca Slongo \\
+\rowcolor{secondaryblue!10} 1.0.0 & 30/01/2025 & Approvazione\G{} documento & - &  & Luca Slongo \\
 \hline
-\rowcolor{secondaryblue!10} 0.2.0 & 30/01/2025 & Verifica documento & - &  Alberto Pignat & - \\
+\rowcolor{secondaryblue!10} 0.2.0 & 30/01/2025 & Verifica\G{} documento & - &  Alberto Pignat & - \\
 \hline
 \rowcolor{secondaryblue!10} 0.1.7 & 29/01/2026 & Aggiunti ai termini presenti nel Glossario\G{} la G & Luca Slongo & - & - \\
 \hline
@@ -239,8 +239,8 @@ garantendo un flusso informativo coerente, tracciabile e adattabile alle esigenz
 Il nostro progetto\G{} mira alla creazione di un'applicazione stand-alone\G{} (rispetto all'applicazione Nexum già esistente) che implementa un modulo\G{} di AI\G{} assistant generativo per la scrittura di comunicazioni e l'AI Co-Pilot\G{} per
 i Cdl\G{}. In particolare quest'ultimo deve essere in grado di riconoscere i documenti caricati dagli utenti, estrarne le informazioni rilevanti, capire
 la tipologia, destinatari e consegnarli in modo massivo. \\
-Per ulteriori informazioni sul progetto\G si rimanda all'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}.
-Il nostro obiettivo è realizzare questo progetto\G entro il 21 marzo 2026 con un budget di 12.790 euro.
+Per ulteriori informazioni sul progetto\G{} si rimanda all'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G{}}.
+Il nostro obiettivo è realizzare questo progetto\G{} entro il 21 marzo 2026 con un budget di 12.790 euro.
 
 
 
@@ -248,9 +248,9 @@ Il nostro obiettivo è realizzare questo progetto\G entro il 21 marzo 2026 con u
 Il glossario\G{} raccoglie e definisce i termini, gli acronimi e le abbreviazioni 
 impiegati nel documento e nel progetto\G{} Nexum. L'obiettivo è fornire definizioni univoche per ridurre 
 ambiguità, garantire coerenza terminologica tra i membri del team e facilitare l'onboarding di nuovi partecipanti. \\
-Per i termini tecnici e specifici utilizzati in questo documento, si fa riferimento al glossario\G disponibile al 
+Per i termini tecnici e specifici utilizzati in questo documento, si fa riferimento al glossario\G{} disponibile al 
 seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/GLOSSARIO/Glossario.pdf}{link}.
-Per maggiore usabilità e facilitá di consultazione, il glossario\G è accessibile anche aprendo dal nostro sito web i vari documenti con il viewer
+Per maggiore usabilità e facilitá di consultazione, il glossario\G{} è accessibile anche aprendo dal nostro sito web i vari documenti con il viewer
 pdf da noi sviluppato.
 
 \subsubsection{Riferimenti normativi}
@@ -299,7 +299,7 @@ La fornitura prevede varie attività, in particolare:
     \item \textbf{Stima delle risorse}: definizione delle tempistiche, dei costi totali e delle risorse necessarie per la 
     realizzazione del progetto\G{}.
     \item \textbf{Analisi dei Requisiti\G{} e contrattazione con la proponente\G{}}: identificazione e documentazione dei requisiti\G{} 
-    funzionali e non funzionali del software, analisi delle aspettative del proponente\G{} e negoziazione di eventuali modifiche o aggiunte. Definizione del Minimum Viable Product (MVP).
+    funzionali e non funzionali del software, analisi delle aspettative del proponente\G{} e negoziazione di eventuali modifiche o aggiunte. Definizione del Minimum Viable Product (MVP)\G{}.
     \item \textbf{Pianificazione del progetto\G{}}: suddivisione del progetto\G{} in fasi, definizione delle milestone\G{} aggiuntive (oltre a RTB\G{} e PB\G{}), 
     assegnazione dei compiti ai membri del team e pianificazione delle attività. Individuazione degli strumenti di lavoro e delle 
     metodologie da adottare; definizione del Proof of Concept (PoC)\G{}.
@@ -318,7 +318,7 @@ La fornitura prevede varie attività, in particolare:
 \subsubsection{Strumenti di Supporto}
 Per supportare le attività di fornitura, il team BugBusters usufruisce di vari strumenti:
 \begin{itemize}
-    \item \textbf{GitHub\G{}}: Per la documentazione collaborativa, il versionamento dei documenti, la produzione asincrona,
+    \item \textbf{GitHub\G{}}: Per la documentazione collaborativa, il versionamento\G{} dei documenti, la produzione asincrona,
      il sistema di ticketing e delle project board.
     \item \textbf{GitLab}: Per il codice già esistente fornito dalla proponente\G{}, utile all'implementazione\G{} di un prodotto\G{} che possa essere facilmente integrabile alla piattaforma già esistente.
     \item \textbf{Discord\G{}}: Per le riunioni di team.
@@ -341,17 +341,17 @@ tempestività nelle azioni correttive.
 \subsubsection{Documentazione Prodotta}\label{Documentazione Prodotta}
 Durante la fase di fornitura, il team BugBusters produce e mantiene aggiornata la seguente documentazione:
 \begin{itemize}
-    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/GLOSSARIO/Glossario.pdf}{Glossario\G}
-    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}
-    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20PROGETTO/Piano%20di%20progetto.pdf}{Piano di Progetto\G}
-    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/GLOSSARIO/Glossario.pdf}{Glossario\G{}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G{}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20PROGETTO/Piano%20di%20progetto.pdf}{Piano di Progetto\G{}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G{}}
     \item {Verbali}
-    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/CANDIDATURA/CANDIDATURA%20PROGETTO/Candidatura%20progetto.pdf}{Lettera di candidatura}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/CANDIDATURA/CANDIDATURA%20PROGETTO/Candidatura%20progetto.pdf}{Lettera di candidatura\G{}}
     \item {Lettera di presentazione}
-    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/SPECIFICA%20TECNICA/Specifica%20Tecnica.pdf}{Specifica tecnica}
-    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/MANUALE%20UTENTE/Manuale%20utente.pdf}{Manuale utente}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/SPECIFICA%20TECNICA/Specifica%20Tecnica.pdf}{Specifica tecnica\G{}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/MANUALE%20UTENTE/Manuale%20utente.pdf}{Manuale utente\G{}}
     \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/CANDIDATURA/SCELTA%20CAPITOLATO/Resoconto_capitolati.pdf}{Valutazione dei capitolati}
-    \item Norme di Progetto\G
+    \item Norme di Progetto\G{}
 \end{itemize}
 
 \subsubsubsection{Glossario\G{}}
@@ -433,8 +433,8 @@ Il documento di Analisi dei Requisiti\G{} descrive in dettaglio le funzionalità
     \item l'elenco dei requisiti\G{} funzionali\G{} e non funzionali\G{}, classificati e dotati di codifica univoca e criteri di accettazione;
     \item casi d'uso\G{} e scenari principali con flussi e attori associati;
     \item vincoli tecnici, normativi e di integrazione con sistemi esterni;
-    \item la prioritizzazione dei requisiti\G{} e l'identificazione del Minimum Viable Product (MVP);
-    \item la strategia di tracciabilità\G{} e gestione delle modifiche (issue\G{} tracker, versionamento e mappatura requisiti\G{}–test\G{});
+    \item la prioritizzazione dei requisiti\G{} e l'identificazione del Minimum Viable Product (MVP)\G{};
+    \item la strategia di tracciabilità\G{} e gestione delle modifiche (issue\G{} tracker, versionamento\G{} e mappatura requisiti\G{}–test\G{});
     \item i criteri e i metodi per la verifica\G{} e la validazione\G{} dei requisiti\G{}.
 \end{itemize}
 
@@ -576,7 +576,7 @@ Il documento riporta inoltre la pianificazione e gli esiti dei test\G{} effettua
 
 
 \subsubsubsection{Specifica Tecnica}
-La Specifica Tecnica documenta l'architettura di sistema e le scelte progettuali adottate dal gruppo BugBusters per lo sviluppo del prodotto software. Esso definisce nel dettaglio i design pattern scelti, lo stack tecnologico impiegato, l'architettura ad alto e basso livello, e il tracciamento tra i componenti software e i requisiti. Il documento funge da linea guida operativa per i programmatori, con l'obiettivo specifico di garantire una solida base strutturale che favorisca la scalabilità, la manutenibilità del codice e la corretta implementazione delle funzionalità.
+La Specifica Tecnica\G{} documenta l'architettura di sistema e le scelte progettuali adottate dal gruppo BugBusters per lo sviluppo del prodotto\G{} software. Esso definisce nel dettaglio i design pattern scelti, lo stack tecnologico impiegato, l'architettura ad alto e basso livello, e il tracciamento tra i componenti software e i requisiti. Il documento funge da linea guida operativa per i programmatori, con l'obiettivo specifico di garantire una solida base strutturale che favorisca la scalabilità\G{}, la manutenibilità\G{} del codice e la corretta implementazione\G{} delle funzionalità\G{}.
 
 \begin{center}
 \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{3.2cm}|>{\centering\arraybackslash}X|}
@@ -584,7 +584,7 @@ La Specifica Tecnica documenta l'architettura di sistema e le scelte progettuali
 \rowcolor{primaryblue!40}
 \multicolumn{1}{|>{\centering\arraybackslash}p{3.2cm}|}{\color{white}\textbf{Campo}} & \multicolumn{1}{>{\centering\arraybackslash}X|}{\color{white}\textbf{Dettaglio}} \\
 \hline
-\textbf{Redattore} & Progettisti \\
+\textbf{Redattore\G{}} & Progettisti \\
 \hline
 \textbf{Destinatari} & BugBusters, Eggon, Prof. Vardanega, Prof. Cardin  \\
 \hline
@@ -594,7 +594,7 @@ La Specifica Tecnica documenta l'architettura di sistema e le scelte progettuali
 \end{center}
 
 \subsubsubsection{Manuale Utente}
-Il Manuale Utente documenta le istruzioni operative e le linee guida necessarie per il corretto utilizzo del prodotto software rilasciato dal gruppo BugBusters. Esso definisce nel dettaglio i requisiti minimi di sistema, le procedure di configurazione, e illustra passo-passo tutte le funzionalità dell'applicativo divise per tipologia di utente (ruoli). Il documento riporta inoltre il supporto visivo delle interfacce grafiche e la gestione degli errori più comuni, con l'obiettivo specifico di rendere l'utente finale completamente autonomo nell'utilizzo del sistema e minimizzarne la curva di apprendimento.
+Il Manuale Utente\G{} documenta le istruzioni operative e le linee guida necessarie per il corretto utilizzo del prodotto\G{} software rilasciato dal gruppo BugBusters. Esso definisce nel dettaglio i requisiti minimi di sistema, le procedure di configurazione, e illustra passo-passo tutte le funzionalità\G{} dell'applicativo divise per tipologia di utente (ruoli). Il documento riporta inoltre il supporto visivo delle interfacce grafiche e la gestione degli errori più comuni, con l'obiettivo specifico di rendere l'utente finale completamente autonomo nell'utilizzo del sistema e minimizzarne la curva di apprendimento.
 
 \begin{center}
 \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{3.2cm}|>{\centering\arraybackslash}X|}
@@ -602,7 +602,7 @@ Il Manuale Utente documenta le istruzioni operative e le linee guida necessarie 
 \rowcolor{primaryblue!40}
 \multicolumn{1}{|>{\centering\arraybackslash}p{3.2cm}|}{\color{white}\textbf{Campo}} & \multicolumn{1}{>{\centering\arraybackslash}X|}{\color{white}\textbf{Dettaglio}} \\
 \hline
-\textbf{Redattore} & Amministratore \\
+\textbf{Redattore\G{}} & Amministratore\G{} \\
 \hline
 \textbf{Destinatari} & BugBusters, Eggon, Prof. Vardanega, Prof. Cardin  \\
 \hline
@@ -633,11 +633,11 @@ standard di qualità\G{} elevati e best practice\G{} del settore.
     \item \textbf{Installazione del software}: il fornitore deve predisporre un piano per l'installazione del prodotto\G{} software nell'ambiente di destinazione previsto dal contratto. Devono essere definiti e resi disponibili le risorse e le informazioni necessarie all'installazione. Secondo quanto stabilito dal contratto, il fornitore deve supportare il committente\G{} nelle attività di configurazione iniziale. Qualora il nuovo software sostituisca un sistema esistente, il fornitore deve supportare l'esercizio in parallelo, se richiesto;
     \item \textbf{Supporto per l'approvazione\G{} del software}: il fornitore deve supportare il committente\G{} nella revisione e nei test\G{} di accettazione del prodotto\G{} software. Le attività di accettazione devono tenere conto dei risultati delle revisioni congiunte, degli audit, dei test\G{} di qualificazione del software e, se eseguiti, dei test\G{} di qualificazione del sistema; 
 \end{itemize}
-\subsubsection{Analisi dei Requisiti\G}
-È un attività fondamentale della Requirements and Technology Baseline (RTB)\G e consiste nella raccolta, analisi e documentazione di tutti i requisiti\G che il sistema sviluppato dovrà soddisfare.
-Tale attività è documentata nell'apposito documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G }, che servirà poi come riferimento per guidare tutte le fasi successive di progettazione, implementazione\G e testing del software.
-Nella sezione seguente viene illustrato il sistema di nomenclatura adottato per identificare in modo univoco i casi d'uso\G.
-\subsubsubsection{Casi d'uso\G}
+\subsubsection{Analisi dei Requisiti\G{}}
+È un attività fondamentale della Requirements and Technology Baseline (RTB)\G{} e consiste nella raccolta, analisi e documentazione di tutti i requisiti\G{} che il sistema sviluppato dovrà soddisfare.
+Tale attività è documentata nell'apposito documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G{} }, che servirà poi come riferimento per guidare tutte le fasi successive di progettazione, implementazione\G{} e testing del software.
+Nella sezione seguente viene illustrato il sistema di nomenclatura adottato per identificare in modo univoco i casi d'uso\G{}.
+\subsubsubsection{Casi d'uso\G{}}
 \begin{center}
 \textbf{UC-SezionePrincipale.Secondario}
 \end{center}
@@ -669,32 +669,32 @@ Ad ogni requisito\G{} viene poi associata una descrizione dettagliata, la fonte 
 La fase di progettazione rappresenta un passaggio fondamentale nello sviluppo software, in quanto consente di trasformare i 
 requisiti emersi durante l'analisi in una soluzione strutturata e ben definita dal punto di vista architetturale. \\
 In questa fase vengono stabilite le caratteristiche principali del sistema e i vincoli da rispettare, facilitando così 
-l'organizzazione del lavoro e la successiva implementazione del codice.\\
+l'organizzazione del lavoro e la successiva implementazione\G{} del codice.\\
 Prima di procedere con la progettazione dettagliata, viene generalmente svolta un'attività preliminare basata sulla realizzazione 
 di un prototipo iniziale, spesso sotto forma di Proof of Concept. Questo artefatto, pensato per essere temporaneo, ha lo scopo di 
 verificare la fattibilità tecnica delle soluzioni ipotizzate e di ridurre eventuali incertezze legate alle tecnologie da utilizzare.\\
-Attraverso questa sperimentazione iniziale è possibile individuare gli strumenti più adatti e, in collaborazione con la proponente, 
-delineare le funzionalità essenziali che costituiranno la prima versione del prodotto, ovvero il Minimum Viable Product.
+Attraverso questa sperimentazione iniziale è possibile individuare gli strumenti più adatti e, in collaborazione con la proponente\G{}, 
+delineare le funzionalità\G{} essenziali che costituiranno la prima versione del prodotto\G{}, ovvero il Minimum Viable Product\G{}.
 
 
-\subsubsubsection{Qualità dell'architettura}
-Per una buona architettura software si richiedono le seguenti qualità:
+\subsubsubsection{Qualità\G{} dell'architettura}
+Per una buona architettura software si richiedono le seguenti qualità\G{}:
 \begin{itemize}
-    \item \textbf{Sufficienza}: L'architettura assicura la piena soddisfazione dei requisiti funzionali e non funzionali stabiliti per il sistema.
-    \item \textbf{Comprensibilità}: La struttura architetturale è chiara e facilmente interpretabile da tutti gli stakeholder, agevolando manutenzione ed evoluzione.
-    \item \textbf{Modularità}: Il sistema è suddiviso in moduli autonomi e ben definiti, ciascuno sviluppabile, testabile e aggiornabile indipendentemente.
+    \item \textbf{Sufficienza}: L'architettura assicura la piena soddisfazione dei requisiti funzionali\G{} e non funzionali\G{} stabiliti per il sistema.
+    \item \textbf{Comprensibilità}: La struttura architetturale è chiara e facilmente interpretabile da tutti gli stakeholder\G{}, agevolando manutenzione ed evoluzione.
+    \item \textbf{Modularità\G{}}: Il sistema è suddiviso in moduli autonomi e ben definiti, ciascuno sviluppabile, testabile e aggiornabile indipendentemente.
     \item \textbf{Robustezza}: L'architettura gestisce correttamente input imprevisti e condizioni di errore, mantenendo comportamenti coerenti.
     \item \textbf{Flessibilità}: La progettazione consente adattamenti a nuovi requisiti o tecnologie senza interventi strutturali estesi.
-    \item \textbf{Riusabilità}: Componenti e moduli sono riutilizzabili in contesti differenti, riducendo duplicazioni e aumentando l'efficienza.
-    \item \textbf{Efficienza}: L'architettura ottimizza l'uso delle risorse per garantire prestazioni elevate con consumo contenuto.
-    \item \textbf{Affidabilità}: Il software opera in modo coerente e prevedibile nel tempo, rispettando le funzionalità attese.
+    \item \textbf{Riusabilità}: Componenti e moduli sono riutilizzabili in contesti differenti, riducendo duplicazioni e aumentando l'efficienza\G{}.
+    \item \textbf{Efficienza\G{}}: L'architettura ottimizza l'uso delle risorse per garantire prestazioni elevate con consumo contenuto.
+    \item \textbf{Affidabilità\G{}}: Il software opera in modo coerente e prevedibile nel tempo, rispettando le funzionalità\G{} attese.
     \item \textbf{Disponibilità}: Il sistema è progettato per essere operativo e accessibile quando richiesto, minimizzando i periodi di inattività.
-    \item \textbf{Sicurezza rispetto a malfunzionamenti}: L'architettura contiene meccanismi che permettono al sistema di continuare a funzionare anche in caso di guasti.
-    \item \textbf{Sicurezza rispetto a intrusioni}: Sono previste protezioni contro accessi non autorizzati, garantendo riservatezza e integrità dei dati.
+    \item \textbf{Sicurezza\G{} rispetto a malfunzionamenti}: L'architettura contiene meccanismi che permettono al sistema di continuare a funzionare anche in caso di guasti.
+    \item \textbf{Sicurezza\G{} rispetto a intrusioni}: Sono previste protezioni contro accessi non autorizzati, garantendo riservatezza e integrità dei dati.
     \item \textbf{Semplicità}: La soluzione è mantenuta il più semplice possibile, riducendo complessità e facilitando comprensione e manutenzione.
     \item \textbf{Incapsulazione}: I dettagli implementativi sono nascosti dietro interfacce ben definite, esponendo solo ciò che è necessario.
-    \item \textbf{Coesione}: Ogni modulo presenta componenti che collaborano per uno scopo comune, evitando responsabilità frammentate.
-    \item \textbf{Basso accoppiamento}: Le dipendenze tra moduli sono minimizzate per migliorare manutenibilità e capacità di evolvere il sistema.
+    \item \textbf{Coesione}: Ogni modulo\G{} presenta componenti che collaborano per uno scopo comune, evitando responsabilità frammentate.
+    \item \textbf{Basso accoppiamento}: Le dipendenze tra moduli sono minimizzate per migliorare manutenibilità\G{} e capacità di evolvere il sistema.
 \end{itemize}
 
 
@@ -702,18 +702,18 @@ Per una buona architettura software si richiedono le seguenti qualità:
 I diagrammi delle classi UML vengono utilizzati per rappresentare la struttura statica del sistema, descrivendo le entità 
 principali, i loro attributi e le relazioni che intercorrono tra di esse. Questa rappresentazione consente di avere una visione 
 chiara dell'organizzazione interna del software e facilita la comprensione delle responsabilità assegnate a ciascuna classe. \\
-Inoltre, i diagrammi supportano la fase di sviluppo, fungendo da riferimento per l'implementazione e la manutenzione del codice.\\
+Inoltre, i diagrammi supportano la fase di sviluppo, fungendo da riferimento per l'implementazione\G{} e la manutenzione del codice.\\
 Verrà adottato lo standard UML 2.
 \subsubsubsection{C4}
 Il modello C4 viene adottato per descrivere l'architettura del sistema a diversi livelli di dettaglio, offrendo una visione 
 progressiva che parte dal contesto generale fino ad arrivare ai componenti interni. Questo approccio permette di comunicare in
-modo efficace la struttura del sistema sia a stakeholder tecnici che non tecnici. In particolare, vengono utilizzati diagrammi di 
+modo efficace la struttura del sistema sia a stakeholder\G{} tecnici che non tecnici. In particolare, vengono utilizzati diagrammi di 
 contesto, contenitori e componenti per evidenziare le interazioni tra le varie parti del sistema e le tecnologie coinvolte.
 
 \subsubsubsection{Design Pattern}
 Durante la progettazione vengono impiegati opportuni design pattern al fine di adottare soluzioni consolidate a problemi ricorrenti. 
-L'utilizzo di questi schemi progettuali contribuisce a migliorare la qualità del codice, rendendolo più modulare, riutilizzabile e 
-facilmente estendibile. La scelta dei pattern avviene in base alle esigenze specifiche del progetto, con l'obiettivo di garantire 
+L'utilizzo di questi schemi progettuali contribuisce a migliorare la qualità\G{} del codice, rendendolo più modulare, riutilizzabile e 
+facilmente estendibile. La scelta dei pattern avviene in base alle esigenze specifiche del progetto\G{}, con l'obiettivo di garantire 
 una struttura solida e manutenibile nel tempo. \\
 Si pone una particolare attenzione ad usare design pattern ove ci siano problemi e siano effettivamente utili, evitando di 
 introdurre complessità non necessaria. Inoltre si cerca di adottare pattern che non siano nocivi per le tecnologie utilizzate, 
@@ -725,10 +725,10 @@ compatibili con tali scelte.
 \subsubsubsection{Descrizione e scopo}
 La fase di codifica consiste nella traduzione concreta delle soluzioni progettuali in codice sorgente. 
 In questa attività, i componenti definiti durante la progettazione vengono implementati utilizzando i 
-linguaggi e le tecnologie scelte. L'obiettivo principale è realizzare un prodotto funzionante che rispetti 
-i requisiti stabiliti, mantenendo al contempo chiarezza, coerenza e qualità del codice. Una buona fase di 
-codifica contribuisce a ridurre errori, semplificare le fasi successive di test e manutenzione, e 
-garantire una maggiore affidabilità del sistema.
+linguaggi e le tecnologie scelte. L'obiettivo principale è realizzare un prodotto\G{} funzionante che rispetti 
+i requisiti stabiliti, mantenendo al contempo chiarezza, coerenza e qualità\G{} del codice. Una buona fase di 
+codifica contribuisce a ridurre errori, semplificare le fasi successive di test\G{} e manutenzione, e 
+garantire una maggiore affidabilità\G{} del sistema.
 
 \subsubsubsection{Best practice di codifica}
 Per assicurare un elevato standard qualitativo, durante la codifica vengono adottate una serie di 
@@ -738,10 +738,10 @@ e ben strutturato, e la suddivisione in moduli con responsabilità ben definite.
 È inoltre importante 
 limitare la duplicazione del codice, favorire il riuso e mantenere una documentazione aggiornata dove 
 necessario.\\ 
-Ulteriori accorgimenti includono l'uso di sistemi di versionamento per tracciare le modifiche, la 
-revisione del codice tra pari (code review) e l'esecuzione di test durante lo sviluppo. \\
+Ulteriori accorgimenti includono l'uso di sistemi di versionamento\G{} per tracciare le modifiche, la 
+revisione del codice tra pari (code review) e l'esecuzione di test\G{} durante lo sviluppo. \\
 Queste pratiche permettono di individuare tempestivamente eventuali problemi e di migliorare 
-progressivamente la qualità complessiva del prodotto.
+progressivamente la qualità\G{} complessiva del prodotto\G{}.
 
 
 \section{Processi di Supporto}
@@ -758,7 +758,7 @@ l'efficace gestione del progetto\G{}, la tracciabilità\G{} delle decisioni e la
 \subsubsection{Strumenti Utilizzati}
 Per supportare le attività di documentazione, il team BugBusters utilizza i seguenti strumenti:
 \begin{itemize}
-    \item \textbf{GitHub\G{}}: Per la gestione collaborativa della documentazione, il versionamento dei documenti e la produzione asincrona. 
+    \item \textbf{GitHub\G{}}: Per la gestione collaborativa della documentazione, il versionamento\G{} dei documenti e la produzione asincrona. 
     Vengono utilizzate le funzionalità\G{} di issue\G{} tracking e project board per tracciare le attività di documentazione. 
     Inoltre BugBusters fa ampio uso dei branch per garantire che le modifiche alla documentazione siano revisionate 
     prima di essere integrate nella versione principale.
@@ -861,7 +861,7 @@ La produzione della documentazione segue un processo strutturato per garantire q
     del progetto\G{} e alle esigenze del team. Secondo il tipo di documento, viene assegnato un redattore\G{} e un verificatore\G{} 
     secondo i ruoli definiti nel way of working\G{} (vedi sezione \ref{Documentazione Prodotta}).
     \item \textbf{Creazione del branch di lavoro}: Per ogni documento viene creato un branch dedicato nel repository\G{} GitHub\G{} per permettere
-     la collaborazione e il versionamento. Per verbali e diari di bordo non vengono creati branch per ogni singolo documenti bensì 
+     la collaborazione e il versionamento\G{}. Per verbali e diari di bordo non vengono creati branch per ogni singolo documenti bensì 
      sono stati creati dei branch "verbali" e "diari-di-bordo" che raccolgono rispettivamente tutti i verbali e tutti i diari di bordo.
     \item \textbf{Redazione}: Il redattore\G{} incaricato crea la bozza del documento seguendo le linee guida stabilite
      nelle Norme di Progetto\G{}, utilizzando gli strumenti appropriati (ad esempio LaTeX\G{} per documenti formali).
@@ -889,7 +889,7 @@ Per ognuna delle attività previste, BugBusters utilizza:
     \item \textbf{Git{}}: come sistema di controllo di versione distribuito per 
     tracciare le modifiche al codice sorgente e ai documenti.
     \item \textbf{GitHub\G{}}: servizio di hosting per 
-    repository\G{} Git utilizzato per il versionamento di codice 
+    repository\G{} Git utilizzato per il versionamento\G{} di codice 
     e documentazione. Fornisce strumenti per la collaborazione (branching, pull request e code review), per il tracciamento delle attività (issues, project board) e per l'integrazione continua (Actions). Su GitHub\G{} vengono centralizzate le risorse di progetto\G{} e registrate tutte le modifiche, garantendo controllo degli accessi e tracciabilità\G{}.
 \end{itemize}
 
@@ -897,18 +897,18 @@ Per ognuna delle attività previste, BugBusters utilizza:
 L'attività di gestione delle configurazioni svolta dal gruppo si avvale delle seguenti attività:
 \begin{itemize}
     \item \textbf{Identificazione della configurazione}: l'identificazione delle componenti che
-formeranno il prodotto da sviluppare
+formeranno il prodotto\G{} da sviluppare
     \item \textbf{Controllo della configurazione}: il controllo dei cambiamenti con opportuni
-metodi di approvazione e rifiuto degli stessi;
+metodi di approvazione\G{} e rifiuto degli stessi;
     \item \textbf{Registrazione dello stato di configurazione}: il come rappresentare la storia dei
 cambiamenti subiti da ciascun elemento sviluppato;
-    \item \textbf{Valutazione della configurazione}: come determinare l'efficacia del prodotto
+    \item \textbf{Valutazione della configurazione}: come determinare l'efficacia\G{} del prodotto\G{}
 sviluppato, ossia la sua conformità ai requisiti;
 
 \end{itemize}
 
 \subsubsection{Identificazione della configurazione}
-Data la complessità architetturale del progetto definito nel capitolato\G{}, l'identificazione della configurazione risulta un'attività fondamentale. In fase di progettazione, le varie parti del sistema verranno pertanto schematizzate e documentate in un artefatto specifico, da redigere e approvare durante la Product Baseline\G{} (PB).
+Data la complessità architetturale del progetto\G{} definito nel capitolato\G{}, l'identificazione della configurazione risulta un'attività fondamentale. In fase di progettazione, le varie parti del sistema verranno pertanto schematizzate e documentate in un artefatto specifico, da redigere e approvare durante la Product Baseline (PB)\G{}.
 
 
 
@@ -931,7 +931,7 @@ corrispondente verrà immediatamente chiusa, qualsiasi sia il branch in cui ci s
     Il team BugBusters, oltre che per un corretto workflow\G{} di verifica\G{}, usa le pull request come unico modo di modifica in produzione, in quanto si vuole che il branch main sia modificato solo a seguito di una pull request con 2 review positive.
 \end{itemize}
 \subsubsection{Registrazione stato di configurazione}
-Per poter tenere traccia dei cambiamenti di ogni documento e codice, è previsto il sistema di versionamento{} seguente:
+Per poter tenere traccia dei cambiamenti di ogni documento e codice, è previsto il sistema di versionamento\G{}{} seguente:
 \begin{center}
     \textbf{X.Y.Z}
 \end{center}
@@ -942,25 +942,25 @@ Dove:
     \item \textbf{Z}: subisce un incremento quando viene fatto un qualsiasi tipo di modifica al file;
 \end{itemize}
 \subsubsection{Valutazione della configurazione}
-La valutazione della configurazione verifica il perfetto allineamento del software ai requisiti e al design architetturale, garantendo tramite il Tracciamento dei Requisiti il rilascio di un prodotto efficiente (pienamente conforme alle specifiche) e sufficiente (privo di complessità superflue). Per assicurare tale aderenza durante l'intero ciclo di sviluppo, il gruppo adotterà una strategia integrata: il codice verrà esplicitamente commentato per tracciare il legame diretto con il requisito soddisfatto, mentre il testing automatizzato e le metriche di code coverage permetteranno di validare costantemente le funzionalità e individuare tempestivamente eventuali aree scoperte. A supporto di ciò, la rigorosa modularità del sistema separerà le responsabilità architetturali, favorendo una tracciabilità netta e lineare tra ogni singolo componente e i requisiti di riferimento.
+La valutazione della configurazione verifica\G{} il perfetto allineamento del software ai requisiti e al design architetturale, garantendo tramite il Tracciamento dei Requisiti il rilascio di un prodotto\G{} efficiente (pienamente conforme alle specifiche) e sufficiente (privo di complessità superflue). Per assicurare tale aderenza durante l'intero ciclo di sviluppo, il gruppo adotterà una strategia integrata: il codice verrà esplicitamente commentato per tracciare il legame diretto con il requisito\G{} soddisfatto, mentre il testing automatizzato e le metriche di code coverage\G{} permetteranno di validare costantemente le funzionalità\G{} e individuare tempestivamente eventuali aree scoperte. A supporto di ciò, la rigorosa modularità\G{} del sistema separerà le responsabilità architetturali, favorendo una tracciabilità\G{} netta e lineare tra ogni singolo componente e i requisiti di riferimento.
 
 
 
-\subsection{Accertamento della Qualità}
-Il processo di Accertamento della Qualità (o \textit{Quality Assurance}) ha lo scopo di garantire che le metodologie adottate e i prodotti realizzati dal gruppo BugBusters soddisfino i requisiti minimi di efficienza\G{} ed efficacia prestabiliti.
+\subsection{Accertamento della Qualità\G{}}
+Il processo di Accertamento della Qualità\G{} (o \textit{Quality Assurance}) ha lo scopo di garantire che le metodologie adottate e i prodotti realizzati dal gruppo BugBusters soddisfino i requisiti minimi di efficienza\G{} ed efficacia\G{} prestabiliti.
 Per assicurare tale livello qualitativo, il gruppo fa riferimento a due standard internazionali fondamentali: lo standard \textbf{ISO/IEC 12207:1995} per la gestione e la qualità\G{} dei processi e lo standard \textbf{ISO/IEC 9126} per la misurazione della qualità\G{} del prodotto\G{} software. L'accertamento si concretizza operativamente attraverso continue e rigorose attività di Verifica\G{} e Validazione\G{}.
 
 \subsubsection{Strumenti e metriche a supporto}
 Per valutare oggettivamente l'avanzamento e la bontà del lavoro svolto, BugBusters si avvale di un insieme definito di metriche quantificabili, suddivise tra metriche di processo e metriche di prodotto\G{}. L'impiego di indicatori puramente oggettivi garantisce un'analisi fredda, imparziale e basata sui dati.
 
-Tutte le metriche adottate, complete di descrizione, valore di accettazione e valore ottimo, sono formalizzate nel \textit{Piano di Qualifica\G{}} (Sezione ``Obiettivi stabiliti per la qualità''). Il monitoraggio di tali indicatori avviene tramite l'aggiornamento del \textbf{Cruscotto\G{} di Valutazione}, uno strumento che permette al team di analizzare visivamente i trend storici, individuare precocemente eventuali deviazioni (es. calo della \textit{Code Coverage\G{}} o indici di costo sotto soglia) e applicare tempestivamente le necessarie azioni correttive (ciclo PDCA).
+Tutte le metriche adottate, complete di descrizione, valore di accettazione e valore ottimo, sono formalizzate nel \textit{Piano di Qualifica\G{}} (Sezione ``Obiettivi stabiliti per la qualità\G{}''). Il monitoraggio di tali indicatori avviene tramite l'aggiornamento del \textbf{Cruscotto\G{} di Valutazione}, uno strumento che permette al team di analizzare visivamente i trend storici, individuare precocemente eventuali deviazioni (es. calo della \textit{Code Coverage\G{}} o indici di costo sotto soglia) e applicare tempestivamente le necessarie azioni correttive (ciclo PDCA).
 
 \subsubsection{Attività previste}
-Le attività previste per garantire il corretto svolgimento del processo di Accertamento della Qualità si articolano nei seguenti punti:
+Le attività previste per garantire il corretto svolgimento del processo di Accertamento della Qualità\G{} si articolano nei seguenti punti:
 \begin{itemize}
-    \item \textbf{Implementazione del processo:} definizione rigorosa degli standard normativi di riferimento e delle procedure operative necessarie per la misurazione, la raccolta e l'analisi dei dati;
+    \item \textbf{Implementazione\G{} del processo:} definizione rigorosa degli standard normativi di riferimento e delle procedure operative necessarie per la misurazione, la raccolta e l'analisi dei dati;
     \item \textbf{Accertamento della qualità\G{} di processo:} monitoraggio continuo dei processi primari, organizzativi e di supporto (es. stabilità dei requisiti, pianificazione, gestione dei costi) per verificare la stretta aderenza al \textit{way of working\G{}} stabilito e misurare l'efficienza\G{} temporale ed economica del team;
-    \item \textbf{Accertamento della qualità\G{} di prodotto:} validazione\G{} del software rilasciato rispetto alle caratteristiche di Funzionalità\G{}, Affidabilità\G{}, Efficienza\G{}, Usabilità, Mantenibilità e Portabilità. Tale attività è supportata da una campagna di testing automatizzato e manuale (Integrazione, Sistema, Accettazione) per garantire la conformità ai requisiti.
+    \item \textbf{Accertamento della qualità\G{} di prodotto\G{}:} validazione\G{} del software rilasciato rispetto alle caratteristiche di Funzionalità\G{}, Affidabilità\G{}, Efficienza\G{}, Usabilità, Mantenibilità e Portabilità. Tale attività è supportata da una campagna di testing automatizzato e manuale (Integrazione, Sistema, Accettazione) per garantire la conformità ai requisiti.
 \end{itemize}
 
 Al fine di mantenere un controllo costante sullo stato di salute del progetto\G{}, le misurazioni descritte vengono effettuate e consolidate al termine di ogni Sprint\G{}. I risultati raccolti vengono quindi documentati e storicizzati nel \textit{Piano di Qualifica\G{}}, certificando la qualità\G{} del lavoro e supportando le decisioni strategiche intraprese dal team.
@@ -976,7 +976,7 @@ La verifica\G{} agisce su singoli segmenti di sviluppo, accertando che l'esecuzi
 In questa prospettiva, un'attività di verifica\G{} è il controllo che il prodotto\G{} ottenuto al termine di una fase sia congruente con il semilavorato avuto come punto di partenza di quella fase.\\
 Il team BugBusters si è principalmente occupato della verifica\G{} relativa alla documentazione, controllando la correttezza grammaticale, sintattica e la correttezza del contenuto di ogni documento.\\
 Relativamente alle verifiche sul codice, sarà un argomento che verrà trattato più in dettaglio dopo il raggiungimento della \textit{Requirements and Technology Baseline}\G{}.\\
-In ogni caso tutte le informazioni relative alla verifica\G, verranno riportate nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}. 
+In ogni caso tutte le informazioni relative alla verifica\G{}, verranno riportate nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G{}}. 
 \subsubsubsection{Analisi Statica}
 L'analisi statica non richiede l'esecuzione dell'oggetto di cui si fa la verifica\G{}, ciò permette di applicarla già prima della fine della codifica.\\
 Può essere eseguita mediante \textbf{metodi formali} (ad esempio prove matematiche) o mediante \textbf{metodi di lettura}.
@@ -1002,12 +1002,12 @@ Le principali tipologie di Test\G{} sono:
     \item \textbf{Test\G{} di Sistema}\G{};
 \end{itemize}
 % TODO
-I test\G eseguiti da BugBusters reperibili nella sezione 3 Metodi di testing del \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G} sono descritti nella seguente maniera:
+I test\G{} eseguiti da BugBusters reperibili nella sezione 3 Metodi di testing del \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G{}} sono descritti nella seguente maniera:
 \begin{itemize}
-    \item \textbf{Codice}: un codice univoco che garantisce la traccibilità del test\G (quindi la sua identificazione univoca);
-    \item \textbf{Descrizione}: una breve descrizione dell'obiettivo del test\G;
-    \item \textbf{Requisito\G}: codice univoco del requisito\G a cui il test\G fa riferimento. Tale codice è reperibile nell'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G} nella sezione 3.1 Requisiti\G funzionali\G;
-    \item \textbf{Stato}: lo stato del test\G, che può essere:
+    \item \textbf{Codice}: un codice univoco che garantisce la traccibilità del test\G{} (quindi la sua identificazione univoca);
+    \item \textbf{Descrizione}: una breve descrizione dell'obiettivo del test\G{};
+    \item \textbf{Requisito\G{}}: codice univoco del requisito\G{} a cui il test\G{} fa riferimento. Tale codice è reperibile nell'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G{}} nella sezione 3.1 Requisiti\G{} funzionali\G{};
+    \item \textbf{Stato}: lo stato del test\G{}, che può essere:
     \begin{itemize}
         \item \textbf{Non Implementato}: il test\G{} non è ancora stato implementato;
         \item \textbf{Superato}: il test\G{} è stato implementato ed eseguito;
@@ -1033,15 +1033,15 @@ Ci sono diverse strategie per implementare tali test\G{}:
     \item \textbf{Bottom-up}: si parte dalle componenti più basse (con meno dipendenze) e si integrano progressivamente verso l'alto, usando driver per simulare moduli superiori mancanti;
     \item \textbf{Top-down}: si dalle componenti di alto livello (con più dipendenze) e si scende verso quelli inferiori, usando stub per simulare moduli non ancora sviluppati;
 \end{itemize}
-\subsubsubsection{Test\G di Sistema{}}
-I \textbf{Test\G di sistema}\G{} verificano il comportamento dell'intero software nel suo complesso, controllando che il sistema soddisfi i requisiti\G funzionali\G e non funzionali\G specificati. 
-\subsubsection{Validazione\G}
-La \textbf{validazione\G} è un processo per confermare in modo definitivo che le caratteristiche del software siano conformi ai bisogni dell'utente finale e all'uso previsto, risponde alla domanda: <<Did i build the right system?>>
-\subsubsubsection{Processo di Validazione\G}
-BugBusters ha raccolto tutte le richieste di \textbf{Eggon} e le ha documentate nell'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}, in modo tale da poter tracciare correttamente i requisiti\G e da poter eseguire i test\G di accettazione per controllare che quanto sviluppato corrisponda alle richieste di \textbf{Eggon}.
+\subsubsubsection{Test\G{} di Sistema{}}
+I \textbf{Test\G{} di sistema}\G{} verificano il comportamento dell'intero software nel suo complesso, controllando che il sistema soddisfi i requisiti\G{} funzionali\G{} e non funzionali\G{} specificati. 
+\subsubsection{Validazione\G{}}
+La \textbf{validazione\G{}} è un processo per confermare in modo definitivo che le caratteristiche del software siano conformi ai bisogni dell'utente finale e all'uso previsto, risponde alla domanda: <<Did i build the right system?>>
+\subsubsubsection{Processo di Validazione\G{}}
+BugBusters ha raccolto tutte le richieste di \textbf{Eggon} e le ha documentate nell'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G{}}, in modo tale da poter tracciare correttamente i requisiti\G{} e da poter eseguire i test\G{} di accettazione per controllare che quanto sviluppato corrisponda alle richieste di \textbf{Eggon}.
 
-I risultati della validazione\G verranno riportati nel documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G} nella sezione Test\G di accettazione.\\\\
-Si fa notare che al momento della condivisione di questo documento al pubblico, il team BugBusters avrà solamente raggiunto l'RTB\G, per questo motivo lo stato dei test\G sara "Non implementato". Al raggiungimento della PB\G, questa sezione verrà aggiornata con i risultati dei test\G.
+I risultati della validazione\G{} verranno riportati nel documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G{}} nella sezione Test\G{} di accettazione.\\\\
+Si fa notare che al momento della condivisione di questo documento al pubblico, il team BugBusters avrà solamente raggiunto l'RTB\G{}, per questo motivo lo stato dei test\G{} sara "Non implementato". Al raggiungimento della PB\G{}, questa sezione verrà aggiornata con i risultati dei test\G{}.
 
 \section{Processi Organizzativi}
 
@@ -1094,7 +1094,7 @@ Tra le sue responsabilità rientrano:
 \begin{itemize}
     \item predisporre e gestire gli ambienti di lavoro;
     \item controllare e aggiornare gli strumenti utilizzati dal gruppo per collaborare e comunicare;
-    \item occuparsi del versionamento dei documenti;
+    \item occuparsi del versionamento\G{} dei documenti;
     \item redigere e mantenere aggiornato il documento Norme di Progetto\G{}.
 \end{itemize}
 \subsubsection{Analista\G{}}
@@ -1120,10 +1120,10 @@ In particolare dovrà occuparsi di:
     \item Supervisionare lo sviluppo tecnico e garantire la coerenza con le specifiche progettuali;
 \end{itemize}
 
-\subsubsection{Programmatore\G}
-Il programmatore\G ha il compito di implementare le funzionalità\G del sistema
-secondo le specifiche tecniche fornite dal progettista\G. Collabora con il team per
-garantire che il codice sia di alta qualità\G, efficiente e mantenibile.
+\subsubsection{Programmatore\G{}}
+Il programmatore\G{} ha il compito di implementare le funzionalità\G{} del sistema
+secondo le specifiche tecniche fornite dal progettista\G{}. Collabora con il team per
+garantire che il codice sia di alta qualità\G{}, efficiente e mantenibile.
 In particolare dovrà occuparsi di:
 \begin{itemize}
     \item scrivere il codice sorgente seguendo le linee guida e gli standard di
@@ -1177,10 +1177,10 @@ Come riportato dalla sezione \ref{gestione configurazione}, il team utilizza aut
 più fluido il processo di tracciamento delle azioni, garantendo maggior tracciamento possibile.
 
 \subsection{Gestione dei Rischi}
-L'individuazione e la gestione dei rischi di progetto si articola in tre diverse fasi descritte di seguito:
+L'individuazione e la gestione dei rischi\G{} di progetto\G{} si articola in tre diverse fasi descritte di seguito:
 
 \begin{itemize}
-    \item \textbf{Identificazione}: al fine di prevenire problemi futuri si vanno ad individuare le parti critiche del progetto analizzando ogni potenziale rischio associato. Per ogni rischio individuato occorre specificare il nome, una descrizione del rischio, il livello di probabilità e l'impatto. Le tipologie di rischio e le relative tabelle di dettaglio sono descritte nel \textit{Piano di Progetto}. Ad ogni rischio è inoltre associato un codice univoco con il seguente formato:
+    \item \textbf{Identificazione}: al fine di prevenire problemi futuri si vanno ad individuare le parti critiche del progetto\G{} analizzando ogni potenziale rischio\G{} associato. Per ogni rischio\G{} individuato occorre specificare il nome, una descrizione del rischio\G{}, il livello di probabilità\G{} e l'impatto. Le tipologie di rischio\G{} e le relative tabelle di dettaglio sono descritte nel \textit{Piano di Progetto\G{}}. Ad ogni rischio\G{} è inoltre associato un codice univoco con il seguente formato:
     
     \begin{center}
         \textbf{R-[Tipologia]-[ID]}
@@ -1188,15 +1188,15 @@ L'individuazione e la gestione dei rischi di progetto si articola in tre diverse
     
     Le sigle utilizzate per la classificazione della tipologia sono:
     \begin{itemize}
-        \item \textbf{G}: Rischio Globale\G{};
-        \item \textbf{T}: Rischio Tecnologico\G{};
-        \item \textbf{I}: Rischio Individuale\G{}.
+        \item \textbf{G}: Rischio\G{} Globale\G{};
+        \item \textbf{T}: Rischio\G{} Tecnologico\G{};
+        \item \textbf{I}: Rischio\G{} Individuale\G{}.
     \end{itemize}
     L'ID è un valore numerico incrementale a una cifra.
     
-    \item \textbf{Mitigazione}: per ogni rischio individuato si definiscono a priori le possibili contromisure da attuare nel caso in cui il problema si presenti, al fine di ridurne l'impatto sul progetto.
+    \item \textbf{Mitigazione\G{}}: per ogni rischio\G{} individuato si definiscono a priori le possibili contromisure da attuare nel caso in cui il problema si presenti, al fine di ridurne l'impatto sul progetto\G{}.
     
-    \item \textbf{Monitoraggio}: i rischi individuati vengono costantemente monitorati dal Responsabile\G{} durante l'intero ciclo di vita del progetto, al fine di individuare tempestivamente la loro occorrenza e applicare le relative contromisure stabilite.
+    \item \textbf{Monitoraggio}: i rischi individuati vengono costantemente monitorati dal Responsabile\G{} durante l'intero ciclo di vita del progetto\G{}, al fine di individuare tempestivamente la loro occorrenza e applicare le relative contromisure stabilite.
 \end{itemize}
 
 \subsection{Comunicazione}
@@ -1238,50 +1238,50 @@ Al termine di ogni riunione, viene redatto un verbale\G{} che riassume le decisi
 \subsection{Miglioramento}
 \subsubsection{Descrizione e Scopo}
 Il processo di miglioramento ha come obiettivo l'analisi, la misurazione, il controllo e l'ottimizzazione dell'intero ciclo di 
-vita del software. La finalità principale è assicurare che il prodotto risponda pienamente ai requisiti e alle aspettative,
-garantendo allo stesso tempo alti livelli di qualità ed efficienza. \\
+vita del software. La finalità principale è assicurare che il prodotto\G{} risponda pienamente ai requisiti e alle aspettative,
+garantendo allo stesso tempo alti livelli di qualità\G{} ed efficienza\G{}. \\
 Attraverso un approccio iterativo, ogni fase viene 
 riesaminata con regolarità e progressivamente affinata, consentendo di individuare e applicare interventi specifici 
-orientati al continuo perfezionamento del prodotto.
+orientati al continuo perfezionamento del prodotto\G{}.
 
 \subsubsection{Ciclo di miglioramento continuo}
 Il processo di miglioramento si articola in quattro fasi principali. 
-La prima consiste nell'individuazione dei processi organizzativi da adottare nelle varie attività di progetto lungo tutto il 
+La prima consiste nell'individuazione dei processi organizzativi da adottare nelle varie attività di progetto\G{} lungo tutto il 
 ciclo di vita del software. Tali processi devono essere opportunamente documentati e affiancati da un sistema di controllo che 
 ne permetta la gestione, il monitoraggio e l'evoluzione nel tempo. \\
 La seconda fase riguarda l'applicazione concreta dei miglioramenti individuati, garantendo che le modifiche vengano integrate in 
 modo coerente nei processi già esistenti. È fondamentale aggiornare la documentazione per rispecchiare le variazioni introdotte, 
 mentre le informazioni storiche, tecniche e di valutazione devono essere raccolte e analizzate al fine di sostenere un progresso 
 costante. \\
-La terza fase è dedicata alla verifica dei processi, effettuata sulla base degli obiettivi stabiliti, delle metriche definite e
+La terza fase è dedicata alla verifica\G{} dei processi, effettuata sulla base degli obiettivi stabiliti, delle metriche definite e
 dei dati raccolti. Inoltre, la pianificazione e lo svolgimento di revisioni periodiche assicurano che i processi rimangano adeguati 
 ed efficaci nel tempo. \\
 Infine, la quarta fase mira a consolidare e standardizzare i miglioramenti ottenuti, 
-favorendo un'evoluzione continua dei processi e riducendo il rischio di regressioni. 
-Questo approccio iterativo consente di mantenere nel tempo elevati livelli di qualità ed efficienza.\\
+favorendo un'evoluzione continua dei processi e riducendo il rischio\G{} di regressioni. 
+Questo approccio iterativo consente di mantenere nel tempo elevati livelli di qualità\G{} ed efficienza\G{}.\\
 
 
 
 \subsection{Formazione}
 \subsubsection{Descrizione e Scopo}
 La formazione ha lo scopo di garantire che ogni componente del gruppo acquisisca le competenze necessarie per 
-affrontare in modo efficace e consapevole le possibili criticità che possono emergere durante lo sviluppo del progetto.\\
+affrontare in modo efficace e consapevole le possibili criticità che possono emergere durante lo sviluppo del progetto\G{}.\\
 Il percorso di apprendimento viene strutturato a partire da un'analisi approfondita delle esigenze individuate, a cui segue la 
 selezione delle risorse e degli strumenti più idonei per il raggiungimento degli obiettivi prefissati. In questo modo, il gruppo 
 può sviluppare progressivamente le proprie conoscenze, rafforzando al contempo la padronanza delle tecnologie e delle metodologie 
 adottate.\\
-La formazione rappresenta quindi un elemento essenziale per la buona riuscita del progetto, contribuendo non solo alla qualità del 
+La formazione rappresenta quindi un elemento essenziale per la buona riuscita del progetto\G{}, contribuendo non solo alla qualità\G{} del 
 risultato finale, ma anche alla crescita professionale e personale di tutti i membri coinvolti.\\
 
 \subsubsection{Formazione individuale}
-Nel corso dello sviluppo del progetto, ciascun componente del gruppo è chiamato a sviluppare in modo autonomo le competenze necessarie 
+Nel corso dello sviluppo del progetto\G{}, ciascun componente del gruppo è chiamato a sviluppare in modo autonomo le competenze necessarie 
 all'utilizzo delle tecnologie coinvolte. Questo apprendimento non avviene in modo isolato, ma è supportato dal confronto continuo tra 
 i membri del team, in cui chi possiede maggiore esperienza contribuisce a guidare e chiarire eventuali difficoltà. \\
 Un ruolo importante è svolto anche dalla consultazione di fonti esterne, come la documentazione ufficiale delle tecnologie utilizzate, 
 risorse online e materiali di approfondimento. Inoltre, la realizzazione di piccoli progetti o esercitazioni pratiche consente di 
 consolidare le conoscenze acquisite e di sperimentare direttamente le soluzioni studiate.\\
 Questo approccio collaborativo e proattivo permette di uniformare il livello di preparazione del gruppo, rendendolo adeguato al 
-raggiungimento degli obiettivi prefissati e favorendo al tempo stesso un avanzamento più efficace e consapevole dell'intero progetto.
+raggiungimento degli obiettivi prefissati e favorendo al tempo stesso un avanzamento più efficace e consapevole dell'intero progetto\G{}.
 
 
 
@@ -1334,22 +1334,22 @@ Il processo di valutazione della qualità\G{} del software si articola in quattr
     \item \textbf{Valutazione}: l'analisi dei dati raccolti per determinare se gli obiettivi di qualità\G{} sono stati raggiunti. Questa fase può includere la revisione dei risultati da parte di un team di verifica\G{} e validazione\G{}, nonché la documentazione dei risultati e delle eventuali azioni correttive da intraprendere.
     \item \textbf{Accettazione}: la decisione finale su se il software soddisfa i requisiti\G{} di qualità\G{} stabiliti. Se le metriche sono soddisfatte, il software può essere considerato pronto.
 \end{enumerate}
-Questo intero processo è documentato all'interno del \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}.
-\subsection{Principi della Qualità\G del processo}
-Secondo lo standard ISO/IEC 9001, la qualità\G del processo di sviluppo software si basa su diversi principi fondamentali:
+Questo intero processo è documentato all'interno del \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G{}}.
+\subsection{Principi della Qualità\G{} del processo}
+Secondo lo standard ISO/IEC 9001, la qualità\G{} del processo di sviluppo software si basa su diversi principi fondamentali:
 \begin{itemize}
     \item \textbf{Responsabilità della direzione}: il responsabile\G{} deve definire una politica per la qualità\G{}, stabilire obiettivi e garantire che tutti i membri del team siano consapevoli delle loro responsabilità.
-    \item \textbf{Gestione delle risorse}: è essenziale assicurarsi che il team abbia gli strumenti giusti (es. IDE, versionamento con git) e che i membri abbiano la formazione necessaria.
+    \item \textbf{Gestione delle risorse}: è essenziale assicurarsi che il team abbia gli strumenti giusti (es. IDE, versionamento\G{} con git) e che i membri abbiano la formazione necessaria.
     \item \textbf{Realizzazione del prodotto\G{}}: il processo di sviluppo richiede che le fasi di documentazione dei requisiti\G{}, progettazione e sviluppo siano sottocontrollo e tracciabili.
     \item \textbf{Misurazione, analisi e miglioramento}: è fondamentale monitorare continuamente il processo di sviluppo per identificare aree di miglioramento e implementare azioni correttive quando necessario.
 \end{itemize}
 
-Ciò viene fatto in questo progetto\G attraverso una chiara definizione degli strumenti e delle metodologie di lavoro (specificate in questo documento), un monitoraggio continuo dell'avanzamento del progetto\G (tramite issue\G tracking e riunioni periodiche documentate), un'attenta analisi sulle richieste della proponente\G (specificate nel documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G})  e una valutazione regolare della qualità\G del prodotto\G con un'analisi sul miglioramento (tramite il processo di verifica\G e validazione\G descritto nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}).
+Ciò viene fatto in questo progetto\G{} attraverso una chiara definizione degli strumenti e delle metodologie di lavoro (specificate in questo documento), un monitoraggio continuo dell'avanzamento del progetto\G{} (tramite issue\G{} tracking e riunioni periodiche documentate), un'attenta analisi sulle richieste della proponente\G{} (specificate nel documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G{}})  e una valutazione regolare della qualità\G{} del prodotto\G{} con un'analisi sul miglioramento (tramite il processo di verifica\G{} e validazione\G{} descritto nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G{}}).
 
-\subsection{Metriche per la qualità\G}
-%TODO, magari inserire una descrizione di cosa sono le metriche (accennate nella sezione del processo di valutazione della qualità\G)
-Come descritto nella sezione precedente, la qualità\G del software viene misurata attraverso l'uso di metriche specifiche. Queste metriche forniscono dati quantitativi che aiutano a valutare diversi aspetti della qualità\G del prodotto\G e del processo di sviluppo.\\
-Le metriche selezionate per questo progetto\G vengono definite qui e misurate durante il processo di valutazione della qualità\G descritto nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}.\\
+\subsection{Metriche per la qualità\G{}}
+%TODO, magari inserire una descrizione di cosa sono le metriche (accennate nella sezione del processo di valutazione della qualità\G{})
+Come descritto nella sezione precedente, la qualità\G{} del software viene misurata attraverso l'uso di metriche specifiche. Queste metriche forniscono dati quantitativi che aiutano a valutare diversi aspetti della qualità\G{} del prodotto\G{} e del processo di sviluppo.\\
+Le metriche selezionate per questo progetto\G{} vengono definite qui e misurate durante il processo di valutazione della qualità\G{} descritto nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G{}}.\\
 Le metriche sono suddivise in due categorie principali:
 \begin{enumerate}
     \item \textbf{Metriche per la qualità\G{} del prodotto\G{}}: queste metriche valutano aspetti come la funzionalità\G{}, l'affidabilità\G{}, l'efficienza\G{}, l'usabilità, la manutenibilità\G{} e la portabilità del software.
