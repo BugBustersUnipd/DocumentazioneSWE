@@ -610,6 +610,7 @@ L'infrastruttura verifica\G{} l'integrità e la validità del formato del file p
 \immagine[1\textwidth]{immagini/2_AnnullaCaricamento.png}{Esempio di caricamento con possibilità di annullamento}{fig:AnnullaCaricamento}
 
 
+\subsubsection{Riconoscimento documenti}
 \subsubsubsection{Visualizzazione tabella riepilogativa documenti analizzati}
 Dopo il caricamento di uno o più file (vedi \hyperref[fig:CaricamentoDocumenti]{Figura 25}), il sistema presenta l'elenco dei documenti caricati in formato a lista.\\
 Per ogni elemento, vengono esposti i dati di sintesi estratti dall'AI\G{}, quali:
@@ -696,7 +697,7 @@ Qualora il documento estratto fosse solo uno (perchè il documento caricato non 
 
 \immagine[1\textwidth]{immagini/2_StatiSottodocumenti.png}{Due sottodocumenti in analisi: il primo pronto e il secondo in elaborazione}{fig:StatiSottodocumenti}
 \immagine[1\textwidth]{immagini/2_RiconoscimentoCompletato.png}{Analisi di quattro documenti completata}{fig:RiconoscimentoCompletato}
-\subsubsection{Elementi estratti dai documenti analizzati}
+\subsubsubsection{Elementi estratti dai documenti analizzati}
 Per ogni sottodocumento (o documento, qualora non sia stato suddiviso), vengono mostrati alcuni dei campi analizzati dall'AI\G{}:
 \begin{itemize}[leftmargin=1.2em,noitemsep,topsep=0pt]
     \item l'\textbf{id del documento estratto};
@@ -719,13 +720,13 @@ e di focalizzarsi su quelli più rilevanti per le proprie attività.
 
 \immagine[1\textwidth]{immagini/2_FiltroUpload.png}{Filtro ricerca documenti}{fig:FiltroDocumenti}
 
-\subsubsubsection{Modifica del risultato dell'analisi documenti}
-In ottica "Human-in-the-loop", se l'AI\G{} dovesse classificare un documento in modo impreciso o associare dati non corretti, l'operatore può intervenire manualmente per modificare la tipologia del documento o correggerne gli attributi. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza.
+\subsubsubsection{Modifica ed eliminazione dei risultati dell'analisi}
+In ottica "Human-in-the-loop", se l'AI\G{} dovesse classificare un documento in modo impreciso o associare dati non corretti, l'operatore può intervenire manualmente per modificare la tipologia del documento o correggerne gli attributi. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza.\\
+Per modificare i dati estratti da un documento, è sufficiente cliccare sul pulsante \tcbox[colback=lightgray,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{\textbf{Modifica}}} presente nel sotto-menù a \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{...}}} accanto a ogni documento, che consente di accedere alla modalità di modifica dei dati estratti.\\
+\\
+Qualora un documento sia stato caricato per errore o non debba più far parte del flusso di invio, l'utente può rimuovere il documento cliccano sul pulsante \tcbox[colback=lightgray,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{\textbf{Elimina}}} che si trova nel sotto-menù a \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{...}}} accanto a ogni documento, che consente di rimuovere definitivamente il documento dal sistema.
 
-\subsubsubsection{Eliminazione del risultato dell'analisi documenti}
-Qualora un documento sia stato caricato per errore, risulti duplicato o non debba più far parte del flusso di invio, l'utente può rimuovere il documento e i relativi risultati dell'analisi dal database e dall'interfaccia\G{} corrente.
-
-\immagine[0.4\textwidth]{immagini/2_ModificaElimina.png}{Modifica ed eliminazione risultati analisi documenti}{fig:ModificaEliminaDocumenti}
+\immagine[0.3\textwidth]{immagini/2_ModificaElimina.png}{Modifica ed eliminazione risultati analisi documenti}{fig:ModificaEliminaDocumenti}
 
 \subsubsubsection{Retry analisi documenti}
 Se un documento non viene analizzato correttamente a causa di un errore temporaneo, l'utente ha la 
