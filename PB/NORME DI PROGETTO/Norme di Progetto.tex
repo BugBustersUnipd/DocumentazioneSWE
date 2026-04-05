@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{1.0.0} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{2.0.0} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -107,9 +107,9 @@
 \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
 % Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
-	{Stato} & Approvato per RTB\G \\
-    {Redattori\G} & Alberto Autiero, Marco Favero, Alberto Pignat, Marco Piro, Linor Sadé, Luca Slongo \\
-	{Verificatori\G} &  Alberto Pignat, Luca Slongo \\
+	{Stato} & Approvato per PB\G \\
+    {Redattori\G} & Alberto Autiero, Marco Favero, Alberto Pignat, Marco Piro, Linor Sadé, Leonardo Salviato, Luca Slongo \\
+	{Verificatori\G} &   Alberto Pignat, Linor Sadé, Luca Slongo \\
 	{Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
 \end{tabularx}
 \end{tcolorbox}
@@ -137,6 +137,25 @@ Documento contenente le Norme di Progetto\G adottate dal team BugBusters per lo 
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
 \hline
+\rowcolor{secondaryblue!10} 2.0.0 & 01/03/2025 & Approvato per PB & - & - & Marco Favero \\
+\hline
+\rowcolor{secondaryblue!10} 1.4.0 & 28/02/2025 & Verificata sezione Formazione & - & Alberto Pignat & - \\
+\hline
+\rowcolor{secondaryblue!10} 1.3.1 & 28/02/2025 & Aggiunta sezione Formazione & Leonardo Salviato & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 1.3.0 & 26/02/2025 & Verificata sezione accertamento e sezione rischi & - & Alberto Pignat & - \\
+\hline
+\rowcolor{secondaryblue!10} 1.2.1 & 25/02/2025 & Aggiunta sezione progettazione e codifica & Leonardo Salviato & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 1.2.0 & 25/02/2025 & Verificata sezione progettazione e codifica & - & Linor Sadè & -  \\
+\hline
+\rowcolor{secondaryblue!10} 1.1.1 & 24/02/2025 & Aggiunta sezione progettazione e codifica & Leonardo Salviato &  - & - \\
+\hline
+\rowcolor{secondaryblue!10} 1.1.0 & 23/02/2025 & Verificata sezione miglioramento continuo & - & Linor Sadè & - \\
+\hline
+\rowcolor{secondaryblue!10} 1.0.1 & 23/02/2025 & Aggiunta sezione miglioramento continuo & Leonardo Salviato &  - & - \\
+\hline
+
 \rowcolor{secondaryblue!10} 1.0.0 & 30/01/2025 & Approvazione documento & - &  & Luca Slongo \\
 \hline
 \rowcolor{secondaryblue!10} 0.2.0 & 30/01/2025 & Verifica documento & - &  Alberto Pignat & - \\
@@ -222,7 +241,7 @@ garantendo un flusso informativo coerente, tracciabile e adattabile alle esigenz
 Il nostro progetto\G mira alla creazione di un'applicazione stand-alone\G (rispetto all'applicazione Nexum già esistente) che implementa un modulo\G di AI\G assistant generativo per la scrittura di comunicazioni e l'AI Co-Pilot\G{} per
 i Cdl\G. In particolare quest'ultimo deve essere in grado di riconoscere i documenti caricati dagli utenti, estrarne le informazioni rilevanti, capire
 la tipologia, destinatari e consegnarli in modo massivo. \\
-Per ulteriori informazioni sul progetto\G si rimanda all'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}.
+Per ulteriori informazioni sul progetto\G si rimanda all'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}.
 Il nostro obiettivo è realizzare questo progetto\G entro il 21 marzo 2026 con un budget di 12.790 euro.
 
 
@@ -232,7 +251,7 @@ Il glossario\G raccoglie e definisce i termini, gli acronimi e le abbreviazioni
 impiegati nel documento e nel progetto\G Nexum. L'obiettivo è fornire definizioni univoche per ridurre 
 ambiguità, garantire coerenza terminologica tra i membri del team e facilitare l'onboarding di nuovi partecipanti. \\
 Per i termini tecnici e specifici utilizzati in questo documento, si fa riferimento al glossario\G disponibile al 
-seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}{link}.
+seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/GLOSSARIO/Glossario.pdf}{link}.
 Per maggiore usabilità e facilitá di consultazione, il glossario\G è accessibile anche aprendo dal nostro sito web i vari documenti con il viewer
 pdf da noi sviluppato.
 
@@ -246,7 +265,7 @@ pdf da noi sviluppato.
 \subsubsection{Riferimenti informativi}
 \begin{itemize}
     \item \textbf{Glossario\G{}:}\\
-\url{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}
+\url{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/GLOSSARIO/Glossario.pdf}
 \end{itemize}
 
 \newpage
@@ -324,10 +343,10 @@ tempestività nelle azioni correttive.
 \subsubsection{Documentazione Prodotta}\label{Documentazione Prodotta}
 Durante la fase di fornitura, il team BugBusters produce e mantiene aggiornata la seguente documentazione:
 \begin{itemize}
-    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}{Glossario\G}
-    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}
-    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20PROGETTO/Piano%20di%20progetto.pdf}{Piano di Progetto\G}
-    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/GLOSSARIO/Glossario.pdf}{Glossario\G}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20PROGETTO/Piano%20di%20progetto.pdf}{Piano di Progetto\G}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}
     \item \href{http:\\localhost}{Verbali}
     \item \href{http:\\localhost}{Lettera di candidatura}
     \item \href{http:\\localhost}{Lettera di presentazione}
@@ -618,7 +637,7 @@ standard di qualità\G elevati e best practice\G del settore.
 \end{itemize}
 \subsubsection{Analisi dei Requisiti\G}
 È un attività fondamentale della Requirements and Technology Baseline (RTB)\G e consiste nella raccolta, analisi e documentazione di tutti i requisiti\G che il sistema sviluppato dovrà soddisfare.
-Tale attività è documentata nell'apposito documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G }, che servirà poi come riferimento per guidare tutte le fasi successive di progettazione, implementazione\G e testing del software.
+Tale attività è documentata nell'apposito documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G }, che servirà poi come riferimento per guidare tutte le fasi successive di progettazione, implementazione\G e testing del software.
 Nella sezione seguente viene illustrato il sistema di nomenclatura adottato per identificare in modo univoco i casi d'uso\G.
 \subsubsubsection{Casi d'uso\G}
 \begin{center}
@@ -876,7 +895,7 @@ Per ognuna delle attività previste, BugBusters utilizza:
     e documentazione. Fornisce strumenti per la collaborazione (branching, pull request e code review), per il tracciamento delle attività (issues, project board) e per l'integrazione continua (Actions). Su GitHub\G vengono centralizzate le risorse di progetto\G e registrate tutte le modifiche, garantendo controllo degli accessi e tracciabilità\G.
 \end{itemize}
 
-\subsubsubsection{Attività previste}
+\subsubsection{Attività previste}
 L'attività di gestione delle configurazioni svolta dal gruppo si avvale delle seguenti attività:
 \begin{itemize}
     \item \textbf{Identificazione della configurazione}: l'identificazione delle componenti che
@@ -959,7 +978,7 @@ La verifica\G agisce su singoli segmenti di sviluppo, accertando che l'esecuzion
 In questa prospettiva, un'attività di verifica\G è il controllo che il prodotto\G ottenuto al termine di una fase sia congruente con il semilavorato avuto come punto di partenza di quella fase.\\
 Il team BugBusters si è principalmente occupato della verifica\G relativa alla documentazione, controllando la correttezza grammaticale, sintattica e la correttezza del contenuto di ogni documento.\\
 Relativamente alle verifiche sul codice, sarà un argomento che verrà trattato più in dettaglio dopo il raggiungimento della \textit{Requirements and Technology Baseline}\G{}.\\
-In ogni caso tutte le informazioni relative alla verifica\G, verranno riportate nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}. 
+In ogni caso tutte le informazioni relative alla verifica\G, verranno riportate nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}. 
 \subsubsubsection{Analisi Statica}
 L'analisi statica non richiede l'esecuzione dell'oggetto di cui si fa la verifica\G{}, ciò permette di applicarla già prima della fine della codifica.\\
 Può essere eseguita mediante \textbf{metodi formali} (ad esempio prove matematiche) o mediante \textbf{metodi di lettura}.
@@ -985,11 +1004,11 @@ Le principali tipologie di Test\G{} sono:
     \item \textbf{Test\G di Sistema}\G{};
 \end{itemize}
 % TODO
-I test\G eseguiti da BugBusters reperibili nella sezione 3 Metodi di testing del \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G} sono descritti nella seguente maniera:
+I test\G eseguiti da BugBusters reperibili nella sezione 3 Metodi di testing del \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G} sono descritti nella seguente maniera:
 \begin{itemize}
     \item \textbf{Codice}: un codice univoco che garantisce la traccibilità del test\G (quindi la sua identificazione univoca);
     \item \textbf{Descrizione}: una breve descrizione dell'obiettivo del test\G;
-    \item \textbf{Requisito\G}: codice univoco del requisito\G a cui il test\G fa riferimento. Tale codice è reperibile nell'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G} nella sezione 3.1 Requisiti\G funzionali\G;
+    \item \textbf{Requisito\G}: codice univoco del requisito\G a cui il test\G fa riferimento. Tale codice è reperibile nell'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G} nella sezione 3.1 Requisiti\G funzionali\G;
     \item \textbf{Stato}: lo stato del test\G, che può essere:
     \begin{itemize}
         \item \textbf{Non Implementato}: il test\G non è ancora stato implementato;
@@ -1021,9 +1040,9 @@ I \textbf{Test\G di sistema}\G{} verificano il comportamento dell'intero softwar
 \subsubsection{Validazione\G}
 La \textbf{validazione\G} è un processo per confermare in modo definitivo che le caratteristiche del software siano conformi ai bisogni dell'utente finale e all'uso previsto, risponde alla domanda: <<Did i build the right system?>>
 \subsubsubsection{Processo di Validazione\G}
-BugBusters ha raccolto tutte le richieste di \textbf{Eggon} e le ha documentate nell'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}, in modo tale da poter tracciare correttamente i requisiti\G e da poter eseguire i test\G di accettazione per controllare che quanto sviluppato corrisponda alle richieste di \textbf{Eggon}.
+BugBusters ha raccolto tutte le richieste di \textbf{Eggon} e le ha documentate nell'\href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G}, in modo tale da poter tracciare correttamente i requisiti\G e da poter eseguire i test\G di accettazione per controllare che quanto sviluppato corrisponda alle richieste di \textbf{Eggon}.
 
-I risultati della validazione\G verranno riportati nel documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G} nella sezione Test\G di accettazione.\\\\
+I risultati della validazione\G verranno riportati nel documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G} nella sezione Test\G di accettazione.\\\\
 Si fa notare che al momento della condivisione di questo documento al pubblico, il team BugBusters avrà solamente raggiunto l'RTB\G, per questo motivo lo stato dei test\G sara "Non implementato". Al raggiungimento della PB\G, questa sezione verrà aggiornata con i risultati dei test\G.
 
 \section{Processi Organizzativi}
@@ -1103,7 +1122,7 @@ In particolare dovrà occuparsi di:
     \item Supervisionare lo sviluppo tecnico e garantire la coerenza con le specifiche progettuali;
 \end{itemize}
 
-\subsubsubsection{Programmatore\G}
+\subsubsection{Programmatore\G}
 Il programmatore\G ha il compito di implementare le funzionalità\G del sistema
 secondo le specifiche tecniche fornite dal progettista\G. Collabora con il team per
 garantire che il codice sia di alta qualità\G, efficiente e mantenibile.
@@ -1294,7 +1313,7 @@ Il processo di valutazione della qualità\G del software si articola in quattro 
     \item \textbf{Valutazione}: l'analisi dei dati raccolti per determinare se gli obiettivi di qualità\G sono stati raggiunti. Questa fase può includere la revisione dei risultati da parte di un team di verifica\G e validazione\G, nonché la documentazione dei risultati e delle eventuali azioni correttive da intraprendere.
     \item \textbf{Accettazione}: la decisione finale su se il software soddisfa i requisiti\G di qualità\G stabiliti. Se le metriche sono soddisfatte, il software può essere considerato pronto.
 \end{enumerate}
-Questo intero processo è documentato all'interno del \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano_di_Qualifica.pdf}{Piano di Qualifica\G}.
+Questo intero processo è documentato all'interno del \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}.
 \subsection{Principi della Qualità\G del processo}
 Secondo lo standard ISO/IEC 9001, la qualità\G del processo di sviluppo software si basa su diversi principi fondamentali:
 \begin{itemize}
@@ -1304,12 +1323,12 @@ Secondo lo standard ISO/IEC 9001, la qualità\G del processo di sviluppo softwar
     \item \textbf{Misurazione, analisi e miglioramento}: è fondamentale monitorare continuamente il processo di sviluppo per identificare aree di miglioramento e implementare azioni correttive quando necessario.
 \end{itemize}
 
-Ciò viene fatto in questo progetto\G attraverso una chiara definizione degli strumenti e delle metodologie di lavoro (specificate in questo documento), un monitoraggio continuo dell'avanzamento del progetto\G (tramite issue\G tracking e riunioni periodiche documentate), un'attenta analisi sulle richieste della proponente\G (specificate nel documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/ANALISI%20DEI%20REQUISITI/analisi_dei_requisiti_.pdf}{Analisi dei Requisiti\G})  e una valutazione regolare della qualità\G del prodotto\G con un'analisi sul miglioramento (tramite il processo di verifica\G e validazione\G descritto nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano_di_Qualifica.pdf}{Piano di Qualifica\G}).
+Ciò viene fatto in questo progetto\G attraverso una chiara definizione degli strumenti e delle metodologie di lavoro (specificate in questo documento), un monitoraggio continuo dell'avanzamento del progetto\G (tramite issue\G tracking e riunioni periodiche documentate), un'attenta analisi sulle richieste della proponente\G (specificate nel documento di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G})  e una valutazione regolare della qualità\G del prodotto\G con un'analisi sul miglioramento (tramite il processo di verifica\G e validazione\G descritto nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}).
 
 \subsection{Metriche per la qualità\G}
 %TODO, magari inserire una descrizione di cosa sono le metriche (accennate nella sezione del processo di valutazione della qualità\G)
 Come descritto nella sezione precedente, la qualità\G del software viene misurata attraverso l'uso di metriche specifiche. Queste metriche forniscono dati quantitativi che aiutano a valutare diversi aspetti della qualità\G del prodotto\G e del processo di sviluppo.\\
-Le metriche selezionate per questo progetto\G vengono definite qui e misurate durante il processo di valutazione della qualità\G descritto nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/PIANO%20DI%20QUALIFICA/Piano_di_Qualifica.pdf}{Piano di Qualifica\G}.\\
+Le metriche selezionate per questo progetto\G vengono definite qui e misurate durante il processo di valutazione della qualità\G descritto nel \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{Piano di Qualifica\G}.\\
 Le metriche sono suddivise in due categorie principali:
 \begin{enumerate}
     \item \textbf{Metriche per la qualità\G del prodotto\G}: queste metriche valutano aspetti come la funzionalità\G, l'affidabilità\G, l'efficienza\G, l'usabilità, la manutenibilità\G e la portabilità del software.
