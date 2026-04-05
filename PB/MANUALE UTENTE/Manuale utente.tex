@@ -736,35 +736,54 @@ possibilità di rilanciare l'analisi per quel documento specifico, sperando in u
 
 
 \subsubsection{Visualizzazione e correzione documenti}
-A seguito dell'analisi, il sistema estrae le informazioni rilevanti dal documento e le presenta in modo chiaro e organizzato, consentendo al CdL\G{} di verificare l'accuratezza dei dati estratti e di apportare eventuali correzioni o integrazioni prima di procedere con l'invio del documento al destinatario.
-Nel caso il range di pagine del documento suddiviso sia errato, o comunque nel caso si voglia modificarlo, è possibile farlo manualmente, ciò farà ripartire il processo di analisi del documento con il nuovo range di pagine selezionato.
+A seguito dell'analisi, il sistema estrae le informazioni rilevanti dal documento e le presenta in modo chiaro e organizzato, consentendo al CdL\G{} di verificare l'accuratezza dei dati estratti e di apportare eventuali correzioni o integrazioni prima di procedere con l'invio del documento al destinatario.\\
+Si accede alla modalità di visualizzazione di un documento processato cliccando sul pulsante \tcbox[colback=lightgray,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{\textbf{Visualizza}}} presente nel sotto-menù a \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{...}}} accanto a ogni documento, che consente di accedere alla modalità di visualizzazione e correzione del documento analizzato.\\ 
 
+Le operazioni disponibili in questa modalità sono:
+\begin{itemize}
+    \item \textbf{Visualizzazione informazioni del documento}: vedi \hyperref[fig:ModificaInfoDocumento]{Figura 35}.
+    \item \textbf{Visualizzazione destinatario del documento}: vedi \hyperref[fig:DestinatarioDocumento]{Figura 36}.
+    \item \textbf{Modifica dati del documento}: consente di apportare modifiche ai dati estratti, abilitando le caselle di testo che contengono i dati estratti e permettendo all'utente di correggerli manualmente. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza;
+    \item \textbf{Modifica destinatario del documento}: apre una finestra di dialogo che consente di modificare il destinatario estratto (vedi \hyperref[fig:ModificaDestinatario]{Figura 37}).
+    \item \textbf{Apertura documento originale ed estratto}: consente di visualizzare sia il documento originale caricato che la versione estratta e analizzata dall'AI\G{}, facilitando il confronto e la verifica\G{} dei dati estratti con quelli presenti nel documento originale;
+    \item \textbf{Intervallo delle pagine estratte}: consente di visualizzare e modificare l'intervallo di pagine del documento originale che è stato suddiviso e analizzato come sottodocumento. Il cambiamento dell'intervallo di pagine farà ripartire il processo di analisi del documento con il nuovo range di pagine selezionato (vedi ???????????).
+    \item \textbf{Invio del documento}: apre una finestra di dialogo per inviare il documento al destinatario estratto (vedi \hyperref[fig:InvioDocumento]{Figura 39}).
+    \item \textbf{Visualizzazione altri documenti estratti}: consente di visualizzare gli altri documenti estratti dallo stesso documento originale, qualora il documento caricato sia stato suddiviso in più sottodocumenti.
+\end{itemize}
 \immagine[1\textwidth]{immagini/2_DocumentoEstratto.png}{Dettagli analisi documento}{fig:DocumentoEstratto}
 
 
-\subsubsubsection{Visualizzazione informazioni documento}
+
+\subsubsubsection{Visualizzazione informazioni del documento}
 In una sezione il sistema raccoglie tutti i metadati specifici del singolo file, quali la categoria, ragione, azienda, reparto, competenza, data documento e il grado di affidabilità\G{} dell'estrazione (confidence score\G{}).
 
-\immagine[0.5\textwidth]{immagini/2_ModificaInfo.png}{Visualizzazione informazioni documento}{fig:ModificaInfoDocumento}
-
-\subsubsubsection{Visualizzazione destinatario documento}
-Visualizza nel dettaglio i soggetti a cui il singolo documento in anteprima è indirizzato. 
-Questa sezione mostra il destinatario rilevato dal AI\G{}, evidenziando un possibile match con il database aziendale.
-\immagine[0.8\textwidth]{immagini/2_Destinatario.png}{Visualizzazione destinatario documento}{fig:DestinatarioDocumento}
-
-
-\subsubsubsection{Visualizzazione dettagli analisi}
+\immagine[0.4\textwidth]{immagini/2_ModificaInfo.png}{Visualizzazione informazioni documento}{fig:ModificaInfoDocumento}
 Ogni campo estratto dall'AI\G{} è accompagnato da un indicatore di confidenza (confidence score\G{}) 
 che quantifica l'affidabilità\G{} dell'estrazione.
 
-\subsubsubsection{Modifica del risultato dell'analisi destinatario}
+\subsubsubsection{Modifica dei dati del documento}
+Tramite il pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Modifica}}} è possibile abilitare le caselle di testo che contengono i dati estratti, permettendo all'utente di correggerli manualmente. \\
+Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza (confidence score\G{}) per riflettere la modifica manuale dei dati.
+\immagine[0.4\textwidth]{immagini/2_ModificaDocumento.png}{Documento in stato di modifica}{fig:ModificaDocumento}
+I pulsanti \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Salva Modifiche}}} e  \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{Annulla Modifiche}} consentono rispettivamente di salvare le modifiche apportate ai dati del documento o di annullarle per tornare alla versione precedente le modifiche.\\\\
+La modifica dell'intervallo di pagine del documento originale che è stato suddiviso e analizzato come sottodocumento avviene tramite due campi di testo che indicano rispettivamente la pagina iniziale e finale del range di pagine del documento originale da cui è stato estratto il sottodocumento.\\
+La pagina massima da cui è possibile estrarre un sottodocumento è pari al numero totale di pagine del documento originale, mentre la pagina minima è 1.\\
+Il cambiamento dell'intervallo di pagine farà ripartire il processo di analisi del documento con il nuovo range di pagine selezionato, aggiornando di conseguenza i dati estratti, il destinatario rilevato e la confidenza\G{} dell'analisi del documento.
+\immagine[0.4\textwidth]{immagini/2_Rielaborazione.png}{Modifica intervallo pagine documento effettuato: rielaborazione dell'analisi}{fig:ModificaPagineDocumento}
+\subsubsubsection{Visualizzazione destinatario documento}
+Visualizza nel dettaglio i soggetti a cui il singolo documento in anteprima è indirizzato. 
+Questa sezione mostra il destinatario rilevato dal AI\G{}, evidenziando un possibile match con il database aziendale.
+\immagine[0.4\textwidth]{immagini/2_Destinatario.png}{Visualizzazione destinatario documento}{fig:DestinatarioDocumento}
+
+\subsubsubsection{Modifica destinatario del documento}
 Nel caso l'algoritmo associ un destinatario errato a un documento o non riesca a dedurlo, 
-l'operatore può intervenire per cercare e selezionare il destinatario corretto. 
+l'operatore può intervenire per cercare e selezionare il destinatario corretto. \\
 L'associazione avviene tramite a menù a tendina mostrando i dipendenti dell'azienda estratta o inserita nei dati conosciuti, 
 facilitando così la correzione e migliorando la precisione\G{} del processo di invio.
 
 \immagine[0.6\textwidth]{immagini/2_ModificaDestinatario.png}{Modifica risultato analisi destinatario}{fig:ModificaDestinatario}
 
+Cliccando sul pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Salva}}} si conferma la modifica del destinatario, aggiornando l'associazione del documento al nuovo destinatario selezionato.
 \subsubsubsection{Visualizzazione documento originale ed estratto}
 Per facilitare il confronto e la verifica\G{}, il sistema consente di visualizzare sia il documento originale caricato che 
 la versione estratta e analizzata dall'AI\G{}.
@@ -772,39 +791,34 @@ la versione estratta e analizzata dall'AI\G{}.
 \immagine[0.6\textwidth]{immagini/2_ApriDocumento.png}{Visualizzazione e correzione documenti}{fig:ApriDocumento}
 
 
-\subsubsection{Invio documenti}
+\subsubsubsection{Invio del documento}
 Quando si ritiene che il documento sia pronto per essere inviato (con una confidenza adeguata), l'utente può procedere con la creazione di un messaggio ed infine l'invio del documento al destinatario.
 È possibile inviare il documento solo se è stato associato un destinatario, altrimenti il pulsante di invio risulterà disabilitato.\\
-\immagine[0.8\textwidth]{immagini/2_invio.png}{Invio immediato documento}{fig:InvioDocumento}
+\immagine[0.8\textwidth]{immagini/2_invio.png}{Invio immediato di un documento}{fig:InvioDocumento}
 
-\subsubsubsection{Scrittura messaggio}
-Questa funzionalità\G{} mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata al destinatario.
+\textbf{Scrittura del messaggio:} \
+Questa funzionalità\G{} mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata al destinatario.\\\\
+\textbf{Selezione, creazione o eliminazione di un template\G{}:} \
+Per agevolare la stesura dei messaggi, l'utente ha la possibilità di creare dei messaggi preipostati (template\G{}) personalizzati, che potranno essere riutilizzati in futuro per velocizzare la preparazione dei messaggi, garantendo coerenza e standardizzazione nelle comunicazioni inviate ai destinatari.\\\\
+Per creare un nuovo template\G{} l'utente deve cliccare sul pulsante \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo template}} che aprirà un'interfaccia di dialogo (vedi \hyperref[fig:SceltaTemplate]{Figura 40} e \hyperref[fig:AggiuntaTemplate]{Figura 41}).\\\immagine[0.8\textwidth]{immagini/2_EliminazioneTemplate.png}{Selettore di template}{fig:SceltaTemplate}.
+\immagine[0.8\textwidth]{immagini/2_AggiuntaTemplate.png}{Finestra di dialogo per creare un nuovo template}{fig:AggiuntaTemplate}
+Cliccando su \textbf{Salva template} confermerà la creazione del template\G{}, rendendolo subito disponibile per il messaggio in composizione.\\
 
-\subsubsubsection{Creazione template\G{}}
-Per agevolare la stesura del messaggio, l'utente ha la possibilità di creare dei messaggi preipostati (template\G{}) personalizzati, che potranno essere riutilizzati in futuro per velocizzare la preparazione dei messaggi, garantendo coerenza e standardizzazione nelle comunicazioni inviate ai destinatari.
-\immagine[0.8\textwidth]{immagini/2_AggiuntaTemplate.png}{Aggiunta Template}{fig:AggiuntaTemplate}
+Non è richiesta l'applicazione di un template\G{} per inviare un documento, in quanto l'editor di testo è sempre disponibile per la composizione del messaggio, ma è fortemente consigliato per velocizzare la preparazione dei messaggi e garantire coerenza e standardizzazione nelle comunicazioni inviate ai destinatari.\\
 
-\subsubsubsection{Applicazione template\G{}}
-Per ottimizzare i tempi, l'utente può decidere di non scrivere il messaggio da zero, bensì caricare un modello 
-(template\G{}) precostituito (o crearne uno nuovo). Questo andrà a sovrascrivere o precompilare i campi dell'oggetto e del corpo del messaggio con 
-formule testuali standard.
-\immagine[0.8\textwidth]{immagini/2_ApplicazioneTemplate.png}{Applicazione Template}{fig:ApplicazioneTemplate}
-\subsubsubsection{Eliminazione template\G{} esistenti}
-L'utente ha la possibilità di eliminare i template\G{} esistenti, qualora non più necessari o obsoleti, per mantenere un archivio di modelli sempre aggiornato e rilevante per le esigenze comunicative attuali.
-\immagine[0.8\textwidth]{immagini/2_EliminazioneTemplate.png}{Eliminazione Template}{fig:EliminazioneTemplate}
-
-\subsubsubsection{Programmazione invio documento}
+\textbf{Programmazione invio documento:} \
 Se non vi è urgenza o si desidera sincronizzare l'inoltro dei documenti con specifiche scadenze aziendali, 
 il sistema permette di pianificare l'operazione. 
 Tramite un apposito selettore, l'utente può selezionare l'ora di invio del documento, 
-e lo stato globale del documento passerà a "Pianificato".
+e lo stato del documento passerà a \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusprogrammato,
+            colframe=statusprogrammato
+        ]{\footnotesize\textcolor{white}{\textbf{Programmato}}}.
 \immagine[0.8\textwidth]{immagini/2_TimePicker.png}{Programmazione invio documento}{fig:TimePicker}
-
-\subsubsubsection{Invio immediato documento}
-Terminata la verifica\G{} e la preparazione della comunicazione, questa funzionalità\G{} fa partire istantaneamente il processo di 
-spedizione verso il destinatario associato al documento, fornendo all'utente un feedback visivo a conferma del successo 
-dell'operazione.
-
 
 
 
@@ -819,31 +833,10 @@ le informazioni estratte e lo stato dell'invio.
 
 \immagine[1\textwidth]{immagini/2_Storico.png}{Storico documenti}{fig:StoricoDocumenti}
 
-\subsubsubsection{Applicazione filtro di ricerca su destinatari}
-Per rintracciare rapidamente i destinatari ed informazioni all'interno di invii massivi, l'utente può utilizzare barre di ricerca e filtri mirati. 
+\subsubsubsection{Filtro di ricerca nello storico documenti}
+Per rintracciare rapidamente i documenti analizzati, l'utente può utilizzare barre di ricerca e filtri mirati. 
 
 \immagine[1\textwidth]{immagini/2_Filtro.png}{Filtro Storico}{fig:FiltroStorico}
-
-\subsubsubsection{Visualizzazione stato analisi documenti}
-Questa funzionalità\G{} permette all'utente di monitorare l'avanzamento e la fase del ciclo di vita in cui si trova il documento. 
-Attraverso etichette testuali o indicatori visivi è possibile comprendere immediatamente se il documento necessita di intervento umano, 
-se l'elaborazione è andata a buon fine, se è stato inviato o se è pianificato per un invio futuro, 
-facilitando così la gestione e il controllo dei documenti all'interno del flusso di lavoro aziendale.
-
-\immagine[0.2\textwidth]{immagini/2_Stato.png}{Stato analisi documenti}{fig:StatoDocumenti}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -853,7 +846,7 @@ L'utente ha a disposizione una sezione dedicata all'analytics e al monitoraggio 
 \subsubsection{Analytics e monitoraggio trasversale per l'AI-Assistant\G{} Generativo}
 L'utente ha la possibilità di accedere a una sezione dedicata all'AI-Assistant\G{} Generativo, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni dell'assistente AI\G{}, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
 Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G{} e garantire un'esperienza utente sempre più soddisfacente.
-\immagine[0.2\textwidth]{immagini/3_VistaAiAssistantGenerativo.png}{Analytics Ai Assistant Generativo}{fig:VistaAiAssistantGenerativo}
+\immagine[1\textwidth]{immagini/3_VistaAiAssistantGenerativo.png}{Analytics Ai Assistant Generativo}{fig:VistaAiAssistantGenerativo}
 \subsubsubsection{Numero di generazioni effettuate}
 Questa metrica permette all'utente di visualizzare il volume totale di richieste, o prompt\G{}, inviate all'AI\G{} nel periodo temporale selezionato. Il sistema interroga il database storico e conteggia il numero totale di interazioni avviate, mostrando il dato numerico all'interno della dashboard\G{}.
 
@@ -915,7 +908,7 @@ L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative
 \subsubsection{Analytics e monitoraggio trasversale per l'AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}}
 L'utente ha la possibilità di accedere a una sezione dedicata all'AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni del Co-Pilot, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
 Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G{} e garantire un'esperienza utente sempre più soddisfacente.
-\immagine[0.2\textwidth]{immagini/3_VistaAiCoPilot.png}{Analytics Ai Co-Pilot}{fig:VistaAiCoPilot}
+\immagine[1\textwidth]{immagini/3_VistaAiCoPilot.png}{Analytics Ai Co-Pilot}{fig:VistaAiCoPilot}
 \subsubsubsection{Percentuale confidenza media}
 Questa metrica mostra il punteggio medio di affidabilità\G{} (confidence score\G{}) che l'AI\G{} ha attribuito alle proprie estrazioni di dati nel periodo selezionato. Il sistema calcola la media (pesata o aritmetica) dei punteggi associati a tutti i documenti elaborati, indicando inoltre se tale valore è in linea, superiore o inferiore rispetto ai trend storici.
 
