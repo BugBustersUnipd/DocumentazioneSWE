@@ -644,6 +644,71 @@ dove:
     \item \textbf{Numero}: è un numero progressivo che identifica in modo univoco il requisito\G all'interno della sua tipologia.
 \end{itemize}
 Ad ogni requisito\G viene poi associata una descrizione dettagliata, la fonte del requisito\G (interna, di capitolato\G, da colloquio con la proponente\G, o da Use Case\G), e la priorità\G (Obbligatorio\G, Desiderabile\G, Opzionale\G).
+
+
+
+\subsubsection{Progettazione}
+\subsubsubsection{Descrizione e scopo}
+La fase di progettazione rappresenta un passaggio fondamentale nello sviluppo software, in quanto consente di trasformare i 
+requisiti emersi durante l’analisi in una soluzione strutturata e ben definita dal punto di vista architetturale. \\
+In questa fase vengono stabilite le caratteristiche principali del sistema e i vincoli da rispettare, facilitando così 
+l’organizzazione del lavoro e la successiva implementazione del codice.\\
+Prima di procedere con la progettazione dettagliata, viene generalmente svolta un’attività preliminare basata sulla realizzazione 
+di un prototipo iniziale, spesso sotto forma di Proof of Concept. Questo artefatto, pensato per essere temporaneo, ha lo scopo di 
+verificare la fattibilità tecnica delle soluzioni ipotizzate e di ridurre eventuali incertezze legate alle tecnologie da utilizzare.\\
+Attraverso questa sperimentazione iniziale è possibile individuare gli strumenti più adatti e, in collaborazione con la proponente, 
+delineare le funzionalità essenziali che costituiranno la prima versione del prodotto, ovvero il Minimum Viable Product.
+
+
+\subsubsubsection{Qualità dell'architettura}
+Per una buona architettura software si richiedono le seguenti qualità:
+\begin{itemize}
+    \item \textbf{Sufficienza}: L’architettura assicura la piena soddisfazione dei requisiti funzionali e non funzionali stabiliti per il sistema.
+    \item \textbf{Comprensibilità}: La struttura architetturale è chiara e facilmente interpretabile da tutti gli stakeholder, agevolando manutenzione ed evoluzione.
+    \item \textbf{Modularità}: Il sistema è suddiviso in moduli autonomi e ben definiti, ciascuno sviluppabile, testabile e aggiornabile indipendentemente.
+    \item \textbf{Robustezza}: L’architettura gestisce correttamente input imprevisti e condizioni di errore, mantenendo comportamenti coerenti.
+    \item \textbf{Flessibilità}: La progettazione consente adattamenti a nuovi requisiti o tecnologie senza interventi strutturali estesi.
+    \item \textbf{Riusabilità}: Componenti e moduli sono riutilizzabili in contesti differenti, riducendo duplicazioni e aumentando l’efficienza.
+    \item \textbf{Efficienza}: L’architettura ottimizza l’uso delle risorse per garantire prestazioni elevate con consumo contenuto.
+    \item \textbf{Affidabilità}: Il software opera in modo coerente e prevedibile nel tempo, rispettando le funzionalità attese.
+    \item \textbf{Disponibilità}: Il sistema è progettato per essere operativo e accessibile quando richiesto, minimizzando i periodi di inattività.
+    \item \textbf{Sicurezza rispetto a malfunzionamenti}: L’architettura contiene meccanismi che permettono al sistema di continuare a funzionare anche in caso di guasti.
+    \item \textbf{Sicurezza rispetto a intrusioni}: Sono previste protezioni contro accessi non autorizzati, garantendo riservatezza e integrità dei dati.
+    \item \textbf{Semplicità}: La soluzione è mantenuta il più semplice possibile, riducendo complessità e facilitando comprensione e manutenzione.
+    \item \textbf{Incapsulazione}: I dettagli implementativi sono nascosti dietro interfacce ben definite, esponendo solo ciò che è necessario.
+    \item \textbf{Coesione}: Ogni modulo presenta componenti che collaborano per uno scopo comune, evitando responsabilità frammentate.
+    \item \textbf{Basso accoppiamento}: Le dipendenze tra moduli sono minimizzate per migliorare manutenibilità e capacità di evolvere il sistema.
+\end{itemize}
+
+
+\subsubsubsection{UML Classi}
+I diagrammi delle classi UML vengono utilizzati per rappresentare la struttura statica del sistema, descrivendo le entità 
+principali, i loro attributi e le relazioni che intercorrono tra di esse. Questa rappresentazione consente di avere una visione 
+chiara dell’organizzazione interna del software e facilita la comprensione delle responsabilità assegnate a ciascuna classe. \\
+Inoltre, i diagrammi supportano la fase di sviluppo, fungendo da riferimento per l’implementazione e la manutenzione del codice.\\
+Verrà adottato lo standard UML 2.
+\subsubsubsection{C4}
+Il modello C4 viene adottato per descrivere l’architettura del sistema a diversi livelli di dettaglio, offrendo una visione 
+progressiva che parte dal contesto generale fino ad arrivare ai componenti interni. Questo approccio permette di comunicare in
+modo efficace la struttura del sistema sia a stakeholder tecnici che non tecnici. In particolare, vengono utilizzati diagrammi di 
+contesto, contenitori e componenti per evidenziare le interazioni tra le varie parti del sistema e le tecnologie coinvolte.
+
+\subsubsubsection{Design Pattern}
+Durante la progettazione vengono impiegati opportuni design pattern al fine di adottare soluzioni consolidate a problemi ricorrenti. 
+L’utilizzo di questi schemi progettuali contribuisce a migliorare la qualità del codice, rendendolo più modulare, riutilizzabile e 
+facilmente estendibile. La scelta dei pattern avviene in base alle esigenze specifiche del progetto, con l’obiettivo di garantire 
+una struttura solida e manutenibile nel tempo. \\
+Si pone una particolare attenzione ad usare design pattern ove ci siano problemi e siano effettivamente utili, evitando di 
+introdurre complessità non necessaria. Inoltre si cerca di adottare pattern che non siano nocivi per le tecnologie utilizzate, 
+e che siano ben supportati dagli strumenti di sviluppo scelti.\\
+Viste le scelte architetturali adottate, ci sono molte scelte vincolate (opinionated), e quindi non è possibile adottare pattern che non siano 
+compatibili con tali scelte.
+
+\subsubsection{Codifica}
+
+
+
+
 \section{Processi di Supporto}
 L'obiettivo dei processi di supporto è fornire le risorse, gli strumenti e le metodologie necessarie per supportare efficacemente i processi primari di sviluppo e fornitura del software.
 I processi di supporto sono essenziali per garantire che il team segua pratiche di lavoro coerenti e sia sempre allineato agli obiettivi che si prefigge di raggiungere. Per esempio la documentazione svolge un ruolo cruciale nel mantenere la tracciabilità\G delle decisioni, eliminare qualsiasi ambiguità nella comprensione dei requisiti\G tra i membri del team, e assicurare che tutte le informazioni rilevanti siano facilmente accessibili e aggiornate.
