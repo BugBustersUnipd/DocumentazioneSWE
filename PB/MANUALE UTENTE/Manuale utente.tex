@@ -26,7 +26,17 @@
 \definecolor{secondaryblue}{RGB}{51,153,255}
 \definecolor{lightgray}{RGB}{245,245,245}
 \definecolor{darkgray}{RGB}{100,100,100}
-
+\definecolor{statusinelabbg}{HTML}{FEF3C7}
+\definecolor{statusinelabfg}{HTML}{92400E}
+\definecolor{statuscompletatobg}{HTML}{D1FAE5}
+\definecolor{statuscompletatofg}{HTML}{065F46}
+\definecolor{statusprontobg}{HTML}{009dff}
+\definecolor{statusprontofg}{HTML}{003366}
+\definecolor{statusincodabg}{HTML}{dbeafe}
+\definecolor{statusincodafg}{HTML}{1e3a8a}
+\definecolor{statusinelabsottodocbg}{HTML}{ff00a2}
+\definecolor{statusprogrammato}{HTML}{ff7700}
+\definecolor{statusinviatobg}{HTML}{00cc4b}
 \titleformat{\section}
  {\Large\bfseries\color{primaryblue}}
  {\thesection}{1em}{}
@@ -496,7 +506,7 @@ Il pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=
 Per attivare le funzionalità\G{} di modifica del post generato, è presente un tasto che consente all'utente di accedere alla modalità di modifica, dove potrà apportare le modifiche desiderate al titolo, al testo e all'immagine generati.
 
 \immagine[1\textwidth]{immagini/1_ModificaGenerazione.png}{Modalità di modifica abilitata}{fig:ModificaGenerazione}
-I pulsanti \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Salva Modifiche}}} e  \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{Annulla Modifiche}} consentono rispettivamente di salvare le modifiche apportate al post generato o di annullarle per tornare alla versione originale del contenuto generato.\\ \\
+I pulsanti \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Salva Modifiche}}} e  \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{Annulla Modifiche}} consentono rispettivamente di salvare le modifiche apportate al post generato o di annullarle per tornare alla versione precedente le modifiche.\\ \\
 \textbf{Sostituzione dell'immagine generata:}
 \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Modifica Immagine}}} permette all'utente di sostituire l'immagine generata con una propria tra quelle presenti nel proprio dispositivo.\\
 
@@ -571,32 +581,133 @@ Infine sono disponibili le operazioni di gestione del post (Riutilizza, Duplica 
 Il modulo AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{} è progettato per supportare i professionisti nella gestione, splitting e analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
 
 \subsubsection{Analisi documenti}
-Il modulo\G{} di analisi dei documenti consente ai CdL\G{} di caricare documenti in vari formati (PDF, CSV, jpg, png...) e di riconoscerne automaticamente la tipologia (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.).
-Per effettuare un'analisi è necessario inserire uno o più file che si ha intenzione di analizzare ed eventualmente dati conosciuti(categoria,azienda,reparto,mese/anno di competenza), facilitando così il processo di riconoscimento e estrazione delle informazioni rilevanti.
-Se il documento da processare è un PDF, il sistema controlla prima se è necessario suddividere tale documento in più sottodocumenti (è ad esempio il caso dei cedlini), e poi avvia l'analisi su ogni sottodocumento, altrimenti se il documento è di un altro formato, viene analizzato direttamente senza effettuare suddivisioni.
+Il modulo\G{} di analisi dei documenti consente ai CdL\G{} di \textbf{caricare documenti in vari formati (PDF, CSV, jpg, png...)} e di \textbf{riconoscerne automaticamente la tipologia} (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.), \textbf{il destinatario} e altre informazioni.\\
+Per effettuare un'analisi è necessario inserire uno o più file che si ha intenzione di analizzare ed eventualmente dati conosciuti (categoria, azienda, reparto, mese/anno di competenza), facilitando così il \textbf{processo di riconoscimento e estrazione delle informazioni} rilevanti.\\\\
+Se il documento da processare è un PDF, il sistema controlla prima se è necessario \textbf{suddividere tale documento in più sottodocumenti} (tipico dei sistemi dei CdL è generare più buste paga in un unico file), e poi avvia l'analisi su ogni sottodocumento; altrimenti se il documento è di un altro formato, viene analizzato direttamente senza effettuare suddivisioni.
 
 \immagine[1\textwidth]{immagini/2_Analisi.png}{Analisi documenti}{fig:AnalisiDocumenti}
 
-\subsubsubsection{Caricamento documento}
-Tramite questa funzione, l'utente può selezionare e caricare uno o più documenti all'interno del sistema. L'infrastruttura verifica\G{} l'integrità e la validità del formato del file per prepararlo all'analisi tramite intelligenza artificiale.
-
-\immagine[1\textwidth]{immagini/2_Caricamento.png}{Zona Caricamento}{fig:CaricamentoDocumenti}
-
 \subsubsubsection{Inserimento dati conosciuti}
-Per guidare il modello di AI\G{} e aumentare la precisione dell'estrazione (confidence), l'utente ha la facoltà di inserire manualmente alcuni metadati ancor prima di lanciare l'analisi. Tra questi figurano la selezione della categoria documentale, l'inserimento dell'azienda cliente, l'indicazione del mese/anno di competenza e lo specifico reparto aziendale.
+Per guidare il modello di AI\G{} e aumentare la precisione dell'estrazione (confidence), l'utente ha la facoltà di inserire manualmente alcuni metadati ancor prima di lanciare l'analisi; tuttavia non è obbligatorio inserire i dati conosciuti per avviare l'analisi, in quanto il sistema è progettato per essere in grado di riconoscere e estrarre le informazioni rilevanti anche senza input da parte dell'utente, ma è fortemente consigliato per migliorare la qualità\G{} dell'analisi.\\\\ 
+Tra questi figurano:
+\begin{enumerate}[leftmargin=1.2em,noitemsep,topsep=0pt]
+    \item l'inserimento della categoria documentale (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.)
+    \item la selezione dell'azienda cliente (vedi \hyperref[fig:SelettoreAzienda]{Figura 6})
+    \item l'indicazione del mese/anno di competenza del documento (ad esempio, per una busta paga, il mese e l'anno a cui si riferisce)
+    \item lo specifico reparto aziendale a cui il documento è associato (ad esempio, amministrazione, risorse umane, produzione, ecc.)
+\end{enumerate}
+\immagine[1\textwidth]{immagini/2_DatiConosciuti.png}{Inserimento dei dati conosciuti}{fig:DatiConosciuti}
+Il pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=1mm,bottom=1mm,on line]{\footnotesize\textcolor{white}{\textbf{Carica}}} si abilita solo dopo la selezione di almeno un documento (Vedi \hyperref[fig:CaricamentoDocumenti]{Figura 25}).\\\\
+Non vi è ordine tra l'inserimento dei dati conosciuti e la selezione dei documenti; l'utente potrà inserire i dati prima di caricare i documenti oppure dopo
+\subsubsubsection{Caricamento dei documenti}
+Tramite questa funzione, l'utente può selezionare e caricare uno o più documenti all'interno del sistema.\\
+\immagine[1\textwidth]{immagini/2_Caricamento.png}{Zona di selezione dei documenti}{fig:CaricamentoDocumenti}
+È possibile \textbf{caricare i documenti tramite il pulsante} \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=1mm,bottom=1mm,on line]{\footnotesize\textcolor{white}{\textbf{+ Choose}}} \textbf{oppure tramite} la funzionalità\G{} di \textbf{drag and drop}, che consente di trascinare i file direttamente nell'area designata per il caricamento.\\\\
+Per annullare il caricamento di tutti i documenti selezionati, è possibile utilizzare il pulsante \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{x Cancel}}, altrimenti è consentito rimuovere singoli documenti dalla lista cliccando sull'icona rossa \textcolor{red}{x} presente accanto a ciascun documento selezionato (Vedi \hyperref[fig:AnnullaCaricamento]{Figura 26}).\\\\
+Quando uno o più documenti vengono caricati, il pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=1mm,bottom=1mm,on line]{\footnotesize\textcolor{white}{\textbf{Carica}}} si abilita, permettendo all'utente di avviare il processo di caricamento e analisi dei documenti selezionati.\\\\
+L'infrastruttura verifica\G{} l'integrità e la validità del formato del file per prepararlo all'analisi.
 
-\immagine[1\textwidth]{immagini/2_DatiConosciuti.png}{Inserimento dati conosciuti}{fig:DatiConosciuti}
+\immagine[1\textwidth]{immagini/2_AnnullaCaricamento.png}{Esempio di caricamento con possibilità di annullamento}{fig:AnnullaCaricamento}
 
 
 \subsubsubsection{Visualizzazione tabella riepilogativa documenti analizzati}
-Il sistema presenta l'elenco dei documenti analizzati in formato tabellare. Per ogni elemento, vengono esposti i
- dati di sintesi estratti dall'AI\G{}, quali l'id assegnato, il nome, le pagine da cui è composto e lo stato in cui si trova. Inizialmente i documenti si trovano nello stato "In coda", non appena la fase di splitting termmina il documento passa alla fase di elaborazione
+Dopo il caricamento di uno o più file (vedi \hyperref[fig:CaricamentoDocumenti]{Figura 25}), il sistema presenta l'elenco dei documenti caricati in formato a lista.\\
+Per ogni elemento, vengono esposti i dati di sintesi estratti dall'AI\G{}, quali:
+\begin{itemize}[leftmargin=1.2em,noitemsep,topsep=0pt]
+    \item l'id assegnato;
+    \item il nome del documento;
+    \item il numero di pagine da cui è composto;
+    \item lo stato in cui si trova
+\end{itemize}
+\immagine[1\textwidth]{immagini/2_RiconoscimentDocumenti.png}{Lista riepilogativa dei documenti caricati che stanno venendo analizzati}{fig:RiconoscimentoDocumenti}
+Ogni riga della lista è espandibile per mostrare, in tempo reale, i documenti estratti e analizzati in formato tabellare (vedi \hyperref[fig:StatiSottodocumenti]{Figura 28})\\
+Qualora il documento estratto fosse solo uno (perchè il documento caricato non necessitava di suddivisione) apparirà la singola del documento nella tabella.
+\subsubsubsection{Stati dei documenti}
+\label{sec:StatiDocumenti}
+\begin{itemize}
+    \item \textbf{Stati dei file caricati:}
+    \begin{itemize}
+        \item Inizialmente i documenti caricati si trovano nello stato \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusincodabg,
+            colframe=statusincodabg
+        ]{\footnotesize\textcolor{statusincodafg}{\textbf{In coda}}}.
+        \item Non appena la fase di splitting termina il documento passa alla fase di elaborazione, visualizzato con la pillola di stato
+        \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusinelabbg,
+            colframe=statusinelabbg
+        ]{\footnotesize\textcolor{statusinelabfg}{\textbf{In elaborazione}}}.
+        \item Al termine dell'analisi il documento passa allo stato
+        \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statuscompletatobg,
+            colframe=statuscompletatobg
+        ]{\footnotesize\textcolor{statuscompletatofg}{\textbf{Completato}}}.
+    \end{itemize}
 
-\immagine[1\textwidth]{immagini/2_RiconoscimentDocumenti.png}{Tabella riepilogativa documenti analizzati}{fig:RiconoscimentoDocumenti}
+    \item \textbf{Stati dei sottodocumenti (risultanti dallo \textit{splitting}):}
+    \begin{itemize}
+        \item Un sottodocumento può essere in fase di elaborazione, visualizzato con la pillola di stato
+        \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusinelabsottodocbg,
+            colframe=statusinelabsottodocbg
+        ]{\footnotesize\textcolor{white}{\textbf{In elaborazione}}}
+        , oppure completato, visualizzato con la pillola di stato
+        \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusprontobg,
+            colframe=statusprontobg
+        ]{\footnotesize\textcolor{white}{\textbf{Pronto}}}.
+    \item \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusinviatobg,
+            colframe=statusinviatobg
+        ]{\footnotesize\textcolor{white}{\textbf{Inviato}}} indica che il documento è stato inviato al destinatario.
+    \item \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusprogrammato,
+            colframe=statusprogrammato
+        ]{\footnotesize\textcolor{white}{\textbf{Programmato}}} indica che il documento è stato programmato per essere inviato al destinatario in una data e ora specifica.
+    \end{itemize}
+\end{itemize}
 
-\subsubsection{Visualizzazione risultati analisi documenti}
-Cliccando su un documento specifico, è possibile accedere ad una visualizzazione dettagliata dei documenti suddivisi e analizzati a partire dal documento originale. 
-Per ogni sottodocumento, vengono mostrati alcuni campi analizzati dall'AI\G{}: l'id, la confidenza media dell'analisi, il destinatario rilevato, lo stato del documento, il reparto, l'azienda, la categoria e la data di analisi.
+\immagine[1\textwidth]{immagini/2_StatiSottodocumenti.png}{Due sottodocumenti in analisi: il primo pronto e il secondo in elaborazione}{fig:StatiSottodocumenti}
+\immagine[1\textwidth]{immagini/2_RiconoscimentoCompletato.png}{Analisi di quattro documenti completata}{fig:RiconoscimentoCompletato}
+\subsubsection{Elementi estratti dai documenti analizzati}
+Per ogni sottodocumento (o documento, qualora non sia stato suddiviso), vengono mostrati alcuni dei campi analizzati dall'AI\G{}:
+\begin{itemize}[leftmargin=1.2em,noitemsep,topsep=0pt]
+    \item l'\textbf{id del documento estratto};
+    \item la \textbf{confidenza media dell'analisi}, che indica l'affidabilità\G{} del processo di estrazione;
+    \item il \textbf{destinatario estratto dal documento}, che ci sia o meno un match con il database aziendale;
+    \item lo \textbf{stato del documento} (vedi sezione precedente, \hyperref[sec:StatiDocumenti]{Stati dei documenti});
+    \item il \textbf{reparto associato al documento} (ad esempio, amministrazione, risorse umane, produzione, ecc.): questa informazione corrisponde a quella inserita nei dati conosciuti o, in assenza di quest'ultima, a quella rilevata dall'AI\G{} durante l'analisi del documento;
+    \item l'\textbf{azienda associata al documento}: questa informazione corrisponde a quella inserita nei dati conosciuti o, in assenza di quest'ultima, a quella rilevata dall'AI\G{} durante l'analisi del documento;
+    \item la \textbf{categoria del documento}: questa informazione corrisponde a quella inserita nei dati conosciuti o, in assenza di quest'ultima, a quella rilevata dall'AI\G{} durante l'analisi del documento;
+    \item la \textbf{data di analisi del documento}, che indica quando è stata completata l'analisi del documento da parte del sistema.
+\end{itemize}
 
 \immagine[1\textwidth]{immagini/2_RisultatoAnalisi.png}{Visualizzazione risultati analisi documenti}{fig:RisultatoAnalisi}
 
