@@ -207,7 +207,7 @@ pdf da noi sviluppato.
 Il presente capitolo illustra lo stack tecnologico adottato per la progettazione e la realizzazione del prodotto\G{} software. Le scelte implementative sono state guidate dalla necessità di sviluppare un'architettura solida, garantendo al contempo elevati standard di scalabilità\G{}, manutenibilità\G{} e sicurezza\G{} del sistema. Nelle sottosezioni seguenti verranno passati in rassegna i linguaggi di programmazione, i framework, le librerie e gli strumenti di supporto operativi impiegati dal team, evidenziando il ruolo specifico di ciascun elemento all'interno del ciclo di vita del progetto\G{}.
 
 \subsection{Linguaggi}
-Questa sezione descrive i linguaggi di programmazione, di markup e di interrogazione fondamentali utilizzati per la stesura del codice sorgente. La selezione comprende sia gli standard consolidati per la strutturazione e stilizzazione dell'interfaccia\G{} utente (Frontend), sia i linguaggi orientati agli oggetti scelti per implementare la logica applicativa (Backend), fino ad arrivare agli strumenti dichiarativi per la gestione delle basi di dati. La Tabella \ref{tab:linguaggi} riassume i linguaggi adottati, specificandone la versione di riferimento e il relativo ambito di utilizzo.
+Questa sezione descrive i linguaggi di programmazione, di markup e di interrogazione fondamentali utilizzati per la stesura del codice sorgente. La selezione comprende sia gli standard consolidati per la strutturazione e stilizzazione dell'interfaccia\G{} utente (Frontend\G{}), sia i linguaggi orientati agli oggetti scelti per implementare la logica applicativa (Backend\G{}), fino ad arrivare agli strumenti dichiarativi per la gestione delle basi di dati. La Tabella \ref{tab:linguaggi} riassume i linguaggi adottati, specificandone la versione di riferimento e il relativo ambito di utilizzo.
 
 \begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
 \caption{Tabella dei Linguaggi}\label{tab:linguaggi}\\
@@ -311,11 +311,11 @@ puma & Server web concorrente, veloce e multi-thread per Ruby\G{}. & 5.0.0 \\
 \hline
 tzinfo-data & Dati sui fusi orari necessari per i sistemi Windows e JRuby. & 1.2026.1 \\
 \hline
-solid\_cache & Backend basato su database per Rails.cache. & 1.0.10 \\
+solid\_cache & Backend\G{} basato su database per Rails.cache. & 1.0.10 \\
 \hline
-solid\_queue & Backend basato su database per Active Job. & 1.4.0 \\
+solid\_queue & Backend\G{} basato su database per Active Job. & 1.4.0 \\
 \hline
-solid\_cable & Backend basato su database per Action Cable. & 3.0.12 \\
+solid\_cable & Backend\G{} basato su database per Action Cable. & 3.0.12 \\
 \hline
 bootsnap & Ottimizza e riduce i tempi di avvio dell'applicazione tramite caching. & 1.23.0 \\
 \hline
@@ -389,7 +389,7 @@ pgAdmin & Strumento grafico per amministrare e gestire database PostgreSQL\G{} &
 \end{longtable}
 
 \section{API}
-Il sistema espone un set di API\G{} RESTful che consentono l'interazione tra il frontend e il backend, 
+Il sistema espone un set di API\G{} RESTful che consentono l'interazione tra il frontend\G{} e il backend\G{}, 
 nonché l'integrazione con eventuali servizi esterni. Le API\G{} sono progettate per essere intuitive, sicure e 
 performanti, seguendo le best practice\G{} del settore per la progettazione di interfacce di programmazione. 
 Di seguito viene fornita una panoramica delle principali API\G{} esposte dal sistema, suddivise per funzionalità\G{} e endpoint.
@@ -695,12 +695,12 @@ il sistema si integra con l'ecosistema cloud di Amazon Web Services, delegando l
 
 \subsection{Architettura Applicativa (C4 Level 2 - Container)}
 Scendendo al livello applicativo, il sistema si divide nei suoi container logici principali.
-Il frontend è costituito da una Single Page Application (SPA) sviluppata in Angular\G{} 21. 
-Il backend è un'API\G{} sviluppata in Ruby on Rails\G{} 8, servita tramite Puma. 
+Il frontend\G{} è costituito da una Single Page Application (SPA) sviluppata in Angular\G{} 21. 
+Il backend\G{} è un'API\G{} sviluppata in Ruby on Rails\G{} 8, servita tramite Puma. 
 Per garantire fluidità all'utente, le operazioni pesanti (come l'OCR\G{} e l'invocazione degli LLM\G{}) sono gestite 
 in modo asincrono tramite Solid Queue Workers. 
 Il livello di persistenza è unificato su PostgreSQL\G{} 16 (Solid Stack), che funge non solo da database primario, ma anche da 
-gestore per le code, cache e backend per le connessioni WebSocket (ActionCable).
+gestore per le code, cache e backend\G{} per le connessioni WebSocket (ActionCable).
 
 \begin{figure}[H] \centering \includegraphics[width=0.8\textwidth]{ImmaginiSpecificaTecnica/C4/level2.png} \caption{Container Diagram} \end{figure}
 
@@ -713,10 +713,10 @@ naturale i vari livelli, senza andare a forzare l'introduzione di ulteriori astr
 L'architettura logica si divide in quattro livelli principali:
 
 \subsubsection{Livello di Presentazione (Presentation Layer)}
-Sviluppato in Angular\G{} (Single Page Application), è responsabile dell'interfaccia\G{} utente e dell'interazione con l'utente finale. Comunica con il backend tramite API\G{} RESTful.
+Sviluppato in Angular\G{} (Single Page Application), è responsabile dell'interfaccia\G{} utente e dell'interazione con l'utente finale. Comunica con il backend\G{} tramite API\G{} RESTful.
 \begin{itemize}
   \item Riceve gli input dell'utente (es. caricamento documenti, richieste di generazione testo)
-  \item Comunica con il backend per inviare richieste e ricevere risposte.
+  \item Comunica con il backend\G{} per inviare richieste e ricevere risposte.
   \item Gestisce il routing lato client e la renderizzazione reattiva dei dati.
 \end{itemize}
 
@@ -736,7 +736,7 @@ Costituito dal Database Relazionale (RDBMS) PostgreSQL\G{}. Ha la responsabilit�
 
 
 \subsection{Dettaglio dei Componenti (C4 Level 3)}
-I principi dell'architettura Layered appena descritti trovano applicazione pratica nell'organizzazione interna dei macro-moduli del backend Rails. Di seguito si illustra il dettaglio (Livello 3) dei tre domini principali del sistema:
+I principi dell'architettura Layered appena descritti trovano applicazione pratica nell'organizzazione interna dei macro-moduli del backend\G{} Rails. Di seguito si illustra il dettaglio (Livello 3) dei tre domini principali del sistema:
 
 \subsubsection{Modulo\G{} OCR\G{} ed Estrazione Dati:}
 Questo modulo\G{} gestisce il caricamento dei file, lo splitting asincrono dei PDF e l'orchestrazione con AWS\G{} Textract e Bedrock\G{}. Si nota la netta separazione tra il livello HTTP (Controllers), i Commands per l'accodamento dei job, gli Orchestratori e i Domain Services (Adapter per le API\G{} esterne e logica di validazione\G{}).
@@ -755,13 +755,13 @@ Questo componente si occupa dell'aggregazione dei dati per le dashboard\G{}. L'a
 
 
 \subsection{Architettura di Deployment (Monolite containerizzato)}
-Sebbene logicamente il sistema sia diviso in Frontend e Backend (decoupled), dal punto di vista del rilascio in produzione si è optato per un approccio monolitico basato su container.
+Sebbene logicamente il sistema sia diviso in Frontend\G{} e Backend\G{} (decoupled), dal punto di vista del rilascio in produzione si è optato per un approccio monolitico basato su container.
 Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come un'unica entità logica su un singolo nodo ospite (Server/Macchina Virtuale), garantendo un ambiente isolato, riproducibile e coerente dalla fase di sviluppo fino alla produzione. L'orchestrazione locale è affidata a Docker\G{} Compose.
 
 \begin{itemize}
   \item \textbf{Docker Host (Server Node)}: L'infrastruttura hardware o virtuale principale che ospita il motore Docker\G{}. Al suo interno risiede una Rete Virtuale Privata (Docker\G{} Network) che permette ai container di comunicare tra loro in totale sicurezza\G{}, senza esporre porte non necessarie all'esterno.
-  \item \textbf{Container Frontend (Web Server)}: Un container dedicato all'esecuzione dell'applicativo Angular\G{}. Nelle richieste esterne, questo nodo funge da punto di ingresso per gli utenti, servendo i file statici della Single Page Application.
-  \item \textbf{Container Backend (Application Server)}: Un container isolato basato su immagine Ruby\G{} che esegue il server web di Rails. È esposto internamente per ricevere le chiamate API\G{} dal frontend e processare la logica di business.
+  \item \textbf{Container Frontend\G{} (Web Server)}: Un container dedicato all'esecuzione dell'applicativo Angular\G{}. Nelle richieste esterne, questo nodo funge da punto di ingresso per gli utenti, servendo i file statici della Single Page Application.
+  \item \textbf{Container Backend\G{} (Application Server)}: Un container isolato basato su immagine Ruby\G{} che esegue il server web di Rails. È esposto internamente per ricevere le chiamate API\G{} dal frontend\G{} e processare la logica di business.
   \item \textbf{Container Database (Database Server)}: Un container basato sull'immagine ufficiale di PostgreSQL\G{}. Persiste i dati fisicamente scrivendoli su un Docker\G{} Volume esterno al container stesso, garantendo che i dati del sistema non vadano persi in caso di riavvio o aggiornamento del container.
 \end{itemize}
 
@@ -771,7 +771,7 @@ Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come u
 \caption{Architettura di Deployment}
 \end{figure}
 
-\section{Descrizione architettura (Backend)}
+\section{Descrizione architettura (Backend\G{})}
 
 \subsection{Modulo\G{} AI Assistant}
 Il modulo\G{} AI Assistant\G{} è la componente del sistema dedicata alla generazione di contenuti testuali e visivi tramite modelli di intelligenza artificiale.
@@ -889,7 +889,7 @@ Si occupa di coordinare le chiamate ai servizi di generazione testuale e visiva,
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/ActionCable.jpg}
 \end{figure}
 Classe nativa di rails per la gestione delle connessioni WebSocket. 
-Nel contesto del modulo\G{} AI Assistant\G{}, viene utilizzata per inviare aggiornamenti in tempo reale al frontend riguardo lo stato delle generazioni in corso, permettendo un'esperienza utente più fluida e interattiva.
+Nel contesto del modulo\G{} AI Assistant\G{}, viene utilizzata per inviare aggiornamenti in tempo reale al frontend\G{} riguardo lo stato delle generazioni in corso, permettendo un'esperienza utente più fluida e interattiva.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -1154,7 +1154,7 @@ restituendo eventuali errori riscontrati durante la validazione\G{}.
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/GeneratedDatumSerializer.jpg}
 \end{figure}
 Classe serializer che si occupa di serializzare i dati delle generazioni dei contenuti.
-Viene utilizzata per serializzare i dati delle generazioni in un formato adatto per essere inviato al frontend, 
+Viene utilizzata per serializzare i dati delle generazioni in un formato adatto per essere inviato al frontend\G{}, 
 gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
 
 \textbf{Attributi} 
@@ -1197,7 +1197,7 @@ Espone endpoint per la creazione, eliminazione e recupero degli stili disponibil
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/StyleSerializer.jpg}
 \end{figure}
 Classe serializer che si occupa di serializzare i dati degli stili di generazione dei contenuti.
-Viene utilizzata per serializzare i dati degli stili in un formato adatto per essere inviato al frontend, 
+Viene utilizzata per serializzare i dati degli stili in un formato adatto per essere inviato al frontend\G{}, 
 gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
 
 \textbf{Attributi} 
@@ -1238,7 +1238,7 @@ Espone endpoint per la creazione, eliminazione e recupero dei toni disponibili.
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/ToneSerializer.jpg}
 \end{figure}
 Classe serializer che si occupa di serializzare i dati dei toni di generazione dei contenuti.
-Viene utilizzata per serializzare i dati dei toni in un formato adatto per essere inviato al frontend, 
+Viene utilizzata per serializzare i dati dei toni in un formato adatto per essere inviato al frontend\G{}, 
 gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
 
 \textbf{Attributi} 
@@ -1280,7 +1280,7 @@ delegando la logica di business alla combinazione di \textit{PostsSerializer} pe
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/PostSerializer.jpg}
 \end{figure}
 Classe serializer che si occupa di serializzare i dati dei post generati.
-Viene utilizzata per serializzare i dati dei post in un formato adatto per essere inviato al frontend, 
+Viene utilizzata per serializzare i dati dei post in un formato adatto per essere inviato al frontend\G{}, 
 gestendo eventuali trasformazioni necessarie per la corretta rappresentazione dei dati.
 
 \textbf{Attributi} 
@@ -1444,7 +1444,7 @@ la validazione\G{} dei dati estratti e la riassegnazione manuale dei range di pa
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ExtractedDocumentPresenter .jpg}
 \end{figure}
-Classe di tipo Presenter (Serializer) responsabile della trasformazione dei dati di un documento estratto in una struttura JSON ottimizzata per la presentazione lato frontend. Incapsula la logica di formattazione dei metadati, includendo la normalizzazione dei dati anagrafici del dipendente associato e la generazione di URL per il download del PDF estratto.
+Classe di tipo Presenter (Serializer) responsabile della trasformazione dei dati di un documento estratto in una struttura JSON ottimizzata per la presentazione lato frontend\G{}. Incapsula la logica di formattazione dei metadati, includendo la normalizzazione dei dati anagrafici del dipendente associato e la generazione di URL per il download del PDF estratto.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -1631,7 +1631,7 @@ Servizio centralizzato per la validazione\G{} e la persistenza dei file in ingre
 \end{figure}
 Classe di presentazione (Serializer) responsabile della formattazione dei dati estratti. 
 Trasforma le entità complesse, inclusi i dati anagrafici dei dipendenti associati, 
-in una struttura JSON ottimizzata per la renderizzazione lato frontend.
+in una struttura JSON ottimizzata per la renderizzazione lato frontend\G{}.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -2026,7 +2026,7 @@ segnandone successi, artefatti creati o eventuali fallimenti.
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ActionCableNotifier.jpg}
 \end{figure}
 Servizio wrapper per la gestione delle notifiche in tempo reale. 
-Permette al backend di comunicare al frontend via WebSockets lo stato di 
+Permette al backend\G{} di comunicare al frontend\G{} via WebSockets lo stato di 
 avanzamento dei processi asincroni (job) per un aggiornamento fluido della UI.
 
 \textbf{Attributi} 
@@ -2537,8 +2537,8 @@ Fornisce un'interfaccia\G{} semplice per ottenere l'elenco delle aziende da un d
 \end{itemize}
 
 
-\section{Descrizione architettura (Frontend)}
-L'architettura frontend è organizzata in modo modulare, separando i componenti UI dai servizi di comunicazione con il backend e dagli altri servizi di utilità. \\\\
+\section{Descrizione architettura (Frontend\G{})}
+L'architettura frontend\G{} è organizzata in modo modulare, separando i componenti UI dai servizi di comunicazione con il backend\G{} e dagli altri servizi di utilità. \\\\
 Per semplicità e manutenibilità\G{} i dati principali (risultati di generazione, risultati di estrazione e riconoscimento) sono modellati tramite \textit{interface}. Un chiaro vantaggio di raccogliere i dati in queste strutture è il passaggio di oggetti semplici e leggeri tra i componenti e la manutenibilità\G{} del codice: se in futuro si volessero aggiungere campi o modificare la struttura dei dati, basterebbe aggiornare l'interfaccia\G{} senza dover modificare il passaggio dei dati tra i componenti.
 L'uso di interface invece di classi è una scelta consapevole. Innanzitutto, le interface scompaiono completamente durante la compilazione a JavaScript, risparmiando spazio e accelerando il download e il parsing iniziale. \\
 In secondo luogo, i modelli del progetto\G{} contengono esclusivamente dati puri senza alcuna logica di business, validazione\G{} o comportamento: una classe aggiungerebbe solo complessità inutile e overhead di istanziazione. Questa scelta riflette una chiara separazione delle responsabilità: i modelli rimangono semplici contenitori di dati, mentre la validazione\G{} e la trasformazione rimangono delegate ai servizi e serializer appropriati.
@@ -2675,11 +2675,11 @@ AddDialogSaveData\subsubsection{ e  AddDialogType}
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/interface-enum-dialog.drawio.png}
 \end{figure}
 
-\subsection{Servizi di comunicazione con il backend}
+\subsection{Servizi di comunicazione con il backend\G{}}
 
 Costanti di configurazione usate nei servizi:
 \begin{itemize}
-\item API_BASE: string (costante modulo\G{}, proprietà interna). URL base delle API\G{} HTTP backend.
+\item API_BASE: string (costante modulo\G{}, proprietà interna). URL base delle API\G{} HTTP backend\G{}.
 \item WS_URL: string (costante modulo\G{}, proprietà interna). URL del canale WebSocket ActionCable.
 \end{itemize}
 \subsubsection{AiAssistantService}
@@ -2687,15 +2687,15 @@ Costanti di configurazione usate nei servizi:
 \centering
 \includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/AiAssistantService.drawio.png}
 \end{figure}
-È il servizio frontend che centralizza l'integrazione con l'assistente AI\G{}: gestisce invio di richieste al backend e ricezione delle risposte (incluse eventuali informazioni di stato/errore). Utilizza il wrapper HttpClient di Angular\G{} per la comunicazione HTTP mentre usa le API\G{} native dei browser per la comunicazione websocket.\\\\
+È il servizio frontend\G{} che centralizza l'integrazione con l'assistente AI\G{}: gestisce invio di richieste al backend\G{} e ricezione delle risposte (incluse eventuali informazioni di stato/errore). Utilizza il wrapper HttpClient di Angular\G{} per la comunicazione HTTP mentre usa le API\G{} native dei browser per la comunicazione websocket.\\\\
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Comunicazione con backend: gestisce la serializzazione dei dati e l'invio delle richieste HTTP verso il backend.
+  \item Comunicazione con backend\G{}: gestisce la serializzazione dei dati e l'invio delle richieste HTTP verso il backend\G{}.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item serializer: AiAssistantSerializer
     \item http: HttpClient
   \end{itemize}
-  \item Observable delle opzioni readonly: espongono al frontend gli aggiornamenti delle opzioni selezionabili, raggruppando tutte le varianti di tono, stile e azienda.
+  \item Observable delle opzioni readonly: espongono al frontend\G{} gli aggiornamenti delle opzioni selezionabili, raggruppando tutte le varianti di tono, stile e azienda.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item tones\$: Observable<Tone[]>
     \item allTones\$: Observable<Tone[]>
@@ -2743,7 +2743,7 @@ Costanti di configurazione usate nei servizi:
     \item buildPendingResult(prompt: string, tone: Tone, style: Style, company: Company): ResultAiAssistant
   \end{itemize}
 
-  \item Recupero delle opzioni: carica da backend toni, stili e aziende disponibili.
+  \item Recupero delle opzioni: carica da backend\G{} toni, stili e aziende disponibili.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item fetchAllTones(): void
     \item fetchAllStyles(): void
@@ -2775,7 +2775,7 @@ Costanti di configurazione usate nei servizi:
     \item fetchResultsHistory(): void
   \end{itemize}
 
-  \item Valutazione del risultato: invia la valutazione del contenuto generato al backend.
+  \item Valutazione del risultato: invia la valutazione del contenuto generato al backend\G{}.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item setEvaluation(id: number | null, evaluation: number): void
   \end{itemize}
@@ -2787,10 +2787,10 @@ Costanti di configurazione usate nei servizi:
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item Comunicazione con backend: gestisce la serializzazione dei dati e l'invio delle richieste HTTP verso il backend.
+\item Comunicazione con backend\G{}: gestisce la serializzazione dei dati e l'invio delle richieste HTTP verso il backend\G{}.
 \begin{itemize}[noitemsep, topsep=0pt]
 \item http: HttpClient . Client HTTP Angular\G{} per chiamate REST.
-\item serializer: ResultAiCopilotSerializer . Conversione payload backend 
+\item serializer: ResultAiCopilotSerializer . Conversione payload backend\G{} 
 \end{itemize}
 \item \textbf{Attributi di stato upload/sessione}
 \begin{itemize}[noitemsep, topsep=0pt]
@@ -2810,7 +2810,7 @@ Costanti di configurazione usate nei servizi:
 \begin{itemize}[noitemsep, topsep=0pt]
 \item resultSubject: BehaviorSubject<ResultSplit | null> \ Stato del documento estratto corrente.
 \item currentResult\$: Observable<ResultSplit | null>\ Observable readonly del risultato corrente.
-\item resultsHistorySubject: BehaviorSubject<ResultSplit[] | null>\ Storico risultati estratti in memoria frontend.
+\item resultsHistorySubject: BehaviorSubject<ResultSplit[] | null>\ Storico risultati estratti in memoria frontend\G{}.
 \item currentResultsHistory\$: Observable<ResultSplit[] | null> \ Observable readonly della history risultati.
 \item otherExtractedDocumentsSubject: BehaviorSubject<ResultSplit[]> \ Stato interno documenti fratelli del parent corrente.
 \item otherExtractedDocuments\$: Observable<ResultSplit[]> \ Observable readonly dei documenti fratelli.
@@ -2857,7 +2857,7 @@ Centralizza la sottoscrizione ActionCable per ricevere aggiornamenti del job.
 \item addPendingParent(file: File): number \
 Crea un parent temporaneo con stato In Coda e lo aggiunge alla sessione.
 \item replacePendingParentId(temporaryParentId: number, realParentId: number, state: DocumentState): void \
-Sostituisce ID temporaneo con ID reale backend e aggiorna mappe correlate.
+Sostituisce ID temporaneo con ID reale backend\G{} e aggiorna mappe correlate.
 \item updateSessionParentState(parentId: number, state: DocumentState): void \
 Aggiorna lo stato del parent nella lista sessione.
 \item removeSessionParent(parentId: number): void \
@@ -2879,7 +2879,7 @@ Inserisce o aggiorna un risultato nella history mantenendo coerenza di stato.
 \item refreshDynamicFilterOptions(): void \
 Rigenera opzioni dinamiche di filtro (categorie e reparti).
 \item fetchExtractedDocumentAndUpsert(extractedDocumentId: number): void \
-Recupera un estratto dal backend e lo sincronizza in history.
+Recupera un estratto dal backend\G{} e lo sincronizza in history.
 \item refreshExtractedDocumentsForUpload(uploadedDocumentId: number): void \
 Ricarica tutti gli estratti di un parent e aggiorna metadati parent.
 \item fetchExtractedDocument(id: number): void \
@@ -2901,7 +2901,7 @@ Riavvia il processamento di un documento parent già caricato.
 \item retryExtractedDocumentProcessing(extractedDocumentId: number): void \
 Riavvia la rianalisi di un singolo documento estratto.
 \item deleteUploadedDocument(uploadedDocumentId: number): void \
-Elimina un parent e i suoi figli dal backend e dallo stato locale.
+Elimina un parent e i suoi figli dal backend\G{} e dallo stato locale.
 \item modifyDocumentRange\$(id: number, page_start: number, page_end: number): Observable<ResultSplit> \
 Richiede riassegnazione intervallo pagine, segue eventi async e restituisce il risultato aggiornato.
 \item updateDocumentMetadata\$(id: number, metadataUpdates: Record<string, unknown>): Observable<ResultSplit> \
@@ -2925,7 +2925,7 @@ Popola i valori di filtro stato a partire dall'enum State.
 \item fetchConfidence(): void \
 Popola gli intervalli di confidenza\G{} predefiniti.
 \item fetchCompanies(): void \
-Recupera le aziende disponibili dal backend.
+Recupera le aziende disponibili dal backend\G{}.
 \item fetchEmployeesByCompany(company: string): void \
 Recupera utenti/destinatari filtrati per azienda.
 \end{itemize}
@@ -2946,7 +2946,7 @@ Apre il PDF dell'estratto con cache-buster temporale per evitare versioni non ag
 \subsubsubsection{AiAssistantAnalyticsService}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item Configurazione endpoint backend: definisce l'URL per recuperare le metriche dell'assistente.
+\item Configurazione endpoint backend\G{}: definisce l'URL per recuperare le metriche dell'assistente.
 \begin{itemize}[noitemsep, topsep=0pt]
 \item apiUrl: string
 \end{itemize}
@@ -2981,7 +2981,7 @@ Apre il PDF dell'estratto con cache-buster temporale per evitare versioni non ag
 \item getStyleUsageChart(): Observable<AnalyticsChartData>
 \end{itemize}
 
-\item Mapping risposta backend: converte i KPI principali in metriche frontend.
+\item Mapping risposta backend\G{}: converte i KPI principali in metriche frontend\G{}.
 \begin{itemize}[noitemsep, topsep=0pt]
 \item transformToMetrics(response: AiAssistantAnalyticsResponse): AnalyticsMetric[]
 \end{itemize}
@@ -3000,7 +3000,7 @@ Apre il PDF dell'estratto con cache-buster temporale per evitare versioni non ag
 \subsubsubsection{AiCoPilotAnalyticsService}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item Configurazione endpoint backend: definisce l'URL per recuperare le metriche analytics del co-pilot.
+\item Configurazione endpoint backend\G{}: definisce l'URL per recuperare le metriche analytics del co-pilot.
 \begin{itemize}[noitemsep, topsep=0pt]
 \item apiUrl: string
 \end{itemize}
@@ -3021,7 +3021,7 @@ Apre il PDF dell'estratto con cache-buster temporale per evitare versioni non ag
 \item getAnalysis(periodo: AnalyticsPeriod): Observable<AnalyticsMetric[]>
 \end{itemize}
 
-\item Mapping risposta backend: converte il payload API in metriche leggibili dal frontend.
+\item Mapping risposta backend\G{}: converte il payload API in metriche leggibili dal frontend\G{}.
 \begin{itemize}[noitemsep, topsep=0pt]
 \item transformToMetrics(response: AiCoPilotAnalyticsResponse): AnalyticsMetric[]
 \end{itemize}
@@ -3033,7 +3033,7 @@ Apre il PDF dell'estratto con cache-buster temporale per evitare versioni non ag
 \end{itemize}
 \end{itemize}
 \subsection{Adapter: Serializzazione/deserializzazione dei dati}
-Benchè in Typescript\G{} è semplice convertire dati strutturati json in interfacce, le classi sono state utilizzate per non dipendere dalla struttura esatta dei dati restituiti dal backend e conformali alle esigenze del frontend. \\
+Benchè in Typescript\G{} è semplice convertire dati strutturati json in interfacce, le classi sono state utilizzate per non dipendere dalla struttura esatta dei dati restituiti dal backend\G{} e conformali alle esigenze del frontend\G{}. \\
 Inoltre questi serializer fungono da punto centrale per la gestione di eventuali trasformazioni, normalizzazioni o arricchimenti dei dati, rispettando il principio di single responsibility e mantenendo il codice dei servizi di comunicazione più pulito e focalizzato sulla logica di comunicazione piuttosto che sulla manipolazione dei dati.
 \subsubsection{ResultAiAssistantSerializer}
 \begin{figure}[H]
@@ -3041,10 +3041,10 @@ Inoltre questi serializer fungono da punto centrale per la gestione di eventuali
 \includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/serializer-aiAssistant.png}
 \end{figure}
 Questa classe funge da adapter per la serializzazione e deserializzazione dei dati relativi al modulo\G{} dell'Ai Assistant Generativo.
-È responsabile di convertire i dati ricevuti dal backend (in formato JSON) in valori di tipo ResultAiAssistant, Tone, Style o Company.\\
+È responsabile di convertire i dati ricevuti dal backend\G{} (in formato JSON) in valori di tipo ResultAiAssistant, Tone, Style o Company.\\
 \textbf{Metodi}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item Serializzazione richieste verso backend.
+\item Serializzazione richieste verso backend\G{}.
 \begin{itemize}[noitemsep, topsep=0pt]
 \item serializeCreatePostRequest(result: ResultAiAssistant): \{ generated_datum_id: number | null; title: string; body_text: string; img_path: string | null; date_time: Date; \}
 \item serializeRequireGenerationRequest(prompt: string, tone: Tone, style: Style, company: Company): \{ generation_datum: \{ prompt: string; company_id: number; style_id: number; tone_id: number \} \}
@@ -3052,7 +3052,7 @@ Questa classe funge da adapter per la serializzazione e deserializzazione dei da
 \item serializeNewStyleRequest(name: string, code: string, companyId: number): \{ style: \{ name: string; description: string; company_id: number \} \}
 \end{itemize}
 
-\item Deserializzazione risposte backend.
+\item Deserializzazione risposte backend\G{}.
 \begin{itemize}[noitemsep, topsep=0pt]
 \item deserializeCreatePostResponseId(payload: any): number
 \item deserializeGenerationStartResponse(payload: any): number
@@ -3088,7 +3088,7 @@ Questa classe funge da adapter per la serializzazione e deserializzazione dei da
 
 \textbf{Metodi}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item Deserializzazione risposte backend (documenti estratti).
+\item Deserializzazione risposte backend\G{} (documenti estratti).
 \begin{itemize}[noitemsep, topsep=0pt]
 \item deserializeExtractedDocument(raw: any): ResultSplit
 \end{itemize}
@@ -3104,7 +3104,7 @@ Questa classe funge da adapter per la serializzazione e deserializzazione dei da
 \item asFile(value: unknown, fallback: File = new File([],  {`}{'})): File
 \item asString(value: unknown, fallback: string =  {`}{'}): string
 \end{itemize}
-\item mapStatus(status: string): State \ Mapping stato backend stato frontend.
+\item mapStatus(status: string): State \ Mapping stato backend\G{} stato frontend\G{}.
 \end{itemize}
 
 
@@ -4045,7 +4045,7 @@ Definisce lo stato testuale da rappresentare nella pillola di stato.
 
 \textbf{Attributi}
 \begin{itemize}
-  \item Tipo dati di supporto: interfaccia\G{} TypeScript\G{} che rappresenta i dati completi del destinatario restituiti dal backend.
+  \item Tipo dati di supporto: interfaccia\G{} TypeScript\G{} che rappresenta i dati completi del destinatario restituiti dal backend\G{}.
   \begin{itemize}
     \item recipientId: number \
     Identificativo univoco del destinatario.
@@ -4474,12 +4474,12 @@ intrinsecamente dal framework Ruby on Rails\G{}. L'adozione di tali paradigmi ha
 garantito modularità\G{}, manutenibilità\G{} ed elevata testabilità dell'intero
 applicativo.
 
-Il backend è strutturato attorno a un'architettura a servizi stratificata:
+Il backend\G{} è strutturato attorno a un'architettura a servizi stratificata:
 i \textit{Controller} gestiscono il routing HTTP; i \textit{Command} incapsulano
 le operazioni di business; i \textit{Service Object} orchestrano pipeline
 complesse; i \textit{Repository} astraggono la persistenza; il \textit{Container}
 governa l'iniezione delle dipendenze. I componenti \textit{Job} delegano
-l'elaborazione pesante a code asincrone notificando il frontend in tempo reale
+l'elaborazione pesante a code asincrone notificando il frontend\G{} in tempo reale
 tramite ActionCable.
 
 \bigskip
@@ -5113,7 +5113,7 @@ end
 
 \paragraph{Serializer per collezioni}
 I Serializer producono la struttura JSON delle collezioni REST con
-chiavi camelCase coerenti con il frontend:
+chiavi camelCase coerenti con il frontend\G{}:
 
 \begin{lstlisting}[caption={PostSerializer -- serializzazione con join eagerly loaded}]
 # app/serializers/post_serializer.rb
@@ -5154,7 +5154,7 @@ oggetto cambia stato, tutti i dipendenti vengano notificati e aggiornati
 automaticamente.}
 
 \paragraph{ActionCableNotifier}
-Broadcaster WebSocket che funge da Subject: notifica il frontend in tempo
+Broadcaster WebSocket che funge da Subject: notifica il frontend\G{} in tempo
 reale a ogni cambiamento di stato del pipeline di elaborazione:
 
 \begin{lstlisting}[caption={ActionCableNotifier -- broadcast di eventi sul canale dedicato}]
@@ -5180,7 +5180,7 @@ end
 
 \paragraph{AiJobOrchestrator}
 Orchestratore degli stati del job AI\G{}: coordina creazione, avvio, completamento
-e fallimento della generazione, notificando il frontend sul canale
+e fallimento della generazione, notificando il frontend\G{} sul canale
 \code{generation\_channel}:
 
 \begin{lstlisting}[caption={AiJobOrchestrator -- ciclo di vita del job di generazione}]
@@ -5266,15 +5266,15 @@ da Ruby on Rails\G{}:
 Non si tratta del tradizionale approccio MVC basato su template\G{}HTML generati lato server — in questo caso, infatti, la 
 “view” è rappresentata da dati in formato JSON — ma la struttura di base rimane comunque riconoscibile. I controller continuano a 
 svolgere il ruolo di intermediari tra le richieste HTTP e la logica applicativa, che è incapsulata nei servizi e nei modelli.\\
-Ci troviamo però di fronte a un approccio più moderno, caratterizzato da una netta separazione tra backend e frontend. Il backend si limita a 
+Ci troviamo però di fronte a un approccio più moderno, caratterizzato da una netta separazione tra backend\G{} e frontend\G{}. Il backend\G{} si limita a 
 esporre API\G{} RESTful, senza occuparsi del rendering o della presentazione dei dati. Questo consente di ottenere un'architettura più modulare, 
 scalabile e manutenibile.\\
 Il rendering viene invece delegato ad Angular\G{}, che gestisce la visualizzazione lato client (client-side rendering), evitando di sovraccaricare 
 il server. Questo si differenzia dal classico MVC, in cui il rendering avviene lato server (server-side rendering).\\
 
 Questo modello dunque rappresenta oggi uno standard per applicazioni sviluppate con Ruby on Rails\G{} e offre diversi vantaggi: maggiore scalabilità\G{}, 
-flessibilità nella scelta del frontend, interfacce più reattive grazie al paradigma delle Single Page Application (SPA), distribuzione del 
-carico sul client e possibilità di riutilizzare il backend per applicazioni mobile o integrazioni con servizi di terze parti.
+flessibilità nella scelta del frontend\G{}, interfacce più reattive grazie al paradigma delle Single Page Application (SPA), distribuzione del 
+carico sul client e possibilità di riutilizzare il backend\G{} per applicazioni mobile o integrazioni con servizi di terze parti.
 
 \begin{lstlisting}[caption={DocumentsController -- Controller MVC che delega ai Command}]
 # app/controllers/documents_controller.rb
@@ -5392,7 +5392,7 @@ gestione delle chiavi esterne a livello applicativo: la cancellazione di un
 \subsubsection{Active Storage}
 Il modulo\G{} Active Storage di Rails gestisce l'upload, la memorizzazione e la
 recupero dei file, permettendo l'utilizzo sia di servizi cloud (es. Amazon S3) che il filesystem locale. Nel progetto\G{}, Active Storage è utilizzato per
-gestire le immagini generate dalle chiamate API\G{} e quelle caricate da frontend. I file vengono associati ai modelli tramite \code{has_one_attached}.
+gestire le immagini generate dalle chiamate API\G{} e quelle caricate da frontend\G{}. I file vengono associati ai modelli tramite \code{has_one_attached}.
 
 
 \begin{lstlisting}[caption={Modello principale con Active Storage -- associazione has_one_attached per immagini generate}]
