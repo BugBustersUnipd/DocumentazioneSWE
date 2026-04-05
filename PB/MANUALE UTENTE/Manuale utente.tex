@@ -51,6 +51,8 @@
 
 % per il footer con il numero di pagina
 \usepackage{fancyhdr}
+\renewcommand{\headrule}{}
+\renewcommand{\footrule}{}
 \usepackage{lastpage} % per ottenere il numero dell'ultima pagina da mettere nel footer
 
 
@@ -61,7 +63,6 @@
 \newcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}}
 
 % per i drop shadow
-\usepackage{tcolorbox}
 \tcbuselibrary{skins}
 \newcommand{\immagine}[4][0.8\textwidth]{%
     \begin{figure}[H]
@@ -172,7 +173,7 @@ Documento rivolto agli utenti finali della piattaforma Nexum, sviluppata dal tea
 \hline
 \rowcolor{secondaryblue!10} 1.0.0 & 03/04/2026 & Approvazione\G{} documento & - & - & Linor Sadè \\
 \hline
-\rowcolor{secondaryblue!10} 0.6.0 & 30/03/2026 & Verifica\G{} finale & - & Leonardo Salviato & - \\
+\rowcolor{secondaryblue!10} 0.6.0 & 03/04/2026 & Verifica\G{} finale & - & Alberto Autiero & - \\
 \hline
 \rowcolor{secondaryblue!10}0.5.1 & 03/04/2026 & Aggiunti ai termini presenti nel Glossario\G{} la G & Alberto Autiero & - & - \\
 \hline
@@ -226,7 +227,6 @@ Questo modulo\G{} consente di caricare documenti, riconoscerne automaticamente l
 Per ulteriori dettagli sulle funzionalità\G{} e sul contesto del progetto\G{}, si rimanda alla documentazione di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G{}}.
 
 
-
 \subsection{Glossario\G{}}
 Il glossario\G{} raccoglie e definisce i termini, gli acronimi e le abbreviazioni 
 impiegati nel documento e nel progetto\G{} Nexum. L'obiettivo è fornire definizioni univoche per ridurre 
@@ -270,7 +270,7 @@ Tuttavia, per garantire prestazioni ottimali, si consiglia di utilizzare un comp
 \begin{itemize}
     \item Processore: Intel Core i3 o equivalente
     \item RAM: 4 GB, consigliati 8 GB o più
-    \item Spazio su disco: almeno 10 GB spazio libero per l'installazione di docker e del container dedicato all'applicazione
+    \item Spazio su disco: almeno 10 GB spazio libero per l'installazione di docker\G{} e del container dedicato all'applicazione
     \item Connessione Internet: banda larga con velocità minima di 10 Mbps
 \end{itemize}
 
@@ -339,7 +339,7 @@ Nel contesto della nostra applicazione stand-alone\G{}, la dashboard\G{} funge d
 
 \subsubsection{Menù laterale}
 \label{sec:menulaterale}
-Per permettere la navigazione tra i moduli, è presente una menù laterale che consente di accedere rapidamente alle sezioni principali dell'applicazione.
+Per permettere la navigazione tra i moduli, è presente un menù laterale che consente di accedere rapidamente alle sezioni principali dell'applicazione.
 
 \immagine[0.3\textwidth]{immagini/0_BarraLaterale.png}{Menù laterale}{fig:BarraLaterale}
 
@@ -353,10 +353,10 @@ L'assistente AI\G{} utilizza queste informazioni per generare un post formato da
 \immagine[1\textwidth]{immagini/1_GeneratoreDiContenuti.png}{Generatore di contenuti AI Assistant\G{} Generativo}{fig:GeneratoreDiContenuti}
 
 \subsubsubsection{Menù a tendina}
-Nei menù a tendina, l'utente può cercare e selezionare tra diverse opzioni. Inoltre i menù presenti nell'AI Assistant\G{} Generativo si diffenziano tra:
+Nei menù a tendina, l'utente può cercare e selezionare tra diverse opzioni. Inoltre i menù presenti nell'AI Assistant\G{} Generativo si differenziano tra:
 \begin{itemize}
     \item \textbf{Menù di scelta del tono e dello stile}: permettono di eliminare e aggiungere toni e stili personalizzati.
-    \item \textbf{Menù di scelta dell'azienda}: utilizzato per selezionare l'azienda di riferimento per i toni e stili che si voglio visualizzare.
+    \item \textbf{Menù di scelta dell'azienda}: utilizzato per selezionare l'azienda di riferimento per i toni e stili che si vogliono visualizzare.
 \end{itemize}
 
 Per esempio, nel menù a tendina per il tono \hyperref[fig:MenuTono]{(Figura 4(a))} l'utente può \textbf{scegliere tra le opzioni presenti} (Formale, Amichevole e Autoritario) ma ha anche la possibilità di \textbf{aggiungerne uno nuovo cliccando sul pulsante} \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo tono}} (Vedi la sezione \hyperref[sec:AggiungiTono]{Aggiungi tono e stile} per maggiori dettagli).\\\\
@@ -408,12 +408,12 @@ Infine una comoda \textbf{barra di ricerca} \tcbox[colback=white,colframe=darkgr
 \label{sec:AggiungiTono}
 Per aggiungere un nuovo tono o stile, l'utente può cliccare sul pulsante \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo tono}} o \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo stile}} presente nei menù a tendina per il tono e lo stile (Vedi la \hyperref[fig:MenuTono]{Figura 4(a)} e la \hyperref[fig:MenuStile]{Figura 4(b)}).\\
 Si aprirà una finestra di dialogo in cui è richiesto un campo \tcbox[colback=white,colframe=darkgray,boxrule=0.4pt,arc=1mm,left=1.2mm,right=8mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{nome}} (che verrà poi visualizzato come etichetta del nuovo tono o stile) e un campo \tcbox[colback=white,colframe=darkgray,boxrule=0.4pt,arc=1mm,left=1.2mm,right=14mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{descrizione espansiva}} (opzionale) per descrivere in maniera più precisa l'opzione aggiunta (consigliato).\\
-\\L'immagine in figura \hyperref[fig:AggiungiTono]{Figura 5} mostra la dialog di creazione di un nuovo tono. Quella per lo stile è la medesima.
+L'immagine in figura \hyperref[fig:AggiungiTono]{Figura 5} mostra la dialog di creazione di un nuovo tono. Quella per lo stile è la medesima.
 \immagine[0.5\textwidth]{immagini/1_AggiungiTono.png}{Dialog di creazione di un nuovo tono}{fig:AggiungiTono}
 \subsubsubsection{Casella di testo per inserimento del prompt\G{}}
 La casella di testo per l'inserimento del prompt\G{} è la zona dedicata all'inserimento del testo per il contenuto e l'immagine che l'utente desidera generare per la creazione del post.\\\\
 Il prompt\G{} può essere semplicemente un testo che la generazione rifinirà o migliorerà oppure linee guida, obiettivi della comunicazione o qualsiasi altro dettaglio che l'utente ritiene importante per guidare la generazione del contenuto da parte dell'assistente AI\G{}.\\\\
-Per aumentare la probabilità di ottenere un post di qualità ed evitare che l'AI restituisca un errore come "Domanda non chiara o non pertinente", è richiesto che il prompt inserito dall'utente contenga almeno 50 caratteri.
+Per aumentare la probabilità\G{} di ottenere un post di qualità ed evitare che l'AI\G{} restituisca un errore come "Domanda non chiara o non pertinente", è richiesto che il prompt inserito dall'utente contenga almeno 50 caratteri.
 
 \immagine[1\textwidth]{immagini/1_CasellaInserimentoPrompt.png}{Casella di inserimento del prompt}{fig:CasellaPrompt}
 
@@ -537,10 +537,10 @@ A seguito della generazione del contenuto, l'utente ha la possibilità di gestir
     \item \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{X}}: per scartare la generazione. Questa funzione comporta alla comparsa di una finestra di dialogo che chiede la conferma e ne spiega gli effetti.
 \end{itemize}
 \immagine[0.6\textwidth]{immagini/1_RigeneraSalvaScarta.png}{Operazioni di gestione del risultato generato}{fig:OperazioniGenerazione}
-\textbf{Rigenera:} Fa partire una nuova generazione con gli stessi parametri. Questa funzionalità differeisce da "Riutilizza" (Vedi \hyperref[sec:AzioniGenerazioni]{Sezione 4.3.2}) perchè, oltre a non dover salvare prima il risultato, fornisce feedback alla sezione Analytics\G{} per arricchire le analisi sulla qualità\G{} delle generazioni (Vedi \hyperref[fig:VistaAiAssistantGenerativo]{Figura 47}).\\\\
+\textbf{Rigenera:} Fa partire una nuova generazione con gli stessi parametri. Questa funzionalità\G{} differisce da "Riutilizza" (Vedi \hyperref[sec:AzioniGenerazioni]{Sezione 4.3.2}) perchè, oltre a non dover salvare prima il risultato, fornisce feedback alla sezione Analytics\G{} per arricchire le analisi sulla qualità\G{} delle generazioni (Vedi \hyperref[fig:VistaAiAssistantGenerativo]{Figura 47}).\\\\
 \textbf{Scarta generazione:} Scartare una generazione comporta per l'utente la cancellazione del risultato generato ma i dati vengono collezionati per arricchire le analisi sulla qualità\G{} delle generazioni.\\Infatti cliccando su Scarta appare una finestra di dialogo che chiede conferma dell'azione e spiega che, se confermata, il risultato generato verrà eliminato la valutazione minima (1). (Vedi \hyperref[fig:ScartaGenerazione]{Figura 17}).
 \immagine[0.6\textwidth]{immagini/1_ScartaGenerazione.png}{Finestra di dialogo per scartare la generazione}{fig:ScartaGenerazione}
-\textbf{Salva:} Salva il risultato generato, creando un nuovo post con il titolo, il testo e l'immagine generati, consultabile nella sezione dello storico.\\Al salvataggio l'interfaccia cambia e diventa la pagina di visualizzazione del post appena creato (Vedi \hyperref[sec:VisualizzazioneDettagliVoceStorico]{Sezione 4.3.4}).
+\textbf{Salva:} Salva il risultato generato, creando un nuovo post con il titolo, il testo e l'immagine generati, consultabile nella sezione dello storico.\\Al salvataggio l'interfaccia\G{} cambia e diventa la pagina di visualizzazione del post appena creato (Vedi \hyperref[sec:VisualizzazioneDettagliVoceStorico]{Sezione 4.3.4}).
 
 
 \subsection{Storico delle generazioni}
@@ -560,7 +560,7 @@ Per ogni generazione passata visualizzata nella tabella, un comodo pulsante a 3 
 Le azioni disponibili nel menù a 3 puntini per ogni generazione sono:
 \begin{itemize}[noitemsep,topsep=0pt]
     \item \textbf{Riutilizza:} consente di avviare una nuova generazione con i parametri di generazione (tono, stile e prompt\G{}) della generazione selezionata.
-    \item \textbf{Duplica:} riporta alla pagina di generazione del contenuto, con i campi del modulo di generazione (tono, stile e prompt\G{}) precompilati con quelli della generazione selezionata, permettendo all'utente di modificare i parametri prima di avviare la generazione.
+    \item \textbf{Duplica:} riporta alla pagina di generazione del contenuto, con i campi del modulo\G{} di generazione (tono, stile e prompt\G{}) precompilati con quelli della generazione selezionata, permettendo all'utente di modificare i parametri prima di avviare la generazione.
     \item \textbf{\textcolor{red}{Elimina}:} consente di eliminare il post dallo storico in maniera definitiva.
 \end{itemize}
 \immagine[0.4\textwidth]{immagini/1_AzioniRow.png}{Azioni sui post}{fig:AzioniGenerazioni}
@@ -578,7 +578,7 @@ Infine sono disponibili le operazioni di gestione del post (Riutilizza, Duplica 
 
 
 \subsection{AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}}
-Il modulo AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{} è progettato per supportare i professionisti nella gestione, splitting e analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
+Il modulo\G{} AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{} è progettato per supportare i professionisti nella gestione, splitting e analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
 
 \subsubsection{Analisi documenti}
 Il modulo\G{} di analisi dei documenti consente ai CdL\G{} di \textbf{caricare documenti in vari formati (PDF, CSV, jpg, png...)} e di \textbf{riconoscerne automaticamente la tipologia} (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.), \textbf{il destinatario} e altre informazioni.\\
@@ -778,7 +778,7 @@ Questa sezione mostra il destinatario rilevato dal AI\G{}, evidenziando un possi
 \subsubsubsection{Modifica destinatario del documento}
 Nel caso l'algoritmo associ un destinatario errato a un documento o non riesca a dedurlo, 
 l'operatore può intervenire per cercare e selezionare il destinatario corretto. \\
-L'associazione avviene tramite a menù a tendina mostrando i dipendenti dell'azienda estratta o inserita nei dati conosciuti, 
+L'associazione avviene tramite menù a tendina mostrando i dipendenti dell'azienda estratta o inserita nei dati conosciuti, 
 facilitando così la correzione e migliorando la precisione\G{} del processo di invio.
 
 \immagine[0.6\textwidth]{immagini/2_ModificaDestinatario.png}{Modifica risultato analisi destinatario}{fig:ModificaDestinatario}
@@ -796,13 +796,13 @@ Quando si ritiene che il documento sia pronto per essere inviato (con una confid
 È possibile inviare il documento solo se è stato associato un destinatario, altrimenti il pulsante di invio risulterà disabilitato.\\
 \immagine[0.8\textwidth]{immagini/2_invio.png}{Invio immediato di un documento}{fig:InvioDocumento}
 
-\textbf{Scrittura del messaggio:} \
+\textbf{Scrittura del messaggio:}
 Questa funzionalità\G{} mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata al destinatario.\\\\
 \textbf{Selezione, creazione o eliminazione di un template\G{}:} \
-Per agevolare la stesura dei messaggi, l'utente ha la possibilità di creare dei messaggi preipostati (template\G{}) personalizzati, che potranno essere riutilizzati in futuro per velocizzare la preparazione dei messaggi, garantendo coerenza e standardizzazione nelle comunicazioni inviate ai destinatari.\\\\
-Per creare un nuovo template\G{} l'utente deve cliccare sul pulsante \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo template}} che aprirà un'interfaccia di dialogo (vedi \hyperref[fig:SceltaTemplate]{Figura 40} e \hyperref[fig:AggiuntaTemplate]{Figura 41}).\\\immagine[0.8\textwidth]{immagini/2_EliminazioneTemplate.png}{Selettore di template}{fig:SceltaTemplate}.
-\immagine[0.8\textwidth]{immagini/2_AggiuntaTemplate.png}{Finestra di dialogo per creare un nuovo template}{fig:AggiuntaTemplate}
-Cliccando su \textbf{Salva template} confermerà la creazione del template\G{}, rendendolo subito disponibile per il messaggio in composizione.\\
+Per agevolare la stesura dei messaggi, l'utente ha la possibilità di creare dei messaggi preimpostati (template\G{}) personalizzati, che potranno essere riutilizzati in futuro per velocizzare la preparazione dei messaggi, garantendo coerenza e standardizzazione nelle comunicazioni inviate ai destinatari.\\\\
+Per creare un nuovo template\G{} l'utente deve cliccare sul pulsante \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo template\G{}}} che aprirà un'interfaccia\G{} di dialogo (vedi \hyperref[fig:SceltaTemplate]{Figura 40} e \hyperref[fig:AggiuntaTemplate]{Figura 41}).\\\immagine[0.8\textwidth]{immagini/2_EliminazioneTemplate.png}{Selettore di template}{fig:SceltaTemplate}.
+\immagine[0.8\textwidth]{immagini/2_AggiuntaTemplate.png}{Finestra di dialogo per creare un nuovo template\G{}}{fig:AggiuntaTemplate}
+Cliccando su \textbf{Salva template\G{}} confermerà la creazione del template\G{}, rendendolo subito disponibile per il messaggio in composizione.\\
 
 Non è richiesta l'applicazione di un template\G{} per inviare un documento, in quanto l'editor di testo è sempre disponibile per la composizione del messaggio, ma è fortemente consigliato per velocizzare la preparazione dei messaggi e garantire coerenza e standardizzazione nelle comunicazioni inviate ai destinatari.\\
 
@@ -906,7 +906,7 @@ L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative
 
 
 \subsubsection{Analytics e monitoraggio trasversale per l'AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}}
-L'utente ha la possibilità di accedere a una sezione dedicata all'AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni del Co-Pilot, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
+L'utente ha la possibilità di accedere a una sezione dedicata all'AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni del Co-Pilot\G{}, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
 Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G{} e garantire un'esperienza utente sempre più soddisfacente.
 \immagine[1\textwidth]{immagini/3_VistaAiCoPilot.png}{Analytics Ai Co-Pilot}{fig:VistaAiCoPilot}
 \subsubsubsection{Percentuale confidenza media}
@@ -969,8 +969,8 @@ Per garantire la qualità\G{} e l'affidabilità\G{} del prodotto\G{}, è stato i
 Il processo di testing è stato eseguito in diverse fasi del ciclo di sviluppo, consentendo di identificare e risolvere tempestivamente eventuali bug o problemi di funzionalità\G{}.
 
 \subsection{Test\G{} Backend\G{}}
-Il focus dei test\G{} backend è stato principalmente sulla verifica\G{} della corretta implementazione\G{} delle funzionalità\G{}, sulla gestione degli errori e sulla sicurezza\G{} dell'applicazione. Sono stati eseguiti test\G{} unitari per verificare il funzionamento di singole componenti e test\G{} di integrazione per assicurare che le diverse parti del sistema interagiscano correttamente tra loro.
-Per generare e avviare i test\G{} backend, è stato utilizzato il framework di testing integrato in Ruby on Rails\G{}, che consente di scrivere test\G{} in modo semplice e intuitivo.
+Il focus dei test\G{} backend\G{} è stato principalmente sulla verifica\G{} della corretta implementazione\G{} delle funzionalità\G{}, sulla gestione degli errori e sulla sicurezza\G{} dell'applicazione. Sono stati eseguiti test\G{} unitari per verificare il funzionamento di singole componenti e test\G{} di integrazione per assicurare che le diverse parti del sistema interagiscano correttamente tra loro.
+Per generare e avviare i test\G{} backend\G{}, è stato utilizzato il framework di testing integrato in Ruby on Rails\G{}, che consente di scrivere test\G{} in modo semplice e intuitivo.
 
 \subsubsection{Esecuzione test\G{}}
 Se l'installazione e l'avvio dell'applicazione sono stati completati con successo, è possibile eseguire i test\G{} per verificare che tutte le funzionalità\G{} siano operative e che non ci siano errori.
@@ -978,10 +978,10 @@ Per avviare i test\G{} è necessario eseguire il comando \texttt{docker compose 
 
 
 \subsection{Test\G{} Frontend\G{}}
-Il focus dei test\G{} frontend\G{} è stato sulla verifica\G{} del corretto comportamento dell'interfaccia\G{} utente, della gestione dello stato e dell'integrazione con il backend. Sono stati eseguiti test\G{} unitari su componenti e servizi, insieme a test\G{} end-to-end sui principali flussi utente. I test\G{} sono stati eseguiti con gli strumenti dello stack Angular\G{} e Cypress.
+Il focus dei test\G{} frontend\G{} è stato sulla verifica\G{} del corretto comportamento dell'interfaccia\G{} utente, della gestione dello stato e dell'integrazione con il backend\G{}. Sono stati eseguiti test\G{} unitari su componenti e servizi, insieme a test\G{} end-to-end sui principali flussi utente. I test\G{} sono stati eseguiti con gli strumenti dello stack Angular\G{} e Cypress.
 
 
-\subsubsubsection{Esecuzione test\G{}}
+\subsubsection{Esecuzione test\G{}}
 Se l'installazione e l'avvio dell'applicazione sono stati completati correttamente, è possibile eseguire i test\G{} frontend\G{} per verificare il funzionamento dei componenti, dei servizi e dei principali flussi utente.
 
 Per eseguire i test\G{} unitari, utilizzare il seguente comando:
@@ -1004,7 +1004,6 @@ npm run cypress:run
 \end{verbatim}
 
 \paragraph{Nota}
-I test\G{} Cypress richiedono che il frontend sia raggiungibile su \texttt{http://localhost:4200}.
+I test\G{} Cypress richiedono che il frontend\G{} sia raggiungibile su \texttt{http://localhost:4200}.
 
-\label{LastPage}
 \end{document}
