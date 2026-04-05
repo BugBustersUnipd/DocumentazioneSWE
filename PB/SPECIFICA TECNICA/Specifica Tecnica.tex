@@ -707,7 +707,7 @@ gestore per le code, cache e backend per le connessioni WebSocket (ActionCable).
 
 \subsection{Architettura Logica Interna (Layered Architecture)}
 Il sistema è stato progettato seguendo un pattern architetturale di tipo Layered (a livelli). Questa separazione garantisce 
-un alto grado di disaccoppiamento, facilitando la manuntenzione, i test\G{} e la scalabilità\G{} del sistema. 
+un alto grado di disaccoppiamento, facilitando la manutenzione, i test\G{} e la scalabilità\G{} del sistema. 
 Inoltre, lavorando in ruby on rails\G{}, è stato possibile sfruttare le convenzioni del framework per implementare in modo 
 naturale i vari livelli, senza andare a forzare l'introduzione di ulteriori astrazioni o pattern complessi e contro il linguaggio stesso.
 L'architettura logica si divide in quattro livelli principali:
@@ -779,7 +779,7 @@ Il suo obiettivo è fornire agli utenti uno strumento potente e intuitivo per cr
 Il modulo\G{} si integra con i servizi di AI\G{} (AWS\G{} Bedrock\G{}) per estrarre il massimo valore dalle capacità di generazione testuale e visiva, offrendo un'interfaccia\G{} semplice per la creazione di contenuti complessi e personalizzati, supportando al contempo la gestione e la valutazione dei risultati generati.
 Nei diagrammi seguenti sono rappresentati i componenti del modulo\G{}, divisi per controller, evidenziando i componenti principali e le loro interazioni.
 
-Il controller più imporante del modulo\G{} è \textit{AIGeneratorController}, che espone gli endpoint per la creazione e gestione dei contenuti generati. 
+Il controller più importante del modulo\G{} è \textit{AIGeneratorController}, che espone gli endpoint per la creazione e gestione dei contenuti generati. 
 Il controller delega la logica di business a un job asincrono \textit{(AIGeneratorJob)}, che si occupa di orchestrare le chiamate ai servizi di generazione testuale e visiva, gestire la persistenza dei risultati e aggiornare lo stato delle generazioni in corso.
 
 \begin{figure}[H]
@@ -4318,7 +4318,7 @@ Invoca il servizio per creare e salvare un nuovo post dal result corrente.
 Elimina il post tramite il servizio e naviga verso la pagina generatore.
 
 \item discardEvalutation(): void \
-Inserisce la valutazione minima (1) e neviga verso la pagina generatore.
+Inserisce la valutazione minima (1) e naviga verso la pagina generatore.
 
 \item normalizeValue(value: string | null | undefined): string \
 Converte un valore stringa nullable in stringa vuota se non definito; usato per normalizzare i confronti.
@@ -5654,9 +5654,9 @@ I requisiti opzionali, invece, si concentrano su funzionalità\G{} come la gesti
 
 \subsection{Completamento requisiti}
 \begin{itemize}
-  \item \textbf{Requisiti Obbligatori}: 97 requisiti funzionali\G{} soddisfatti, con focus sui moduli di analisi documenti, generazione testo e raccolta dati.
+  \item \textbf{Requisiti Obbligatori}: 97/97 requisiti funzionali\G{} soddisfatti, con focus sui moduli di analisi documenti, generazione testo e raccolta dati.
   \item \textbf{Requisiti Desiderabili}: 0 requisiti desiderabili identificati.
-  \item \textbf{Requisiti Opzionali}: 0 requisiti opzionali soddisfatti, principalmente relativi alla gestione utenze e distribuzione documenti.
+  \item \textbf{Requisiti Opzionali}: 0/35 requisiti opzionali soddisfatti, principalmente relativi alla gestione utenze e distribuzione documenti.
 \end{itemize}
 
 \subsection{Tabella di tracciamento dei requisiti}
