@@ -422,7 +422,7 @@ Dopo aver compilato i campi necessari (prompt\G{}, tono e stile), l'utente può 
 Qualora non fossero stati compilati tutti i campi necessari, il tasto di generazione risulterà disabilitato, impedendo all'utente di avviare la generazione fino a quando non avrà inserito tutte le informazioni richieste.\\
 \begin{figure}[H]
     \centering    
-\begin{subfigure}[t]{0.3\textwidth}
+\begin{subfigure}[t]{0.2\textwidth}
         \centering
         \tcbox[
             enhanced,
@@ -439,7 +439,7 @@ Qualora non fossero stati compilati tutti i campi necessari, il tasto di generaz
         \label{fig:genon}
     \end{subfigure}
     \hspace{0.02\textwidth}
-    \begin{subfigure}[t]{0.3\textwidth}
+    \begin{subfigure}[t]{0.2\textwidth}
         \centering
         \tcbox[
             enhanced,
@@ -490,9 +490,9 @@ In particolare la pagina di anteprima consente di:
 \subsubsubsection{Valutazione del post generato}
 Dopo aver visualizzato l'anteprima del post generato, l'utente ha la possibilità di valutare la qualità\G{} del contenuto attraverso un sistema basato su un punteggio da 1 a 5 stelle.\\
 La valutazione procede immediatamente a modificare il punteggio assegnato, quindi non è necessario un salvataggio specifico per il campo valutazione.\\\\
-La valutazione è modificabile anche dopo il salvataggio del risultato generato e non è necessaria per poter salvare il risultato, ma è fortemente consigliata per fornire un feedback prezioso che arrichisce le analisi sulla qualità\G{} (Vedi ???????????????????????????????????).
+La valutazione è modificabile anche dopo il salvataggio del risultato generato e non è necessaria per poter salvare il risultato, ma è fortemente consigliata per fornire un feedback prezioso che arrichisce le analisi sulla qualità\G{} (Vedi \hyperref[fig:VistaAiAssistantGenerativo]{Figura 47}).
 
-\immagine[0.4\textwidth]{immagini/1_Valutazione.png}{Valutazione del post generato}{fig:Valutazione}
+\immagine[0.3\textwidth]{immagini/1_Valutazione.png}{Valutazione del post generato}{fig:Valutazione}
 
 
 \subsubsubsection{Panoramica parametri di generazione}
@@ -537,7 +537,7 @@ A seguito della generazione del contenuto, l'utente ha la possibilità di gestir
     \item \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{X}}: per scartare la generazione. Questa funzione comporta alla comparsa di una finestra di dialogo che chiede la conferma e ne spiega gli effetti.
 \end{itemize}
 \immagine[0.6\textwidth]{immagini/1_RigeneraSalvaScarta.png}{Operazioni di gestione del risultato generato}{fig:OperazioniGenerazione}
-\textbf{Rigenera:} Fa partire una nuova generazione con gli stessi parametri. Questa funzionalità differeisce da "Riutilizza" (Vedi \hyperref[sec:AzioniGenerazioni]{Sezione 4.3.2}) perchè, oltre a non dover salvare prima il risultato, fornisce feedback alla sezione Analytics\G{} per arricchire le analisi sulla qualità\G{} delle generazioni (Vedi ????????).\\\\
+\textbf{Rigenera:} Fa partire una nuova generazione con gli stessi parametri. Questa funzionalità differeisce da "Riutilizza" (Vedi \hyperref[sec:AzioniGenerazioni]{Sezione 4.3.2}) perchè, oltre a non dover salvare prima il risultato, fornisce feedback alla sezione Analytics\G{} per arricchire le analisi sulla qualità\G{} delle generazioni (Vedi \hyperref[fig:VistaAiAssistantGenerativo]{Figura 47}).\\\\
 \textbf{Scarta generazione:} Scartare una generazione comporta per l'utente la cancellazione del risultato generato ma i dati vengono collezionati per arricchire le analisi sulla qualità\G{} delle generazioni.\\Infatti cliccando su Scarta appare una finestra di dialogo che chiede conferma dell'azione e spiega che, se confermata, il risultato generato verrà eliminato la valutazione minima (1). (Vedi \hyperref[fig:ScartaGenerazione]{Figura 17}).
 \immagine[0.6\textwidth]{immagini/1_ScartaGenerazione.png}{Finestra di dialogo per scartare la generazione}{fig:ScartaGenerazione}
 \textbf{Salva:} Salva il risultato generato, creando un nuovo post con il titolo, il testo e l'immagine generati, consultabile nella sezione dello storico.\\Al salvataggio l'interfaccia cambia e diventa la pagina di visualizzazione del post appena creato (Vedi \hyperref[sec:VisualizzazioneDettagliVoceStorico]{Sezione 4.3.4}).
@@ -746,7 +746,7 @@ Le operazioni disponibili in questa modalità sono:
     \item \textbf{Modifica dati del documento}: consente di apportare modifiche ai dati estratti, abilitando le caselle di testo che contengono i dati estratti e permettendo all'utente di correggerli manualmente. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza;
     \item \textbf{Modifica destinatario del documento}: apre una finestra di dialogo che consente di modificare il destinatario estratto (vedi \hyperref[fig:ModificaDestinatario]{Figura 37}).
     \item \textbf{Apertura documento originale ed estratto}: consente di visualizzare sia il documento originale caricato che la versione estratta e analizzata dall'AI\G{}, facilitando il confronto e la verifica\G{} dei dati estratti con quelli presenti nel documento originale;
-    \item \textbf{Intervallo delle pagine estratte}: consente di visualizzare e modificare l'intervallo di pagine del documento originale che è stato suddiviso e analizzato come sottodocumento. Il cambiamento dell'intervallo di pagine farà ripartire il processo di analisi del documento con il nuovo range di pagine selezionato (vedi ???????????).
+    \item \textbf{Intervallo delle pagine estratte}: consente di visualizzare e modificare l'intervallo di pagine del documento originale che è stato suddiviso e analizzato come sottodocumento. Il cambiamento dell'intervallo di pagine farà ripartire il processo di analisi del documento con il nuovo range di pagine selezionato (vedi \hyperref[fig:IntervalloPagine]{Figura 37}).
     \item \textbf{Invio del documento}: apre una finestra di dialogo per inviare il documento al destinatario estratto (vedi \hyperref[fig:InvioDocumento]{Figura 39}).
     \item \textbf{Visualizzazione altri documenti estratti}: consente di visualizzare gli altri documenti estratti dallo stesso documento originale, qualora il documento caricato sia stato suddiviso in più sottodocumenti.
 \end{itemize}
