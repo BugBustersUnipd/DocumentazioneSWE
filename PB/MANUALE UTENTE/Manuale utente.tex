@@ -353,6 +353,9 @@ Per esempio, nel menù a tendina per il tono \hyperref[fig:MenuTono]{(Figura 4(a
 Oltre all'inserimento di un tono personalizzato, è presente anche un'opzione che consente all'utente di \textbf{eliminare un tono} reputato obsoleto o non soddisfacente.\\\\
 Infine una comoda \textbf{barra di ricerca} \tcbox[colback=white,colframe=darkgray,boxrule=0.4pt,arc=1mm,left=1.2mm,right=18mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{|\quad}} consente all'utente di trovare rapidamente l'opzione desiderata, soprattutto quando il numero di toni o stili disponibili è elevato.
 
+\renewcommand{\thesubfigure}{\thefigure(\alph{subfigure})}
+\captionsetup[subfigure]{labelformat=simple}
+
 \begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.3\textwidth}
@@ -384,12 +387,12 @@ Infine una comoda \textbf{barra di ricerca} \tcbox[colback=white,colframe=darkgr
             left=0pt,right=0pt,top=0pt,bottom=0pt,
             drop shadow={black!30},
             nobeforeafter
-            ]{\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/1_SelettoreStili.png}}
-            \caption{Menù a tendina per lo stile}
-            \label{fig:MenuStile}
-        \end{subfigure}
-    \end{figure}
-    
+        ]{\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/1_SelettoreStili.png}}
+        \caption{Menù a tendina per lo stile}
+        \label{fig:MenuStile}
+    \end{subfigure}
+\end{figure}
+
 \immagine[0.4\textwidth]{immagini/1_SelettoreAzienda.png}{Selettore azienda}{fig:SelettoreAzienda}
 \subsubsubsection{Aggiungi tono e stile}
 \label{sec:AggiungiTono}
