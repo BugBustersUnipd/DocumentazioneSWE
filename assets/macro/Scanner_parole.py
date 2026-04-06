@@ -258,6 +258,7 @@ def find_occurrences_with_tag(text, term):
     
     MODIFICATO: 
     - Ora cerca sia TAG_G_FULL che TAG_G_SHORT
+    - Riconosce sia \G che \G{} (con graffe vuote, forma comune in LaTeX)
     - Esclude occorrenze all'interno di URL e percorsi file
     - Gestisce TAG dopo acronimi: "Requirements and Technology Baseline (RTB)\G" 
       tagga sia il termine completo che l'acronimo
@@ -312,7 +313,8 @@ def find_occurrences_with_tag(text, term):
             # Cerca il TAG corto (\G) - deve essere un comando LaTeX completo
             # Pattern: \G seguito da qualsiasi carattere NON alfabetico (o fine stringa)
             # MODIFICATO: Permette anche } e ) prima di \G per gestire \textit{termine}\G e (RTB)\G
-            tag_short_match = re.match(r'[\)\s\}]*\\G(?:[^a-zA-Z]|$)', after_match)
+            # Riconosce sia \G che \G{} (con graffe vuote opzionali, comuni in LaTeX)
+            tag_short_match = re.match(r'[\)\s\}]*\\G(?:\{\})?(?:[^a-zA-Z]|$)', after_match)
             
             # Cerca il TAG completo - escapa le parentesi graffe ma non i backslash
             tag_full_pattern = r'\\textsubscript\{\\scalebox\{0\.6\}\{\\textbf\{G\}\}\}'
@@ -322,7 +324,8 @@ def find_occurrences_with_tag(text, term):
             # Pattern: "Termine (ACRONIMO)\G" o "Termine (**ACRONIMO**)\G"
             # Permette spazi, markdown (*, _), } tra termine e acronimo E dentro le parentesi
             # La } è necessaria per termini in \textit{...} o \textbf{...}
-            acronym_with_tag_pattern = r'[\s\*\_\}]*\([\s\*\_]*[A-Z]{2,}[\s\*\_]*\)[\s\*\_]*\\G(?:[^a-zA-Z]|$)'
+            # Riconosce sia \G che \G{} dopo acronimo
+            acronym_with_tag_pattern = r'[\s\*\_\}]*\([\s\*\_]*[A-Z]{2,}[\s\*\_]*\)[\s\*\_]*\\G(?:\{\})?(?:[^a-zA-Z]|$)'
             acronym_tag_match = re.match(acronym_with_tag_pattern, after_match)
             
             # Anche con TAG completo dopo acronimo
