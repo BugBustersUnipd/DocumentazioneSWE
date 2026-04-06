@@ -3829,6 +3829,12 @@ Recupera la lista corrente dei file quando è disponibile nel payload dell'event
 \item removeSingleFile(files: File[], toRemove: File): File[] \
 Rimuove un file specifico dall'elenco confrontandolo per nome, dimensione e ultima modifica.
 \end{itemize}
+
+\textbf{UploadValidationError}
+\begin{itemize}
+\item invalidFiles: string[] \
+Nome dei file che hanno causato l'errore di validazione\G{}.
+\end{itemize}
 \subsubsection{DocSummary}
 \begin{figure}[H]
 \centering
@@ -4257,6 +4263,7 @@ Aggiorna l'azienda selezionata e sincronizza il caricamento di toni e stili rela
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/risultato-generazione-page.png}
 \end{figure}
+Componente UI che rappresenta la pagina di visualizzazione del risultato di una generazione, riutilzzata sia per la visualizzazione immediata dopo la generazione, sia per la visualizzazione di una generazione salvata. Permette inoltre di modificare, rigenerare, salvare, valutare e cancellare il risultato tramite interazioni con AiAssistantService.\\
 \textbf{Attributi}
 
 \begin{itemize}[noitemsep, topsep=0pt]
@@ -4463,6 +4470,485 @@ Restituisce la fine del giorno della data passata.
 
 \item onCompanyChange(company: number | string): void \
 Aggiorna l'azienda selezionata e riapplica i filtri alla tabella.
+\end{itemize}
+\subsubsection{Estrattore}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/estrattore-page.png}
+\end{figure}
+Componente UI che rappresenta la pagina per estrarre i dati da un documento, mostrando il documento estratto, i dati associati e permettendo di modificare o confermare i dati estratti.\\
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item router: Router
+Iniettato per la navigazione verso la pagina di riconoscimento documenti dopo l’upload.
+
+\item aiService: AiCoPilotService
+Servizio applicativo iniettato per recuperare le aziende disponibili e inviare i file al backend.
+
+\item messageService: MessageService
+Servizio usato per mostrare notifiche toast, in particolare in caso di file non validi.
+
+\item companies\$: Observable<Company[]>
+Stream osservabile delle aziende, esposto dal servizio e usato dalla vista.
+
+\item accept: string
+Estensioni consentite per l’upload (pdf, csv, jpg, jpeg, png).
+
+\item subtitleText: string
+Testo descrittivo mostrato sotto il titolo del componente di upload.
+
+\item selectedCategory: string | undefined
+Categoria attualmente selezionata.
+
+\item selectedCompany: any
+Azienda attualmente selezionata.
+
+\item selectedDepartment: string
+Reparto selezionato.
+
+\item selectedCompetenceMonthYear: string
+Mese/anno di competenza selezionato.
+
+\item selectedFiles: File[]
+Elenco dei file validi selezionati e pronti per l’upload.
+
+\item canUpload: boolean (getter)
+Indica se è possibile avviare l’upload; è true quando è presente almeno un file selezionato.
+\end{itemize}
+
+\textbf{Metodi}
+
+\begin{itemize}[noitemsep, topsep=0pt]
+\item ngOnInit(): void
+Inizializza la pagina caricando l’elenco aziende tramite servizio.
+
+\item onCategoryChange(value: string | number | undefined): void
+Aggiorna la categoria selezionata convertendo il valore in stringa.
+
+\item onDepartmentChange(value: string | number | undefined): void
+Aggiorna il reparto selezionato convertendo il valore in stringa.
+
+\item onCompetenceMonthYearChange(value: string | number | undefined): void
+Aggiorna il mese/anno di competenza convertendo il valore in stringa.
+
+\item onCompanyChange(company: any): void
+Imposta l’azienda selezionata e resetta il reparto dipendente dall’azienda.
+
+\item onFilesSelected(files: File[]): void
+Salva la lista dei file validati ricevuta dal componente di upload.
+
+\item onFileValidationError(error: UploadValidationError): void
+Mostra un toast di warning con i nomi dei file non validi scartati in fase di validazione.
+
+\item upload(): void
+Se ci sono file selezionati, invia la batch al servizio con i metadati correnti e naviga alla pagina di riconoscimento mantenendo la sessione.
+\end{itemize}
+\subsubsubsection{Riconoscimento documenti}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/riconoscimento-documenti-page.png}
+\end{figure}
+Componente UI che rappresenta la pagina di riconoscimento dei documenti caricati, che mostra i documenti riconosciuti e splittati, con filtri avanzati, vista nested per documento padre e azioni operative (modifica, elimina, retry analisi).\
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item aiCoPilotService: AiCoPilotService
+Servizio applicativo iniettato per caricare filtri, storico risultati, dati di sessione e invocare le azioni sui documenti.
+
+\item destroyRef: DestroyRef
+Utilizzato per interrompere automaticamente le sottoscrizioni quando il componente viene distrutto.
+
+\item router: Router
+Iniettato per la navigazione verso la pagina di anteprima/modifica documento.
+
+\item NestedButtonLabel: string
+Etichetta del pulsante per rilanciare l’analisi sul documento padre.
+
+\item items: MenuItem[]
+Voci del menu contestuale della tabella (azioni Modifica/Elimina).
+
+\item sessionParents: ResultAiCopilot[]
+Elenco dei documenti padre correnti legati alla sessione.
+
+\item currentBatchParentIds: Set<number>
+Insieme degli id padre appartenenti alla batch corrente, usato per limitare la vista.
+
+\item parentNames: Record<number, string>
+Mappa id padre → nome documento padre.
+
+\item parentPageCounts: Record<number, number>
+Mappa id padre → numero pagine del documento padre.
+
+\item DocumentiSplittati: ResultSplit[]
+Collezione completa degli split caricati dallo storico corrente.
+
+\item DocumentiSplittatiFiltrati: ResultSplit[]
+Collezione degli split dopo applicazione dei filtri attivi.
+
+\item nestedDocuments: ResultAiCopilot[]
+Struttura nested finale per la visualizzazione: documento padre con figli associati.
+
+\item searchvalue: string
+Valore testuale della ricerca globale.
+
+\item dates: Date[] | undefined
+Intervallo date selezionato per il filtro temporale.
+
+\item confidence\$: Observable<any>
+Stream delle opzioni confidence.
+
+\item selectedconfidence: any
+Valore/intervallo confidence selezionato (inizializzato anche da history.state).
+
+\item categories\$: Observable<any>
+Stream delle categorie disponibili.
+
+\item selectedCategory: any
+Categoria selezionata (eventualmente inizializzata da history.state).
+
+\item companies\$: Observable<Company[]>
+Stream delle aziende disponibili.
+
+\item companyNames\$: Observable<string[]>
+Stream derivato con i soli nomi azienda.
+
+\item selectedCompany: any
+Azienda selezionata (eventualmente inizializzata da history.state).
+
+\item departments\$: Observable<any>
+Stream dei reparti disponibili.
+
+\item selectedDepartment: any
+Reparto selezionato (eventualmente inizializzato da history.state).
+
+\item state\$: Observable<any>
+Stream degli stati disponibili.
+
+\item selectedState: any
+Stato selezionato (eventualmente inizializzato da history.state).
+
+\item columns: \{ field: string; header: string; type?: string \}[]
+Configurazione delle colonne mostrate nella tabella documenti.
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item ngOnInit(): void
+Inizializza filtri e dati della pagina: richiama le fetch del servizio, sottoscrive gli stream di storico/sessione/mappe e costruisce il menu contestuale.
+
+\item onDateChange(dates: Date[]): void
+Aggiorna il range date selezionato e riapplica i filtri.
+
+\item onSearchChange(searchValue: string): void
+Aggiorna la ricerca globale testuale e riapplica i filtri.
+
+\item onConfidenceChange(confidence: string | number): void
+Aggiorna il filtro confidence e riapplica i filtri.
+
+\item onCategoryChange(category: string | number): void
+Aggiorna il filtro categoria e riapplica i filtri.
+
+\item onStateChange(state: string | number): void
+Aggiorna il filtro stato e riapplica i filtri.
+
+\item onCompanyChange(company: string | number): void
+Aggiorna il filtro azienda e riapplica i filtri.
+
+\item onDepartmentChange(department: string | number): void
+Aggiorna il filtro reparto e riapplica i filtri.
+
+\item onTableMenuAction(event: { row: ResultSplit; item: MenuItem }): void
+Gestisce le azioni del menu sulla riga: naviga alla modifica oppure elimina il documento padre.
+
+\item onRetryAnalysis(parentId: number): void
+Richiede il retry dell’elaborazione per il documento padre indicato.
+
+\item onRowRemoved(row: ResultSplit): void
+Rimuove localmente la riga eliminata e ricalcola la vista filtrata.
+
+\item navigateToResult(targetRow: ResultSplit): void
+Naviga alla pagina di anteprima documento passando la riga selezionata e il numero pagine del padre.
+
+\item applyFilters(): void
+Applica tutti i filtri (ricerca, date, confidence, categoria, stato, azienda, reparto), ricostruisce i raggruppamenti padre-figli e aggiorna la lista nested finale.
+
+\item matchesGlobalSearch(doc: ResultSplit, rawSearch: string): boolean
+Verifica se la riga soddisfa la ricerca globale confrontando il testo su campi principali, inclusi nomi documento padre da storico/sessione.
+
+\item matchesConfidenceRange(confidence: number, selectedRange: string | number | null | undefined): boolean
+Controlla se la confidence rientra nel valore/intervallo selezionato (es. ``40 - 70'').
+
+\item mapSplitStateToDocumentState(state: State): DocumentState
+Converte lo stato del documento split nello stato visualizzato per il documento padre.
+
+\item buildNestedDocuments(rows: ResultSplit[]): ResultAiCopilot[]
+Raggruppa gli split per parentId e costruisce la struttura nested con metadati del padre (nome, pagine, stato).
+\end{itemize}
+\subsubsubsection{Anteprima documento}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/anteprima-documento-page.png}
+\end{figure}
+Componente UI che rappresenta la pagina che mostra l’anteprima di un documento estratto, con gestione modifica metadati/range pagine, invio documento e apertura PDF originale o splittato.\
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item aiService: AiCoPilotService
+Servizio applicativo iniettato per recuperare template, dettaglio documento, documenti correlati e inviare aggiornamenti al backend.
+
+\item destroyRef: DestroyRef
+Utilizzato per interrompere automaticamente le sottoscrizioni quando il componente viene distrutto.
+
+\item isEditable: boolean
+Flag che indica se la pagina e in modalita modifica.
+
+\item result\$: BehaviorSubject<ResultSplit | null>
+Subject che mantiene il risultato corrente mostrato in pagina (inizializzato da history.state).
+
+\item extractedEmployeeRows\$: BehaviorSubject<ExtractedEmployeeInfoRow[]>
+Subject che contiene le righe pronte per la sezione dipendente estratto.
+
+\item dialogService: DialogService
+Servizio usato per aprire dialog dinamici (selezione dipendente e invio documento).
+
+\item messageService: MessageService
+Servizio usato per notifiche toast di successo/errore/info.
+
+\item ref: DynamicDialogRef | null
+Riferimento al dialog aperto, utile per ascoltare l’evento di chiusura.
+
+\item templates\$: Observable<any>
+Stream dei template disponibili per il dialog di invio.
+
+\item result: ResultSplit | null (getter/setter)
+Accessor del risultato corrente sincronizzato con result\$.
+
+\item pendingModifications: Partial<ResultSplit>
+Mappa delle modifiche locali non ancora salvate.
+
+\item pages: number
+Numero pagine documento padre passato tramite stato di navigazione.
+
+\item otherExtractedDocumentRows\$: Observable<OtherExtractDocumentRow[]>
+Stream con gli altri documenti estratti appartenenti allo stesso padre.
+
+\item extractedEmployeeRows: ExtractedEmployeeInfoRow[] (getter/setter)
+Accessor delle righe dipendente sincronizzato con extractedEmployeeRows\$.
+
+\item hasPendingModifications: boolean (getter)
+Indica se esistono modifiche locali pendenti da salvare.
+
+\item hasRecipientMatch: boolean (getter)
+Indica se il destinatario estratto e associato a un dipendente reale (recipientId > 0).
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item ngOnInit(): void
+Inizializza i template, costruisce le righe dipendente dal risultato corrente, ricarica il dettaglio dal backend, sottoscrive gli stream di aggiornamento e popola la lista documenti correlati.
+
+\item handleOpenOriginalPdf(): void
+Apre il PDF originale del documento padre; mostra errore se parentId non disponibile.
+
+\item handleOpenSplitPdf(): void
+Apre il PDF dello split corrente; mostra errore se id documento non disponibile.
+
+\item handleEditExtractedEmployeeInfo(): void
+Apre il dialog di selezione dipendente, aggiorna i metadati destinatario sul backend e applica il risultato aggiornato in pagina.
+
+\item buildExtractedEmployeeRows(result: ResultSplit | null): ExtractedEmployeeInfoRow[]
+Costruisce la riga informativa del dipendente (recipient, raw name, match, confidence) partendo dal risultato corrente.
+
+\item applyIncomingResult(updated: ResultSplit): void
+Aggiorna lo stato locale con il risultato ricevuto, rigenera le righe dipendente e sincronizza lo stato di navigazione nel browser.
+
+\item showDialog(): void
+Apre il dialog di invio documento, crea il sending con scheduling scelto e aggiorna lo stato del documento (Inviato/Programmato).
+
+\item resolveSentAt(optionValue: string): Date
+Converte l’opzione di scheduling selezionata (now, tomorrow_9am, day_after_9am, monday_9am) nella data/ora effettiva di invio.
+
+\item enableEditing(): void
+Abilita la modalita modifica azzerando eventuali modifiche pendenti.
+
+\item cancelEditing(): void
+Annulla la modalita modifica, scarta le modifiche locali e mostra notifica informativa.
+
+\item normalizeValue(value: string | number | undefined | null): string
+Normalizza valori eterogenei in stringa per confronti consistenti.
+
+\item onFieldModified(event: \{ field: keyof ResultSplit; value: string | number | undefined \}): void
+Registra o rimuove una modifica locale confrontando il nuovo valore con quello originale del campo.
+
+\item saveChanges(): void
+Valida e salva le modifiche pendenti: invia aggiornamento range pagine e/o metadati, aggiorna lo stato locale e notifica l’esito.
+
+\item buildMetadataUpdates(modifications: Partial<ResultSplit>): Record<string, unknown>
+Costruisce il payload metadati conforme all’endpoint backend (mappando i campi del modello frontend).
+
+\item buildRangeUpdates(modifications: Partial<ResultSplit>, current: ResultSplit): { page_start: number; page_end: number } | null
+Estrae e converte le modifiche sul range pagine, restituendo null se assenti o non numeriche.
+
+\item isRangeValid(range: \{ page_start: number; page_end: number \}, current: ResultSplit): boolean
+Verifica la validita del range pagine rispetto ai vincoli (interi, ordine corretto, limiti documento).
+\end{itemize}
+\subsubsection{Storico Ai CoPilot}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/storico-ai-copilot-page.png}
+\end{figure}
+Componente UI che rappreseta la pagina che mostra lo storico dei documenti processati da AI Copilot, con filtri (ricerca, date, categoria, azienda) e azioni contestuali su ciascuna riga.\
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item router: Router
+Iniettato per la navigazione verso la pagina di anteprima del documento selezionato.
+
+\item aiCoPilotService: AiCoPilotService
+Servizio applicativo iniettato per caricare storico risultati, aziende e gestire le azioni sui documenti.
+
+\item destroyRef: DestroyRef
+Utilizzato per interrompere automaticamente le sottoscrizioni quando il componente viene distrutto.
+
+\item resultSplits: ResultSplit[]
+Collezione completa degli split ricevuti dal servizio (storico sorgente).
+
+\item parentNames: Record<number, string>
+Mappa id documento padre → nome documento originale, usata per arricchire le righe tabella.
+
+\item parentPageCounts: Record<number, number>
+Mappa id documento padre → numero pagine, usata in navigazione verso anteprima.
+
+\item documentsSubject: BehaviorSubject<ResultSplit[]>
+Subject interno con la lista documenti da sottoporre alla pipeline di filtro.
+
+\item searchSubject: BehaviorSubject<string>
+Subject interno per il testo di ricerca globale.
+
+\item datesSubject: BehaviorSubject<Date[] | undefined>
+Subject interno per il range date selezionato.
+
+\item selectedDocumentSubject: BehaviorSubject<string | undefined>
+Subject interno per il filtro tipologia documento/categoria.
+
+\item selectedCompanySubject: BehaviorSubject<string | undefined>
+Subject interno per il filtro azienda.
+
+\item filteredDocumentsSnapshot: ResultSplit[]
+Snapshot locale dell’ultima lista filtrata, usato come fallback in apertura dettaglio.
+
+\item Documents: ResultSplit[]
+Lista documenti mostrabile in tabella (derivata da resultSplits con mapping dedicato).
+
+\item FilteredDocuments\$: Observable<ResultSplit[]>
+Stream osservabile della lista filtrata, ottenuto da combineLatest dei subject filtro.
+
+\item items: MenuItem[]
+Voci del menu contestuale per riga (Modifica, Elimina, Riprova).
+
+\item dates: Date[] | undefined
+Intervallo date selezionato nel filtro.
+
+\item searchvalue: string
+Valore testuale inserito nella ricerca globale.
+
+\item Companies: string[]
+Elenco nomi azienda disponibili nel filtro.
+
+\item selectedCompany: string | undefined
+Azienda attualmente selezionata nei filtri.
+
+\item DocumentType: string[]
+Elenco tipologie documento/categorie disponibili nel filtro.
+
+\item selectedDocument: string | undefined
+Tipologia documento/categoria attualmente selezionata.
+
+\item columns: \{ field: string; header: string; type?: string \}[]
+Configurazione colonne della tabella storico.
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item ngOnInit(): void
+Inizializza menu e caricamento dati (storico e aziende), sottoscrive gli stream del servizio e mantiene aggiornato lo snapshot filtrato.
+
+\item onSearchChange(value: string): void
+Aggiorna il testo di ricerca e notifica il relativo subject per ricalcolare i filtri.
+
+\item onDateChange(dates: Date[]): void
+Aggiorna il range date e notifica il relativo subject per ricalcolare i filtri.
+
+\item onDocumentChange(document: string | number): void
+Aggiorna la tipologia documento/categoria selezionata e notifica il subject dedicato.
+
+\item onCompanyChange(company: string | number): void
+Aggiorna l’azienda selezionata e notifica il subject dedicato.
+
+\item rebuildDocuments(): void
+Ricostruisce la lista righe tabella a partire dagli split sorgente e aggiorna le opzioni filtro tipologia.
+
+\item normalizeDate(value: Date): number
+Normalizza una data al solo giorno (azzerando ora/minuti) per confronti consistenti nei filtri range.
+
+\item formatConfidenceForSearch(value: unknown): string
+Converte/confina la confidenza in stringa normalizzata (una cifra decimale) per la ricerca testuale.
+
+\item toStoricoRow(split: ResultSplit): any
+Mappa un ResultSplit nel formato riga usato dalla tabella storico, includendo il nome documento originale.
+
+\item onTableMenuAction(event: \{ row: ResultSplit; item: MenuItem \}): void
+Gestisce azioni menu su riga: Modifica (apre anteprima), Elimina (cancella documento padre), Riprova (solo se stato Failed).
+
+\item onRowRemoved(row: ResultSplit): void
+Rimuove la riga dalla lista locale e aggiorna lo stream documenti.
+
+\item navigateToResult(targetRow?: ResultSplit): void
+Naviga alla pagina anteprima passando il risultato selezionato (o il primo filtrato) e il numero pagine del documento padre.
+\end{itemize}
+\subsubsection{Analytics dashboard}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/analytics-dashboard-page.png}
+\end{figure}
+Componente UI che rappresenta la pagina che mostra la dashboard analytics con metriche aggregate per AI Assistant e AI CoPilot, includendo grafici di utilizzo tono/stile e filtri per intervallo temporale.\
+\textbf{Attributi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item periodoOptions: \{ name: string \}[]
+Elenco delle opzioni di periodo predefinite disponibili nella UI (Sempre, mese corrente, ultime settimane, ultimi mesi, ultimo anno).
+
+\item aiAssistantMetrics\$: Observable<AnalyticsMetric[]>
+Stream delle metriche aggregate dell’area AI Assistant, aggiornato in base al periodo selezionato.
+
+\item aiCoPilotMetrics\$: Observable<AnalyticsMetric[]>
+Stream delle metriche aggregate dell’area AI CoPilot, aggiornato in base al periodo selezionato.
+
+\item aiAssistantToneChart\$: Observable<AnalyticsChartData>
+Stream dati per il grafico di utilizzo dei toni nell’area AI Assistant.
+
+\item aiAssistantStyleChart\$: Observable<AnalyticsChartData>
+Stream dati per il grafico di utilizzo degli stili nell’area AI Assistant.
+
+\item aiAssistantAnalyticsService: AiAssistantAnalyticsService
+Servizio iniettato per recuperare metriche e dati grafici relativi ad AI Assistant.
+
+\item aiCoPilotAnalyticsService: AiCoPilotAnalyticsService
+Servizio iniettato per recuperare metriche relative ad AI CoPilot.
+\end{itemize}
+
+\textbf{Metodi}
+\begin{itemize}[noitemsep, topsep=0pt]
+\item constructor(aiAssistantAnalyticsService: AiAssistantAnalyticsService, aiCoPilotAnalyticsService: AiCoPilotAnalyticsService)
+Inizializza i servizi analytics e collega subito gli stream dei grafici tono/stile di AI Assistant.
+
+\item ngOnInit(): void
+Carica le metriche iniziali senza filtro temporale, impostando il periodo di default a ``sempre'' per entrambi i domini analytics.
+
+\item buildPeriod(dates: Date[] | undefined): AnalyticsPeriod
+Costruisce il payload periodo da inviare ai servizi: se il range non e completo restituisce ``sempre'', altrimenti usa startDate ed endDate.
+
+\item onAiAssistantRangeChange(dates: Date[] | undefined): void
+Aggiorna le metriche AI Assistant quando cambia il date range; ignora aggiornamenti con range incompleto.
+
+\item onAiCoPilotRangeChange(dates: Date[] | undefined): void
+Aggiorna le metriche AI CoPilot quando cambia il date range; ignora aggiornamenti con range incompleto.
 \end{itemize}
 % ============================================================
 \section{Design Pattern}
