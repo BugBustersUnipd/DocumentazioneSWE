@@ -2614,7 +2614,6 @@ Nota: nel diagramma UML può essere rappresentata come entità di dominio, ma ne
 \textbf{Campi}
 \begin{itemize}[noitemsep, topsep=0pt]
 \item id: number | null - Identificatore univoco ereditato da Result per il documento estratto.
-\item name: string - Nome del documento estratto mostrato in interfaccia\G{}.
 \item state: State - Stato corrente del documento estratto nel workflow\G{} operativo.
 \item confidence: number - Confidenza\G{} complessiva dell'estrazione/analisi.
 \item fieldConfidences: Record<string, number> - Confidenze puntuali per singolo campo estratto.
@@ -2662,25 +2661,40 @@ Nota: anche questa entità è modellata come interface TypeScript\G{}; rappresen
 \end{figure}
 \textit{Interface} che rappresenta le informazioni del destinatario associate a un documento estratto, usata principalmente per visualizzare i dati del destinatario in interfaccia\G{}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item recepientId: number \ Id del destinatario nel database
-  \item recepientName: string \ Nome del destinatario trovato nel db
-  \item recepientNameRaw: string \ Nome del destinatario estratto dal documento
-  \item recepientEmail: string \ Email del destinatario trovato nel db
-  \item recepientCode: string \ Codice fiscale trovato nel db
+  \item recepientId: number - Id del destinatario nel database
+  \item recepientName: string - Nome del destinatario trovato nel db
+  \item recepientNameRaw: string - Nome del destinatario estratto dal documento
+  \item recepientEmail: string - Email del destinatario trovato nel db
+  \item recepientCode: string - Codice fiscale trovato nel db
 \end{itemize}
-AddDialogSaveData\subsubsection{ e  AddDialogType}
+\subsubsection{ AddDialogSaveData e  AddDialogType}
 \textit{Interface} e \textit{Enum} usati per gestire i dati e i tipi di dialog di salvataggio dei risultati generati dall'assistente AI\G{}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/interface-enum-dialog.drawio.png}
 \end{figure}
 
+\subsubsection{ EmployeeMenuOption e  SelectEmployeeDialogData}
+\textit{Interface} usate per gestire i dati e i tipi di dialog di selezione dei dipendenti.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/EmployeeDialogData.drawio.png}
+\end{figure}
+
+\subsubsection{ SendDocumentData }
+\textit{Interface} usata per gestire i dati relativi all'invio di documenti.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/senddocumentdata.drawio.png}
+\end{figure}
+
+
 \subsection{Servizi di comunicazione con il backend\G{}}
 
 Costanti di configurazione usate nei servizi:
 \begin{itemize}
-\item API_BASE: string (costante modulo\G{}, proprietà interna). URL base delle API\G{} HTTP backend\G{}.
-\item WS_URL: string (costante modulo\G{}, proprietà interna). URL del canale WebSocket ActionCable.
+\item API_BASE: string - URL base delle API\G{} HTTP backend\G{}.
+\item WS_URL: string - URL del canale WebSocket ActionCable.
 \end{itemize}
 \subsubsection{AiAssistantService}
 \begin{figure}[H]
@@ -3083,7 +3097,7 @@ Questa classe funge da adapter per la serializzazione e deserializzazione dei da
 \subsubsubsection{ResultAiCopilotSerializer}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/serializer-aiCopilot.png}
+\includegraphics[width=0.9\textwidth]{ImmaginiSpecificaTecnica/Frontend/serializer-aiCopilot.drawio.png}
 \end{figure}
 
 \textbf{Metodi}
@@ -3141,7 +3155,7 @@ Componente UI che rappresenta il menù di navigazione laterale.\\
 Componente UI riutilizzabile che rappresenta un pulsante con etichetta e icona personalizzabili.
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Proprietà di input: configurano aspetto e comportamento del pulsante dal componente padre.
+  \item Attributi di input: configurano aspetto e comportamento del pulsante dal componente padre.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item label: string
     \item icon: string
@@ -3150,7 +3164,7 @@ Componente UI riutilizzabile che rappresenta un pulsante con etichetta e icona p
     \item class: string
   \end{itemize}
 
-  \item Proprietà di output: espone l'evento emesso dal pulsante verso il componente padre.
+  \item Attributi di output: espone l'evento emesso dal pulsante verso il componente padre.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item action: EventEmitter<void>
   \end{itemize}
@@ -3158,13 +3172,15 @@ Componente UI riutilizzabile che rappresenta un pulsante con etichetta e icona p
 \subsubsection{SelectComponent}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/menu-tendina.png}
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/menu-tendina.drawio.png}
 \end{figure}
 Componente UI che rappresenta un menu a tendina con ricerca e pulsante per aggiungere opzioni. Viene utilizzato per gestire le scelte di toni, stili le aziende o i template\G{}.\\
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
   \item attributi di input: definiscono i dati mostrati e il comportamento del menu a tendina.
   \begin{itemize}[noitemsep, topsep=0pt]
+    \item emptyMessage: string \
+    Testo mostrato quando non ci sono opzioni da visualizzare.
     \item options: \{ id: number; name: string \}[] | null | undefined \
     Elenco delle opzioni selezionabili visualizzate nel menu.
 
@@ -3251,7 +3267,7 @@ Componente UI che rappresenta un'area di testo per l'inserimento del prompt\G{} 
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/filters-enum-component.png}
 \end{figure}
-Componente UI che rappresenta dei semplici filtri.
+Componente UI che rappresenta dei semplici filtri.\\
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
   \item Attributi di input: definiscono il tipo di filtro e i dati associati.
@@ -3311,10 +3327,10 @@ Componente UI che rappresenta dei semplici filtri.
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/image-title-component.png}
 \end{figure}
-Componente UI che rappresenta immagine di generazione e titolo della generazione.
+Componente UI che rappresenta immagine di generazione e titolo della generazione.\\
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Proprietà di input: configurano l'aspetto e il comportamento del componente immagine con titolo.
+  \item Attributi di input: configurano l'aspetto e il comportamento del componente immagine con titolo.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item hidden: boolean \
     Nasconde o visualizza il componente.
@@ -3338,7 +3354,7 @@ Componente UI che rappresenta immagine di generazione e titolo della generazione
     Mostra uno spinner di caricamento durante l'upload.
   \end{itemize}
 
-  \item Proprietà di output: comunicano al componente padre i cambiamenti di titolo e immagine.
+  \item Attributi di output: comunicano al componente padre i cambiamenti di titolo e immagine.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item imageTitleChange: EventEmitter<string> \
     Emette il nuovo titolo quando cambia il valore inserito.
@@ -3347,7 +3363,7 @@ Componente UI che rappresenta immagine di generazione e titolo della generazione
     Emette il file immagine selezionato quando viene caricato un nuovo file.
   \end{itemize}
 
-  \item Proprietà interne: mantengono lo stato locale del componente.
+  \item Attributi interni: mantengono lo stato locale del componente.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item title: string \
     Titolo sull'immagine sincronizzato con l'input imageTitle.
@@ -3379,7 +3395,6 @@ Componente UI che rappresenta immagine di generazione e titolo della generazione
 \end{figure}
 Componente UI che rappresenta un sistema di valutazione a stelle, utilizzato per valutare i risultati generati dall'assistente AI\G{}.\\
 \textbf{Attributi}
-
 \begin{itemize}
 \item Attributi di input: configurano il valore iniziale e il comportamento del componente di valutazione.
 \begin{itemize}
@@ -3397,7 +3412,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \subsubsection{Tables}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/tables-component.png}
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/tables-component.drawio.png}
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
@@ -3426,9 +3441,10 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 
     \item rowRemoved: EventEmitter<any> \
     Emette la riga eliminata quando viene selezionata l'azione di rimozione (retrocompatibilità).
+
+    \item rowMenuItems: MenuItem[] \
+    Voci di menu associate alla riga attualmente selezionata, sincronizzate con le condizioni della riga.
   \end{itemize}
-  \item rowMenuItems: MenuItem[] \
-  Voci di menu associate alla riga attualmente selezionata, sincronizzate con le condizioni della riga.
 \end{itemize}
 
 \textbf{Metodi}
@@ -3456,6 +3472,11 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     \item stripHtmlTags(value: unknown): string \
     Rimuove tag HTML, entità HTML e normalizza gli spazi dal testo fornito.
   \end{itemize}
+  \item Gestione e formattazione confidenza\G{}.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item formatConfidence(value: unknown): string \
+    Normalizza e formatta il valore di confidenza\G{}.
+  \end{itemize}
 \end{itemize}
 \subsubsection{AddDialog}
 \begin{figure}[H]
@@ -3464,7 +3485,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Proprietà di input: configurano lo stato e il tipo di dialog.
+  \item Attributi di input: configurano lo stato e il tipo di dialog.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item visible: boolean \
     Abilita o disabilita la visualizzazione del dialog.
@@ -3473,7 +3494,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     Specifica il tipo di elemento da aggiungere: tone, style, template\G{} o company.
   \end{itemize}
 
-  \item Proprietà di output: comunicano al componente padre le azioni del dialog.
+  \item Attributi di output: comunicano al componente padre le azioni del dialog.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item visibleChange: EventEmitter<boolean> \
     Notifica il componente padre quando il dialog viene chiuso.
@@ -3482,7 +3503,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     Emette i dati inseriti (nome, descrizione e tipo) quando viene richiesto il salvataggio.
   \end{itemize}
 
-  \item Proprietà interne: mantengono lo stato del form all'interno del dialog.
+  \item Attributi interni: mantengono lo stato del form all'interno del dialog.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item name: string \
     Nome dell'elemento inserito nel campo di input.
@@ -3497,7 +3518,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 
 \textbf{Metodi}
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item Proprietà calcolate: determinano dinamicamente il titolo e l'etichetta del dialog in base al tipo.
+  \item Attributi calcolati: determinano dinamicamente il titolo e l'etichetta del dialog in base al tipo.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item get dialogTitle(): string \
     Ritorna il titolo del dialog personalizzato secondo il tipo di elemento.
@@ -3524,7 +3545,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     Reimposta i campi del form e il flag di invio a valori iniziali.
   \end{itemize}
 \end{itemize}
-\subsubsubsection{InputComponent}
+\subsubsection{InputComponent}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/input-component.png}
@@ -3581,10 +3602,10 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
   \end{itemize}
 \end{itemize}
 
-\subsubsubsection{Editor}
+\subsubsection{Editor}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/editor-component.png}
+\includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/editor-component.drawio.png}
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
@@ -3605,10 +3626,11 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     \item textChange: EventEmitter<string> \
     Emette il nuovo testo quando il contenuto dell'editor cambia.
   \end{itemize}
-
-  \item editorText: string \
-  Copia locale del testo usata per sincronizzare il modello dell'editor.
-
+  \item Attributi interni: mantengono lo stato locale del testo nell'editor.
+  \begin{itemize}[noitemsep, topsep=0pt]
+    \item editorText: string \
+    Copia locale del testo usata per sincronizzare il modello dell'editor.
+  \end{itemize}
 \end{itemize}
 
 \textbf{Metodi}
@@ -3647,7 +3669,7 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
     Emette il mese/anno selezionato nel formato YYYY-MM.
   \end{itemize}
 
-  \item Attributi interne: mantengono lo stato locale del selettore.
+  \item Attributi interni: mantengono lo stato locale del selettore.
   \begin{itemize}[noitemsep, topsep=0pt]
     \item selectedMonthYear: Date | null \
     Valore data selezionato nel datepicker, usato per ricavare mese e anno.
@@ -3670,36 +3692,46 @@ Emette il nuovo valore selezionato dall'utente quando la valutazione cambia.
 \end{figure}
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item Attributi di input: configurano l'etichetta e il testo segnaposto del selettore mese/anno.
+\item Attributi di input: configurano il comportamento del selettore di intervallo.
 \begin{itemize}[noitemsep, topsep=0pt]
-\item label: string \
-Etichetta visualizzata sopra il controllo.
-\item placeholder: string \
-Testo mostrato quando non è stato ancora selezionato alcun mese/anno.
+\item periodoOptions: any[] \
+Opzioni disponibili per il selettore di periodo.
+\item placeholderDefault: string \
+Testo mostrato quando non è stato ancora selezionato alcun periodo.
 \end{itemize}
 
-\item Attributi di output: comunicano al componente padre il valore selezionato.
+\item Attributi di output: comunicano al componente padre i valori selezionati.
 \begin{itemize}[noitemsep, topsep=0pt]
-\item monthYearChange: EventEmitter<string> \
-Emette il mese/anno selezionato nel formato YYYY-MM.
+\item rangeChange: EventEmitter<Date[] | undefined> \
+Emette l'intervallo di date selezionato nel formato YYYY-MM-DD.
 \end{itemize}
+\item Attributi interni: mantengono lo stato locale del selettore di intervallo.
+\begin{itemize}[noitemsep, topsep=0pt]
 \item dates: Date[] | undefined \ Valore di intervallo selezionato nel datepicker.
 \item selectedPeriodo: Date | null \ Mostra il risultato del periodo selezionato
-
+\end{itemize}
 \end{itemize}
 
 \textbf{Metodi}
 \begin{itemize}[noitemsep, topsep=0pt]
-\item Gestione selezione mese/anno: converte la data scelta nel formato richiesto e la emette al padre.
+\item Gestione selezione intervallo: converte le date scelte nel formato richiesto e le emette al padre.
 \begin{itemize}[noitemsep, topsep=0pt]
-  \item onMonthYearChange(): void \
-  Legge selectedMonthYear, estrae mese e anno e li emette come stringa nel formato YYYY-MM; se non c'è alcun valore selezionato, emette una stringa vuota.
+  \item onPeriodoChange(periodo: any): void \
+  Legge il selectedPeriodo, calcola le date di inizio e fine del periodo selezionato e le emette.
+  \item onDateSelect(): void \
+  Gestisce la selezione manuale dell'intervallo di date nel datepicker.
+  \item formatDate(date: Date): string \
+  Prende un oggetto Date e restituisce una stringa formattata nel formato italiano (DD/MM/YYYY).
+  \item getLabel(): string \
+  Decide che testo mostrare come etichetta del selettore in base alle date selezionate o al periodo predefinito scelto.
+  \item emit(): void \
+  Emette l'intervallo di date selezionato al componente padre.
 \end{itemize}
 \end{itemize}
 \subsubsection{NestedTables}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/nested-tables-component.png}
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/nested-tables-component.drawio.png}
 \end{figure}
 Componente UI che rappresenta una riga espandibile che contiene a sua volta una tabella. Viene utilizzato per visualizzare i dettagli dei documenti estratti, dove ogni riga rappresenta un documento e l'espansione mostra i dati estratti associati a uno split di quel documento.\\
 
@@ -3734,8 +3766,11 @@ Componente UI che rappresenta una riga espandibile che contiene a sua volta una 
     \item rowRemoved: EventEmitter<ResultSplit>  \
     Notifica al componente padre la rimozione di una riga.
     \end{itemize}
+    \item Attributi interni: mantengono lo stato locale del componente e gestiscono le condizioni di visualizzazione.
+    \begin{itemize}[noitemsep, topsep=0pt]
     \item activeValues: string[] \
     Mantiene lo stato degli elementi attivi nell'interfaccia\G{} annidata.
+    \end{itemize}
 \end{itemize}
 \textbf{Metodi}
 
@@ -3756,7 +3791,7 @@ Restituisce la classe di severità CSS coerente con lo stato del documento per l
 \subsubsection{Upload}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/upload-component.png}
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/upload-component.drawio.png}
 \end{figure}
 Componente UI che rappresenta un'area di drop per il caricamento di file, con supporto per selezione manuale tramite dialog di sistema. Viene utilizzato per consentire agli utenti di caricare documenti da processare tramite OCR\G{} e estrazione dati.\\
 \textbf{Attributi}
@@ -3784,7 +3819,7 @@ Emette l'insieme dei file validi selezionati dall'utente.
   \item fileValidationError: EventEmitter<UploadValidationError>  \
   Emette l'elenco dei file non validi quando la validazione\G{} fallisce.
 \end{itemize}
-\item Attributi interne: mantengono lo stato locale e gestiscono l'accesso al controllo nativo.
+\item Attributi interni: mantengono lo stato locale e gestiscono l'accesso al controllo nativo.
 \begin{itemize}
 \item nativeFileInput: ElementRef<HTMLInputElement> \
 Riferimento all'input file nativo utilizzato per avviare la selezione da codice.
@@ -3840,11 +3875,11 @@ Nome dei file che hanno causato l'errore di validazione\G{}.
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/Frontend/doc-summary-component.png}
 \end{figure}
-Componente UI che rappresenta un riepilogo di un documento, mostrando informazioni chiave estratte (o compilate).
+Componente UI che rappresenta un riepilogo di un documento, mostrando informazioni chiave estratte (o compilate).\\
 \textbf{Attributi}
 
 \begin{itemize}
-\item Proprietà di input: configurano lo stato iniziale e il contenuto visualizzato dal componente.
+\item Attributi di input: configurano lo stato iniziale e il contenuto visualizzato dal componente.
 \begin{itemize}
 \item editable: boolean \
 Indica se i campi del riepilogo documento sono modificabili dall'utente.
@@ -3857,7 +3892,7 @@ Indica se i campi del riepilogo documento sono modificabili dall'utente.
   \item pages: number \\
   Indica il numero totale di pagine associate al documento.
 \end{itemize}
-\item Proprietà di output: comunicano al componente padre le azioni eseguite dall'utente.
+\item Attributi di output: comunicano al componente padre le azioni eseguite dall'utente.
 \begin{itemize}
 \item openOriginalPdf: EventEmitter<void>  \
 Notifica la richiesta di apertura del PDF originale.
@@ -3875,6 +3910,8 @@ Notifica la richiesta di apertura del PDF originale.
 \item getFieldConfidence(...keys: string[]): number \textbar{} null \
 Restituisce il livello di confidenza\G{} del primo campo disponibile tra quelli indicati.
 
+\item formatConfidence(value: number | null | undefined): string \
+Normalizza e formatta il valore di confidenza\G{}.
 \item getFieldValue(field: keyof ResultSplit, fallback: string = `Non trovato'): string \textbar{} number \
 Recupera il valore di un campo considerando prima le modifiche pendenti e poi il dato originale, con fallback configurabile.
 
@@ -3901,7 +3938,7 @@ Converte un valore in numero, usando un fallback se il valore principale non è 
 Componente UI che rappresenta un dialog per la selezione di un dipendente dalla lista di dipendenti dell'azienda inserita o estratta, con possibilità di ricerca.\\
 \textbf{Attributi}
 \begin{itemize}
-  \item Proprietà interne: mantengono lo stato locale del dialog e gestiscono l'integrazione con PrimeNG Dynamic Dialog.
+  \item Attributi interni: mantengono lo stato locale del dialog e gestiscono l'integrazione con PrimeNG Dynamic Dialog.
     \begin{itemize}
       \item ref: DynamicDialogRef \
       Riferimento al dialog corrente, usato per chiudere la finestra e restituire eventualmente un payload.
@@ -3911,6 +3948,9 @@ Componente UI che rappresenta un dialog per la selezione di un dipendente dalla 
 
       \item employees\$: Observable<EmployeeOption[]> \textbar{} null  \
       Stream contenente la lista dei dipendenti selezionabili nel dialog.
+
+      \item menuEmployees\$: Observable<EmployeeMenuOption[]> \textbar{} null  \
+      Stream contenente la lista dei dipendenti formattati per essere mostrati nel menu.
 
       \item extractedEmployeeName: string  \
       Nome dipendente estratto automaticamente e mostrato come riferimento all'utente.
@@ -3987,7 +4027,6 @@ Converte un valore eterogeneo in numero, restituendo undefined in caso di input 
 \end{figure}
 Componente UI che rappresenta una "pillola" di stato, visualizzando un'etichetta testuale con uno stile che varia in base al contenuto.\\
 \textbf{Attributi}
-
 \begin{itemize}
 \item state: string \
 Definisce lo stato testuale da rappresentare nella pillola di stato.
@@ -3996,7 +4035,7 @@ Definisce lo stato testuale da rappresentare nella pillola di stato.
 \subsubsection{ExtractedEmployeeInfo}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/extracted-employee-info-component.png}
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/extracted-employee-info-component.drawio.png}
 \end{figure}
 \textbf{Attributi}
 
@@ -4011,10 +4050,7 @@ Definisce lo stato testuale da rappresentare nella pillola di stato.
     \begin{itemize}
       \item editRequested: EventEmitter<void>  \
       Notifica la richiesta di apertura/modifica dei dati estratti.
-      \item rowRemoved: EventEmitter<number>  \
-      Emette l'indice della riga che l'utente richiede di rimuovere.
     \end{itemize}
-  \item Proprietà interne: il componente non definisce campi interni persistenti aggiuntivi.
   \end{itemize}
 
 \textbf{Metodi}
@@ -4099,7 +4135,7 @@ Emette l'identificativo della riga che l'utente richiede di rimuovere.
 \item requestRowRemoval(rowId: number): void \
 Inoltra verso l'esterno la richiesta di rimozione di una riga emettendo il relativo identificativo tramite \texttt{rowRemoved}.
 \end{itemize}
-\textbf{OtherExtractDocumentsRow (definito nel file come OtherExtractDocumentRow)}
+\textbf{OtherExtractDocumentRow} \\
 %to do
 \textbf{Attributi}
 
@@ -4129,7 +4165,8 @@ Componente UI che rappresenta un dialog per la conferma dell'invio di un documen
 \item options: any[] \
 Collezione generica di opzioni configurabili ricevute dal componente padre.
 \end{itemize}
-
+\item Attributi interni: gestiscono lo stato locale del dialog.
+\begin{itemize}
 \item ref: DynamicDialogRef  \
 Riferimento al dialog corrente, usato per chiudere la finestra con o senza payload.
   \item config: DynamicDialogConfig  \
@@ -4158,7 +4195,8 @@ Riferimento al dialog corrente, usato per chiudere la finestra con o senza paylo
 
   \item selectedTime: \{ name: string; value: string \}  \
   Opzione temporale attualmente selezionata per l'invio.
-\item Proprietà calcolate interne:
+\end{itemize}
+\item Attributi calcolati:
 \begin{itemize}
 \item messaggio: string (Accessor get/set) \
 Espone il contenuto del messaggio: in lettura usa \texttt{_messaggio} oppure il contenuto del template\G{} selezionato; in scrittura aggiorna \texttt{_messaggio}.
@@ -4366,7 +4404,7 @@ Naviga verso il generatore passando lo stato di tono, stile, azienda e prompt\G{
 \subsubsection{Pagina di storico dei risultati dell'Ai Assistant}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/storico-ai-assistant-page.png}
+\includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/storico-ai-assistant-page.drawio.png}
 \end{figure}
 Pagina che mostra lo storico dei risultati salvati come post.\\
 \textbf{Attributi}
@@ -4379,9 +4417,6 @@ Servizio applicativo iniettato per recuperare lo storico, gestire le azioni sui 
 
 \item destroyRef: DestroyRef  \
 Utilizzato per interrompere automaticamente le sottoscrizioni quando il componente viene distrutto.
-
-\item ButtonLabel: string  \
-Etichetta del pulsante principale associato all'azione di aggiunta.
 
 \item Generazioni: ResultAiAssistant[]  \
 Collezione completa dei risultati di generazione caricati dallo storico.
@@ -4548,7 +4583,7 @@ Se ci sono file selezionati, invia la batch al servizio con i metadati correnti 
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/riconoscimento-documenti-page.png}
 \end{figure}
-Componente UI che rappresenta la pagina di riconoscimento dei documenti caricati, che mostra i documenti riconosciuti e splittati, con filtri avanzati, vista nested per documento padre e azioni operative (modifica, elimina, retry analisi).\
+Componente UI che rappresenta la pagina di riconoscimento dei documenti caricati, che mostra i documenti riconosciuti e splittati, con filtri avanzati, vista nested per documento padre e azioni operative (modifica, elimina, retry analisi).\\
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
 \item aiCoPilotService: AiCoPilotService
@@ -4656,7 +4691,7 @@ Aggiorna il filtro azienda e riapplica i filtri.
 \item onDepartmentChange(department: string | number): void
 Aggiorna il filtro reparto e riapplica i filtri.
 
-\item onTableMenuAction(event: { row: ResultSplit; item: MenuItem }): void
+\item onTableMenuAction(event: \{ row: ResultSplit; item: MenuItem \}): void
 Gestisce le azioni del menu sulla riga: naviga alla modifica oppure elimina il documento padre.
 
 \item onRetryAnalysis(parentId: number): void
@@ -4908,7 +4943,7 @@ Naviga alla pagina anteprima passando il risultato selezionato (o il primo filtr
 \centering
 \includegraphics[width=0.7\textwidth]{ImmaginiSpecificaTecnica/Frontend/analytics-dashboard-page.png}
 \end{figure}
-Componente UI che rappresenta la pagina che mostra la dashboard analytics con metriche aggregate per AI Assistant e AI CoPilot, includendo grafici di utilizzo tono/stile e filtri per intervallo temporale.\
+Componente UI che rappresenta la pagina che mostra la dashboard analytics con metriche aggregate per AI Assistant e AI CoPilot, includendo grafici di utilizzo tono/stile e filtri per intervallo temporale.\\
 \textbf{Attributi}
 \begin{itemize}[noitemsep, topsep=0pt]
 \item periodoOptions: \{ name: string \}[]
