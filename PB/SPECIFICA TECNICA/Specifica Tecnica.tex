@@ -1,6 +1,6 @@
 \documentclass[a4paper,11pt]{article}
    
-\newcommand{\CurrentVersion}{0.1.4} % ultima versione, da cambiare ad ogni push significativo
+\newcommand{\CurrentVersion}{1.0.0} % ultima versione, da cambiare ad ogni push significativo
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -128,7 +128,7 @@
 \begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
 % Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
-  {Stato} & In Redazione \\
+  {Stato} & Approvato \\
   {Redattori\G{}} & Alberto Autiero, Alberto Pignat, Linor Sadè, Luca Slongo \\
   {Verificatori\G{}} & Alberto Autiero \\
   {Distribuzione} & BugBusters, Eggon, Prof. Tullio Vardanega, Prof. Riccardo Cardin\\
@@ -154,27 +154,45 @@ Documento dove viene spiegata in dettaglio la struttura architetturale, le tecno
 \hline
 \rowcolor{primaryblue!40}
 \textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
-\rowcolor{secondaryblue!10}1.0.0 & 03/04/2026 & Approvazione documento & - &  & Linor Sadè \\
+\rowcolor{secondaryblue!10}1.0.0 & 03/04/2026 & Approvazione documento & - & - & Linor Sadè \\
 \hline
-\rowcolor{secondaryblue!10}0.1.5 & 03/04/2026 & Verifica documento & - & Alberto Pignat & - \\
+\rowcolor{secondaryblue!10}0.10.0 & 03/04/2026 & Verifica documento & - & Alberto Pignat & - \\
 \hline
-\rowcolor{secondaryblue!10}0.1.4 & 03/04/2026 & Aggiunti ai termini presenti nel Glossario\G{} la G & Alberto Autiero & - & - \\
+\rowcolor{secondaryblue!10}0.9.1 & 03/04/2026 & Aggiunti ai termini presenti nel Glossario\G{} la G & Alberto Autiero & - & - \\
 \hline
-\rowcolor{secondaryblue!10}0.1.3 & 01/04/2026 & Aggiunta parte di modulo\G{} AI Assistant\G{} & Alberto Pignat & - & - \\
+\rowcolor{secondaryblue!10}0.9.0 & 01/04/2026 & Verifica\G{} del documento & - & Alberto Autiero & - \\
 \hline
-\rowcolor{secondaryblue!10}0.1.2 & 31/03/2026 & Prima stesura parte front-end\G{} & Linor Sadè & - & - \\
+\rowcolor{secondaryblue!10}0.8.1 & 01/04/2026 & Aggiunta parte di modulo\G{} AI Assistant\G{} & Alberto Pignat & - & - \\
 \hline
-\rowcolor{secondaryblue!10}0.1.1 & 31/03/2026 & Continuazione paragrafo Pattern e aggiunta diagrammi & Luca Slongo & - & - \\
+\rowcolor{secondaryblue!10}0.8.0 & 30/03/2026 & Verifica\G{} del documento & - & Leonardo Salviato & - \\
 \hline
-\rowcolor{secondaryblue!10}0.1.0 & 30/03/2026 & Verifica\G{} del documento & - & Alberto Autiero & - \\
+\rowcolor{secondaryblue!10}0.7.1 & 31/03/2026 & Prima stesura parte front-end\G{} & Linor Sadè & - & - \\
 \hline
-\rowcolor{secondaryblue!10}0.0.5 & 27/03/2026 & Prima stesura paragrafo Database e continuazione paragrafo Design Pattern & Alberto Pignat & - & - \\
+\rowcolor{secondaryblue!10}0.7.0 & 30/03/2026 & Verifica\G{} del documento & - & Alberto Pignat & - \\
 \hline
-\rowcolor{secondaryblue!10}0.0.4 & 25/03/2026 & Stesura paragrafo Tecnologie e Linguaggi & Luca Slongo & - & - \\
+\rowcolor{secondaryblue!10}0.6.1 & 31/03/2026 & Continuazione paragrafo Pattern e aggiunta diagrammi & Luca Slongo & - & - \\
 \hline
-\rowcolor{secondaryblue!10}0.0.3 & 18/03/2026 & Prima stesura design pattern & Linor Sadè & - & - \\
+\rowcolor{secondaryblue!10}0.6.0 & 30/03/2026 & Verifica\G{} del documento & - & Alberto Autiero & - \\
 \hline
-\rowcolor{secondaryblue!10}0.0.2 & 16/03/2026 & Prima stesura della tabella dei requisiti, paragrafo requisiti e paragrafo architettura & Alberto Pignat & - & - \\
+\rowcolor{secondaryblue!10}0.5.1 & 31/03/2026 & Continuazione paragrafo Pattern e aggiunta diagrammi & Luca Slongo & - & - \\
+\hline
+\rowcolor{secondaryblue!10}0.5.0 & 18/03/2026 & Verifica & - & Marco Favero & - \\
+\hline
+\rowcolor{secondaryblue!10}0.4.1 & 27/03/2026 & Prima stesura paragrafo Database e continuazione paragrafo Design Pattern & Alberto Pignat & - & - \\
+\hline
+\rowcolor{secondaryblue!10}0.4.0 & 18/03/2026 & Verifica & - & Leonardo Salviato & - \\
+\hline
+\rowcolor{secondaryblue!10}0.3.1 & 25/03/2026 & Stesura paragrafo Tecnologie e Linguaggi & Luca Slongo & - & - \\
+\hline
+\rowcolor{secondaryblue!10}0.3.0 & 18/03/2026 & Verifica & - & Alberto Pignat & - \\
+\hline
+\rowcolor{secondaryblue!10}0.2.1 & 18/03/2026 & Prima stesura design pattern & Linor Sadè & - & - \\
+\hline
+\rowcolor{secondaryblue!10}0.2.0 & 16/03/2026 & Verifica & - & Alberto Autiero & - \\
+\hline
+\rowcolor{secondaryblue!10}0.1.1 & 16/03/2026 & Prima stesura della tabella dei requisiti, paragrafo requisiti e paragrafo architettura & Alberto Pignat & - & - \\
+\hline
+\rowcolor{secondaryblue!10}0.1.0 & 24/02/2026 & Verifica & - & Alberto Pignat & - \\
 \hline
 \rowcolor{secondaryblue!10}0.0.1 & 24/02/2026 & Prima stesura del documento & Alberto Autiero & - & - \\
 \hline
@@ -197,7 +215,7 @@ Il glossario\G{} raccoglie e definisce i termini, gli acronimi e le abbreviazion
 impiegati nel documento e nel progetto\G{} Nexum. L'obiettivo è fornire definizioni univoche per ridurre 
 ambiguità, garantire coerenza terminologica tra i membri del team e facilitare l'onboarding di nuovi partecipanti. \\
 Per i termini tecnici e specifici utilizzati in questo documento, si fa riferimento al glossario\G{} disponibile al 
-seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}{link}.
+seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/GLOSSARIO/Glossario.pdf}{link}.
 Per maggiore usabilità e facilitá di consultazione, il glossario\G{} è accessibile anche aprendo dal nostro sito web i vari documenti con il viewer
 pdf da noi sviluppato.
 
