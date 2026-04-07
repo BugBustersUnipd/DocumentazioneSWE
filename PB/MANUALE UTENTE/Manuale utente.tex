@@ -1,0 +1,1033 @@
+\documentclass[a4paper,11pt]{article}
+   
+\newcommand{\CurrentVersion}{1.0.0} % ultima versione, da cambiare ad ogni push significativo
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage[titles]{tocloft}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{amsmath}
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+\definecolor{statusinelabbg}{HTML}{FEF3C7}
+\definecolor{statusinelabfg}{HTML}{92400E}
+\definecolor{statuscompletatobg}{HTML}{D1FAE5}
+\definecolor{statuscompletatofg}{HTML}{065F46}
+\definecolor{statusprontobg}{HTML}{009dff}
+\definecolor{statusprontofg}{HTML}{003366}
+\definecolor{statusincodabg}{HTML}{dbeafe}
+\definecolor{statusincodafg}{HTML}{1e3a8a}
+\definecolor{statusinelabsottodocbg}{HTML}{ff00a2}
+\definecolor{statusprogrammato}{HTML}{ff7700}
+\definecolor{statusinviatobg}{HTML}{00cc4b}
+\definecolor{statuserratobg}{HTML}{ffcccc}
+\definecolor{statuserratofg}{HTML}{990000}
+\titleformat{\section}
+ {\Large\bfseries\color{primaryblue}}
+ {\thesection}{1em}{}
+
+\titleformat{\subsection}
+ {\large\bfseries\color{primaryblue}} % Sottosezione: colore secondaryblue
+ {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+ {\normalsize\bfseries\color{secondaryblue}} % Sotto-sottosezione: colore secondaryblue
+ {\thesubsubsection}{1em}{}
+
+% per il footer con il numero di pagina
+\usepackage{fancyhdr}
+\renewcommand{\headrule}{}
+\renewcommand{\footrule}{}
+\usepackage{lastpage} % per ottenere il numero dell'ultima pagina da mettere nel footer
+
+
+\usepackage{ltablex} %per far andare a capo le tabelle
+\keepXColumns
+
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\newcommand{\G}{\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+
+% per i drop shadow
+\tcbuselibrary{skins}
+\newcommand{\immagine}[4][0.8\textwidth]{%
+    \begin{figure}[H]
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]{\includegraphics[max width=#1,max height=0.85\textheight,keepaspectratio]{#2}}
+        \caption{#3}
+        \label{#4}
+    \end{figure}%
+}
+
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+%configurazione per il footer
+\pagestyle{fancy}
+\fancyhf{} % pulisce tutti i campi del header e footer
+
+% Header: sinistra e destra
+\fancyhead[L]{Gruppo 4 - BugBusters} % sinistra
+\fancyhead[R]{Manuale utente\G{}}   % destra
+
+\fancyfoot[L]{ \thepage\ di \pageref{LastPage}} %definisce il formato del footer
+\fancyfoot[R]{ \nouppercase{\rightmark}} % nome della sezione
+
+
+\renewcommand{\headrulewidth}{0pt} % rimuove la linea dell'header
+\renewcommand{\footrulewidth}{0pt} % se vuoi anche togliere eventuale linea del footer
+
+% abilitare numerazione e TOC fino al livello "paragraph" (subsubsubsection)
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+% formattazione del nuovo livello per avere aspetto coerente
+\titleformat{\paragraph}[block]{\normalsize\bfseries\color{secondaryblue}}{\theparagraph}{1em}{}
+% alias comodo per usare "subsubsubsection"
+\newcommand{\subsubsubsection}{\paragraph}
+
+\begin{center}
+ \thispagestyle{empty}
+ \IfFileExists{../../assets/Logo.jpg}{%
+  \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../assets/Logo.jpg} \\[0.8cm]
+ }{%
+  \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+ }
+ {\Large\bfseries BugBusters}\\[0.3cm]
+ {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+ {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+ {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+ {\small Laurea in Informatica}\\[0.2cm]
+ {\small Corso: Ingegneria del Software}\\[0.2cm]
+ {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+ {\Huge\bfseries\color{primaryblue} Manuale utente\G{}}\\[0.8cm]
+ {\Large\color{secondaryblue}Versione \CurrentVersion}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+% Usa tabularx con una colonna fissa per l'etichetta e una colonna X per il contenuto
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}X@{}}
+	{Stato} & Approvato \\
+    {Redattori\G{}} & Alberto Autiero, Luca Slongo, Leonardo Salviato, Marco Piro \\
+	{Verificatori\G{}} &  Alberto Autiero, Linor Sadè, Marco Favero, Alberto Pignat, Leonardo Salviato \\
+	{Destinatari} & BugBusters, Prof. Tullio Vardanega, Prof. Riccardo Cardin \\
+\end{tabularx}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Documento rivolto agli utenti finali della piattaforma Nexum, sviluppata dal team BugBusters per l'azienda Eggon. Il manuale fornisce una guida completa all'installazione, alla configurazione e all'utilizzo dei moduli AI-Assistant\G{} Generativo e AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}, includendo istruzioni operative e indicazioni per la risoluzione dei problemi più comuni.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\section*{Registro delle modifiche}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+\arrayrulecolor{primaryblue}
+{\footnotesize
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.5cm}|>{\raggedright\arraybackslash}p{2cm}|X|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} Versione} & \textbf{\color{white} Data} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Redatto} & \textbf{\color{white} Verificato} & \textbf{\color{white} Approvato} \\
+\hline
+\rowcolor{secondaryblue!10} 1.0.0 & 04/04/2026 & Approvazione\G{} documento & - & - & Linor Sadè \\
+\hline
+\rowcolor{secondaryblue!10} 0.7.0 & 04/04/2026 & Verifica\G{} finale & - & Alberto Autiero & - \\
+\hline
+\rowcolor{secondaryblue!10}0.6.1 & 04/04/2026 & Aggiunti ai termini presenti nel Glossario\G{} la G & Alberto Autiero & - & - \\
+\hline
+\rowcolor{secondaryblue!10}0.6.0 & 04/04/2026 & Verifica\G{} degli ultimi aggiornamenti sezione istruzioni per l'uso & - & Leonardo Salviato & - \\
+\hline
+\rowcolor{secondaryblue!10}0.5.1 & 04/04/2026 & Terminata stesura sezione istruzioni per l'uso e aggiornate immagini & Luca Slongo & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.5.0 & 30/03/2026 & Verifica\G{} sezione test\G{} & - & Leonardo Salviato & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.4.1 & 27/03/2026 & Inizio stesura sezione test\G{} & Marco Piro & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.4.0 & 23/03/2026 & Verifica\G{} sezione installazione & - & Leonardo Salviato & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.3.1 & 22/03/2026 & Inizio stesura sezione installazione & Luca Slongo & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.3.0 & 20/03/2026 & Verifica\G{} sezione istruzioni per l'uso & - & Alberto Pignat & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.2.1 & 18/03/2026 & Continuo stesura sezione istruzioni per l'uso & Luca Slongo & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.2.0 & 06/03/2026 & Verifica\G{} dell'inizio della stesura della sezione istruzioni per l'uso & - & Marco Favero & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.1.1 & 03/03/2026 & Inizio stesura sezione istruzioni per l'uso & Alberto Autiero & - & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.1.0 & 24/02/2026 & Verifica\G{} prima stesura & - & Linor Sadè & - \\
+\hline
+\rowcolor{secondaryblue!10} 0.0.1 & 24/02/2026 & Prima stesura & Leonardo Salviato & - & - \\
+\hline
+\end{tabularx}
+}
+
+
+\newpage
+\tableofcontents
+
+\newpage
+
+\section{Introduzione}
+
+\subsection{Scopo del documento}
+Il documento "Manuale utente\G{}" ha lo scopo di fornire agli utenti finali una guida completa e dettagliata sull'utilizzo dei Moduli AI Assistant\G{} generativo e AI Copilot\G{} per i consulenti del lavoro\G{}. 
+Esso include informazioni su come installare, configurare e utilizzare le funzionalità\G{} principali della piattaforma, nonché indicazioni per la risoluzione di eventuali problemi comuni. 
+L'obiettivo è garantire che gli utenti possano sfruttare appieno le potenzialità di Nexum per migliorare la comunicazione interna e la revisione e analisi di documenti all'interno delle loro organizzazioni.
+
+
+\subsection{Scopo del prodotto\G{}}
+Nexum è una piattaforma che supporta la gestione delle comunicazioni interne, la raccolta di feedback e la timbratura digitale del personale.
+Il sistema consente di inviare comunicazioni ai dipendenti con tracciamento delle letture, creare e distribuire survey personalizzate e monitorarne i risultati tramite dashboard\G{} aggiornate in tempo reale. 
+Inoltre, permette di effettuare la timbratura tramite badge o dispositivi mobili, applicando automaticamente le regole di controllo e aggregazione delle ore lavorate.
+
+Le anagrafiche centralizzate, integrate con ruoli e permessi, consentono una gestione controllata degli accessi e garantiscono la coerenza delle informazioni tra i diversi moduli della piattaforma.
+
+Questo manuale si occupa di un'applicazione stand-alone\G{} che in futuro verrà integrata con Nexum, che introduce funzionalità\G{} di assistente AI\G{} generativo per supportare l'utente nella scrittura di comunicazioni e un AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}.
+Questo modulo\G{} consente di caricare documenti, riconoscerne automaticamente la tipologia, estrarre le informazioni rilevanti e gestirne l'invio a destinatari in modo massivo.
+
+Per ulteriori dettagli sulle funzionalità\G{} e sul contesto del progetto\G{}, si rimanda alla documentazione di \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}{Analisi dei Requisiti\G{}}.
+
+
+\subsection{Glossario\G{}}
+Il glossario\G{} raccoglie e definisce i termini, gli acronimi e le abbreviazioni 
+impiegati nel documento e nel progetto\G{} Nexum. L'obiettivo è fornire definizioni univoche per ridurre 
+ambiguità, garantire coerenza terminologica tra i membri del team e facilitare l'onboarding di nuovi partecipanti. \\
+Per i termini tecnici e specifici utilizzati in questo documento, si fa riferimento al glossario\G{} disponibile al 
+seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/GLOSSARIO/Glossario.pdf}{link}.
+Per maggiore usabilità e facilità di consultazione, il glossario\G{} è accessibile anche aprendo dal nostro \href{https://bugbustersunipd.github.io/DocumentazioneSWE/}{sito web} i vari documenti con il viewer
+pdf da noi sviluppato.
+ 
+\subsection{Riferimenti}
+ 
+\subsubsection{Riferimenti normativi}
+\begin{itemize}
+\item \textbf{Capitolato\G{}
+ d'appalto C5: Nexum - Piattaforma di consulenza e documentazione previdenziale}\\
+\url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C5.pdf}
+\item \textbf{Norme di Progetto\G{}:}\\
+\url{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/NORME%20DI%20PROGETTO/Norme%20di%20Progetto.pdf}
+\end{itemize}
+ 
+\subsubsection{Riferimenti informativi}
+\begin{itemize}
+    \item \textbf{Glossario\G{}:}\\
+\url{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/GLOSSARIO/Glossario.pdf}
+    \item \textbf{Analisi dei Requisiti\G{}:}\\
+\url{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/ANALISI%20DEI%20REQUISITI/Analisi%20dei%20Requisiti.pdf}
+    \item \textbf{Sito web del progetto:}\\
+\url{https://bugbustersunipd.github.io/DocumentazioneSWE/}
+\end{itemize}
+
+\newpage
+
+\section{Requisiti}
+Per poter utilizzare correttamente il prodotto\G{}, è necessario soddisfare alcuni requisiti minimi. 
+Questi requisiti garantiscono che la piattaforma funzioni in modo efficiente e senza problemi, offrendo un'esperienza utente ottimale.
+
+
+\subsection{Requisiti hardware}
+Trattandosi di un'applicazione web, Nexum è accessibile da qualsiasi dispositivo dotato di un browser moderno e connesso a Internet.
+Tuttavia, per garantire prestazioni ottimali, si consiglia di utilizzare un computer con le seguenti specifiche minime:
+\begin{itemize}
+    \item Processore: 1-2 vCPU;
+    \item RAM: 2 GB, consigliati 8 GB o più;
+    \item Spazio su disco: almeno 10 GB spazio libero per l'installazione di docker\G{} e del container dedicato all'applicazione;
+    \item Connessione Internet: rete 3G stabile.
+\end{itemize}
+
+
+\subsection{Requisiti software}
+Per poter eseguire correttamente l'applicazione è necessario utilizzare un browser web aggiornato per garantire la compatibilità e la sicurezza\G{} (indipendentemente dal sistema operativo utilizzato).
+I browser consigliati includono:
+\begin{itemize}
+    \item Google Chrome (versione 120 o superiore)
+    \item Mozilla Firefox (versione 115 o superiore)
+    \item Microsoft Edge (versione 120 o superiore)
+    \item Safari (versione 17 o superiore)
+\end{itemize}
+
+Inoltre è necessario l'utilizzo di Docker\G{} per eseguire l'applicazione in un ambiente isolato e controllato, garantendo la compatibilità tra le diverse piattaforme e semplificando il processo di installazione e configurazione.
+\begin{itemize}
+    \item Versione minima di Docker\G{}: 19.03 con utilizzo di Docker\G{} Desktop 4.0.0
+    \item Versione consigliata di Docker\G{}: 24 o superiore con utilizzo di Docker\G{} Desktop 4.3.0 o superiore
+\end{itemize}
+
+
+\section{Installazione}
+Con il seguente procedimento è possibile installare e configurare l'applicazione stand-alone\G{} che introduce 
+funzionalità\G{} di assistente AI\G{} generativo per supportare l'utente nella scrittura di comunicazioni e un AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}.
+Per un corretto funzionamento è necessario seguire ogni passaggio nell'ordine riportato.
+Per motivi di sicurezza\G{} le API-key cambiano costantemente, quindi per poter usufruire correttamente dei moduli è necessario disporre di API-key aggiornate.
+
+\subsection{Clonare la repository\G{}}
+All'interno del proprio dispositivo:
+\begin{itemize}
+    \item Aprire il terminale e posizionarsi nella directory in cui si desidera clonare la repository\G{}.
+    \item Eseguire il comando: \texttt{git clone <URL della repository>}
+\end{itemize}
+
+In questo modo si otterrà una copia locale del progetto\G{}, che potrà essere eseguita e modificata secondo le proprie esigenze.
+
+\subsection{Configurare file env per le API-key di AWS\G{}}
+Per poter utilizzare le funzionalità\G{} di AI\G{} generativa e di analisi documentale, è necessario configurare le API-key di AWS\G{} all'interno di un file \texttt{.env}; la struttura deve essere uguale a quella del file \texttt{.env.example} presente nella directory del progetto\G{}.
+\begin{itemize}
+    \item Aprire il file \texttt{.env} con un editor di testo.
+    \item Inserire le API-key di AWS\G{} nei campi corrispondenti, seguendo il formato specificato nel file.
+\end{itemize}
+Assicurarsi di salvare le modifiche al file \texttt{.env} prima di procedere con l'esecuzione dell'applicazione.
+
+\subsection{Inizializzazione applicazione tramite Docker\G{}}
+Per avviare l'applicazione, è necessario utilizzare Docker\G{} per creare e gestire i container necessari al funzionamento della piattaforma.
+\begin{itemize}
+    \item Per costruire l'ambiente, eseguire il comando \texttt{docker compose build}, che scarica l'immagine di Ruby\G{} e installa tutte le gemme necessarie definite nel Gemfile del progetto\G{}.
+    \item Successivamente per costruire e popolare il database si utilizza il comando \texttt{docker compose run --rm web rails db:setup}, che esegue le migrazioni del database per creare le tabelle necessarie e popolare il database con i dati iniziali.
+    \item Infine per avviare l'applicazione, eseguire il comando \texttt{docker compose up}, che avvia il server all'indirizzo \texttt{http://localhost:3000} e rende disponibile l'interfaccia\G{} utente all'indirizzo \texttt{http://localhost:4200}.
+\end{itemize}
+
+
+\section{Istruzioni per l'uso}
+
+\subsection{Overview\G{}}
+All'apertura dell'applicazione, gli utenti possono navigare tra le diverse funzionalità\G{}.
+Nel contesto della nostra applicazione stand-alone\G{}, la dashboard\G{} funge da hub centrale per accedere a:
+\begin{itemize}
+    \item AI-Assistant\G{} generativo per la creazione di post
+    \item AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{}
+    \item pagina di analytics per visualizzare le statistiche\G{} relative alle generazioni effettuate e ai documenti analizzati.
+\end{itemize}
+
+\immagine[1\textwidth]{immagini/0_Dashboard.png}{Dashboard}{fig:Dashboard}
+
+\subsubsection{Menù laterale}
+\label{sec:menulaterale}
+Per permettere la navigazione tra i moduli, è presente un menù laterale che consente di accedere rapidamente alle sezioni principali dell'applicazione.
+
+\immagine[0.3\textwidth]{immagini/0_BarraLaterale.png}{Menù laterale}{fig:BarraLaterale}
+
+\subsection{AI-Assistant\G{} Generativo}
+Il modulo\G{} di AI-Assistant\G{} Generativo è progettato per supportare gli utenti nella creazione di comunicazioni interne.
+
+\subsubsection{Generazione di contenuti}
+La generazione dei contenuti avviene tramite l'inserimento di un prompt\G{}, la scelta di un tono e la scelta di uno stile da parte dell'utente. 
+L'assistente AI\G{} utilizza queste informazioni per generare un post formato da titolo, testo e immagine.
+
+\immagine[1\textwidth]{immagini/1_GeneratoreDiContenuti.png}{Generatore di contenuti AI Assistant\G{} Generativo}{fig:GeneratoreDiContenuti}
+
+\subsubsubsection{Menù a tendina}
+Nei menù a tendina, l'utente può cercare e selezionare tra diverse opzioni. Inoltre i menù presenti nell'AI Assistant\G{} Generativo si differenziano tra:
+\begin{itemize}
+    \item \textbf{Menù di scelta del tono e dello stile}: permettono di eliminare e aggiungere toni e stili personalizzati.
+    \item \textbf{Menù di scelta dell'azienda}: utilizzato per selezionare l'azienda di riferimento per i toni e stili che si vogliono visualizzare.
+\end{itemize}
+
+Per esempio, nel menù a tendina per il tono \hyperref[fig:MenuTono]{(Figura 4(a))} l'utente può \textbf{scegliere tra le opzioni presenti} (Formale, Amichevole e Autoritario) ma ha anche la possibilità di \textbf{aggiungerne uno nuovo cliccando sul pulsante} \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo tono}} (Vedi la sezione \hyperref[sec:AggiungiTono]{Aggiungi tono e stile} per maggiori dettagli).\\\\
+Oltre all'inserimento di un tono personalizzato, è presente anche un'opzione che consente all'utente di \textbf{eliminare un tono} reputato obsoleto o non soddisfacente.\\\\
+Infine una comoda \textbf{barra di ricerca} \tcbox[colback=white,colframe=darkgray,boxrule=0.4pt,arc=1mm,left=1.2mm,right=18mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{|\quad}} consente all'utente di trovare rapidamente l'opzione desiderata, soprattutto quando il numero di toni o stili disponibili è elevato.
+
+\renewcommand{\thesubfigure}{\thefigure(\alph{subfigure})}
+\captionsetup[subfigure]{labelformat=simple}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]{\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/1_SelettoreToni.png}}
+        \caption{Menù a tendina per il tono}
+        \label{fig:MenuTono}
+    \end{subfigure}
+    \hspace{0.02\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]{\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/1_SelettoreStili.png}}
+        \caption{Menù a tendina per lo stile}
+        \label{fig:MenuStile}
+    \end{subfigure}
+\end{figure}
+
+\immagine[0.4\textwidth]{immagini/1_SelettoreAzienda.png}{Selettore azienda}{fig:SelettoreAzienda}
+\subsubsubsection{Aggiungi tono e stile}
+\label{sec:AggiungiTono}
+Per aggiungere un nuovo tono o stile, l'utente può cliccare sul pulsante \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo tono}} o \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo stile}} presente nei menù a tendina per il tono e lo stile (Vedi la \hyperref[fig:MenuTono]{Figura 4(a)} e la \hyperref[fig:MenuStile]{Figura 4(b)}).\\
+Si aprirà una finestra di dialogo in cui è richiesto un campo \tcbox[colback=white,colframe=darkgray,boxrule=0.4pt,arc=1mm,left=1.2mm,right=8mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{nome}} (che verrà poi visualizzato come etichetta del nuovo tono o stile) e un campo \tcbox[colback=white,colframe=darkgray,boxrule=0.4pt,arc=1mm,left=1.2mm,right=14mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{descrizione espansiva}} (opzionale) per descrivere in maniera più precisa l'opzione aggiunta (consigliato).\\
+L'immagine in figura \hyperref[fig:AggiungiTono]{Figura 5} mostra la dialog di creazione di un nuovo tono. Quella per lo stile è la medesima.
+\immagine[0.5\textwidth]{immagini/1_AggiungiTono.png}{Dialog di creazione di un nuovo tono}{fig:AggiungiTono}
+\subsubsubsection{Casella di testo per inserimento del prompt\G{}}
+La casella di testo per l'inserimento del prompt\G{} è la zona dedicata all'inserimento del testo per il contenuto e l'immagine che l'utente desidera generare per la creazione del post.\\\\
+Il prompt\G{} può essere semplicemente un testo che la generazione rifinirà o migliorerà oppure linee guida, obiettivi della comunicazione o qualsiasi altro dettaglio che l'utente ritiene importante per guidare la generazione del contenuto da parte dell'assistente AI\G{}.\\\\
+Per aumentare la probabilità\G{} di ottenere un post di qualità ed evitare che l'AI\G{} restituisca un errore come "Domanda non chiara o non pertinente", è richiesto che il prompt inserito dall'utente contenga almeno 50 caratteri.
+
+\immagine[1\textwidth]{immagini/1_CasellaInserimentoPrompt.png}{Casella di inserimento del prompt}{fig:CasellaPrompt}
+
+\subsubsubsection{Pulsante di generazione}
+Dopo aver compilato i campi necessari (prompt\G{}, tono e stile), l'utente può cliccare sul pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Genera}}} per avviare il processo di creazione del contenuto.\\\\
+Qualora non fossero stati compilati tutti i campi necessari, il tasto di generazione risulterà disabilitato, impedendo all'utente di avviare la generazione fino a quando non avrà inserito tutte le informazioni richieste.\\
+\begin{figure}[H]
+    \centering    
+\begin{subfigure}[t]{0.2\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]{\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/1_GeneraOn.png}}
+        \caption{Pulsante di generazione abilitato}
+        \label{fig:genon}
+    \end{subfigure}
+    \hspace{0.02\textwidth}
+    \begin{subfigure}[t]{0.2\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+            ]{\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/1_GeneraOff.png}}
+            \caption{Pulsante di generazione disabilitato}
+            \label{fig:genoff}
+    \end{subfigure}
+\end{figure}
+
+    
+
+
+
+\subsubsection{Anteprima del post generato}
+A seguito della generazione, viene visualizzata un'anteprima del risultato generato, che potrà essere modificato o rigenerato dall'utente prima di essere salvato.\\
+In particolare la pagina di anteprima consente di:
+\begin{enumerate}[leftmargin=1.2em]
+    \item Visualizzare il risultato generato (titolo, immagine e testo) (Vedi \hyperref[fig:RisultatoGenerato]{Figura 10})
+    \item Valutare la qualità\G{} del risultato generato attraverso un sistema di valutazione a stelle (da 1 a 5) (Vedi \hyperref[fig:Valutazione]{Figura 12})
+    \item Visualizzare i parametri di generazione utilizzati per ottenere il risultato (il tono, lo stile e il prompt\G{} inserito dall'utente)
+    \item Accedere alla modalità di modifica per poter modificare il risultato generato (titolo, contenuto e/o immagine)
+    \item Rigenerare il risultato per provare a ottenere un risultato migliore
+    \item Salvare il risultato generato (creazione di post)
+    \item Scartare il risultato generato
+\end{enumerate}
+
+\immagine[1\textwidth]{immagini/1_RisultatoGenerazione.png}{Pagina di anteprima del post generato}{fig:AnteprimaGenerazione}
+\subsubsubsection{Risultato generato}
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item L'immagine generata viene mostrata come primo elemento dell'anteprima del post
+    \item È possibile aprire l'immagine con una modalità di visualizzazione che la mette in evidenza, oscurando il resto della pagina e mostrando comandi per ingrandire, ridurre, girare a destra o a sinistra e chiudere la visualizzazione dell'immagine stessa (Vedi \hyperref[fig:VisualizzazioneImmagine]{Figura 11}). 
+    \item Il titolo è visualizzato su una riga di testo sopra l'immagine ma in un angolo che non disturba la visualizzazione dell'immagine stessa
+    \item Il testo è visualizzato sotto l'immagine e il titolo, fornendo il corpo principale della comunicazione che l'utente ha richiesto all'assistente AI\G{} di generare. 
+\end{itemize}
+\immagine[0.8\textwidth]{immagini/1_ImmagineTitoloContenuto.png}{Risultato di generazione con tono \texttt{Entusiasta} e stile \texttt{Normale}}{fig:RisultatoGenerato}
+
+\immagine[0.8\textwidth]{immagini/1_VisualizzaImmagine.png}{Visualizzazione dell'immagine generata}{fig:VisualizzazioneImmagine}
+
+
+\subsubsubsection{Valutazione del post generato}
+Dopo aver visualizzato l'anteprima del post generato, l'utente ha la possibilità di valutare la qualità\G{} del contenuto attraverso un sistema basato su un punteggio da 1 a 5 stelle.\\
+La valutazione procede immediatamente a modificare il punteggio assegnato, quindi non è necessario un salvataggio specifico per il campo valutazione.\\\\
+La valutazione è modificabile anche dopo il salvataggio del risultato generato e non è necessaria per poter salvare il risultato, ma è fortemente consigliata per fornire un feedback prezioso che arricchisce le analisi sulla qualità\G{} (Vedi \hyperref[fig:VistaAiAssistantGenerativo]{Figura 47}).
+
+\immagine[0.3\textwidth]{immagini/1_Valutazione.png}{Valutazione del post generato}{fig:Valutazione}
+
+
+\subsubsubsection{Panoramica parametri di generazione}
+Per poter associare più facilmente il risultato generato ai parametri di generazione, è presente una sezione che mostra i parametri utilizzati per la generazione del contenuto (il tono, lo stile e il prompt\G{} inserito dall'utente).\\\\
+I campi e i menù a tendina presenti in questa sezione sono in sola lettura.
+\immagine[1\textwidth]{immagini/1_ParametriInseriti.png}{Parametri inseriti nella generazione}{fig:PanoramicaParametri}
+
+\subsubsubsection{Modifica la generazione}
+Il pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Modifica}}} consente all'utente di accedere alla modalità di modifica del post generato, dove potrà apportare modifiche al titolo, al testo e all'immagine generati.\\
+
+Per attivare le funzionalità\G{} di modifica del post generato, è presente un tasto che consente all'utente di accedere alla modalità di modifica, dove potrà apportare le modifiche desiderate al titolo, al testo e all'immagine generati.
+
+\immagine[1\textwidth]{immagini/1_ModificaGenerazione.png}{Modalità di modifica abilitata}{fig:ModificaGenerazione}
+I pulsanti \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Salva Modifiche}}} e  \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{Annulla Modifiche}} consentono rispettivamente di salvare le modifiche apportate al post generato o di annullarle per tornare alla versione precedente le modifiche.\\ \\
+\textbf{Sostituzione dell'immagine generata:}
+\tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Modifica Immagine}}} permette all'utente di sostituire l'immagine generata con una propria tra quelle presenti nel proprio dispositivo.\\
+
+\textbf{Modifica del titolo generato:}
+Nella modalità di modifica, il titolo può essere aggiornato dallo stesso campo prima disabilitato alla modifica. L'utente può inserire manualmente il nuovo titolo e visualizzare subito il risultato nell'anteprima.
+
+\tcbox[
+    colback=white,
+    colframe=darkgray,
+    boxrule=0.4pt,
+    arc=1mm,
+    left=1.2mm,
+    right=25mm,
+    top=0.6mm,
+    bottom=0.6mm,
+    on line
+]{\footnotesize\textcolor{black}{Vacanze di Pasqua}}\\\\
+\textbf{L'editor di testo:}
+L'editor consente la modifica del testo generato, offrendo funzionalità\G{} di formattazione come grassetto, corsivo, sottolineato, elenchi puntati e numerati, allineamento del testo e inserimento di link.\\
+\immagine[1\textwidth]{immagini/1_EditorDiTesto.png}{Editor per la modifica del testo}{fig:EditorTesto}
+
+
+\subsubsubsection{Operazioni di gestione del risultato generato}
+A seguito della generazione del contenuto, l'utente ha la possibilità di gestire il risultato:
+\begin{itemize}
+    \item \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{Rigenera}}: per provare a ottenere un risultato migliore;
+    \item \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Salva}}}: per salvare il post;
+    \item \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{X}}: per scartare la generazione. Questa funzione comporta alla comparsa di una finestra di dialogo che chiede la conferma e ne spiega gli effetti.
+\end{itemize}
+\immagine[0.6\textwidth]{immagini/1_RigeneraSalvaScarta.png}{Operazioni di gestione del risultato generato}{fig:OperazioniGenerazione}
+\textbf{Rigenera:} Fa partire una nuova generazione con gli stessi parametri. Questa funzionalità\G{} differisce da "Riutilizza" (Vedi \hyperref[sec:AzioniGenerazioni]{Sezione 4.3.2}) perché, oltre a non dover salvare prima il risultato, fornisce feedback alla sezione Analytics\G{} per arricchire le analisi sulla qualità\G{} delle generazioni (Vedi \hyperref[fig:VistaAiAssistantGenerativo]{Figura 47}).\\\\
+\textbf{Scarta generazione:} Scartare una generazione comporta per l'utente la cancellazione del risultato generato ma i dati vengono collezionati per arricchire le analisi sulla qualità\G{} delle generazioni.\\Infatti cliccando su Scarta appare una finestra di dialogo che chiede conferma dell'azione e spiega che, se confermata, il risultato generato verrà eliminato e verrà assegnata la valutazione minima (1). (Vedi \hyperref[fig:ScartaGenerazione]{Figura 17}).
+\immagine[0.6\textwidth]{immagini/1_ScartaGenerazione.png}{Finestra di dialogo per scartare la generazione}{fig:ScartaGenerazione}
+\textbf{Salva:} Salva il risultato generato, creando un nuovo post con il titolo, il testo e l'immagine generati, consultabile nella sezione dello storico.\\Al salvataggio l'interfaccia\G{} cambia e diventa la pagina di visualizzazione del post appena creato (Vedi \hyperref[sec:VisualizzazioneDettagliVoceStorico]{Sezione 4.3.4}).
+
+
+\subsection{Storico delle generazioni}
+Cliccando sulla voce "Storico" presente nel menù laterale (Vedi \hyperref[sec:menulaterale]{Sezione 4.1.1}), l'utente può accedere allo storico delle generazioni. Lo storico delle generazioni consente all'utente di visualizzare tutte le generazioni salvate precedenti, con la possibilità di filtrarle e di accedere ai dettagli di ciascuna di esse.\\
+\immagine[1\textwidth]{immagini/1_Storico.png}{Storico delle generazioni}{fig:StoricoGenerazioni}
+\textbf{Il pulsante} \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=1mm,bottom=1mm,on line]{\footnotesize\textcolor{white}{\textbf{Aggiungi}}} riporta alla pagina di generazione del contenuto, permettendo all'utente di creare una nuova generazione.\\
+
+\subsubsection{Filtraggio e ricerca nello storico}
+All'interno dello storico delle generazioni, è presente una funzionalità\G{} di filtraggio e ricerca che consente all'utente di trovare facilmente specifiche generazioni passate in base a criteri come data, parole chiave, tono o stile utilizzato.\\\\
+\textbf{Ricerca per tutto:} L'utente può inserire una parola o una frase nella barra di ricerca \\ \tcbox[colback=white,colframe=darkgray,boxrule=0.4pt,arc=1mm,left=1.2mm,right=18mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{Cerca per tutto\quad}} per cercare tra tutte le generazioni passate, senza limitare la ricerca a un campo specifico. \\
+Il sistema restituirà tutte le generazioni che contengono la parola o frase inserita in qualsiasi campo (titolo, testo, tono, stile, ecc.).\\
+\immagine[1\textwidth]{immagini/1_FiltriStorico.png}{Filtri per lo storico delle generazioni}{fig:FiltriStorico}
+
+\subsubsection{Azioni su generazioni passate}
+\label{sec:AzioniGenerazioni}
+Per ogni generazione passata visualizzata nella tabella, un comodo pulsante a 3 puntini \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{...}}} apre un menù delle possibili voci. Tali azioni possono essere eseguite anche dalla pagina di visualizzazione del singolo post (Vedi \hyperref[sec:VisualizzazioneDettagliVoceStorico]{Sezione 4.3.4}).\\
+Le azioni disponibili nel menù a 3 puntini per ogni generazione sono:
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item \textbf{Riutilizza:} consente di avviare una nuova generazione con i parametri di generazione (tono, stile e prompt\G{}) della generazione selezionata.
+    \item \textbf{Duplica:} riporta alla pagina di generazione del contenuto, con i campi del modulo\G{} di generazione (tono, stile e prompt\G{}) precompilati con quelli della generazione selezionata, permettendo all'utente di modificare i parametri prima di avviare la generazione.
+    \item \textbf{\textcolor{red}{Elimina}:} consente di eliminare il post dallo storico in maniera definitiva.
+\end{itemize}
+\immagine[0.4\textwidth]{immagini/1_AzioniRow.png}{Azioni sui post}{fig:AzioniGenerazioni}
+
+\subsubsection{Scorrimento tabella storico}
+Utilizzando le frecce a fondo tabella l'utente può scorrere tra le pagine dello storico delle generazioni, visualizzando un numero limitato di generazioni per pagina per facilitare la consultazione e la gestione dello storico.
+\immagine[0.4\textwidth]{immagini/1_PaginazioneStorico.png}{Paginazione dello storico}{fig:PaginazioneStorico}
+
+\subsubsection{Visualizzazione dettagli voce storico}
+\label{sec:VisualizzazioneDettagliVoceStorico}
+Cliccando su una voce specifica dello storico, l'utente può accedere alla pagina di visualizzazione del post generato, dove potrà vedere il risultato completo del post (titolo, testo e immagine) e i parametri di generazione associati.\\
+La visualizzazione è simile a quella dell'anteprima del post generato (Vedi \hyperref[fig:AnteprimaGenerazione]{Figura 10}), ma con la differenza che in questo caso sono presenti informazioni aggiuntive (come la data di creazione del post) e non è possibile modificare il contenuto, in quanto si tratta di una visualizzazione di un post già salvato nello storico.\\
+Infine sono disponibili le operazioni di gestione del post (Riutilizza, Duplica e Elimina) discusse nella sezione precedente (\hyperref[sec:AzioniGenerazioni]{Sezione 4.3.2}).
+\immagine[1\textwidth]{immagini/1_VoceStorico.png}{Dettagli di una voce dello storico}{fig:VoceStorico}
+
+
+\subsection{AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}}
+Il modulo\G{} AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{} è progettato per supportare i professionisti nella gestione, \textit{splitting}\G{} e analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
+
+\subsubsection{Analisi documenti}
+Il modulo\G{} di analisi dei documenti consente ai CdL\G{} di \textbf{caricare documenti in vari formati (PDF, CSV, jpg, png...)} e di \textbf{riconoscerne automaticamente la tipologia} (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.), \textbf{il destinatario} e altre informazioni.\\
+Per effettuare un'analisi è necessario inserire uno o più file che si ha intenzione di analizzare ed eventualmente dati conosciuti (categoria, azienda, reparto, mese/anno di competenza), facilitando così il \textbf{processo di riconoscimento e estrazione delle informazioni} rilevanti.\\\\
+Se il documento da processare è un PDF, il sistema controlla prima se è necessario \textbf{suddividere tale documento in più sottodocumenti} (tipico dei sistemi dei CdL è generare più buste paga in un unico file), e poi avvia l'analisi su ogni sottodocumento; altrimenti se il documento è di un altro formato, viene analizzato direttamente senza effettuare suddivisioni.
+
+\immagine[1\textwidth]{immagini/2_Analisi.png}{Analisi documenti}{fig:AnalisiDocumenti}
+
+\subsubsubsection{Inserimento dati conosciuti}
+Per guidare il modello di AI\G{} e aumentare la precisione dell'estrazione (confidence), l'utente ha la facoltà di inserire manualmente alcuni metadati ancor prima di lanciare l'analisi; tuttavia non è obbligatorio inserire i dati conosciuti per avviare l'analisi, in quanto il sistema è progettato per essere in grado di riconoscere e estrarre le informazioni rilevanti anche senza input da parte dell'utente, ma è fortemente consigliato per migliorare la qualità\G{} dell'analisi.\\\\ 
+Tra questi figurano:
+\begin{enumerate}[leftmargin=1.2em,noitemsep,topsep=0pt]
+    \item l'inserimento della categoria documentale (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.)
+    \item la selezione dell'azienda cliente (vedi \hyperref[fig:SelettoreAzienda]{Figura 6})
+    \item l'indicazione del mese/anno di competenza del documento (ad esempio, per una busta paga, il mese e l'anno a cui si riferisce)
+    \item lo specifico reparto aziendale a cui il documento è associato (ad esempio, amministrazione, risorse umane, produzione, ecc.)
+\end{enumerate}
+\immagine[1\textwidth]{immagini/2_DatiConosciuti.png}{Inserimento dei dati conosciuti}{fig:DatiConosciuti}
+Il pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=1mm,bottom=1mm,on line]{\footnotesize\textcolor{white}{\textbf{Carica}}} si abilita solo dopo la selezione di almeno un documento (Vedi \hyperref[fig:CaricamentoDocumenti]{Figura 25}).\\\\
+Non vi è ordine tra l'inserimento dei dati conosciuti e la selezione dei documenti; l'utente potrà inserire i dati prima di caricare i documenti oppure dopo.
+\subsubsubsection{Caricamento dei documenti}
+Tramite questa funzione, l'utente può selezionare e caricare uno o più documenti all'interno del sistema.\\
+\immagine[1\textwidth]{immagini/2_Caricamento.png}{Zona di selezione dei documenti}{fig:CaricamentoDocumenti}
+È possibile \textbf{caricare i documenti tramite il pulsante} \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=1mm,bottom=1mm,on line]{\footnotesize\textcolor{white}{\textbf{+ Choose}}} \textbf{oppure tramite} la funzionalità\G{} di \textbf{drag and drop}, che consente di trascinare i file direttamente nell'area designata per il caricamento.\\\\
+Per annullare il caricamento di tutti i documenti selezionati, è possibile utilizzare il pulsante \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{x Cancel}}, altrimenti è consentito rimuovere singoli documenti dalla lista cliccando sull'icona rossa \textcolor{red}{x} presente accanto a ciascun documento selezionato (Vedi \hyperref[fig:AnnullaCaricamento]{Figura 26}).\\\\
+Quando uno o più documenti vengono caricati, il pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=1mm,bottom=1mm,on line]{\footnotesize\textcolor{white}{\textbf{Carica}}} si abilita, permettendo all'utente di avviare il processo di caricamento e analisi dei documenti selezionati.\\\\
+L'infrastruttura verifica\G{} l'integrità e la validità del formato del file per prepararlo all'analisi.
+
+\immagine[1\textwidth]{immagini/2_AnnullaCaricamento.png}{Esempio di caricamento con possibilità di annullamento}{fig:AnnullaCaricamento}
+
+
+\subsubsection{Riconoscimento documenti}
+\subsubsubsection{Visualizzazione tabella riepilogativa documenti analizzati}
+Dopo il caricamento di uno o più file (vedi \hyperref[fig:CaricamentoDocumenti]{Figura 25}), il sistema presenta l'elenco dei documenti caricati in formato a lista.\\
+Per ogni elemento, vengono esposti i dati di sintesi estratti dall'AI\G{}, quali:
+\begin{itemize}[leftmargin=1.2em,noitemsep,topsep=0pt]
+    \item l'id assegnato;
+    \item il nome del documento;
+    \item il numero di pagine da cui è composto;
+    \item lo stato in cui si trova
+\end{itemize}
+\immagine[1\textwidth]{immagini/2_RiconoscimentDocumenti.png}{Lista riepilogativa dei documenti caricati che stanno venendo analizzati}{fig:RiconoscimentoDocumenti}
+Ogni riga della lista è espandibile per mostrare, in tempo reale, i documenti estratti e analizzati in formato tabellare (vedi \hyperref[fig:StatiSottodocumenti]{Figura 28})\\
+Qualora il documento estratto fosse solo uno (perché il documento caricato non necessitava di suddivisione) apparirà la singola riga del documento nella tabella.
+\subsubsubsection{Stati dei documenti}
+\label{sec:StatiDocumenti}
+\begin{itemize}
+    \item \textbf{Stati dei file caricati:}
+    \begin{itemize}
+        \item Inizialmente i documenti caricati si trovano nello stato \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusincodabg,
+            colframe=statusincodabg
+        ]{\footnotesize\textcolor{statusincodafg}{\textbf{In coda}}}.
+        \item Non appena la fase di \textit{splitting\G{}} termina il documento passa alla fase di elaborazione, visualizzato con la pillola di stato
+        \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusinelabbg,
+            colframe=statusinelabbg
+        ]{\footnotesize\textcolor{statusinelabfg}{\textbf{In elaborazione}}}.
+        \item Al termine dell'analisi il documento passa allo stato
+        \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statuscompletatobg,
+            colframe=statuscompletatobg
+        ]{\footnotesize\textcolor{statuscompletatofg}{\textbf{Completato}}}.
+        \item In caso di errori durante l'analisi, il documento passa allo stato
+        \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statuserratobg,
+            colframe=statuserratobg
+        ]{\footnotesize\textcolor{statuserratofg}{\textbf{Errore}}}.
+    \end{itemize}
+
+    \item \textbf{Stati dei sottodocumenti (risultanti dallo \textit{\textit{splitting\G{}}}):}
+    \begin{itemize}
+        \item Un sottodocumento può essere in fase di elaborazione, visualizzato con la pillola di stato
+        \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusinelabsottodocbg,
+            colframe=statusinelabsottodocbg
+        ]{\footnotesize\textcolor{white}{\textbf{In elaborazione}}}
+        , oppure completato, visualizzato con la pillola di stato
+        \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusprontobg,
+            colframe=statusprontobg
+        ]{\footnotesize\textcolor{white}{\textbf{Pronto}}}.
+    \item \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusinviatobg,
+            colframe=statusinviatobg
+        ]{\footnotesize\textcolor{white}{\textbf{Inviato}}} indica che il documento è stato inviato al destinatario.
+    \item \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusprogrammato,
+            colframe=statusprogrammato
+        ]{\footnotesize\textcolor{white}{\textbf{Programmato}}} indica che il documento è stato programmato per essere inviato al destinatario in una data e ora specifica.
+    % errore
+    \item \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statuserratofg,
+            colframe=statuserratofg
+        ]{\footnotesize\textcolor{white}{\textbf{Errore}}} indica che si è verificato un errore.
+    \end{itemize}
+\end{itemize}
+
+\immagine[1\textwidth]{immagini/2_StatiSottodocumenti.png}{Due sottodocumenti in analisi: il primo pronto e il secondo in elaborazione}{fig:StatiSottodocumenti}
+\immagine[1\textwidth]{immagini/2_RiconoscimentoCompletato.png}{Analisi di quattro documenti completata}{fig:RiconoscimentoCompletato}
+\subsubsubsection{Elementi estratti dai documenti analizzati}
+Per ogni sottodocumento (o documento, qualora non sia stato suddiviso), vengono mostrati alcuni dei campi analizzati dall'AI\G{}:
+\begin{itemize}[leftmargin=1.2em,noitemsep,topsep=0pt]
+    \item l'\textbf{id del documento estratto};
+    \item la \textbf{confidenza media dell'analisi}, che indica l'affidabilità\G{} del processo di estrazione;
+    \item il \textbf{destinatario estratto dal documento}, che ci sia o meno un match con il database aziendale;
+    \item lo \textbf{stato del documento} (vedi sezione precedente, \hyperref[sec:StatiDocumenti]{Stati dei documenti});
+    \item il \textbf{reparto associato al documento} (ad esempio, amministrazione, risorse umane, produzione, ecc.): questa informazione corrisponde a quella inserita nei dati conosciuti o, in assenza di quest'ultima, a quella rilevata dall'AI\G{} durante l'analisi del documento;
+    \item l'\textbf{azienda associata al documento}: questa informazione corrisponde a quella inserita nei dati conosciuti o, in assenza di quest'ultima, a quella rilevata dall'AI\G{} durante l'analisi del documento;
+    \item la \textbf{categoria del documento}: questa informazione corrisponde a quella inserita nei dati conosciuti o, in assenza di quest'ultima, a quella rilevata dall'AI\G{} durante l'analisi del documento;
+    \item la \textbf{data di analisi del documento}, che indica quando è stata completata l'analisi del documento da parte del sistema.
+\end{itemize}
+
+\immagine[1\textwidth]{immagini/2_RisultatoAnalisi.png}{Visualizzazione risultati analisi documenti}{fig:RisultatoAnalisi}
+
+\subsubsubsection{Applicazione filtro di ricerca su documenti}
+Per agevolare la gestione di archivi voluminosi, il sistema mette a disposizione uno strumento di filtraggio dinamico. 
+L'utente può raffinare la lista dei risultati applicando filtri per tipologia documentale, 
+mese/anno di competenza, confidenza, stato, reparto, documento originale o azienda, consentendo di individuare rapidamente i documenti di interesse 
+e di focalizzarsi su quelli più rilevanti per le proprie attività.
+
+\immagine[1\textwidth]{immagini/2_FiltroUpload.png}{Filtro ricerca documenti}{fig:FiltroDocumenti}
+
+\subsubsubsection{Modifica ed eliminazione dei risultati dell'analisi}
+In ottica "Human-in-the-loop", se l'AI\G{} dovesse classificare un documento in modo impreciso o associare dati non corretti, l'operatore può intervenire manualmente per modificare la tipologia del documento o correggerne gli attributi. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza.\\
+Per modificare i dati estratti da un documento, è sufficiente cliccare sul pulsante \tcbox[colback=lightgray,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{\textbf{Modifica}}} presente nel sotto-menù a \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{...}}} accanto a ogni documento, che consente di accedere alla modalità di modifica dei dati estratti.\\
+\\
+Qualora un documento sia stato caricato per errore o non debba più far parte del flusso di invio, l'utente può rimuovere il documento cliccando sul pulsante \tcbox[colback=lightgray,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{\textbf{Elimina}}} che si trova nel sotto-menù a \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{...}}} accanto a ogni documento, che consente di rimuovere definitivamente il documento dal sistema.
+
+\immagine[0.3\textwidth]{immagini/2_ModificaElimina.png}{Modifica ed eliminazione risultati analisi documenti}{fig:ModificaEliminaDocumenti}
+
+\subsubsubsection{Retry analisi documenti}
+Se un documento non viene analizzato correttamente a causa di un errore temporaneo, l'utente ha la 
+possibilità di rilanciare l'analisi per quel documento specifico, sperando in un risultato più accurato.
+
+\immagine[1\textwidth]{immagini/2_Retry.png}{Retry analisi documenti}{fig:RetryDocumenti}
+
+
+\subsubsection{Visualizzazione e correzione documenti}
+A seguito dell'analisi, il sistema estrae le informazioni rilevanti dal documento e le presenta in modo chiaro e organizzato, consentendo al CdL\G{} di verificare l'accuratezza dei dati estratti e di apportare eventuali correzioni o integrazioni prima di procedere con l'invio del documento al destinatario.\\
+Si accede alla modalità di visualizzazione di un documento processato cliccando sul pulsante \tcbox[colback=lightgray,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{darkgray}{\textbf{Visualizza}}} presente nel sotto-menù a \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{...}}} accanto a ogni documento, che consente di accedere alla modalità di visualizzazione e correzione del documento analizzato.\\ 
+
+Le operazioni disponibili in questa modalità sono:
+\begin{itemize}
+    \item \textbf{Visualizzazione informazioni del documento}: vedi \hyperref[fig:ModificaInfoDocumento]{Figura 35}.
+    \item \textbf{Visualizzazione destinatario del documento}: vedi \hyperref[fig:DestinatarioDocumento]{Figura 38}.
+    \item \textbf{Modifica dati del documento}: consente di apportare modifiche ai dati estratti, abilitando le caselle di testo che contengono i dati estratti e permettendo all'utente di correggerli manualmente. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza;
+    \item \textbf{Modifica destinatario del documento}: apre una finestra di dialogo che consente di modificare il destinatario estratto (vedi \hyperref[fig:ModificaDestinatario]{Figura 39}).
+    \item \textbf{Apertura documento originale ed estratto}: consente di visualizzare sia il documento originale caricato che la versione estratta e analizzata dall'AI\G{}, facilitando il confronto e la verifica\G{} dei dati estratti con quelli presenti nel documento originale;
+    \item \textbf{Intervallo delle pagine estratte}: consente di visualizzare e modificare l'intervallo di pagine del documento originale che è stato suddiviso e analizzato come sottodocumento. Il cambiamento dell'intervallo di pagine farà ripartire il processo di analisi del documento con il nuovo range di pagine selezionato (vedi \hyperref[fig:IntervalloPagine]{Figura 39}).
+    \item \textbf{Invio del documento}: apre una finestra di dialogo per inviare il documento al destinatario estratto (vedi \hyperref[fig:InvioDocumento]{Figura 41}).
+    \item \textbf{Visualizzazione altri documenti estratti}: consente di visualizzare gli altri documenti estratti dallo stesso documento originale, qualora il documento caricato sia stato suddiviso in più sottodocumenti.
+\end{itemize}
+\immagine[1\textwidth]{immagini/2_DocumentoEstratto.png}{Dettagli analisi documento}{fig:DocumentoEstratto}
+
+
+
+\subsubsubsection{Visualizzazione informazioni del documento}
+In una sezione il sistema raccoglie tutti i metadati specifici del singolo file, quali la categoria, ragione, azienda, reparto, competenza, data documento e il grado di affidabilità\G{} dell'estrazione (confidence score\G{}).
+
+\immagine[0.4\textwidth]{immagini/2_ModificaInfo.png}{Visualizzazione informazioni documento}{fig:ModificaInfoDocumento}
+Ogni campo estratto dall'AI\G{} è accompagnato da un indicatore di confidenza (confidence score\G{}) 
+che quantifica l'affidabilità\G{} dell'estrazione.
+
+\subsubsubsection{Modifica dei dati del documento}
+Tramite il pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Modifica}}} è possibile abilitare le caselle di testo che contengono i dati estratti, permettendo all'utente di correggerli manualmente. \\
+Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza (confidence score\G{}) per riflettere la modifica manuale dei dati.
+\immagine[0.4\textwidth]{immagini/2_ModificaDocumento.png}{Documento in stato di modifica}{fig:ModificaDocumento}
+I pulsanti \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Salva Modifiche}}} e  \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{Annulla Modifiche}} consentono rispettivamente di salvare le modifiche apportate ai dati del documento o di annullarle per tornare alla versione precedente le modifiche.\\\\
+La modifica dell'intervallo di pagine del documento originale che è stato suddiviso e analizzato come sottodocumento avviene tramite due campi di testo che indicano rispettivamente la pagina iniziale e finale del range di pagine del documento originale da cui è stato estratto il sottodocumento.\\
+La pagina massima da cui è possibile estrarre un sottodocumento è pari al numero totale di pagine del documento originale, mentre la pagina minima è 1.\\
+Il cambiamento dell'intervallo di pagine farà ripartire il processo di analisi del documento con il nuovo range di pagine selezionato, aggiornando di conseguenza i dati estratti, il destinatario rilevato e la confidenza\G{} dell'analisi del documento.
+\immagine[0.4\textwidth]{immagini/2_Rielaborazione.png}{Modifica intervallo pagine documento effettuato: rielaborazione dell'analisi}{fig:ModificaPagineDocumento}
+\subsubsubsection{Visualizzazione destinatario documento}
+Visualizza nel dettaglio i soggetti a cui il singolo documento in anteprima è indirizzato. 
+Questa sezione mostra il destinatario rilevato dall' AI\G{}, evidenziando un possibile match con il database aziendale.
+\immagine[0.4\textwidth]{immagini/2_Destinatario.png}{Visualizzazione destinatario documento}{fig:DestinatarioDocumento}
+
+\subsubsubsection{Modifica destinatario del documento}
+Nel caso l'algoritmo associ un destinatario errato a un documento o non riesca a dedurlo, 
+l'operatore può intervenire per cercare e selezionare il destinatario corretto. \\
+L'associazione avviene tramite menù a tendina mostrando i dipendenti dell'azienda estratta o inserita nei dati conosciuti, 
+facilitando così la correzione e migliorando la precisione\G{} del processo di invio.
+
+\immagine[0.6\textwidth]{immagini/2_ModificaDestinatario.png}{Modifica risultato analisi destinatario}{fig:ModificaDestinatario}
+
+Cliccando sul pulsante \tcbox[colback=black!80,colframe=white,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textcolor{white}{\textbf{Salva}}} si conferma la modifica del destinatario, aggiornando l'associazione del documento al nuovo destinatario selezionato.
+\subsubsubsection{Visualizzazione documento originale ed estratto}
+Per facilitare il confronto e la verifica\G{}, il sistema consente di visualizzare sia il documento originale caricato che 
+la versione estratta e analizzata dall'AI\G{}.
+
+\immagine[0.6\textwidth]{immagini/2_ApriDocumento.png}{Visualizzazione e correzione documenti}{fig:ApriDocumento}
+
+
+\subsubsubsection{Invio del documento}
+Quando si ritiene che il documento sia pronto per essere inviato (con una confidenza adeguata), l'utente può procedere con la creazione di un messaggio ed infine l'invio del documento al destinatario.
+È possibile inviare il documento solo se è stato associato un destinatario, altrimenti il pulsante di invio risulterà disabilitato.\\
+\immagine[0.8\textwidth]{immagini/2_invio.png}{Invio immediato di un documento}{fig:InvioDocumento}
+
+\textbf{Scrittura del messaggio:}
+Questa funzionalità\G{} mette a disposizione un editor di testo per la composizione della comunicazione che verrà recapitata al destinatario.\\\\
+\textbf{Selezione, creazione o eliminazione di un template\G{}:} \
+Per agevolare la stesura dei messaggi, l'utente ha la possibilità di creare dei messaggi preimpostati (template\G{}) personalizzati, che potranno essere riutilizzati in futuro per velocizzare la preparazione dei messaggi, garantendo coerenza e standardizzazione nelle comunicazioni inviate ai destinatari.\\\\
+Per creare un nuovo template\G{} l'utente deve cliccare sul pulsante \tcbox[colback=lightgray,colframe=darkgray,boxrule=0.4pt,arc=1.5mm,left=1mm,right=1mm,top=0.4mm,bottom=0.4mm,on line]{\footnotesize\textbf{+ Nuovo template\G{}}} che aprirà un'interfaccia\G{} di dialogo (vedi \hyperref[fig:SceltaTemplate]{Figura 40} e \hyperref[fig:AggiuntaTemplate]{Figura 41}).\\\immagine[0.8\textwidth]{immagini/2_EliminazioneTemplate.png}{Selettore di template}{fig:SceltaTemplate}.
+\immagine[0.8\textwidth]{immagini/2_AggiuntaTemplate.png}{Finestra di dialogo per creare un nuovo template\G{}}{fig:AggiuntaTemplate}
+Cliccando su \textbf{Salva template\G{}} confermerà la creazione del template\G{}, rendendolo subito disponibile per il messaggio in composizione.\\
+
+Non è richiesta l'applicazione di un template\G{} per inviare un documento, in quanto l'editor di testo è sempre disponibile per la composizione del messaggio, ma è fortemente consigliato per velocizzare la preparazione dei messaggi e garantire coerenza e standardizzazione nelle comunicazioni inviate ai destinatari.\\
+
+\textbf{Programmazione invio documento:} \
+Se non vi è urgenza o si desidera sincronizzare l'inoltro dei documenti con specifiche scadenze aziendali, 
+il sistema permette di pianificare l'operazione. 
+Tramite un apposito selettore, l'utente può selezionare l'ora di invio del documento, 
+e lo stato del documento passerà a \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statusprogrammato,
+            colframe=statusprogrammato
+        ]{\footnotesize\textcolor{white}{\textbf{Programmato}}}.
+\immagine[0.8\textwidth]{immagini/2_TimePicker.png}{Programmazione invio documento}{fig:TimePicker}
+
+
+
+
+\subsection{Storico documenti}
+L'utente ha a disposizione uno storico dei documenti analizzati, visualizzandone i dettagli e il loro stato.
+
+\subsubsection{Consultazione storico documenti}
+Lo storico dei documenti consente al CdL\G{} di visualizzare tutte le analisi documentali precedenti, con la possibilità 
+di accedere ai dettagli di ciascun documento, come la data di analisi, la tipologia del documento, i destinatari riconosciuti, 
+le informazioni estratte e lo stato dell'invio.
+
+\immagine[1\textwidth]{immagini/2_Storico.png}{Storico documenti}{fig:StoricoDocumenti}
+
+\subsubsubsection{Filtro di ricerca nello storico documenti}
+Per rintracciare rapidamente i documenti analizzati, l'utente può utilizzare barre di ricerca e filtri mirati. 
+
+\immagine[1\textwidth]{immagini/2_Filtro.png}{Filtro Storico}{fig:FiltroStorico}
+
+
+
+\subsection{Analytics e monitoraggio trasversale}
+L'utente ha a disposizione una sezione dedicata all'analytics e al monitoraggio trasversale, che consente di visualizzare metriche e statistiche relative all'utilizzo dell'AI-Assistant\G{} Generativo e dell'AI Co-Pilot\G{} per i Consulenti del Lavoro (CdL)\G{}, fornendo insights utili per valutare l'efficacia\G{} delle funzionalità\G{} offerte dalla piattaforma e per identificare eventuali aree di miglioramento.
+
+\subsubsection{Analytics e monitoraggio trasversale per l'AI-Assistant\G{} Generativo}
+L'utente ha la possibilità di accedere a una sezione dedicata all'AI-Assistant\G{} Generativo, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni dell'assistente AI\G{}, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
+Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G{} e garantire un'esperienza utente sempre più soddisfacente.
+\immagine[1\textwidth]{immagini/3_VistaAiAssistantGenerativo.png}{Analytics Ai Assistant Generativo}{fig:VistaAiAssistantGenerativo}
+\subsubsubsection{Numero di generazioni effettuate}
+Questa metrica permette all'utente di visualizzare il volume totale di richieste, o prompt\G{}, inviate all'AI\G{} nel periodo temporale selezionato. Il sistema interroga il database storico e conteggia il numero totale di interazioni avviate, mostrando il dato numerico all'interno della dashboard\G{}.
+
+\subsubsubsection{Valutazione media delle generazioni}
+Tramite questo indicatore, l'utente può valutare la qualità\G{} percepita delle risposte fornite dall'AI Assistant\G{}. Il sistema aggrega i feedback ricevuti (tramite stelle) e calcola la media aritmetica dei voti, mostrando un valore che permette di comprendere il livello di soddisfazione dell'utenza.
+
+\subsubsubsection{Numero di rigenerazioni per prompt\G{}}
+Questa statistica mostra quante volte è stata utilizzata dagli utenti la funzione "Rigenera risposta". Il sistema conta le occorrenze in cui viene richiesta una nuova versione di un messaggio già generato: si tratta di un dato utile per capire se la prima risposta dell'AI\G{} risulta spesso insoddisfacente.
+
+\subsubsubsection{Utilizzo toni e stili}
+Questa sezione evidenzia le preferenze degli utenti riguardo ai formati e ai registri di comunicazione. Il sistema raggruppa i prompt\G{} generati in base agli attributi "Tono" (es. Formale, Empatico) e "Stile" (es. Sintetico, Dettagliato), calcolandone la frequenza di utilizzo. I dati vengono visualizzati tramite grafici o classifiche che mettono in risalto i toni e gli stili più richiesti.
+
+\subsubsubsection{Filtraggio per periodo temporale AI-Assistant\G{} Generativo}
+L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI-Assistant\G{} Generativo in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.) o a un intervallo di tempo personalizzato scelto dall'utente. Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle generazioni e delle preferenze degli utenti in periodi specifici, facilitando così l'identificazione di trend o variazioni significative nel tempo.
+
+\begin{figure}[H]
+    \centering    
+\begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]
+        {\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/3_DataDatePicker.png}}
+        \caption{Scelta range data tramite calendario}
+        \label{fig:datadatepicker}
+        
+    \end{subfigure}
+    \hspace{0.02\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]
+            {\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/3_DataSelect.png}}
+        \caption{Scelta range data tramite valori preimpostati}
+            \label{fig:dataselect}
+        
+    \end{subfigure}
+\end{figure}
+
+
+
+\subsubsection{Analytics e monitoraggio trasversale per l'AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}}
+L'utente ha la possibilità di accedere a una sezione dedicata all'AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}, con un elenco di metriche e statistiche che forniscono insights sull'utilizzo e sulle prestazioni del Co-Pilot\G{}, consentendo di valutare l'efficacia\G{} delle generazioni, la soddisfazione degli utenti e l'impatto complessivo sulla comunicazione interna.
+Tramite lo studio di queste metriche, è possibile identificare eventuali aree di miglioramento per ottimizzare ulteriormente le funzionalità\G{} e garantire un'esperienza utente sempre più soddisfacente.
+\immagine[1\textwidth]{immagini/3_VistaAiCoPilot.png}{Analytics Ai Co-Pilot}{fig:VistaAiCoPilot}
+\subsubsubsection{Percentuale confidenza media}
+Questa metrica mostra il punteggio medio di affidabilità\G{} (confidence score\G{}) che l'AI\G{} ha attribuito alle proprie estrazioni di dati nel periodo selezionato. Il sistema calcola la media (pesata o aritmetica) dei punteggi associati a tutti i documenti elaborati, indicando inoltre se tale valore è in linea, superiore o inferiore rispetto ai trend storici.
+
+\subsubsubsection{Media intervento umano per correzione}
+Questo indicatore visualizza in media, la frequenza con cui gli operatori umani ("Human-in-the-loop") devono intervenire per correggere i dati estratti dall'AI\G{} prima del salvataggio. Analizzando i log di audit, il sistema confronta il numero di documenti che hanno subito modifiche manuali con il volume totale dei documenti processati.
+
+\subsubsubsection{Accuratezza mapping}
+Questa statistica rappresenta la precisione con cui l'AI\G{} associa i dati individuati nei documenti ai campi corretti all'interno del database. Il sistema valuta la coerenza dei dati e calcola un indice di accuratezza strutturale, permettendo di identificare se l'AI\G{} sta fallendo nel riconoscere specifiche tipologie di documento o determinati layout.
+
+\subsubsubsection{Tempo medio di analisi documenti}
+Questa metrica indica il tempo medio impiegato dal sistema per processare ed elaborare un documento. Il calcolo viene effettuato basandosi sui timestamp di inizio (upload) e di fine (disponibilità dei dati), restituendo un valore fondamentale per monitorare le performance dell'infrastruttura e la latenza del servizio.
+
+\subsubsubsection{Filtraggio per periodo temporale AI Co-Pilot\G{}}
+L'utente ha la possibilità di filtrare tutte le metriche e statistiche relative all'AI Co-Pilot\G{} in base a un intervallo di tempo specifico (ad esempio, ultimi 7 giorni, ultimo mese, ultimo trimestre, ecc.) o a un intervallo di tempo personalizzato scelto dall'utente. Il sistema applica il filtro temporale a tutte le metriche visualizzate, consentendo di analizzare l'andamento delle analisi.
+\begin{figure}[H]
+    \centering    
+\begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]
+        {\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/3_DataDatePicker.png}}
+        \caption{Scelta range data tramite calendario}
+        \label{fig:datadatepicker}
+        
+    \end{subfigure}
+    \hspace{0.02\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \tcbox[
+            enhanced,
+            colback=white,
+            frame hidden,
+            boxrule=0pt,
+            boxsep=0pt,
+            arc=0pt,
+            left=0pt,right=0pt,top=0pt,bottom=0pt,
+            drop shadow={black!30},
+            nobeforeafter
+        ]
+            {\includegraphics[max width=0.95\linewidth,max height=0.4\textheight,keepaspectratio]{immagini/3_DataSelect.png}}
+        \caption{Scelta range data tramite valori preimpostati}
+            \label{fig:dataselect}
+        
+    \end{subfigure}
+\end{figure}
+
+\section{Test\G{}}
+Per garantire la qualità\G{} e l'affidabilità\G{} del prodotto\G{}, è stato implementato un processo di testing completo che include test\G{} unitari, test\G{} di integrazione e test\G{} end-to-end.
+Il processo di testing è stato eseguito in diverse fasi del ciclo di sviluppo, consentendo di identificare e risolvere tempestivamente eventuali bug o problemi di funzionalità\G{}.
+
+\subsection{Test\G{} Backend\G{}}
+Il focus dei test\G{} backend\G{} è stato principalmente sulla verifica\G{} della corretta implementazione\G{} delle funzionalità\G{}, sulla gestione degli errori e sulla sicurezza\G{} dell'applicazione. Sono stati eseguiti test\G{} unitari per verificare il funzionamento di singole componenti e test\G{} di integrazione per assicurare che le diverse parti del sistema interagiscano correttamente tra loro.
+Per generare e avviare i test\G{} backend\G{}, è stato utilizzato il framework di testing integrato in Ruby on Rails\G{}, che consente di scrivere test\G{} in modo semplice e intuitivo.
+
+\subsubsection{Esecuzione test\G{}}
+Se l'installazione e l'avvio dell'applicazione sono stati completati con successo, è possibile eseguire i test\G{} per verificare che tutte le funzionalità\G{} siano operative e che non ci siano errori.
+Per avviare i test\G{} è necessario eseguire il comando \texttt{docker compose run --rm backend rails test\G{}} in un altro terminale (l'applicazione non necessita di essere in esecuzione).
+
+
+\subsection{Test\G{} Frontend\G{}}
+Il focus dei test\G{} frontend\G{} è stato sulla verifica\G{} del corretto comportamento dell'interfaccia\G{} utente, della gestione dello stato e dell'integrazione con il backend\G{}. Sono stati eseguiti test\G{} unitari su componenti e servizi, insieme a test\G{} end-to-end sui principali flussi utente. I test\G{} sono stati eseguiti con gli strumenti dello stack Angular\G{} e Cypress.
+
+
+\subsubsection{Esecuzione test\G{}}
+Se l'installazione e l'avvio dell'applicazione sono stati completati correttamente, è possibile eseguire i test\G{} frontend\G{} per verificare il funzionamento dei componenti, dei servizi e dei principali flussi utente.
+
+Per eseguire i test\G{} unitari, utilizzare il seguente comando:
+\begin{verbatim}
+docker compose run --rm frontend npm run test -- --watch=false
+\end{verbatim}
+
+\subsubsection{Esecuzione test\G{} end-to-end (Cypress)}
+
+Per eseguire i test\G{} E2E, usare due terminali nella cartella \texttt{frontend}.
+
+\paragraph{Terminale 1}
+\begin{verbatim}
+npm run start
+\end{verbatim}
+
+\paragraph{Terminale 2}
+\begin{verbatim}
+npm run cypress:run
+\end{verbatim}
+
+\paragraph{Nota}
+I test\G{} Cypress richiedono che il frontend\G{} sia raggiungibile su \texttt{http://localhost:4200}.
+
+\end{document}
