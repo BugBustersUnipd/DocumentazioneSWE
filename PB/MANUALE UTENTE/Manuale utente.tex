@@ -37,6 +37,8 @@
 \definecolor{statusinelabsottodocbg}{HTML}{ff00a2}
 \definecolor{statusprogrammato}{HTML}{ff7700}
 \definecolor{statusinviatobg}{HTML}{00cc4b}
+\definecolor{statuserratobg}{HTML}{ffcccc}
+\definecolor{statuserratofg}{HTML}{990000}
 \titleformat{\section}
  {\Large\bfseries\color{primaryblue}}
  {\thesection}{1em}{}
@@ -582,7 +584,7 @@ Infine sono disponibili le operazioni di gestione del post (Riutilizza, Duplica 
 
 
 \subsection{AI Co-Pilot\G{} per i Consulenti del Lavoro\G{}}
-Il modulo\G{} AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{} è progettato per supportare i professionisti nella gestione, splitting e analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
+Il modulo\G{} AI Co-Pilot\G{} dedicato ai Consulenti del Lavoro (CdL)\G{} è progettato per supportare i professionisti nella gestione, \textit{splitting}\G{} e analisi dei documenti, facilitando il processo di revisione e invio dei documenti ai destinatari.
 
 \subsubsection{Analisi documenti}
 Il modulo\G{} di analisi dei documenti consente ai CdL\G{} di \textbf{caricare documenti in vari formati (PDF, CSV, jpg, png...)} e di \textbf{riconoscerne automaticamente la tipologia} (ad esempio, busta paga, contratto di lavoro, comunicazione interna, ecc.), \textbf{il destinatario} e altre informazioni.\\
@@ -640,7 +642,7 @@ Qualora il documento estratto fosse solo uno (perché il documento caricato non 
             colback=statusincodabg,
             colframe=statusincodabg
         ]{\footnotesize\textcolor{statusincodafg}{\textbf{In coda}}}.
-        \item Non appena la fase di splitting termina il documento passa alla fase di elaborazione, visualizzato con la pillola di stato
+        \item Non appena la fase di \textit{splitting\G{}} termina il documento passa alla fase di elaborazione, visualizzato con la pillola di stato
         \tcbox[
             on line,
             boxrule=0pt,
@@ -658,9 +660,18 @@ Qualora il documento estratto fosse solo uno (perché il documento caricato non 
             colback=statuscompletatobg,
             colframe=statuscompletatobg
         ]{\footnotesize\textcolor{statuscompletatofg}{\textbf{Completato}}}.
+        \item In caso di errori durante l'analisi, il documento passa allo stato
+        \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statuserratobg,
+            colframe=statuserratobg
+        ]{\footnotesize\textcolor{statuserratofg}{\textbf{Errore}}}.
     \end{itemize}
 
-    \item \textbf{Stati dei sottodocumenti (risultanti dallo \textit{splitting}):}
+    \item \textbf{Stati dei sottodocumenti (risultanti dallo \textit{\textit{splitting\G{}}}):}
     \begin{itemize}
         \item Un sottodocumento può essere in fase di elaborazione, visualizzato con la pillola di stato
         \tcbox[
@@ -696,6 +707,15 @@ Qualora il documento estratto fosse solo uno (perché il documento caricato non 
             colback=statusprogrammato,
             colframe=statusprogrammato
         ]{\footnotesize\textcolor{white}{\textbf{Programmato}}} indica che il documento è stato programmato per essere inviato al destinatario in una data e ora specifica.
+    % errore
+    \item \tcbox[
+            on line,
+            boxrule=0pt,
+            arc=7pt,
+            left=1.8mm,right=1.8mm,top=0.5mm,bottom=0.5mm,
+            colback=statuserratofg,
+            colframe=statuserratofg
+        ]{\footnotesize\textcolor{white}{\textbf{Errore}}} indica che si è verificato un errore.
     \end{itemize}
 \end{itemize}
 
@@ -746,12 +766,12 @@ Si accede alla modalità di visualizzazione di un documento processato cliccando
 Le operazioni disponibili in questa modalità sono:
 \begin{itemize}
     \item \textbf{Visualizzazione informazioni del documento}: vedi \hyperref[fig:ModificaInfoDocumento]{Figura 35}.
-    \item \textbf{Visualizzazione destinatario del documento}: vedi \hyperref[fig:DestinatarioDocumento]{Figura 36}.
+    \item \textbf{Visualizzazione destinatario del documento}: vedi \hyperref[fig:DestinatarioDocumento]{Figura 38}.
     \item \textbf{Modifica dati del documento}: consente di apportare modifiche ai dati estratti, abilitando le caselle di testo che contengono i dati estratti e permettendo all'utente di correggerli manualmente. Questa operazione induce il sistema a ricalcolare e aggiornare la percentuale di confidenza;
-    \item \textbf{Modifica destinatario del documento}: apre una finestra di dialogo che consente di modificare il destinatario estratto (vedi \hyperref[fig:ModificaDestinatario]{Figura 37}).
+    \item \textbf{Modifica destinatario del documento}: apre una finestra di dialogo che consente di modificare il destinatario estratto (vedi \hyperref[fig:ModificaDestinatario]{Figura 39}).
     \item \textbf{Apertura documento originale ed estratto}: consente di visualizzare sia il documento originale caricato che la versione estratta e analizzata dall'AI\G{}, facilitando il confronto e la verifica\G{} dei dati estratti con quelli presenti nel documento originale;
-    \item \textbf{Intervallo delle pagine estratte}: consente di visualizzare e modificare l'intervallo di pagine del documento originale che è stato suddiviso e analizzato come sottodocumento. Il cambiamento dell'intervallo di pagine farà ripartire il processo di analisi del documento con il nuovo range di pagine selezionato (vedi \hyperref[fig:IntervalloPagine]{Figura 37}).
-    \item \textbf{Invio del documento}: apre una finestra di dialogo per inviare il documento al destinatario estratto (vedi \hyperref[fig:InvioDocumento]{Figura 39}).
+    \item \textbf{Intervallo delle pagine estratte}: consente di visualizzare e modificare l'intervallo di pagine del documento originale che è stato suddiviso e analizzato come sottodocumento. Il cambiamento dell'intervallo di pagine farà ripartire il processo di analisi del documento con il nuovo range di pagine selezionato (vedi \hyperref[fig:IntervalloPagine]{Figura 39}).
+    \item \textbf{Invio del documento}: apre una finestra di dialogo per inviare il documento al destinatario estratto (vedi \hyperref[fig:InvioDocumento]{Figura 41}).
     \item \textbf{Visualizzazione altri documenti estratti}: consente di visualizzare gli altri documenti estratti dallo stesso documento originale, qualora il documento caricato sia stato suddiviso in più sottodocumenti.
 \end{itemize}
 \immagine[1\textwidth]{immagini/2_DocumentoEstratto.png}{Dettagli analisi documento}{fig:DocumentoEstratto}
