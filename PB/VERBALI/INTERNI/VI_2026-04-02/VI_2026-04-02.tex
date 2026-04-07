@@ -1,0 +1,189 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=primaryblue,citecolor=primaryblue]{hyperref}
+\usepackage{changepage} % per definire un rientro (un margine) solo in una parte del documento
+
+\usepackage[table]{xcolor}   % per i colori (celle, testo e righe)
+\usepackage{tabularx}               % per tabelle a larghezza adattiva (X)
+\usepackage{array}                  % per comandi di formattazione avanzata nelle colonne (p, >{\raggedright})
+
+% Macro
+\input{../../../../assets/macro/macro-verbali.tex}
+
+
+\definecolor{primaryblue}{RGB}{0,102,204}
+\definecolor{secondaryblue}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=3pt}
+
+\graphicspath{{./}{../assets/images/}{./images/}}
+
+\begin{document}
+
+\begin{center}
+  \IfFileExists{../../../../assets/Logo.jpg}{%
+    \includegraphics[width=6cm,height=3cm,keepaspectratio]{../../../../assets/Logo.jpg} \\[0.8cm]
+  }{%
+    \fbox{\parbox[c][2.5cm][c]{6cm}{\centering Logo non trovato\\(Logo.jpg)}}\\[0.5cm]
+  }
+  
+  {\Large\bfseries\color{primaryblue} BugBusters}\\[0.3cm]
+  {\small\color{darkgray} Email: \texttt{bugbusters.unipd@gmail.com}} \\[0.1cm]
+  {\small\color{darkgray} Gruppo: 4} \\[0.5cm]
+
+  {\large\bfseries Università degli Studi di Padova}\\[0.3cm]
+  {\small Laurea in Informatica}\\[0.2cm]
+  {\small Corso: Ingegneria del Software}\\[0.2cm]
+  {\small Anno Accademico: 2025/2026}\\[0.8cm]
+
+  {\Huge\bfseries\color{primaryblue} Verbale Interno\textsubscript{\scalebox{0.6}{\textbf{G}}}}\\[0.3cm]
+  {\Large\color{secondaryblue} 2 aprile 2026}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[colback=lightgray,colframe=primaryblue,width=0.85\textwidth,arc=3mm,boxrule=0.5pt]
+\begin{tabular}{@{}ll@{}}
+\textbf{Redattore\textsubscript{\scalebox{0.6}{\textbf{G}}}}    & Linor Sadè \\
+\textbf{Verificatore\textsubscript{\scalebox{0.6}{\textbf{G}}}}    &  Alberto Pignat  \\
+\textbf{Uso}          & Interno \\
+\textbf{Destinatari}  & BugBusters \\
+\textbf{Versione} & 1.0.0\\
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[colback=secondaryblue!10,colframe=secondaryblue,width=0.9\textwidth,arc=3mm,boxrule=0.8pt,title={\bfseries Abstract}]
+Il seguente verbale\textsubscript{\scalebox{0.6}{\textbf{G}}} contiene le ultime scelte prima della candidatura alla PB\textsubscript{\scalebox{0.6}{\textbf{G}}}: organizzazione finale, divisione dei ruoli nella presentazione al prof. Cardin, ultime rifiniture alla repo dell'MVP\textsubscript{\scalebox{0.6}{\textbf{G}}}.
+\end{tcolorbox}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Informazioni generali}
+
+\begin{itemize}
+    \item \textbf{Tipo riunione:} Interna
+    \item \textbf{Piattaforma:} Discord\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \item \textbf{Data:} 02/04/2026
+    \item \textbf{Orario di inizio:} 10:30
+    \item \textbf{Orario di fine:} 12:30
+    \item \textbf{Presenti:}
+    \begin{itemize}[leftmargin=1.5em, itemsep=3pt, label={\rule[0.5ex]{0.4em}{0.4em}}]
+        \item Alberto Autiero
+        \item Marco Favero
+        \item Alberto Pignat
+        \item Marco Piro
+        \item Linor Sadè
+        \item Leonardo Salviato
+        \item Luca Slongo
+    \end{itemize}
+\end{itemize}
+
+\section{Ordine del giorno}
+\begin{enumerate}
+    \item\label{itm:organizzazione_candidatura} Organizzazione per la candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} alla PB\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \begin{enumerate}
+      \item\label{itm:ppt-cardin} Divisione dei ruoli nella presentazione
+      \item\label{itm:invio-mail} Mail programmata per la candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}}
+    \end{enumerate}
+    \item\label{itm:discussione_requisiti} Ultime rifiniture all'MVP\textsubscript{\scalebox{0.6}{\textbf{G}}}
+\end{enumerate}
+
+
+\newpage
+\section{Svolgimento}
+Qui di seguito i punti discussi con più dettaglio:
+
+\subsection*{\ref{itm:organizzazione_candidatura}. Organizzazione per la candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} alla PB\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+La fine del progetto cade in concomitanza alle vacanze di Pasqua, per cui è stato deciso di posticipare la candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} del PB\textsubscript{\scalebox{0.6}{\textbf{G}}} al 7 aprile. Tuttavia il gruppo si impegnerà a terminare le attività necessarie alla candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} in questi due ultimi giorni, in modo da garantire festa a tutti i membri del gruppo durante le vacanze.\\
+Infine provvederà a inviare una mail programmata per la candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}}, in modo da non dover fare nulla il giorno della candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}} stessa.
+\begin{adjustwidth}{1cm}{1cm} % per un rientro a sinistra e destra
+    \subsubsection*{\ref{itm:ppt-cardin}. Divisione dei ruoli nella presentazione}
+    La presentazione sarà divisa nel seguente ordine:
+    \begin{enumerate}
+      \item Leonardo Salviato: introduzione e architettura monolite
+      \item Luca Slongo: architettura layered
+      \item Marco Favero: Pattern strutturali backend
+      \item Alberto Pignat: introduzione al frontend: librerie e architettura
+      \item Linor Sadè: scelte architetturali frontend - i service
+    \end{enumerate}
+\end{adjustwidth}
+\begin{adjustwidth}{1cm}{1cm} % per un rientro a sinistra e destra
+    \subsubsection*{\ref{itm:invio-mail}. Mail programmata per la candidatura\textsubscript{\scalebox{0.6}{\textbf{G}}}}
+    
+    Il gruppo ha preparato la mail per candidarsi alla revisione PB\textsubscript{\scalebox{0.6}{\textbf{G}}} con il prof. Cardin, correggendo eventuali collegamenti presenti nella lettera e controllando la repo online.
+\end{adjustwidth}
+
+\subsection*{\ref{itm:discussione_requisiti}. Ultime rifiniture all'MVP}
+Il gruppo ha discusso di possibili ultime modifiche al codice per migliorare leggibilità e organizzazione del codice. In particolare per quanto riguarda il frontend, è stato deciso di organizzare i service in cartelle specifiche per ogni servizio, in modo da raggruppare i file di uno stesso service.\\
+Inoltre sono stati aggiunti alcuni commenti al codice, per raggiungere la metrica di commenti richiesta, che con ultime modifiche al codice si è abbassata.\\
+
+Inoltre è stato deciso di migliorare il file README, riducendo il contenuto a ciò che è essenziale.
+
+
+\section{Tabella delle decisioni e azioni}
+
+\setlength{\extrarowheight}{2pt} % padding extra verticale
+\renewcommand{\arraystretch}{1.5} 
+
+
+\arrayrulecolor{primaryblue}
+\sloppy
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{3cm}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor{primaryblue!40}
+\textbf{\color{white} ID Decisione} & \textbf{\color{white} Descrizione} & \textbf{\color{white} Incaricato} \\
+
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/213}{PB30}  & Stesura verbale interno\textsubscript{\scalebox{0.6}{\textbf{G}}} & Linor Sadè \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/214}{PB31} & Verifica\textsubscript{\scalebox{0.6}{\textbf{G}}} verbale interno\textsubscript{\scalebox{0.6}{\textbf{G}}} & Alberto Pignat \\
+\hline
+\rowcolor{secondaryblue!10} {PB32}  & Continuare la preparazione della presentazione secondo la divisione riportata & Leonardo Salviato, Luca Slongo, Marco Favero, Alberto Pignat, Linor Sadè \\
+\hline
+\rowcolor{secondaryblue!10} \href{https://github.com/BugBustersUnipd/DocumentazioneSWE/issues/216}{PB33} & Migliorare leggibilità README repo MVP\textsubscript{\scalebox{0.6}{\textbf{G}}} & Alberto Autiero \\
+\hline
+\rowcolor{secondaryblue!10} {PB34} & Ultime rifiniture MVP\textsubscript{\scalebox{0.6}{\textbf{G}}} & Tutti \\
+\hline
+\end{tabularx}
+\fussy
+
+\vfill
+\begin{center}
+    {\small\color{darkgray} Documento redatto e approvato dal gruppo BugBusters.}
+\end{center}
+
+\end{document}
