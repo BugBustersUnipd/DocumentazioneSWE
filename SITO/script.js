@@ -11,6 +11,30 @@ document.addEventListener('DOMContentLoaded', function () {
             const href = this.getAttribute('href');
             const doc = this.getAttribute('data-doc');
             if (href && href.startsWith('#')) {
+                const normalizedHref = href.toLowerCase();
+
+                if (normalizedHref === '#pb') {
+                    e.preventDefault();
+                    showDocPanel('pb');
+                    const pbTitle = document.getElementById('PB');
+                    if (pbTitle) {
+                        setTimeout(() => scrollToElement(pbTitle), 0);
+                    }
+                    return;
+                }
+
+                if (normalizedHref === '#verbali-pb') {
+                    e.preventDefault();
+                    showDocPanel('pb');
+                    openPbVerbali();
+                    const verbaliAnchor = document.getElementById('verbali-pb');
+                    const targetElement = verbaliAnchor || document.getElementById('verbali-esterni-pb');
+                    if (targetElement) {
+                        setTimeout(() => scrollToElement(targetElement), 0);
+                    }
+                    return;
+                }
+
                 const target = document.querySelector(href);
                 if (target) {
                     // if the link is meant to switch an internal doc panel, let showDocPanel
@@ -88,6 +112,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function openPbVerbali() {
+        const verbaliEsterniPb = document.getElementById('verbali-esterni-pb');
+        const verbaliInterniPb = document.getElementById('verbali-interni-pb');
+        if (verbaliEsterniPb) verbaliEsterniPb.open = true;
+        if (verbaliInterniPb) verbaliInterniPb.open = true;
+        saveDetailsState();
+    }
+
     docToggles.forEach(btn => {
         btn.addEventListener('click', function(e) {
             const show = this.getAttribute('data-show');
@@ -137,9 +169,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // ===== CONTROLLO HASH ALL'AVVIO =====
     // Controlla l'hash all'avvio per attivare la tab corretta
     function checkHashOnLoad() {
-        const hash = window.location.hash.substring(1); // Rimuove il #
-        if (hash && ['candidatura', 'diapositive', 'rtb'].includes(hash)) {
+        const hash = window.location.hash.substring(1).toLowerCase(); // Rimuove il #
+        if (hash && ['candidatura', 'diapositive', 'rtb', 'pb'].includes(hash)) {
             showDocPanel(hash);
+        }
+
+        if (hash === 'verbali-pb') {
+            showDocPanel('pb');
+            openPbVerbali();
+            const verbaliAnchor = document.getElementById('verbali-pb');
+            const targetElement = verbaliAnchor || document.getElementById('verbali-esterni-pb');
+            if (targetElement) {
+                setTimeout(() => scrollToElement(targetElement), 0);
+            }
         }
     }
     
