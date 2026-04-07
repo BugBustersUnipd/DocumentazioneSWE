@@ -196,7 +196,8 @@ Per i termini tecnici e specifici utilizzati in questo documento, si fa riferime
 seguente \href{https://bugbustersunipd.github.io/DocumentazioneSWE/RTB/GLOSSARIO/Glossario.pdf}{link}.
 Per maggiore usabilità e facilitá di consultazione, il glossario\G{} è accessibile anche aprendo dal nostro sito web i vari documenti con il viewer
 pdf da noi sviluppato.
-\subsubsection{Riferimenti normativi}
+
+\subsection{Riferimenti normativi}
 \begin{itemize}
 \item \textbf{Capitolato\G{}
  d'appalto C5: Nexum - Piattaforma di consulenza e documentazione previdenziale}\\
@@ -209,7 +210,7 @@ Il presente capitolo illustra lo stack tecnologico adottato per la progettazione
 \subsection{Linguaggi}
 Questa sezione descrive i linguaggi di programmazione, di markup e di interrogazione fondamentali utilizzati per la stesura del codice sorgente. La selezione comprende sia gli standard consolidati per la strutturazione e stilizzazione dell'interfaccia\G{} utente (Frontend\G{}), sia i linguaggi orientati agli oggetti scelti per implementare la logica applicativa (Backend\G{}), fino ad arrivare agli strumenti dichiarativi per la gestione delle basi di dati. La Tabella \ref{tab:linguaggi} riassume i linguaggi adottati, specificandone la versione di riferimento e il relativo ambito di utilizzo.
 
-\begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
+\begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|}
 \caption{Tabella dei Linguaggi}\label{tab:linguaggi}\\
 \hline
 \rowcolor{primaryblue!40}
@@ -217,7 +218,7 @@ Questa sezione descrive i linguaggi di programmazione, di markup e di interrogaz
 \hline
 \endfirsthead
 
-\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
 \rowcolor{primaryblue!40}
 \textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
@@ -225,20 +226,19 @@ Questa sezione descrive i linguaggi di programmazione, di markup e di interrogaz
 \endhead
 
 \hline
-\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
+\multicolumn{3}{|r|}{{Continua nella prossima pagina...}}\\
 \hline
 \endfoot
 
 \hline
 \endlastfoot
-% Inserire qui le righe della tabella dei linguaggi
-Typescript & Linguaggio di programmazione basato su JavaScript che aggiunge la tipizzazione statica & 6.0 \\
+Typescript\G{} & Linguaggio di programmazione basato su JavaScript che aggiunge la tipizzazione statica & 6.0 \\
 \hline
 HTML & Linguaggio di markup usato per creare pagine web & 5 \\
 \hline
-CSS & Linguaggio usato per definire lo stile delle pagine web  & 3 \\
+CSS & Linguaggio usato per definire lo stile delle pagine web & 3 \\
 \hline
-Ruby\G{} & Linguaggio di programmazione orientato agli oggetti &  3.3.1 \\
+Ruby\G{} & Linguaggio di programmazione orientato agli oggetti & 3.3.1 \\
 \hline
 SQL & Linguaggio per la gestione e manipolazione di database relazionali & SQL:2023 \\
 \end{longtable}
@@ -247,7 +247,7 @@ SQL & Linguaggio per la gestione e manipolazione di database relazionali & SQL:2
 \subsection{Framework}
 In questa sezione vengono presentati i framework adottati per costituire l'impalcatura architetturale del prodotto\G{} software. La scelta si è orientata verso soluzioni moderne e ampiamente supportate dalla community, capaci di garantire una netta separazione tra la logica di presentazione e le regole di business. Nello specifico, la Tabella \ref{tab:framework} illustra le infrastrutture cardine impiegate per lo sviluppo della Single Page Application lato client e per la realizzazione delle API\G{} lato server.
 
-\begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
+\begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|}
 \caption{Tabella dei Framework}\label{tab:framework}\\
 \hline
 \rowcolor{primaryblue!40}
@@ -255,7 +255,7 @@ In questa sezione vengono presentati i framework adottati per costituire l'impal
 \hline
 \endfirsthead
 
-\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
 \rowcolor{primaryblue!40}
 \textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
@@ -263,13 +263,12 @@ In questa sezione vengono presentati i framework adottati per costituire l'impal
 \endhead
 
 \hline
-\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
+\multicolumn{3}{|r|}{{Continua nella prossima pagina...}}\\
 \hline
 \endfoot
 
 \hline
 \endlastfoot
-% Inserire qui le righe della tabella dei framework
 Angular\G{} & Framework open source per la creazione e sviluppo di single page applications & 21 \\
 \hline
 Ruby on Rails\G{} & Framework open source server side per applicazioni web & 8.1 \\
@@ -356,7 +355,7 @@ rubocop-rails-omakase & Configurazione standard ufficiale (stile Omakase) per Ru
 \subsection{Strumenti di Sviluppo}
 L'efficienza\G{}, la solidità e la riproducibilità dell'intero ciclo di vita del software sono state assicurate attraverso l'impiego di una serie di strumenti operativi e di orchestrazione avanzati. Questa categoria, dettagliata nella Tabella \ref{tab:strumenti_sviluppo}, comprende gli ambienti di sviluppo integrati (IDE), i sistemi di containerizzazione volti a uniformare gli ambienti tra i vari membri del team, e le piattaforme per la modellazione e l'amministrazione della persistenza dei dati.
 
-\begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|p{2.5cm}|}
+\begin{longtable}{|p{2cm}|p{7cm}|p{3cm}|}
 \caption{Tabella degli Strumenti di Sviluppo}\label{tab:strumenti_sviluppo}\\
 \hline
 \rowcolor{primaryblue!40}
@@ -364,7 +363,7 @@ L'efficienza\G{}, la solidità e la riproducibilità dell'intero ciclo di vita d
 \hline
 \endfirsthead
 
-\multicolumn{4}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- continua dalla pagina precedente}}\\
 \hline
 \rowcolor{primaryblue!40}
 \textbf{Nome} & \textbf{Descrizione} & \textbf{Versione} \\
@@ -372,13 +371,12 @@ L'efficienza\G{}, la solidità e la riproducibilità dell'intero ciclo di vita d
 \endhead
 
 \hline
-\multicolumn{4}{|r|}{{Continua nella prossima pagina...}}\\
+\multicolumn{3}{|r|}{{Continua nella prossima pagina...}}\\
 \hline
 \endfoot
 
 \hline
 \endlastfoot
-% Inserire qui le righe della tabella degli strumenti di sviluppo
 Visual Studio Code & IDE open source per lo sviluppo software sviluppato da Microsoft & 1.114 \\
 \hline
 Docker\G{} & Piattaforma che permette di creare, distribuire e eseguire applicazioni in container & 29.3.1 \\
@@ -708,7 +706,7 @@ gestore per le code, cache e backend\G{} per le connessioni WebSocket (ActionCab
 \subsection{Architettura Logica Interna (Layered Architecture)}
 Il sistema è stato progettato seguendo un pattern architetturale di tipo Layered (a livelli). Questa separazione garantisce 
 un alto grado di disaccoppiamento, facilitando la manutenzione, i test\G{} e la scalabilità\G{} del sistema. 
-Inoltre, lavorando in ruby on rails\G{}, è stato possibile sfruttare le convenzioni del framework per implementare in modo 
+Inoltre, lavorando in Ruby on Rails\G{}, è stato possibile sfruttare le convenzioni del framework per implementare in modo 
 naturale i vari livelli, senza andare a forzare l'introduzione di ulteriori astrazioni o pattern complessi e contro il linguaggio stesso.
 L'architettura logica si divide in quattro livelli principali:
 
@@ -6168,7 +6166,7 @@ invio (\textit{SentAt}).
 Il periodo di analisi dei requisiti\G{} ha portato all'identificazione di un set di requisiti funzionali\G{} che il prodotto\G{} software deve soddisfare. 
 Di seguito viene fornita una panoramica dei principali requisiti soddisfatti nel sistema, con riferimento alle sezioni del documento dove sono descritti in dettaglio.
 I requisiti funzionali\G{} si dividono in obbligatori, desiderabili e opzionali, a seconda della loro importanza e priorità\G{} per il progetto\G{}.
-In particolare sono stati identificati 132 requisiti funzionali\G{}, di cui 97 obbligatori, 0 desiderabili e 35 opzionali.
+In particolare sono stati identificati 131 requisiti funzionali\G{}, di cui 97 obbligatori, 0 desiderabili e 35 opzionali.
 I requisiti obbligatori hanno come focus l'implementazione\G{} dei tre moduli principali del sistema, ovvero il modulo\G{} di analisi documenti, il modulo\G{} di generazione testo e il modulo\G{} di raccolta dati, che rappresentano le funzionalità\G{} core del prodotto\G{} software.
 Ciascuna di queste aree non era presente all'interno dell'applicativo Nexum quindi i rappresentanti dell'azienda (Eggon) hanno ritenuto fondamentale implementare queste funzionalità\G{} per soddisfare le esigenze degli utenti finali e garantire il successo del progetto\G{}.
 I requisiti opzionali, invece, si concentrano su funzionalità\G{} come la gestione delle utenze e la distribuzione dei documenti, che invece sono già presenti all'interno dell'applicativo Nexum e quindi non rappresentano un elemento di differenziazione significativo per il prodotto\G{} software che stiamo sviluppando.
@@ -6177,7 +6175,7 @@ I requisiti opzionali, invece, si concentrano su funzionalità\G{} come la gesti
 \begin{itemize}
   \item \textbf{Requisiti Obbligatori}: 97/97 requisiti funzionali\G{} soddisfatti, con focus sui moduli di analisi documenti, generazione testo e raccolta dati.
   \item \textbf{Requisiti Desiderabili}: 0 requisiti desiderabili identificati.
-  \item \textbf{Requisiti Opzionali}: 0/35 requisiti opzionali soddisfatti, principalmente relativi alla gestione utenze e distribuzione documenti.
+  \item \textbf{Requisiti Opzionali}: 0/34 requisiti opzionali soddisfatti, principalmente relativi alla gestione utenze e distribuzione documenti.
 \end{itemize}
 
 \subsection{Tabella di tracciamento dei requisiti}
@@ -6289,8 +6287,6 @@ I requisiti opzionali, invece, si concentrano su funzionalità\G{} come la gesti
 \hline
 \autoRF & Il sistema deve permettere all'Amministratore\G{} di modificare il ruolo di un utente registrato. & Non implementato & Opzionale\G{} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente di effettuare il logout (terminare la sessione). & Non implementato & Opzionale\G{} \\
-\hline
 \autoRF & Il sistema deve generare contenuti testuali tramite AI Assistant\G{} in base a prompt\G{} e parametri. & Implementato & Obbligatorio\G{} \\
 \hline
 \autoRF & Il sistema deve permettere l'inserimento di un prompt\G{} testuale per la generazione. & Implementato & Obbligatorio\G{} \\
@@ -6345,13 +6341,13 @@ I requisiti opzionali, invece, si concentrano su funzionalità\G{} come la gesti
 \hline
 \autoRF & Il sistema deve permettere di salvare il contenuto generato nel database. & Implementato & Obbligatorio\G{} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo tono per la generazione di contenuti & Implementato & Obbligatorio\G{} \\
+\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo tono per la generazione di contenuti. & Implementato & Obbligatorio\G{} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'eliminazione di un tono per la generazione di contenuti & Implementato & Obbligatorio\G{} \\
+\autoRF & Il sistema deve permettere all'utente l'eliminazione di un tono per la generazione di contenuti. & Implementato & Obbligatorio\G{} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo stile per la generazione di contenuti & Implementato & Obbligatorio\G{} \\
+\autoRF & Il sistema deve permettere all'utente l'inserimento di un nuovo stile per la generazione di contenuti. & Implementato & Obbligatorio\G{} \\
 \hline
-\autoRF & Il sistema deve permettere all'utente l'eliminazione di uno stile per la generazione di contenuti & Implementato & Obbligatorio\G{} \\
+\autoRF & Il sistema deve permettere all'utente l'eliminazione di uno stile per la generazione di contenuti. & Implementato & Obbligatorio\G{} \\
 \hline
 \autoRF & Il sistema deve permettere l'analisi di documenti tramite il modulo\G{} AI Co-Pilot\G{}. & Implementato & Obbligatorio\G{} \\
 \hline
