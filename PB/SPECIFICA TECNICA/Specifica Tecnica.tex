@@ -774,22 +774,36 @@ Questo componente si occupa dell'aggregazione dei dati per le dashboard\G{}. L'a
 
 
 
-\subsection{Architettura di Deployment (Monolite containerizzato)}
-Sebbene logicamente il sistema sia diviso in Frontend\G{} e Backend\G{} (decoupled), dal punto di vista del rilascio in produzione si è optato per un approccio monolitico basato su container.
-Tutte le componenti del sistema sono pacchettizzate e distribuite insieme come un'unica entità logica su un singolo nodo ospite (Server/Macchina Virtuale), garantendo un ambiente isolato, riproducibile e coerente dalla fase di sviluppo fino alla produzione. L'orchestrazione locale è affidata a Docker\G{} Compose.
+\subsection{Architettura di Deployment}
+Dal punto di vista del rilascio, il sistema è composto da un \textbf{monolite backend} (Rails) e una \textbf{SPA frontend} (Angular), distribuiti come container separati ma orchestrati insieme tramite Docker\G{} Compose su un singolo nodo ospite.
 
+La scelta del monolite per il backend è motivata dalla \textbf{Solid Suite} di Rails~8, una suite di gemme
+che offre nativamente la capacità di centralizzare code di job (\texttt{solid\_queue}), 
+cache (\texttt{solid\_cache}) e WebSocket (\texttt{solid\_cable}) su PostgreSQL\G{}, 
+eliminando la necessità di infrastrutture esterne come Redis\G{} o Sidekiq.
+
+Per avere un progetto affidabile e riproducibile, l'intero stack è containerizzato con Docker\G{}:
 \begin{itemize}
-  \item \textbf{Docker Host (Server Node)}: L'infrastruttura hardware o virtuale principale che ospita il motore Docker\G{}. Al suo interno risiede una Rete Virtuale Privata (Docker\G{} Network) che permette ai container di comunicare tra loro in totale sicurezza\G{}, senza esporre porte non necessarie all'esterno.
-  \item \textbf{Container Frontend\G{} (Web Server)}: Un container dedicato all'esecuzione dell'applicativo Angular\G{}. Nelle richieste esterne, questo nodo funge da punto di ingresso per gli utenti, servendo i file statici della Single Page Application.
-  \item \textbf{Container Backend\G{} (Application Server)}: Un container isolato basato su immagine Ruby\G{} che esegue il server web di Rails. È esposto internamente per ricevere le chiamate API\G{} dal frontend\G{} e processare la logica di business.
-  \item \textbf{Container Database (Database Server)}: Un container basato sull'immagine ufficiale di PostgreSQL\G{}. Persiste i dati fisicamente scrivendoli su un Docker\G{} Volume esterno al container stesso, garantendo che i dati del sistema non vadano persi in caso di riavvio o aggiornamento del container.
+  \item \textbf{Docker Host (Server Node)}: L'infrastruttura hardware o virtuale che ospita il motore
+  Docker\G{}. Al suo interno una Docker\G{} Network privata permette ai container di comunicare
+  in isolamento senza esporre porte non necessarie all'esterno.
+
+  \item \textbf{Container Frontend\G{} (SPA)}: Esegue l'applicativo Angular\G{}~21 come
+  Single Page Application. Serve i file statici al browser; tutta la logica di rendering avviene
+  lato client. Non contiene logica di business.
+
+  \item \textbf{Container Backend\G{} (Monolite Rails)}: Basato su Ruby\G{}, esegue il server
+    Puma che gestisce in un unico processo: le richieste HTTP REST\G{}, i WebSocket tramite
+    Action Cable (\texttt{solid\_cable}), la cache (\texttt{solid\_cache}) e i background job
+    tramite SolidQueue.
+
+  \item \textbf{Container Database (PostgreSQL\G{}~16)}: Esegue il database relazionale.
+  In sviluppo è presente un singolo database (\texttt{backend\_development}) che contiene dati
+  applicativi, code di job, cache e stato dei WebSocket.
+  I dati sono persistiti su un Docker\G{} Volume esterno al container, garantendone la
+  sopravvivenza a riavvii e aggiornamenti.
 \end{itemize}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/deploy.png}
-\caption{Architettura di Deployment}
-\end{figure}
 
 \section{Descrizione architettura (Backend\G{})}
 
