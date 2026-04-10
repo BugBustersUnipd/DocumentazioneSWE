@@ -5023,19 +5023,28 @@ Aggiorna le metriche AI CoPilot quando cambia il date range; ignora aggiornament
 \section{Design Pattern}
 % ============================================================
 
-La progettazione e lo sviluppo del sistema si sono avvalsi di consolidati design
-pattern, sia implementati esplicitamente nella logica di dominio, sia ereditati
-intrinsecamente dal framework Ruby on Rails\G{}. L'adozione di tali paradigmi ha
-garantito modularità\G{}, manutenibilità\G{} ed elevata testabilità dell'intero
-applicativo.
+La progettazione del sistema si è avvalsa di consolidati design pattern,
+suddivisi in due categorie: quelli implementati esplicitamente nella logica
+di dominio e quelli ereditati intrinsecamente dal framework Ruby on Rails\G{}.
 
-Il backend\G{} è strutturato attorno a un'architettura a servizi stratificata:
-i \textit{Controller} gestiscono il routing HTTP; i \textit{Command} incapsulano
-le operazioni di business; i \textit{Service Object} orchestrano pipeline
-complesse; i \textit{Repository} astraggono la persistenza; il \textit{Container}
-governa l'iniezione delle dipendenze. I componenti \textit{Job} delegano
-l'elaborazione pesante a code asincrone notificando il frontend\G{} in tempo reale
-tramite ActionCable.
+L'architettura del backend\G{} riflette una separazione netta tra le
+responsabilità: la creazione e composizione degli oggetti è centralizzata
+nel \textit{Container} tramite dependency injection, che fornisce ai
+\textit{Service Object} tutte le dipendenze necessarie senza che questi
+debbano istanziarle direttamente. \\
+Quando la logica varia in base al tipo
+di input, il pattern \textit{Strategy} seleziona dinamicamente l'algoritmo
+appropriato; quando occorre produrre famiglie di oggetti correlati,
+\textit{Abstract Factory} isola la costruzione dal client.\\
+La persistenza, quando diventa complessa, è gestita dai \textit{Repository}, che centralizzano
+le transizioni di stato e garantiscono la correttezza in presenza di
+elaborazioni parallele tramite pessimistic locking.\\
+Il livello di presentazione è affidato ai \textit{Serializer}, che
+trasformano i modelli in strutture JSON disaccoppiate dai dettagli di
+persistenza.\\
+Il framework contribuisce con \textit{Active Record} per il mapping
+oggetti-tabelle e con \textit{MVC} come struttura portante dell'intera
+applicazione.
 
 \bigskip
 
@@ -5051,17 +5060,13 @@ documentati in questa sezione.
 \textbf{Pattern} & \textbf{Categoria} & \textbf{GoF / POEAA} & \textbf{Dove applicato} \\
 \midrule
 Service Object      & Comportamentale & ---      & \code{ProcessDataItem}, \code{ProcessSplitRun}, \code{ProcessGenericFile}, \code{AIGeneratorService} \\
-Command             & Comportamentale & GoF      & \code{InitializeProcessing}, \code{InitializeFileProcessing}, \code{ReassignExtractedRange} \\
 Repository          & Architetturale  & POEAA    & \code{DataItemRepository}, \code{SplitRunRepository} \\
-Container / DI      & Creazionale     & ---      & \code{DocumentProcessing::Container}, \code{AiGeneratorContainer} \\
+Container / DI      & Architetturale  & ---      & \code{DocumentProcessing::Container}, \code{AiGeneratorContainer} \\
 Strategy            & Comportamentale & GoF      & \code{file\_processor} (CSV / Image) \\
-Factory Method      & Creazionale     & GoF      & Metodi factory nel Container \\
-Presenter           & Strutturale     & ---      & \code{ExtractedDocumentPresenter} \\
+Abstract Factory    & Creazionale     & GoF      & \code{SetterFactory} \\
 Serializer          & Strutturale     & ---      & \code{PostSerializer}, \code{ToneSerializer}, \code{StyleSerializer}, \code{GeneratedDatumSerializer} \\
-Observer            & Comportamentale & GoF      & \code{ActionCableNotifier}, \code{AiJobOrchestrator} \\
-Active Record       & Architetturale  & POEAA    & Tutti i modelli Rails \\
-Active Storage      & Architetturale  & POEAA    & \code{GeneratedDatum}, \code{Post} \\
-MVC                 & Architetturale  & ---      & Intera applicazione Rails \\
+Active Record       & Architetturale  & POEAA    & Tutti i modelli Rails (\code{UploadedDocument}, \code{ExtractedDocument}, \code{Company}, \code{Employee}, ecc.) \\
+MVC                 & Architetturale  & ---      & Intera applicazione Rails (Controller, Model, View JSON) \\
 \bottomrule
 \end{tabularx}
 \caption{Riepilogo dei design pattern adottati}
@@ -5069,13 +5074,16 @@ MVC                 & Architetturale  & ---      & Intera applicazione Rails \\
 \end{table}
 
 % ============================================================
-\subsection{Pattern implementati esplicitamente}
+\subsection{Pattern implementati}
 % ============================================================
 
 \subsubsection{Service Object}
 
 \textit{Intent: Incapsulare un'operazione di business complessa in una classe dedicata con
-un'unica responsabilità, esponendo un'interfaccia\G{} uniforme \code{call(\ldots)}, o, in alternativa, un set di metodi pubblici che rappresentano le fasi dell'operazione.}
+un'unica responsabilità, esponendo un'interfaccia\G{} uniforme \code{call(\ldots)}, o, in alternativa, un set di metodi pubblici che rappresentano le fasi dell'operazione.
+Nella sua variante \textbf{orchestratore}, il Service Object coordina più collaboratori
+iniettati senza conoscerne i dettagli interni, mantenendo comunque una singola
+responsabilità di alto livello.}
 
 Il pattern \pattern{Service Object} costituisce l'ossatura della logica
 applicativa. Ogni servizio ha una responsabilità precisa e non porta stato
@@ -5087,45 +5095,58 @@ Esempi:
 Orchestratore centrale della pipeline OCR\G{}: coordina riconoscimento ottico dei
 caratteri, estrazione dati tramite LLM\G{}, calcolo della confidenza\G{}, risoluzione
 del destinatario e persistenza del risultato.
+Nonostante sia un metodo che ha tante dipendenze e passi, la sua responsabilità è univoca: 
+processare un documento e estrarre i dati, delegando ogni fase a collaboratori dedicati iniettati 
+tramite il costruttore.
 
 \begin{lstlisting}[caption={ProcessDataItem -- struttura del metodo \code{call}}]
 # app/services/document_processing/process_data_item.rb
 module DocumentProcessing
   class ProcessDataItem
     def initialize(
+      data_item_repository:, notifier:, file_storage:,
       ocr_service:, data_extractor:, recipient_resolver:,
-      confidence_calculator_factory:, data_item_repository:,
-      notifier:, metadata_builder:, file_storage:
+      confidence_calculator_factory:,
+      extracted_metadata_builder_factory:
     )
-      @ocr_service                 = ocr_service
-      @data_extractor              = data_extractor
-      @recipient_resolver          = recipient_resolver
-      @confidence_calculator_factory = confidence_calculator_factory
-      @data_item_repository        = data_item_repository
-      @notifier                    = notifier
-      @metadata_builder            = metadata_builder
-      @file_storage                = file_storage
+      @data_item_repository              = data_item_repository
+      @notifier                          = notifier
+      @file_storage                      = file_storage
+      @ocr_service                       = ocr_service
+      @data_extractor                    = data_extractor
+      @recipient_resolver                = recipient_resolver
+      @confidence_calculator_factory     = confidence_calculator_factory
+      @extracted_metadata_builder_factory = extracted_metadata_builder_factory
     end
 
     def call(file_path:, job_id:, processing_item_id: nil,
              extracted_document_id: nil)
       item     = @data_item_repository.find_processing_item(processing_item_id)
-      document = @data_item_repository.find_extracted_document(extracted_document_id)
+      extracted_document = resolve_extracted_document(extracted_document_id, item)
 
       return if @data_item_repository.terminal_item?(item)
 
       @data_item_repository.mark_item_in_progress!(item)
+      @data_item_repository.mark_extracted_document_in_progress!(extracted_document)
 
       # 1. OCR
-      ocr_result = @ocr_service.extract_text(file_path)
+      ocr_result = @ocr_service.full_ocr(file_path)
+      full_text  = ocr_result[:text]
+      ocr_lines  = ocr_result[:lines]
       # 2. Estrazione strutturata via LLM
-      extracted  = @data_extractor.extract(ocr_result.text)
+      extracted_data   = @data_extractor.extract(full_text)
+      recipient_names  = extracted_data[:recipients]
+      llm_confidence   = extracted_data[:llm_confidence]
       # 3. Confidenza\G{}
       confidence = @confidence_calculator_factory.call(
-        ocr_lines: ocr_result.lines, llm_result: extracted
+        ocr_lines: ocr_lines, recipient_names: recipient_names,
+        metadata: extracted_data[:metadata], llm_confidence: llm_confidence,
+        uploaded_document: extracted_document&.uploaded_document
       ).global_confidence
       # 4. Risoluzione destinatario
-      resolution = @recipient_resolver.resolve(extracted.recipient)
+      resolution = @recipient_resolver.resolve(
+        recipient_names: recipient_names, raw_text: full_text
+      )
       # 5. Persistenza e notifica
       @data_item_repository.mark_item_done!(item: item, resolution: resolution)
       @notifier.broadcast(job_id, { event: "document_processed", ... })
@@ -5154,107 +5175,6 @@ SI occupa di fare le chiamate al modello LLM\G{} per generare i testi e immagini
 Orchestra la costruzione dei prompt\G{}, l'invocazione del modello e il salvataggio del risultato, 
 restituendo l'output della richiesta.
 
-% ------------------------------------------------------------------
-\subsubsection{Command}
-% ------------------------------------------------------------------
-
-\textit{Intent (GoF): Incapsulare una richiesta come oggetto, parametrizzare i client con operazioni
-diverse e supportare operazioni reversibili o accodabili.}
-
-I Command centralizzano le operazioni di business esposte dai Controller,
-restituendo sempre un hash di risultato strutturato e isolando la gestione
-degli errori dalla presentazione HTTP.
-
-\begin{lstlisting}[caption={InitializeProcessing -- validazione\G{} e avvio pipeline}]
-# app/services/document_processing/commands/initialize_processing.rb
-module DocumentProcessing
-  module Commands
-    class InitializeProcessing
-      def initialize(upload_manager:, file_storage:,
-                     data_item_repository:, job_class: PdfSplitJob)
-        @upload_manager      = upload_manager
-        @file_storage        = file_storage
-        @data_item_repository = data_item_repository
-        @job_class           = job_class
-      end
-
-      def call(file:, category: nil, company: nil,
-               department: nil, competence_period: nil, employee: nil)
-        checksum     = @upload_manager.compute_checksum(file)
-        existing     = UploadedDocument.find_by(checksum: checksum)
-        return already_exists_result(existing) if existing
-
-        storage_path = @upload_manager.persist_source_pdf(file)
-        uploaded_doc = UploadedDocument.create!(
-          original_filename:   file.original_filename,
-          storage_path:        storage_path,
-          checksum:            checksum,
-          file_kind:           "pdf",
-          override_company:    company,
-          override_department: department
-        )
-        run = ProcessingRun.create!(
-          job_id: SecureRandom.uuid, status: "queued",
-          uploaded_document: uploaded_doc
-        )
-        @job_class.perform_later(storage_path, run.job_id)
-
-        { status: "queued", job_id: run.job_id,
-          uploaded_document_id: uploaded_doc.id, message: "Avviato" }
-      rescue UploadManager::ValidationError => e
-        { ok: false, error: :validation, message: e.message }
-      rescue UploadManager::PersistenceError
-        { ok: false, error: :persistence, message: "Errore nel salvataggio" }
-      end
-    end
-  end
-end
-\end{lstlisting}
-
-\begin{lstlisting}[caption={ReassignExtractedRange -- riprocessamento con nuovo range}]
-# app/services/document_processing/commands/reassign_extracted_range.rb
-def call(extracted_document_id:, page_start:, page_end:)
-  doc = ExtractedDocument.find(extracted_document_id)
-
-  unless page_start.is_a?(Integer) && page_end.is_a?(Integer) &&
-         page_start > 0 && page_end >= page_start &&
-         page_end <= doc.uploaded_document.page_count
-    return { ok: false, error: :validation,
-             message: "Range pagine non valido" }
-  end
-
-  temp_path = @page_range_pdf_service.build_temp_pdf(
-    page_start: page_start, page_end: page_end
-  )
-  doc.update!(status: "queued", page_start: page_start, page_end: page_end)
-  DataExtractionJob.perform_later(temp_path, {
-    job_id: doc.uploaded_document.processing_runs.last.job_id,
-    extracted_document_id: doc.id
-  })
-  { ok: true, extracted_document_id: doc.id,
-    page_start: page_start, page_end: page_end,
-    message: "Riassegnazione completata" }
-end
-\end{lstlisting}
-
-I tre Command del sistema sono riepilogati in tabella~\ref{tab:commands}.
-
-\begin{table}[H]
-\centering
-\small
-\renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\textwidth}{lXl}
-\toprule
-\textbf{Command} & \textbf{Responsabilità} & \textbf{Job accodato} \\
-\midrule
-\code{InitializeProcessing}     & Valida PDF, crea \code{UploadedDocument} e \code{ProcessingRun} & \code{PdfSplitJob} \\
-\code{InitializeFileProcessing} & Valida CSV/immagine, crea record & \code{GenericFileProcessingJob} \\
-\code{ReassignExtractedRange}   & Aggiorna range pagine, riaccoda estrazione & \code{DataExtractionJob} \\
-\bottomrule
-\end{tabularx}
-\caption{Command e rispettivi job accodati}
-\label{tab:commands}
-\end{table}
 
 % ------------------------------------------------------------------
 \subsubsection{Repository}
@@ -5568,105 +5488,67 @@ def call(file_path:, job_id:, uploaded_document_id:, ...)
   create_extracted_document(uploaded, result, ...)
 end
 \end{lstlisting}
-
 % ------------------------------------------------------------------
-\subsubsection{Factory Method}
+\subsubsection{Abstract Factory}
 % ------------------------------------------------------------------
 
-\textit{Intent (GoF): Definire un'interfaccia\G{} per la creazione di un oggetto, lasciando alle
-sottoclassi (o ai metodi specializzati) la decisione su quale classe
-istanziare.}
+\textit{Intent (GoF): Fornire un'interfaccia\G{} per creare famiglie di oggetti correlati o
+dipendenti senza specificarne le classi concrete.}
 
-I metodi del Container agiscono come Factory Method: centralizzano la
-logica di costruzione di oggetti complessi e le loro dipendenze. Il chiamante
-invoca il metodo senza conoscere la classe concreta istanziata:
+\code{SetterFactory} è la factory concreta del modulo\G{} AI\G{}: produce una coppia
+di oggetti correlati (\code{TextParamsSetterService} e
+\code{ImageParamsSetterService}) che condividono la stessa interfaccia\G{}
+(\code{valid?}, \code{getData}, metodo \code{build*}) e collaborano all'interno
+della stessa pipeline di generazione.
 
-\begin{lstlisting}[caption={Factory Method nel Container -- costruzione lazy con memoization}]
-# Il Controller ottiene il Command senza conoscere come e' costruito
-def initialize_processing_command    # <- Factory Method
-  Commands::InitializeProcessing.new(
-    upload_manager:       upload_manager,   # altra factory
-    file_storage:         file_storage,
-    data_item_repository: data_item_repository,
-    job_class:            @job_class
-  )
-end
+\begin{lstlisting}[caption={SetterFactory -- creazione della famiglia testo/immagine}]
+# app/services/ai_generator/setter_factory.rb
+module AiGenerator
+  class SetterFactory
+    def create_text_setter(params_data)
+      TextParamsSetterService.new(params_data)
+    end
 
-# Chiamata nel Controller: nessuna dipendenza diretta
-def split
-  result = initialize_processing_command.call(
-    file:     params[:pdf],
-    company:  params[:company],
-    category: params[:category]
-  )
-  render json: result
+    def create_image_setter(params_data)
+      ImageParamsSetterService.new(params_data)
+    end
+  end
 end
 \end{lstlisting}
 
+Il client \code{AIGeneratorService} riceve la factory via dependency injection
+e invoca i due metodi senza conoscere le classi concrete:
+
+\begin{lstlisting}[caption={AIGeneratorService -- utilizzo della factory senza dipendenza diretta}]
+# app/services/ai_generator/ai_generator_service.rb
+def create_content(generationID)
+  # ...recupero dati...
+
+  textSetter  = @setterFactory.create_text_setter({ prompt:, toneDescription:,
+                  styleDescription:, companyName:, companyDescription: })
+  imageSetter = @setterFactory.create_image_setter({ prompt:,
+                  width: nil, height: nil, seed: nil })
+
+  validate_setters!(textSetter, imageSetter)   # stessa interfaccia valid?/getData
+
+  textResult = createText(textSetter, generationData.prompt)
+  imageResult = createImage(imageSetter, textResult)
+  # ...
+end
+\end{lstlisting}
+
+Sostituire \code{SetterFactory} con una variante (es.\ per test\G{} o per un
+modello diverso) non richiede alcuna modifica al client: è sufficiente
+iniettare una factory alternativa nel costruttore di \code{AIGeneratorService}.
+
 % ------------------------------------------------------------------
-\subsubsection{Presenter e Serializer}
+\subsubsection{Serializer}
 % ------------------------------------------------------------------
 
 \textit{Intent: Separare la logica di presentazione/formattazione dal modello dati,
 producendo rappresentazioni JSON coerenti e disaccoppiate dai dettagli
 di persistenza.}
 
-\paragraph{ExtractedDocumentPresenter}
-Trasforma un record \code{ExtractedDocument} (con le sue relazioni) nella
-struttura JSON restituita dall'API\G{}, generando anche l'URL di download del PDF:
-
-\begin{lstlisting}[caption={ExtractedDocumentPresenter -- trasformazione modello in JSON}]
-# app/services/document_processing/presenters/extracted_document_presenter.rb
-module DocumentProcessing
-  module Presenters
-    class ExtractedDocumentPresenter
-      include Rails.application.routes.url_helpers
-
-      def initialize(extracted_document)
-        @doc = extracted_document
-      end
-
-      def as_json(*)
-        {
-          id:                   @doc.id,
-          uploaded_document_id: @doc.uploaded_document_id,
-          sequence:             @doc.sequence,
-          status:               @doc.status,
-          page_start:           @doc.page_start,
-          page_end:             @doc.page_end,
-          metadata:             @doc.metadata,
-          recipient:            @doc.recipient,
-          confidence:           @doc.confidence,
-          matched_employee:     employee_json,
-          error_message:        @doc.error_message,
-          processed_at:         @doc.processed_at,
-          process_time_seconds: @doc.process_time_seconds,
-          pdf_download_url:     pdf_url
-        }
-      end
-
-      private
-
-      def employee_json
-        return nil unless @doc.matched_employee
-        e = @doc.matched_employee
-        {
-          id:            e.id,
-          name:          e.name,
-          email:         e.email,
-          employee_code: e.username
-        }
-      end
-
-      def pdf_url
-        extracted_pdf_document_path(id: @doc.id)
-      end
-    end
-  end
-end
-\end{lstlisting}
-
-\paragraph{Serializer per collezioni}
 I Serializer producono la struttura JSON delle collezioni REST con
 chiavi camelCase coerenti con il frontend\G{}:
 
@@ -5680,7 +5562,7 @@ module PostSerializer
         {
           id:              post.id,
           title:           post.title,
-          PostText:        post.body_text,
+          postText:        post.body_text,
           imgPath:         post.img_path,
           dateTime:        post.date_time,
           generatedDatumId: post.generated_datum_id,
@@ -5697,106 +5579,6 @@ module PostSerializer
       end
     }
   end
-end
-\end{lstlisting}
-
-% ------------------------------------------------------------------
-\subsubsection{Observer (ActionCable Notifier)}
-% ------------------------------------------------------------------
-
-\textit{Intent (GoF): Definire una dipendenza uno-a-molti tra oggetti in modo che, quando un
-oggetto cambia stato, tutti i dipendenti vengano notificati e aggiornati
-automaticamente.}
-
-\paragraph{ActionCableNotifier}
-Broadcaster WebSocket che funge da Subject: notifica il frontend\G{} in tempo
-reale a ogni cambiamento di stato del pipeline di elaborazione:
-
-\begin{lstlisting}[caption={ActionCableNotifier -- broadcast di eventi sul canale dedicato}]
-# app/services/document_processing/action_cable_notifier.rb
-module DocumentProcessing
-  class ActionCableNotifier
-    # Ogni job di elaborazione ha il proprio canale isolato
-    def broadcast(job_id, data)
-      ActionCable.server.broadcast(
-        "document_processing:#{job_id}",
-        data
-      )
-    end
-  end
-end
-
-# Esempio di eventi trasmessi:
-# { event: "split_completed",       total_documents: 5 }
-# { event: "document_processed",    sequence: 2, status: "done" }
-# { event: "processing_completed",  processed: 5 }
-# { event: "error",                 message: "OCR fallita" }
-\end{lstlisting}
-
-\paragraph{AiJobOrchestrator}
-Orchestratore degli stati del job AI\G{}: coordina creazione, avvio, completamento
-e fallimento della generazione, notificando il frontend\G{} sul canale
-\code{generation\_channel}:
-
-\begin{lstlisting}[caption={AiJobOrchestrator -- ciclo di vita del job di generazione}]
-# app/services/ai_generator/ai_job_orchestrator.rb
-module AiGenerator
-class AiJobOrchestrator
-  
-  def self.orchestrate(params)
-    ensure_active_configuration!(params)
-
-    generation = GeneratedDatum.create(params.merge(status: 'pending'))
-    if generation.persisted?
-      AiGeneratorJob.perform_later(generation.id)
-    end
-    generation
-  end
-
-  def self.signal_process_start(generationId)
-    generation = GeneratedDatum.find_by(id: generationId)
-    return unless generation
-
-    generation.update(status: 'processing', data_time: Time.current)
-    ActionCable.server.broadcast("generation_channel", { 
-      id: generationId, 
-      status: 'processing' 
-    })
-  end
-
-  def self.complete(generationId)
-    generation = GeneratedDatum.find_by(id: generationId)
-    return unless generation
-
-    image_url = if generation.generated_image.attached?
-                  Rails.application.routes.url_helpers.rails_blob_path(generation.generated_image, only_path: true)
-                end
-    ActionCable.server.broadcast("generation_channel", { 
-      id: generationId, 
-      status: 'completed', 
-      title: generation.title,
-      text: generation.text_result,
-      image_url: image_url,
-      created_at: generation.created_at.strftime("%Y-%m-%d %H:%M:%S")
-    })
-  end
-
-  def self.signal_failure(generationId, error_message = "Errore generico durante la generazione")
-    generation = GeneratedDatum.find_by(id: generationId)
-    return unless generation
-
-    generation.update(
-      status: 'failed',
-      updated_at: Time.current,
-    )
-
-    ActionCable.server.broadcast("generation_channel", { 
-      id: generationId, 
-      status: 'failed',
-      error: error_message 
-    })
-  end
-end
 end
 \end{lstlisting}
 
@@ -5895,19 +5677,22 @@ class UploadedDocument < ApplicationRecord
   has_many :extracted_documents, dependent: :destroy  # cascade delete
   belongs_to :employee, optional: true
 
-  validates :original_filename, :storage_path, :checksum, presence: true
-  validates :checksum,   uniqueness: true
-  validates :file_kind,  inclusion: { in: %w[pdf csv image] }, allow_nil: true
+  validates :original_filename, presence: true
+  validates :storage_path,      presence: true
+  validates :checksum,          presence: true, uniqueness: true
+  validates :file_kind,         inclusion: { in: %w[pdf csv image] }, allow_nil: true
 end
 
 # app/models/extracted_document.rb
 class ExtractedDocument < ApplicationRecord
   belongs_to :uploaded_document
-  belongs_to :matched_employee, class_name: "User", optional: true
+  belongs_to :matched_employee, class_name: 'User', optional: true
 
   STATUSES = %w[queued in_progress done failed sent validated].freeze
 
-  validates :sequence, :page_start, :page_end, presence: true
+  validates :sequence,              presence: true
+  validates :page_start, :page_end, presence: true,
+                                    numericality: { greater_than: 0 }
   validates :status, inclusion: { in: STATUSES }, allow_nil: true
   validate  :end_page_must_be_after_start
 
@@ -5919,7 +5704,8 @@ class ExtractedDocument < ApplicationRecord
   private
   def end_page_must_be_after_start
     return if page_start.blank? || page_end.blank?
-    errors.add(:page_end, "deve essere >= page_start") if page_end < page_start
+    return if page_end >= page_start
+    errors.add(:page_end, 'deve essere maggiore o uguale a page_start')
   end
 end
 
@@ -5943,54 +5729,6 @@ gestione delle chiavi esterne a livello applicativo: la cancellazione di un
 \code{UploadedDocument} propaga automaticamente la rimozione di tutti gli
 \code{ExtractedDocument} collegati.
 
-
-\subsubsection{Active Storage}
-Il modulo\G{} Active Storage di Rails gestisce l'upload, la memorizzazione e la
-recupero dei file, permettendo l'utilizzo sia di servizi cloud (es. Amazon S3) che il filesystem locale. Nel progetto\G{}, Active Storage è utilizzato per
-gestire le immagini generate dalle chiamate API\G{} e quelle caricate da frontend\G{}. I file vengono associati ai modelli tramite \code{has_one_attached}.
-
-
-\begin{lstlisting}[caption={Modello principale con Active Storage -- associazione has_one_attached per immagini generate}]
-# app/models/generated_datum.rb
-class GeneratedDatum < ApplicationRecord
-  has_one_attached :generated_image
-
-  belongs_to :tone
-  belongs_to :style
-  belongs_to :company
-
-  belongs_to :version, class_name: 'GeneratedDatum', foreign_key: 'version_id', optional: true
-end
-\end{lstlisting}
-
-\subsubsection{Observer tramite Callbacks}
-
-Rails implementa il pattern Observer attraverso il meccanismo dei
-\textit{callbacks} legati al ciclo di vita dei modelli. Nel progetto\G{},
-il framework gestisce automaticamente i timestamp \code{created\_at} e
-\code{updated\_at} ad ogni operazione di persistenza. Il pattern è
-esteso esplicitamente per il modello \code{ProcessingRun}:
-
-\begin{lstlisting}[caption={Callback Rails -- aggiornamento automatico dello stato}]
-# app/models/processing_run.rb
-class ProcessingRun < ApplicationRecord
-  belongs_to :uploaded_document, optional: true
-  has_many :processing_items, dependent: :destroy
-
-  STATUSES = %w[queued splitting processing completed failed].freeze
-
-  validates :job_id, presence: true, uniqueness: true
-  validates :status, inclusion: { in: STATUSES }
-
-  # Callback: aggiorna started_at al primo avvio
-  before_save :set_started_at, if: -> { status_changed? && status == "processing" }
-
-  private
-  def set_started_at
-    self.started_at ||= Time.current
-  end
-end
-\end{lstlisting}
 
 
 \section{Database}
