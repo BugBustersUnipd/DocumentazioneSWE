@@ -702,7 +702,12 @@ Di seguito viene fornita una panoramica delle principali API\G{} esposte dal sis
 
 
 \section{Architettura del Sistema}
-Il sistema è stato documentato seguendo un approccio top-down basato sul modello C4, partendo dal contesto generale fino ad arrivare al dettaglio dei componenti interni e all'infrastruttura di rilascio.
+Il sistema è stato documentato seguendo un approccio top-down basato sul modello C4, partendo dal contesto generale fino ad 
+arrivare al dettaglio dei componenti interni e all'infrastruttura di rilascio. \\
+Dato che il sistema comprende una grande quantità di componenti è il modo migliore per evidenziare le interazioni tra di essi e 
+la loro collocazione all'interno dell'architettura complessiva, senza perdersi nei dettagli fin da subito. Nonostante ciò 
+verranno comunque forniti diagrammi UML delle classi e delle descrizioni dettagliate dei componenti, 
+in modo da avere un quadro completo e chiaro del sistema.
 
 \subsection{Contesto di Sistema (C4 Level 1)}
 Il diagramma di contesto illustra le interazioni di altissimo livello tra l'utente finale e i sistemi esterni.
@@ -725,38 +730,51 @@ gestore per le code, cache e backend\G{} per le connessioni WebSocket (ActionCab
 \begin{figure}[H] \centering \includegraphics[width=0.8\textwidth]{ImmaginiSpecificaTecnica/C4/level2.png} \caption{Container Diagram} \end{figure}
 
 
-\subsection{Architettura Logica Interna (Layered Architecture)}
-Il sistema è stato progettato seguendo un pattern architetturale di tipo Layered (a livelli). Questa separazione garantisce 
-un alto grado di disaccoppiamento, facilitando la manutenzione, i test\G{} e la scalabilità\G{} del sistema. 
-Inoltre, lavorando in Ruby on Rails\G{}, è stato possibile sfruttare le convenzioni del framework per implementare in modo 
-naturale i vari livelli, senza andare a forzare l'introduzione di ulteriori astrazioni o pattern complessi e contro il linguaggio stesso.
-L'architettura logica si divide in quattro livelli principali:
+\subsection{Architettura Logica Interna }
+L'architettura prevede una netta separazione tra il frontend, dedicato all'interfaccia utente, e il backend\G{}, sviluppato in Ruby on Rails\G{}.
 
-\subsubsection{Livello di Presentazione (Presentation Layer)}
-Sviluppato in Angular\G{} (Single Page Application), è responsabile dell'interfaccia\G{} utente e dell'interazione con l'utente finale. Comunica con il backend\G{} tramite API\G{} RESTful.
+\subsubsection{Frontend: Interfaccia Utente}
+Sviluppato in Angular\G{} (Single Page Application), è il responsabile esclusivo dell'interfaccia\G{} utente e dell'interazione con l'utente finale.
 \begin{itemize}
-  \item Riceve gli input dell'utente (es. caricamento documenti, richieste di generazione testo)
-  \item Comunica con il backend\G{} per inviare richieste e ricevere risposte.
-  \item Gestisce il routing lato client e la renderizzazione reattiva dei dati.
+  \item Gestisce gli input dell'utente (es. caricamento documenti, richieste di generazione testo).
+  \item Comunica con il backend\G{} tramite chiamate API\G{} RESTful per inviare richieste e ricevere risposte.
+  \item Si occupa del routing lato client e della renderizzazione reattiva dei dati.
 \end{itemize}
 
-\subsubsection{Livello applicativo e di Business Logic (Application Layer)}
-Sviluppato in Ruby on Rails\G{} (API-only). Rappresenta il cuore del sistema e si struttura internamente in ulteriori sotto-livelli:
+Il sistema backend è stato progettato seguendo un pattern architetturale di tipo Layered (a livelli). Questa separazione garantisce un alto grado di disaccoppiamento, 
+facilitando la manutenzione, i test\G{} e la scalabilità\G{} del sistema.  
+Quest'ultimo sfrutta le convenzioni del framework per implementare in modo naturale i vari livelli interni, senza forzare l'introduzione di pattern complessi e contro il linguaggio stesso. 
+
+Il sistema si struttura quindi nei seguenti livelli logici:
+
+\subsubsection{Backend: Livello Applicativo (Application Layer)}
+Costituisce il punto di ingresso nel backend\G{} per le richieste provenienti dal frontend ed è implementato dai \textbf{Controller} di Ruby on Rails\G{}.
 \begin{itemize}
-  \item \textbf{Controller}: gestisce le richieste HTTP, orchestrando le operazioni necessarie per soddisfarle.
-  \item \textbf{Service}: contiene la logica di business specifica, come l'integrazione con i modelli di intelligenza artificiale, la gestione dei documenti e la logica di elaborazione.
-  \item \textbf{Model}: rappresenta le entità del dominio (es. Utente, Documento, Sessione) e gestisce la persistenza dei dati.
+  \item Riceve e instrada le richieste HTTP in ingresso.
+  \item Valida i parametri e i payload della richiesta.
+  \item Delega l'effettiva esecuzione delle operazioni ai livelli sottostanti e formatta le risposte (es. in JSON) da restituire al client.
 \end{itemize}
 
-\subsubsection{Livello di Accesso ai Dati (Data Access Layer)}
-Gestito dal modulo\G{} ActiveRecord di Ruby on Rails\G{} (ORM), si occupa della comunicazione con il database PostgreSQL\G{}. Fornisce un'interfaccia\G{} per eseguire operazioni CRUD (Create, Read, Update, Delete) sui dati persistenti traducendo le operazioni in query SQL sicure e ottimizzate, prevenendo vulnerabilità come le SQL Injection.
+\subsubsection{Backend: Livello di Business Logic (Business Layer)}
+Rappresenta il cuore elaborativo del sistema, in cui risiedono le logiche e le regole di dominio.
+\begin{itemize}
+  \item Implementato tramite \textbf{Service}, \textbf{Job} asincroni e classi di orchestrazione.
+  \item Gestisce la logica complessa, come l'integrazione con i modelli di intelligenza artificiale (AWS\G{} Bedrock\G{}), i servizi di estrazione (AWS\G{} Textract) e le pipeline di elaborazione dei documenti.
+  \item Coordina il flusso dei dati tra il livello applicativo e il livello di persistenza.
+\end{itemize}
 
-\subsubsection{Livello Dati (Data Layer)}
-Costituito dal Database Relazionale (RDBMS) PostgreSQL\G{}. Ha la responsabilità di memorizzare in modo persistente tutte le informazioni necessarie al funzionamento del sistema, inclusi dati degli utenti, documenti caricati, sessioni di interazione e log delle attività.
-
+\subsubsection{Backend: Livello di Persistenza (Persistence Layer)}
+Gestisce in modo esclusivo la comunicazione con il database PostgreSQL\G{} e il salvataggio dello stato del sistema.
+\begin{itemize}
+  \item Implementato tramite i \textbf{Model} di Rails, sfruttando il modulo\G{} ORM ActiveRecord.
+  \item Rappresenta le entità del dominio (es. Utente, Documento, Sessione) astraendo la complessità del database relazionale.
+  \item Traduce le operazioni sui dati (CRUD) in query SQL sicure e ottimizzate, garantendo l'integrità dei dati e prevenendo vulnerabilità come le SQL Injection.
+\end{itemize}
 
 \subsection{Dettaglio dei Componenti (C4 Level 3)}
-I principi dell'architettura Layered appena descritti trovano applicazione pratica nell'organizzazione interna dei macro-moduli del backend\G{} Rails. Di seguito si illustra il dettaglio (Livello 3) dei tre domini principali del sistema:
+I principi dell'architettura Layered appena descritti trovano applicazione pratica nell'organizzazione interna dei macro-moduli del 
+backend\G{} Rails. I vari riquadri indicano i componenti principali (i nomi delle classi di ruby on Rails), evidenziando le interazioni tra di essi.
+Di seguito si illustra il dettaglio (Livello 3) dei tre domini principali del sistema:
 
 \subsubsection{Modulo\G{} OCR\G{} ed Estrazione Dati:}
 Questo modulo\G{} gestisce il caricamento dei file, lo splitting asincrono dei PDF e l'orchestrazione con AWS\G{} Textract e Bedrock\G{}. Si nota la netta separazione tra il livello HTTP (Controllers), i Commands per l'accodamento dei job, gli Orchestratori e i Domain Services (Adapter per le API\G{} esterne e logica di validazione\G{}).
@@ -769,7 +787,9 @@ Gestisce la pipeline di generazione multimodale (testo e immagini). Il controlle
 
 
 \subsubsection{Modulo\G{} Analisi e Reportistica (Data Analyst):}
-Questo componente si occupa dell'aggregazione dei dati per le dashboard\G{}. L'architettura fa uso del pattern Template Method nei \textit{Computation Services} e demanda l'esecuzione delle query aggregate (es. calcolo della confidence media o dei tempi di elaborazione) a specifici \textit{Data Managers}.
+Questo componente si occupa dell'aggregazione dei dati per le dashboard\G{}. 
+L'architettura demanda l'esecuzione delle query aggregate (es. calcolo della confidence media o dei tempi di elaborazione) a 
+specifici \textit{Data Managers}.
 \begin{figure}[H] \centering \includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/C4/level3Analyst.png} \caption{Component Diagram – Data Analysis} \end{figure}
 
 
@@ -781,7 +801,11 @@ La scelta del monolite per il backend è motivata dalla \textbf{Solid Suite} di 
 che offre nativamente la capacità di centralizzare code di job (\texttt{solid\_queue}), 
 cache (\texttt{solid\_cache}) e WebSocket (\texttt{solid\_cable}) su PostgreSQL\G{}, 
 eliminando la necessità di infrastrutture esterne come Redis\G{} o Sidekiq.
+Nonostante l'uso di alcuni servizi esterni (AWS\G{} Textract e Bedrock\G{}), l'architettura rimane un monolite logico, 
+con tutti i componenti interni che condividono lo stesso database e processo di esecuzione, in quanto sono delle semplici chiamate, 
+non richiedono un'architettura a microservizi e non introducono complessità aggiuntiva significativa.
 
+\subsection{Containerizzazione con Docker\G{}}
 Per avere un progetto affidabile e riproducibile, l'intero stack è containerizzato con Docker\G{}:
 \begin{itemize}
   \item \textbf{Docker Host (Server Node)}: L'infrastruttura hardware o virtuale che ospita il motore
@@ -1751,7 +1775,11 @@ in maniera asincrona, applicando la specifica logica di estrazione in base al ti
 Servizio core per l'elaborazione dei file generici (immagini, CSV). 
 Smista il documento al processore corretto, integra i punteggi di confidenza\G{} restituiti 
 dall'LLM e prepara i payload (sia in caso di successo che di errore) per l'aggiornamento 
-in tempo reale dell'interfaccia\G{}.
+in tempo reale dell'interfaccia\G{}.\\
+Nonostante ha molti metodi la responsabilità è unica e ben definita: orchestrare il processo di estrazione dati per file generici,
+applicando le logiche di normalizzazione e integrazione dei risultati in un unico punto centralizzato, delegando tutto,
+mantenendo così la coesione del flusso di elaborazione specifico per questi formati. 
+
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -1806,7 +1834,8 @@ confidence da parte dell'LLM\G{}.
 Motore di calcolo dedicato alla determinazione del punteggio di affidabilità\G{} 
 (confidence score\G{}) dei dati estratti[cite: 817, 826]. Combina le metriche restituite dal 
 motore OCR\G{} con quelle dell'LLM\G{}, applicando logiche di fusione e regole di override in base 
-a campi specifici (es. destinatari, date).
+a campi specifici (es. destinatari, date). \\
+Anche qui ha solo una responsabilità, quella di calcolare i punteggi di confidenza\G{} in maniera centralizzata.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -2059,7 +2088,7 @@ segnandone successi, artefatti creati o eventuali fallimenti.
 \centering
 \includegraphics[width=0.5\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ActionCableNotifier.jpg}
 \end{figure}
-Servizio wrapper per la gestione delle notifiche in tempo reale. 
+Servizio per la gestione delle notifiche in tempo reale. 
 Permette al backend\G{} di comunicare al frontend\G{} via WebSockets lo stato di 
 avanzamento dei processi asincroni (job) per un aggiornamento fluido della UI.
 
