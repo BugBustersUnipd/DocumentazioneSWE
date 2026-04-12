@@ -948,7 +948,7 @@ Si occupa di coordinare le chiamate ai servizi di generazione testuale e visiva,
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/ActionCable.jpg}
 \end{figure}
 Classe nativa di rails per la gestione delle connessioni WebSocket. 
-Nel contesto del modulo\G{} AI Assistant\G{}, viene utilizzata per inviare aggiornamenti in tempo reale al frontend\G{} riguardo lo stato delle generazioni in corso, permettendo un'esperienza utente più fluida e interattiva.
+Nel contesto del modulo\G{} AI Assistant\G{}, viene utilizzata per inviare aggiornamenti in tempo reale al frontend\G{} riguardo lo stato delle generazioni in corso.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -957,7 +957,50 @@ Nel contesto del modulo\G{} AI Assistant\G{}, viene utilizzata per inviare aggio
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item broadcast(channel: string, message: Json): void
+    \item server.broadcast(channel: string, message: Json): void
+\end{itemize}
+
+
+\subsubsubsection{ActiveSupport}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/ActiveSupport.jpg}
+\end{figure}
+Classe nativa di rails per la gestione delle connessioni WebSocket. 
+Nel contesto del modulo\G{} AI Assistant\G{}, viene utilizzata insieme ad altri componenti per gestire le comunicazioni in tempo reale.
+Recupera le notifiche inviate da AiGeneratorJob e le distribuisce ai client sottoscritti, facilitando l'aggiornamento dinamico dell'interfaccia\G{} utente.
+
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item instrument(name: string, payload: hash): void
+    \item subscribe(pattern: string, block: function): void
+\end{itemize}
+
+
+\subsubsubsection{GenerationNotifier}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/GenerationNotifier.jpg}
+\end{figure}
+Classe di servizio dedicata alla gestione delle notifiche in tempo reale riguardo lo stato delle generazioni in corso.
+Utilizza ActionCable e ActiveSupport per inviare aggiornamenti al frontend\G{} e permettere un'esperienza utente più fluida e interattiva durante il processo di generazione dei contenuti.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item CHANNEL: string
+    \item broadcaster: ActionCable::Server
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(broadcaster: ActionCable::Server): void
+    \item subscribe(data: Hash): void
 \end{itemize}
 
 
@@ -1784,7 +1827,6 @@ mantenendo così la coesione del flusso di elaborazione specifico per questi for
 
 \textbf{Attributi} 
 \begin{itemize}
-    \item notifier: ActionCableNotifier | nil
       \item file_storage: FileStorage | nil
       \item generic_file_repository: DataItemRepository | nil
       \item file_processor: CsvProcessor | ImageProcessor
@@ -1793,7 +1835,7 @@ mantenendo così la coesione del flusso di elaborazione specifico per questi for
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(notifier: ActionCableNotifier | nil, file_storage: FileStorage | nil, generic_file_repository: DataItemRepository | nil, file_processor: CsvProcessor | ImageProcessor, confidence_calculator_factory: Proc): void
+    \item initialize(file_storage: FileStorage | nil, generic_file_repository: DataItemRepository | nil, file_processor: CsvProcessor | ImageProcessor, confidence_calculator_factory: Proc): void
       \item call(file_path: String, job_id: String, uploaded_document_id: int, file_kind: String, category*: String, override_company*: String, override_department*: String, competence_period*: String): void
       \item apply_user_overlays(llm_metadata: Hash, llm_confidence: Hash, overlays: Hash): [Hash,Hash]
       \item process_file(file_path: String, uploaded_document: UploadedDocument, run: ProcessingRun, overlays: Hash): Hash[]
@@ -1950,7 +1992,6 @@ del processo.
 \textbf{Attributi} 
 \begin{itemize}
     \item data_item_repository: DataItemRepository
-    \item notifier: ActionCableNotifier
     \item file_storage: FileStorage
     \item ocr_service: Ocr\G{}
     \item data_extractor: DataExtractor
@@ -1961,7 +2002,7 @@ del processo.
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(data_item_repository: DataItemRepository, notifier: ActionCableNotifier, file_storage: FileStorage, ocr_service: Ocr\G{}, data_extractor: DataExtractor, recipient_resolver: RecipientResolver, confidence_calculator_factory: Proc, extracted_metadata_builder_factory: Proc)
+    \item initialize(data_item_repository: DataItemRepository, file_storage: FileStorage, ocr_service: Ocr\G{}, data_extractor: DataExtractor, recipient_resolver: RecipientResolver, confidence_calculator_factory: Proc, extracted_metadata_builder_factory: Proc)
     \item call(file_path: String, job_id*: String, processing_item_id*: int, extracted_document_id*: int): void
     \item resolve_extracted_document(extracted_document_id*: int, item*: Object): ExtractedDocument | nil
     \item update_extracted_document_success(extracted_document: ExtractedDocument, resolution: Object, metadata: Hash, recipient: String | nil, global_confidence: Float, process_duration_seconds: Float): void
@@ -1984,7 +2025,6 @@ inversione delle dipendenze.
 \textbf{Attributi} 
 \begin{itemize}
     \item aws_region: String
-    \item broadcaster: ActionCable.server
     \item ocr_service_class: Class
     \item data_extractor_class: Class
     \item recipient_resolver_class: Class
@@ -1993,7 +2033,6 @@ inversione delle dipendenze.
     \item csv_processor_class: Class
     \item confidence_calculator_class: Class
     \item extracted_metadata_builder_class: Class
-    \item notifier_class: Class
     \item llm_service_class: Class
     \item split_run_repository_class: Class
     \item data_item_repository_class: Class
@@ -2007,7 +2046,7 @@ inversione delle dipendenze.
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(aws_region*: String, broadcaster*: ActionCable::Server::Base, ocr_service_class*: Class, data_extractor_class*: Class, recipient_resolver_class*: Class, pdf_splitter_class*: Class, image_processor_class*: Class, csv_processor_class*: Class, confidence_calculator_class*: Class, extracted_metadata_builder_class*: Class, notifier_class*: Class, llm_service_class*: Class, split_run_repository_class*: Class, data_item_repository_class*: Class, file_storage_class*: Class, upload_manager_class*: Class, page_range_pdf_service_class*: Class, db_manager_class*: Class, textract_client*: Aws::Textract::Client, bedrock_client*: Aws::BedrockRuntime::Client): void
+    \item initialize(aws_region*: String, ocr_service_class*: Class, data_extractor_class*: Class, recipient_resolver_class*: Class, pdf_splitter_class*: Class, image_processor_class*: Class, csv_processor_class*: Class, confidence_calculator_class*: Class, extracted_metadata_builder_class*: Class, llm_service_class*: Class, split_run_repository_class*: Class, data_item_repository_class*: Class, file_storage_class*: Class, upload_manager_class*: Class, page_range_pdf_service_class*: Class, db_manager_class*: Class, textract_client*: Aws::Textract::Client, bedrock_client*: Aws::BedrockRuntime::Client): void
       \item ocr_service(): DocumentOCRService
       \item data_extractor(): DocumentDataExtractorService
       \item recipient_resolver(): DocumentRecipientResolverService
@@ -2016,7 +2055,6 @@ inversione delle dipendenze.
       \item csv_processor(): CsvProcessor
       \item confidence_calculator(**kwargs): ConfidenceCalculator
       \item extracted_metadata_builder(**kwargs): ExtractedMetadataBuilder
-      \item notifier(): ActionCableNotifier
       \item split_run_repository(): SplitRunRepository
       \item data_item_repository(): DataItemRepository
       \item file_storage(): FileStorage
@@ -2030,7 +2068,6 @@ inversione delle dipendenze.
       \item initialize_processing_command(): InitializeProcessing
       \item initialize_file_processing_command(): InitializeFileProcessing
       \item reassign_extracted_range_command(): ReassignExtractedRange
-      \item broadcast(job_id: String, data: Hash): void
 \end{itemize}
 
 \subsubsubsection{ProcessSplitRun}
@@ -2045,7 +2082,6 @@ avvia la messa in coda per l'estrazione asincrona dei dati.
 \textbf{Attributi} 
 \begin{itemize}
     \item split_run_repository: SplitRunRepository
-    \item notifier: ActionCableNotifier
     \item file_storage: FileStorage
     \item pdf_splitter_factory: Proc
     \item data_extraction_job_class: Class
@@ -2053,7 +2089,7 @@ avvia la messa in coda per l'estrazione asincrona dei dati.
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(split_run_repository: SplitRunRepository, notifier: ActionCableNotifier, file_storage: FileStorage, pdf_splitter_factory: Proc, data_extraction_job_class: Class)
+    \item initialize(split_run_repository: SplitRunRepository, file_storage: FileStorage, pdf_splitter_factory: Proc, data_extraction_job_class: Class)
     \item call(file_path: String, job_id: String): void
     \item create_processing_items_and_enqueue(split_results: Hash[], run: SplitRun): void
     \item cleanup_source_pdf(file_path: String, run: SplitRun): void
@@ -2083,6 +2119,48 @@ segnandone successi, artefatti creati o eventuali fallimenti.
     \item uploaded_source_path_for(run: ProcessingRun): String | nil
     \item create_item_for_result!(run: ProcessingRun, result: Hash, sequence: int): Hash
 \end{itemize}
+
+
+\subsubsubsection{ActionCable}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ActionCable.jpg}
+\end{figure}
+Classe nativa di rails per la gestione delle connessioni WebSocket. 
+Nel contesto del modulo\G{} AI Copilot\G{}, viene utilizzata per inviare aggiornamenti in tempo reale al frontend\G{} riguardo lo stato dell'analisi in corso.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item server.broadcast(channel: string, message: Json): void
+\end{itemize}
+
+
+\subsubsubsection{ActiveSupport}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ActiveSupport.jpg}
+\end{figure}
+Classe nativa di rails per la gestione delle connessioni WebSocket. 
+Nel contesto del modulo\G{} AI Copilot\G{}, viene utilizzata insieme ad altri componenti per gestire le comunicazioni in tempo reale.
+Recupera le notifiche inviate dai servizi di elaborazione e le distribuisce ai client sottoscritti, facilitando l'aggiornamento dinamico dell'interfaccia\G{} utente.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item instrument(name: string, payload: hash): void
+    \item subscribe(pattern: string, block: function): void
+\end{itemize}
+
+
 
 \subsubsubsection{ActionCableNotifier}
 \begin{figure}[H]
@@ -5134,57 +5212,93 @@ tramite il costruttore.
 module DocumentProcessing
   class ProcessDataItem
     def initialize(
-      data_item_repository:, notifier:, file_storage:,
-      ocr_service:, data_extractor:, recipient_resolver:,
+      data_item_repository:,
+      file_storage:,
+      ocr_service:,
+      data_extractor:,
+      recipient_resolver:,
       confidence_calculator_factory:,
       extracted_metadata_builder_factory:
     )
-      @data_item_repository              = data_item_repository
-      @notifier                          = notifier
-      @file_storage                      = file_storage
-      @ocr_service                       = ocr_service
-      @data_extractor                    = data_extractor
-      @recipient_resolver                = recipient_resolver
-      @confidence_calculator_factory     = confidence_calculator_factory
+      @data_item_repository = data_item_repository
+      @file_storage = file_storage
+      @ocr_service = ocr_service
+      @data_extractor = data_extractor
+      @recipient_resolver = recipient_resolver
+      @confidence_calculator_factory = confidence_calculator_factory
       @extracted_metadata_builder_factory = extracted_metadata_builder_factory
     end
 
-    def call(file_path:, job_id:, processing_item_id: nil,
-             extracted_document_id: nil)
-      item     = @data_item_repository.find_processing_item(processing_item_id)
+    def call(file_path:, job_id:, processing_item_id: nil, extracted_document_id: nil)
+      start_time = Time.now
+      run = data_item_repository.find_run_by_job_id(job_id)
+      item = processing_item_id ? data_item_repository.find_processing_item(processing_item_id) : nil
       extracted_document = resolve_extracted_document(extracted_document_id, item)
 
-      return if @data_item_repository.terminal_item?(item)
+      return if data_item_repository.terminal_item?(item)
 
-      @data_item_repository.mark_item_in_progress!(item)
-      @data_item_repository.mark_extracted_document_in_progress!(extracted_document)
+      data_item_repository.mark_item_in_progress!(item)
+      data_item_repository.mark_extracted_document_in_progress!(extracted_document)
 
-      # 1. OCR
-      ocr_result = @ocr_service.full_ocr(file_path)
-      full_text  = ocr_result[:text]
-      ocr_lines  = ocr_result[:lines]
-      # 2. Estrazione strutturata via LLM
-      extracted_data   = @data_extractor.extract(full_text)
-      recipient_names  = extracted_data[:recipients]
-      llm_confidence   = extracted_data[:llm_confidence]
-      # 3. Confidenza\G{}
-      confidence = @confidence_calculator_factory.call(
-        ocr_lines: ocr_lines, recipient_names: recipient_names,
-        metadata: extracted_data[:metadata], llm_confidence: llm_confidence,
+      ocr_result = ocr_service.full_ocr(file_path)
+      full_text = ocr_result[:text]
+      ocr_lines = ocr_result[:lines]
+
+      extracted_data = data_extractor.extract(full_text)
+      recipient_names = extracted_data[:recipients]
+      # normalizza al destinatario singolo
+      recipient = Array(recipient_names).compact.first
+      extracted_document_data = extracted_data[:metadata]
+      llm_confidence = extracted_data[:llm_confidence]
+      final_global_confidence = confidence_calculator_factory.call(
+        ocr_lines: ocr_lines,
+        recipient_names: recipient_names,
+        metadata: extracted_document_data,
+        llm_confidence: llm_confidence,
         uploaded_document: extracted_document&.uploaded_document
       ).global_confidence
-      # 4. Risoluzione destinatario
-      resolution = @recipient_resolver.resolve(
-        recipient_names: recipient_names, raw_text: full_text
-      )
-      # 5. Persistenza e notifica
-      @data_item_repository.mark_item_done!(item: item, resolution: resolution)
-      @notifier.broadcast(job_id, { event: "document_processed", ... })
+
+      resolution = recipient_resolver.resolve(recipient_names:, raw_text: full_text)
+
+      data_item_repository.mark_item_done!(item:, resolution:)
+      duration = Time.now - start_time
+      update_extracted_document_success(extracted_document, resolution, extracted_document_data, recipient, final_global_confidence, duration)
+
+      if job_id.present?
+        ActiveSupport::Notifications.instrument("document_processing.lifecycle",
+          job_id: job_id,
+          **build_success_payload(
+            filename: File.basename(file_path),
+            ocr_text: full_text,
+            recipient: recipient,
+            extracted_document_data: extracted_document_data,
+            extracted_confidence: final_global_confidence,
+            matched_recipient: format_employee(resolution.employee),
+            extracted_document_id: extracted_document&.id,
+            document_index: item&.sequence,
+            total_documents: run&.total_documents
+          )
+        )
+      end
     rescue StandardError => e
-      @data_item_repository.mark_item_failed(item: item, error_message: e.message)
-      @notifier.broadcast(job_id, { event: "error", message: e.message })
+      data_item_repository.mark_item_failed(item:, error_message: e.message)
+      data_item_repository.mark_extracted_document_failed(extracted_document:, error_message: e.message)
+
+      if job_id.present?
+        ActiveSupport::Notifications.instrument("document_processing.lifecycle",
+          job_id: job_id,
+          **build_error_payload(
+            message: e.message,
+            filename: file_path ? File.basename(file_path) : nil,
+            extracted_document_id: extracted_document&.id,
+            document_index: item&.sequence,
+            total_documents: run&.total_documents
+          )
+        )
+      end
     ensure
-      @file_storage.delete(file_path) if @file_storage.exist?(file_path)
+      increment_progress(run, job_id)
+      file_storage.delete(file_path) if file_path && file_storage.exist?(file_path)
     end
   end
 end
@@ -5321,14 +5435,12 @@ module DocumentProcessing
       data_extractor_class:     DocumentProcessing::DataExtractor,
       pdf_splitter_class:       DocumentProcessing::PdfSplitter,
       job_class:                PdfSplitJob,
-      notifier_class:           DocumentProcessing::ActionCableNotifier,
       **overrides
     )
       @ocr_service_class    = ocr_service_class
       @data_extractor_class = data_extractor_class
       @pdf_splitter_class   = pdf_splitter_class
       @job_class            = job_class
-      @notifier_class       = notifier_class
       @overrides            = overrides
     end
 
@@ -5358,7 +5470,6 @@ module DocumentProcessing
         recipient_resolver:          recipient_resolver,
         confidence_calculator_factory: method(:confidence_calculator),
         data_item_repository:        data_item_repository,
-        notifier:                    notifier,
         metadata_builder:            metadata_builder,
         file_storage:                file_storage
       )
