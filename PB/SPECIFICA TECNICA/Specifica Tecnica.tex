@@ -741,13 +741,14 @@ Sviluppato in Angular\G{} (Single Page Application), è il responsabile esclusiv
   \item Si occupa del routing lato client e della renderizzazione reattiva dei dati.
 \end{itemize}
 
+\subsubsection{Backend}
 Il sistema backend è stato progettato seguendo un pattern architetturale di tipo Layered (a livelli). Questa separazione garantisce un alto grado di disaccoppiamento, 
 facilitando la manutenzione, i test\G{} e la scalabilità\G{} del sistema.  
 Quest'ultimo sfrutta le convenzioni del framework per implementare in modo naturale i vari livelli interni, senza forzare l'introduzione di pattern complessi e contro il linguaggio stesso. 
 
 Il sistema si struttura quindi nei seguenti livelli logici:
 
-\subsubsection{Backend: Livello Applicativo (Application Layer)}
+\subsubsubsection{Backend: Livello Applicativo (Application Layer)}
 Costituisce il punto di ingresso nel backend\G{} per le richieste provenienti dal frontend ed è implementato dai \textbf{Controller} di Ruby on Rails\G{}.
 \begin{itemize}
   \item Riceve e instrada le richieste HTTP in ingresso.
@@ -755,7 +756,7 @@ Costituisce il punto di ingresso nel backend\G{} per le richieste provenienti da
   \item Delega l'effettiva esecuzione delle operazioni ai livelli sottostanti e formatta le risposte (es. in JSON) da restituire al client.
 \end{itemize}
 
-\subsubsection{Backend: Livello di Business Logic (Business Layer)}
+\subsubsubsection{Backend: Livello di Business Logic (Business Layer)}
 Rappresenta il cuore elaborativo del sistema, in cui risiedono le logiche e le regole di dominio.
 \begin{itemize}
   \item Implementato tramite \textbf{Service}, \textbf{Job} asincroni e classi di orchestrazione.
@@ -763,7 +764,7 @@ Rappresenta il cuore elaborativo del sistema, in cui risiedono le logiche e le r
   \item Coordina il flusso dei dati tra il livello applicativo e il livello di persistenza.
 \end{itemize}
 
-\subsubsection{Backend: Livello di Persistenza (Persistence Layer)}
+\subsubsubsection{Backend: Livello di Persistenza (Persistence Layer)}
 Gestisce in modo esclusivo la comunicazione con il database PostgreSQL\G{} e il salvataggio dello stato del sistema.
 \begin{itemize}
   \item Implementato tramite i \textbf{Model} di Rails, sfruttando il modulo\G{} ORM ActiveRecord.
