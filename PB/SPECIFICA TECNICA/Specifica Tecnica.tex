@@ -294,6 +294,12 @@ In questa sezione vengono presentati i framework adottati per costituire l'impal
 Angular\G{} & Framework open source per la creazione e sviluppo di single page applications & 21 \\
 \hline
 Ruby on Rails\G{} & Framework open source server side per applicazioni web & 8.1 \\
+\hline
+Bootstrap & Framework CSS per lo sviluppo di interfacce responsive e mobile-first & 5.3.8 \\
+\hline
+Cypress & Framework per il testing end-to-end di applicazioni web & 15.13.0 \\
+\hline
+Vitest & Framework per il testing unitario e di integrazione in ambiente JavaScript & 4.0.8 \\
 \end{longtable}
 
 
@@ -371,6 +377,14 @@ bundler-audit & Scanner per rilevare vulnerabilità di sicurezza\G{} note nelle 
 brakeman & Scanner di analisi statica per rilevare vulnerabilità di sicurezza\G{} in app Rails. & 8.0.4 \\
 \hline
 rubocop-rails-omakase & Configurazione standard ufficiale (stile Omakase) per RuboCop in Rails. & 1.1.0 \\
+\hline
+RxJs & Libreria per la programmazione reattiva.& 7.8.0 \\
+\hline
+PrimeNG & Componenti UI per Angular.& 21.1.1 \\
+\hline
+ChartJS & Libreria per la visualizzazione di grafici dinamici e interattivi. & 4.5.1 \\
+\hline
+Quill & Editor di testo WYSIWYG per Angular. & 2.0.3 \\
 \end{longtable}
 
 
@@ -5127,8 +5141,12 @@ Aggiorna le metriche AI Assistant quando cambia il date range; ignora aggiorname
 \item onAiCoPilotRangeChange(dates: Date[] | undefined): void
 Aggiorna le metriche AI CoPilot quando cambia il date range; ignora aggiornamenti con range incompleto.
 \end{itemize}
+DESIGN PATTERN 
 % ============================================================
 \section{Design Pattern}
+% ============================================================
+% ============================================================
+\subsection{Design Pattern Backend}
 % ============================================================
 
 La progettazione del sistema si è avvalsa di consolidati design pattern,
@@ -5181,9 +5199,6 @@ MVC                 & Architetturale  & ---      & Intera applicazione Rails (Co
 \label{tab:pattern_riepilogo}
 \end{table}
 
-% ============================================================
-\subsection{Pattern implementati}
-% ============================================================
 
 \subsubsection{Service Object}
 
@@ -5724,10 +5739,10 @@ end
 \end{lstlisting}
 
 % ============================================================
-\subsection{Pattern ereditati dal framework}
+\subsubsection{Pattern ereditati dal framework}
 % ============================================================
 
-\subsubsection{Model-View-Controller (MVC)}
+\subsubsubsection{Model-View-Controller (MVC)}
 
 L'architettura dell'intera applicazione è fondata sul pattern MVC imposto
 da Ruby on Rails\G{}:
@@ -5805,7 +5820,7 @@ class DocumentsController < ActionController::Base
 end
 \end{lstlisting}
 
-\subsubsection{Active Record}
+\subsubsubsection{Active Record}
 
 Ogni classe Modello mappa una tabella del database (pattern \pattern{Active
 Record} di Martin Fowler), nascondendo la complessità SQL e fornendo
@@ -5870,7 +5885,38 @@ gestione delle chiavi esterne a livello applicativo: la cancellazione di un
 \code{UploadedDocument} propaga automaticamente la rimozione di tutti gli
 \code{ExtractedDocument} collegati.
 
+% ============================================================
+\subsection{Design Pattern Frontend}
+% ============================================================
+Il frontend\G{} Angular adotta un'architettura modulare basata su componenti e servizi per la gestione dello stato, seguendo i principi di separazione delle responsabilità e riusabilità.\\
+I componenti UI sono progettati per essere il più possibile presentazionali, delegando la logica di business ai servizi iniettati, che a loro volta interagiscono con API\G{} RESTful esposte dal backend\G{}.\\
+Il pattern \pattern{Observer} è ampiamente utilizzato tramite RxJS\G{}: i servizi espongono stream di dati (Observable) a cui i componenti si sottoscrivono per ricevere aggiornamenti in tempo reale, mantenendo sincronizzata la UI con lo stato dell'applicazione.\\
+Il pattern \pattern{Facade} è implementato dai servizi che incapsulano la complessità delle chiamate HTTP e della gestione dello stato, offrendo un'interfaccia\G{} semplice e coerente ai componenti.\\
 
+\noindent La tabella~\ref{tab:pattern_riepilogo} riassume tutti i pattern
+documentati in questa sezione.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{lllX}
+\toprule
+\textbf{Pattern} & \textbf{Categoria} & \textbf{GoF / POEAA} & \textbf{Dove applicato} \\
+\midrule
+Facade    & Strutturale     & GoF      & AiCopilotService, AiAssistantService \\
+MVVM                 & Architetturale  &       & Intera applicazione Angular\\
+\bottomrule
+\end{tabularx}
+\caption{Riepilogo dei design pattern adottati}
+\label{tab:pattern_riepilogo}
+\end{table}
+\subsubsection{Facade}
+\textit{Intent (GoF): fornire ai componenti un'interfaccia\G{} semplificata per svolgere operazioni complesse, nascondendo la complessità sottostante.}\\
+\code{AiCopilotService} e \code{AiAssistantService} fungono da Facade per i componenti Angular, incapsulando la logica di interazione con le API\G{} RESTful del backend\G{}.\\
+Tali service offrono metodi ad alto livello (es. \code(fetchResultsHistory), \code(uploadFiles)) che orchestrano chiamate HTTP, gestione degli errori e aggiornamento dello stato, permettendo ai componenti di concentrarsi esclusivamente sulla presentazione dei dati e sull'interazione con l'utente, senza doversi preoccupare dei dettagli di implementazione delle API\G{} o della gestione dello stato globale.
+\subsubsection{Model-View-ViewModel (MVVM)}
+%TODO LINK ALLA SPIEGAZIONE IN DESIGN ARCHITETTURALE FRONTEND
 
 \section{Database}
 
