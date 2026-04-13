@@ -293,6 +293,12 @@ In questa sezione vengono presentati i framework adottati per costituire l'impal
 Angular\G{} & Framework open source per la creazione e sviluppo di single page applications & 21 \\
 \hline
 Ruby on Rails\G{} & Framework open source server side per applicazioni web & 8.1 \\
+\hline
+Bootstrap & Framework CSS per lo sviluppo di interfacce responsive e mobile-first & 5.3.8 \\
+\hline
+Cypress & Framework per il testing end-to-end di applicazioni web & 15.13.0 \\
+\hline
+Vitest & Framework per il testing unitario e di integrazione in ambiente JavaScript & 4.0.8 \\
 \end{longtable}
 
 
@@ -370,6 +376,14 @@ bundler-audit & Scanner per rilevare vulnerabilità di sicurezza\G{} note nelle 
 brakeman & Scanner di analisi statica per rilevare vulnerabilità di sicurezza\G{} in app Rails. & 8.0.4 \\
 \hline
 rubocop-rails-omakase & Configurazione standard ufficiale (stile Omakase) per RuboCop in Rails. & 1.1.0 \\
+\hline
+RxJs & Libreria per la programmazione reattiva.& 7.8.0 \\
+\hline
+PrimeNG & Componenti UI per Angular.& 21.1.1 \\
+\hline
+ChartJS & Libreria per la visualizzazione di grafici dinamici e interattivi. & 4.5.1 \\
+\hline
+Quill & Editor di testo WYSIWYG per Angular. & 2.0.3 \\
 \end{longtable}
 
 
@@ -947,7 +961,7 @@ Si occupa di coordinare le chiamate ai servizi di generazione testuale e visiva,
 \includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/ActionCable.jpg}
 \end{figure}
 Classe nativa di rails per la gestione delle connessioni WebSocket. 
-Nel contesto del modulo\G{} AI Assistant\G{}, viene utilizzata per inviare aggiornamenti in tempo reale al frontend\G{} riguardo lo stato delle generazioni in corso, permettendo un'esperienza utente più fluida e interattiva.
+Nel contesto del modulo\G{} AI Assistant\G{}, viene utilizzata per inviare aggiornamenti in tempo reale al frontend\G{} riguardo lo stato delle generazioni in corso.
 
 \textbf{Attributi} 
 \begin{itemize}
@@ -956,7 +970,50 @@ Nel contesto del modulo\G{} AI Assistant\G{}, viene utilizzata per inviare aggio
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item broadcast(channel: string, message: Json): void
+    \item server.broadcast(channel: string, message: Json): void
+\end{itemize}
+
+
+\subsubsubsection{ActiveSupport}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/ActiveSupport.jpg}
+\end{figure}
+Classe nativa di rails per la gestione delle connessioni WebSocket. 
+Nel contesto del modulo\G{} AI Assistant\G{}, viene utilizzata insieme ad altri componenti per gestire le comunicazioni in tempo reale.
+Recupera le notifiche inviate da AiGeneratorJob e le distribuisce ai client sottoscritti, facilitando l'aggiornamento dinamico dell'interfaccia\G{} utente.
+
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item instrument(name: string, payload: hash): void
+    \item subscribe(pattern: string, block: function): void
+\end{itemize}
+
+
+\subsubsubsection{GenerationNotifier}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiGenerator/GenerationNotifier.jpg}
+\end{figure}
+Classe di servizio dedicata alla gestione delle notifiche in tempo reale riguardo lo stato delle generazioni in corso.
+Utilizza ActionCable e ActiveSupport per inviare aggiornamenti al frontend\G{} e permettere un'esperienza utente più fluida e interattiva durante il processo di generazione dei contenuti.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item CHANNEL: string
+    \item broadcaster: ActionCable::Server
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item initialize(broadcaster: ActionCable::Server): void
+    \item subscribe(data: Hash): void
 \end{itemize}
 
 
@@ -1783,7 +1840,6 @@ mantenendo così la coesione del flusso di elaborazione specifico per questi for
 
 \textbf{Attributi} 
 \begin{itemize}
-    \item notifier: ActionCableNotifier | nil
       \item file_storage: FileStorage | nil
       \item generic_file_repository: DataItemRepository | nil
       \item file_processor: CsvProcessor | ImageProcessor
@@ -1792,7 +1848,7 @@ mantenendo così la coesione del flusso di elaborazione specifico per questi for
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(notifier: ActionCableNotifier | nil, file_storage: FileStorage | nil, generic_file_repository: DataItemRepository | nil, file_processor: CsvProcessor | ImageProcessor, confidence_calculator_factory: Proc): void
+    \item initialize(file_storage: FileStorage | nil, generic_file_repository: DataItemRepository | nil, file_processor: CsvProcessor | ImageProcessor, confidence_calculator_factory: Proc): void
       \item call(file_path: String, job_id: String, uploaded_document_id: int, file_kind: String, category*: String, override_company*: String, override_department*: String, competence_period*: String): void
       \item apply_user_overlays(llm_metadata: Hash, llm_confidence: Hash, overlays: Hash): [Hash,Hash]
       \item process_file(file_path: String, uploaded_document: UploadedDocument, run: ProcessingRun, overlays: Hash): Hash[]
@@ -1949,7 +2005,6 @@ del processo.
 \textbf{Attributi} 
 \begin{itemize}
     \item data_item_repository: DataItemRepository
-    \item notifier: ActionCableNotifier
     \item file_storage: FileStorage
     \item ocr_service: Ocr\G{}
     \item data_extractor: DataExtractor
@@ -1960,7 +2015,7 @@ del processo.
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(data_item_repository: DataItemRepository, notifier: ActionCableNotifier, file_storage: FileStorage, ocr_service: Ocr\G{}, data_extractor: DataExtractor, recipient_resolver: RecipientResolver, confidence_calculator_factory: Proc, extracted_metadata_builder_factory: Proc)
+    \item initialize(data_item_repository: DataItemRepository, file_storage: FileStorage, ocr_service: Ocr\G{}, data_extractor: DataExtractor, recipient_resolver: RecipientResolver, confidence_calculator_factory: Proc, extracted_metadata_builder_factory: Proc)
     \item call(file_path: String, job_id*: String, processing_item_id*: int, extracted_document_id*: int): void
     \item resolve_extracted_document(extracted_document_id*: int, item*: Object): ExtractedDocument | nil
     \item update_extracted_document_success(extracted_document: ExtractedDocument, resolution: Object, metadata: Hash, recipient: String | nil, global_confidence: Float, process_duration_seconds: Float): void
@@ -1983,7 +2038,6 @@ inversione delle dipendenze.
 \textbf{Attributi} 
 \begin{itemize}
     \item aws_region: String
-    \item broadcaster: ActionCable.server
     \item ocr_service_class: Class
     \item data_extractor_class: Class
     \item recipient_resolver_class: Class
@@ -1992,7 +2046,6 @@ inversione delle dipendenze.
     \item csv_processor_class: Class
     \item confidence_calculator_class: Class
     \item extracted_metadata_builder_class: Class
-    \item notifier_class: Class
     \item llm_service_class: Class
     \item split_run_repository_class: Class
     \item data_item_repository_class: Class
@@ -2006,7 +2059,7 @@ inversione delle dipendenze.
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(aws_region*: String, broadcaster*: ActionCable::Server::Base, ocr_service_class*: Class, data_extractor_class*: Class, recipient_resolver_class*: Class, pdf_splitter_class*: Class, image_processor_class*: Class, csv_processor_class*: Class, confidence_calculator_class*: Class, extracted_metadata_builder_class*: Class, notifier_class*: Class, llm_service_class*: Class, split_run_repository_class*: Class, data_item_repository_class*: Class, file_storage_class*: Class, upload_manager_class*: Class, page_range_pdf_service_class*: Class, db_manager_class*: Class, textract_client*: Aws::Textract::Client, bedrock_client*: Aws::BedrockRuntime::Client): void
+    \item initialize(aws_region*: String, ocr_service_class*: Class, data_extractor_class*: Class, recipient_resolver_class*: Class, pdf_splitter_class*: Class, image_processor_class*: Class, csv_processor_class*: Class, confidence_calculator_class*: Class, extracted_metadata_builder_class*: Class, llm_service_class*: Class, split_run_repository_class*: Class, data_item_repository_class*: Class, file_storage_class*: Class, upload_manager_class*: Class, page_range_pdf_service_class*: Class, db_manager_class*: Class, textract_client*: Aws::Textract::Client, bedrock_client*: Aws::BedrockRuntime::Client): void
       \item ocr_service(): DocumentOCRService
       \item data_extractor(): DocumentDataExtractorService
       \item recipient_resolver(): DocumentRecipientResolverService
@@ -2015,7 +2068,6 @@ inversione delle dipendenze.
       \item csv_processor(): CsvProcessor
       \item confidence_calculator(**kwargs): ConfidenceCalculator
       \item extracted_metadata_builder(**kwargs): ExtractedMetadataBuilder
-      \item notifier(): ActionCableNotifier
       \item split_run_repository(): SplitRunRepository
       \item data_item_repository(): DataItemRepository
       \item file_storage(): FileStorage
@@ -2029,7 +2081,6 @@ inversione delle dipendenze.
       \item initialize_processing_command(): InitializeProcessing
       \item initialize_file_processing_command(): InitializeFileProcessing
       \item reassign_extracted_range_command(): ReassignExtractedRange
-      \item broadcast(job_id: String, data: Hash): void
 \end{itemize}
 
 \subsubsubsection{ProcessSplitRun}
@@ -2044,7 +2095,6 @@ avvia la messa in coda per l'estrazione asincrona dei dati.
 \textbf{Attributi} 
 \begin{itemize}
     \item split_run_repository: SplitRunRepository
-    \item notifier: ActionCableNotifier
     \item file_storage: FileStorage
     \item pdf_splitter_factory: Proc
     \item data_extraction_job_class: Class
@@ -2052,7 +2102,7 @@ avvia la messa in coda per l'estrazione asincrona dei dati.
 
 \textbf{Metodi} 
 \begin{itemize}
-    \item initialize(split_run_repository: SplitRunRepository, notifier: ActionCableNotifier, file_storage: FileStorage, pdf_splitter_factory: Proc, data_extraction_job_class: Class)
+    \item initialize(split_run_repository: SplitRunRepository, file_storage: FileStorage, pdf_splitter_factory: Proc, data_extraction_job_class: Class)
     \item call(file_path: String, job_id: String): void
     \item create_processing_items_and_enqueue(split_results: Hash[], run: SplitRun): void
     \item cleanup_source_pdf(file_path: String, run: SplitRun): void
@@ -2082,6 +2132,48 @@ segnandone successi, artefatti creati o eventuali fallimenti.
     \item uploaded_source_path_for(run: ProcessingRun): String | nil
     \item create_item_for_result!(run: ProcessingRun, result: Hash, sequence: int): Hash
 \end{itemize}
+
+
+\subsubsubsection{ActionCable}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ActionCable.jpg}
+\end{figure}
+Classe nativa di rails per la gestione delle connessioni WebSocket. 
+Nel contesto del modulo\G{} AI Copilot\G{}, viene utilizzata per inviare aggiornamenti in tempo reale al frontend\G{} riguardo lo stato dell'analisi in corso.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item server.broadcast(channel: string, message: Json): void
+\end{itemize}
+
+
+\subsubsubsection{ActiveSupport}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{ImmaginiSpecificaTecnica/ModuloAiCopilot/ActiveSupport.jpg}
+\end{figure}
+Classe nativa di rails per la gestione delle connessioni WebSocket. 
+Nel contesto del modulo\G{} AI Copilot\G{}, viene utilizzata insieme ad altri componenti per gestire le comunicazioni in tempo reale.
+Recupera le notifiche inviate dai servizi di elaborazione e le distribuisce ai client sottoscritti, facilitando l'aggiornamento dinamico dell'interfaccia\G{} utente.
+
+\textbf{Attributi} 
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+
+\textbf{Metodi} 
+\begin{itemize}
+    \item instrument(name: string, payload: hash): void
+    \item subscribe(pattern: string, block: function): void
+\end{itemize}
+
+
 
 \subsubsubsection{ActionCableNotifier}
 \begin{figure}[H]
@@ -2601,6 +2693,7 @@ Fornisce un'interfaccia\G{} semplice per ottenere l'elenco delle aziende da un d
 
 
 \section{Architettura Frontend\G{}}
+\label{sec:design_architetturale_frontend}
 \subsection{Principi di progettazione}
 L'architettura frontend\G{} è organizzata in modo modulare, separando i componenti UI dai servizi di comunicazione con il backend\G{} e dagli altri servizi di utilità. \\\\
 Per semplicità e manutenibilità\G{} i dati principali (risultati di generazione, risultati di estrazione e riconoscimento) sono modellati tramite \textit{interface}. Un chiaro vantaggio di raccogliere i dati in queste strutture è il passaggio di oggetti semplici e leggeri tra i componenti e la manutenibilità\G{} del codice: se in futuro si volessero aggiungere campi o modificare la struttura dei dati, basterebbe aggiornare l'interfaccia\G{} senza dover modificare il passaggio dei dati tra i componenti.
@@ -2626,11 +2719,13 @@ Qui di seguito è riportata un'illustrazione dell'architettura MVVM e di come av
   \item \textbf{ViewModel:} Sono tutte le relative classi Typescript delle componenti UI. Esse reagiscono agli eventi della View (tramite data-binding) e comunicano con i servizi per aggiornare i dati del model.
 \end{itemize}
 \subsubsection{Esempio di pattern MVVM nel progetto}
-La seguente immagine rappresenta un diagramma a classi UML che vuole illustrare il pattern MVVM nel progetto. Prende l'esempio della pagina di generazione e solamente una delle componenti riutilizzabili UI, perchè ai fini della dimostrazione l'illustrazione è stata semplificata.\\
+L'immagine in figura \ref{fig:mvvm-generatore} rappresenta un diagramma a classi UML che vuole illustrare il pattern MVVM nel progetto. \\
+Prende l'esempio della pagina di generazione e solamente una delle componenti riutilizzabili UI, perchè ai fini della dimostrazione l'illustrazione è stata semplificata.\\
 La classe \texttt{GeneratoreView} (che rappresenta la View) utilizza proprietà e metodi del componente \texttt{Generatore} e si aggiorna tramite \textit{property binding}. La classe \texttt{Generatore} (che rappresenta il ViewModel) risponde agli eventi della View (tramite event binding) e modifica di conseguenza il Model chiamando le operazioni esposte da \texttt{AiAssistantService}.\\
 Per completezza si mostra anche la relazione con la sotto-componente \texttt{Button} (componente riutilizzabile) ma il ragionamento è il medesimo con qualsiasi altra componente. \texttt{Generatore} importa il pulsante nei metadata e lo usa come child-component, creando un collegamento di @Input @Output.\\
 Invece \texttt{GeneratoreView} è composto dal template HTML del pulsante.
 \begin{figure}[H]
+\label{fig:mvvm-generatore}
 \centering
 \includegraphics[width=0.8\textwidth]{ImmaginiSpecificaTecnica/Frontend/mvvm-generatore.png}
 \end{figure}
@@ -5085,8 +5180,12 @@ Aggiorna le metriche AI Assistant quando cambia il date range; ignora aggiorname
 \item onAiCoPilotRangeChange(dates: Date[] | undefined): void
 Aggiorna le metriche AI CoPilot quando cambia il date range; ignora aggiornamenti con range incompleto.
 \end{itemize}
+DESIGN PATTERN 
 % ============================================================
 \section{Design Pattern}
+% ============================================================
+% ============================================================
+\subsection{Design Pattern Backend}
 % ============================================================
 
 La progettazione del sistema si è avvalsa di consolidati design pattern,
@@ -5139,9 +5238,6 @@ MVC                 & Architetturale  & ---      & Intera applicazione Rails (Co
 \label{tab:pattern_riepilogo}
 \end{table}
 
-% ============================================================
-\subsection{Pattern implementati}
-% ============================================================
 
 \subsubsection{Service Object}
 
@@ -5170,57 +5266,93 @@ tramite il costruttore.
 module DocumentProcessing
   class ProcessDataItem
     def initialize(
-      data_item_repository:, notifier:, file_storage:,
-      ocr_service:, data_extractor:, recipient_resolver:,
+      data_item_repository:,
+      file_storage:,
+      ocr_service:,
+      data_extractor:,
+      recipient_resolver:,
       confidence_calculator_factory:,
       extracted_metadata_builder_factory:
     )
-      @data_item_repository              = data_item_repository
-      @notifier                          = notifier
-      @file_storage                      = file_storage
-      @ocr_service                       = ocr_service
-      @data_extractor                    = data_extractor
-      @recipient_resolver                = recipient_resolver
-      @confidence_calculator_factory     = confidence_calculator_factory
+      @data_item_repository = data_item_repository
+      @file_storage = file_storage
+      @ocr_service = ocr_service
+      @data_extractor = data_extractor
+      @recipient_resolver = recipient_resolver
+      @confidence_calculator_factory = confidence_calculator_factory
       @extracted_metadata_builder_factory = extracted_metadata_builder_factory
     end
 
-    def call(file_path:, job_id:, processing_item_id: nil,
-             extracted_document_id: nil)
-      item     = @data_item_repository.find_processing_item(processing_item_id)
+    def call(file_path:, job_id:, processing_item_id: nil, extracted_document_id: nil)
+      start_time = Time.now
+      run = data_item_repository.find_run_by_job_id(job_id)
+      item = processing_item_id ? data_item_repository.find_processing_item(processing_item_id) : nil
       extracted_document = resolve_extracted_document(extracted_document_id, item)
 
-      return if @data_item_repository.terminal_item?(item)
+      return if data_item_repository.terminal_item?(item)
 
-      @data_item_repository.mark_item_in_progress!(item)
-      @data_item_repository.mark_extracted_document_in_progress!(extracted_document)
+      data_item_repository.mark_item_in_progress!(item)
+      data_item_repository.mark_extracted_document_in_progress!(extracted_document)
 
-      # 1. OCR
-      ocr_result = @ocr_service.full_ocr(file_path)
-      full_text  = ocr_result[:text]
-      ocr_lines  = ocr_result[:lines]
-      # 2. Estrazione strutturata via LLM
-      extracted_data   = @data_extractor.extract(full_text)
-      recipient_names  = extracted_data[:recipients]
-      llm_confidence   = extracted_data[:llm_confidence]
-      # 3. Confidenza\G{}
-      confidence = @confidence_calculator_factory.call(
-        ocr_lines: ocr_lines, recipient_names: recipient_names,
-        metadata: extracted_data[:metadata], llm_confidence: llm_confidence,
+      ocr_result = ocr_service.full_ocr(file_path)
+      full_text = ocr_result[:text]
+      ocr_lines = ocr_result[:lines]
+
+      extracted_data = data_extractor.extract(full_text)
+      recipient_names = extracted_data[:recipients]
+      # normalizza al destinatario singolo
+      recipient = Array(recipient_names).compact.first
+      extracted_document_data = extracted_data[:metadata]
+      llm_confidence = extracted_data[:llm_confidence]
+      final_global_confidence = confidence_calculator_factory.call(
+        ocr_lines: ocr_lines,
+        recipient_names: recipient_names,
+        metadata: extracted_document_data,
+        llm_confidence: llm_confidence,
         uploaded_document: extracted_document&.uploaded_document
       ).global_confidence
-      # 4. Risoluzione destinatario
-      resolution = @recipient_resolver.resolve(
-        recipient_names: recipient_names, raw_text: full_text
-      )
-      # 5. Persistenza e notifica
-      @data_item_repository.mark_item_done!(item: item, resolution: resolution)
-      @notifier.broadcast(job_id, { event: "document_processed", ... })
+
+      resolution = recipient_resolver.resolve(recipient_names:, raw_text: full_text)
+
+      data_item_repository.mark_item_done!(item:, resolution:)
+      duration = Time.now - start_time
+      update_extracted_document_success(extracted_document, resolution, extracted_document_data, recipient, final_global_confidence, duration)
+
+      if job_id.present?
+        ActiveSupport::Notifications.instrument("document_processing.lifecycle",
+          job_id: job_id,
+          **build_success_payload(
+            filename: File.basename(file_path),
+            ocr_text: full_text,
+            recipient: recipient,
+            extracted_document_data: extracted_document_data,
+            extracted_confidence: final_global_confidence,
+            matched_recipient: format_employee(resolution.employee),
+            extracted_document_id: extracted_document&.id,
+            document_index: item&.sequence,
+            total_documents: run&.total_documents
+          )
+        )
+      end
     rescue StandardError => e
-      @data_item_repository.mark_item_failed(item: item, error_message: e.message)
-      @notifier.broadcast(job_id, { event: "error", message: e.message })
+      data_item_repository.mark_item_failed(item:, error_message: e.message)
+      data_item_repository.mark_extracted_document_failed(extracted_document:, error_message: e.message)
+
+      if job_id.present?
+        ActiveSupport::Notifications.instrument("document_processing.lifecycle",
+          job_id: job_id,
+          **build_error_payload(
+            message: e.message,
+            filename: file_path ? File.basename(file_path) : nil,
+            extracted_document_id: extracted_document&.id,
+            document_index: item&.sequence,
+            total_documents: run&.total_documents
+          )
+        )
+      end
     ensure
-      @file_storage.delete(file_path) if @file_storage.exist?(file_path)
+      increment_progress(run, job_id)
+      file_storage.delete(file_path) if file_path && file_storage.exist?(file_path)
     end
   end
 end
@@ -5357,14 +5489,12 @@ module DocumentProcessing
       data_extractor_class:     DocumentProcessing::DataExtractor,
       pdf_splitter_class:       DocumentProcessing::PdfSplitter,
       job_class:                PdfSplitJob,
-      notifier_class:           DocumentProcessing::ActionCableNotifier,
       **overrides
     )
       @ocr_service_class    = ocr_service_class
       @data_extractor_class = data_extractor_class
       @pdf_splitter_class   = pdf_splitter_class
       @job_class            = job_class
-      @notifier_class       = notifier_class
       @overrides            = overrides
     end
 
@@ -5394,7 +5524,6 @@ module DocumentProcessing
         recipient_resolver:          recipient_resolver,
         confidence_calculator_factory: method(:confidence_calculator),
         data_item_repository:        data_item_repository,
-        notifier:                    notifier,
         metadata_builder:            metadata_builder,
         file_storage:                file_storage
       )
@@ -5649,10 +5778,10 @@ end
 \end{lstlisting}
 
 % ============================================================
-\subsection{Pattern ereditati dal framework}
+\subsubsection{Pattern ereditati dal framework}
 % ============================================================
 
-\subsubsection{Model-View-Controller (MVC)}
+\subsubsubsection{Model-View-Controller (MVC)}
 
 L'architettura dell'intera applicazione è fondata sul pattern MVC imposto
 da Ruby on Rails\G{}:
@@ -5730,7 +5859,7 @@ class DocumentsController < ActionController::Base
 end
 \end{lstlisting}
 
-\subsubsection{Active Record}
+\subsubsubsection{Active Record}
 
 Ogni classe Modello mappa una tabella del database (pattern \pattern{Active
 Record} di Martin Fowler), nascondendo la complessità SQL e fornendo
@@ -5795,7 +5924,38 @@ gestione delle chiavi esterne a livello applicativo: la cancellazione di un
 \code{UploadedDocument} propaga automaticamente la rimozione di tutti gli
 \code{ExtractedDocument} collegati.
 
+% ============================================================
+\subsection{Design Pattern Frontend}
+% ============================================================
+Il frontend\G{} Angular adotta un'architettura modulare basata su componenti e servizi per la gestione dello stato, seguendo i principi di separazione delle responsabilità e riusabilità.\\
+I componenti UI sono progettati per essere il più possibile presentazionali, delegando la logica di business ai servizi iniettati, che a loro volta interagiscono con API\G{} RESTful esposte dal backend\G{}.\\
+Il pattern \pattern{Observer} è ampiamente utilizzato tramite RxJS\G{}: i servizi espongono stream di dati (Observable) a cui i componenti si sottoscrivono per ricevere aggiornamenti in tempo reale, mantenendo sincronizzata la UI con lo stato dell'applicazione.\\
+Il pattern \pattern{Facade} è implementato dai servizi che incapsulano la complessità delle chiamate HTTP e della gestione dello stato, offrendo un'interfaccia\G{} semplice e coerente ai componenti.\\
 
+\noindent La tabella~\ref{tab:pattern_riepilogo} riassume tutti i pattern
+documentati in questa sezione.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{lllX}
+\toprule
+\textbf{Pattern} & \textbf{Categoria} & \textbf{GoF / POEAA} & \textbf{Dove applicato} \\
+\midrule
+Facade    & Strutturale     & GoF      & AiCopilotService, AiAssistantService \\
+MVVM                 & Architetturale  &       & Intera applicazione Angular\\
+\bottomrule
+\end{tabularx}
+\caption{Riepilogo dei design pattern adottati}
+\label{tab:pattern_riepilogo}
+\end{table}
+\subsubsection{Facade}
+\textit{Intent (GoF): fornire ai componenti un'interfaccia\G{} semplificata per svolgere operazioni complesse, nascondendo la complessità sottostante.}\\
+\code{AiCopilotService} e \code{AiAssistantService} fungono da Facade per i componenti Angular, incapsulando la logica di interazione con le API\G{} RESTful del backend\G{}.\\
+Tali service offrono metodi ad alto livello (es. \code(fetchResultsHistory), \code(uploadFiles)) che orchestrano chiamate HTTP, gestione degli errori e aggiornamento dello stato, permettendo ai componenti di concentrarsi esclusivamente sulla presentazione dei dati e sull'interazione con l'utente, senza doversi preoccupare dei dettagli di implementazione delle API\G{} o della gestione dello stato globale.
+\subsubsection{Model-View-ViewModel (MVVM)}
+Si rimanda alla spiegazione nella sezione \ref{sec:design_architetturale_frontend}.
 
 \section{Database}
 
