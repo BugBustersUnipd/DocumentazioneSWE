@@ -80,7 +80,6 @@
 
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
-
 \setlist[itemize]{leftmargin=*,itemsep=3pt}
 \setlist[enumerate]{leftmargin=*,itemsep=3pt}
 
@@ -2601,12 +2600,49 @@ Fornisce un'interfaccia\G{} semplice per ottenere l'elenco delle aziende da un d
 \end{itemize}
 
 
-\section{Descrizione architettura (Frontend\G{})}
+\section{Architettura Frontend\G{}}
+\subsection{Principi di progettazione}
 L'architettura frontend\G{} è organizzata in modo modulare, separando i componenti UI dai servizi di comunicazione con il backend\G{} e dagli altri servizi di utilità. \\\\
 Per semplicità e manutenibilità\G{} i dati principali (risultati di generazione, risultati di estrazione e riconoscimento) sono modellati tramite \textit{interface}. Un chiaro vantaggio di raccogliere i dati in queste strutture è il passaggio di oggetti semplici e leggeri tra i componenti e la manutenibilità\G{} del codice: se in futuro si volessero aggiungere campi o modificare la struttura dei dati, basterebbe aggiornare l'interfaccia\G{} senza dover modificare il passaggio dei dati tra i componenti.
 L'uso di interface invece di classi è una scelta consapevole. Innanzitutto, le interface scompaiono completamente durante la compilazione a JavaScript, risparmiando spazio e accelerando il download e il parsing iniziale. \\
 In secondo luogo, i modelli del progetto\G{} contengono esclusivamente dati puri senza alcuna logica di business, validazione\G{} o comportamento: una classe aggiungerebbe solo complessità inutile e overhead di istanziazione. Questa scelta riflette una chiara separazione delle responsabilità: i modelli rimangono semplici contenitori di dati, mentre la validazione\G{} e la trasformazione rimangono delegate ai servizi e serializer appropriati.
-\subsection{Definizione dei modelli dati}
+\subsection{Il pattern MVVM}
+Nonostante Angular non obblighi rigidamente l'utilizzo del pattern Model-View-ViewModel (MVVM), questo è riconosciuto universalmente come l'approccio migliore ed è quello che è stato adottato nel progetto.\\
+Infatti, anche se tecnicamente è possibile implementare un'architettura di tipo MVP, il pattern MVVM offre il vantaggio di una chiara separazione tra \textit{presentation logic} e \textit{application logic}, garantito dal \textit{data binding} (si veda la Sezione~\ref{sec:two-way-data-binding}).
+Qui di seguito è riportata un'illustrazione dell'architettura MVVM e di come avviene la comunicazione tra i vari componenti del pattern architetturale.
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{ImmaginiSpecificaTecnica/Frontend/mvvm-pattern.png}
+\end{figure}
+\begin{itemize}
+  \item \textbf{Model:} Il Model rappresenta i dati e la logica di business dell’applicazione. In Angular, questo è spesso rappresentato da servizi o classi che gestiscono i dati, eseguono operazioni e interagiscono con le API (per esempio tramite chiamate http o connessioni websocket). Il Model si occupa di recuperare, aggiornare e manipolare i dati.
+  \item \textbf{View:} I template Angular fungono da View, visualizzando i dati e raccogliendo l'input dell'utente. Il data binding (particolari direttive di attributo o di evento) e altri comandi (come quelli che iniziano con '@') vengono utilizzati per collegare la View al ViewModel.
+  \item \textbf{ViewModel:} Nel contesto di Angular, il ViewModel è spesso rappresentato dai Componenti e dalle relative classi TypeScript. La classe del Componente contiene la logica applicativa e interagisce con i servizi (quindi con il model) per recuperare e manipolare i dati. Espone proprietà e metodi a cui la View può collegarsi tramite data binding, consentendo un flusso di dati continuo tra ViewModel (Componente) e View (template).
+\end{itemize}
+\textbf{Corrispondenza nel progetto}
+\begin{itemize}
+  \item \textbf{Model:} Sono tutte le classi Typerscript che si trovano dentro le cartelle: \texttt{services} (servizi come AiAssistantService e AiCopilotService), \texttt{serializers} (che serializzano e deserializzano dati di risposte e chiamate al backend) e \texttt{models} (che rappresentano i \textit{DTO}, si veda Sezione~\ref{sec:modelli-dati})
+  \item \textbf{View:} Sono i template HTML e i file di stile associati di ogni componente UI (dentro la cartella \texttt{components} oppure nelle singole cartelle che rappresentano le intere pagine)
+  \item \textbf{ViewModel:} Sono tutte le relative classi Typescript delle componenti UI. Esse reagiscono agli eventi della View (tramite data-binding) e comunicano con i servizi per aggiornare i dati del model.
+\end{itemize}
+\subsubsection{Esempio di pattern MVVM nel progetto}
+La seguente immagine rappresenta un diagramma a classi UML che vuole illustrare il pattern MVVM nel progetto. Prende l'esempio della pagina di generazione e solamente una delle componenti riutilizzabili UI, perchè ai fini della dimostrazione l'illustrazione è stata semplificata.\\
+La classe \texttt{GeneratoreView} (che rappresenta la View) utilizza proprietà e metodi del componente \texttt{Generatore} e si aggiorna tramite \textit{property binding}. La classe \texttt{Generatore} (che rappresenta il ViewModel) risponde agli eventi della View (tramite event binding) e modifica di conseguenza il Model chiamando le operazioni esposte da \texttt{AiAssistantService}.\\
+Per completezza si mostra anche la relazione con la sotto-componente \texttt{Button} (componente riutilizzabile) ma il ragionamento è il medesimo con qualsiasi altra componente. \texttt{Generatore} importa il pulsante nei metadata e lo usa come child-component, creando un collegamento di @Input @Output.\\
+Invece \texttt{GeneratoreView} è composto dal template HTML del pulsante.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{ImmaginiSpecificaTecnica/Frontend/mvvm-generatore.png}
+\end{figure}
+\subsubsection{\textit{Two way data binding}}
+\label{sec:two-way-data-binding}
+Se il \textit{ViewModel} è progettato correttamente, le modifiche apportate ad esso si riflettono \textbf{automaticamente} alla \textit{View}, e viceversa. I due infatti sono strettamente collegati dal \textit{data binding}.\\
+Modellare un MVP sarebbe tecnicamente possibile, ma comporterebbe a mescolare \textit{presentation logic} e \textit{application logic}, perché il \textit{Presenter} dovrebbe gestire anche la logica di aggiornamento della \textit{View} (per esempio agendo direttamente sul DOM, cosa possibile perché nativamente il ViewModel ha un riferimento diretto alla View).\\
+Ciò andrebbe contro le \textit{best practices} di Angular che offre nativamente il \textit{two-way data binding} gestito, sotto al cofano, da due pattern observer: uno sul \textit{ViewModel} e uno sulla \textit{View}.
+
+
+\subsection{Definizione dei modelli di dati}
+\label{sec:modelli-dati}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{ImmaginiSpecificaTecnica/Frontend/ResultHierarchy.png}
