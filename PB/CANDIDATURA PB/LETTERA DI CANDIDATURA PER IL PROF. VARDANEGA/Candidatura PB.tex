@@ -1,0 +1,131 @@
+\documentclass[a4paper,11pt]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{eurosym}
+
+% Definizione colori
+\definecolor{primarycolor}{RGB}{0,102,204}
+\definecolor{secondarycolor}{RGB}{51,153,255}
+\definecolor{lightgray}{RGB}{240,240,240}
+\definecolor{darkgray}{RGB}{100,100,100}
+
+% Configurazione hyperref (usa i colori definiti)
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primarycolor,
+    urlcolor=secondarycolor,
+    citecolor=primarycolor
+}
+
+% Path per le immagini - AGGIORNATO
+\graphicspath{{./}{../../../assets/}}
+
+
+% Firma
+\newcommand{\GruppoFirma}{BugBusters\\Gruppo 4\\bugbusters.unipd@gmail.com}
+
+\begin{document}
+
+\begin{letter}{Prof. Tullio Vardanega\\Universit\`a degli Studi di Padova\\Dipartimento di Matematica\\Via Trieste, 63\\35121 Padova}
+
+% Imposta la data al 20 aprile 2026
+\date{20 aprile 2026} 
+
+% Intestazione grafica con logo
+\begin{tcolorbox}[
+    colback=primarycolor!40,
+    colframe=primarycolor!80,
+    coltext=white,
+    arc=3mm,
+    boxrule=0pt,
+    left=12pt,
+    right=12pt,
+    top=12pt,
+    bottom=12pt
+]
+    \begin{minipage}[c]{0.7\textwidth}
+        {\color{white}\Huge\bfseries Candidatura}\\[0.2cm]
+        {\color{white}\huge Nexum - Eggon}\\[0.2cm]
+        {\color{white}\Large Capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}}
+ C5}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.25\textwidth}
+        \raggedleft
+ \IfFileExists{../../../assets/Logo.jpg}{% % AGGIORNATO: percorso corretto
+            \includegraphics[width=3cm,height=3cm,keepaspectratio]{../../../assets/Logo.jpg}
+        }{%
+            \colorbox{white}{\parbox[c][3cm][c]{3cm}{\centering\tiny\color{black} Logo\\non trovato}}
+        }
+    \end{minipage}
+\end{tcolorbox}
+
+\vspace{1em}
+
+% Box informativo sintetico
+\begin{tcolorbox}[
+    colback=lightgray,
+    colframe=lightgray,
+    arc=3mm,
+    boxrule=0pt,
+    left=10pt,
+    right=10pt,
+    top=10pt,
+    bottom=10pt
+]
+        \textbf{Gruppo:} BugBusters (Gruppo 4)\\
+        \textbf{Email:} \href{mailto:bugbusters.unipd@gmail.com}{bugbusters.unipd@gmail.com}
+\end{tcolorbox}
+
+\vspace{1.5em}
+
+\opening{Egregio Professore,}
+
+Con la presente, il team BugBusters comunica la propria intenzione di sottoporre alla seconda parte della revisione della Product Baseline il lavoro 
+svolto per il capitolato\textsubscript{\scalebox{0.6}{\textbf{G}}} C5 dell'azienda Eggon, dal titolo “Nexum”, a seguito dell'esito positivo della prima parte. 
+Si informa inoltre che l'MVP\textsubscript{\scalebox{0.6}{\textbf{G}}} realizzato, la cui approvazione è stata formalmente confermata dall'azienda committente, 
+come attestato dal verbale esterno allegato 
+\href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/VERBALI/ESTERNI/VE_2026-03-30/VE_2026-03-30.pdf}{VE\_2026-03-30}, è consultabile al seguente 
+indirizzo: \url{https://github.com/BugBustersUnipd/MVP}. \\
+
+
+La documentazione completa è disponibile nella sezione PB\textsubscript{\scalebox{0.6}{\textbf{G}}} del nostro sito:\\ 
+\url{https://bugbustersunipd.github.io/DocumentazioneSWE/}.
+
+All'interno si possono trovare i seguenti documenti:
+\begin{itemize}
+    \item Lettera di presentazione (questo documento)
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/MANUALE%20UTENTE/Manuale%20utente.pdf}{\textbf{Manuale utente\textsubscript{\scalebox{0.6}{\textbf{G}}}}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20QUALIFICA/Piano%20di%20Qualifica.pdf}{\textbf{Piano di Qualifica\textsubscript{\scalebox{0.6}{\textbf{G}}}}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/PIANO%20DI%20PROGETTO/Piano%20di%20progetto.pdf}{\textbf{Piano di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/NORME%20DI%20PROGETTO/Norme%20di%20Progetto.pdf}{\textbf{Norme di Progetto\textsubscript{\scalebox{0.6}{\textbf{G}}}}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/GLOSSARIO/Glossario.pdf}{\textbf{Glossario\textsubscript{\scalebox{0.6}{\textbf{G}}}}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/VERBALI/INTERNI/VI_2026-04-02/VI_2026-04-02.pdf}{\textbf{Verbale interno\textsubscript{\scalebox{0.6}{\textbf{G}}} del 02/04/2026}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/VERBALI/INTERNI/VI_2026-03-24/VI_2026-03-24.pdf}{\textbf{Verbale interno\textsubscript{\scalebox{0.6}{\textbf{G}}} del 24/03/2026}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/VERBALI/INTERNI/VI_2026-02-23/VI_2026-02-23.pdf}{\textbf{Verbale interno\textsubscript{\scalebox{0.6}{\textbf{G}}} del 23/02/2026}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/VERBALI/ESTERNI/VE_2026-03-30/VE_2026-03-30.pdf}{\textbf{Verbale esterno\textsubscript{\scalebox{0.6}{\textbf{G}}} del 30/03/2026}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/VERBALI/ESTERNI/VE_2026-03-11/VE_2026-03-11.pdf}{\textbf{Verbale esterno\textsubscript{\scalebox{0.6}{\textbf{G}}} del 11/03/2026}}
+    \item \href{https://bugbustersunipd.github.io/DocumentazioneSWE/PB/VERBALI/ESTERNI/VE_2026-02-27/VE_2026-02-27.pdf}{\textbf{Verbale esterno\textsubscript{\scalebox{0.6}{\textbf{G}}} del 27/02/2026}}
+\end{itemize}
+
+\vspace{0.8em}
+La spesa totale affrontata per la realizzazione del progetto risulta essere di 12.475 € a fronte dei 12790 € preventivati in candidatura.
+
+\closing{Distinti saluti,}
+
+\vspace{-4em} % Regola questo valore secondo necessità
+
+\begin{flushleft}
+    \textit{\GruppoFirma}
+\end{flushleft}
+
+\end{letter}
+\end{document}
